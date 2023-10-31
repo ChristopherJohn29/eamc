@@ -129,6 +129,7 @@ var department = {
                         if(response == 'saved'){
                             department.notifySuccess();
                             department.loadDepartment();
+                            $('#createDepartmentForm')[0].reset();
                         } else {
                             department.notifyError();
                         }

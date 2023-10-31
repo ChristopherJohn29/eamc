@@ -36,7 +36,7 @@ class DepartmentModel extends CI_Model {
 
     public function deleteDepartment($id){
         $this->db->where('id', $id);
-        return $this->db->update('department', array('status' => 0));
+        return $this->db->update('department', array('status' => 0, 'last_update_by' => $this->session->userdata('user_id')));
     }
 
     public function saveDepartment($dep_name = '', $div_id = ''){
@@ -44,7 +44,7 @@ class DepartmentModel extends CI_Model {
             'dep_name' => $dep_name,
             'div_id' => $div_id,
             'created_date' => date('Y-m-d H:i:s'),
-            'created_by' => 1
+            'created_by' => $this->session->userdata('user_id')
         );
         
         return $this->db->insert('department', $data);
@@ -53,7 +53,7 @@ class DepartmentModel extends CI_Model {
     public function updateDepartment(array $data){
 
         $this->db->where('id', $data['id']);
-        return $this->db->update('department', array('dep_name' => $data['dep_name'], 'div_id' => $data['div_id']));
+        return $this->db->update('department', array('dep_name' => $data['dep_name'], 'div_id' => $data['div_id'], 'last_update_by' => $this->session->userdata('user_id')));
 
     }
     

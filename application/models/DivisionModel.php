@@ -18,14 +18,14 @@ class DivisionModel extends CI_Model {
 
     public function deleteDivision($id){
         $this->db->where('id', $id);
-        return $this->db->update('division', array('status' => 0));
+        return $this->db->update('division', array('status' => 0, 'last_update_by' => $this->session->userdata('user_id')));
     }
 
     public function saveDivision($div_name = ''){
         $data = array(
             'div_name' => $div_name,
             'created_date' => date('Y-m-d H:i:s'),
-            'created_by' => 1
+            'created_by' => $this->session->userdata('user_id')
         );
         
         return $this->db->insert('division', $data);
@@ -34,7 +34,7 @@ class DivisionModel extends CI_Model {
     public function updateDivision(array $data){
 
         $this->db->where('id', $data['id']);
-        return $this->db->update('division', array('div_name' => $data['div_name']));
+        return $this->db->update('division', array('div_name' => $data['div_name'], 'last_update_by' => $this->session->userdata('user_id')));
 
     }
     

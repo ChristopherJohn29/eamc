@@ -38,49 +38,49 @@
                             <div class="row">
                                 <div class="row mb-2">
                                     <div class="form-group col-md-3">
-                                        <label for="firstName">First Name</label>
+                                        <label class="form-label" for="firstName">First Name</label>
                                         <input type="text" class="form-control" id="firstName" placeholder="John" required>
                                         <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                     </div>
                                     <div class="form-group col-md-2">
-                                        <label for="middleInitial">Middle Name</label>
+                                        <label class="form-label" for="middleInitial">Middle Name</label>
                                         <input type="text" class="form-control" id="middleName" placeholder="Cruz">
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label for="lastName">Last Name</label>
+                                        <label class="form-label" for="lastName">Last Name</label>
                                         <input type="text" class="form-control" id="lastName" placeholder="Doe" required>
                                         <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                     </div>
                                     <div class="form-group col-md-2">
-                                        <label for="suffix">Suffix</label>
+                                        <label class="form-label" for="suffix">Suffix</label>
                                         <input type="text" class="form-control" id="suffix" placeholder="Jr.">
                                     </div>
                                     <div class="form-group col-md-2">
-                                        <label for="postNominal">Post Nominal</label>
+                                        <label class="form-label" for="postNominal">Post Nominal</label>
                                         <input type="text" class="form-control" id="postNominal" placeholder="MD">
                                         <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                     </div>
                                 </div>
                                 <div class="row mb-2">
                                     <div class="form-group col-md-6">
-                                        <label for="firstName">Username</label>
+                                        <label class="form-label" for="firstName">Username</label>
                                         <input type="text" class="form-control" id="username" placeholder="JCDOE" required>
                                         <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="email">Password</label>
+                                        <label class="form-label" for="email">Password</label>
                                         <input type="password" class="form-control" id="password" required>
                                         <ul class="parsley-errors-list filled hidden" id="password-error"><li class="parsley-required" id="password-error-text"></li></ul>
                                     </div>
                                 </div>
                                 <div class="row mb-2">
                                     <div class="form-group col-md-6">
-                                        <label for="email">Email Address</label>
+                                        <label class="form-label" for="email">Email Address</label>
                                         <input type="email" class="form-control" id="email" placeholder="johncruzdoe@gmail.com" required>
                                         <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="mobileNumber">Mobile Number</label>
+                                        <label class="form-label" for="mobileNumber">Mobile Number</label>
                                         <input type="tel" class="form-control" id="mobileNumber" placeholder="09123456789" required>
                                         <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                     </div>
@@ -88,7 +88,7 @@
                             </div>
                             <div class="row mb-2 first col-md-12">
                                 <div class="form-group">
-                                    <label for="designation">Designation</label>
+                                    <label class="form-label" for="designation">Designation</label>
                                     <select class="form-control" id="designation" required>
                                         <option value="committee">Committee</option>
                                         <option value="division">Division</option>
@@ -97,7 +97,7 @@
                             </div>
                             <div class="row mb-2 second committee col-md-12">
                                 <div class="form-group">
-                                    <label for="committee">Section</label>
+                                    <label class="form-label" for="committee">Section</label>
                                     <select class="form-control" id="committee">
                                         <option value="forms">Forms</option>
                                         <option value="internal_quality_audit">Internal Quality Audit</option>
@@ -108,7 +108,7 @@
 
                             <div class="row mb-2 second d-none division col-md-12">
                                 <div class="form-group">
-                                    <label for="committee">Division</label>
+                                    <label class="form-label" for="committee">Division</label>
                                     <select class="form-control" id="division">
                                     <?php
                                        foreach ($division as $key => $value) {
@@ -122,7 +122,7 @@
                             <!-- comitee -->              
                             <div class="row mb-2 third forms col-md-12">
                                 <div class="form-group">
-                                    <label for="customer_satisfaction_committee">Role</label>
+                                    <label class="form-label" for="customer_satisfaction_committee">Role</label>
                                     <select class="form-control" id="forms">
                                         <option value="chair">Chair</option>
                                         <option value="member">Member</option>
@@ -132,7 +132,7 @@
 
                             <div class="row mb-2 third d-none internal_quality_audit col-md-12">
                                 <div class="form-group">
-                                    <label for="internal_quality_audit">Role</label>
+                                    <label class="form-label" for="internal_quality_audit">Role</label>
                                     <select class="form-control" id="internal_quality_audit">
                                         <option value="chair">Chair</option>
                                         <option value="auditor">Auditor</option>
@@ -143,7 +143,7 @@
 
                             <div class="row mb-2 third d-none customer_satisfaction_committee col-md-12">
                                 <div class="form-group">
-                                    <label for="customer_satisfaction_committee">Role</label>
+                                    <label class="form-label" for="customer_satisfaction_committee">Role</label>
                                     <select class="form-control" id="customer_satisfaction_committee">
                                         <option value="chair">Chair</option>
                                     </select>
@@ -164,7 +164,7 @@
                                  } 
 
                                  echo '<div class="form-group d-none fourth col-md-6 '.$value['id'].'-department"">
-                                          <label for="'.$value['id'].'-department">Department</label>
+                                          <label class="form-label" for="'.$value['id'].'-department">Department</label>
                                           <select class="form-control department" id="'.$value['id'].'-department">
                                              '.$departmentHtml.'
                                           </select>
@@ -178,7 +178,7 @@
                                  if($value['div_name'] == 'SUPPORT'){
                                     echo '
                                        <div class="form-group d-none col-md-6 third '.$value['id'].'-division"">
-                                          <label for="'.$value['id'].'-division">Role</label>
+                                          <label class="form-label" for="'.$value['id'].'-division">Role</label>
                                           <select class="form-control division" id="'.$value['id'].'-division">
                                              <option value="medical_center_chief">Medical Center Chief</option>
                                              <option value="dqt_member">DQT Member</option>
@@ -192,7 +192,7 @@
                                        </div>';
                                  } else {
                                     echo '<div class="form-group d-none col-md-6 third '.$value['id'].'-division ">
-                                          <label for="'.$value['id'].'-division">Role</label>
+                                          <label class="form-label" for="'.$value['id'].'-division">Role</label>
                                           <select class="form-control division" id="'.$value['id'].'-division">
                                              <option value="div_chief">Division Chief</option>
                                              <option value="dqt_member">DQT Member</option>

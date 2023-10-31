@@ -1,34 +1,31 @@
-var division = {
+var documenttype = {
     
-
     deleteInit: function(){
-        jQuery('#division-datatable').on('click','.data-delete', function(){
+        jQuery('#document-type-datatable').on('click','.data-delete', function(){
 
-            var div_id = jQuery(this).data('id');
+            var doc_type_id = jQuery(this).data('id');
 
-            jQuery('#div_id').val(div_id);
-
-            var result = confirm("Are you sure you want to proceed deleting Division?");
+            var result = confirm("Are you sure you want to proceed deleting Document Type?");
 
             // Check the result of the confirmation dialog
             if (result) {
                 // User clicked "OK," handle accordingly
                 $.ajax({
                     type: 'POST',
-                    url: 'division/delete', // Replace 'MyController' with your controller name
-                    data: {div_id : div_id},
+                    url: 'documenttype/delete', // Replace 'MyController' with your controller name
+                    data: {doc_type_id : doc_type_id},
                     success: function (response) {
                         // Handle the response from the server
                         if(response == 'saved'){
-                            division.notifyDelete();
-                            division.loadDivision();
+                            documenttype.notifyDelete();
+                            documenttype.loadDocumentType();
                         } else {
-                            division.notifyError();
+                            documenttype.notifyError();
                         }
                     },
                     error: function () {
                         // Handle errors
-                        division.notifyError();
+                        documenttype.notifyError();DataType
                     }
                 });
                 // Add your logic to execute when the user confirms
@@ -50,54 +47,55 @@ var division = {
         })(window.jQuery),
             (function (i) {
                 "use strict";
-                i.NotificationApp.send("Alert!", "You successfully Deleted Division", "top-right", "#5ba035", "warning");
+                i.NotificationApp.send("Alert!", "You successfully Deleted Document Type", "top-right", "#5ba035", "warning");
         })(window.jQuery);
     },
 
 
     editInit: function(){
-        jQuery('#division-datatable').on('click','.edit-data', function(){
+        jQuery('#document-type-datatable').on('click','.edit-data', function(){
 
-            var div_name = jQuery(this).data('div_name');
-            var div_id = jQuery(this).data('id');
+            var doc_type_name = jQuery(this).data('doc_type_name');
+            var doc_type_id = jQuery(this).data('id');
 
-            jQuery('#div_name_edit').val(div_name);
-            jQuery('#div_id').val(div_id);
+            jQuery('#doc_type_name_edit').val(doc_type_name);
+            jQuery('#doc_type_id').val(doc_type_id);
 
-            jQuery("#edit-division").modal('toggle');
+            jQuery("#edit-document-type").modal('toggle');
             
         });
 
-        $('#editDivision').click(function (e) {
+        $('#editDocumentType').click(function (e) {
             e.preventDefault();
             
-            if (division.validateEditForm()) {
-                var div_name = jQuery('#div_name_edit').val();
-                var div_id = jQuery('#div_id').val();
+            if (documenttype.validateEditForm()) {
+                var doc_type_name = jQuery('#doc_type_name_edit').val();
+                var doc_type_id = jQuery('#doc_type_id').val();
 
                 var data = {
-                    div_name: div_name,
-                    div_id: div_id // Include div_id in the data object
+                    doc_type_name: doc_type_name,
+                    doc_type_id: doc_type_id
                 };
 
-                jQuery("#edit-division").modal('toggle');
+                jQuery("#edit-document-type").modal('toggle');
     
                 $.ajax({
                     type: 'POST',
-                    url: 'division/update', // Replace 'MyController' with your controller name
+                    url: 'documenttype/update', // Replace 'MyController' with your controller name
                     data: data,
                     success: function (response) {
                         // Handle the response from the server
                         if(response == 'saved'){
-                            division.notifySuccess();
-                            division.loadDivision();
+                            documenttype.notifySuccess();
+                            documenttype.loadDocumentType();
+                            $('#editDocumentTypeForm')[0].reset();
                         } else {
-                            division.notifyError();
+                            documenttype.notifyError();
                         }
                     },
                     error: function () {
                         // Handle errors
-                        division.notifyError();
+                        documenttype.notifyError();
                     }
                 });
             }
@@ -106,32 +104,32 @@ var division = {
 
     },
 
-    saveDivision: function(){
-        $('#createDivision').click(function (e) {
+    saveDocumentType: function(){
+        $('#createDocumentType').click(function (e) {
             e.preventDefault();
             
-            if (division.validateForm()) {
-                var div_name = jQuery('#div_name').val();
+            if (documenttype.validateForm()) {
+                var doc_type_name = jQuery('#doc_type_name').val();
 
-                jQuery("#add-division").modal('toggle');
+                jQuery("#add-document-type").modal('toggle');
     
                 $.ajax({
                     type: 'POST',
-                    url: 'division/save', // Replace 'MyController' with your controller name
-                    data: { div_name: div_name },
+                    url: 'documenttype/save', // Replace 'MyController' with your controller name
+                    data: { doc_type_name: doc_type_name},
                     success: function (response) {
                         // Handle the response from the server
                         if(response == 'saved'){
-                            division.notifySuccess();
-                            division.loadDivision();
-                            $('#createDivisionForm')[0].reset();
+                            documenttype.notifySuccess();
+                            documenttype.loadDocumentType();
+                            $('#createDocumentTypeForm')[0].reset();
                         } else {
-                            division.notifyError();
+                            documenttype.notifyError();
                         }
                     },
                     error: function () {
                         // Handle errors
-                        division.notifyError();
+                        documenttype.notifyError();
                     }
                 });
             }
@@ -143,7 +141,7 @@ var division = {
         var isValid = true;
         
         // Check required fields
-        $("#createDivisionForm [required]").each(function () {
+        $("#createDocumentTypeForm [required]").each(function () {
             if ($(this).val() === "") {
                 $(this).addClass('parsley-error');
                 isValid = false;
@@ -164,7 +162,7 @@ var division = {
         var isValid = true;
         
         // Check required fields
-        $("#editDivisionForm [required]").each(function () {
+        $("#editDocumentTypeForm [required]").each(function () {
             if ($(this).val() === "") {
                 $(this).addClass('parsley-error');
                 isValid = false;
@@ -194,7 +192,7 @@ var division = {
         })(window.jQuery),
             (function (i) {
                 "use strict";
-                i.NotificationApp.send("Well Done!", "You successfully saved Division", "top-right", "#5ba035", "success");
+                i.NotificationApp.send("Well Done!", "You successfully saved Document Type", "top-right", "#5ba035", "success");
         })(window.jQuery);
     },
 
@@ -215,37 +213,37 @@ var division = {
         })(window.jQuery);
     },
 
-    loadDivision: function(){
+    loadDocumentType: function(){
 
-        dataTable = $('#division-datatable.dataTable');
+        dataTable = $('#document-type-datatable.dataTable');
 
         if (dataTable.length) {
             // If it's a DataTable, destroy it
             dataTable.DataTable().destroy();
         }
 
-        $('#division-datatable tbody').html('');
+        $('#document-type-datatable tbody').html('');
         
 
         $.ajax({
             type: 'POST',
-            url: 'division/getDivision', // Replace 'MyController' with your controller name
+            url: 'documenttype/getDocumentType', // Replace 'MyController' with your controller name
             data: {},
             success: function (response) {
                 if(response != 'null'){
                     $.each(JSON.parse(response), function (index, item) {
                         // Access each item's properties
                         var id = item.id;
-                        var div_name = item.div_name;
+                        var doc_type_name = item.doc_type_name;
                         var created_by_email = item.created_by_email ? item.created_by_email : '';
                         var created_date = item.created_date;
                         var last_updated_by_email = item.last_updated_by_email ? item.last_updated_by_email : '';
                     
                         // Do something with the data, for example, display it on the page
-                        $('#division-datatable tbody').append("<tr><td>"+div_name+"</td><td>"+created_by_email+"</td><td>"+created_date+"</td><td>"+last_updated_by_email+"</td><td><button type='button' class='btn btn-warning waves-effect waves-light edit-data' data-id='"+id+"' data-div_name='"+div_name+"'><i class='mdi mdi-file'></i></button><button type='button' class='btn btn-danger waves-effect waves-light data-delete' data-id='"+id+"'><i class='mdi mdi-close'></i></button></td></tr>");
+                        $('#document-type-datatable tbody').append("<tr><td>"+doc_type_name+"</td><td>"+created_by_email+"</td><td>"+created_date+"</td><td>"+last_updated_by_email+"</td><td><button type='button' class='btn btn-warning waves-effect waves-light edit-data' data-id='"+id+"' data-doc_type_name='"+doc_type_name+"'><i class='mdi mdi-file'></i></button><button type='button' class='btn btn-danger waves-effect waves-light data-delete' data-id='"+id+"'><i class='mdi mdi-close'></i></button></td></tr>");
                     });
 
-                    $("#division-datatable").DataTable({
+                    $("#document-type-datatable").DataTable({
                         language: { paginate: { previous: "<i class='mdi mdi-chevron-left'>", next: "<i class='mdi mdi-chevron-right'>" } },
                         drawCallback: function () {
                             $(".dataTables_paginate > .pagination").addClass("pagination-rounded");
@@ -256,7 +254,7 @@ var division = {
             },
             error: function () {
                 // Handle errors
-                division.notifyError();
+                documenttype.notifyError();
             }
         });
 
@@ -267,9 +265,9 @@ var division = {
 
 jQuery(document).ready(function(){
 
-    division.saveDivision();
-    division.editInit();
-    division.deleteInit();
-    division.loadDivision();
+    documenttype.saveDocumentType();
+    documenttype.editInit();
+    documenttype.deleteInit();
+    documenttype.loadDocumentType();
 
 });

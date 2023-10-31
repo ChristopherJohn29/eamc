@@ -1,0 +1,8 @@
+.hidden{
+    display: none !important;
+}
+
+::placeholder {
+    color: #888 !important; /* Color code */
+    opacity: 0.6 !important; /* Adjust the opacity (0 to 1) to control the intensity of the effect */
+}

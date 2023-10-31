@@ -18,14 +18,14 @@ class SourceModel extends CI_Model {
 
     public function deleteSource($id){
         $this->db->where('id', $id);
-        return $this->db->update('source', array('status' => 0));
+        return $this->db->update('source', array('status' => 0, 'last_update_by' => $this->session->userdata('user_id')));
     }
 
     public function saveSource($source_name = ''){
         $data = array(
             'source_name' => $source_name,
             'created_date' => date('Y-m-d H:i:s'),
-            'created_by' => 1
+            'created_by' => $this->session->userdata('user_id')
         );
         
         return $this->db->insert('source', $data);
@@ -34,7 +34,7 @@ class SourceModel extends CI_Model {
     public function updateSource(array $data){
 
         $this->db->where('id', $data['id']);
-        return $this->db->update('source', array('source_name' => $data['source_name']));
+        return $this->db->update('source', array('source_name' => $data['source_name'], 'last_update_by' => $this->session->userdata('user_id')));
 
     }
     

@@ -88,6 +88,7 @@ var source = {
                         if(response == 'saved'){
                             source.notifySuccess();
                             source.loadSource();
+                            $('#createSourceForm')[0].reset();
                         } else {
                             source.notifyError();
                         }
