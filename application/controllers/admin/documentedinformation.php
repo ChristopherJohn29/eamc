@@ -60,4 +60,19 @@ class documentedinformation extends CI_Controller {
             echo "error";
         }
     }
+
+    public function update(){
+
+        $data = $_POST;
+
+        $save = $this->DocumentedInformationModel->updateDI($data);
+        
+        if ($save) {
+            // Insertion successful
+            echo "saved";
+        } else {
+            // Insertion failed
+            echo "error";
+        }
+    }
 }

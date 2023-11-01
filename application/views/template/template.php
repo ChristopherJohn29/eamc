@@ -19,7 +19,7 @@
       <!-- Icons css -->
 
       <link href="<?=base_url()?>assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-
+      <link href="<?=base_url()?>assets/customcss/global.css" rel="stylesheet" type="text/css" />
       <?php 
       if(isset($customcss)){
          echo '<link href="'.base_url().'assets/customcss/'.$customcss.'" rel="stylesheet" type="text/css" />';

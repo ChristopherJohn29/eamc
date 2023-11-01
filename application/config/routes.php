@@ -52,3 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+//revision
+$route['admin/revisiondetails/(:num)/(:num)'] = 'admin/revisions/details/$1/$2';
+$route['admin/loadrevision/(:num)/(:num)'] = 'admin/revisions/getRevision/$1/$2';

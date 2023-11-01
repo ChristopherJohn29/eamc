@@ -1,31 +1,31 @@
-var source = {
+var revision = {
     
     deleteInit: function(){
-        jQuery('#source-datatable').on('click','.data-delete', function(){
+        jQuery('#revision-datatable').on('click','.data-delete', function(){
 
-            var source_id = jQuery(this).data('id');
+            var revision_id = jQuery(this).data('id');
 
-            var result = confirm("Are you sure you want to proceed deleting Source?");
+            var result = confirm("Are you sure you want to proceed deleting Revision?");
 
             // Check the result of the confirmation dialog
             if (result) {
                 // User clicked "OK," handle accordingly
                 $.ajax({
                     type: 'POST',
-                    url: 'source/delete', // Replace 'MyController' with your controller name
-                    data: {source_id : source_id},
+                    url: '../../revisions/delete', // Replace 'MyController' with your controller name
+                    data: {revision_id : revision_id},
                     success: function (response) {
                         // Handle the response from the server
                         if(response == 'saved'){
-                            source.notifyDelete();
-                            source.loadSource();
+                            revision.notifyDelete();
+                            revision.loadRevision();
                         } else {
-                            source.notifyError();
+                            revision.notifyError();
                         }
                     },
                     error: function () {
                         // Handle errors
-                        source.notifyError();
+                        revision.notifyError();
                     }
                 });
                 // Add your logic to execute when the user confirms
@@ -47,55 +47,55 @@ var source = {
         })(window.jQuery),
             (function (i) {
                 "use strict";
-                i.NotificationApp.send("Alert!", "You successfully Deleted Source", "top-right", "#5ba035", "warning");
+                i.NotificationApp.send("Alert!", "You successfully Deleted Revision", "top-right", "#5ba035", "warning");
         })(window.jQuery);
     },
 
 
     editInit: function(){
-        jQuery('#source-datatable').on('click','.edit-data', function(){
+        jQuery('#revision-datatable').on('click','.edit-data', function(){
 
-            var source_name = jQuery(this).data('source_name');
-            var source_id = jQuery(this).data('id');
+            var revision_desc = jQuery(this).data('revision_desc');
+            var revision_id = jQuery(this).data('id');
 
-            jQuery('#source_name_edit').val(source_name);
-            jQuery('#source_id').val(source_id);
+            jQuery('#revision_desc_edit').val(revision_desc);
+            jQuery('#revision_id').val(revision_id);
 
-            jQuery("#edit-source").modal('toggle');
+            jQuery("#edit-revision").modal('toggle');
             
         });
 
-        $('#editSource').click(function (e) {
+        $('#editRevision').click(function (e) {
             e.preventDefault();
             
-            if (source.validateEditForm()) {
-                var source_name = jQuery('#source_name_edit').val();
-                var source_id = jQuery('#source_id').val();
+            if (revision.validateEditForm()) {
+                var revision_desc = jQuery('#revision_desc_edit').val();
+                var revision_id = jQuery('#revision_id').val();
 
                 var data = {
-                    source_name: source_name,
-                    source_id: source_id
+                    revision_desc: revision_desc,
+                    revision_id: revision_id
                 };
 
-                jQuery("#edit-source").modal('toggle');
+                jQuery("#edit-revision").modal('toggle');
     
                 $.ajax({
                     type: 'POST',
-                    url: 'source/update', // Replace 'MyController' with your controller name
+                    url: '../../revisions/update', // Replace 'MyController' with your controller name
                     data: data,
                     success: function (response) {
                         // Handle the response from the server
                         if(response == 'saved'){
-                            source.notifySuccess();
-                            source.loadSource();
-                            $('#createSourceForm')[0].reset();
+                            revision.notifySuccess();
+                            revision.loadRevision();
+                            $('#editRevisionForm')[0].reset();
                         } else {
-                            source.notifyError();
+                            revision.notifyError();
                         }
                     },
                     error: function () {
                         // Handle errors
-                        source.notifyError();
+                        revision.notifyError();
                     }
                 });
             }
@@ -104,31 +104,34 @@ var source = {
 
     },
 
-    saveSource: function(){
-        $('#createSource').click(function (e) {
+    saveRevision: function(){
+        $('#createRevision').click(function (e) {
             e.preventDefault();
             
-            if (source.validateForm()) {
-                var source_name = jQuery('#source_name').val();
+            if (revision.validateForm()) {
+                var revision_desc = jQuery('#revision_desc').val();
+                var doc_id = jQuery('#doc_id').val();
+                var doc_user_id = jQuery('#doc_user_id').val();
 
-                jQuery("#add-source").modal('toggle');
+                jQuery("#add-revision").modal('toggle');
     
                 $.ajax({
                     type: 'POST',
-                    url: 'source/save', // Replace 'MyController' with your controller name
-                    data: { source_name: source_name},
+                    url: '../../revisions/save', // Replace 'MyController' with your controller name
+                    data: { revision_desc: revision_desc, doc_id, doc_user_id},
                     success: function (response) {
                         // Handle the response from the server
                         if(response == 'saved'){
-                            source.notifySuccess();
-                            source.loadSource();
+                            revision.notifySuccess();
+                            revision.loadRevision();
+                            $('#createRevisionForm')[0].reset();
                         } else {
-                            source.notifyError();
+                            revision.notifyError();
                         }
                     },
                     error: function () {
                         // Handle errors
-                        source.notifyError();
+                        revision.notifyError();
                     }
                 });
             }
@@ -140,7 +143,7 @@ var source = {
         var isValid = true;
         
         // Check required fields
-        $("#createSourceForm [required]").each(function () {
+        $("#createRevisionForm [required]").each(function () {
             if ($(this).val() === "") {
                 $(this).addClass('parsley-error');
                 isValid = false;
@@ -161,7 +164,7 @@ var source = {
         var isValid = true;
         
         // Check required fields
-        $("#editSourceForm [required]").each(function () {
+        $("#editRevisionForm [required]").each(function () {
             if ($(this).val() === "") {
                 $(this).addClass('parsley-error');
                 isValid = false;
@@ -191,7 +194,7 @@ var source = {
         })(window.jQuery),
             (function (i) {
                 "use strict";
-                i.NotificationApp.send("Well Done!", "You successfully saved Source", "top-right", "#5ba035", "success");
+                i.NotificationApp.send("Well Done!", "You successfully saved Revision", "top-right", "#5ba035", "success");
         })(window.jQuery);
     },
 
@@ -212,39 +215,41 @@ var source = {
         })(window.jQuery);
     },
 
-    loadSource: function(){
+    loadRevision: function(){
 
-        dataTable = $('#source-datatable.dataTable');
+        dataTable = $('#revision-datatable.dataTable');
 
         if (dataTable.length) {
             // If it's a DataTable, destroy it
             dataTable.DataTable().destroy();
         }
 
-        $('#source-datatable tbody').html('');
-        
+        $('#revision-datatable tbody').html('');
 
+        var $doc_id = jQuery('#doc_id').val();
+        var $doc_user_id = jQuery('#doc_user_id').val();
+        
         $.ajax({
             type: 'POST',
-            url: 'source/getSource', // Replace 'MyController' with your controller name
+            url: '../../loadrevision/'+$doc_id+'/'+$doc_user_id, // Replace 'MyController' with your controller name
             data: {},
             success: function (response) {
                 if(response != 'null'){
                     $.each(JSON.parse(response), function (index, item) {
                         // Access each item's properties
                         var id = item.id;
-                        var source_name = item.source_name;
+                        var revision_desc = item.revision_desc;
                         var created_by_email = item.created_by_email ? item.created_by_email : '';
                         var created_date = item.created_date;
                         var last_updated_by_email = item.last_updated_by_email ? item.last_updated_by_email : '';
                     
                         // Do something with the data, for example, display it on the page
-                        $('#source-datatable tbody').append("<tr><td>"+source_name+"</td><td>"+created_by_email+"</td><td>"+created_date+"</td><td>"+last_updated_by_email+"</td><td><button title='Edit' tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-warning waves-effect waves-light edit-data' data-id='"+id+"' data-source_name='"+source_name+"'><i class='mdi mdi-file'></i></button><button title='Delete'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-danger waves-effect waves-light data-delete' data-id='"+id+"'><i class='mdi mdi-close'></i></button></td></tr>");
+                        $('#revision-datatable tbody').append("<tr><td>"+revision_desc+"</td><td>"+created_by_email+"</td><td>"+created_date+"</td><td>"+last_updated_by_email+"</td><td><button title='Edit'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-warning waves-effect waves-light edit-data' data-id='"+id+"' data-revision_desc='"+revision_desc+"'><i class='mdi mdi-file'></i></button><button title='Delete'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-danger waves-effect waves-light data-delete' data-id='"+id+"'><i class='mdi mdi-close'></i></button></td></tr>");
                     });
 
                     tippy('*[data-plugin="tippy"]');
 
-                    $("#source-datatable").DataTable({
+                    $("#revision-datatable").DataTable({
                         language: { paginate: { previous: "<i class='mdi mdi-chevron-left'>", next: "<i class='mdi mdi-chevron-right'>" } },
                         drawCallback: function () {
                             $(".dataTables_paginate > .pagination").addClass("pagination-rounded");
@@ -255,7 +260,7 @@ var source = {
             },
             error: function () {
                 // Handle errors
-                source.notifyError();
+                revision.notifyError();
             }
         });
 
@@ -266,9 +271,9 @@ var source = {
 
 jQuery(document).ready(function(){
 
-    source.saveSource();
-    source.editInit();
-    source.deleteInit();
-    source.loadSource();
+    revision.saveRevision();
+    revision.editInit();
+    revision.deleteInit();
+    revision.loadRevision();
 
 });

@@ -249,8 +249,10 @@ var department = {
                         var last_updated_by_email = item.last_updated_by_email ? item.last_updated_by_email : '';
                     
                         // Do something with the data, for example, display it on the page
-                        $('#department-datatable tbody').append("<tr><td>"+div_name+"</td><td>"+dep_name+"</td><td>"+created_by_email+"</td><td>"+created_date+"</td><td>"+last_updated_by_email+"</td><td><button type='button' class='btn btn-warning waves-effect waves-light edit-data' data-div_id='"+div_id+"' data-id='"+id+"' data-dep_name='"+dep_name+"'><i class='mdi mdi-file'></i></button><button type='button' class='btn btn-danger waves-effect waves-light data-delete' data-id='"+id+"'><i class='mdi mdi-close'></i></button></td></tr>");
+                        $('#department-datatable tbody').append("<tr><td>"+div_name+"</td><td>"+dep_name+"</td><td>"+created_by_email+"</td><td>"+created_date+"</td><td>"+last_updated_by_email+"</td><td><button type='button' title='Edit'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' class='btn btn-sm btn-warning waves-effect waves-light edit-data' data-div_id='"+div_id+"' data-id='"+id+"' data-dep_name='"+dep_name+"'><i class='mdi mdi-file'></i></button><button title='Delete'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-danger waves-effect waves-light data-delete' data-id='"+id+"'><i class='mdi mdi-close'></i></button></td></tr>");
                     });
+
+                    tippy('*[data-plugin="tippy"]');
 
                     $("#department-datatable").DataTable({
                         language: { paginate: { previous: "<i class='mdi mdi-chevron-left'>", next: "<i class='mdi mdi-chevron-right'>" } },

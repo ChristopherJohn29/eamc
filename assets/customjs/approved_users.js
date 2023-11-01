@@ -97,11 +97,13 @@ var approvedUsers = {
                         var department = item.dep_name ? item.dep_name : '';
                         var role = item.role_name ? item.role_name : '';
                         
-                        var html = "<tr><td>" + fullname + "</td><td>" + username + "</td><td>" + email + "</td><td>" + mobile_number + "</td><td>" + designation + "</td><td>" + division + "</td><td>" + section + "</td><td>" + department + "</td><td>" + role + "</td><td><button type='button' class='btn btn-danger waves-effect waves-light data-deny' data-id='"+id+"'><i class='mdi mdi-close'></i></button></td></tr>";
+                        var html = "<tr><td>" + fullname + "</td><td>" + username + "</td><td>" + email + "</td><td>" + mobile_number + "</td><td>" + designation + "</td><td>" + division + "</td><td>" + section + "</td><td>" + department + "</td><td>" + role + "</td><td><button type='button' title='Deny'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' class='btn btn-danger waves-effect waves-light data-deny' data-id='"+id+"'><i class='mdi mdi-close'></i></button></td></tr>";
                         // Do something with the data, for example, display it on the page
                         $('#approved-users-datatable tbody').append(html);
 
                     });
+
+                    tippy('*[data-plugin="tippy"]');
 
                     $("#approved-users-datatable").DataTable({
                         language: { paginate: { previous: "<i class='mdi mdi-chevron-left'>", next: "<i class='mdi mdi-chevron-right'>" } },

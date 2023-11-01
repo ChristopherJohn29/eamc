@@ -54,7 +54,38 @@ class DocumentedInformationModel extends CI_Model {
         
         return $this->db->insert('documented_information', $data);
     }
-    
+
+    public function getDocumentTitle($doc_id) {
+        // Query the database to retrieve the doc_title
+        $query = $this->db->select('doc_title')
+                      ->from('documented_information')
+                      ->where('id', $doc_id)
+                      ->get();
+
+        // Check if a result was found
+        if ($query->num_rows() > 0) {
+            return $query->row()->doc_title;
+        } else {
+            // Handle the case when no matching record is found, e.g., return null or an error message.
+            return null;
+        }
+    }
+
+    public function updateDI(array $data){
+        $this->db->where('id', $data['doc_id']);
+        $this->db->where('user_id', $data['user_id']);
+
+        $updateData = array(
+            'doc_title' => $data['document_title'],
+            'effectivity_date' => $data['effectivity_date'],
+            'doc_type_id' => $data['doc_type_id'],
+            'dep_id' => $data['dep_id'],
+            'doc_code' => $data['doc_code'],
+            'revision_no' => $data['revision_no']
+        );
+
+        return $this->db->update('documented_information', $updateData);
+    }
 }
 
 ?>

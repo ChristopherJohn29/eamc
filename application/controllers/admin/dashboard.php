@@ -22,9 +22,6 @@ class dashboard extends CI_Controller {
 		// $data['approveduserlist'] = 'Dashboard';
 		// $data['carlist'] = 'Dashboard';
 		// $data['dilist'] = 'Dashboard';
-
-
-
 		$this->load->view('template/template', $data);
 	}
 }
