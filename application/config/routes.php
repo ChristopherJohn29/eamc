@@ -53,6 +53,17 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+
+//Documented Information
 //revision
 $route['admin/revisiondetails/(:num)/(:num)'] = 'admin/revisions/details/$1/$2';
 $route['admin/loadrevision/(:num)/(:num)'] = 'admin/revisions/getRevision/$1/$2';
+
+//files
+$route['admin/filedetails/(:num)/(:num)'] = 'admin/files/details/$1/$2';
+$route['admin/loadfile/(:num)/(:num)'] = 'admin/files/getfile/$1/$2';
+
+
+//file Details Page
+$route['admin/filerevisiondetails/(:num)'] = 'admin/filedetails/details/$1';
+$route['admin/loadfilerevision/(:num)'] = 'admin/filedetails/getFileRevision/$1';

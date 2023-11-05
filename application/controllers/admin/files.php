@@ -11,6 +11,7 @@ class files extends CI_Controller {
         parent::__construct();
 
         $this->load->model('FileModel');
+        $this->load->model('FileDetailsModel');
 		$this->load->model('DepartmentModel');
         $this->load->model('DocumentedInformationModel');
         $this->authentication->check_user_session();
@@ -63,13 +64,55 @@ class files extends CI_Controller {
 
     public function save()
     {
-        $doc_file_title = $_POST['doc_file_title'];
         $filename = $_POST['filename'];
         $doc_id = $_POST['doc_id'];
+        $filelink = $_POST['filelink'];
 
-        $save = $this->FileModel->saveFile($doc_file_title, $doc_id);
-         
+        $unique_file_name = time() . '_' . uniqid() . '_' . rand(1000, 9999);
+
+        // Handle the uploaded file
+        $config['upload_path'] = './uploads/'; // Set your upload directory
+        $config['allowed_types'] = 'pdf|doc|docx|ppt|pptx|xls|xlsx|jpg|jpeg|png|gif'; // Define allowed file types
+        $config['max_size'] = 2048; // Define maximum file size in kilobytes
+        $config['file_name'] = $unique_file_name; // Set the filename to the unique name
+    
+        $this->load->library('upload', $config);
+    
+        if ($this->upload->do_upload('file')) {
+            $file_data = $this->upload->data();
+            $unique_file_name = $file_data['file_name'];
+            
+        } else {
+            $unique_file_name = '';
+            $error = $this->upload->display_errors();
+        }
+
+        $data = array(
+            'filename' => $filename,
+            'filelink' => $filelink,
+            'doc_id' => $doc_id,
+            'unique_file_name' => $unique_file_name,
+            'created_date' => date('Y-m-d H:i:s'),
+            'created_by' => $this->session->userdata('user_id')
+        );
+
+        $save = $this->FileModel->saveFile($data);
+
+        
         if ($save) {
+
+            $inserted_id = $this->db->insert_id();
+
+            $data_file_revision = array(
+                'doc_file_id' => $inserted_id,
+                'revision' => 'Initial',
+                'revision_date' => date('Y-m-d H:i:s'),
+                'remarks_by_osqm' => '',
+                'remarks_date' => '',
+            );
+
+            $save = $this->FileDetailsModel->saveFileRevision($data_file_revision);
+
             // Insertion successful
             echo "saved";
         } else {
@@ -89,23 +132,4 @@ class files extends CI_Controller {
         
     }
 
-    public function update(){
-
-        $data = array(
-            'doc_file_title' => $_POST['doc_file_title'],
-            'filename' => $_POST['filename'],
-            'id' => $_POST['doc_file_id']
-            
-        );
-
-        $save = $this->FileModel->updateFile($data);
-        
-        if ($save) {
-            // Insertion successful
-            echo "saved";
-        } else {
-            // Insertion failed
-            echo "error";
-        }
-    }
 }

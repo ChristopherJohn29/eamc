@@ -43,8 +43,12 @@ var diList = {
                         } else {
                             $enable_edit = '';
                         }
+
+                        $view_history = "<button title='View History'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-secondary view-history'"+
+                            "data-id='"+id+"'>" +
+                            "<i class='fa fa-clock'></i></button>";
                         
-                        var html = "<tr><td>" + doc_title + "</td><td>" + doc_code + "</td><td>" + dep_name + "</td><td>" + type + "</td><td>" + created_date + "</td><td>" + status_name + "</td><td>" + $enable_edit + "<a href='./revisiondetails/"+id+"/"+user_id+"' class='btn btn-sm btn-primary revision-button' title='View Revisions'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-history' aria-hidden='true'></i></a><a class='btn btn-sm btn-info files-button' title='View Files'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-folder-open'></i></a></td></tr>";
+                        var html = "<tr><td>" + doc_title + "</td><td>" + doc_code + "</td><td>" + dep_name + "</td><td>" + type + "</td><td>" + created_date + "</td><td>" + status_name + "</td><td>"+ $view_history + "" + $enable_edit + "<a href='./revisiondetails/"+id+"/"+user_id+"' class='btn btn-sm btn-primary revision-button' title='View Revisions'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-history' aria-hidden='true'></i></a><a href='./filedetails/"+id+"/"+user_id+"' class='btn btn-sm btn-info files-button' title='View Files'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-folder-open'></i></a></td></tr>";
                         // Do something with the data, for example, display it on the page
                         $('#di-list-datatable tbody').append(html);
 
@@ -167,6 +171,67 @@ var diList = {
 
     },
 
+    viewHistory: function (){
+        
+        jQuery('#di-list-datatable').on('click','.view-history', function(){
+            var doc_id = jQuery(this).data('id');
+
+            jQuery('#doc_history_id').val(doc_id);
+            jQuery("#di-history").modal('toggle');
+
+            $('#di-history-datatable tbody').html('');
+
+            
+            dataTable = $('#di-history-datatable.dataTable');
+
+            if (dataTable.length) {
+                // If it's a DataTable, destroy it
+                dataTable.DataTable().destroy();
+            }
+
+        
+            $.ajax({
+                type: 'POST',
+                url: 'documentedinformation/getDIHistory', // Replace 'MyController' with your controller name
+                data: {doc_id: doc_id},
+                success: function (response) {
+                    if(response != 'null'){
+                        $.each(JSON.parse(response), function (index, item) {
+                            // Access each item's properties
+                            var process = item.process;
+                            var status = item.status;
+                            var created_date = item.created_date;
+                            var remarks = item.remarks;
+                            
+                            var html = "<tr><td>" + process + "</td><td>" + status + "</td><td>" + created_date + "</td><td>" + remarks + "</td></tr>";
+                            // Do something with the data, for example, display it on the page
+                            $('#di-history-datatable tbody').append(html);
+                        });
+    
+                        tippy('*[data-plugin="tippy"]');
+    
+                        $("#di-history-datatable").DataTable({
+                            language: { paginate: { previous: "<i class='mdi mdi-chevron-left'>", next: "<i class='mdi mdi-chevron-right'>" } },
+                            drawCallback: function () {
+                                $(".dataTables_paginate > .pagination").addClass("pagination-rounded");
+                            },
+                        });
+    
+                        $('[data-toggle="tooltip"]').tooltip()
+                        
+                    }
+                },
+                error: function () {
+                    // Handle errors
+                    diList.notifyError();
+                }
+                });
+        });
+
+
+        
+    },
+
     saveDI: function(){
         jQuery('#saveDI').click(function(e){
             e.preventDefault();
@@ -278,4 +343,5 @@ jQuery(document).ready(function(){
     diList.loadDiList();
     diList.saveDI();
     diList.editInit();
+    diList.viewHistory();
 });
