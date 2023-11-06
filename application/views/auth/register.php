@@ -182,7 +182,7 @@
                                           <select class="form-control division" id="'.$value['id'].'-division">
                                              <option value="medical_center_chief">Medical Center Chief</option>
                                              <option value="dqt_member">DQT Member</option>
-                                             <option value="process_owner">Process Owner</option>
+                                             <option value="iso_coordinator">ISO Coordinator</option>
                                              <option value="osqm_dco">OSQM - Document Control Officer </option>
                                              <option value="osqm_do">OSQM - CAR Database Officer </option>
                                              <option value="osqm_qmr">OSQM - QMR  </option>
@@ -196,7 +196,7 @@
                                           <select class="form-control division" id="'.$value['id'].'-division">
                                              <option value="div_chief">Division Chief</option>
                                              <option value="dqt_member">DQT Member</option>
-                                             <option value="process_owner">Process Owner</option>
+                                             <option value="iso_coordinator">ISO Coordinator</option>
                                              <option value="department_head">Department Head</option>
                                           </select>
                                        </div>';

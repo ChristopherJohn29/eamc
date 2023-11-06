@@ -1,19 +1,19 @@
 var diList = {
 
     loadDiList: function(){
-        dataTable = $('#di-list-datatable.dataTable');
+        dataTable = $('#di-global-datatable.dataTable');
 
         if (dataTable.length) {
             // If it's a DataTable, destroy it
             dataTable.DataTable().destroy();
         }
 
-        $('#di-list-datatable tbody').html('');
+        $('#di-global-datatable tbody').html('');
         
 
         $.ajax({
             type: 'POST',
-            url: 'documentedinformation/getDIList', // Replace 'MyController' with your controller name
+            url: '../documentedinformation/getDIApproval', // Replace 'MyController' with your controller name
             data: {},
             success: function (response) {
                 if(response != 'null'){
@@ -33,30 +33,31 @@ var diList = {
                         var effectivity_date = item.effectivity_date;
                         var revision_no = item.revision_no;
 
-                        if(status == 'TR' || status == 'FCRA'){
-                            $enable_edit = "<button title='Edit Documented Information'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-warning edit-data'"+
+                        if(status == 'APR'){
+                            $action_button = "<button title='Approval'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-blue edit-data'"+
                             "data-id='"+id+"' data-user_id='"+user_id+"'" +
                             "data-doc_title='"+doc_title+"' data-doc_code='"+doc_code+"'" +
                             "data-dep_id='"+dep_id+"' data-doc_type_id='"+doc_type_id+"'" +
                             "data-effectivity_date='"+effectivity_date+"' data-revision_no='"+revision_no+"'>" +
                             "<i class='mdi mdi-file'></i></button>";
                         } else {
-                            $enable_edit = '';
+                            $action_button = '';
                         }
 
                         $view_history = "<button title='View History'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-secondary view-history'"+
                             "data-id='"+id+"'>" +
                             "<i class='fa fa-clock'></i></button>";
                         
-                        var html = "<tr><td>" + doc_title + "</td><td>" + doc_code + "</td><td>" + dep_name + "</td><td>" + type + "</td><td>" + created_date + "</td><td>" + status_name + "</td><td>"+ $view_history + "" + $enable_edit + "<a href='./revisiondetails/"+id+"/"+user_id+"' class='btn btn-sm btn-primary revision-button' title='View Revisions'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-history' aria-hidden='true'></i></a><a href='./filedetails/"+id+"/"+user_id+"' class='btn btn-sm btn-info files-button' title='View Files'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-folder-open'></i></a></td></tr>";
+                        
+                        var html = "<tr><td>" + doc_title + "</td><td>" + doc_code + "</td><td>" + dep_name + "</td><td>" + type + "</td><td>" + created_date + "</td><td>" + status_name + "</td><td>" +$view_history+""+ $action_button + "<a href='./../revisiondetails/"+id+"/"+user_id+"' class='btn btn-sm btn-primary revision-button' title='View Revisions'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-history' aria-hidden='true'></i></a><a href='./../filedetails/"+id+"/"+user_id+"' class='btn btn-sm btn-info files-button' title='View Files'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-folder-open'></i></a></td></tr>";
                         // Do something with the data, for example, display it on the page
-                        $('#di-list-datatable tbody').append(html);
+                        $('#di-global-datatable tbody').append(html);
 
                     });
 
                     tippy('*[data-plugin="tippy"]');
 
-                    $("#di-list-datatable").DataTable({
+                    $("#di-global-datatable").DataTable({
                         language: { paginate: { previous: "<i class='mdi mdi-chevron-left'>", next: "<i class='mdi mdi-chevron-right'>" } },
                         drawCallback: function () {
                             $(".dataTables_paginate > .pagination").addClass("pagination-rounded");
@@ -72,6 +73,53 @@ var diList = {
                 diList.notifyError();
             }
         });
+    },
+
+    viewHistory: function (){
+        
+        jQuery('#di-global-datatable').on('click','.view-history', function(){
+            var doc_id = jQuery(this).data('id');
+
+            jQuery('#doc_history_id').val(doc_id);
+            jQuery("#di-history").modal('toggle');
+
+            $('#di-history-datatable tbody').html('');
+
+        
+            $.ajax({
+                type: 'POST',
+                url: '../documentedinformation/getDIHistory', // Replace 'MyController' with your controller name
+                data: {doc_id: doc_id},
+                success: function (response) {
+                    if(response != 'null'){
+                        $.each(JSON.parse(response), function (index, item) {
+                            // Access each item's properties
+                            var process = item.process;
+                            var status = item.status;
+                            var created_date = item.created_date;
+                            var remarks = item.remarks;
+                            
+                            var html = "<tr><td>" + process + "</td><td>" + status + "</td><td>" + created_date + "</td><td>" + remarks + "</td></tr>";
+                            // Do something with the data, for example, display it on the page
+                            $('#di-history-datatable tbody').append(html);
+                        });
+    
+                        tippy('*[data-plugin="tippy"]');
+    
+    
+                        $('[data-toggle="tooltip"]').tooltip()
+                        
+                    }
+                },
+                error: function () {
+                    // Handle errors
+                    diList.notifyError();
+                }
+                });
+        });
+
+
+        
     },
 
     validateEditForm : function (){
@@ -96,7 +144,7 @@ var diList = {
     },
 
     editInit: function(){
-        jQuery('#di-list-datatable').on('click','.edit-data', function(){
+        jQuery('#di-global-datatable').on('click','.edit-data', function(){
 
             var doc_id = jQuery(this).data('id');
             var user_id = jQuery(this).data('user_id');
@@ -132,6 +180,7 @@ var diList = {
                 var doc_type_id = jQuery('#doc_type_id_edit').val();
                 var effectivity_date = jQuery('#effectivity_date_edit').val();
                 var revision_no = jQuery('#revision_no_edit').val();
+                var approval = jQuery('#approval').val();
 
                 var data = {
                     doc_id: doc_id,
@@ -142,13 +191,14 @@ var diList = {
                     doc_type_id: doc_type_id,
                     effectivity_date: effectivity_date,
                     revision_no: revision_no,
+                    approval: approval
                 };
 
                 jQuery("#edit-di").modal('toggle');
     
                 $.ajax({
                     type: 'POST',
-                    url: 'documentedinformation/update', // Replace 'MyController' with your controller name
+                    url: '../documentedinformation/updateApproval', // Replace 'MyController' with your controller name
                     data: data,
                     success: function (response) {
                         // Handle the response from the server
@@ -171,99 +221,6 @@ var diList = {
 
     },
 
-    viewHistory: function (){
-        
-        jQuery('#di-list-datatable').on('click','.view-history', function(){
-            var doc_id = jQuery(this).data('id');
-
-            jQuery('#doc_history_id').val(doc_id);
-            jQuery("#di-history").modal('toggle');
-
-            $('#di-history-datatable tbody').html('');
-
-            $.ajax({
-                type: 'POST',
-                url: 'documentedinformation/getDIHistory', // Replace 'MyController' with your controller name
-                data: {doc_id: doc_id},
-                success: function (response) {
-                    if(response != 'null'){
-                        $.each(JSON.parse(response), function (index, item) {
-                            // Access each item's properties
-                            var process = item.process;
-                            var status = item.status;
-                            var created_date = item.created_date;
-                            var remarks = item.remarks;
-                            
-                            var html = "<tr><td>" + process + "</td><td>" + status + "</td><td>" + created_date + "</td><td>" + remarks + "</td></tr>";
-                            // Do something with the data, for example, display it on the page
-                            $('#di-history-datatable tbody').append(html);
-                        });
-    
-                        tippy('*[data-plugin="tippy"]');
-    
-                        $('[data-toggle="tooltip"]').tooltip()
-                        
-                    }
-                },
-                error: function () {
-                    // Handle errors
-                    diList.notifyError();
-                }
-                });
-        });
-
-
-        
-    },
-
-    saveDI: function(){
-        jQuery('#saveDI').click(function(e){
-            e.preventDefault();
-
-            if (diList.validateForm()) {
-
-                
-                var document_title = jQuery('#document_title').val();
-                var effectivity_date = jQuery('#effectivity_date').val();
-                var doc_type_id = jQuery('#doc_type_id').val();
-                var dep_id = jQuery('#dep_id').val();
-                var doc_code = jQuery('#doc_code').val();
-                var revision_no = jQuery('#revision_no').val();
-
-                var data = {
-                    'document_title' : document_title,
-                    'effectivity_date' : effectivity_date,
-                    'doc_type_id' : doc_type_id,
-                    'dep_id' : dep_id,
-                    'doc_code' : doc_code,
-                    'revision_no' : revision_no,
-                }
-
-                jQuery("#add-di").modal('toggle');
-    
-                $.ajax({
-                    type: 'POST',
-                    url: 'documentedinformation/save', // Replace 'MyController' with your controller name
-                    data: data,
-                    success: function (response) {
-                        // Handle the response from the server
-                        if(response == 'saved'){
-                            diList.notifySuccess();
-                            diList.loadDiList();
-                            $('#addDocumentedInformationForm')[0].reset();
-                        } else {
-                            diList.notifyError();
-                        }
-                    },
-                    error: function () {
-                        // Handle errors
-                        diList.notifyError();
-                    }
-                });
-            }
-
-        });
-    },
 
     notifySuccess: function(){
         !(function (p) {
@@ -300,32 +257,11 @@ var diList = {
     },
 
 
-    validateForm : function (){
-        var isValid = true;
-        
-        // Check required fields
-        $("#addDocumentedInformationForm [required]").each(function () {
-            if ($(this).val() === "") {
-                $(this).addClass('parsley-error');
-                isValid = false;
-                $(this).next('.parsley-errors-list').removeClass('hidden');
-                $(this).next('.parsley-errors-list').find('.parsley-required').text('This field is required');
-                // You can customize error handling here, for example, displaying an error message.
-            } else {
-                $(this).removeClass('parsley-error');
-                $(this).next('.parsley-errors-list').addClass('hidden');
-                $(this).next('.parsley-errors-list').find('.parsley-required').text('');
-            }
-        });
-    
-        return isValid;
-    },
-    
+
 }
 
 jQuery(document).ready(function(){
     diList.loadDiList();
-    diList.saveDI();
     diList.editInit();
     diList.viewHistory();
 });

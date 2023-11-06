@@ -66,12 +66,11 @@
                      
                      <div class="row mb-2">
                      <div class="form-group col-md-12">
-                           <label for="technical_review" class="form-label">Technical Review</label>
-                           <select class="form-select" id="technical_review" name="technical_review" required>
+                           <label for="approval" class="form-label">Approval</label>
+                           <select class="form-select" id="approval" name="approval" required>
                               <option value=""></option>
                               <option value="Approved">Approved</option>
                               <option value="Disapproved">Disapproved</option>
-                              <option value="Approved Draft">Approved Draft</option>
                            </select>
                            <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                         </div>
@@ -127,6 +126,7 @@
             </div>
          </div>
       </div>
+
       <div class="row">
          <div class="col-12">
             <div class="card">

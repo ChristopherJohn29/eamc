@@ -1,14 +1,14 @@
 var diList = {
 
     loadDiList: function(){
-        dataTable = $('#di-tr-datatable.dataTable');
+        dataTable = $('#di-global-datatable.dataTable');
 
         if (dataTable.length) {
             // If it's a DataTable, destroy it
             dataTable.DataTable().destroy();
         }
 
-        $('#di-tr-datatable tbody').html('');
+        $('#di-global-datatable tbody').html('');
         
 
         $.ajax({
@@ -33,15 +33,15 @@ var diList = {
                         var effectivity_date = item.effectivity_date;
                         var revision_no = item.revision_no;
 
-                        if(status == 'TR' || status == 'FCRA'){
-                            $enable_edit = "<button title='Technical Review'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-blue edit-data'"+
+                        if(status == 'TR'){
+                            $action_button = "<button title='Technical Review'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-blue edit-data'"+
                             "data-id='"+id+"' data-user_id='"+user_id+"'" +
                             "data-doc_title='"+doc_title+"' data-doc_code='"+doc_code+"'" +
                             "data-dep_id='"+dep_id+"' data-doc_type_id='"+doc_type_id+"'" +
                             "data-effectivity_date='"+effectivity_date+"' data-revision_no='"+revision_no+"'>" +
                             "<i class='mdi mdi-file'></i></button>";
                         } else {
-                            $enable_edit = '';
+                            $action_button = '';
                         }
 
                         $view_history = "<button title='View History'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-secondary view-history'"+
@@ -49,15 +49,15 @@ var diList = {
                             "<i class='fa fa-clock'></i></button>";
                         
                         
-                        var html = "<tr><td>" + doc_title + "</td><td>" + doc_code + "</td><td>" + dep_name + "</td><td>" + type + "</td><td>" + created_date + "</td><td>" + status_name + "</td><td>" +$view_history+""+ $enable_edit + "<a href='./../revisiondetails/"+id+"/"+user_id+"' class='btn btn-sm btn-primary revision-button' title='View Revisions'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-history' aria-hidden='true'></i></a><a href='./../filedetails/"+id+"/"+user_id+"' class='btn btn-sm btn-info files-button' title='View Files'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-folder-open'></i></a></td></tr>";
+                        var html = "<tr><td>" + doc_title + "</td><td>" + doc_code + "</td><td>" + dep_name + "</td><td>" + type + "</td><td>" + created_date + "</td><td>" + status_name + "</td><td>" +$view_history+""+  $action_button + "<a href='./../revisiondetails/"+id+"/"+user_id+"' class='btn btn-sm btn-primary revision-button' title='View Revisions'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-history' aria-hidden='true'></i></a><a href='./../filedetails/"+id+"/"+user_id+"' class='btn btn-sm btn-info files-button' title='View Files'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-folder-open'></i></a></td></tr>";
                         // Do something with the data, for example, display it on the page
-                        $('#di-tr-datatable tbody').append(html);
+                        $('#di-global-datatable tbody').append(html);
 
                     });
 
                     tippy('*[data-plugin="tippy"]');
 
-                    $("#di-tr-datatable").DataTable({
+                    $("#di-global-datatable").DataTable({
                         language: { paginate: { previous: "<i class='mdi mdi-chevron-left'>", next: "<i class='mdi mdi-chevron-right'>" } },
                         drawCallback: function () {
                             $(".dataTables_paginate > .pagination").addClass("pagination-rounded");
@@ -77,21 +77,13 @@ var diList = {
 
     viewHistory: function (){
         
-        jQuery('#di-tr-datatable').on('click','.view-history', function(){
+        jQuery('#di-global-datatable').on('click','.view-history', function(){
             var doc_id = jQuery(this).data('id');
 
             jQuery('#doc_history_id').val(doc_id);
             jQuery("#di-history").modal('toggle');
 
             $('#di-history-datatable tbody').html('');
-
-            
-            dataTable = $('#di-history-datatable.dataTable');
-
-            if (dataTable.length) {
-                // If it's a DataTable, destroy it
-                dataTable.DataTable().destroy();
-            }
 
         
             $.ajax({
@@ -114,12 +106,6 @@ var diList = {
     
                         tippy('*[data-plugin="tippy"]');
     
-                        $("#di-history-datatable").DataTable({
-                            language: { paginate: { previous: "<i class='mdi mdi-chevron-left'>", next: "<i class='mdi mdi-chevron-right'>" } },
-                            drawCallback: function () {
-                                $(".dataTables_paginate > .pagination").addClass("pagination-rounded");
-                            },
-                        });
     
                         $('[data-toggle="tooltip"]').tooltip()
                         
@@ -158,7 +144,7 @@ var diList = {
     },
 
     editInit: function(){
-        jQuery('#di-tr-datatable').on('click','.edit-data', function(){
+        jQuery('#di-global-datatable').on('click','.edit-data', function(){
 
             var doc_id = jQuery(this).data('id');
             var user_id = jQuery(this).data('user_id');

@@ -154,7 +154,7 @@
                   <div class="modal-body">
                   <input type="hidden" id="doc_history_id" value="">
 
-                  <table id="di-history-datatable" class="table dt-responsive nowrap w-100">
+                  <table id="di-history-datatable" class="table table-bordered dt-responsive nowrap w-100">
                      <thead>
                         <tr>
                            <th>Process</th>

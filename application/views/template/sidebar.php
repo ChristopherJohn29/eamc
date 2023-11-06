@@ -67,28 +67,71 @@
                 </a>
             </li>
             <li class="menu-item">
+                <a href="<?=base_url().'admin/documentedinformation/formsReview'?>" class="menu-link">
+                    <span class="menu-text">Forms Review</span>
+                </a>
+            </li>
+            <li class="menu-item">
                 <a href="<?=base_url().'admin/documentedinformation/technicalReview'?>" class="menu-link">
                     <span class="menu-text">Technical Review</span>
                 </a>
             </li>
             <li class="menu-item">
-                <a href="dashboard-3.html" class="menu-link">
-                    <span class="menu-text">Corrective Action</span>
+            <a href="<?=base_url().'admin/documentedinformation/finalReview'?>" class="menu-link">
+                    <span class="menu-text">Final Review</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="<?=base_url().'admin/documentedinformation/approval'?>" class="menu-link">
+                    <span class="menu-text">Approval</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="<?=base_url().'admin/documentedinformation/checking'?>" class="menu-link">
+                    <span class="menu-text">Checking</span>
                 </a>
             </li>
             <li class="menu-item">
                 <a href="dashboard-3.html" class="menu-link">
-                    <span class="menu-text">Verification</span>
+                    <span class="menu-text">Approval For Publishing</span>
                 </a>
             </li>
             <li class="menu-item">
                 <a href="dashboard-3.html" class="menu-link">
-                    <span class="menu-text">Validation</span>
+                    <span class="menu-text">Publishing</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</li>
+
+<li class="menu-item">
+    <a href="#menuPublisedFile" data-bs-toggle="collapse" class="menu-link">
+        <span class="menu-icon"><i data-feather="file"></i></span>
+        <span class="menu-text"> Published </span>
+        <span class="menu-arrow"></span>
+    </a>
+    <div class="collapse" id="menuPublisedFile">
+        <ul class="sub-menu">
+            <li class="menu-item">
+                <a href="<?=base_url().'admin/division'?>" class="menu-link">
+                    <span class="menu-text">Divisions</span>
                 </a>
             </li>
             <li class="menu-item">
-                <a href="dashboard-3.html" class="menu-link">
-                    <span class="menu-text">Closing</span>
+                <a href="<?=base_url().'admin/department'?>" class="menu-link">
+                    <span class="menu-text">Departments</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="<?=base_url().'admin/source'?>" class="menu-link">
+                    <span class="menu-text">Source</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="<?=base_url().'admin/documenttype'?>" class="menu-link">
+                    <span class="menu-text">Document Type</span>
                 </a>
             </li>
         </ul>
