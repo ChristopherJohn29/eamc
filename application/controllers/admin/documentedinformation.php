@@ -69,6 +69,12 @@ class documentedinformation extends CI_Controller {
         echo json_encode($documentedInformation);
     }
 
+    public function getDIApprovalForPublishing(){
+        $documentedInformation =  $this->DocumentedInformationModel->getDocumentedInformationApprovalForPublishing();
+
+        echo json_encode($documentedInformation);
+    }
+
     public function technicalReview(){
         $data['page'] = 'admin/di_technical_review';
 		$data['title'] = 'Technical Review';
@@ -119,6 +125,17 @@ class documentedinformation extends CI_Controller {
 		$data['title'] = 'Checking';
         $data['customcss'] = 'di_checking.css';
         $data['customjs'] = 'di_checking.js';
+        $data['department'] =  $this->DepartmentModel->getDepartment();
+        $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
+
+		$this->load->view('template/template', $data);
+    }
+
+    public function approvalForPublishing(){
+        $data['page'] = 'admin/di_ap';
+		$data['title'] = 'Approval For Publishing';
+        $data['customcss'] = 'di_ap.css';
+        $data['customjs'] = 'di_ap.js';
         $data['department'] =  $this->DepartmentModel->getDepartment();
         $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
 
@@ -273,6 +290,31 @@ class documentedinformation extends CI_Controller {
             $datahistory['doc_id'] = $data['doc_id'];
             $datahistory['process'] = "Checking";
             $datahistory['status'] = $_POST['checking'];
+            $this->DocumentedInformationModel->saveHistory($datahistory);
+            echo "saved";
+        } else {
+            // Insertion failed
+            echo "error";
+        }
+    }
+
+    public function updateApprovalForPublishing(){
+
+        $data = $_POST;
+
+        if($_POST['approval_for_publishing'] == 'Approved'){
+            $data['status'] = 'PUB';
+        } else {
+            $data['status'] = 'CHK';
+        }
+   
+        $save = $this->DocumentedInformationModel->updateDIReview($data, 'approval_for_publishing');
+        
+        if ($save) {
+            // Insertion successful
+            $datahistory['doc_id'] = $data['doc_id'];
+            $datahistory['process'] = "Approval For Publishing";
+            $datahistory['status'] = $_POST['approval_for_publishing'];
             $this->DocumentedInformationModel->saveHistory($datahistory);
             echo "saved";
         } else {

@@ -92,13 +92,13 @@
                 </a>
             </li>
             <li class="menu-item">
-                <a href="dashboard-3.html" class="menu-link">
+                <a href="<?=base_url().'admin/documentedinformation/approvalForPublishing'?>" class="menu-link">
                     <span class="menu-text">Approval For Publishing</span>
                 </a>
             </li>
             <li class="menu-item">
                 <a href="dashboard-3.html" class="menu-link">
-                    <span class="menu-text">Publishing</span>
+                    <span class="menu-text">Published</span>
                 </a>
             </li>
 
