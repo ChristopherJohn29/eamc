@@ -8,6 +8,9 @@ class login extends CI_Controller {
         parent::__construct();
 
         $this->load->model('LoginModel');
+		$this->load->model('DocumentTypeModel');
+		$this->load->model('DivisionModel');
+		$this->load->model('DepartmentModel');
     }
 
 	public function index()

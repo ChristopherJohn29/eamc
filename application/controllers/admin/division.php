@@ -8,6 +8,8 @@ class division extends CI_Controller {
         parent::__construct();
 
         $this->load->model('DivisionModel');
+        $this->load->model('DocumentTypeModel');
+        $this->load->model('DepartmentModel');
         $this->authentication->check_user_session();
     }
 

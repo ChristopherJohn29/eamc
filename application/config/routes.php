@@ -67,3 +67,7 @@ $route['admin/loadfile/(:num)/(:num)'] = 'admin/files/getfile/$1/$2';
 //file Details Page
 $route['admin/filerevisiondetails/(:num)'] = 'admin/filedetails/details/$1';
 $route['admin/loadfilerevision/(:num)'] = 'admin/filedetails/getFileRevision/$1';
+
+//published 
+
+$route['admin/allPublished/(:num)/(:num)/(:num)'] = 'admin/published/details/$1/$2/$3';

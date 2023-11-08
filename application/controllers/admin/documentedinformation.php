@@ -75,6 +75,12 @@ class documentedinformation extends CI_Controller {
         echo json_encode($documentedInformation);
     }
 
+    public function getDIPublished(){
+        $documentedInformation =  $this->DocumentedInformationModel->getDocumentedInformationPublished();
+
+        echo json_encode($documentedInformation);
+    }
+
     public function technicalReview(){
         $data['page'] = 'admin/di_technical_review';
 		$data['title'] = 'Technical Review';
@@ -136,6 +142,17 @@ class documentedinformation extends CI_Controller {
 		$data['title'] = 'Approval For Publishing';
         $data['customcss'] = 'di_ap.css';
         $data['customjs'] = 'di_ap.js';
+        $data['department'] =  $this->DepartmentModel->getDepartment();
+        $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
+
+		$this->load->view('template/template', $data);
+    }
+
+    public function published(){
+        $data['page'] = 'admin/di_p';
+		$data['title'] = 'Published';
+        $data['customcss'] = 'di_p.css';
+        $data['customjs'] = 'di_p.js';
         $data['department'] =  $this->DepartmentModel->getDepartment();
         $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
 

@@ -117,6 +117,38 @@ class DocumentedInformationModel extends CI_Model {
         return $result;
     }
 
+    public function getDocumentedInformationPublished(){
+
+        $this->db->select('documented_information.*, department.dep_name AS dep_name, document_type.doc_type_name AS type, document_status.status_value AS status_name');
+        $this->db->from('documented_information');
+        $this->db->where('documented_information.status', 'PUB');
+        $this->db->join('department', 'department.id = documented_information.dep_id', 'left');
+        $this->db->join('document_status', 'document_status.status_code = documented_information.status', 'left');
+        $this->db->join('document_type', 'document_type.id = documented_information.doc_type_id', 'left');
+
+        $query = $this->db->get();
+        $result = $query->result_array();
+
+        return $result;
+    }
+
+    public function getDocumentedInformationPublishedDI($department_id, $document_type_id){
+
+        $this->db->select('documented_information.*, department.dep_name AS dep_name, document_type.doc_type_name AS type, document_status.status_value AS status_name');
+        $this->db->from('documented_information');
+        $this->db->where('documented_information.status', 'PUB');
+        $this->db->where('documented_information.dep_id', $department_id);
+        $this->db->where('documented_information.doc_type_id', $document_type_id);
+        $this->db->join('department', 'department.id = documented_information.dep_id', 'left');
+        $this->db->join('document_status', 'document_status.status_code = documented_information.status', 'left');
+        $this->db->join('document_type', 'document_type.id = documented_information.doc_type_id', 'left');
+
+        $query = $this->db->get();
+        $result = $query->result_array();
+
+        return $result;
+    }
+
     
 
     public function saveDI($data){
