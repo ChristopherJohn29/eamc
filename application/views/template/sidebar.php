@@ -19,32 +19,32 @@
     <div class="collapse" id="menuCAR">
         <ul class="sub-menu">
             <li class="menu-item">
-                <a href="index.html" class="menu-link">
+                <a href="#" class="menu-link">
                     <span class="menu-text">List</span>
                 </a>
             </li>
             <li class="menu-item">
-                <a href="dashboard-2.html" class="menu-link">
+                <a href="#" class="menu-link">
                     <span class="menu-text">NC Definition</span>
                 </a>
             </li>
             <li class="menu-item">
-                <a href="dashboard-3.html" class="menu-link">
+                <a href="#" class="menu-link">
                     <span class="menu-text">Corrective Action</span>
                 </a>
             </li>
             <li class="menu-item">
-                <a href="dashboard-3.html" class="menu-link">
+                <a href="#" class="menu-link">
                     <span class="menu-text">Verification</span>
                 </a>
             </li>
             <li class="menu-item">
-                <a href="dashboard-3.html" class="menu-link">
+                <a href="#" class="menu-link">
                     <span class="menu-text">Validation</span>
                 </a>
             </li>
             <li class="menu-item">
-                <a href="dashboard-3.html" class="menu-link">
+                <a href="#" class="menu-link">
                     <span class="menu-text">Closing</span>
                 </a>
             </li>
