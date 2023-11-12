@@ -25,6 +25,8 @@ var diList = {
                         var doc_code = item.doc_code;
                         var dep_name = item.dep_name;
                         var dep_id = item.dep_id;
+                        var sec_id = item.sec_id;
+                        var section_name = item.section_name;
                         var doc_type_id = item.doc_type_id;
                         var type = item.type;
                         var created_date = item.created_date;
@@ -33,11 +35,11 @@ var diList = {
                         var effectivity_date = item.effectivity_date;
                         var revision_no = item.revision_no;
 
-                        if(status == 'TR'){
+                        if(status == 'FFU' ||  status == 'AD' || status == 'D' || status == 'TR'){
                             $action_button = "<button title='Technical Review'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-blue edit-data'"+
                             "data-id='"+id+"' data-user_id='"+user_id+"'" +
                             "data-doc_title='"+doc_title+"' data-doc_code='"+doc_code+"'" +
-                            "data-dep_id='"+dep_id+"' data-doc_type_id='"+doc_type_id+"'" +
+                            "data-dep_id='"+dep_id+"' data-sec_id='"+sec_id+"' data-doc_type_id='"+doc_type_id+"'" +
                             "data-effectivity_date='"+effectivity_date+"' data-revision_no='"+revision_no+"'>" +
                             "<i class='mdi mdi-file'></i></button>";
                         } else {
@@ -47,9 +49,15 @@ var diList = {
                         $view_history = "<button title='View History'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-secondary view-history'"+
                             "data-id='"+id+"'>" +
                             "<i class='fa fa-clock'></i></button>";
+
+                        section = '';
+
+                        if(section_name !== null){
+                            section = "(" + section_name + ")";
+                        }
                         
                         
-                        var html = "<tr><td>" + doc_title + "</td><td>" + doc_code + "</td><td>" + dep_name + "</td><td>" + type + "</td><td>" + created_date + "</td><td>" + status_name + "</td><td>" +$view_history+""+  $action_button + "<a href='./../revisiondetails/"+id+"/"+user_id+"' class='btn btn-sm btn-primary revision-button' title='View Revisions'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-history' aria-hidden='true'></i></a><a href='./../filedetails/"+id+"/"+user_id+"' class='btn btn-sm btn-info files-button' title='View Files'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-folder-open'></i></a></td></tr>";
+                        var html = "<tr><td>" + doc_title + "</td><td>" + doc_code + "</td><td>" + dep_name +" "+ section+ " </td><td>" + type + "</td><td>" + created_date + "</td><td>" + status_name + "</td><td>" +$view_history+""+  $action_button + "<a href='./../revisiondetails/"+id+"/"+user_id+"' class='btn btn-sm btn-primary revision-button' title='View Revisions'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-history' aria-hidden='true'></i></a><a href='./../filedetails/"+id+"/"+user_id+"' class='btn btn-sm btn-info files-button' title='View Files'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-folder-open'></i></a></td></tr>";
                         // Do something with the data, for example, display it on the page
                         $('#di-global-datatable tbody').append(html);
 
@@ -151,15 +159,19 @@ var diList = {
             var doc_title = jQuery(this).data('doc_title');
             var doc_code = jQuery(this).data('doc_code');
             var dep_id = jQuery(this).data('dep_id');
+            var sec_id = jQuery(this).data('sec_id');
             var doc_type_id = jQuery(this).data('doc_type_id');
             var effectivity_date = jQuery(this).data('effectivity_date');
             var revision_no = jQuery(this).data('revision_no');
+
+            jQuery('#sec_id_edit option[value="'+sec_id+'"]').prop('disabled', false);
 
             jQuery('#doc_id_edit').val(doc_id);
             jQuery('#user_id_edit').val(user_id);
             jQuery('#document_title_edit').val(doc_title);
             jQuery('#doc_code_edit').val(doc_code);
             jQuery('#dep_id_edit').val(dep_id);
+            jQuery('#sec_id_edit').val(sec_id);
             jQuery('#doc_type_id_edit').val(doc_type_id);
             jQuery('#effectivity_date_edit').val(effectivity_date);
             jQuery('#revision_no_edit').val(revision_no);
@@ -177,6 +189,7 @@ var diList = {
                 var document_title = jQuery('#document_title_edit').val();
                 var doc_code = jQuery('#doc_code_edit').val();
                 var dep_id = jQuery('#dep_id_edit').val();
+                var sec_id = jQuery('#sec_id_edit').val();
                 var doc_type_id = jQuery('#doc_type_id_edit').val();
                 var effectivity_date = jQuery('#effectivity_date_edit').val();
                 var revision_no = jQuery('#revision_no_edit').val();
@@ -188,6 +201,7 @@ var diList = {
                     document_title: document_title,
                     doc_code: doc_code,
                     dep_id: dep_id,
+                    sec_id: sec_id,
                     doc_type_id: doc_type_id,
                     effectivity_date: effectivity_date,
                     revision_no: revision_no,
@@ -195,7 +209,7 @@ var diList = {
                 };
 
                 jQuery("#edit-di").modal('toggle');
-    
+
                 $.ajax({
                     type: 'POST',
                     url: '../documentedinformation/updateTR', // Replace 'MyController' with your controller name
@@ -256,7 +270,22 @@ var diList = {
         })(window.jQuery);
     },
 
-
+    loadSection : function (){
+        jQuery('#dep_id').change(function(){
+            if(jQuery(this).val() != ''){
+                jQuery('select#sec_id').val('');
+                jQuery('select#sec_id option').prop('disabled', true);
+                jQuery('select#sec_id option[data-dep_id="' + jQuery(this).val() + '"]').prop('disabled', false);
+            }
+        });
+        jQuery('#dep_id_edit').change(function(){
+            if(jQuery(this).val() != ''){
+                jQuery('select#sec_id_edit').val('');
+                jQuery('select#sec_id_edit option').prop('disabled', true);
+                jQuery('select#sec_id_edit option[data-dep_id="' + jQuery(this).val() + '"]').prop('disabled', false);
+            }
+        });
+    }
 
 }
 
@@ -264,4 +293,5 @@ jQuery(document).ready(function(){
     diList.loadDiList();
     diList.editInit();
     diList.viewHistory();
+    diList.loadSection();
 });

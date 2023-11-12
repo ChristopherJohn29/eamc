@@ -44,7 +44,13 @@
             <div class="page-title-box">
                <div class="page-title-right">
                <a href="<?=$goback?>" type="button" class="btn btn-danger waves-effect waves-light"><i class="fas fa-arrow-left"></i> Go Back</a>
-               <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#add-file"><i class="fas fa-plus"></i> New File</button>
+               <?php 
+                  if($status == 'FFU' || $status == 'AD' || $status == 'D'){
+                     ?>
+                     <button type="button" class="btn btn-primary waves-effect waves-light new-file" data-bs-toggle="modal" data-bs-target="#add-file"><i class="fas fa-plus"></i> New File</button>
+                     <?php
+                  }
+               ?>
                </div>
                <h4 class="page-title"><?=ucwords($document_title)?> <?=$title?></h4>
             </div>

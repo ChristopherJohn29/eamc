@@ -1,3 +1,13 @@
 table tr td:last-child {
     padding: .7rem;
 }
+
+select option[disabled] {
+    color: gray; /* Set the text color to gray */
+    background-color: #f2f2f2; /* Set the background color to a light gray */
+}
+
+form [disabled] {
+    color: gray !important; /* Set the text color to gray */
+    background-color: #f2f2f2 !important; /* Set the background color to a light gray */
+}

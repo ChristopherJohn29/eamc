@@ -9,6 +9,7 @@ class documentedinformation extends CI_Controller {
 
         $this->load->model('DocumentedInformationModel');
         $this->load->model('DepartmentModel');
+        $this->load->model('SectionModel');
         $this->load->model('DocumentTypeModel');
 
         $this->authentication->check_user_session();
@@ -21,6 +22,7 @@ class documentedinformation extends CI_Controller {
         $data['customcss'] = 'di_list.css';
         $data['customjs'] = 'di_list.js';
         $data['department'] =  $this->DepartmentModel->getDepartment();
+        $data['section'] =  $this->SectionModel->getSection();
         $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
 
 		$this->load->view('template/template', $data);
@@ -88,6 +90,7 @@ class documentedinformation extends CI_Controller {
         $data['customjs'] = 'di_tr.js';
         $data['department'] =  $this->DepartmentModel->getDepartment();
         $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
+        $data['section'] =  $this->SectionModel->getSection();
 
 		$this->load->view('template/template', $data);
     }
@@ -99,6 +102,7 @@ class documentedinformation extends CI_Controller {
         $data['customjs'] = 'di_forms_review.js';
         $data['department'] =  $this->DepartmentModel->getDepartment();
         $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
+        $data['section'] =  $this->SectionModel->getSection();
 
 		$this->load->view('template/template', $data);
     }
@@ -110,6 +114,7 @@ class documentedinformation extends CI_Controller {
         $data['customjs'] = 'di_final_review.js';
         $data['department'] =  $this->DepartmentModel->getDepartment();
         $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
+        $data['section'] =  $this->SectionModel->getSection();
 
 		$this->load->view('template/template', $data);
     }
@@ -121,6 +126,7 @@ class documentedinformation extends CI_Controller {
         $data['customjs'] = 'di_approval.js';
         $data['department'] =  $this->DepartmentModel->getDepartment();
         $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
+        $data['section'] =  $this->SectionModel->getSection();
 
 		$this->load->view('template/template', $data);
     }
@@ -133,6 +139,7 @@ class documentedinformation extends CI_Controller {
         $data['customjs'] = 'di_checking.js';
         $data['department'] =  $this->DepartmentModel->getDepartment();
         $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
+        $data['section'] =  $this->SectionModel->getSection();
 
 		$this->load->view('template/template', $data);
     }
@@ -144,6 +151,7 @@ class documentedinformation extends CI_Controller {
         $data['customjs'] = 'di_ap.js';
         $data['department'] =  $this->DepartmentModel->getDepartment();
         $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
+        $data['section'] =  $this->SectionModel->getSection();
 
 		$this->load->view('template/template', $data);
     }
@@ -155,6 +163,7 @@ class documentedinformation extends CI_Controller {
         $data['customjs'] = 'di_p.js';
         $data['department'] =  $this->DepartmentModel->getDepartment();
         $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
+        $data['section'] =  $this->SectionModel->getSection();
 
 		$this->load->view('template/template', $data);
     }
@@ -195,7 +204,12 @@ class documentedinformation extends CI_Controller {
 
         if($_POST['technical_review'] == 'Approved'){
             $data['status'] = 'FIR';
-        } else {
+        } 
+        else if($_POST['technical_review'] == 'Disapproved')
+        {
+            $data['status'] = 'D';
+        }
+        else {
             $data['status'] = 'TR';
         }
    

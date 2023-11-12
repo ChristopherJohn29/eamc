@@ -132,6 +132,8 @@
 
                             <?php 
                                 foreach ($department as $dkey => $dvalue) {
+                                    $section = $this->DepartmentModel->getSectionByDip($dvalue['id']);
+                                    if($section){
                                     ?>
                                     <li class="menu-item">
                                         <a href="#<?=str_replace(' ','',$dvalue['dep_name']).$dvalue['id']?>" data-bs-toggle="collapse" class="menu-link">
@@ -140,24 +142,72 @@
                                         </a>
                                         <div class="collapse" id="<?=str_replace(' ','',$dvalue['dep_name']).$dvalue['id']?>" style="">
                                             <ul class="sub-menu">
+                                                <?php $section = $this->DepartmentModel->getSectionByDip($dvalue['id']);?>
+
                                                 <?php 
-                                                
-                                                foreach ($documenttype as $dtkey => $dtvalue) {
-                                                   ?>
-                                                    <li class="menu-item">
-                                                        <a href="<?=base_url().'admin/allPublished/'.$value['id'].'/'.$dvalue['id'].'/'.$dtvalue['id']?>" class="menu-link">
-                                                            <span class="menu-text"><?=$dtvalue['doc_type_name']?></span>
-                                                        </a>
-                                                    </li>
-                                                   <?php
-                                                }
-                                                
+                                                    foreach ($section as $skey => $svalue) {
+                                                        ?>
+                                                        <li class="menu-item">
+                                                            <a href="#<?=str_replace(' ','',$svalue['section_name']).$svalue['id']?>" data-bs-toggle="collapse" class="menu-link">
+                                                                <span class="menu-text"><?=$svalue['section_name']?></span>
+                                                                <span class="menu-arrow"></span>
+                                                            </a>
+                                                            <div class="collapse" id="<?=str_replace(' ','',$svalue['section_name']).$svalue['id']?>" style="">
+                                                                <ul class="sub-menu">
+                                                                    <?php 
+                                                                    
+                                                                    foreach ($documenttype as $dtkey => $dtvalue) {
+                                                                    ?>
+                                                                        <li class="menu-item">
+                                                                            <a href="<?=base_url().'admin/allPublished/'.$value['id'].'/'.$dvalue['id'].'/'.$dtvalue['id'].'/'.$svalue['id']?>" class="menu-link">
+                                                                                <span class="menu-text"><?=$dtvalue['doc_type_name']?></span>
+                                                                            </a>
+                                                                        </li>
+                                                                    <?php
+                                                                    }
+                                                                    
+                                                                    ?>
+                                                                    
+                                                                </ul>
+                                                            </div>
+                                                        </li>
+                                                        <?php
+                                                    }
                                                 ?>
                                                 
                                             </ul>
                                         </div>
                                     </li>
                                     <?php
+
+                                                }else {
+                                        ?>
+                                        <li class="menu-item">
+                                            <a href="#<?=str_replace(' ','',$dvalue['dep_name']).$dvalue['id']?>" data-bs-toggle="collapse" class="menu-link">
+                                                <span class="menu-text"><?=$dvalue['dep_name']?></span>
+                                                <span class="menu-arrow"></span>
+                                            </a>
+                                            <div class="collapse" id="<?=str_replace(' ','',$dvalue['dep_name']).$dvalue['id']?>" style="">
+                                                <ul class="sub-menu">
+                                                    <?php 
+                                                    
+                                                    foreach ($documenttype as $dtkey => $dtvalue) {
+                                                    ?>
+                                                        <li class="menu-item">
+                                                            <a href="<?=base_url().'admin/allPublished/'.$value['id'].'/'.$dvalue['id'].'/'.$dtvalue['id'].'/0'?>" class="menu-link">
+                                                                <span class="menu-text"><?=$dtvalue['doc_type_name']?></span>
+                                                            </a>
+                                                        </li>
+                                                    <?php
+                                                    }
+                                                    
+                                                    ?>
+                                                    
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <?php
+                                    }
                                 }
                             ?>
                             
@@ -189,6 +239,11 @@
             <li class="menu-item">
                 <a href="<?=base_url().'admin/department'?>" class="menu-link">
                     <span class="menu-text">Departments</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="<?=base_url().'admin/section'?>" class="menu-link">
+                    <span class="menu-text">Section</span>
                 </a>
             </li>
             <li class="menu-item">

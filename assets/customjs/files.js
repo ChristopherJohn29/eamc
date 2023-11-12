@@ -73,7 +73,6 @@ var file = {
                     formData.append('file', realfile);
                 }
                 
-
                 $.ajax({
                     type: 'POST',
                     url: '../../files/save', // Replace 'MyController' with your controller name
@@ -85,6 +84,7 @@ var file = {
                         if(response == 'saved'){
                             file.notifySuccess();
                             file.loadFile();
+                            jQuery('.new-file').addClass('hidden');
                             $('#createFileForm')[0].reset();
                         } else {
                             file.notifyError();

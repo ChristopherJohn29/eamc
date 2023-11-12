@@ -13,7 +13,7 @@ class published extends CI_Controller {
         $this->authentication->check_user_session();
     }
 
-    public function details($division, $department, $documenttype){
+    public function details($division, $department, $documenttype, $section = 0){
 
         
         $data['page'] = 'admin/di_published';
@@ -25,6 +25,7 @@ class published extends CI_Controller {
         $data['division_id'] = $division;
         $data['department_id'] = $department;
         $data['document_type_id'] = $documenttype;
+        $data['sec_id'] = $section;
 
 		$this->load->view('template/template', $data);
     }
@@ -33,8 +34,9 @@ class published extends CI_Controller {
 
         $department_id = $_POST['department_id'];
         $document_type_id = $_POST['document_type_id'];
+        $sec_id = $_POST['sec_id'];
         
-        $documentedInformation =  $this->DocumentedInformationModel->getDocumentedInformationPublishedDI($department_id, $document_type_id);
+        $documentedInformation =  $this->DocumentedInformationModel->getDocumentedInformationPublishedDI($department_id, $document_type_id, $sec_id );
 
         echo json_encode($documentedInformation);
     }

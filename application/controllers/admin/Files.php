@@ -42,6 +42,7 @@ class files extends CI_Controller {
         $data['customjs'] = 'files.js';
         $data['doc_id'] = $this->doc_id;
         $data['doc_user_id'] = $this->doc_user_id;
+        $data['status'] = $this->DocumentedInformationModel->getDocumentStatus($this->doc_id);
 		$data['document_title'] =  $this->DocumentedInformationModel->getDocumentTitle($this->doc_id);
 
 		$this->load->view('template/template', $data);
@@ -95,6 +96,28 @@ class files extends CI_Controller {
             'created_date' => date('Y-m-d H:i:s'),
             'created_by' => $this->session->userdata('user_id')
         );
+
+        // FFU -> Tecnical Review
+        // APPROVED DRAFT -> Technical Review
+        // Disapprove -> Technical Review
+
+        $documentData = $this->DocumentedInformationModel->getDI($doc_id);
+
+        if ($documentData[0]['status'] == 'FFU' || $documentData[0]['status'] == 'AD' || $documentData[0]['status'] == 'D') {
+            if ($documentData[0]['doc_type_id'] == '1') {
+                $status = 'FCRA';
+            } else {
+                $status = 'TR';
+            }
+        }
+
+        $didata = array(
+            'doc_id' => $doc_id,
+            'status' => $status
+        );
+
+        $save = $this->DocumentedInformationModel->updateDIStatus($didata);
+
 
         $save = $this->FileModel->saveFile($data);
 
