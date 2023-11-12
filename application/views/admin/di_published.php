@@ -51,8 +51,8 @@
                   <table id="di-global-datatable" class="table dt-responsive nowrap w-100">
                   <input type="hidden" id="division_id" value="<?=$division_id?>">
                   <input type="hidden" id="department_id" value="<?=$department_id?>">
-                  <input type="hidden" id="document_type_id" value="<?=$document_type_id?>">'
-                  <input type="hidden" id="sec_id" value="<?=$sec_id?>">'
+                  <input type="hidden" id="document_type_id" value="<?=$document_type_id?>">
+                  <input type="hidden" id="sec_id" value="<?=$sec_id?>">
                      <thead>
                         <tr>
                            <th>Document Title</th>
