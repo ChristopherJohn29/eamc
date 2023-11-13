@@ -1,0 +1,24 @@
+.hidden{
+    display: none !important;
+}
+
+::placeholder {
+    color: #888 !important; /* Color code */
+    opacity: 0.6 !important; /* Adjust the opacity (0 to 1) to control the intensity of the effect */
+}
+
+.revision-button{
+    margin-right: 5px;
+}
+
+.edit-data{
+    margin-right: 5px;
+}
+
+[readonly] {
+    background-color: #f0f0f0; /* Change to the gray color you prefer */
+}
+
+.view-history{
+    margin-right: 5px;
+}

@@ -274,6 +274,8 @@ var diList = {
         jQuery('#dep_id').change(function(){
             if(jQuery(this).val() != ''){
                 jQuery('select#sec_id').val('');
+                jQuery('select#sec_id option').addClass('hidden');
+                jQuery('select#sec_id option[data-dep_id="' + jQuery(this).val() + '"]').removeClass('hidden');
                 jQuery('select#sec_id option').prop('disabled', true);
                 jQuery('select#sec_id option[data-dep_id="' + jQuery(this).val() + '"]').prop('disabled', false);
             }
@@ -281,6 +283,8 @@ var diList = {
         jQuery('#dep_id_edit').change(function(){
             if(jQuery(this).val() != ''){
                 jQuery('select#sec_id_edit').val('');
+                jQuery('select#sec_id_edit option').addClass('hidden');
+                jQuery('select#sec_id_edit option[data-dep_id="' + jQuery(this).val() + '"]').removeClass('hidden');
                 jQuery('select#sec_id_edit option').prop('disabled', true);
                 jQuery('select#sec_id_edit option[data-dep_id="' + jQuery(this).val() + '"]').prop('disabled', false);
             }

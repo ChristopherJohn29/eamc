@@ -28,6 +28,8 @@ class login extends CI_Controller {
             // Set user session data or redirect to a user dashboard.
            	$this->session->set_userdata('user_id', $user->id);
 			$this->session->set_userdata('firstname', $user->firstname);
+			$this->session->set_userdata('department', $user->department);
+			$this->session->set_userdata('division', $user->division);
 
 			echo 'saved';
         } else {

@@ -66,36 +66,116 @@
                     <span class="menu-text">List</span>
                 </a>
             </li>
-            <li class="menu-item">
-                <a href="<?=base_url().'admin/documentedinformation/formsReview'?>" class="menu-link">
-                    <span class="menu-text">Forms Review</span>
-                </a>
-            </li>
+
+            <?php 
+            
+            $requiredRoles = array(
+                'designation' => 'commitee',
+                'section' => 'forms',
+                'role' => ['chair', 'member'],
+            );
+    
+            if ($this->role_checker->checkRole($requiredRoles)) {
+            ?>
+                <li class="menu-item">
+                    <a href="<?=base_url().'admin/documentedinformation/formsReview'?>" class="menu-link">
+                        <span class="menu-text">Forms Review</span>
+                    </a>
+                </li>
+                <?php
+            }
+            ?>
+
+            <?php 
+            $requiredRoles = array(
+                'designation' => 'division',
+                'role' => ['osqm_dco'],
+            );
+    
+            if ($this->role_checker->checkRole($requiredRoles)) {
+            ?>
+            
             <li class="menu-item">
                 <a href="<?=base_url().'admin/documentedinformation/technicalReview'?>" class="menu-link">
                     <span class="menu-text">Technical Review</span>
                 </a>
             </li>
-            <li class="menu-item">
-            <a href="<?=base_url().'admin/documentedinformation/finalReview'?>" class="menu-link">
-                    <span class="menu-text">Final Review</span>
-                </a>
-            </li>
+
+            <?php
+            }
+            ?>
+
+            <?php 
+            $requiredRoles = array(
+                'designation' => 'division',
+                'role' => ['department_head'],
+            );
+    
+            if ($this->role_checker->checkRole($requiredRoles)) {
+                ?>
+                <li class="menu-item">
+                <a href="<?=base_url().'admin/documentedinformation/finalReview'?>" class="menu-link">
+                        <span class="menu-text">Final Review</span>
+                    </a>
+                </li>
+                <?php
+            }
+            ?>
+
+            <?php 
+            $requiredRoles = array(
+                'designation' => 'division',
+                'role' => ['division_chief'],
+            );
+    
+            if ($this->role_checker->checkRole($requiredRoles)) {
+            ?>
+            
             <li class="menu-item">
                 <a href="<?=base_url().'admin/documentedinformation/approval'?>" class="menu-link">
                     <span class="menu-text">Approval</span>
                 </a>
             </li>
+            <?php
+            }
+            ?>
+            <?php 
+            $requiredRoles = array(
+                'designation' => 'division',
+                'role' => ['osqm_dco'],
+            );
+    
+            if ($this->role_checker->checkRole($requiredRoles)) {
+            ?>
             <li class="menu-item">
                 <a href="<?=base_url().'admin/documentedinformation/checking'?>" class="menu-link">
                     <span class="menu-text">Checking</span>
                 </a>
             </li>
+
+            <?php
+            }
+
+            ?>
+            <?php 
+            $requiredRoles = array(
+                'designation' => 'division',
+                'role' => ['osqm_qmr'],
+            );
+    
+            if ($this->role_checker->checkRole($requiredRoles)) {
+            ?>
+
             <li class="menu-item">
                 <a href="<?=base_url().'admin/documentedinformation/approvalForPublishing'?>" class="menu-link">
                     <span class="menu-text">Approval For Publishing</span>
                 </a>
             </li>
+            <?php
+            }
+
+            ?>
+
             <li class="menu-item">
                 <a href="<?=base_url().'admin/documentedinformation/published'?>" class="menu-link">
                     <span class="menu-text">Published</span>

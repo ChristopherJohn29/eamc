@@ -77,6 +77,12 @@ class documentedinformation extends CI_Controller {
         echo json_encode($documentedInformation);
     }
 
+    public function getDIPublishing(){
+        $documentedInformation =  $this->DocumentedInformationModel->getDocumentedInformationPublishing();
+
+        echo json_encode($documentedInformation);
+    }
+
     public function getDIPublished(){
         $documentedInformation =  $this->DocumentedInformationModel->getDocumentedInformationPublished();
 
@@ -84,6 +90,14 @@ class documentedinformation extends CI_Controller {
     }
 
     public function technicalReview(){
+
+        $requiredRoles = array(
+            'designation' => 'division',
+            'role' => ['osqm_dco'],
+        );
+
+        if ($this->role_checker->checkRole($requiredRoles)) {
+
         $data['page'] = 'admin/di_technical_review';
 		$data['title'] = 'Technical Review';
         $data['customcss'] = 'di_tr.css';
@@ -93,9 +107,23 @@ class documentedinformation extends CI_Controller {
         $data['section'] =  $this->SectionModel->getSection();
 
 		$this->load->view('template/template', $data);
+
+        } else {
+            // User doesn't have the required roles, show an error or redirect
+            echo "Access denied. You don't have the required roles.";
+        }
     }
 
     public function formsReview(){
+
+        $requiredRoles = array(
+            'designation' => 'commitee',
+            'section' => 'forms',
+            'role' => ['chair', 'member'],
+        );
+
+        if ($this->role_checker->checkRole($requiredRoles)) {
+
         $data['page'] = 'admin/di_forms_review';
 		$data['title'] = 'Forms Review';
         $data['customcss'] = 'di_forms_review.css';
@@ -105,9 +133,21 @@ class documentedinformation extends CI_Controller {
         $data['section'] =  $this->SectionModel->getSection();
 
 		$this->load->view('template/template', $data);
+
+        } else {
+            // User doesn't have the required roles, show an error or redirect
+            echo "Access denied. You don't have the required roles.";
+        }
+
     }
 
     public function finalReview(){
+        $requiredRoles = array(
+            'designation' => 'division',
+            'role' => ['department_head'],
+        );
+
+        if ($this->role_checker->checkRole($requiredRoles)) {
         $data['page'] = 'admin/di_final_review';
 		$data['title'] = 'Final Review';
         $data['customcss'] = 'di_final_review.css';
@@ -117,9 +157,21 @@ class documentedinformation extends CI_Controller {
         $data['section'] =  $this->SectionModel->getSection();
 
 		$this->load->view('template/template', $data);
+
+        } else {
+            // User doesn't have the required roles, show an error or redirect
+            echo "Access denied. You don't have the required roles.";
+        }
     }
 
     public function approval(){
+        $requiredRoles = array(
+            'designation' => 'division',
+            'role' => ['division_chief'],
+        );
+
+        if ($this->role_checker->checkRole($requiredRoles)) {
+
         $data['page'] = 'admin/di_approval';
 		$data['title'] = 'Approval';
         $data['customcss'] = 'di_approval.css';
@@ -129,10 +181,23 @@ class documentedinformation extends CI_Controller {
         $data['section'] =  $this->SectionModel->getSection();
 
 		$this->load->view('template/template', $data);
+
+        } else {
+            // User doesn't have the required roles, show an error or redirect
+            echo "Access denied. You don't have the required roles.";
+        }
     }
 
 
     public function checking(){
+
+        $requiredRoles = array(
+            'designation' => 'division',
+            'role' => ['osqm_dco'],
+        );
+
+        if ($this->role_checker->checkRole($requiredRoles)) {
+
         $data['page'] = 'admin/di_checking';
 		$data['title'] = 'Checking';
         $data['customcss'] = 'di_checking.css';
@@ -142,9 +207,23 @@ class documentedinformation extends CI_Controller {
         $data['section'] =  $this->SectionModel->getSection();
 
 		$this->load->view('template/template', $data);
+
+        } else {
+            // User doesn't have the required roles, show an error or redirect
+            echo "Access denied. You don't have the required roles.";
+        }
     }
 
+
     public function approvalForPublishing(){
+
+        $requiredRoles = array(
+            'designation' => 'division',
+            'role' => ['osqm_qmr'],
+        );
+
+        if ($this->role_checker->checkRole($requiredRoles)) {
+
         $data['page'] = 'admin/di_ap';
 		$data['title'] = 'Approval For Publishing';
         $data['customcss'] = 'di_ap.css';
@@ -154,7 +233,39 @@ class documentedinformation extends CI_Controller {
         $data['section'] =  $this->SectionModel->getSection();
 
 		$this->load->view('template/template', $data);
+        
+        } else {
+            // User doesn't have the required roles, show an error or redirect
+            echo "Access denied. You don't have the required roles.";
+        }
     }
+
+    public function publishing(){
+
+        $requiredRoles = array(
+            'designation' => 'division',
+            'role' => ['osqm_dco'],
+        );
+
+        if ($this->role_checker->checkRole($requiredRoles)) {
+
+        $data['page'] = 'admin/wdwddwddw';
+		$data['title'] = 'Publishing';
+        $data['customcss'] = 'di_publishing.css';
+        $data['customjs'] = 'di_publishing.js';
+        $data['department'] =  $this->DepartmentModel->getDepartment();
+        $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
+        $data['section'] =  $this->SectionModel->getSection();
+
+		$this->load->view('template/template', $data);
+        
+        } else {
+            // User doesn't have the required roles, show an error or redirect
+            echo "Access denied. You don't have the required roles.";
+        }
+    }
+    
+    
 
     public function published(){
         $data['page'] = 'admin/di_p';
@@ -210,7 +321,7 @@ class documentedinformation extends CI_Controller {
             $data['status'] = 'D';
         }
         else {
-            $data['status'] = 'TR';
+            $data['status'] = 'AD';
         }
    
         $save = $this->DocumentedInformationModel->updateDIReview($data, 'technical_review');
@@ -334,7 +445,7 @@ class documentedinformation extends CI_Controller {
         $data = $_POST;
 
         if($_POST['approval_for_publishing'] == 'Approved'){
-            $data['status'] = 'PUB';
+            $data['status'] = 'PUBL';
         } else {
             $data['status'] = 'CHK';
         }
@@ -346,6 +457,32 @@ class documentedinformation extends CI_Controller {
             $datahistory['doc_id'] = $data['doc_id'];
             $datahistory['process'] = "Approval For Publishing";
             $datahistory['status'] = $_POST['approval_for_publishing'];
+            $this->DocumentedInformationModel->saveHistory($datahistory);
+            echo "saved";
+        } else {
+            // Insertion failed
+            echo "error";
+        }
+    }
+
+
+    public function updatePublishing(){
+
+        $data = $_POST;
+
+        if($_POST['publishing'] == 'Approved'){
+            $data['status'] = 'PUB';
+        } else {
+            $data['status'] = 'AFP';
+        }
+   
+        $save = $this->DocumentedInformationModel->updateDIReview($data, 'publishing');
+        
+        if ($save) {
+            // Insertion successful
+            $datahistory['doc_id'] = $data['doc_id'];
+            $datahistory['process'] = "Publishing";
+            $datahistory['status'] = $_POST['publishing'];
             $this->DocumentedInformationModel->saveHistory($datahistory);
             echo "saved";
         } else {

@@ -6,6 +6,7 @@ class DocumentedInformationModel extends CI_Model {
 
         $this->db->select('documented_information.*, department.dep_name AS dep_name, section.section_name AS section_name, document_type.doc_type_name AS type, document_status.status_value AS status_name');
         $this->db->from('documented_information');
+        $this->db->where('documented_information.user_id', $this->session->userdata('user_id'));
         $this->db->join('department', 'department.id = documented_information.dep_id', 'left');
         $this->db->join('section', 'section.id = documented_information.sec_id', 'left');
         $this->db->join('document_status', 'document_status.status_code = documented_information.status', 'left');
@@ -45,6 +46,7 @@ class DocumentedInformationModel extends CI_Model {
         $this->db->select('documented_information.*, department.dep_name AS dep_name, section.section_name AS section_name, document_type.doc_type_name AS type, document_status.status_value AS status_name');
         $this->db->from('documented_information');
         $this->db->where('documented_information.status', 'TR');
+        $this->db->or_where('documented_information.status', 'AP');
         $this->db->join('department', 'department.id = documented_information.dep_id', 'left');
         $this->db->join('section', 'section.id = documented_information.sec_id', 'left');
         $this->db->join('document_status', 'document_status.status_code = documented_information.status', 'left');
@@ -77,6 +79,7 @@ class DocumentedInformationModel extends CI_Model {
         $this->db->select('documented_information.*, department.dep_name AS dep_name, section.section_name AS section_name, document_type.doc_type_name AS type, document_status.status_value AS status_name');
         $this->db->from('documented_information');
         $this->db->where('documented_information.status', 'FIR');
+        $this->db->where('documented_information.dep_id', $this->session->userdata('department'));
         $this->db->join('department', 'department.id = documented_information.dep_id', 'left');
         $this->db->join('section', 'section.id = documented_information.sec_id', 'left');
         $this->db->join('document_status', 'document_status.status_code = documented_information.status', 'left');
@@ -90,9 +93,20 @@ class DocumentedInformationModel extends CI_Model {
 
     public function getDocumentedInformationApproval(){
 
+        $division_id = $this->session->userdata('division');
+
+        $this->db->select('*');
+        $this->db->from('department');
+        $this->db->where('status', 1);
+        $this->db->where('div_id', $division_id);
+
+        $query = $this->db->get();
+        $department_ids = array_column($query->result_array(), 'id');
+
         $this->db->select('documented_information.*, department.dep_name AS dep_name, section.section_name AS section_name, document_type.doc_type_name AS type, document_status.status_value AS status_name');
         $this->db->from('documented_information');
         $this->db->where('documented_information.status', 'APR');
+        $this->db->where_in('documented_information.dep_id', $department_ids);
         $this->db->join('department', 'department.id = documented_information.dep_id', 'left');
         $this->db->join('section', 'section.id = documented_information.sec_id', 'left');
         $this->db->join('document_status', 'document_status.status_code = documented_information.status', 'left');
@@ -134,6 +148,23 @@ class DocumentedInformationModel extends CI_Model {
 
         return $result;
     }
+
+    public function getDocumentedInformationPublishing(){
+        $this->db->select('documented_information.*, department.dep_name AS dep_name, section.section_name AS section_name, document_type.doc_type_name AS type, document_status.status_value AS status_name');
+        $this->db->from('documented_information');
+        $this->db->where('documented_information.status', 'PUBL');
+        $this->db->join('department', 'department.id = documented_information.dep_id', 'left');
+        $this->db->join('section', 'section.id = documented_information.sec_id', 'left');
+        $this->db->join('document_status', 'document_status.status_code = documented_information.status', 'left');
+        $this->db->join('document_type', 'document_type.id = documented_information.doc_type_id', 'left');
+
+        $query = $this->db->get();
+        $result = $query->result_array();
+
+        return $result;
+    }
+
+    
 
     public function getDocumentedInformationPublished(){
 
