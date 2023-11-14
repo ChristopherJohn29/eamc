@@ -303,6 +303,14 @@
     </div>
 </li>
 
+<?php 
+$requiredRoles = array(
+    'designation' => 'division',
+    'role' => ['osqm_dco'],
+);
+
+if ($this->role_checker->checkRole($requiredRoles)) {
+?>
 <li class="menu-item">
     <a href="#menuMasterFile" data-bs-toggle="collapse" class="menu-link">
         <span class="menu-icon"><i data-feather="package"></i></span>
@@ -362,7 +370,10 @@
         </ul>
     </div>
 </li>
+<?php
+}
 
+?>
 
 
 
