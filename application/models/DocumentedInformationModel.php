@@ -220,7 +220,7 @@ class DocumentedInformationModel extends CI_Model {
             'revision_no' => $data['revision_no'],
             'status' => $status,
             'created_date' => date('Y-m-d H:i:s'),
-            'user_id' => 1
+            'user_id' => $this->session->userdata('user_id')
         );
         
         return $this->db->insert('documented_information', $data);
