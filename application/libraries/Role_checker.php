@@ -15,13 +15,23 @@ class Role_checker {
 
             foreach ($requiredRoles as $field => $value) {
                 // Check if the field is 'role' and if the user has any of the required roles
-                if ($field === 'role' && is_array($value) && count(array_intersect($userRoles[$field], $value)) > 0) {
-                    return true;
-                }
-
-                // Check other fields as usual
-                if (!empty($value) && isset($userRoles[$field]) && $userRoles[$field] != $value) {
-                    return false; // User does not have the required value for the specified field
+                if ($field === 'role') {
+                    if (is_array($value)) {
+                        // Check if user has any of the required roles
+                        if (count(array_intersect($value, [$userRoles[$field]])) > 0) {
+                            return true;
+                        }
+                    } else {
+                        // Check if user has the required role
+                        if ($userRoles[$field] == $value) {
+                            return true;
+                        }
+                    }
+                } else {
+                    // Check other fields as usual
+                    if (!empty($value) && isset($userRoles[$field]) && $userRoles[$field] != $value) {
+                        return false; // User does not have the required value for the specified field
+                    }
                 }
             }
 
@@ -30,4 +40,5 @@ class Role_checker {
 
         return false; // User not logged in
     }
+
 }

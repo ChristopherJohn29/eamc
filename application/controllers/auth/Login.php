@@ -38,5 +38,19 @@ class login extends CI_Controller {
         }
 	}
 
+	public function signout() {
+		// Unset user session data
+		$this->session->unset_userdata('user_id');
+		$this->session->unset_userdata('firstname');
+		$this->session->unset_userdata('department');
+		$this->session->unset_userdata('division');
+	
+		// Destroy the session
+		$this->session->sess_destroy();
+	
+		// Redirect to the login page
+		redirect('auth/login');
+	}
+
 	
 }
