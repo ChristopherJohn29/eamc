@@ -167,7 +167,7 @@ class documentedinformation extends CI_Controller {
     public function approval(){
         $requiredRoles = array(
             'designation' => 'division',
-            'role' => ['division_chief'],
+            'role' => ['div_chief'],
         );
 
         if ($this->role_checker->checkRole($requiredRoles)) {
