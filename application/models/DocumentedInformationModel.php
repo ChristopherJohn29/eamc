@@ -184,7 +184,12 @@ class DocumentedInformationModel extends CI_Model {
 
     public function getDocumentedInformationPublishedDI($department_id, $document_type_id, $section){
 
-        $this->db->select('documented_information.*, department.dep_name AS dep_name, section.section_name AS section_name, document_type.doc_type_name AS type, document_status.status_value AS status_name');
+        $subquery = $this->db->select('MAX(df.id) AS latest_file_id, df.doc_id')
+            ->from('document_files df')
+            ->group_by('df.doc_id')
+            ->get_compiled_select();
+
+        $this->db->select('documented_information.*, department.dep_name AS dep_name, section.section_name AS section_name, document_type.doc_type_name AS type, document_status.status_value AS status_name, latest_file_id.latest_file_id');
         $this->db->from('documented_information');
         $this->db->where('documented_information.status', 'PUB');
         $this->db->where('documented_information.dep_id', $department_id);
@@ -193,7 +198,9 @@ class DocumentedInformationModel extends CI_Model {
         $this->db->join('section', 'section.id = documented_information.sec_id', 'left');
         $this->db->join('document_status', 'document_status.status_code = documented_information.status', 'left');
         $this->db->join('document_type', 'document_type.id = documented_information.doc_type_id', 'left');
-        
+
+        $this->db->join("($subquery) AS latest_file_id", 'documented_information.id = latest_file_id.doc_id', 'left');
+
         if($section){
             $this->db->where('documented_information.sec_id', $section);
         }
