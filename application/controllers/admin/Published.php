@@ -47,7 +47,7 @@ class published extends CI_Controller {
         
        
 		$data['title'] = 'Published';
-        $data['customcss'] = 'di_published.css';
+        $data['customcss'] = 'portal.css';
         $data['customjs'] = 'portal.js';
         $data['department'] =  $this->DepartmentModel->getDepartment();
         $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
