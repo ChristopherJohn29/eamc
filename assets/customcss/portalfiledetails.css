@@ -4,18 +4,22 @@
 }
 
 .table thead th {
-    background-color: #ffcc00; /* Yellowish background for headers */
+    background-color: #ffcc00 !important; /* Yellowish background for headers */
 }
 
 .table tbody tr:nth-child(odd) {
-    background-color: #ffe066; /* Light yellow background for odd rows */
+    background-color: #ffd633; /* Light yellow background for odd rows */
 }
 
 .table tbody tr:nth-child(even) {
-    background-color: #ffd633; /* Darker yellow background for even rows */
+    background-color: #ffe066; /* Darker yellow background for even rows */
 }
 
 iframe {
     width: 100%;
-    height: 300px; /* Adjust the height as needed */
+    height: 900px; /* Adjust the height as needed */
+}
+
+.table tbody tr.iframe-row {
+    background-color: white; /* White background */
 }

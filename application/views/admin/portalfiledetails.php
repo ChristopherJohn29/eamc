@@ -259,7 +259,7 @@
                                     <td>Your Document Title Value</td>
                                     <td>Your Effectivity Date Value</td>
                                  </tr>
-                                 <tr>
+                                 <tr class="iframe-row">
                                     <td colspan="3">
                                           <?php 
                                           if ($filelink) {
