@@ -51,6 +51,7 @@ class published extends CI_Controller {
         $data['customjs'] = 'portal.js';
         $data['department'] =  $this->DepartmentModel->getDepartment();
         $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
+        $data['department_name'] =  $this->DepartmentModel->getDepartmentName($department);
         $data['division_id'] = $division;
         $data['department_id'] = $department;
         $data['document_type_id'] = $documenttype;

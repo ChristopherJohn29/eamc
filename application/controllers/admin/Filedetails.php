@@ -45,6 +45,22 @@ class filedetails extends CI_Controller {
 		$this->load->view('template/template', $data);
 	}
 
+    public function portalDetails($file_id)
+	{
+        $this->file_id = $file_id;
+
+        $data['department_name'] =  $this->DepartmentModel->getDepartmentName($department);
+        $data['customcss'] = 'portalfiledetails.css';
+        $data['customjs'] = 'portalfiledetails.js';
+        $data['doc_file_id'] = $this->file_id;
+		$data['filename'] =  $this->FileDetailsModel->getDocumentTitle($this->file_id);
+        $data['filelink'] =  $this->FileDetailsModel->getDocumentLink($this->file_id);
+        $data['unique_file_name'] =  $this->FileDetailsModel->getDocumentFile($this->file_id);
+
+		$this->load->view('portalfiledetails', $data);
+	}
+
+
 
     public function save()
     {

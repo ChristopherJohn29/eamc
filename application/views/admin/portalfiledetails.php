@@ -244,50 +244,44 @@
                         <div class="card">
                            <div class="card-body">
                               <h4 class="header-title mb-4"><?=$department_name?></h4>
-                              <ul class="nav nav-pills navtab-bg nav-justified">
-                                <?php 
-                                $documenttype = $this->DocumentTypeModel->getDocumentType();
-                                         
-                                foreach ($documenttype as $dtkey => $dtvalue) {
-
-                                $active = '';
-                                if($dtvalue['id'] == $document_type_id){
-                                    $active = 'active';
-                                }
-                                
-                                ?>
-                                    <li class="nav-item">
-                                        <a href="<?=base_url().'admin/portal/'.$division_id.'/'.$department_id.'/'.$dtvalue['id'].'/'.$sec_id?>" aria-expanded="false" class="nav-link <?=$active?>">
-                                            <?=$dtvalue['doc_type_name']?>
-                                        </a>
-                                    </li>
-                                <?php
-                                }
-                                
-                                ?>
-                              </ul>
-                              <div class="tab-content">
-                                 <div class="" id="home1">
-                                 <table id="di-global-datatable" class="table dt-responsive nowrap w-100">
-                                    <input type="hidden" id="division_id" value="<?=$division_id?>">
-                                    <input type="hidden" id="department_id" value="<?=$department_id?>">
-                                    <input type="hidden" id="document_type_id" value="<?=$document_type_id?>">
-                                    <input type="hidden" id="sec_id" value="<?=$sec_id?>">
-                                        <thead>
-                                            <tr>
-                                            <th>Document Title</th>
-                                            <th>Document Code</th>
-                                            <th>Department / Unit</th>
-                                            <th>Type</th>
-                                            <th>Date Submitted</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-                                 </div>
+                              <div class="">
+                              <table class="table">
+                              <thead class="thead-dark">
+                                 <tr>
+                                    <th scope="col">Document Code</th>
+                                    <th scope="col">Document Title</th>
+                                    <th scope="col">Effectivity Date</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr>
+                                    <td>Your Document Code Value</td>
+                                    <td>Your Document Title Value</td>
+                                    <td>Your Effectivity Date Value</td>
+                                 </tr>
+                                 <tr>
+                                    <td colspan="3">
+                                          <?php 
+                                          if ($filelink) {
+                                             ?><iframe src="<?=$filelink?>" id="documentIframe" allowfullscreen></iframe><?php
+                                          } else if ($unique_file_name) {
+                                             ?><iframe src="https://docs.google.com/gview?url=<?=base_url().'uploads/'.$unique_file_name?>&embedded=true" allowfullscreen frameborder="0"></iframe><?php
+                                          }
+                                          ?>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <th scope="col">Prepared By</th>
+                                    <th scope="col">Reviewed By</th>
+                                    <th scope="col">Approved By</th>
+                                 </tr>
+                                 <tr>
+                                    <td>Prepared By Value</td>
+                                    <td>Reviewed By Value</td>
+                                    <td>Approved By Value</td>
+                                 </tr>
+                              </tbody>
+                        </table>
                               </div>
                            </div>
                         </div>

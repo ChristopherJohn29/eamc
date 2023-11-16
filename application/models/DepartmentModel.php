@@ -17,6 +17,24 @@ class DepartmentModel extends CI_Model {
         return $result;
     }
 
+    public function getDepartmentName($dep_id) {
+        // Query the database to retrieve the doc_title
+        $query = $this->db->select('dep_name')
+                      ->from('department')
+                      ->where('id', $dep_id)
+                      ->get();
+
+        // Check if a result was found
+        if ($query->num_rows() > 0) {
+            return $query->row()->dep_name;
+        } else {
+            // Handle the case when no matching record is found, e.g., return null or an error message.
+            return null;
+        }
+    }
+
+    
+
     public function getDepartmentByDiv($div_id = 1){
 
         $this->db->select('department.*, user_created.email AS created_by_email, user_updated.email AS last_updated_by_email, division.div_name AS div_name');
