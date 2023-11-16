@@ -249,7 +249,7 @@ class documentedinformation extends CI_Controller {
 
         if ($this->role_checker->checkRole($requiredRoles)) {
 
-        $data['page'] = 'admin/publishing';
+        $data['page'] = 'admin/di_publishing';
 		$data['title'] = 'Publishing';
         $data['customcss'] = 'di_publishing.css';
         $data['customjs'] = 'di_publishing.js';
