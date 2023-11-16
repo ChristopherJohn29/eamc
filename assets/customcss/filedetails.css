@@ -9,3 +9,8 @@
 .view-data{
     margin-right: 5px;
 }
+
+iframe {
+    width: 100%;
+    height: 900px; /* Adjust the height as needed */
+}
