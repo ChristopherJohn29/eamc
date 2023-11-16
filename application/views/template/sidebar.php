@@ -125,7 +125,7 @@
             <?php 
             $requiredRoles = array(
                 'designation' => 'division',
-                'role' => ['division_chief'],
+                'role' => ['div_chief'],
             );
     
             if ($this->role_checker->checkRole($requiredRoles)) {
