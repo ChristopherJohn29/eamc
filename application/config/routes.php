@@ -70,3 +70,5 @@ $route['admin/loadfilerevision/(:num)'] = 'admin/filedetails/getFileRevision/$1'
 
 //published 
 $route['admin/allPublished/(:num)/(:num)/(:num)(/(:num))?'] = 'admin/published/details/$1/$2/$3/$4';
+
+$route['admin/portal/(:num)/(:num)/(:num)(/(:num))?'] = 'admin/published/portal/$1/$2/$3/$4';
