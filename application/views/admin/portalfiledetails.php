@@ -255,9 +255,9 @@
                               </thead>
                               <tbody>
                                  <tr>
-                                    <td>Your Document Code Value</td>
-                                    <td>Your Document Title Value</td>
-                                    <td>Your Effectivity Date Value</td>
+                                    <td><?=$doc_code?></td>
+                                    <td><?=$doc_title?></td>
+                                    <td><?=$effectivity_date?></td>
                                  </tr>
                                  <tr class="iframe-row">
                                     <td colspan="3">
@@ -276,9 +276,9 @@
                                     <th scope="col">Approved By</th>
                                  </tr>
                                  <tr>
-                                    <td>Prepared By Value</td>
-                                    <td>Reviewed By Value</td>
-                                    <td>Approved By Value</td>
+                                    <td><?=$prepared_by?></td>
+                                    <td><?=$final_reviewer?></td>
+                                    <td><?=$approval_person?></td>
                                  </tr>
                               </tbody>
                         </table>
