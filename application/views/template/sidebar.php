@@ -176,6 +176,24 @@
 
             ?>
 
+            <?php 
+            $requiredRoles = array(
+                'designation' => 'division',
+                'role' => ['osqm_dco'],
+            );
+    
+            if ($this->role_checker->checkRole($requiredRoles)) {
+            ?>
+            <li class="menu-item">
+                <a href="<?=base_url().'admin/documentedinformation/publishing'?>" class="menu-link">
+                    <span class="menu-text">Publishing</span>
+                </a>
+            </li>
+
+            <?php
+            }
+
+            ?>
             <li class="menu-item">
                 <a href="<?=base_url().'admin/documentedinformation/published'?>" class="menu-link">
                     <span class="menu-text">Published</span>
