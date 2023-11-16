@@ -45,7 +45,7 @@ class filedetails extends CI_Controller {
 		$this->load->view('template/template', $data);
 	}
 
-    public function portalDetails($file_id)
+    public function portalDetails($department, $file_id)
 	{
         $this->file_id = $file_id;
 
@@ -57,7 +57,7 @@ class filedetails extends CI_Controller {
         $data['filelink'] =  $this->FileDetailsModel->getDocumentLink($this->file_id);
         $data['unique_file_name'] =  $this->FileDetailsModel->getDocumentFile($this->file_id);
 
-		$this->load->view('portalfiledetails', $data);
+		$this->load->view('admin/portalfiledetails', $data);
 	}
 
 
