@@ -37,7 +37,7 @@ var diList = {
                         var status = item.status;
                         var effectivity_date = item.effectivity_date;
                         var revision_no = item.revision_no;
-                        var latest_file_id = latest_file_id;
+                        var latest_file_id = item.latest_file_id;
 
                         if(status == 'PUB'){
                             $action_button = "";
