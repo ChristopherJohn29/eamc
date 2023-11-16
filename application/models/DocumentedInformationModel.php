@@ -30,24 +30,29 @@ class DocumentedInformationModel extends CI_Model {
     }
 
     public function getDIPortal($doc_id){
-        $this->db->select('di.*');
+        $this->db->select('di.*, 
+        u1.fullname AS forms_reviewer, 
+        u2.fullname AS technical_reviewer, 
+        u3.fullname AS final_reviewer, 
+        u4.fullname AS approval_person, 
+        u5.fullname AS checker, 
+        u6.fullname AS approval_for_publishing_person, 
+        u7.fullname AS publisher,
+        u8.fullname AS prepared_by');
         $this->db->from('documented_information AS di');
-        // $this->db->join('users AS u1', 'u1.id = di.forms_review_by', 'left');
-        // $this->db->join('users AS u2', 'u2.id = di.technical_review_by', 'left');
-        // $this->db->join('users AS u3', 'u3.id = di.final_review_by', 'left');
-        // $this->db->join('users AS u4', 'u4.id = di.approval_by', 'left');
-        // $this->db->join('users AS u5', 'u5.id = di.checking_by', 'left');
-        // $this->db->join('users AS u6', 'u6.id = di.approval_for_publishing_by', 'left');
-        // $this->db->join('users AS u7', 'u7.id = di.publishing_by', 'left');
-        // $this->db->join('users AS u8', 'u8.id = di.user_id', 'left');
+        $this->db->join('users AS u1', 'u1.id = di.forms_review_by', 'left');
+        $this->db->join('users AS u2', 'u2.id = di.technical_review_by', 'left');
+        $this->db->join('users AS u3', 'u3.id = di.final_review_by', 'left');
+        $this->db->join('users AS u4', 'u4.id = di.approval_by', 'left');
+        $this->db->join('users AS u5', 'u5.id = di.checking_by', 'left');
+        $this->db->join('users AS u6', 'u6.id = di.approval_for_publishing_by', 'left');
+        $this->db->join('users AS u7', 'u7.id = di.publishing_by', 'left');
+        $this->db->join('users AS u8', 'u8.id = di.user_id', 'left');
         $this->db->where('di.id', intval($doc_id));
-
-        
 
         $query = $this->db->get();
         $result = $query->result_array();
 
-        var_dump($result);
         return $result;
     }
 
