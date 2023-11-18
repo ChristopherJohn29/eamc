@@ -74,6 +74,7 @@
                   <table id="document-type-datatable" class="table dt-responsive nowrap w-100">
                      <thead>
                         <tr>
+                           <th>ID</th>
                            <th>Document Type</th>
                            <th>Created By</th>
                            <th>Date Created</th>

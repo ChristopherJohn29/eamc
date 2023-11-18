@@ -100,6 +100,7 @@
                   <table id="section-datatable" class="table dt-responsive nowrap w-100">
                      <thead>
                         <tr>
+                           <th>ID</th>
                            <th>Section Name</th>
                            <th>Department</th>
                            <th>Created By</th>

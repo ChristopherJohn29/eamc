@@ -72,6 +72,7 @@
                   <table id="division-datatable" class="table dt-responsive nowrap w-100">
                      <thead>
                         <tr>
+                           <th>ID</th>
                            <th>Name</th>
                            <th>Created By</th>
                            <th>Date Created</th>

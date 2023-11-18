@@ -240,7 +240,7 @@ var documenttype = {
                         var last_updated_by_email = item.last_updated_by_email ? item.last_updated_by_email : '';
                     
                         // Do something with the data, for example, display it on the page
-                        $('#document-type-datatable tbody').append("<tr><td>"+doc_type_name+"</td><td>"+created_by_email+"</td><td>"+created_date+"</td><td>"+last_updated_by_email+"</td><td><button type='button' title='Edit'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' class='btn btn-sm btn-warning waves-effect waves-light edit-data' data-id='"+id+"' data-doc_type_name='"+doc_type_name+"'><i class='mdi mdi-file'></i></button><button title='Delete'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-danger waves-effect waves-light data-delete' data-id='"+id+"'><i class='mdi mdi-close'></i></button></td></tr>");
+                        $('#document-type-datatable tbody').append("<tr><td>"+id+"</td><td>"+doc_type_name+"</td><td>"+created_by_email+"</td><td>"+created_date+"</td><td>"+last_updated_by_email+"</td><td><button type='button' title='Edit'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' class='btn btn-sm btn-warning waves-effect waves-light edit-data' data-id='"+id+"' data-doc_type_name='"+doc_type_name+"'><i class='mdi mdi-file'></i></button><button title='Delete'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-danger waves-effect waves-light data-delete' data-id='"+id+"'><i class='mdi mdi-close'></i></button></td></tr>");
                     });
 
                     tippy('*[data-plugin="tippy"]');

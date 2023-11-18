@@ -97,6 +97,7 @@
                   <table id="department-datatable" class="table dt-responsive nowrap w-100">
                      <thead>
                         <tr>
+                           <th>ID</th>
                            <th>Division</th>
                            <th>Department</th>
                            <th>Created By</th>
