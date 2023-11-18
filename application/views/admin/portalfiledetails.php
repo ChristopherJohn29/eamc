@@ -243,7 +243,7 @@
                      <div class="col-12">
                         <div class="card">
                            <div class="card-body">
-                              <h4 class="header-title mb-4"><?=$department_name?></h4>
+                              <h2 class="mb-4 text-center"><?=$department_name?></h2>
                               <div class="">
                               <table class="table">
                               <thead class="thead-dark">
