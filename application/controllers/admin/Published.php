@@ -9,6 +9,7 @@ class published extends CI_Controller {
         $this->load->model('DocumentedInformationModel');
         $this->load->model('DepartmentModel');
         $this->load->model('DocumentTypeModel');
+        $this->load->model('SectionModel');
         
         $this->authentication->check_user_session();
     }
@@ -42,16 +43,19 @@ class published extends CI_Controller {
     }
 
 
-    public function portal($division, $department, $documenttype, $section = 0){
+    public function portal($division, $department, $documenttype, $section = null){
 
-        
-       
 		$data['title'] = 'Published';
         $data['customcss'] = 'portal.css';
         $data['customjs'] = 'portal.js';
         $data['department'] =  $this->DepartmentModel->getDepartment();
         $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
         $data['department_name'] =  $this->DepartmentModel->getDepartmentName($department);
+
+        if($section){
+            $data['department_name'] =  $this->SectionModel->getSectionName($section);
+        }
+
         $data['division_id'] = $division;
         $data['department_id'] = $department;
         $data['document_type_id'] = $documenttype;
@@ -59,7 +63,5 @@ class published extends CI_Controller {
 
 		$this->load->view('admin/portal', $data);
     }
-
-
 
 }

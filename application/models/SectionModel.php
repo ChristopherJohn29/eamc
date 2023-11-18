@@ -40,5 +40,21 @@ class SectionModel extends CI_Model {
         $this->db->where('id', $data['id']);
         return $this->db->update('section', array('section_name' => $data['section_name'], 'dep_id' => $data['dep_id'], 'last_update_by' => $this->session->userdata('user_id')));
     }
+
+    public function getSectionName($sec_id){
+        // Query the database to retrieve the doc_title
+        $query = $this->db->select('section_name')
+                      ->from('section')
+                      ->where('id', $sec_id)
+                      ->get();
+
+        // Check if a result was found
+        if ($query->num_rows() > 0) {
+            return $query->row()->section_name;
+        } else {
+            // Handle the case when no matching record is found, e.g., return null or an error message.
+            return null;
+        }
+    }
     
 }
