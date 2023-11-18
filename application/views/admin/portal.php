@@ -275,12 +275,9 @@
                                     <input type="hidden" id="sec_id" value="<?=$sec_id?>">
                                         <thead>
                                             <tr>
-                                            <th>Document Title</th>
+                                            <th class="document-title">Document Title</th>
                                             <th>Document Code</th>
-                                            <th>Department / Unit</th>
-                                            <th>Type</th>
-                                            <th>Date Submitted</th>
-                                            <th>Status</th>
+                                            <th>Effectivity Date</th>
                                             <th>Action</th>
                                             </tr>
                                         </thead>
