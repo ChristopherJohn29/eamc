@@ -261,16 +261,38 @@
                                  </tr>
                                  <tr class="iframe-row">
                                     <td colspan="3">
-                                          <?php 
-                                          if ($filelink) {
-                                             ?><iframe src="<?=$filelink?>" id="documentIframe" allowfullscreen></iframe><?php
-                                          } else if ($unique_file_name) {
-                                             ?><iframe src="https://docs.google.com/gview?url=<?=base_url().'uploads/'.$unique_file_name?>&embedded=true" allowfullscreen frameborder="0"></iframe><?php
+                                          <?php
+                                          if( !$filelink ){
+                                             $upload_document['url'] = base_url().'uploads/'.$unique_file_name;
+                                             if( strpos($upload_document['url'],'.doc') !== false || strpos($upload_document['url'],'.pptx') !== false || strpos($upload_document['url'],'.ppsx') !== false ){
+                                                $iframe_src = 'https://view.officeapps.live.com/op/embed.aspx?src='.$upload_document['url'];
+                                             }
+                                             else{
+                                                $iframe_src = $upload_document['url'].'#toolbar=0&navpanes=0';
+                                             }
+                                             $iframe_html ='<iframe src="'.$iframe_src.'" frameborder="0" style="border:1px solid black;">
+                                             </iframe>';
+                                          }else{
+                                                $file_url = $filelink;
+                                                $iframe_src = $file_url;
+                                                if( strpos($file_url,'drive.google') !== false ){
+                                                   $url = str_replace('view?usp=sharing', 'preview', $file_url);
+                                                   $iframe_src = $url;
+                                                   $iframe_html ='<iframe sandbox="allow-same-origin allow-scripts" src="'.$iframe_src.'" frameborder="0" style="border:1px solid black;">
+                                                                     </iframe>';
+                                                } else {
+                                                   $url = str_replace('pub?', 'embed?', $file_url);
+                                                   $iframe_src = $url;
+                                                   $iframe_html ='<iframe sandbox="allow-same-origin allow-scripts allow-popups allow-forms" src="'.$iframe_src.'" frameborder="0" style="border:1px solid black;">
+                                                                     </iframe>';
+                                                }
                                           }
+
+                                          echo $iframe_html;
                                           ?>
                                     </td>
                                  </tr>
-                                 <tr>
+                                 <tr class="foot-header">
                                     <th scope="col">Prepared By</th>
                                     <th scope="col">Reviewed By</th>
                                     <th scope="col">Approved By</th>

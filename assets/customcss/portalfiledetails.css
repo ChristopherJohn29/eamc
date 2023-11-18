@@ -5,6 +5,7 @@
 
 .table thead th {
     background-color: #ffcc00 !important; /* Yellowish background for headers */
+    color: black;
 }
 
 .table tbody tr:nth-child(odd) {
@@ -22,4 +23,9 @@ iframe {
 
 .table tbody tr.iframe-row {
     background-color: white; /* White background */
+}
+
+.foot-header{
+    background-color: #ffcc00 !important; /* Yellowish background for headers */
+    color: black;
 }
