@@ -66,14 +66,35 @@
             <div class="page-title-box">
                <h4 class="page-title"><?=ucwords($filename)?> <?=$title?></h4>
                <div class="">
-                  <?php 
-                  if($filelink){
-                     ?><iframe src="<?=$filelink?>" id="documentIframe" class="col-lg-12" allowfullscreen></iframe><?php
-                  } else if($unique_file_name) {
-                     ?><iframe class="col-lg-12" src="https://docs.google.com/gview?url=<?=base_url().'uploads/'.$unique_file_name?>&embedded=true" allowfullscreen frameborder="0"></iframe><?php
+               <?php
+               if( !$filelink ){
+                  $upload_document['url'] = base_url().'uploads/'.$unique_file_name;
+                  if( strpos($upload_document['url'],'.doc') !== false || strpos($upload_document['url'],'.pptx') !== false || strpos($upload_document['url'],'.ppsx') !== false ){
+                     $iframe_src = 'https://view.officeapps.live.com/op/embed.aspx?src='.$upload_document['url'];
                   }
-                  
-                  ?>
+                  else{
+                     $iframe_src = $upload_document['url'].'#toolbar=0&navpanes=0';
+                  }
+                  $iframe_html ='<iframe src="'.$iframe_src.'" frameborder="0" style="border:1px solid black;">
+                  </iframe>';
+               }else{
+                     $file_url = $filelink;
+                     $iframe_src = $file_url;
+                     if( strpos($file_url,'drive.google') !== false ){
+                        $url = str_replace('view?usp=sharing', 'preview', $file_url);
+                        $iframe_src = $url;
+                        $iframe_html ='<iframe sandbox="allow-same-origin allow-scripts" src="'.$iframe_src.'" frameborder="0" style="border:1px solid black;">
+                                          </iframe>';
+                     } else {
+                        $url = str_replace('pub?', 'embed?', $file_url);
+                        $iframe_src = $url;
+                        $iframe_html ='<iframe sandbox="allow-same-origin allow-scripts allow-popups allow-forms" src="'.$iframe_src.'" frameborder="0" style="border:1px solid black;">
+                                          </iframe>';
+                     }
+               }
+
+               echo $iframe_html;
+               ?>
                </div>
                <div class="page-title-right mb-2">
                <a href="<?=$goback?>" type="button" class="btn btn-danger waves-effect waves-light"><i class="fas fa-arrow-left"></i> Go Back</a>
