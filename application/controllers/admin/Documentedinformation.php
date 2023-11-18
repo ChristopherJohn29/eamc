@@ -29,7 +29,17 @@ class documentedinformation extends CI_Controller {
     }
 
     public function getDIList(){
-        $documentedInformation =  $this->DocumentedInformationModel->getDocumentedInformationList();
+
+        $requiredRoles = array(
+            'designation' => 'division',
+            'role' => ['osqm_dco', 'osqm_qmr'],
+        );
+
+        if ($this->role_checker->checkRole($requiredRoles)) {
+            $documentedInformation =  $this->DocumentedInformationModel->getDocumentedInformationListAll();
+        } else {
+            $documentedInformation =  $this->DocumentedInformationModel->getDocumentedInformationList();
+        }
 
         echo json_encode($documentedInformation);
     }

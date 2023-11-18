@@ -1,6 +1,3 @@
-
-
-
 <li class="menu-title">Navigation</li>
 
 <li class="menu-item menuitem-active">
