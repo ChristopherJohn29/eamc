@@ -243,66 +243,24 @@
                                                     foreach ($section as $skey => $svalue) {
                                                         ?>
                                                         <li class="menu-item">
-                                                            <a href="#<?=str_replace(' ','',$svalue['section_name']).$svalue['id']?>" data-bs-toggle="collapse" class="menu-link">
+                                                                <a target="_blank" href="<?=base_url().'admin/portal/'.$value['id'].'/'.$dvalue['id'].'/1/'.$svalue['id']?>" class="menu-link">
                                                                 <span class="menu-text"><?=$svalue['section_name']?></span>
-                                                                <span class="menu-arrow"></span>
                                                             </a>
-                                                            <div class="collapse" id="<?=str_replace(' ','',$svalue['section_name']).$svalue['id']?>" style="">
-                                                                <ul class="sub-menu">
-                                                                    <?php 
-                                                                    
-                                                                    foreach ($documenttype as $dtkey => $dtvalue) {
-                                                                    ?>
-                                                                        <li class="menu-item">
-                                                                            <a href="<?=base_url().'admin/allPublished/'.$value['id'].'/'.$dvalue['id'].'/'.$dtvalue['id'].'/'.$svalue['id']?>" class="menu-link">
-                                                                                <span class="menu-text"><?=$dtvalue['doc_type_name']?></span>
-                                                                            </a>
-                                                                        </li>
-                                                                    <?php
-                                                                    }
-                                                                    
-                                                                    ?>
-                                                                    
-                                                                </ul>
-                                                            </div>
                                                         </li>
-                                                        <?php
-                                                    }
-                                                ?>
-                                                
+                                                <?php           
+                                                }
+                                        ?>
                                             </ul>
-                                        </div>
-                                    </li>
-                                    <?php
-
+                                        <?php            
                                                 }else {
                                         ?>
-                                        <li class="menu-item">
-                                            <a href="#<?=str_replace(' ','',$dvalue['dep_name']).$dvalue['id']?>" data-bs-toggle="collapse" class="menu-link">
-                                                <span class="menu-text"><?=$dvalue['dep_name']?></span>
-                                                <span class="menu-arrow"></span>
-                                            </a>
-                                            <div class="collapse" id="<?=str_replace(' ','',$dvalue['dep_name']).$dvalue['id']?>" style="">
-                                                <ul class="sub-menu">
-                                                    <?php 
-                                                    
-                                                    foreach ($documenttype as $dtkey => $dtvalue) {
-                                                    ?>
-                                                        <li class="menu-item">
-                                                            <a href="<?=base_url().'admin/allPublished/'.$value['id'].'/'.$dvalue['id'].'/'.$dtvalue['id'].'/0'?>" class="menu-link">
-                                                                <span class="menu-text"><?=$dtvalue['doc_type_name']?></span>
-                                                            </a>
-                                                        </li>
-                                                    <?php
-                                                    }
-                                                    
-                                                    ?>
-                                                    
-                                                </ul>
-                                            </div>
-                                        </li>
+                                            <li class="menu-item">
+                                                    <a target="_blank" href="<?=base_url().'admin/portal/'.$value['id'].'/'.$dvalue['id'].'/1/0'?>" class="menu-link">
+                                                    <span class="menu-text"><?=$dvalue['dep_name']?></span>
+                                                </a>
+                                            </li>
                                         <?php
-                                    }
+                                        }
                                 }
                             ?>
                             
