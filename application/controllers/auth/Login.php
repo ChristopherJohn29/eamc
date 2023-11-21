@@ -15,20 +15,25 @@ class login extends CI_Controller {
 
 	public function index()
 	{	
-		if (isset($_SERVER['HTTP_REFERER'])) {
-			$referer = $_SERVER['HTTP_REFERER'];
 		
-			// Check if the referrer is on the same server and contains "admin/portal"
-			if (
-				strpos($referer, $_SERVER['HTTP_HOST']) !== false 
-				&& strpos($referer, 'admin/portal') !== false
-			) {
-				$data['redirect'] = $referer;
+		if(isset($_GET['redirect'])){
+			$data['redirect'] = $_GET['redirect'];
+		} else {
+			if (isset($_SERVER['HTTP_REFERER'])) {
+				$referer = $_SERVER['HTTP_REFERER'];
+			
+				// Check if the referrer is on the same server and contains "admin/portal"
+				if (
+					strpos($referer, $_SERVER['HTTP_HOST']) !== false 
+					&& strpos($referer, 'admin/portal') !== false
+				) {
+					$data['redirect'] = $referer;
+				} else {
+					$data['redirect'] = base_url().'admin/dashboard';
+				}
 			} else {
 				$data['redirect'] = base_url().'admin/dashboard';
 			}
-		} else {
-			$data['redirect'] = base_url().'admin/dashboard';
 		}
 
 		$this->load->view('auth/login', $data);
