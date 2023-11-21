@@ -11,6 +11,8 @@ class dashboard extends CI_Controller {
         // $this->load->model('DocumentInformationModel');
         // $this->load->model('CarModel');
         $this->authentication->check_user_session();
+		$this->role_checker->checkViewerRole();
+		
     }
 
 	public function index()

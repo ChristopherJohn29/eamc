@@ -34,6 +34,7 @@ class register extends CI_Controller {
 			'email' => $_POST['email'],
 			'mobile_number' => $_POST['mobile_number'],
 			'designation' => $_POST['designation'],
+			'position' => $_POST['position'],
 			'section' => $_POST['section'],
 			'role' => $_POST['role'],
 			'department' => $_POST['department'],

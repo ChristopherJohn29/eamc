@@ -16,7 +16,8 @@ class documentedinformation extends CI_Controller {
     }
 
     public function index(){
-
+        $this->role_checker->checkViewerRole();
+        
         $data['page'] = 'admin/di_list';
 		$data['title'] = 'Documented Information List';
         $data['customcss'] = 'di_list.css';

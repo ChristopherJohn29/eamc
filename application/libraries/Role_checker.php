@@ -41,4 +41,12 @@ class Role_checker {
         return false; // User not logged in
     }
 
+    public function checkViewerRole() {
+        if ($this->checkRole(['role' => 'viewer'])) {
+
+            $section = $this->CI->session->userdata('section') ? $this->CI->session->userdata('department') : 0;
+            redirect(base_url().'admin/portal/'.$this->CI->session->userdata('division').'/'.$this->CI->session->userdata('department').'/1/'.$section); // Redirect if role is 'viewer'
+        }
+    }
+
 }

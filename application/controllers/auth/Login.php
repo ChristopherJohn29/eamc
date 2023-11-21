@@ -14,8 +14,24 @@ class login extends CI_Controller {
     }
 
 	public function index()
-	{
-		$this->load->view('auth/login');
+	{	
+		if (isset($_SERVER['HTTP_REFERER'])) {
+			$referer = $_SERVER['HTTP_REFERER'];
+		
+			// Check if the referrer is on the same server and contains "admin/portal"
+			if (
+				strpos($referer, $_SERVER['HTTP_HOST']) !== false 
+				&& strpos($referer, 'admin/portal') !== false
+			) {
+				$data['redirect'] = $referer;
+			} else {
+				$data['redirect'] = base_url().'admin/dashboard';
+			}
+		} else {
+			$data['redirect'] = base_url().'admin/dashboard';
+		}
+
+		$this->load->view('auth/login', $data);
 	}
 
 	public function signin(){
@@ -30,6 +46,7 @@ class login extends CI_Controller {
 			$this->session->set_userdata('firstname', $user->firstname);
 			$this->session->set_userdata('department', $user->department);
 			$this->session->set_userdata('division', $user->division);
+			$this->session->set_userdata('role', $user->role);
 
 			echo 'saved';
         } else {
@@ -43,7 +60,7 @@ class login extends CI_Controller {
 		$this->session->unset_userdata('user_id');
 		$this->session->unset_userdata('firstname');
 		$this->session->unset_userdata('department');
-		$this->session->unset_userdata('division');
+		$this->session->unset_userdata('role');
 	
 		// Destroy the session
 		$this->session->sess_destroy();

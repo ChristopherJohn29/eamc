@@ -11,6 +11,7 @@ class car extends CI_Controller {
         $this->load->model('SourceModel');
         $this->load->model('DivisionModel');
         $this->authentication->check_user_session();
+        $this->role_checker->checkViewerRole();
     }
 
 

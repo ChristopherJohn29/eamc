@@ -17,7 +17,8 @@ class filedetails extends CI_Controller {
     }
 
 	public function details($file_id)
-	{
+	{   
+        $this->role_checker->checkViewerRole();
         $this->file_id = $file_id;
 
         if (isset($_SERVER['HTTP_REFERER'])) {

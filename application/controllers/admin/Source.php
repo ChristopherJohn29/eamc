@@ -14,6 +14,8 @@ class source extends CI_Controller {
 
 	public function index()
 	{
+
+        $this->role_checker->checkViewerRole();
 		$data['page'] = 'admin/source';
 		$data['title'] = 'Source';
         $data['customcss'] = 'source.css';

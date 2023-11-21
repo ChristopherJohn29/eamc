@@ -16,7 +16,7 @@ class published extends CI_Controller {
 
     public function details($division, $department, $documenttype, $section = 0){
 
-        
+        $this->role_checker->checkViewerRole();
         $data['page'] = 'admin/di_published';
 		$data['title'] = 'Published';
         $data['customcss'] = 'di_published.css';

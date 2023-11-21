@@ -16,7 +16,9 @@ var login = {
                     success: function (response) {
                         // Handle the response from the server
                         if(response == 'saved'){
-                            window.location.href = '../admin/dashboard';
+
+                            redirect = jQuery('#redirect').val();
+                            window.location.href = redirect;
                         }else {
                             jQuery('.login-error').removeClass('hidden');
                         }

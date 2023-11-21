@@ -87,12 +87,17 @@
                                 </div>
                             </div>
                             <div class="row mb-2 first col-md-12">
-                                <div class="form-group">
+                                <div class="form-group col-md-6">
                                     <label class="form-label" for="designation">Designation</label>
                                     <select class="form-control" id="designation" required>
                                         <option value="committee">Committee</option>
                                         <option value="division">Division</option>
                                     </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="form-label" for="position">Position</label>
+                                    <input type="text" class="form-control" id="position" placeholder="position" required>
+                                    <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                 </div>
                             </div>
                             <div class="row mb-2 second committee col-md-12">
@@ -195,11 +200,12 @@
                                     echo '<div class="form-group d-none col-md-6 third '.$value['id'].'-division ">
                                           <label class="form-label" for="'.$value['id'].'-division">Role</label>
                                           <select class="form-control division" id="'.$value['id'].'-division">
+                                             <option value="iso_coordinator">ISO Coordinator</option>
                                              <option value="div_chief">Division Chief</option>
                                              <option value="dqt_member">DQT Member</option>
-                                             <option value="iso_coordinator">ISO Coordinator</option>
                                              <option value="department_head">Department Head</option>
                                              <option value="section_head">Section/Unit Head</option>
+                                             <option value="viewer">Viewer</option>
                                           </select>
                                        </div>';
                                  }

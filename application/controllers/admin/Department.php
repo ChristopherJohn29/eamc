@@ -14,12 +14,13 @@ class department extends CI_Controller {
 
 	public function index()
 	{
+        $this->role_checker->checkViewerRole();
 		$data['page'] = 'admin/department';
 		$data['title'] = 'Department';
         $data['customcss'] = 'department.css';
         $data['customjs'] = 'department.js';
         $data['division'] =  $this->DivisionModel->getDivision();
-
+        
 		$this->load->view('template/template', $data);
 	}
 

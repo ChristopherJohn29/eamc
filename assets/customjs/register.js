@@ -41,6 +41,7 @@ var register = {
                 var username = jQuery('#username').val();
                 var password = jQuery('#password').val();
                 var mobileNumber = jQuery('#mobileNumber').val();
+                var position = jQuery('#position').val();
                 var designation = jQuery('#designation').val();
                 var section = '';
                 var department = '';
@@ -67,6 +68,7 @@ var register = {
                     email : email,
                     mobile_number : mobileNumber,
                     designation : designation,
+                    position : position,
                     section : section,
                     role : role,
                     department : department,
@@ -174,6 +176,20 @@ var register = {
         $('#username').on('input', function() {
             $(this).val($(this).val().toUpperCase());
         });
+    },
+
+    divisionOnChange: function (){
+        jQuery('.division').change(function(){
+
+            $div = $(this).val();
+
+            if($div == 'div_chief'){
+                jQuery('.department').val('');
+                jQuery('.department').attr('disabled', true);
+            } else {
+                jQuery('.department').attr('disabled', false);
+            }
+        });
     }
 
 
@@ -184,4 +200,5 @@ jQuery(document).ready(function(){
     register.second();
     register.submitForm();
     register.username();
+    register.divisionOnChange();
 });

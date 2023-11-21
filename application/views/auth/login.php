@@ -35,6 +35,7 @@
                            <p class="text-muted mb-4 mt-3">Enter your email address and password to access admin panel.</p>
                         </div>
                         <form action="#" id="login">
+                           <input class="form-control" type="hidden" id="redirect" value="<?=$redirect?>">
                            <div class="mb-3">
                               <label for="emailaddress" class="form-label">Username or Email address</label>
                               <input class="form-control" type="text" id="email" required="" placeholder="Enter your email">

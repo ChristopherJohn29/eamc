@@ -8,6 +8,7 @@ class users extends CI_Controller {
 
         $this->load->model('UsersModel');
         $this->authentication->check_user_session();
+        $this->role_checker->checkViewerRole();
     }
 
     public function newUsers(){

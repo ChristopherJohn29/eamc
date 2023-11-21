@@ -19,7 +19,7 @@ class files extends CI_Controller {
 
 	public function details($doc_id, $doc_user_id)
 	{
-        
+        $this->role_checker->checkViewerRole();
         $this->doc_id = $doc_id;
         $this->doc_user_id = $doc_user_id;
 

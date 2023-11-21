@@ -10,6 +10,7 @@ class Authentication {
 
     public function check_user_session() {
         $user_id = $this->CI->session->userdata('user_id');
+        $role = $this->CI->session->userdata('role');
         if (empty($user_id)) {
             // User is not logged in, redirect to the login page or show an access denied page.
             redirect('auth/login'); // Replace 'login' with your login route.
