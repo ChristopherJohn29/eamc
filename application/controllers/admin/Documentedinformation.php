@@ -22,7 +22,18 @@ class documentedinformation extends CI_Controller {
 		$data['title'] = 'Documented Information List';
         $data['customcss'] = 'di_list.css';
         $data['customjs'] = 'di_list.js';
-        $data['department'] =  $this->DepartmentModel->getDepartment();
+
+        $requiredRoles = array(
+            'designation' => 'division',
+            'role' => ['osqm_dco', 'osqm_qmr'],
+        );
+
+        if (!$this->role_checker->checkRole($requiredRoles)) {
+            $data['department'] =  $this->DepartmentModel->getDepartment();
+        } else {
+            $data['department'] =  $this->DepartmentModel->loadDepartment();
+        }
+
         $data['section'] =  $this->SectionModel->getSection();
         $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
 
@@ -113,7 +124,18 @@ class documentedinformation extends CI_Controller {
 		$data['title'] = 'Technical Review';
         $data['customcss'] = 'di_tr.css';
         $data['customjs'] = 'di_tr.js';
-        $data['department'] =  $this->DepartmentModel->getDepartment();
+
+        $requiredRoles = array(
+            'designation' => 'division',
+            'role' => ['osqm_dco', 'osqm_qmr'],
+        );
+
+        if (!$this->role_checker->checkRole($requiredRoles)) {
+            $data['department'] =  $this->DepartmentModel->getDepartment();
+        } else {
+            $data['department'] =  $this->DepartmentModel->loadDepartment();
+        }
+
         $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
         $data['section'] =  $this->SectionModel->getSection();
 
@@ -139,7 +161,18 @@ class documentedinformation extends CI_Controller {
 		$data['title'] = 'Forms Review';
         $data['customcss'] = 'di_forms_review.css';
         $data['customjs'] = 'di_forms_review.js';
-        $data['department'] =  $this->DepartmentModel->getDepartment();
+
+        $requiredRoles = array(
+            'designation' => 'division',
+            'role' => ['osqm_dco', 'osqm_qmr'],
+        );
+
+        if (!$this->role_checker->checkRole($requiredRoles)) {
+            $data['department'] =  $this->DepartmentModel->getDepartment();
+        } else {
+            $data['department'] =  $this->DepartmentModel->loadDepartment();
+        }
+
         $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
         $data['section'] =  $this->SectionModel->getSection();
 
@@ -163,7 +196,18 @@ class documentedinformation extends CI_Controller {
 		$data['title'] = 'Final Review';
         $data['customcss'] = 'di_final_review.css';
         $data['customjs'] = 'di_final_review.js';
-        $data['department'] =  $this->DepartmentModel->getDepartment();
+
+        $requiredRoles = array(
+            'designation' => 'division',
+            'role' => ['osqm_dco', 'osqm_qmr'],
+        );
+
+        if (!$this->role_checker->checkRole($requiredRoles)) {
+            $data['department'] =  $this->DepartmentModel->getDepartment();
+        } else {
+            $data['department'] =  $this->DepartmentModel->loadDepartment();
+        }
+
         $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
         $data['section'] =  $this->SectionModel->getSection();
 
@@ -187,7 +231,18 @@ class documentedinformation extends CI_Controller {
 		$data['title'] = 'Approval';
         $data['customcss'] = 'di_approval.css';
         $data['customjs'] = 'di_approval.js';
-        $data['department'] =  $this->DepartmentModel->getDepartment();
+
+        $requiredRoles = array(
+            'designation' => 'division',
+            'role' => ['osqm_dco', 'osqm_qmr'],
+        );
+
+        if (!$this->role_checker->checkRole($requiredRoles)) {
+            $data['department'] =  $this->DepartmentModel->getDepartment();
+        } else {
+            $data['department'] =  $this->DepartmentModel->loadDepartment();
+        }
+
         $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
         $data['section'] =  $this->SectionModel->getSection();
 
@@ -213,7 +268,18 @@ class documentedinformation extends CI_Controller {
 		$data['title'] = 'Checking';
         $data['customcss'] = 'di_checking.css';
         $data['customjs'] = 'di_checking.js';
-        $data['department'] =  $this->DepartmentModel->getDepartment();
+
+        $requiredRoles = array(
+            'designation' => 'division',
+            'role' => ['osqm_dco', 'osqm_qmr'],
+        );
+
+        if (!$this->role_checker->checkRole($requiredRoles)) {
+            $data['department'] =  $this->DepartmentModel->getDepartment();
+        } else {
+            $data['department'] =  $this->DepartmentModel->loadDepartment();
+        }
+
         $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
         $data['section'] =  $this->SectionModel->getSection();
 
@@ -239,7 +305,18 @@ class documentedinformation extends CI_Controller {
 		$data['title'] = 'Approval For Publishing';
         $data['customcss'] = 'di_ap.css';
         $data['customjs'] = 'di_ap.js';
-        $data['department'] =  $this->DepartmentModel->getDepartment();
+
+        $requiredRoles = array(
+            'designation' => 'division',
+            'role' => ['osqm_dco', 'osqm_qmr'],
+        );
+
+        if (!$this->role_checker->checkRole($requiredRoles)) {
+            $data['department'] =  $this->DepartmentModel->getDepartment();
+        } else {
+            $data['department'] =  $this->DepartmentModel->loadDepartment();
+        }
+
         $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
         $data['section'] =  $this->SectionModel->getSection();
 
@@ -264,7 +341,18 @@ class documentedinformation extends CI_Controller {
 		$data['title'] = 'Publishing';
         $data['customcss'] = 'di_publishing.css';
         $data['customjs'] = 'di_publishing.js';
-        $data['department'] =  $this->DepartmentModel->getDepartment();
+        
+        $requiredRoles = array(
+            'designation' => 'division',
+            'role' => ['osqm_dco', 'osqm_qmr'],
+        );
+
+        if (!$this->role_checker->checkRole($requiredRoles)) {
+            $data['department'] =  $this->DepartmentModel->getDepartment();
+        } else {
+            $data['department'] =  $this->DepartmentModel->loadDepartment();
+        }
+
         $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
         $data['section'] =  $this->SectionModel->getSection();
 
@@ -283,7 +371,18 @@ class documentedinformation extends CI_Controller {
 		$data['title'] = 'Published';
         $data['customcss'] = 'di_p.css';
         $data['customjs'] = 'di_p.js';
-        $data['department'] =  $this->DepartmentModel->getDepartment();
+
+        $requiredRoles = array(
+            'designation' => 'division',
+            'role' => ['osqm_dco', 'osqm_qmr'],
+        );
+        
+        if (!$this->role_checker->checkRole($requiredRoles)) {
+            $data['department'] =  $this->DepartmentModel->getDepartment();
+        } else {
+            $data['department'] =  $this->DepartmentModel->loadDepartment();
+        }
+
         $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
         $data['section'] =  $this->SectionModel->getSection();
 

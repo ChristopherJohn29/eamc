@@ -22,20 +22,10 @@ class DepartmentModel extends CI_Model {
         $this->db->select('department.*, user_created.email AS created_by_email, user_updated.email AS last_updated_by_email, division.div_name AS div_name');
         $this->db->from('department');
         $this->db->where('department.status', 1);
-        
-        $requiredRoles = array(
-            'designation' => 'division',
-            'role' => ['osqm_dco', 'osqm_qmr'],
-        );
-
-        if (!$this->role_checker->checkRole($requiredRoles)) {
-            $this->db->where('department.id', $this->session->userdata('department'));
-        }
-
+        $this->db->where('department.id', $this->session->userdata('department'));
         $this->db->join('users AS user_created', 'department.created_by = user_created.id', 'left');
         $this->db->join('users AS user_updated', 'department.last_update_by = user_updated.id', 'left');
         $this->db->join('division AS division', 'department.div_id = division.id', 'left');
-
 
         $query = $this->db->get();
         $result = $query->result_array();
