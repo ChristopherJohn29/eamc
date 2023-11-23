@@ -17,6 +17,7 @@
                            <tr>
                               <th>Process</th>
                               <th>Status</th>
+                              <th>Person Responsible</th>
                               <th>Time and Date</th>
                               <th>Remarks</th>
                            </tr>
@@ -55,6 +56,7 @@
                   <input type="hidden" id="sec_id" value="<?=$sec_id?>">
                      <thead>
                         <tr>
+                           <th>ID</th>
                            <th>Document Title</th>
                            <th>Document Code</th>
                            <th>Department / Unit</th>

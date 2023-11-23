@@ -42,7 +42,9 @@ class filedetails extends CI_Controller {
 		$data['filename'] =  $this->FileDetailsModel->getDocumentTitle($this->file_id);
         $data['filelink'] =  $this->FileDetailsModel->getDocumentLink($this->file_id);
         $data['unique_file_name'] =  $this->FileDetailsModel->getDocumentFile($this->file_id);
-
+        $data['userfile'] = $this->FileDetailsModel->getDocumentUser($this->file_id);
+        $data['owner'] = $this->FileDetailsModel->getDocumentUser($this->file_id) == $this->session->userdata('user_id') ? 1 : 0 ;
+        
 		$this->load->view('template/template', $data);
 	}
 

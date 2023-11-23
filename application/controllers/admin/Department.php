@@ -57,7 +57,7 @@ class department extends CI_Controller {
 
     public function getDepartment(){
 
-        $department = $this->DepartmentModel->getDepartment();
+        $department = $this->DepartmentModel->loadDepartment();
 
         echo json_encode($department);
         

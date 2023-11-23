@@ -302,6 +302,11 @@
                                     <td><?=$document_data['final_reviewer']?></td>
                                     <td><?=$document_data['approval_person']?></td>
                                  </tr>
+                                 <tr>
+                                    <td><?=$document_data['prepared_by_position']?></td>
+                                    <td><?=$document_data['final_reviewer_position']?></td>
+                                    <td><?=$document_data['approval_person_position']?></td>
+                                 </tr>
                               </tbody>
                         </table>
                               </div>

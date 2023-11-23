@@ -183,7 +183,7 @@ var file = {
                         var created_date = item.created_date;
                     
                         // Do something with the data, for example, display it on the page
-                        $('#files-datatable tbody').append("<tr><td>"+filename+"</td><td>"+created_by_email+"</td><td>"+created_date+"</td><td><a href='../../filerevisiondetails/"+id+"' title='View File'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-info waves-effect waves-light view-data' data-id='"+id+"' data-filename='"+filename+"'><i class='mdi mdi-eye'></i></a><button title='Delete'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-danger waves-effect waves-light data-delete' data-id='"+id+"'><i class='mdi mdi-close'></i></button></td></tr>");
+                        $('#files-datatable tbody').append("<tr><td>"+filename+"</td><td>"+created_by_email+"</td><td>"+created_date+"</td><td><a target='_blank' href='../../filerevisiondetails/"+id+"' title='View File'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-info waves-effect waves-light view-data' data-id='"+id+"' data-filename='"+filename+"'><i class='mdi mdi-eye'></i></a><button title='Delete'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm hidden btn-danger waves-effect waves-light data-delete' data-id='"+id+"'><i class='mdi mdi-close'></i></button></td></tr>");
                     });
 
                     tippy('*[data-plugin="tippy"]');

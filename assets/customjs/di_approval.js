@@ -57,7 +57,7 @@ var diList = {
                             "<i class='fa fa-clock'></i></button>";
                         
                         
-                        var html = "<tr><td>" + doc_title + "</td><td>" + doc_code + "</td><td>" + dep_name + " "+ section+ "</td><td>" + type + "</td><td>" + created_date + "</td><td>" + status_name + "</td><td>" +$view_history+""+ $action_button + "<a href='./../revisiondetails/"+id+"/"+user_id+"' class='btn btn-sm btn-primary revision-button' title='View Revisions'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-history' aria-hidden='true'></i></a><a href='./../filedetails/"+id+"/"+user_id+"' class='btn btn-sm btn-info files-button' title='View Files'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-folder-open'></i></a></td></tr>";
+                        var html = "<tr><td>" + id + "</td><td>" + doc_title + "</td><td>" + doc_code + "</td><td>" + dep_name + " "+ section+ "</td><td>" + type + "</td><td>" + created_date + "</td><td>" + status_name + "</td><td>" +$view_history+""+ $action_button + "<a href='./../revisiondetails/"+id+"/"+user_id+"' class='btn btn-sm btn-primary revision-button' title='View Revisions'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-history' aria-hidden='true'></i></a><a href='./../filedetails/"+id+"/"+user_id+"' class='btn btn-sm btn-info files-button' title='View Files'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-folder-open'></i></a></td></tr>";
                         // Do something with the data, for example, display it on the page
                         $('#di-global-datatable tbody').append(html);
 
@@ -104,10 +104,11 @@ var diList = {
                             // Access each item's properties
                             var process = item.process;
                             var status = item.status;
+                            var created_by_name = item.created_by_name;
                             var created_date = item.created_date;
                             var remarks = item.remarks;
                             
-                            var html = "<tr><td>" + process + "</td><td>" + status + "</td><td>" + created_date + "</td><td>" + remarks + "</td></tr>";
+                            var html = "<tr><td>" + process + "</td><td>" + status + "</td><td>" + created_by_name + "</td><td>" + created_date + "</td><td>" + remarks + "</td></tr>";
                             // Do something with the data, for example, display it on the page
                             $('#di-history-datatable tbody').append(html);
                         });

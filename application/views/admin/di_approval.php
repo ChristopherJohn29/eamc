@@ -115,6 +115,7 @@
                            <tr>
                               <th>Process</th>
                               <th>Status</th>
+                              <th>Person Responsible</th>
                               <th>Time and Date</th>
                               <th>Remarks</th>
                            </tr>

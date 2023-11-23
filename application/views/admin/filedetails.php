@@ -1,3 +1,22 @@
+<?php 
+$requiredRoles = array(
+      'designation' => 'division',
+      'role' => ['osqm_dco'],
+);
+
+if (!$this->role_checker->checkRole($requiredRoles)) {
+?>
+<style>
+.edit-data{
+   display:none !important;
+}
+
+</style>
+
+<?php
+}
+?>
+
 <div class="content">
    <!-- Start Content-->
    <div class="container-fluid">
@@ -97,15 +116,24 @@
                ?>
                </div>
                <div class="page-title-right mb-2">
-               <a href="<?=$goback?>" type="button" class="btn btn-danger waves-effect waves-light"><i class="fas fa-arrow-left"></i> Go Back</a>
+
+               <?php 
+               
+               if($owner){
+               ?>
                <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#add-file-revision"><i class="fas fa-plus"></i> New Comment</button>
+               <?php 
+                  
+               } ?>   
                </div>
                
             </div>
          </div>
       </div>
       <!-- end page title -->
-      
+
+
+
       <div class="row">
          <div class="col-12">
             <div class="card">

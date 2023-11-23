@@ -8,7 +8,7 @@ class LoginModel extends CI_Model {
     public function login($emailOrUsername, $password) {
         // Perform a database query to check if the user with the given email and password exists.
         $this->db->where('(email = ' . $this->db->escape($emailOrUsername) . ' OR username = ' . $this->db->escape($emailOrUsername) . ')');
-        $this->db->where('email_verified', 1);
+        // $this->db->where('email_verified', 1);
         $this->db->where('osqm_approved', 1);
         $this->db->where('status', 1);
         $this->db->where('password', md5($password)); // Hash the input password with MD5.

@@ -88,7 +88,7 @@
                             </div>
                             <div class="row mb-2 first col-md-12">
                                 <div class="form-group col-md-6">
-                                    <label class="form-label" for="designation">Designation</label>
+                                    <label class="form-label" for="designation">Comitee / Division</label>
                                     <select class="form-control" id="designation" required>
                                         <option value="committee">Committee</option>
                                         <option value="division">Division</option>
@@ -96,7 +96,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="form-label" for="position">Position</label>
-                                    <input type="text" class="form-control" id="position" placeholder="position" required>
+                                    <input type="text" class="form-control" id="position" placeholder="ex. Medical Specialist II" required>
                                     <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                 </div>
                             </div>
@@ -180,7 +180,7 @@
                             <!-- division -->
                             <?php
                               foreach ($division as $key => $value) {
-                                 if($value['div_name'] == 'SUPPORT'){
+                                 if($value['id'] == '5'){
                                     echo '
                                        <div class="form-group d-none col-md-6 third '.$value['id'].'-division"">
                                           <label class="form-label" for="'.$value['id'].'-division">Role</label>

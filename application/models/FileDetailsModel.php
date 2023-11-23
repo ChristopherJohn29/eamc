@@ -51,6 +51,22 @@ class FileDetailsModel extends CI_Model {
         }
     }
 
+    public function getDocumentUser($doc_file_id) {
+        // Query the database to retrieve the doc_title
+        $query = $this->db->select('created_by')
+                      ->from('document_files')
+                      ->where('id', $doc_file_id)
+                      ->get();
+
+        // Check if a result was found
+        if ($query->num_rows() > 0) {
+            return $query->row()->created_by;
+        } else {
+            // Handle the case when no matching record is found, e.g., return null or an error message.
+            return null;
+        }
+    }
+
     public function getDocumentLink($doc_file_id) {
         // Query the database to retrieve the doc_title
         $query = $this->db->select('filelink')

@@ -7,6 +7,7 @@ class DocumentedInformationModel extends CI_Model {
         $this->db->select('documented_information.*, department.dep_name AS dep_name, section.section_name AS section_name, document_type.doc_type_name AS type, document_status.status_value AS status_name');
         $this->db->from('documented_information');
         $this->db->where('documented_information.user_id', $this->session->userdata('user_id'));
+        $this->db->where('documented_information.status', '<>', 'PUB');
         $this->db->join('department', 'department.id = documented_information.dep_id', 'left');
         $this->db->join('section', 'section.id = documented_information.sec_id', 'left');
         $this->db->join('document_status', 'document_status.status_code = documented_information.status', 'left');
@@ -22,6 +23,9 @@ class DocumentedInformationModel extends CI_Model {
 
         $this->db->select('documented_information.*, department.dep_name AS dep_name, section.section_name AS section_name, document_type.doc_type_name AS type, document_status.status_value AS status_name');
         $this->db->from('documented_information');
+        $this->db->where('documented_information.status', '<>', 'PUB');
+        $this->db->where('documented_information.status', '<>', 'FFU');
+        $this->db->where('documented_information.status', '<>', 'AD');
         $this->db->join('department', 'department.id = documented_information.dep_id', 'left');
         $this->db->join('section', 'section.id = documented_information.sec_id', 'left');
         $this->db->join('document_status', 'document_status.status_code = documented_information.status', 'left');
@@ -49,11 +53,16 @@ class DocumentedInformationModel extends CI_Model {
         u1.fullname AS forms_reviewer, 
         u2.fullname AS technical_reviewer, 
         u3.fullname AS final_reviewer, 
+        u3.position AS final_reviewer_position, 
         u4.fullname AS approval_person, 
+        u4.position AS approval_person_position,
         u5.fullname AS checker, 
         u6.fullname AS approval_for_publishing_person, 
         u7.fullname AS publisher,
-        u8.fullname AS prepared_by');
+        u8.fullname AS prepared_by,
+        u8.position AS prepared_by_position'
+        );
+
         $this->db->from('documented_information AS di');
         $this->db->join('users AS u1', 'u1.id = di.forms_review_by', 'left');
         $this->db->join('users AS u2', 'u2.id = di.technical_review_by', 'left');
@@ -73,9 +82,10 @@ class DocumentedInformationModel extends CI_Model {
 
     public function getDocumentedInformationHistory($doc_id){
 
-        $this->db->select('*');
+        $this->db->select('*, user_created.fullname AS created_by_name');
         $this->db->from('document_history');
         $this->db->where('doc_id', $doc_id);
+        $this->db->join('users AS user_created', 'document_history.created_by = user_created.id', 'left');
 
         $query = $this->db->get();
         $result = $query->result_array();
@@ -88,7 +98,7 @@ class DocumentedInformationModel extends CI_Model {
         $this->db->select('documented_information.*, department.dep_name AS dep_name, section.section_name AS section_name, document_type.doc_type_name AS type, document_status.status_value AS status_name');
         $this->db->from('documented_information');
         $this->db->where('documented_information.status', 'TR');
-        $this->db->or_where('documented_information.status', 'AP');
+        $this->db->or_where('documented_information.status', 'AD');
         $this->db->join('department', 'department.id = documented_information.dep_id', 'left');
         $this->db->join('section', 'section.id = documented_information.sec_id', 'left');
         $this->db->join('document_status', 'document_status.status_code = documented_information.status', 'left');
@@ -253,7 +263,34 @@ class DocumentedInformationModel extends CI_Model {
         return $result;
     }
 
-    
+    public function getDocumentedInformationPublishedDIOwner($department_id, $document_type_id, $section){
+
+        $subquery = $this->db->select('MAX(df.id) AS latest_file_id, df.doc_id')
+            ->from('document_files df')
+            ->group_by('df.doc_id')
+            ->get_compiled_select();
+
+        $this->db->select('documented_information.*, department.dep_name AS dep_name, section.section_name AS section_name, document_type.doc_type_name AS type, document_status.status_value AS status_name, latest_file_id.latest_file_id');
+        $this->db->from('documented_information');
+        $this->db->where('documented_information.user_id', $this->session->userdata('user_id'));
+        $this->db->where('documented_information.status', 'PUB');
+        $this->db->where('documented_information.dep_id', $department_id);
+        $this->db->where('documented_information.doc_type_id', $document_type_id);
+        $this->db->join('department', 'department.id = documented_information.dep_id', 'left');
+        $this->db->join('section', 'section.id = documented_information.sec_id', 'left');
+        $this->db->join('document_status', 'document_status.status_code = documented_information.status', 'left');
+        $this->db->join('document_type', 'document_type.id = documented_information.doc_type_id', 'left');
+        $this->db->join("($subquery) AS latest_file_id", 'documented_information.id = latest_file_id.doc_id', 'left');
+
+        if($section){
+            $this->db->where('documented_information.sec_id', $section);
+        }
+
+        $query = $this->db->get();
+        $result = $query->result_array();
+
+        return $result;
+    }
 
     public function saveDI($data){
 

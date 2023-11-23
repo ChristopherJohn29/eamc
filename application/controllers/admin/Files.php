@@ -135,6 +135,12 @@ class files extends CI_Controller {
             );
 
             $save = $this->FileDetailsModel->saveFileRevision($data_file_revision);
+            
+            $datahistory['doc_id'] = $doc_id;
+            $datahistory['process'] = "Submission";
+            $datahistory['status'] = 'File Submitted';
+
+            $this->DocumentedInformationModel->saveHistory($datahistory);
 
             // Insertion successful
             echo "saved";

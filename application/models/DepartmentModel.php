@@ -2,11 +2,27 @@
 
 class DepartmentModel extends CI_Model {
 
+    public function loadDepartment(){
+
+        $this->db->select('department.*, user_created.email AS created_by_email, user_updated.email AS last_updated_by_email, division.div_name AS div_name');
+        $this->db->from('department');
+        $this->db->where('department.status', 1);
+        $this->db->join('users AS user_created', 'department.created_by = user_created.id', 'left');
+        $this->db->join('users AS user_updated', 'department.last_update_by = user_updated.id', 'left');
+        $this->db->join('division AS division', 'department.div_id = division.id', 'left');
+
+        $query = $this->db->get();
+        $result = $query->result_array();
+
+        return $result;
+    }
+
     public function getDepartment(){
 
         $this->db->select('department.*, user_created.email AS created_by_email, user_updated.email AS last_updated_by_email, division.div_name AS div_name');
         $this->db->from('department');
         $this->db->where('department.status', 1);
+        $this->db->where('department.id', $this->session->userdata('department'));
         $this->db->join('users AS user_created', 'department.created_by = user_created.id', 'left');
         $this->db->join('users AS user_updated', 'department.last_update_by = user_updated.id', 'left');
         $this->db->join('division AS division', 'department.div_id = division.id', 'left');
