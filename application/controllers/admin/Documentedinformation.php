@@ -37,7 +37,6 @@ class documentedinformation extends CI_Controller {
         );
 
         if ($this->role_checker->checkRole($requiredRoles)) {
-            echo "Test";
             $documentedInformation =  $this->DocumentedInformationModel->getDocumentedInformationListAll();
         } else {
             $documentedInformation =  $this->DocumentedInformationModel->getDocumentedInformationList();
