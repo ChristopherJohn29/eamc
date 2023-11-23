@@ -82,7 +82,7 @@ class DocumentedInformationModel extends CI_Model {
 
     public function getDocumentedInformationHistory($doc_id){
 
-        $this->db->select('*, user_created.fullname AS created_by_name');
+        $this->db->select('document_history.*, user_created.fullname AS created_by_name');
         $this->db->from('document_history');
         $this->db->where('doc_id', $doc_id);
         $this->db->join('users AS user_created', 'document_history.created_by = user_created.id', 'left');
