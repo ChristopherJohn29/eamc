@@ -36,19 +36,9 @@ class published extends CI_Controller {
         $department_id = $_POST['department_id'];
         $document_type_id = $_POST['document_type_id'];
         $sec_id = $_POST['sec_id'];
-
-        $requiredRoles = array(
-            'designation' => 'division',
-            'role' => ['osqm_dco', 'osqm_qmr'],
-        );
-
-        if ($this->role_checker->checkRole($requiredRoles)) {
-            $documentedInformation =  $this->DocumentedInformationModel->getDocumentedInformationPublishedDI($department_id, $document_type_id, $sec_id );
-        } else {
-            $documentedInformation =  $this->DocumentedInformationModel->getDocumentedInformationPublishedDIOwner($department_id, $document_type_id, $sec_id );
-        }
         
-     
+        $documentedInformation =  $this->DocumentedInformationModel->getDocumentedInformationPublishedDI($department_id, $document_type_id, $sec_id );
+
         echo json_encode($documentedInformation);
     }
 

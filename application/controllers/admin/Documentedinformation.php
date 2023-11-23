@@ -106,7 +106,19 @@ class documentedinformation extends CI_Controller {
     }
 
     public function getDIPublished(){
-        $documentedInformation =  $this->DocumentedInformationModel->getDocumentedInformationPublished();
+
+        $requiredRoles = array(
+            'designation' => 'division',
+            'role' => ['osqm_dco', 'osqm_qmr'],
+        );
+
+        if ($this->role_checker->checkRole($requiredRoles)) {
+            $documentedInformation =  $this->DocumentedInformationModel->getDocumentedInformationPublished();
+        } else {
+            $documentedInformation =  $this->DocumentedInformationModel->getDocumentedInformationPublishedOwner();
+        }
+
+        
 
         echo json_encode($documentedInformation);
     }
@@ -376,7 +388,7 @@ class documentedinformation extends CI_Controller {
             'designation' => 'division',
             'role' => ['osqm_dco', 'osqm_qmr'],
         );
-        
+
         if (!$this->role_checker->checkRole($requiredRoles)) {
             $data['department'] =  $this->DepartmentModel->getDepartment();
         } else {
