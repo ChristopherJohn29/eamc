@@ -165,6 +165,8 @@ var diList = {
             jQuery('#prepared_by_position_existing_edit').val(prepared_by_position_existing);
             jQuery('#final_review_by_position_existing_edit').val(final_review_by_position_existing);
             jQuery('#approved_by_position_existing_edit').val(approved_by_position_existing);
+
+            console.log(existing);
             
             if (existing === '1') {
                 jQuery('#existing_edit').prop('checked', true);
