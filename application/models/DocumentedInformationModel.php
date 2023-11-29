@@ -316,7 +316,7 @@ class DocumentedInformationModel extends CI_Model {
     
         $status = 'FFU';
     
-        $data = array(
+        $save_data = array(
             'doc_title' => $data['document_title'],
             'effectivity_date' => $data['effectivity_date'],
             'doc_type_id' => $data['doc_type_id'],
@@ -332,15 +332,15 @@ class DocumentedInformationModel extends CI_Model {
         
         // Include the new fields if they exist in $data
         if (isset($data['prepared_by_existing'])) {
-            $data['prepared_by_existing'] = $data['prepared_by_existing'];
-            $data['final_review_by_existing'] = $data['final_review_by_existing'];
-            $data['approved_by_existing'] = $data['approved_by_existing'];
-            $data['prepared_by_position_existing'] = $data['prepared_by_position_existing'];
-            $data['final_review_by_position_existing'] = $data['final_review_by_position_existing'];
-            $data['approved_by_position_existing'] = $data['approved_by_position_existing'];
+            $save_data['prepared_by_existing'] = $data['prepared_by_existing'];
+            $save_data['final_review_by_existing'] = $data['final_review_by_existing'];
+            $save_data['approved_by_existing'] = $data['approved_by_existing'];
+            $save_data['prepared_by_position_existing'] = $data['prepared_by_position_existing'];
+            $save_data['final_review_by_position_existing'] = $data['final_review_by_position_existing'];
+            $save_data['approved_by_position_existing'] = $data['approved_by_position_existing'];
         }
         
-        return $this->db->insert('documented_information', $data);
+        return $this->db->insert('documented_information', $save_data);
     }
     
 
