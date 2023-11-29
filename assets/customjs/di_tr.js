@@ -208,7 +208,7 @@ var diList = {
             jQuery('#final_review_by_position_existing_edit').val(final_review_by_position_existing);
             jQuery('#approved_by_position_existing_edit').val(approved_by_position_existing);
             
-            if (existing === '1') {
+            if (String(existing) === '1') {
                 jQuery('#existing_edit').prop('checked', true);
             } else {
                 jQuery('#existing_edit').prop('checked', false);

@@ -168,7 +168,7 @@ var diList = {
 
             console.log(existing);
             
-            if (existing === '1') {
+            if (String(existing) === '1') {
                 jQuery('#existing_edit').prop('checked', true);
             } else {
                 jQuery('#existing_edit').prop('checked', false);
