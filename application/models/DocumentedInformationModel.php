@@ -351,7 +351,7 @@ class DocumentedInformationModel extends CI_Model {
             'process' => $data['process'],
             'status' => $data['status'],
             'created_date' => date('Y-m-d H:i:s'),
-            'remarks' => $data['remarks'],
+            'remarks' => isset($data['remarks']) ? $data['remarks'] : '',
             'created_by' => $this->session->userdata('user_id')
         );
         
