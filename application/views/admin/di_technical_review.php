@@ -82,6 +82,47 @@
                               <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                         </div>
                      </div>
+
+                     <div class="form-check mb-2 form-check-primary">
+                           <input class="form-check-input" type="checkbox" value="1" id="existing_edit">
+                           <label class="form-check-label" for="existing_edit">Existing Document</label>
+                     </div>
+
+                     <div class="row mb-2">
+                        <div class="form-group col-md-4">
+                              <label for="prepared_by_existing_edit" class="form-label">Prepared By</label>
+                              <input type="text" class="form-control" id="prepared_by_existing_edit" name="prepared_by_existing_edit">
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                        <div class="form-group col-md-4">
+                              <label for="final_review_by_existing_edit" class="form-label">Review By</label>
+                              <input type="text" class="form-control" id="final_review_by_existing_edit" name="final_review_by_existing_edit">
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                        <div class="form-group col-md-4">
+                              <label for="approved_by_existing_edit" class="form-label">Approved By</label>
+                              <input type="text" class="form-control" id="approved_by_existing_edit" name="approved_by_existing_edit">
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                     </div>
+
+                     <div class="row mb-2">
+                        <div class="form-group col-md-4">
+                              <label for="prepared_by_position_existing_edit" class="form-label">Position (Prepared By) </label>
+                              <input type="text" class="form-control" id="prepared_by_position_existing_edit" name="prepared_by_position_existing_edit">
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                        <div class="form-group col-md-4">
+                              <label for="final_review_by_position_existing_edit" class="form-label">Position (Review By)</label>
+                              <input type="text" class="form-control" id="final_review_by_position_existing_edit" name="final_review_by_position_existing_edit">
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                        <div class="form-group col-md-4">
+                              <label for="approved_by_position_existing_edit" class="form-label">Position (Approved By)</label>
+                              <input type="text" class="form-control" id="approved_by_position_existing_edit" name="approved_by_position_existing_edit">
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                     </div>
                      
                      <div class="row mb-2">
                      <div class="form-group col-md-12">
