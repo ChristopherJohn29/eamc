@@ -35,13 +35,36 @@ var diList = {
                         var effectivity_date = item.effectivity_date;
                         var revision_no = item.revision_no;
 
-                        if(status == 'FFU' ||  status == 'AD' || status == 'D'){
-                            $enable_edit = "<button title='Edit Documented Information'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-warning edit-data'"+
-                            "data-id='"+id+"' data-user_id='"+user_id+"'" +
-                            "data-doc_title='"+doc_title+"' data-doc_code='"+doc_code+"'" +
-                            "data-dep_id='"+dep_id+"' data-sec_id='"+sec_id+"' data-doc_type_id='"+doc_type_id+"'" +
-                            "data-effectivity_date='"+effectivity_date+"' data-revision_no='"+revision_no+"'>" +
-                            "<i class='mdi mdi-file'></i></button>";
+                        var prepared_by_existing = item.prepared_by_existing;
+                        var final_review_by_existing = item.final_review_by_existing;
+                        var approved_by_existing = item.approved_by_existing;
+
+                        var prepared_by_position_existing = item.prepared_by_position_existing;
+                        var final_review_by_position_existing = item.final_review_by_position_existing;
+                        var approved_by_position_existing = item.approved_by_position_existing;
+
+
+                        var existing = item.existing;
+
+                        if (status == 'FFU' || status == 'AD' || status == 'D') {
+                            var $enable_edit = "<button title='Edit Documented Information' tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-warning edit-data'" +
+                                "data-id='" + id + "' data-user_id='" + user_id + "'" +
+                                "data-doc_title='" + doc_title + "' data-doc_code='" + doc_code + "'" +
+                                "data-dep_id='" + dep_id + "' data-sec_id='" + sec_id + "' data-doc_type_id='" + doc_type_id + "'" +
+                                "data-effectivity_date='" + effectivity_date + "' data-revision_no='" + revision_no + "'";
+                        
+                            // Include the new fields in the data attributes only if 'existing' has a value of 1
+                            $enable_edit +=
+                            "data-prepared_by_existing='" + prepared_by_existing + "' " +
+                            "data-final_review_by_existing='" + final_review_by_existing + "' " +
+                            "data-approved_by_existing='" + approved_by_existing + "' " +
+                            "data-prepared_by_position_existing='" + prepared_by_position_existing + "' " +
+                            "data-final_review_by_position_existing='" + final_review_by_position_existing + "' " +
+                            "data-approved_by_position_existing='" + approved_by_position_existing + "' " +
+                            "data-existing='" + existing + "' ";
+                        
+                            $enable_edit += ">" +
+                                "<i class='mdi mdi-file'></i></button>";
                         } else {
                             $enable_edit = '';
                         }
@@ -105,7 +128,6 @@ var diList = {
 
     editInit: function(){
         jQuery('#di-list-datatable').on('click','.edit-data', function(){
-
             var doc_id = jQuery(this).data('id');
             var user_id = jQuery(this).data('user_id');
             var doc_title = jQuery(this).data('doc_title');
@@ -115,9 +137,17 @@ var diList = {
             var doc_type_id = jQuery(this).data('doc_type_id');
             var effectivity_date = jQuery(this).data('effectivity_date');
             var revision_no = jQuery(this).data('revision_no');
-
+            
+            var prepared_by_existing = jQuery(this).data('prepared_by_existing');
+            var final_review_by_existing = jQuery(this).data('final_review_by_existing');
+            var approved_by_existing = jQuery(this).data('approved_by_existing');
+            var prepared_by_position_existing = jQuery(this).data('prepared_by_position_existing');
+            var final_review_by_position_existing = jQuery(this).data('final_review_by_position_existing');
+            var approved_by_position_existing = jQuery(this).data('approved_by_position_existing');
+            var existing = jQuery(this).data('existing');
+            
             jQuery('#sec_id_edit option[value="'+sec_id+'"]').prop('disabled', false);
-
+            
             jQuery('#doc_id_edit').val(doc_id);
             jQuery('#user_id_edit').val(user_id);
             jQuery('#document_title_edit').val(doc_title);
@@ -127,9 +157,22 @@ var diList = {
             jQuery('#doc_type_id_edit').val(doc_type_id);
             jQuery('#effectivity_date_edit').val(effectivity_date);
             jQuery('#revision_no_edit').val(revision_no);
-
-            jQuery("#edit-di").modal('toggle');
             
+            // Set values for the new fields
+            jQuery('#prepared_by_existing_edit').val(prepared_by_existing);
+            jQuery('#final_review_by_existing_edit').val(final_review_by_existing);
+            jQuery('#approved_by_existing_edit').val(approved_by_existing);
+            jQuery('#prepared_by_position_existing_edit').val(prepared_by_position_existing);
+            jQuery('#final_review_by_position_existing_edit').val(final_review_by_position_existing);
+            jQuery('#approved_by_position_existing_edit').val(approved_by_position_existing);
+            
+            if (existing === '1') {
+                jQuery('#existing_edit').prop('checked', true);
+            } else {
+                jQuery('#existing_edit').prop('checked', false);
+            }
+            
+            jQuery("#edit-di").modal('toggle');
         });
 
         $('#editDI').click(function (e) {
@@ -145,7 +188,15 @@ var diList = {
                 var doc_type_id = jQuery('#doc_type_id_edit').val();
                 var effectivity_date = jQuery('#effectivity_date_edit').val();
                 var revision_no = jQuery('#revision_no_edit').val();
-
+                
+                var prepared_by_existing = jQuery('#prepared_by_existing_edit').val();
+                var final_review_by_existing = jQuery('#final_review_by_existing_edit').val();
+                var approved_by_existing = jQuery('#approved_by_existing_edit').val();
+                var prepared_by_position_existing = jQuery('#prepared_by_position_existing_edit').val();
+                var final_review_by_position_existing = jQuery('#final_review_by_position_existing_edit').val();
+                var approved_by_position_existing = jQuery('#approved_by_position_existing_edit').val();
+                var existing = jQuery('#existing_edit').is(':checked') ? '1' : '0'; // Check if the checkbox is checked
+        
                 var data = {
                     doc_id: doc_id,
                     user_id: user_id,
@@ -156,10 +207,18 @@ var diList = {
                     doc_type_id: doc_type_id,
                     effectivity_date: effectivity_date,
                     revision_no: revision_no,
+                    // New fields
+                    prepared_by_existing: prepared_by_existing,
+                    final_review_by_existing: final_review_by_existing,
+                    approved_by_existing: approved_by_existing,
+                    prepared_by_position_existing: prepared_by_position_existing,
+                    final_review_by_position_existing: final_review_by_position_existing,
+                    approved_by_position_existing: approved_by_position_existing,
+                    existing: existing
                 };
-
+        
                 jQuery("#edit-di").modal('toggle');
-    
+        
                 $.ajax({
                     type: 'POST',
                     url: 'documentedinformation/update', // Replace 'MyController' with your controller name
@@ -180,7 +239,6 @@ var diList = {
                     }
                 });
             }
-            
         });
 
     },
@@ -231,10 +289,9 @@ var diList = {
     saveDI: function(){
         jQuery('#saveDI').click(function(e){
             e.preventDefault();
-
+    
             if (diList.validateForm()) {
-
-                
+    
                 var document_title = jQuery('#document_title').val();
                 var effectivity_date = jQuery('#effectivity_date').val();
                 var doc_type_id = jQuery('#doc_type_id').val();
@@ -242,7 +299,16 @@ var diList = {
                 var sec_id = jQuery('#sec_id').val();
                 var doc_code = jQuery('#doc_code').val();
                 var revision_no = jQuery('#revision_no').val();
-
+                
+                // Include only if 'Existing Document' is checked
+                var existingChecked = jQuery('#existing').is(':checked');
+                var prepared_by_existing = existingChecked ? jQuery('#prepared_by_existing').val() : '';
+                var final_review_by_existing = existingChecked ? jQuery('#final_review_by_existing').val() : '';
+                var approved_by_existing = existingChecked ? jQuery('#approved_by_existing').val() : '';
+                var prepared_by_position_existing = existingChecked ? jQuery('#prepared_by_position_existing').val() : '';
+                var final_review_by_position_existing = existingChecked ? jQuery('#final_review_by_position_existing').val() : '';
+                var approved_by_position_existing = existingChecked ? jQuery('#approved_by_position_existing').val() : '';
+    
                 var data = {
                     'document_title' : document_title,
                     'effectivity_date' : effectivity_date,
@@ -251,8 +317,15 @@ var diList = {
                     'sec_id' : sec_id,
                     'doc_code' : doc_code,
                     'revision_no' : revision_no,
+                    'existing': existingChecked, // Include 'Existing Document' checkbox value
+                    'prepared_by_existing' : prepared_by_existing,
+                    'final_review_by_existing' : final_review_by_existing,
+                    'approved_by_existing' : approved_by_existing,
+                    'prepared_by_position_existing' : prepared_by_position_existing,
+                    'final_review_by_position_existing' : final_review_by_position_existing,
+                    'approved_by_position_existing' : approved_by_position_existing
                 }
-
+    
                 jQuery("#add-di").modal('toggle');
     
                 $.ajax({
@@ -275,9 +348,10 @@ var diList = {
                     }
                 });
             }
-
+    
         });
-    },
+    }
+    ,
 
     notifySuccess: function(){
         !(function (p) {
@@ -352,23 +426,44 @@ var diList = {
         });
     },
 
-    loadSection : function (){
-        jQuery('#dep_id').change(function(){
-            if(jQuery(this).val() != ''){
-                jQuery('select#sec_id').val('');
-                jQuery('select#sec_id option').addClass('hidden');
-                jQuery('select#sec_id option[data-dep_id="' + jQuery(this).val() + '"]').removeClass('hidden');
-                jQuery('select#sec_id option').prop('disabled', true);
-                jQuery('select#sec_id option[data-dep_id="' + jQuery(this).val() + '"]').prop('disabled', false);
-            }
+    existing: function(){
+        var $specificFields = $('#prepared_by_existing, #final_review_by_existing, #approved_by_existing, #prepared_by_position_existing, #final_review_by_position_existing, #approved_by_position_existing');
+
+        // Hide specific fields by default
+        $specificFields.closest('.row.mb-2').hide();
+
+        // Check if #existing checkbox is checked on page load
+        if ($('#existing').is(':checked')) {
+            $specificFields.closest('.row.mb-2').show();
+        }
+
+        // On checkbox change, toggle the visibility of the specific fields
+        $('#existing').change(function() {
+        if ($(this).is(':checked')) {
+            $specificFields.closest('.row.mb-2').show();
+        } else {
+            $specificFields.closest('.row.mb-2').hide();
+        }
         });
-        jQuery('#dep_id_edit').change(function(){
-            if(jQuery(this).val() != ''){
-                jQuery('select#sec_id_edit').val('');
-                jQuery('select#sec_id_edit option').addClass('hidden');
-                jQuery('select#sec_id_edit option[data-dep_id="' + jQuery(this).val() + '"]').removeClass('hidden');
-                jQuery('select#sec_id_edit option').prop('disabled', true);
-                jQuery('select#sec_id_edit option[data-dep_id="' + jQuery(this).val() + '"]').prop('disabled', false);
+    },
+
+    existingEdit: function() {
+        var $specificFieldsEdit = $('#prepared_by_existing_edit, #final_review_by_existing_edit, #approved_by_existing_edit, #prepared_by_position_existing_edit, #final_review_by_position_existing_edit, #approved_by_position_existing_edit');
+    
+        // Hide specific fields by default
+        $specificFieldsEdit.closest('.row.mb-2').hide();
+    
+        // Check if #existing_edit checkbox is checked on page load
+        if ($('#existing_edit').is(':checked')) {
+            $specificFieldsEdit.closest('.row.mb-2').show();
+        }
+    
+        // On checkbox change, toggle the visibility of the specific fields
+        $('#existing_edit').change(function () {
+            if ($(this).is(':checked')) {
+                $specificFieldsEdit.closest('.row.mb-2').show();
+            } else {
+                $specificFieldsEdit.closest('.row.mb-2').hide();
             }
         });
     }
@@ -381,4 +476,6 @@ jQuery(document).ready(function(){
     diList.editInit();
     diList.viewHistory();
     diList.loadSection();
+    diList.existing();
+    diList.existingEdit();
 });

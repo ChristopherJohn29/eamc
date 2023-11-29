@@ -194,6 +194,7 @@ var diList = {
                 var effectivity_date = jQuery('#effectivity_date_edit').val();
                 var revision_no = jQuery('#revision_no_edit').val();
                 var publishing = jQuery('#publishing').val();
+                var publishing_remarks = jQuery('#publishing').val();
 
                 var data = {
                     doc_id: doc_id,
@@ -205,7 +206,8 @@ var diList = {
                     doc_type_id: doc_type_id,
                     effectivity_date: effectivity_date,
                     revision_no: revision_no,
-                    publishing: publishing
+                    publishing: publishing,
+                    publishing_remarks: publishing_remarks
                 };
 
                 jQuery("#edit-di").modal('toggle');

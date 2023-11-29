@@ -404,7 +404,31 @@ class documentedinformation extends CI_Controller {
 
     public function save(){
         $data = $_POST;
-
+    
+        // Check if 'existing' checkbox is checked
+        $existingChecked = isset($data['existing']) && $data['existing'] === 'true';
+    
+        // Include the 'existing' checkbox value in the data being inserted
+        $data['existing_value'] = $existingChecked ? 1 : 0;
+    
+        if ($existingChecked) {
+            // Include the new fields only if 'existing' checkbox is checked
+            $extraData = array(
+                'prepared_by_existing' => $data['prepared_by_existing'],
+                'final_review_by_existing' => $data['final_review_by_existing'],
+                'approved_by_existing' => $data['approved_by_existing'],
+                'prepared_by_position_existing' => $data['prepared_by_position_existing'],
+                'final_review_by_position_existing' => $data['final_review_by_position_existing'],
+                'approved_by_position_existing' => $data['approved_by_position_existing']
+            );
+    
+            // Merge the extra data with the original data
+            $data = array_merge($data, $extraData);
+        }
+    
+        // Unset 'existing' key as it's not part of the table columns
+        unset($data['existing']);
+    
         $save = $this->DocumentedInformationModel->saveDI($data);
         
         if ($save) {
@@ -415,6 +439,7 @@ class documentedinformation extends CI_Controller {
             echo "error";
         }
     }
+    
 
     public function update(){
 
@@ -436,7 +461,12 @@ class documentedinformation extends CI_Controller {
         $data = $_POST;
 
         if($_POST['technical_review'] == 'Approved'){
+
             $data['status'] = 'FIR';
+
+            if (isset($data['existing']) && $data['existing'] == '1') {
+                $data['status'] = 'PUB';
+            }
         } 
         else if($_POST['technical_review'] == 'Disapproved')
         {
@@ -453,6 +483,7 @@ class documentedinformation extends CI_Controller {
             $datahistory['doc_id'] = $data['doc_id'];
             $datahistory['process'] = "Technical Review";
             $datahistory['status'] = $_POST['technical_review'];
+            $datahistory['remarks'] = $_POST['technical_review_remarks'];
             $this->DocumentedInformationModel->saveHistory($datahistory);
             echo "saved";
         } else {
@@ -478,6 +509,7 @@ class documentedinformation extends CI_Controller {
             $datahistory['doc_id'] = $data['doc_id'];
             $datahistory['process'] = "Forms Review";
             $datahistory['status'] = $_POST['forms_review'];
+            $datahistory['remarks'] = $_POST['forms_review_remarks'];
             $this->DocumentedInformationModel->saveHistory($datahistory);
             echo "saved";
         } else {
@@ -503,6 +535,7 @@ class documentedinformation extends CI_Controller {
             $datahistory['doc_id'] = $data['doc_id'];
             $datahistory['process'] = "Final Review";
             $datahistory['status'] = $_POST['final_review'];
+            $datahistory['remarks'] = $_POST['final_review_remarks'];
             $this->DocumentedInformationModel->saveHistory($datahistory);
             echo "saved";
         } else {
@@ -528,6 +561,7 @@ class documentedinformation extends CI_Controller {
             $datahistory['doc_id'] = $data['doc_id'];
             $datahistory['process'] = "Approval";
             $datahistory['status'] = $_POST['approval'];
+            $datahistory['remarks'] = $_POST['approval_remarks'];
             $this->DocumentedInformationModel->saveHistory($datahistory);
             echo "saved";
         } else {
@@ -554,6 +588,7 @@ class documentedinformation extends CI_Controller {
             $datahistory['doc_id'] = $data['doc_id'];
             $datahistory['process'] = "Checking";
             $datahistory['status'] = $_POST['checking'];
+            $datahistory['remarks'] = $_POST['checking_remarks'];
             $this->DocumentedInformationModel->saveHistory($datahistory);
             echo "saved";
         } else {
@@ -579,6 +614,7 @@ class documentedinformation extends CI_Controller {
             $datahistory['doc_id'] = $data['doc_id'];
             $datahistory['process'] = "Approval For Publishing";
             $datahistory['status'] = $_POST['approval_for_publishing'];
+            $datahistory['remarks'] = $_POST['approval_for_publishing_remarks'];
             $this->DocumentedInformationModel->saveHistory($datahistory);
             echo "saved";
         } else {
@@ -605,6 +641,7 @@ class documentedinformation extends CI_Controller {
             $datahistory['doc_id'] = $data['doc_id'];
             $datahistory['process'] = "Publishing";
             $datahistory['status'] = $_POST['publishing'];
+            $datahistory['remarks'] = $_POST['publishing_remarks'];
             $this->DocumentedInformationModel->saveHistory($datahistory);
             echo "saved";
         } else {

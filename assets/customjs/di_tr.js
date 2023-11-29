@@ -35,13 +35,38 @@ var diList = {
                         var effectivity_date = item.effectivity_date;
                         var revision_no = item.revision_no;
 
+                        var prepared_by_existing = item.prepared_by_existing;
+                        var final_review_by_existing = item.final_review_by_existing;
+                        var approved_by_existing = item.approved_by_existing;
+
+                        var prepared_by_position_existing = item.prepared_by_position_existing;
+                        var final_review_by_position_existing = item.final_review_by_position_existing;
+                        var approved_by_position_existing = item.approved_by_position_existing;
+
+
+                        var existing = item.existing;
+
                         if(status == 'FFU' ||  status == 'AD' || status == 'D' || status == 'TR'){
-                            $action_button = "<button title='Technical Review'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-blue edit-data'"+
-                            "data-id='"+id+"' data-user_id='"+user_id+"'" +
-                            "data-doc_title='"+doc_title+"' data-doc_code='"+doc_code+"'" +
-                            "data-dep_id='"+dep_id+"' data-sec_id='"+sec_id+"' data-doc_type_id='"+doc_type_id+"'" +
-                            "data-effectivity_date='"+effectivity_date+"' data-revision_no='"+revision_no+"'>" +
-                            "<i class='mdi mdi-file'></i></button>";
+                            var $action_button = "<button title='Technical Review'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-blue edit-data'" +
+                                "data-id='" + id + "' data-user_id='" + user_id + "'" +
+                                "data-doc_title='" + doc_title + "' data-doc_code='" + doc_code + "'" +
+                                "data-dep_id='" + dep_id + "' data-sec_id='" + sec_id + "' data-doc_type_id='" + doc_type_id + "'" +
+                                "data-effectivity_date='" + effectivity_date + "' data-revision_no='" + revision_no + "'";
+                        
+                            // Include the new fields in the data attributes only if 'existing' has a value of 1
+                            $action_button +=
+                            "data-prepared_by_existing='" + prepared_by_existing + "' " +
+                            "data-final_review_by_existing='" + final_review_by_existing + "' " +
+                            "data-approved_by_existing='" + approved_by_existing + "' " +
+                            "data-prepared_by_position_existing='" + prepared_by_position_existing + "' " +
+                            "data-final_review_by_position_existing='" + final_review_by_position_existing + "' " +
+                            "data-approved_by_position_existing='" + approved_by_position_existing + "' " +
+                            "data-existing='" + existing + "' ";
+                        
+                            $action_button += ">" +
+                                "<i class='mdi mdi-file'></i></button>";
+
+                                
                         } else {
                             $action_button = '';
                         }
@@ -176,6 +201,19 @@ var diList = {
             jQuery('#effectivity_date_edit').val(effectivity_date);
             jQuery('#revision_no_edit').val(revision_no);
 
+            jQuery('#prepared_by_existing_edit').val(prepared_by_existing);
+            jQuery('#final_review_by_existing_edit').val(final_review_by_existing);
+            jQuery('#approved_by_existing_edit').val(approved_by_existing);
+            jQuery('#prepared_by_position_existing_edit').val(prepared_by_position_existing);
+            jQuery('#final_review_by_position_existing_edit').val(final_review_by_position_existing);
+            jQuery('#approved_by_position_existing_edit').val(approved_by_position_existing);
+            
+            if (existing === '1') {
+                jQuery('#existing_edit').prop('checked', true);
+            } else {
+                jQuery('#existing_edit').prop('checked', false);
+            }
+
             jQuery("#edit-di").modal('toggle');
             
         });
@@ -194,6 +232,14 @@ var diList = {
                 var effectivity_date = jQuery('#effectivity_date_edit').val();
                 var revision_no = jQuery('#revision_no_edit').val();
                 var technical_review = jQuery('#technical_review').val();
+                var technical_review_remarks = jQuery('#remarks').val();
+                var prepared_by_existing = jQuery('#prepared_by_existing_edit').val();
+                var final_review_by_existing = jQuery('#final_review_by_existing_edit').val();
+                var approved_by_existing = jQuery('#approved_by_existing_edit').val();
+                var prepared_by_position_existing = jQuery('#prepared_by_position_existing_edit').val();
+                var final_review_by_position_existing = jQuery('#final_review_by_position_existing_edit').val();
+                var approved_by_position_existing = jQuery('#approved_by_position_existing_edit').val();
+                var existing = jQuery('#existing_edit').is(':checked') ? '1' : '0'; // Check if the checkbox is checked
 
                 var data = {
                     doc_id: doc_id,
@@ -205,7 +251,16 @@ var diList = {
                     doc_type_id: doc_type_id,
                     effectivity_date: effectivity_date,
                     revision_no: revision_no,
-                    technical_review: technical_review
+                    technical_review: technical_review,
+                    technical_review_remarks: technical_review_remarks,
+                    prepared_by_existing: prepared_by_existing,
+                    final_review_by_existing: final_review_by_existing,
+                    approved_by_existing: approved_by_existing,
+                    prepared_by_position_existing: prepared_by_position_existing,
+                    final_review_by_position_existing: final_review_by_position_existing,
+                    approved_by_position_existing: approved_by_position_existing,
+                    existing: existing
+                    
                 };
 
                 jQuery("#edit-di").modal('toggle');
@@ -289,6 +344,27 @@ var diList = {
                 jQuery('select#sec_id_edit option[data-dep_id="' + jQuery(this).val() + '"]').prop('disabled', false);
             }
         });
+    },
+
+    existingEdit: function() {
+        var $specificFieldsEdit = $('#prepared_by_existing_edit, #final_review_by_existing_edit, #approved_by_existing_edit, #prepared_by_position_existing_edit, #final_review_by_position_existing_edit, #approved_by_position_existing_edit');
+    
+        // Hide specific fields by default
+        $specificFieldsEdit.closest('.row.mb-2').hide();
+    
+        // Check if #existing_edit checkbox is checked on page load
+        if ($('#existing_edit').is(':checked')) {
+            $specificFieldsEdit.closest('.row.mb-2').show();
+        }
+    
+        // On checkbox change, toggle the visibility of the specific fields
+        $('#existing_edit').change(function () {
+            if ($(this).is(':checked')) {
+                $specificFieldsEdit.closest('.row.mb-2').show();
+            } else {
+                $specificFieldsEdit.closest('.row.mb-2').hide();
+            }
+        });
     }
 
 }
@@ -298,4 +374,5 @@ jQuery(document).ready(function(){
     diList.editInit();
     diList.viewHistory();
     diList.loadSection();
+    diList.existingEdit();
 });

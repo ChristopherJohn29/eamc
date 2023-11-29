@@ -309,8 +309,13 @@ class DocumentedInformationModel extends CI_Model {
 
     public function saveDI($data){
 
+        // Check if the 'existing' data exists and remove it
+        if (isset($data['existing'])) {
+            unset($data['existing']);
+        }
+    
         $status = 'FFU';
-
+    
         $data = array(
             'doc_title' => $data['document_title'],
             'effectivity_date' => $data['effectivity_date'],
@@ -321,11 +326,23 @@ class DocumentedInformationModel extends CI_Model {
             'revision_no' => $data['revision_no'],
             'status' => $status,
             'created_date' => date('Y-m-d H:i:s'),
-            'user_id' => $this->session->userdata('user_id')
+            'user_id' => $this->session->userdata('user_id'),
+            'existing' => $data['existing_value'] // Save 'existing' checkbox value in the database
         );
+        
+        // Include the new fields if they exist in $data
+        if (isset($data['prepared_by_existing'])) {
+            $data['prepared_by_existing'] = $data['prepared_by_existing'];
+            $data['final_review_by_existing'] = $data['final_review_by_existing'];
+            $data['approved_by_existing'] = $data['approved_by_existing'];
+            $data['prepared_by_position_existing'] = $data['prepared_by_position_existing'];
+            $data['final_review_by_position_existing'] = $data['final_review_by_position_existing'];
+            $data['approved_by_position_existing'] = $data['approved_by_position_existing'];
+        }
         
         return $this->db->insert('documented_information', $data);
     }
+    
 
     public function saveHistory($data){
 
@@ -334,6 +351,7 @@ class DocumentedInformationModel extends CI_Model {
             'process' => $data['process'],
             'status' => $data['status'],
             'created_date' => date('Y-m-d H:i:s'),
+            'remarks' => $data['remarks'],
             'created_by' => $this->session->userdata('user_id')
         );
         
@@ -375,7 +393,7 @@ class DocumentedInformationModel extends CI_Model {
     public function updateDI(array $data){
         $this->db->where('id', $data['doc_id']);
         $this->db->where('user_id', $data['user_id']);
-
+    
         $updateData = array(
             'doc_title' => $data['document_title'],
             'effectivity_date' => $data['effectivity_date'],
@@ -385,7 +403,17 @@ class DocumentedInformationModel extends CI_Model {
             'doc_code' => $data['doc_code'],
             'revision_no' => $data['revision_no']
         );
-
+    
+        // Include additional fields only if 'existing' is checked
+        if (isset($data['existing']) && $data['existing'] == '1') {
+            $updateData['prepared_by_existing'] = $data['prepared_by_existing'];
+            $updateData['final_review_by_existing'] = $data['final_review_by_existing'];
+            $updateData['approved_by_existing'] = $data['approved_by_existing'];
+            $updateData['prepared_by_position_existing'] = $data['prepared_by_position_existing'];
+            $updateData['final_review_by_position_existing'] = $data['final_review_by_position_existing'];
+            $updateData['approved_by_position_existing'] = $data['approved_by_position_existing'];
+        }
+    
         return $this->db->update('documented_information', $updateData);
     }
 
@@ -412,9 +440,20 @@ class DocumentedInformationModel extends CI_Model {
             'revision_no' => $data['revision_no'],
             'status' => $data['status'],
             $review => $data[$review],
+            $review.'_remarks' => $data[$review.'_remarks'],
             $review.'_by' => $this->session->userdata('user_id')
         );
 
+        // Include additional fields only if 'existing' is checked
+        if (isset($data['existing']) && $data['existing'] == '1') {
+            $updateData['prepared_by_existing'] = $data['prepared_by_existing'];
+            $updateData['final_review_by_existing'] = $data['final_review_by_existing'];
+            $updateData['approved_by_existing'] = $data['approved_by_existing'];
+            $updateData['prepared_by_position_existing'] = $data['prepared_by_position_existing'];
+            $updateData['final_review_by_position_existing'] = $data['final_review_by_position_existing'];
+            $updateData['approved_by_position_existing'] = $data['approved_by_position_existing'];
+        }
+            
         if(isset($data['sec_id'])){
             $updateData['sec_id'] = $data['sec_id'];
         }
