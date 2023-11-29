@@ -189,6 +189,14 @@ var diList = {
             var effectivity_date = jQuery(this).data('effectivity_date');
             var revision_no = jQuery(this).data('revision_no');
 
+            var prepared_by_existing = jQuery(this).data('prepared_by_existing');
+            var final_review_by_existing = jQuery(this).data('final_review_by_existing');
+            var approved_by_existing = jQuery(this).data('approved_by_existing');
+            var prepared_by_position_existing = jQuery(this).data('prepared_by_position_existing');
+            var final_review_by_position_existing = jQuery(this).data('final_review_by_position_existing');
+            var approved_by_position_existing = jQuery(this).data('approved_by_position_existing');
+            var existing = jQuery(this).data('existing');
+
             jQuery('#sec_id_edit option[value="'+sec_id+'"]').prop('disabled', false);
 
             jQuery('#doc_id_edit').val(doc_id);
