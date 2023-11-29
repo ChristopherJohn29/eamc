@@ -411,8 +411,6 @@ class documentedinformation extends CI_Controller {
         // Include the 'existing' checkbox value in the data being inserted
         $data['existing_value'] = $existingChecked ? 1 : 0;
 
-        var_dump($data['existing_value']);
-    
         if ($existingChecked) {
             // Include the new fields only if 'existing' checkbox is checked
             $extraData = array(
