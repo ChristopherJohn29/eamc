@@ -169,9 +169,9 @@ var diList = {
             console.log(existing);
             
             if (String(existing) === '1') {
-                jQuery('#existing_edit').prop('checked', true);
+                jQuery('#existing_edit').prop('checked', true).trigger('change');;
             } else {
-                jQuery('#existing_edit').prop('checked', false);
+                jQuery('#existing_edit').prop('checked', false).trigger('change');;
             }
             
             jQuery("#edit-di").modal('toggle');
