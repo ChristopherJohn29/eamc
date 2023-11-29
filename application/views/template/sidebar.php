@@ -105,7 +105,7 @@
             <?php 
             $requiredRoles = array(
                 'designation' => 'division',
-                'role' => ['department_head'],
+                'role' => ['department_head', 'osqm_qmr'],
             );
     
             if ($this->role_checker->checkRole($requiredRoles)) {
@@ -122,7 +122,7 @@
             <?php 
             $requiredRoles = array(
                 'designation' => 'division',
-                'role' => ['div_chief'],
+                'role' => ['div_chief', 'medical_center_chief'],
             );
     
             if ($this->role_checker->checkRole($requiredRoles)) {
@@ -279,7 +279,7 @@
 <?php 
 $requiredRoles = array(
     'designation' => 'division',
-    'role' => ['osqm_dco'],
+    'role' => ['osqm_dco', 'osqm_staff'],
 );
 
 if ($this->role_checker->checkRole($requiredRoles)) {

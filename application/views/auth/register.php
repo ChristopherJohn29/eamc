@@ -186,6 +186,9 @@
                                           <label class="form-label" for="'.$value['id'].'-division">Role</label>
                                           <select class="form-control division" id="'.$value['id'].'-division">
                                              <option value="medical_center_chief">Medical Center Chief</option>
+                                             <option value="department_head">Department Head</option>
+                                             <option value="section_head">Section/Unit Head</option>
+                                             <option value="viewer">Viewer</option>
                                              <option value="dqt_member">DQT Member</option>
                                              <option value="iso_coordinator">ISO Coordinator</option>
                                              <option value="osqm_admin">OSQM - Admin </option>

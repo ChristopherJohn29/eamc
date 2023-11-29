@@ -44,7 +44,7 @@ class documentedinformation extends CI_Controller {
 
         $requiredRoles = array(
             'designation' => 'division',
-            'role' => ['osqm_dco', 'osqm_qmr'],
+            'role' => ['osqm_dco', 'osqm_qmr', 'osqm_staff'],
         );
 
         if ($this->role_checker->checkRole($requiredRoles)) {
@@ -200,7 +200,7 @@ class documentedinformation extends CI_Controller {
     public function finalReview(){
         $requiredRoles = array(
             'designation' => 'division',
-            'role' => ['department_head'],
+            'role' => ['department_head', 'osqm_qmr'],
         );
 
         if ($this->role_checker->checkRole($requiredRoles)) {
@@ -234,7 +234,7 @@ class documentedinformation extends CI_Controller {
     public function approval(){
         $requiredRoles = array(
             'designation' => 'division',
-            'role' => ['div_chief'],
+            'role' => ['div_chief', 'medical_center_chief'],
         );
 
         if ($this->role_checker->checkRole($requiredRoles)) {
