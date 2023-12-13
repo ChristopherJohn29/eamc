@@ -45,11 +45,17 @@
                <div class="page-title-right">
                <a href="<?=$goback?>" type="button" class="btn btn-danger waves-effect waves-light"><i class="fas fa-arrow-left"></i> Go Back</a>
                <?php 
-                  if($status == 'FFU' || $status == 'AD' || $status == 'D'){
+
+                  $requiredRoles = array(
+                     'designation' => 'division',
+                     'role' => ['osqm_dco'],
+                  );
+
+                  if($status == 'FFU' || $status == 'AD' || $status == 'D' || $this->role_checker->checkRole($requiredRoles)){
                      ?>
                      <button type="button" class="btn btn-primary waves-effect waves-light new-file" data-bs-toggle="modal" data-bs-target="#add-file"><i class="fas fa-plus"></i> New File</button>
                      <?php
-                  }
+                  } 
                ?>
                </div>
                <h4 class="page-title"><?=ucwords($document_title)?> <?=$title?></h4>

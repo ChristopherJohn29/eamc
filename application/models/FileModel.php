@@ -4,7 +4,7 @@ class FileModel extends CI_Model {
 
     public function getFile($doc_id = ''){
 
-        $this->db->select('document_files.*, user_created.email AS created_by_email, user_updated.email AS last_updated_by_email');
+        $this->db->select('document_files.*, user_created.email AS created_by_email, user_created.fullname AS created_by_fullname, user_updated.email AS last_updated_by_email');
         $this->db->from('document_files');
         $this->db->where('document_files.status', 1);
         $this->db->where('document_files.doc_id', $doc_id);
