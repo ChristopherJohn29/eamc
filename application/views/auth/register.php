@@ -95,8 +95,20 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="form-label" for="position">Position</label>
-                                    <input type="text" class="form-control" id="position" placeholder="ex. Medical Specialist II" required>
+                                    <label class="form-label" for="position">Position / Designation</label>
+                                    <select class="form-control" id="position" required>
+                                        <option value="Staff">Staff</option>
+                                        <option value="Department Head">Department Head</option>
+                                        <option value="Section Head">Section Head</option>
+                                        <option value="Office Head">Office Head</option>
+                                        <option value="Department Head">Department Head</option>
+                                        <option value="Committee Chair">Committee Chair</option>
+                                        <option value="Medical Officer">Medical Officer</option>
+                                        <option value="Medical Specialist">Medical Specialist</option>
+                                        <option value="Nurse Supervisor">Nurse Supervisor</option>
+                                        <option value="Chief">Chief</option>
+                                        <option value="Medical Center Chief">Medical Center Chief</option>
+                                    </select>
                                     <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                 </div>
                             </div>
