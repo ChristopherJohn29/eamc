@@ -11,3 +11,8 @@ form [disabled] {
     color: gray !important; /* Set the text color to gray */
     background-color: #f2f2f2 !important; /* Set the background color to a light gray */
 }
+
+tr td:not(:last-child) {
+    white-space: pre-wrap !important;
+    word-wrap: break-word;
+}

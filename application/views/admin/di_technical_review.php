@@ -138,7 +138,7 @@
                      </div>
 
                      <div class="row mb-2">
-                     <div class="form-group col-md-12">
+                        <div class="form-group col-md-12">
                            <label for="remarks" class="form-label">Remarks</label>
                            <textarea class="form-control" id="remarks" rows="4"></textarea>
                         </div>
