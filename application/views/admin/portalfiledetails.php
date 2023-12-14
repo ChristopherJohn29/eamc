@@ -297,16 +297,38 @@
                                     <th scope="col">Reviewed By</th>
                                     <th scope="col">Approved By</th>
                                  </tr>
-                                 <tr>
-                                    <td><?=$document_data['prepared_by']?></td>
-                                    <td><?=$document_data['final_reviewer']?></td>
-                                    <td><?=$document_data['approval_person']?></td>
-                                 </tr>
-                                 <tr>
-                                    <td><?=$document_data['prepared_by_position']?></td>
-                                    <td><?=$document_data['final_reviewer_position']?></td>
-                                    <td><?=$document_data['approval_person_position']?></td>
-                                 </tr>
+                                 <?php 
+                                 
+                                 if($document_data['existing'] == 1){
+                                    ?>
+                                    <tr>
+                                       <td><?=$document_data['prepared_by_existing']?></td>
+                                       <td><?=$document_data['final_reviewer_existing']?></td>
+                                       <td><?=$document_data['approval_person_existing']?></td>
+                                    </tr>
+                                    <tr>
+                                       <td><?=$document_data['prepared_by_position_existing']?></td>
+                                       <td><?=$document_data['final_reviewer_position_existing']?></td>
+                                       <td><?=$document_data['approval_person_position_existing']?></td>
+                                    </tr>
+                                    <?php
+                                 } else {
+                                    ?>
+                                    <tr>
+                                       <td><?=$document_data['prepared_by']?></td>
+                                       <td><?=$document_data['final_reviewer']?></td>
+                                       <td><?=$document_data['approval_person']?></td>
+                                    </tr>
+                                    <tr>
+                                       <td><?=$document_data['prepared_by_position']?></td>
+                                       <td><?=$document_data['final_reviewer_position']?></td>
+                                       <td><?=$document_data['approval_person_position']?></td>
+                                    </tr>
+                                 <?php
+                                 }
+                                 ?>   
+                                 
+
                               </tbody>
                         </table>
                               </div>
