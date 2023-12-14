@@ -303,12 +303,12 @@
                                     ?>
                                     <tr>
                                        <td><?=$document_data['prepared_by_existing']?></td>
-                                       <td><?=$document_data['final_reviewer_existing']?></td>
+                                       <td><?=$document_data['final_review_by_existing']?></td>
                                        <td><?=$document_data['approval_person_existing']?></td>
                                     </tr>
                                     <tr>
                                        <td><?=$document_data['prepared_by_position_existing']?></td>
-                                       <td><?=$document_data['final_reviewer_position_existing']?></td>
+                                       <td><?=$document_data['final_review_by_position_existing']?></td>
                                        <td><?=$document_data['approval_person_position_existing']?></td>
                                     </tr>
                                     <?php
