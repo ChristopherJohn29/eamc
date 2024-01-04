@@ -101,12 +101,12 @@
                                         <option value="Department Head">Department Head</option>
                                         <option value="Section Head">Section Head</option>
                                         <option value="Office Head">Office Head</option>
-                                        <option value="Department Head">Department Head</option>
+                                        <option value="Department Chair">Department Chair</option>
                                         <option value="Committee Chair">Committee Chair</option>
                                         <option value="Medical Officer">Medical Officer</option>
                                         <option value="Medical Specialist">Medical Specialist</option>
                                         <option value="Nurse Supervisor">Nurse Supervisor</option>
-                                        <option value="Chief">Chief</option>
+                                        <option value="Division Chief">Division Chief</option>
                                         <option value="Medical Center Chief">Medical Center Chief</option>
                                     </select>
                                     <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
@@ -139,7 +139,7 @@
                             <!-- comitee -->              
                             <div class="row mb-2 third forms col-md-12">
                                 <div class="form-group">
-                                    <label class="form-label" for="customer_satisfaction_committee">Role</label>
+                                    <label class="form-label" for="customer_satisfaction_committee">Role (Access Control)</label>
                                     <select class="form-control" id="forms">
                                         <option value="chair">Chair</option>
                                         <option value="member">Member</option>
@@ -149,7 +149,7 @@
 
                             <div class="row mb-2 third d-none internal_quality_audit col-md-12">
                                 <div class="form-group">
-                                    <label class="form-label" for="internal_quality_audit">Role</label>
+                                    <label class="form-label" for="internal_quality_audit">Role (Access Control)</label>
                                     <select class="form-control" id="internal_quality_audit">
                                         <option value="chair">Chair</option>
                                         <option value="auditor">Auditor</option>
@@ -160,7 +160,7 @@
 
                             <div class="row mb-2 third d-none customer_satisfaction_committee col-md-12">
                                 <div class="form-group">
-                                    <label class="form-label" for="customer_satisfaction_committee">Role</label>
+                                    <label class="form-label" for="customer_satisfaction_committee">Role (Access Control)</label>
                                     <select class="form-control" id="customer_satisfaction_committee">
                                         <option value="chair">Chair</option>
                                     </select>
