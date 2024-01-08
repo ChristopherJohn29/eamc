@@ -109,6 +109,8 @@ class files extends CI_Controller {
             } else {
                 $status = 'TR';
             }
+        } else {
+            $status = $documentData[0]['status'];
         }
 
         $didata = array(
