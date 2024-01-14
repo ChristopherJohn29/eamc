@@ -69,7 +69,12 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="form-label" for="email">Password</label>
-                                        <input type="password" class="form-control" id="password" required>
+                                        <div class="input-group input-group-merge">
+                                            <input type="password" id="password" class="form-control" placeholder="Password">
+                                            <div class="input-group-text" data-password="false">
+                                                <span class="password-eye"></span>
+                                            </div>
+                                        </div>
                                         <ul class="parsley-errors-list filled hidden" id="password-error"><li class="parsley-required" id="password-error-text"></li></ul>
                                     </div>
                                 </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-topbar-color="brand" data-bs-theme="light" data-layout-mode="detached" data-layout-width="default" data-menu-color="gradient" data-menu-icon="default" data-sidenav-size="default" class="">
+<html lang="en" data-topbar-color="brand" data-bs-theme="light" data-layout-mode="detached" data-layout-width="default" data-menu-color="brand" data-menu-icon="default" data-sidenav-size="default" class="">
    <head>
       <meta charset="utf-8" />
       <title>East Avenue Medical Center IQMS</title>

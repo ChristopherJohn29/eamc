@@ -43,21 +43,32 @@ class login extends CI_Controller {
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 
-		$user = $this->LoginModel->login($email, $password);
+		$checkcreds = $this->LoginModel->checkCreds($email, $password);
 
-        if ($user) {
-            // Set user session data or redirect to a user dashboard.
-           	$this->session->set_userdata('user_id', $user->id);
-			$this->session->set_userdata('firstname', $user->firstname);
-			$this->session->set_userdata('department', $user->department);
-			$this->session->set_userdata('division', $user->division);
-			$this->session->set_userdata('role', $user->role);
+		if($checkcreds){
 
-			echo 'saved';
-        } else {
-            // Invalid login; show an error or redirect to the login form.
-			echo 'failed';
-        }
+			$checkDCO = $this->LoginModel->checkDCO($email, $password);
+			if($checkDCO){
+				$checkEmail = $this->LoginModel->checkEmail($email, $password);
+
+				if($checkEmail){
+					$this->session->set_userdata('user_id', $checkEmail->id);
+					$this->session->set_userdata('firstname', $checkEmail->firstname);
+					$this->session->set_userdata('department', $checkEmail->department);
+					$this->session->set_userdata('division', $checkEmail->division);
+					$this->session->set_userdata('role', $checkEmail->role);
+		
+					echo 'saved';
+				} else {
+					echo 'emailnotverified';
+				}
+			} else {
+				echo 'dconotapprove';
+			}
+			
+		} else {
+			echo 'wrongcreds';
+		}
 	}
 
 	public function signout() {

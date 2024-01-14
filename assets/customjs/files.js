@@ -181,9 +181,20 @@ var file = {
                         var filename = item.filename;
                         var created_by_fullname = item.created_by_fullname ? item.created_by_fullname : '';
                         var created_date = item.created_date;
+                        var fileurl = item.unique_file_name;
                     
                         // Do something with the data, for example, display it on the page
-                        $('#files-datatable tbody').append("<tr><td>"+filename+"</td><td>"+created_by_fullname+"</td><td>"+created_date+"</td><td><a target='_blank' href='../../filerevisiondetails/"+id+"' title='View File'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-info waves-effect waves-light view-data' data-id='"+id+"' data-filename='"+filename+"'><i class='mdi mdi-eye'></i></a><button title='Delete'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm hidden btn-danger waves-effect waves-light data-delete' data-id='"+id+"'><i class='mdi mdi-close'></i></button></td></tr>");
+
+                        if(fileurl){
+                            var download = "<a target='_blank' href='../../../"+fileurl+"' title='Download File'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' download class='hidden btn btn-sm btn-primary waves-effect waves-light download-data' data-id='"+id+"' data-filename='"+filename+"'><i class='mdi mdi-download'></i></a>";
+                        } else {
+                            var download = '';
+                        }
+                        
+
+                        $('#files-datatable tbody').append("<tr><td>"+filename+"</td><td>"+created_by_fullname+"</td><td>"+created_date+"</td><td><a target='_blank' href='../../filerevisiondetails/"+id+"' title='View File'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-info waves-effect waves-light view-data' data-id='"+id+"' data-filename='"+filename+"'><i class='mdi mdi-eye'></i></a>"+download+"<button title='Delete'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm hidden btn-danger waves-effect waves-light data-delete' data-id='"+id+"'><i class='mdi mdi-close'></i></button></td></tr>");
+                  
+                   
                     });
 
                     tippy('*[data-plugin="tippy"]');
@@ -195,6 +206,10 @@ var file = {
                         },
                     });
 
+                    if(jQuery('#menuMasterFile').length){
+                        jQuery('.download-data').removeClass('hidden');
+                    }
+
                 }
             },
             error: function () {
@@ -202,6 +217,8 @@ var file = {
                 file.notifyError();
             }
         });
+
+        
 
     }
 }

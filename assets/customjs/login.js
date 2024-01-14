@@ -19,7 +19,14 @@ var login = {
 
                             redirect = jQuery('#redirect').val();
                             window.location.href = redirect;
-                        }else {
+                        }else if(response == 'wrongcreds'){
+                            jQuery('.login-error li').text('Incorrect Username or Password');
+                            jQuery('.login-error').removeClass('hidden');
+                        }else if(response == 'dconotapprove'){
+                            jQuery('.login-error li').text('Incorrect Username or Password');
+                            jQuery('.login-error').removeClass('hidden');
+                        }else if(response == 'emailnotverified'){
+                            jQuery('.login-error li').text('Email not Verified');
                             jQuery('.login-error').removeClass('hidden');
                         }
                     },

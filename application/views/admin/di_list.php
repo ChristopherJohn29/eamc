@@ -80,8 +80,14 @@
 
                      <div class="form-check mb-2 form-check-primary">
                            <input class="form-check-input" type="checkbox" value="1" id="existing">
-                           <label class="form-check-label" for="existing">Existing Document</label>
+                           <label class="form-check-label" for="existing">For Existing Document</label>
+                           <div id="tooltip-container" class="d-inline-block">
+                           <i class="fas fa-info-circle" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title=""></i>
+                           </div>
                      </div>
+                     
+                   
+
 
                      <div class="row mb-2">
                         <div class="form-group col-md-4">
