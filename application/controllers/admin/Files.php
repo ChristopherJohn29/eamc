@@ -138,12 +138,15 @@ class files extends CI_Controller {
 
             $save = $this->FileDetailsModel->saveFileRevision($data_file_revision);
             
-            $datahistory['doc_id'] = $doc_id;
-            $datahistory['process'] = "Submission";
-            $datahistory['status'] = 'File Submitted';
 
-            $this->DocumentedInformationModel->saveHistory($datahistory);
+            if ($documentData[0]['status'] == 'FFU' || $documentData[0]['status'] == 'AD' || $documentData[0]['status'] == 'D') {
 
+                $datahistory['doc_id'] = $doc_id;
+                $datahistory['process'] = "Submission";
+                $datahistory['status'] = 'File Submitted';
+
+                $this->DocumentedInformationModel->saveHistory($datahistory);
+            }
             // Insertion successful
             echo "saved";
         } else {

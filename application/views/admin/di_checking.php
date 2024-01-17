@@ -11,18 +11,17 @@
                   </div>
                   <div class="modal-body">
                   <form id="editDocumentedInformationForm">
-                  
                      <div class="row mb-2">
                         <div class="form-group col-md-8">
                               <input type="hidden" class="form-control" id="doc_id_edit" required>
                               <input type="hidden" class="form-control" id="user_id_edit" required>
                               <label for="document_title_edit" class="form-label">Document Title</label>
-                              <input type="text" class="form-control" id="document_title_edit" disabled>
+                              <input type="text" class="form-control" id="document_title_edit" >
                               <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                         </div>
                         <div class="form-group col-md-4">
                               <label for="effectivity_date_edit" class="form-label">Effectivity Date</label>
-                              <input type="date" class="form-control" id="effectivity_date_edit" disabled>
+                              <input type="date" class="form-control" id="effectivity_date_edit" >
                               <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                         </div>
                      </div>
@@ -30,7 +29,7 @@
                      <div class="row mb-2">
                            <div class="form-group col-md-6">
                                  <label for="doc_type_id_edit" class="form-label">Document Type</label>
-                                 <select class="form-select" id="doc_type_id_edit" name="doc_type_id_edit" required disabled>
+                                 <select class="form-select" id="doc_type_id_edit" name="doc_type_id_edit" required >
                                     <option value=""></option>
                                     <?php
                                        foreach ($doctype as $key => $value) {
@@ -42,7 +41,7 @@
                            </div>
                            <div class="form-group col-md-6">
                                  <label for="dep_id_edit" class="form-label">Department / Unit</label>
-                                 <select class="form-select" id="dep_id_edit" name="dep_id_edit" required disabled>
+                                 <select class="form-select" id="dep_id_edit" name="dep_id_edit" required >
                                     <option value=""></option>
                                     <?php
                                        foreach ($department as $key => $value) {
@@ -56,12 +55,12 @@
 
                         <div class="row mb-2">
                            <div class="form-group col-md-4">
-                                 <label for="sec_id_edit" class="form-label">Section (if Applied, if applicable)</label>
-                                 <select class="form-select" id="sec_id_edit" name="sec_id_edit" disabled>
+                                 <label for="sec_id_edit" class="form-label">Section (if applicable)</label>
+                                 <select class="form-select" id="sec_id_edit" name="sec_id_edit" >
                                     <option value=""></option>
                                     <?php
                                        foreach ($section as $key => $value) {
-                                          echo '<option value="'.$value['id'].'" disabled data-dep_id="'.$value['dep_id'].'">'.$value['section_name'].'</option>';
+                                          echo '<option value="'.$value['id'].'"  data-dep_id="'.$value['dep_id'].'">'.$value['section_name'].'</option>';
                                        }
                                     ?>
                                  </select>
@@ -69,12 +68,12 @@
                            </div>
                            <div class="form-group col-md-4">
                                  <label for="doc_code_edit" class="form-label">Document Code</label>
-                                 <input type="text" class="form-control" id="doc_code_edit" name="doc_code_edit" required disabled>
+                                 <input type="text" class="form-control" id="doc_code_edit" name="doc_code_edit" required >
                                  <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                            </div>
                            <div class="form-group col-md-4">
                                  <label for="revision_no_edit" class="form-label">Revision No.</label>
-                                 <input type="text" class="form-control" id="revision_no_edit" name="revision_no_edit" required disabled>
+                                 <input type="text" class="form-control" id="revision_no_edit" name="revision_no_edit" required >
                                  <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                            </div>
                         </div>

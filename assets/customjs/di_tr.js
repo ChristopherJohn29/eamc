@@ -47,7 +47,7 @@ var diList = {
                         var existing = item.existing;
 
                         if(status == 'FFU' ||  status == 'AD' || status == 'D' || status == 'TR'){
-                            var $action_button = "<button title='Technical Review'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-blue edit-data'" +
+                            var $action_button = "<button title='Document Information'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-blue edit-data'" +
                                 "data-id='" + id + "' data-user_id='" + user_id + "'" +
                                 "data-doc_title='" + doc_title + "' data-doc_code='" + doc_code + "'" +
                                 "data-dep_id='" + dep_id + "' data-sec_id='" + sec_id + "' data-doc_type_id='" + doc_type_id + "'" +
@@ -71,7 +71,7 @@ var diList = {
                             $action_button = '';
                         }
 
-                        $view_history = "<button title='View History'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-secondary view-history'"+
+                        $view_history = "<button title='Document Routing'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-danger view-history'"+
                             "data-id='"+id+"'>" +
                             "<i class='fa fa-clock'></i></button>";
 
@@ -81,8 +81,23 @@ var diList = {
                             section = "(" + section_name + ")";
                         }
                         
-                        
-                        var html = "<tr><td>" + id + "</td><td>" + doc_title + "</td><td>" + doc_code + "</td><td>" + dep_name +" "+ section+ " </td><td>" + type + "</td><td>" + created_date + "</td><td>" + status_name + "</td><td>" +$view_history+""+  $action_button + "<a href='./../revisiondetails/"+id+"/"+user_id+"' class='btn btn-sm btn-primary revision-button' title='View Revisions'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-history' aria-hidden='true'></i></a><a href='./../filedetails/"+id+"/"+user_id+"' class='btn btn-sm btn-info files-button' title='View Files'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-folder-open'></i></a></td></tr>";
+                        var html = "<tr>" +
+                            "<td>" + id + "</td>" +
+                            "<td>" + doc_title + "</td>" +
+                            "<td>" + doc_code + "</td>" +
+                            "<td>" + dep_name + " " + section + " </td>" +
+                            "<td>" + type + "</td>" +
+                            "<td>" + created_date + "</td>" +
+                            "<td>" + status_name + "</td>" +
+                            "<td>" + $action_button + "" + $view_history +
+                                "<a href='./../filedetails/" + id + "/" + user_id + "' class='btn btn-sm btn-info files-button' title='View Files' tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'>" +
+                                    "<i class='fa fa-folder-open'></i>" +
+                                "</a>" +
+                                "<a href='./../revisiondetails/" + id + "/" + user_id + "' class='btn btn-sm btn-primary revision-button' title='View Revisions' tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'>" +
+                                    "<i class='fa fa-history' aria-hidden='true'></i>" +
+                                "</a>" +
+                            "</td>" +
+                        "</tr>";
                         // Do something with the data, for example, display it on the page
                         $('#di-global-datatable tbody').append(html);
 

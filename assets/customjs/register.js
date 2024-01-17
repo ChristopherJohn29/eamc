@@ -88,6 +88,9 @@ var register = {
                             $('.parsley-error').removeClass('parsley-error');
                             $('.parsley-errors-list').addClass('hidden');
                             $('#register')[0].reset();
+
+                            window.location.href = '/auth/login';
+
                         } else {
                             alert('Username or Email already exist');
                         }

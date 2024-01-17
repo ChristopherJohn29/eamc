@@ -182,13 +182,16 @@ var file = {
                         var created_by_fullname = item.created_by_fullname ? item.created_by_fullname : '';
                         var created_date = item.created_date;
                         var fileurl = item.unique_file_name;
+                        var filelink = item.filelink;
                     
                         // Do something with the data, for example, display it on the page
 
+                        filelinkslide = filelink.split('/edit');
+
                         if(fileurl){
                             var download = "<a target='_blank' href='../../../uploads/"+fileurl+"' title='Download File'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' download class='hidden btn btn-sm btn-primary waves-effect waves-light download-data' data-id='"+id+"' data-filename='"+filename+"'><i class='mdi mdi-download'></i></a>";
-                        } else {
-                            var download = '';
+                        } else if(filelink) {
+                            var download = "<a target='_blank' href='"+filelinkslide[0]+"/export/pptx' title='Download File'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' download class='hidden btn btn-sm btn-primary waves-effect waves-light download-data' data-id='"+id+"' data-filename='"+filename+"'><i class='mdi mdi-download'></i></a>";
                         }
                         
 

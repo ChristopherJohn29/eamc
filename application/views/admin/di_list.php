@@ -55,7 +55,7 @@
 
                      <div class="row mb-2">
                         <div class="form-group col-md-4">
-                              <label for="sec_id" class="form-label">Section (if Applied, if applicable)</label>
+                              <label for="sec_id" class="form-label">Section (if applicable)</label>
                               <select class="form-select" id="sec_id" name="sec_id">
                                  <option value=""></option>
                                  <?php
@@ -192,7 +192,7 @@
                      <div class="row mb-2">
 
                         <div class="form-group col-md-4">
-                              <label for="sec_id_edit" class="form-label">Section (if applied)</label>
+                              <label for="sec_id_edit" class="form-label">Section (if applicable)</label>
                               <select class="form-select" id="sec_id_edit" name="sec_id_edit" required>
                                  <option value=""></option>
                                  <?php

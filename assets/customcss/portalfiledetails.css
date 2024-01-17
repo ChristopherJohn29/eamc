@@ -29,3 +29,7 @@ iframe {
     background-color: #064c26 !important; /* Yellowish background for headers */
     color: white;
 }
+
+th.col{
+    width: 33% !important;
+}

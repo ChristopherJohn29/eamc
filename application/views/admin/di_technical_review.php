@@ -59,7 +59,7 @@
                      <div class="row mb-2">
 
                         <div class="form-group col-md-4">
-                              <label for="sec_id_edit" class="form-label">Section (if Applied, if applicable)</label>
+                              <label for="sec_id_edit" class="form-label">Section (if applicable)</label>
                               <select class="form-select" id="sec_id_edit" name="sec_id_edit">
                                  <option value=""></option>
                                  <?php
@@ -73,7 +73,7 @@
 
                         <div class="form-group col-md-4">
                               <label for="doc_code_edit" class="form-label">Document Code</label>
-                              <input type="text" class="form-control" id="doc_code_edit" name="doc_code_edit">
+                              <input type="text" class="form-control" required id="doc_code_edit" name="doc_code_edit">
                               <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                         </div>
                         <div class="form-group col-md-4">
