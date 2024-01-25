@@ -25,11 +25,15 @@ class MainModel extends CI_Model {
         return $result;
     }
 
-    public function getCar(){
+    public function getCar($status = ''){
         $this->db->select('car.*, source_car.source_name AS source_name, division.div_name AS division');
         $this->db->from('car');
         $this->db->join('source_car', 'source_car.id = car.source', 'left');
         $this->db->join('division', 'division.id = car.issued_by', 'left');
+
+        if($status != 'all'){
+            $this->db->where('car.status', $status);
+        }
 
         $query = $this->db->get();
         $result = $query->result_array();
@@ -55,6 +59,11 @@ class MainModel extends CI_Model {
         
         // Return true if insertion was successful, else false
         return $this->db->affected_rows() > 0 ? true : false;
+    }
+
+    public function updateCar($data) {
+        $this->db->where('id', $data['car_id']);
+        return $this->db->update('car', array('issuance_of_nc' => $data['issuance_of_nc'], 'issuance_of_nc_remarks' => $data['issuance_of_nc_remarks'], 'status' => $data['status']));
     }
 
     

@@ -13,7 +13,7 @@ var car = {
         $.ajax({
             type: 'POST',
             url: 'getCar', // Replace 'MyController' with your controller name
-            data: {'status':'all'},
+            data: {'status' : 'For CAR action'},
             success: function (response) {
                 if(response != 'null'){
                     $.each(JSON.parse(response), function (index, item) {
@@ -40,7 +40,7 @@ var car = {
                         "</td><td>" + corrective_action_status + 
                         "</td><td>" + for_correction_status + 
                         "</td><td>" + status + 
-                        "</td><td>" + "<button class='btn btn-primary btn-small' data-bs-toggle='modal' data-bs-target='#add-car'><i class='fas fa-plus'></i></button>" + 
+                        "</td><td>" + "<button class='btn btn-primary btn-small' data-bs-toggle='modal' data-bs-target='#corrective-action'><i class='fas fa-plus'></i></button>" + 
                         "</td></tr>";
                         // Do something with the data, for example, display it on the page
                         $('#car-global-datatable tbody').append(html);
@@ -278,6 +278,198 @@ var car = {
             }
     
         });
+    },
+
+    correction: function(){
+        $("#add-correction").on("click", function(){
+            // Clone the first .correction-repeatable div
+            var clone = $(".correction-repeatable:first").clone();
+            
+            // Clear input values in the cloned section
+            clone.find('input').val('');
+    
+            // Append the cloned section to the parent container
+            $(".correction-repeatable:last").after(clone);
+    
+            // Show the remove button for the new entry
+            clone.find('.remove-corrective-action').show();
+    
+            // Add Remove Correction button click event for the new entry
+            clone.find('.remove-corrective-action').on("click", function(){
+                // Check if there is more than one entry before removal
+                if ($('.correction-repeatable').length > 1) {
+                    $(this).closest('.correction-repeatable').remove();
+                }
+            });
+        });
+    
+        // Remove Correction button click event for the initial entry
+        $(".remove-corrective-action").on("click", function(){
+            // Check if there is more than one entry before removal
+            if ($('.correction-repeatable').length > 1) {
+                $(this).closest('.correction-repeatable').remove();
+            }
+        });
+    }, 
+
+    consequences : function (){
+        $("#add-consequences").on("click", function(){
+            // Clone the first .consequences-repeatable div
+            var clone = $(".consequences-repeatable:first").clone();
+            
+            // Clear input values in the cloned section
+            clone.find('input').val('');
+    
+            // Append the cloned section to the parent container
+            $(".consequences-repeatable:last").after(clone);
+    
+            // Show the remove button for the new entry
+            clone.find('.remove-consequences-action').show();
+    
+            // Add Remove Consequences button click event for the new entry
+            clone.find('.remove-consequences-action').on("click", function(){
+                // Check if there is more than one entry before removal
+                if ($('.consequences-repeatable').length > 1) {
+                    $(this).closest('.consequences-repeatable').remove();
+                }
+            });
+        });
+    
+        // Remove Consequences button click event for the initial entry
+        $(".remove-consequences-action").on("click", function(){
+            // Check if there is more than one entry before removal
+            if ($('.consequences-repeatable').length > 1) {
+                $(this).closest('.consequences-repeatable').remove();
+            }
+        });
+    },
+
+    riskNumber: function(){
+        $("#add-risk-number").on("click", function(){
+            // Clone the first .risk-number-repeatable div
+            var clone = $(".risk-number-repeatable:first").clone();
+            
+            // Clear input values in the cloned section
+            clone.find('input').val('');
+    
+            // Append the cloned section to the parent container
+            $(".risk-number-repeatable:last").after(clone);
+    
+            // Show the remove button for the new entry
+            clone.find('.remove-risk-number-action').show();
+    
+            // Add Remove Risk Number button click event for the new entry
+            clone.find('.remove-risk-number-action').on("click", function(){
+                // Check if there is more than one entry before removal
+                if ($('.risk-number-repeatable').length > 1) {
+                    $(this).closest('.risk-number-repeatable').remove();
+                }
+            });
+        });
+    
+        // Remove Risk Number button click event for the initial entry
+        $(".remove-risk-number-action").on("click", function(){
+            // Check if there is more than one entry before removal
+            if ($('.risk-number-repeatable').length > 1) {
+                $(this).closest('.risk-number-repeatable').remove();
+            }
+        });
+    },
+
+    opportunityNumber: function (){
+        $("#add-opportunity-number").on("click", function(){
+            // Clone the first .opportunity-number-repeatable div
+            var clone = $(".opportunity-number-repeatable:first").clone();
+            
+            // Clear input values in the cloned section
+            clone.find('input').val('');
+    
+            // Append the cloned section to the parent container
+            $(".opportunity-number-repeatable:last").after(clone);
+    
+            // Show the remove button for the new entry
+            clone.find('.remove-opportunity-number-action').show();
+    
+            // Add Remove Opportunity Number button click event for the new entry
+            clone.find('.remove-opportunity-number-action').on("click", function(){
+                // Check if there is more than one entry before removal
+                if ($('.opportunity-number-repeatable').length > 1) {
+                    $(this).closest('.opportunity-number-repeatable').remove();
+                }
+            });
+        });
+    
+        // Remove Opportunity Number button click event for the initial entry
+        $(".remove-opportunity-number-action").on("click", function(){
+            // Check if there is more than one entry before removal
+            if ($('.opportunity-number-repeatable').length > 1) {
+                $(this).closest('.opportunity-number-repeatable').remove();
+            }
+        });
+    },
+
+    rootCause: function(){
+        $("#add-rootcause").on("click", function(){
+            // Clone the first .rootcause-repeatable div
+            var clone = $(".rootcause-repeatable:first").clone();
+            
+            // Clear input values in the cloned section
+            clone.find('input').val('');
+    
+            // Append the cloned section to the parent container
+            $(".rootcause-repeatable:last").after(clone);
+    
+            // Show the remove button for the new entry
+            clone.find('.remove-rootcause-action').show();
+    
+            // Add Remove Root Cause button click event for the new entry
+            clone.find('.remove-rootcause-action').on("click", function(){
+                // Check if there is more than one entry before removal
+                if ($('.rootcause-repeatable').length > 1) {
+                    $(this).closest('.rootcause-repeatable').remove();
+                }
+            });
+        });
+    
+        // Remove Root Cause button click event for the initial entry
+        $(".remove-rootcause-action").on("click", function(){
+            // Check if there is more than one entry before removal
+            if ($('.rootcause-repeatable').length > 1) {
+                $(this).closest('.rootcause-repeatable').remove();
+            }
+        });
+    },
+
+    identifiedRoot: function(){
+        $("#add-identified-root").on("click", function(){
+            // Clone the first .identified-root-repeatable div
+            var clone = $(".identified-root-repeatable:first").clone();
+            
+            // Clear input values in the cloned section
+            clone.find('input').val('');
+    
+            // Append the cloned section to the parent container
+            $(".identified-root-repeatable:last").after(clone);
+    
+            // Show the remove button for the new entry
+            clone.find('.remove-identified-root-action').show();
+    
+            // Add Remove Identified Root Cause button click event for the new entry
+            clone.find('.remove-identified-root-action').on("click", function(){
+                // Check if there is more than one entry before removal
+                if ($('.identified-root-repeatable').length > 1) {
+                    $(this).closest('.identified-root-repeatable').remove();
+                }
+            });
+        });
+    
+        // Remove Identified Root Cause button click event for the initial entry
+        $(".remove-identified-root-action").on("click", function(){
+            // Check if there is more than one entry before removal
+            if ($('.identified-root-repeatable').length > 1) {
+                $(this).closest('.identified-root-repeatable').remove();
+            }
+        });
     }
 
 }
@@ -286,4 +478,12 @@ jQuery(document).ready(function(){
     car.load();
     car.loadDepartment();
     car.saveCar();
+    car.correction();
+    car.consequences();
+    car.riskNumber();
+    car.opportunityNumber();
+    car.rootCause();
+    car.identifiedRoot();
+
+
 });

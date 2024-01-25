@@ -13,7 +13,7 @@ var car = {
         $.ajax({
             type: 'POST',
             url: 'getCar', // Replace 'MyController' with your controller name
-            data: {'status':'all'},
+            data: {},
             success: function (response) {
                 if(response != 'null'){
                     $.each(JSON.parse(response), function (index, item) {

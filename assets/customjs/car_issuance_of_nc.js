@@ -13,35 +13,41 @@ var car = {
         $.ajax({
             type: 'POST',
             url: 'getCar', // Replace 'MyController' with your controller name
-            data: {'status':'all'},
+            data: {'status' : 'For Issuance of NC'},
             success: function (response) {
                 if(response != 'null'){
                     $.each(JSON.parse(response), function (index, item) {
                         // Access each item's properties
+                        var car_id = item.id || '';
                         var car_no = item.car_no || '';
                         var source = item.source_name || '';
                         var issued_by = item.division || '';
                         var issued_to = item.issued_to || '';
+                        var findings = item.findings || '';
+                        var consequences = item.consequences || '';
+                        var requirements_not_fulfilled = item.requirements_not_fulfilled || '';
                         var identification_date = item.identification_date || '';
                         var registration_date = item.registration_date || '';
                         var date_closed = item.date_closed || '';
                         var corrective_action_status = item.corrective_action_status || '';
                         var for_correction_status = item.for_correction_status || '';
                         var status = item.status || '';
-                
-                        
-                        var html = "<tr><td>" + car_no + 
-                        "</td><td>" + source + 
-                        "</td><td>" + issued_by + 
-                        "</td><td>" + issued_to + 
-                        "</td><td>" + identification_date + 
-                        "</td><td>" + registration_date + 
-                        "</td><td>" + date_closed + 
-                        "</td><td>" + corrective_action_status + 
-                        "</td><td>" + for_correction_status + 
-                        "</td><td>" + status + 
-                        "</td><td>" + "<button class='btn btn-primary btn-small' data-bs-toggle='modal' data-bs-target='#add-car'><i class='fas fa-plus'></i></button>" + 
-                        "</td></tr>";
+                        var issuance_of_nc = item.issuance_of_nc || '';
+                        var issuance_of_nc_remarks = item.issuance_of_nc_remarks || '';
+
+                        var html = "<tr><td>" + car_no +
+                            "</td><td>" + source +
+                            "</td><td>" + issued_by +
+                            "</td><td>" + issued_to +
+                            "</td><td>" + identification_date +
+                            "</td><td>" + registration_date +
+                            "</td><td>" + date_closed +
+                            "</td><td>" + corrective_action_status +
+                            "</td><td>" + for_correction_status +
+                            "</td><td>" + status +
+                            "</td><td>" + "<button data-findings='"+ findings +"' data-consequences='"+ consequences +"' data-requirements_not_fulfilled='"+ requirements_not_fulfilled +"' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "'  class='btn btn-primary btn-small edit-car' data-bs-toggle='modal' data-bs-target='#add-car'><i class='fas fa-plus'></i></button>" +
+                            "</td></tr>";
+
                         // Do something with the data, for example, display it on the page
                         $('#car-global-datatable tbody').append(html);
 
@@ -65,6 +71,37 @@ var car = {
                 car.notifyError();
             }
         });
+    },
+
+    carEdit: function(){
+
+        $('#car-global-datatable').on('click', '.edit-car', function () {
+            $car_id = jQuery(this).data('car_id');
+            $car_no = jQuery(this).data('car_no');
+            $source = jQuery(this).data('source');
+            $issued_by = jQuery(this).data('issued_by');
+            $issued_to = jQuery(this).data('issued_to');
+            $identification_date = jQuery(this).data('identification_date');
+            $issuance_of_nc = jQuery(this).data('issuance_of_nc');
+            $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
+
+            $findings = jQuery(this).data('findings');
+            $consequences = jQuery(this).data('consequences');
+            $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
+        
+            jQuery('#car_id').val($car_id);
+            jQuery('#car_no').val($car_no);
+            jQuery('#source').val($source); // Replace 'source' with the actual ID of your element
+            jQuery('#issued_by').val($issued_by); // Replace 'issued_by' with the actual ID of your element
+            jQuery('#issued_to').val($issued_to); // Replace 'issued_to' with the actual ID of your element
+            jQuery('#identification_date').val($identification_date); // Replace 'identification_date' with the actual ID of your element
+            jQuery('#issuance_of_nc').val($issuance_of_nc); // Replace 'issuance_of_nc' with the actual ID of your element
+            jQuery('#issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element        
+            jQuery('#findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('#consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('#requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+        });
+       
     },
 
     loadDepartment : function(){
@@ -233,32 +270,38 @@ var car = {
             e.preventDefault();
     
             if (car.validateForm()) {
-    
-                var car_no = jQuery('#car_no').val();
-                var identification_date = jQuery('#identification_date').val();
-                var source = jQuery('#source').val();
-                var issued_by = jQuery('#issued_by').val();
-                var issued_to = jQuery('#issued_to').val();
-                var findings = jQuery('#findings').val();
-                var consequences = jQuery('#consequences').val();
-                var requirements_not_fulfilled = jQuery('#requirements_not_fulfilled').val();
+
+                var car_id = jQuery('#car_id').val();
+                // var car_no = jQuery('#car_no').val();
+                // var identification_date = jQuery('#identification_date').val();
+                // var source = jQuery('#source').val();
+                // var issued_by = jQuery('#issued_by').val();
+                // var issued_to = jQuery('#issued_to').val();
+                // var findings = jQuery('#findings').val();
+                // var consequences = jQuery('#consequences').val();
+                // var requirements_not_fulfilled = jQuery('#requirements_not_fulfilled').val();
+                var issuance_of_nc = jQuery('#issuance_of_nc').val();
+                var remarks = jQuery('#remarks').val();
                 
                 var data = {
-                    'car_no' : car_no,
-                    'identification_date' : identification_date,
-                    'source' : source,
-                    'issued_by' : issued_by,
-                    'issued_to' : issued_to,
-                    'findings' : findings,
-                    'consequences' : consequences,
-                    'requirements_not_fulfilled': requirements_not_fulfilled
+                    'car_id' : car_id,
+                    // 'car_no' : car_no,
+                    // 'identification_date' : identification_date,
+                    // 'source' : source,
+                    // 'issued_by' : issued_by,
+                    // 'issued_to' : issued_to,
+                    // 'findings' : findings,
+                    // 'consequences' : consequences,
+                    // 'requirements_not_fulfilled': requirements_not_fulfilled,
+                    'issuance_of_nc': issuance_of_nc,
+                    'remarks': remarks,
                 }
     
                 jQuery("#add-car").modal('toggle');
     
                 $.ajax({
                     type: 'POST',
-                    url: '../car/save', // Replace 'MyController' with your controller name
+                    url: '../car/issuanceSave', // Replace 'MyController' with your controller name
                     data: data,
                     success: function (response) {
                         // Handle the response from the server
@@ -286,4 +329,5 @@ jQuery(document).ready(function(){
     car.load();
     car.loadDepartment();
     car.saveCar();
+    car.carEdit();
 });

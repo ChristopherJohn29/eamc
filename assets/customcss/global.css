@@ -16,3 +16,7 @@ tr td:not(:last-child) {
     white-space: pre-wrap !important;
     word-wrap: break-word;
 }
+
+.hidden{
+    display: none !important;
+}
