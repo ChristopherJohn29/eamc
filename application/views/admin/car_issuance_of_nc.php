@@ -2,7 +2,7 @@
    <!-- Start Content-->
    <div class="container-fluid">
 
-   <div id="add-car" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
+      <div id="add-car" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
          <div class="modal-dialog modal-xl">
                <div class="modal-content">
                   <div class="modal-header">
@@ -13,20 +13,29 @@
                   <form id="addCARForm">
                      <input type="hidden" name="car_id" id="car_id">
                      <div class="row mb-2">
-                        <div class="form-group col-md-3">
-                              <label for="car_no" class="form-label">CAR No.</label>
-                              <input type="text" class="form-control" id="car_no" required>
+                        <div class="form-group col-md-4">
+                              <label for="requestor" class="form-label">Requestor</label>
+                              <input type="text" class="form-control" id="requestor" disabled>
                               <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                         </div>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-4">
+                              <label for="car_no" class="form-label">CAR No.</label>
+                              <input type="text" class="form-control" id="car_no" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                        <div class="form-group col-md-4">
                               <label for="identification_date" class="form-label">Identification Date</label>
-                              <input type="date" class="form-control" id="identification_date" required>
+                              <input type="date" class="form-control" id="identification_date" disabled>
                               <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                         </div>
 
-                        <div class="form-group col-md-2">
+                     </div>
+
+                     <div class="row mb-2">
+
+                        <div class="form-group col-md-3">
                               <label for="source" class="form-label">Source</label>
-                              <select class="form-select" id="source" name="source" required>
+                              <select class="form-select" id="source" name="source" disabled>
                                  <option value=""></option>
                                  <?php
                                     foreach ($source as $key => $value) {
@@ -37,9 +46,9 @@
                               <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                         </div>
 
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-3">
                               <label for="issued_by" class="form-label">Issued By</label>
-                              <select class="form-select" id="issued_by" name="issued_by" required>
+                              <select class="form-select" id="issued_by" name="issued_by" disabled>
                                  <option value=""></option>
                                  <?php
                                     foreach ($division as $key => $value) {
@@ -50,34 +59,40 @@
                               <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                         </div>
 
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-3">
                               <label for="issued_to" class="form-label">Issued To</label>
-                              <select class="form-select" id="issued_to" name="issued_to" required>
+                              <select class="form-select" id="issued_to" name="issued_to">
                                  <option value=""></option>
                               </select>
                               <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                         </div>
 
+                        <div class="form-group col-md-3">
+                              <label for="issued_to" class="form-label">Section Unit</label>
+                              <select class="form-select" id="section" name="section">
+                                 <option value=""></option>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
 
                      </div>
-
                      <div class="row mb-2">
                         <div class="form-group col-md-12">
                            <label for="findings" class="form-label">Findings</label>
-                           <textarea class="form-control" id="findings" rows="4"></textarea>
+                           <textarea class="form-control" id="findings" rows="4" disabled></textarea>
                         </div>
                      </div>
 
                      <div class="row mb-2">
                         <div class="form-group col-md-12">
                            <label for="consequences" class="form-label">Consequences</label>
-                           <textarea class="form-control" id="consequences" rows="4"></textarea>
+                           <textarea class="form-control" id="consequences" rows="4" disabled></textarea>
                         </div>
                      </div>
                      <div class="row mb-2">
                         <div class="form-group col-md-12">
                            <label for="requirements_not_fulfilled" class="form-label">Requirements Not Fulfilled: </label><i>(e.g., ISO 9001 Requirements, Statutory & Regulatory Requirements, Policies, Procedures, Guidelines, Work Instructions, or other forms of Documented Information.)</i>
-                           <textarea class="form-control" id="requirements_not_fulfilled" rows="4"></textarea>
+                           <textarea class="form-control" id="requirements_not_fulfilled" rows="4" disabled></textarea>
                         </div>
                      </div>
    
@@ -113,7 +128,7 @@
          <div class="col-12">
             <div class="page-title-box">
                <div class="page-title-right">
-                  <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#add-car"><i class="fas fa-plus"></i> Register CAR</button>
+                  <button type="button" class="btn btn-primary waves-effect waves-light hidden" data-bs-toggle="modal" data-bs-target="#add-car"><i class="fas fa-plus"></i> Register CAR</button>
                </div>
                <h4 class="page-title"><?=$title?></h4>        
             </div>

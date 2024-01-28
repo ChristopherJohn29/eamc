@@ -13,18 +13,27 @@
                   <form id="addCARForm">
                   
                      <div class="row mb-2">
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-4">
+                              <label for="requestor" class="form-label">Requestor</label>
+                              <input type="text" class="form-control" id="requestor" required>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                        <div class="form-group col-md-4">
                               <label for="car_no" class="form-label">CAR No.</label>
                               <input type="text" class="form-control" id="car_no" required>
                               <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                         </div>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-4">
                               <label for="identification_date" class="form-label">Identification Date</label>
                               <input type="date" class="form-control" id="identification_date" required>
                               <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                         </div>
 
-                        <div class="form-group col-md-2">
+                     </div>
+
+                     <div class="row mb-2">
+
+                        <div class="form-group col-md-3">
                               <label for="source" class="form-label">Source</label>
                               <select class="form-select" id="source" name="source" required>
                                  <option value=""></option>
@@ -37,7 +46,7 @@
                               <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                         </div>
 
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-3">
                               <label for="issued_by" class="form-label">Issued By</label>
                               <select class="form-select" id="issued_by" name="issued_by" required>
                                  <option value=""></option>
@@ -50,14 +59,21 @@
                               <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                         </div>
 
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-3">
                               <label for="issued_to" class="form-label">Issued To</label>
-                              <select class="form-select" id="issued_to" name="issued_to" required>
+                              <select class="form-select" id="issued_to" name="issued_to" disabled>
                                  <option value=""></option>
                               </select>
                               <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                         </div>
 
+                        <div class="form-group col-md-3">
+                              <label for="issued_to" class="form-label">Section Unit</label>
+                              <select class="form-select" id="section" name="section" disabled>
+                                 <option value=""></option>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
 
                      </div>
 

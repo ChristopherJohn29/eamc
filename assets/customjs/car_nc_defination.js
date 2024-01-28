@@ -24,6 +24,8 @@ var car = {
                         var issued_to = item.issued_to || '';
                         var identification_date = item.identification_date || '';
                         var registration_date = item.registration_date || '';
+                        var ca_completion_date = item.ca_completion_date || '';
+                        var fc_completion_date = item.fc_completion_date || '';
                         var date_closed = item.date_closed || '';
                         var corrective_action_status = item.corrective_action_status || '';
                         var for_correction_status = item.for_correction_status || '';
@@ -37,10 +39,10 @@ var car = {
                         "</td><td>" + identification_date + 
                         "</td><td>" + registration_date + 
                         "</td><td>" + date_closed + 
-                        "</td><td>" + corrective_action_status + 
-                        "</td><td>" + for_correction_status + 
+                        "</td><td>" + corrective_action_status + "<br><small>"+ ca_completion_date + "</small>" +
+                        "</td><td>" + for_correction_status + "<br><small>"+  fc_completion_date + "</small>" +
                         "</td><td>" + status + 
-                        "</td><td>" + "<button class='btn btn-primary btn-small' data-bs-toggle='modal' data-bs-target='#add-car'><i class='fas fa-plus'></i></button>" + 
+                        "</td><td>" + "<button class='btn btn-primary btn-small hidden' data-bs-toggle='modal' data-bs-target='#add-car'><i class='fas fa-plus'></i></button>" + 
                         "</td></tr>";
                         // Do something with the data, for example, display it on the page
                         $('#car-global-datatable tbody').append(html);
@@ -124,22 +126,7 @@ var car = {
 
         jQuery('#issued_by').change(function(){
             source = jQuery('#source').val();
-            if(source == 1 || source == 2 || source == 8){
-
-                if(source == 1){
-                    $('#issued_to').html('<option value="IQA Chair">IQA Chair</option>');
-                }
-
-                if(source == 2){
-                    $('#issued_to').html('<option value="Internal Auditor">Internal Auditor</option>');
-                }
-
-                if(source == 8){
-                    $('#issued_to').html('<option value="CSAT">CSAT</option>');
-                }
-
-            } else {
-                division = $(this).val();
+            division = $(this).val();
                 $.ajax({
                     type: 'POST',
                     url: '../car/getDepartment', // Replace 'MyController' with your controller name
@@ -168,7 +155,6 @@ var car = {
                         diList.notifyError();
                     }
                 });
-            }
 
         });
     },
@@ -237,6 +223,7 @@ var car = {
                 var car_no = jQuery('#car_no').val();
                 var identification_date = jQuery('#identification_date').val();
                 var source = jQuery('#source').val();
+                var requestor = jQuery('#requestor').val();
                 var issued_by = jQuery('#issued_by').val();
                 var issued_to = jQuery('#issued_to').val();
                 var findings = jQuery('#findings').val();
@@ -247,6 +234,7 @@ var car = {
                     'car_no' : car_no,
                     'identification_date' : identification_date,
                     'source' : source,
+                    'requestor' : requestor,
                     'issued_by' : issued_by,
                     'issued_to' : issued_to,
                     'findings' : findings,
@@ -284,6 +272,6 @@ var car = {
 
 jQuery(document).ready(function(){
     car.load();
-    car.loadDepartment();
+    // car.loadDepartment();
     car.saveCar();
 });
