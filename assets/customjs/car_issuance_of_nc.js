@@ -25,6 +25,7 @@ var car = {
                         var issued_by_name = item.division || '';
                         var issued_by = item.issued_by || '';
                         var issued_to = item.issued_to || '';
+                        var issued_to_name = item.department || '';
                         var findings = item.findings || '';
                         var consequences = item.consequences || '';
                         var requirements_not_fulfilled = item.requirements_not_fulfilled || '';
@@ -42,7 +43,7 @@ var car = {
                         var html = "<tr><td>" + car_no +
                                     "</td><td>" + source +
                                     "</td><td>" + issued_by_name +
-                                    "</td><td>" + issued_to +
+                                    "</td><td>" + issued_to_name +
                                     "</td><td>" + identification_date +
                                     "</td><td>" + registration_date +
                                     "</td><td>" + date_closed +
@@ -150,54 +151,33 @@ var car = {
         jQuery('#source').change(function(){
             source = jQuery(this).val();
 
-            if(source == 1 || source == 2 || source == 8){
+            division = jQuery('#issued_by').val();
 
-                if(source == 1){
-                    $('#issued_to').html('<option value="IQA Chair">IQA Chair</option>');
-                }
+            $.ajax({
+                type: 'POST',
+                url: '../car/getDepartment', // Replace 'MyController' with your controller name
+                data: {division: division},
+                success: function (response) {
+                    if(response != 'null'){
 
-                if(source == 2){
-                    $('#issued_to').html('<option value="Internal Auditor">Internal Auditor</option>');
-                }
-
-                if(source == 8){
-                    $('#issued_to').html('<option value="CSAT">CSAT</option>');
-                }
-
-            } else {
-
-                division = jQuery('#issued_by').val();
-
-                $.ajax({
-                    type: 'POST',
-                    url: '../car/getDepartment', // Replace 'MyController' with your controller name
-                    data: {division: division},
-                    success: function (response) {
-                        if(response != 'null'){
+                        $('#issued_to').html('<option value=""></option>');
+                        $.each(JSON.parse(response), function (index, item) {
+                            // Access each item's properties
+                            var id = item.id;
+                            var dep_name = item.dep_name;
     
-                            $('#issued_to').html('<option value=""></option>');
-                            $.each(JSON.parse(response), function (index, item) {
-                                // Access each item's properties
-                                var id = item.id;
-                                var dep_name = item.dep_name;
-        
-                                var html = '<option value="'+dep_name+'">'+dep_name+'</option>';
-                                // Do something with the data, for example, display it on the page
-                                $('#issued_to').append(html);
-                            });
-    
-                             $('#issued_to').append('<option value="IQA Chair">IQA Chair</option>');
-                             $('#issued_to').append('<option value="Internal Auditor">Internal Auditor</option>');
-                             $('#issued_to').append('<option value="CSAT">CSAT</option>');
-                        }   
-                    },
-                    error: function () {
-                        // Handle errors
-                        diList.notifyError();
-                    }
-                });
+                            var html = '<option value="'+id+'">'+dep_name+'</option>';
+                            // Do something with the data, for example, display it on the page
+                            $('#issued_to').append(html);
+                        });
 
-            }
+                    }   
+                },
+                error: function () {
+                    // Handle errors
+                    diList.notifyError();
+                }
+            });
 
         }); 
 
@@ -216,7 +196,7 @@ var car = {
                             var id = item.id;
                             var dep_name = item.dep_name;
     
-                            var html = '<option value="'+dep_name+'">'+dep_name+'</option>';
+                            var html = '<option value="'+id+'">'+dep_name+'</option>';
                             // Do something with the data, for example, display it on the page
                             $('#section').append(html);
                         });

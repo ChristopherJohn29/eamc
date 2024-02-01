@@ -113,8 +113,11 @@
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
+
+                  <form action="" id="correction_form" enctype="multipart/form-data">
+                     <input type="hidden" name="car_id" class="car_id">
                      <div id="correction" class="mb-3">
-                        <div class="col-lg-12 correction-repeatable">
+                        <div class="col-lg-12 correction-repeatable orig-correction">
                            <div class="card">
                               <div class="card-body">
                                  <div class="mb-3">
@@ -122,19 +125,19 @@
                                        <div class="col-xl-4">
                                           <div class="mb-3 mb-xl-0">
                                           <label for="exampleInputEmail1" class="form-label">Correction</label>
-                                          <input type="text" class="form-control" name="correction">
+                                          <input type="text" class="form-control" name="correction[]">
                                           </div>
                                        </div>
                                        <div class="col-xl-4">
                                           <div class="mb-3 mb-xl-0">
                                           <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
-                                          <input type="text" class="form-control" name="person_responsible" placeholder="Enter Name of personel">
+                                          <input type="text" class="form-control" name="correction_person_responsible[]" placeholder="Enter Name of personel">
                                           </div>
                                        </div>
                                        <div class="col-xl-3">
                                           <div class="mb-3 mb-xl-0">
                                           <label for="exampleInputEmail1" class="form-label">Completion Date</label>
-                                          <input type="date" class="form-control" name="completion_date" placeholder="Select Date">
+                                          <input type="date" class="form-control" name="correction_completion_date[]" placeholder="Select Date">
                                           </div>
                                        </div>
                                        <div class="col-xl-1">
@@ -150,13 +153,14 @@
                               </div> <!-- end card-body-->
                            </div> <!-- end card-->
                         </div>
-                        <div class="text-end">
-                           <button type="button" class="btn btn-primary left" id="add-correction">Add Correction</button>
-                        </div>
+                        
+                     </div>
+                     <div class="text-end mb-3">
+                        <button type="button" class="btn btn-primary left" id="add-correction">Add Correction</button>
                      </div>
 
-                     <div id="consequences">
-                        <div class="col-lg-12 consequences-repeatable">
+                     <div id="consequencesdiv">
+                        <div class="col-lg-12 consequences-repeatable orig-consequence">
                            <div class="card">
                               <div class="card-body">
                                  <div class="mb-3">
@@ -164,19 +168,19 @@
                                        <div class="col-xl-4">
                                           <div class="mb-3 mb-xl-0">
                                           <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                          <input type="text" class="form-control" name="consequences">
+                                          <input type="text" class="form-control" name="consequence[]">
                                           </div>
                                        </div>
                                        <div class="col-xl-4">
                                           <div class="mb-3 mb-xl-0">
                                           <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
-                                          <input type="text" class="form-control" name="person_responsible" placeholder="Enter Name of personel">
+                                          <input type="text" class="form-control" name="consequence_person_responsible[]" placeholder="Enter Name of personel">
                                           </div>
                                        </div>
                                        <div class="col-xl-3">
                                           <div class="mb-3 mb-xl-0">
                                           <label for="exampleInputEmail1" class="form-label">Completion Date</label>
-                                          <input type="date" class="form-control" name="completion_date" placeholder="Select Date">
+                                          <input type="date" class="form-control" name="consequence_completion_date[]" placeholder="Select Date">
                                           </div>
                                        </div>
                                        <div class="col-xl-1">
@@ -192,14 +196,17 @@
                               </div> <!-- end card-body-->
                            </div> <!-- end card-->
                         </div>
-                        <div class="text-end">
-                           <button type="button" class="btn btn-primary left" id="add-consequences">Add Consequences</button>
-                        </div>
+                        
                      </div>
+                     <div class="text-end">
+                           <button type="button" class="btn btn-primary left" id="add-consequences">Add Consequences</button>
+                     </div>
+                  </form>
+
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
-                     <button type="button" class="btn btn-primary" id="saveCar">Save</button>
+                     <button type="button" class="btn btn-primary" id="saveCorrection">Save</button>
                   </div>
                </div><!-- /.modal-content -->
          </div><!-- /.modal-dialog -->

@@ -26,6 +26,7 @@ var car = {
                         var issued_by_name = item.division || '';
                         var issued_by = item.issued_by || '';
                         var issued_to = item.issued_to || '';
+                        var issued_to_name = item.department || '';
                         var section = item.section || '';
                         var findings = item.findings || '';
                         var consequences = item.consequences || '';
@@ -45,7 +46,7 @@ var car = {
                         var html = "<tr><td>" + car_no + 
                         "</td><td>" + source_name + 
                         "</td><td>" + issued_by_name + 
-                        "</td><td>" + issued_to + 
+                        "</td><td>" + issued_to_name + 
                         "</td><td>" + identification_date + 
                         "</td><td>" + registration_date + 
                         "</td><td>" + date_closed + 
@@ -56,10 +57,10 @@ var car = {
                         "<div class='btn-group mb-2'>" +
                         "<button type='button' class='btn btn-success dropdown-toggle' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><i class='fa fa-file'></i> <i class='mdi mdi-chevron-down'></i></button>" +
                         "<div class='dropdown-menu'>" +
-                        "<a class='dropdown-item edit-car' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source_name + "' data-section='" + section + "' data-issued_by='" + issued_by_name + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#add-car'>Issuance of NC</a>" +
+                        "<a class='dropdown-item edit-car' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source_name + "' data-section='" + section + "' data-issued_by='" + issued_by_name + "' data-issued_to='" + issued_to_name + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#add-car'>Issuance of NC</a>" +
                         "<a class='dropdown-item' href='#'>History</a>" +
                         "<a class='dropdown-item edit-corrective-action' href='#' data-car_id='" + car_id + "' data-bs-toggle='modal' data-bs-target='#root-cause'>Corrective Action</a>" +
-                        "<a class='dropdown-item' href='#'  data-bs-toggle='modal' data-bs-target='#corrective-action'>Correction</a>" +
+                        "<a class='dropdown-item edit-correction-action' href='#' data-car_id='" + car_id + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>Correction</a>" +
                         "</div>" +
                         "</div>" +
                         "</td></tr>";
@@ -92,105 +93,353 @@ var car = {
         jQuery('#source').change(function(){
             source = jQuery(this).val();
 
-            if(source == 1 || source == 2 || source == 8){
+            division = jQuery('#issued_by').val();
 
-                if(source == 1){
-                    $('#issued_to').html('<option value="IQA Chair">IQA Chair</option>');
-                }
+            $.ajax({
+                type: 'POST',
+                url: '../car/getDepartment', // Replace 'MyController' with your controller name
+                data: {division: division},
+                success: function (response) {
+                    if(response != 'null'){
 
-                if(source == 2){
-                    $('#issued_to').html('<option value="Internal Auditor">Internal Auditor</option>');
-                }
-
-                if(source == 8){
-                    $('#issued_to').html('<option value="CSAT">CSAT</option>');
-                }
-
-            } else {
-
-                division = jQuery('#issued_by').val();
-
-                $.ajax({
-                    type: 'POST',
-                    url: '../car/getDepartment', // Replace 'MyController' with your controller name
-                    data: {division: division},
-                    success: function (response) {
-                        if(response != 'null'){
+                        $('#issued_to').html('<option value=""></option>');
+                        $.each(JSON.parse(response), function (index, item) {
+                            // Access each item's properties
+                            var id = item.id;
+                            var dep_name = item.dep_name;
     
-                            $('#issued_to').html('<option value=""></option>');
-                            $.each(JSON.parse(response), function (index, item) {
-                                // Access each item's properties
-                                var id = item.id;
-                                var dep_name = item.dep_name;
-        
-                                var html = '<option value="'+dep_name+'">'+dep_name+'</option>';
-                                // Do something with the data, for example, display it on the page
-                                $('#issued_to').append(html);
-                            });
-    
-                             $('#issued_to').append('<option value="IQA Chair">IQA Chair</option>');
-                             $('#issued_to').append('<option value="Internal Auditor">Internal Auditor</option>');
-                             $('#issued_to').append('<option value="CSAT">CSAT</option>');
-                        }   
-                    },
-                    error: function () {
-                        // Handle errors
-                        diList.notifyError();
-                    }
-                });
+                            var html = '<option value="'+id+'">'+dep_name+'</option>';
+                            // Do something with the data, for example, display it on the page
+                            $('#issued_to').append(html);
+                        });
 
-            }
+                    }   
+                },
+                error: function () {
+                    // Handle errors
+                    diList.notifyError();
+                }
+            });
 
         }); 
 
-        jQuery('#issued_by').change(function(){
-            source = jQuery('#source').val();
-            if(source == 1 || source == 2 || source == 8){
+        jQuery('#issued_to').change(function(){
+            department = $(this).val();
+            $.ajax({
+                type: 'POST',
+                url: '../car/getSection', // Replace 'MyController' with your controller name
+                data: {department: department},
+                success: function (response) {
+                    if(response != 'null'){
 
-                if(source == 1){
-                    $('#issued_to').html('<option value="IQA Chair">IQA Chair</option>');
-                }
-
-                if(source == 2){
-                    $('#issued_to').html('<option value="Internal Auditor">Internal Auditor</option>');
-                }
-
-                if(source == 8){
-                    $('#issued_to').html('<option value="CSAT">CSAT</option>');
-                }
-
-            } else {
-                division = $(this).val();
-                $.ajax({
-                    type: 'POST',
-                    url: '../car/getDepartment', // Replace 'MyController' with your controller name
-                    data: {division: division},
-                    success: function (response) {
-                        if(response != 'null'){
+                        $('#section').html('<option value=""></option>');
+                        $.each(JSON.parse(response), function (index, item) {
+                            // Access each item's properties
+                            var id = item.id;
+                            var dep_name = item.dep_name;
     
-                            $('#issued_to').html('<option value=""></option>');
-                            $.each(JSON.parse(response), function (index, item) {
-                                // Access each item's properties
-                                var id = item.id;
-                                var dep_name = item.dep_name;
+                            var html = '<option value="'+id+'">'+dep_name+'</option>';
+                            // Do something with the data, for example, display it on the page
+                            $('#section').append(html);
+                        });
+
+                       
+                    }   
+                },
+                error: function () {
+                    // Handle errors
+                    diList.notifyError();
+                }
+            });
+        });
+    },
+
+    loadCorrectiveAction: function(){
+        $('#car-global-datatable').on('click', '.edit-correction-action', function () {
+
+            var car_id = jQuery(this).data('car_id');
+            jQuery('.car_id').val(car_id);
+            $('#correction').empty();
+            $('#consequencesdiv').empty();
+
+            $.ajax({
+                type: 'POST',
+                url: '../car/getCorrectionAction', // Replace 'MyController' with your controller name
+                data: {car_id: car_id},
+                success: function (response) {
+                    if(response != '[]'){
+
+                        response = JSON.parse(response);
+
+                        console.log(response);
+
+                        var correctionEntries = JSON.parse(response[0].correction_entry);
+                        
+                        // Loop through correction entries and create HTML for each entry
+                        correctionEntries.forEach(function (correction) {
+                            var correctionHtml = `
+                                <div class="col-lg-12 correction-repeatable added-repeat">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="mb-3">
+                                                <div class="row">
+                                                    <div class="col-xl-4">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label for="exampleInputEmail1" class="form-label">Correction</label>
+                                                            <input type="text" class="form-control" name="correction[]" value="${correction.correction}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-4">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
+                                                            <input type="text" class="form-control" name="correction_person_responsible[]" placeholder="Enter Name of personnel" value="${correction.correction_person_responsible}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-3">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label for="exampleInputEmail1" class="form-label">Completion Date</label>
+                                                            <input type="date" class="form-control" name="correction_completion_date[]" value="${correction.correction_completion_date}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-1">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label for="exampleInputEmail1" class="form-label">Remove</label>
+                                                            <button type="button" class="btn btn-danger remove-corrective-action"><i class="fas fa-trash"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+
+                    
+                            // Append the correction HTML to the container
+                            $('#correction').append(correctionHtml);
+                        });
+
+                        var consequenceEntries = JSON.parse(response[0].consequence_entry);
+                        
+                        // Loop through correction entries and create HTML for each entry
+                        consequenceEntries.forEach(function (consequence) {
+                            var consequenceHtml = `
+                                <div class="col-lg-12 consequences-repeatable added-repeat">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="mb-3">
+                                                <div class="row">
+                                                    <div class="col-xl-4">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
+                                                            <input type="text" class="form-control" name="consequence[]" value="${consequence.consequence}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-4">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
+                                                            <input type="text" class="form-control" name="consequence_person_responsible[]" placeholder="Enter Name of personnel" value="${consequence.consequence_person_responsible}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-3">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label for="exampleInputEmail1" class="form-label">Completion Date</label>
+                                                            <input type="date" class="form-control" name="consequence_completion_date[]" value="${consequence.consequence_completion_date}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-1">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label for="exampleInputEmail1" class="form-label">Remove</label>
+                                                            <button type="button" class="btn btn-danger remove-consequences-action"><i class="fas fa-trash"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+
+                    
+                            // Append the correction HTML to the container
+                            $('#consequencesdiv').append(consequenceHtml);
+                        });
+
+
+                    } else {
+                        // car.notifyError();
+                    }   
+                    
+                    var correctionHtmlLast = `
+                        <div class="col-lg-12 correction-repeatable">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <div class="row">
+                                            <div class="col-xl-4">
+                                                <div class="mb-3 mb-xl-0">
+                                                    <label for="exampleInputEmail1" class="form-label">Correction</label>
+                                                    <input type="text" class="form-control" name="correction[]" value="">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-4">
+                                                <div class="mb-3 mb-xl-0">
+                                                    <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
+                                                    <input type="text" class="form-control" name="correction_person_responsible[]" placeholder="Enter Name of personnel" value="">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-3">
+                                                <div class="mb-3 mb-xl-0">
+                                                    <label for="exampleInputEmail1" class="form-label">Completion Date</label>
+                                                    <input type="date" class="form-control" name="correction_completion_date[]" value="">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-1">
+                                                <div class="mb-3 mb-xl-0">
+                                                    <label for="exampleInputEmail1" class="form-label">Remove</label>
+                                                    <button type="button" class="btn btn-danger remove-corrective-action"><i class="fas fa-trash"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    $('#correction').append(correctionHtmlLast);
+
+                    var consequenceHtmlLast = `
+                            <div class="col-lg-12 consequences-repeatable">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="mb-3">
+                                            <div class="row">
+                                                <div class="col-xl-4">
+                                                    <div class="mb-3 mb-xl-0">
+                                                        <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
+                                                        <input type="text" class="form-control" name="consequence[]" value="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4">
+                                                    <div class="mb-3 mb-xl-0">
+                                                        <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
+                                                        <input type="text" class="form-control" name="consequence_person_responsible[]" placeholder="Enter Name of personnel" value="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <div class="mb-3 mb-xl-0">
+                                                        <label for="exampleInputEmail1" class="form-label">Completion Date</label>
+                                                        <input type="date" class="form-control" name="consequence_completion_date[]" value="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-1">
+                                                    <div class="mb-3 mb-xl-0">
+                                                        <label for="exampleInputEmail1" class="form-label">Remove</label>
+                                                        <button type="button" class="btn btn-danger remove-consequences-action"><i class="fas fa-trash"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+
+                    $('#consequencesdiv').append(consequenceHtmlLast);
+            
+                },
+                error: function () {
+                    // Handle errors
+                    car.notifyError();
+                }
+            });
+
+
+            
+                        
         
-                                var html = '<option value="'+dep_name+'">'+dep_name+'</option>';
-                                // Do something with the data, for example, display it on the page
-                                $('#issued_to').append(html);
-                            });
-    
-                             $('#issued_to').append('<option value="IQA Chair">IQA Chair</option>');
-                             $('#issued_to').append('<option value="Internal Auditor">Internal Auditor</option>');
-                             $('#issued_to').append('<option value="CSAT">CSAT</option>');
-                        }   
-                    },
-                    error: function () {
-                        // Handle errors
-                        diList.notifyError();
-                    }
-                });
-            }
+        });
 
+        $('#car-global-datatable').on('click', '.edit-corrective-action', function () {
+
+            var car_id = jQuery(this).data('car_id');
+            jQuery('.car_id').val(car_id);
+
+            $.ajax({
+                type: 'POST',
+                url: '../car/getCorrectiveAction', // Replace 'MyController' with your controller name
+                data: {car_id: car_id},
+                success: function (response) {
+                    if(response != 'null'){
+
+                        response = JSON.parse(response);
+
+                        console.log(response[0].existing_nonconformity);
+
+                        $('input[name="existing_nonconformity"][value="'+ response[0].existing_nonconformity +'"]').prop('checked', true);
+                        $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
+                        $('input[name="opportunity_identified_yn"][value="'+ response[0].opportunity_identified +'"]').prop('checked', true);
+
+                        // $('#issued_to').html('<option value=""></option>');
+                        // $.each(JSON.parse(response), function (index, item) {
+                        //     // Access each item's properties
+                        //     var id = item.id;
+                        //     var dep_name = item.dep_name;
+
+                        //     var html = '<option value="'+dep_name+'">'+dep_name+'</option>';
+                        //     // Do something with the data, for example, display it on the page
+                        //     $('#issued_to').append(html);
+                        // });
+                    }   
+                },
+                error: function () {
+                    // Handle errors
+                    diList.notifyError();
+                }
+            });
+        });
+    },
+
+    loadCorrectionAction: function(){
+
+        $('#car-global-datatable').on('click', '.edit-correctiion-action', function () {
+
+            var car_id = jQuery(this).data('car_id');
+            jQuery('.car_id').val(car_id);
+
+            // $.ajax({
+            //     type: 'POST',
+            //     url: '../car/getCorrectionAction', // Replace 'MyController' with your controller name
+            //     data: {car_id: car_id},
+            //     success: function (response) {
+            //         if(response != 'null'){
+
+            //             response = JSON.parse(response);
+
+            //             console.log(response[0].existing_nonconformity);
+
+            //             $('input[name="existing_nonconformity"][value="'+ response[0].existing_nonconformity +'"]').prop('checked', true);
+            //             $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
+            //             $('input[name="opportunity_identified_yn"][value="'+ response[0].opportunity_identified +'"]').prop('checked', true);
+
+            //             // $('#issued_to').html('<option value=""></option>');
+            //             // $.each(JSON.parse(response), function (index, item) {
+            //             //     // Access each item's properties
+            //             //     var id = item.id;
+            //             //     var dep_name = item.dep_name;
+
+            //             //     var html = '<option value="'+dep_name+'">'+dep_name+'</option>';
+            //             //     // Do something with the data, for example, display it on the page
+            //             //     $('#issued_to').append(html);
+            //             // });
+            //         }   
+            //     },
+            //     error: function () {
+            //         // Handle errors
+            //         diList.notifyError();
+            //     }
+            // });
         });
     },
 
@@ -349,18 +598,57 @@ var car = {
                 data: formData,
                 processData: false,  // Prevent jQuery from processing the data
                 contentType: false,
-                success: function(response) {
-                    // Handle the success response from the server
-                    console.log(response);
-                    // You can update the UI or perform other actions here
+                success: function (response) {
+                    // Handle the response from the server
+                    if(response == 'saved'){
+                        car.notifySuccess();
+                        car.load();
+                        $('#root_cause_form')[0].reset();
+                        $('#root-cause').modal('hide');
+                    } else {
+                        car.notifyError();
+                    }
                 },
-                error: function(error) {
-                    // Handle the error response from the server
-                    console.error(error);
-                    // You can display an error message or perform other actions here
+                error: function () {
+                    // Handle errors
+                    car.notifyError();
                 }
             });
-        })
+        });
+
+
+        jQuery('#saveCorrection').click(function(e){
+            e.preventDefault();
+
+            var formData = new FormData($("#correction_form")[0]);
+
+            // Make an AJAX request to submit the form data
+            $.ajax({
+                type: "POST", // or "GET" depending on your server-side handling
+                url: "../car/saveCorrection", // Replace with your server-side endpoint
+                data: formData,
+                processData: false,  // Prevent jQuery from processing the data
+                contentType: false,
+                success: function (response) {
+                    // Handle the response from the server
+                    if(response == 'saved'){
+                        car.notifySuccess();
+                        car.load();
+                        $('#correction_form')[0].reset();
+                        $('#corrective-action').modal('hide');
+
+                    } else {
+                        car.notifyError();
+                    }
+                },
+                error: function () {
+                    // Handle errors
+                    car.notifyError();
+                }
+            });
+        });
+
+
     },
 
     correction: function(){
@@ -556,13 +844,7 @@ var car = {
     },
 
     carEdit: function(){
-        $('#car-global-datatable').on('click', '.edit-corrective-action', function () {
-            
-            $car_id = jQuery(this).data('car_id');
-            jQuery('.car_id').val($car_id);
-        });
        
-
         $('#car-global-datatable').on('click', '.edit-car', function () {
             $car_id = jQuery(this).data('car_id');
             $requestor = jQuery(this).data('requestor');
@@ -633,5 +915,6 @@ jQuery(document).ready(function(){
     car.rootCause();
     car.identifiedRoot();
     car.carEdit();
-
+    car.loadCorrectiveAction();
+    car.loadCorrectionAction();
 });

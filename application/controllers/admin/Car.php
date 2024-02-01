@@ -55,11 +55,88 @@ class car extends CI_Controller {
 		$this->load->view('template/template', $data);
     }
 
+    public function saveCorrection(){
+        //array
+        $car_id = $this->input->post('car_id');
+
+        $correction_entry = array();
+
+        $correction = $this->input->post('correction');
+        $correction_person_responsible = $this->input->post('correction_person_responsible');
+        $correction_completion_date = $this->input->post('correction_completion_date');
+    
+        foreach($correction as $key => $value){
+            if($correction[$key]){
+                $correction_entry[] = array(
+                    'correction' => $correction[$key],
+                    'correction_person_responsible' => $correction_person_responsible[$key],
+                    'correction_completion_date' => $correction_completion_date[$key]
+                );
+            }
+            
+        }
+        
+        $consequence_entry = array();
+
+        //array
+        $consequence = $this->input->post('consequence');
+        $consequence_person_responsible = $this->input->post('consequence_person_responsible');
+        $consequence_completion_date = $this->input->post('consequence_completion_date');
+    
+        foreach($consequence as $key => $value){
+            if($consequence[$key]){
+                $consequence_entry[] = array(
+                    'consequence' => $consequence[$key],
+                    'consequence_person_responsible' => $consequence_person_responsible[$key],
+                    'consequence_completion_date' => $consequence_completion_date[$key]
+                );
+            }
+           
+        }
+
+
+        $existing_record = $this->db->get_where('correction', array('car_id' => $car_id))->row();
+
+        $data = array(
+            'car_id' => $car_id,
+            'correction_entry' => json_encode($correction_entry),
+            'consequence_entry' => json_encode($consequence_entry),
+        );
+        
+        if ($existing_record) {
+            // Car_id exists, perform an update
+            $this->db->where('car_id', $car_id);
+            $result = $this->db->update('correction', $data);
+        } else {
+            // Car_id doesn't exist, perform an insert
+            $result = $this->db->insert('correction', $data);
+        }
+        
+        if ($result) {
+            echo 'saved';
+        } else {
+            echo 'error';
+        }
+
+
+    }
+
     public function saveRoot(){
         
-        function handleFileUpload($key) {
+        function handleFileUpload($key, $custom_config = array()) {
             $CI = get_instance();
             $CI->load->library('upload');
+
+            // Merge custom configuration with default configuration
+            $default_config = array(
+                'upload_path'   => FCPATH . 'uploads/',
+                'allowed_types' => 'gif|jpg|png|pdf',  // Adjust as needed
+            );
+
+            $config = array_merge($default_config, $custom_config);
+
+            $CI->upload->initialize($config);
+
             $files = $_FILES[$key];
     
             $attachments = array();
@@ -86,6 +163,7 @@ class car extends CI_Controller {
     
         // Handle each array of file uploads
         $risk_attachments = handleFileUpload('risk_number_attachment');
+
         $opportunity_attachments = handleFileUpload('opportunity_number_attachment');
         $rootcause_attachments = handleFileUpload('rootcause_attachment_attachment');
         $identified_attachments = handleFileUpload('identified_root_attachment_attachment');
@@ -165,11 +243,11 @@ class car extends CI_Controller {
             'car_id' => $car_id,
             'existing_nonconformity' => $existing_nonconformity,
             'update_doc_info' => $update_doc_info,
-            'risk_entry' => $risk_entry,
+            'risk_entry' => json_encode($risk_entry),
             'opportunity_identified' => $opportunity_identified_yn,
-            'opportunity_entry' => $opportunity_entry,
-            'rootcause_entry' => $rootcause_entry,
-            'identified_root_entry' => $identified_entry,
+            'opportunity_entry' => json_encode($opportunity_entry),
+            'root_cause_entry' => json_encode($rootcause_entry),
+            'identified_root_entry' => json_encode($identified_entry),
         );
         
         if ($existing_record) {
@@ -309,6 +387,18 @@ class car extends CI_Controller {
         $department = $this->MainModel->getDepartment($_POST['division']);
 
         echo json_encode($department);
+    }
+
+    public function getCorrectiveAction(){
+        $data = $this->MainModel->getCorrectiveAction($_POST['car_id']);
+
+        echo json_encode($data);
+    }
+
+    public function getCorrectionAction(){
+        $data = $this->MainModel->getCorrectionAction($_POST['car_id']);
+
+        echo json_encode($data);
     }
 
     public function getSection(){

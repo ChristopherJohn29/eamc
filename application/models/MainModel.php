@@ -25,11 +25,34 @@ class MainModel extends CI_Model {
         return $result;
     }
 
+    public function getCorrectiveAction($car_id){
+        $this->db->select('*');
+        $this->db->from('corrective_action');
+        $this->db->where('car_id', $car_id);
+                
+        $query = $this->db->get();
+        $result = $query->result_array();
+
+        return $result;
+    }
+
+    public function getCorrectionAction($car_id){
+        $this->db->select('*');
+        $this->db->from('correction');
+        $this->db->where('car_id', $car_id);
+                
+        $query = $this->db->get();
+        $result = $query->result_array();
+
+        return $result;
+    }
+
     public function getCar($status = ''){
-        $this->db->select('car.*, source_car.source_name AS source_name, division.div_name AS division');
+        $this->db->select('car.*, source_car.source_name AS source_name, division.div_name AS division, department.dep_name AS department');
         $this->db->from('car');
         $this->db->join('source_car', 'source_car.id = car.source', 'left');
         $this->db->join('division', 'division.id = car.issued_by', 'left');
+        $this->db->join('department', 'department.id = car.issued_to', 'left');
 
         if($status != 'all'){
             $this->db->where('car.status', $status);
