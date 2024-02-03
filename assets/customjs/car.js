@@ -991,6 +991,8 @@ var car = {
                             // Do something with the data, for example, display it on the page
                             $('#addCARFormIssuance .issued_to').append(html);
                         });
+
+                        jQuery('#addCARFormIssuance .issued_to').val($issued_to);
                     }   
                 },
                 error: function () {
