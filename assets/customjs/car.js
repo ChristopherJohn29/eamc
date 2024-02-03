@@ -494,6 +494,28 @@ var car = {
         return isValid;
     },
 
+    validateFormIssuance : function (){
+        var isValid = true;
+        
+        // Check required fields
+        $("#addCARFormIssuance [required]").each(function () {
+            if ($(this).val() === "") {
+                $(this).addClass('parsley-error');
+                isValid = false;
+                $(this).next('.parsley-errors-list').removeClass('hidden');
+                $(this).next('.parsley-errors-list').find('.parsley-required').text('This field is required');
+                // You can customize error handling here, for example, displaying an error message.
+            } else {
+                $(this).removeClass('parsley-error');
+                $(this).next('.parsley-errors-list').addClass('hidden');
+                $(this).next('.parsley-errors-list').find('.parsley-required').text('');
+            }
+        });
+    
+        return isValid;
+    },
+
+
     notifySuccess: function(){
         !(function (p) {
             "use strict";
@@ -585,7 +607,7 @@ var car = {
         jQuery('#saveCarIssuance').click(function(e){
             e.preventDefault();
     
-            if (car.validateForm()) {
+            if (car.validateFormIssuance()) {
 
                 var car_id = jQuery('#addCARFormIssuance .car_id').val();
                 var issued_to = jQuery('#addCARFormIssuance .issued_to').val();
