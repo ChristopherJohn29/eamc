@@ -1,64 +1,17 @@
 <li class="menu-title">Navigation</li>
 
-<li class="menu-item menuitem-active">
-    <a href="#" class="menu-link">
+<li class="menu-item">
+    <a href="<?=base_url().'admin/dashboard'?>" class="menu-link">
         <span class="menu-icon"><i data-feather="airplay"></i></span>
         <span class="menu-text"> Dashboard </span>
     </a>
 </li>
 
 <li class="menu-item">
-    <a href="#menuCAR" data-bs-toggle="collapse" class="menu-link">
+    <a href="<?=base_url().'admin/car/car'?>" class="menu-link">
         <span class="menu-icon"><i data-feather="layers"></i></span>
-        <span class="menu-text"> C.A.R </span>
-        <span class="menu-arrow"></span>
+        <span class="menu-text"> C.A.R  </span>
     </a>
-    <div class="collapse" id="menuCAR">
-        <ul class="sub-menu">
-            <li class="menu-item">
-                <a href="<?=base_url().'admin/car/ncDefination'?>" class="menu-link">
-                    <span class="menu-text">NC Definition</span>
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="<?=base_url().'admin/car/issuanceOfNC'?>" class="menu-link">
-                    <span class="menu-text">Issuance of NC</span>
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="<?=base_url().'admin/car/correctiveAction'?>" class="menu-link">
-                    <span class="menu-text">Corrective Action</span>
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="<?=base_url().'admin/car/osqmReview'?>" class="menu-link">
-                    <span class="menu-text">OSQM Review</span>
-                </a>
-            </li>
-
-            <li class="menu-item">
-                <a href="<?=base_url().'admin/car/approvalOfCorrection'?>" class="menu-link">
-                    <span class="menu-text">Approval of Correction</span>
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="<?=base_url().'admin/car/verificationAndRecommendation'?>" class="menu-link">
-                    <span class="menu-text">Verification and Recommendation</span>
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="<?=base_url().'admin/car/validation'?>" class="menu-link">
-                    <span class="menu-text">Validation</span>
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="<?=base_url().'admin/car/closing'?>" class="menu-link">
-                    <span class="menu-text">Closing</span>
-                </a>
-            </li>
-        </ul>
-    </div>
 </li>
 
 

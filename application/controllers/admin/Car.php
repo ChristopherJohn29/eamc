@@ -15,6 +15,19 @@ class car extends CI_Controller {
         $this->role_checker->checkViewerRole();
     }
 
+    public function car(){
+
+        $this->role_checker->checkViewerRole();
+        $data['page'] = 'admin/car';
+		$data['title'] = 'Corrective Action Request';
+        $data['customcss'] = 'car.css';
+        $data['customjs'] = 'car.js';
+        $data['source'] = $this->MainModel->getCarSource();
+        $data['division'] = $this->MainModel->getDivision();
+
+		$this->load->view('template/template', $data);
+    }
+
 
     public function ncDefination(){
 
