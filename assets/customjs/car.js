@@ -166,9 +166,9 @@ var car = {
                         $.each(JSON.parse(response), function (index, item) {
                             // Access each item's properties
                             var id = item.id;
-                            var dep_name = item.dep_name;
+                            var section_name = item.section_name;
     
-                            var html = '<option value="'+id+'">'+dep_name+'</option>';
+                            var html = '<option value="'+id+'">'+section_name+'</option>';
                             // Do something with the data, for example, display it on the page
                             $('#addCARFormIssuance .section').append(html);
                         });
