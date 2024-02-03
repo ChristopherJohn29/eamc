@@ -601,7 +601,7 @@ var car = {
                     'remarks': remarks,
                 }
     
-                jQuery("#add-car").modal('toggle');
+                jQuery("#add-car-issuance").modal('toggle');
     
                 $.ajax({
                     type: 'POST',
@@ -612,7 +612,7 @@ var car = {
                         if(response == 'saved'){
                             car.notifySuccess();
                             car.load();
-                            $('#addCARForm')[0].reset();
+                            $('#addCARFormIssuance')[0].reset();
                         } else {
                             car.notifyError();
                         }
