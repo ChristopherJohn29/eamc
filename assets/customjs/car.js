@@ -993,6 +993,34 @@ var car = {
                         });
 
                         jQuery('#addCARFormIssuance .issued_to').val($issued_to);
+
+                        department = $issued_to;
+                        $.ajax({
+                            type: 'POST',
+                            url: '../car/getSection', // Replace 'MyController' with your controller name
+                            data: {department: department},
+                            success: function (response) {
+                                if(response != 'null'){
+            
+                                    $('#addCARFormIssuance .section').html('<option value=""></option>');
+                                    $.each(JSON.parse(response), function (index, item) {
+                                        // Access each item's properties
+                                        var id = item.id;
+                                        var section_name = item.section_name;
+                
+                                        var html = '<option value="'+id+'">'+section_name+'</option>';
+                                        // Do something with the data, for example, display it on the page
+                                        $('#addCARFormIssuance .section').append(html);
+                                    });
+            
+                                   
+                                }   
+                            },
+                            error: function () {
+                                // Handle errors
+                                diList.notifyError();
+                            }
+                        });
                     }   
                 },
                 error: function () {
