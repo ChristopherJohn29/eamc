@@ -613,14 +613,14 @@ var car = {
                 var issued_to = jQuery('#addCARFormIssuance .issued_to').val();
                 var section = jQuery('#addCARFormIssuance .section').val();
                 var issuance_of_nc = jQuery('#addCARFormIssuance .issuance_of_nc').val();
-                var remarks = jQuery('#addCARFormIssuance .remarks').val();
+                var issuance_of_nc_remarks = jQuery('#addCARFormIssuance .issuance_of_nc_remarks').val();
                 
                 var data = {
                     'car_id' : car_id,
                     'issued_to' : issued_to,
                     'section' : section,
                     'issuance_of_nc': issuance_of_nc,
-                    'remarks': remarks,
+                    'issuance_of_nc_remarks': issuance_of_nc_remarks,
                 }
     
                 jQuery("#add-car-issuance").modal('toggle');
