@@ -365,7 +365,7 @@
                                              <label class="form-check-label" for="existing_nonconformity">NO</label>
                                           </div>
                                        </div>
-                                       <div class="form-group col-md-12">
+                                       <div class="form-group col-lg-12">
                                             <label for="existing_nonconformity_remarks" class="form-label">Remarks</i>
                                             <textarea class="form-control" id="existing_nonconformity_remarks" rows="4"></textarea>
                                         </div>
