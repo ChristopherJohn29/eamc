@@ -951,6 +951,7 @@ var car = {
             $source = jQuery(this).data('source');
             $issued_by = jQuery(this).data('issued_by');
             $issued_to = jQuery(this).data('issued_to');
+            $section = jQuery(this).data('section');
             $identification_date = jQuery(this).data('identification_date');
             $issuance_of_nc = jQuery(this).data('issuance_of_nc');
             $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
@@ -1021,6 +1022,8 @@ var car = {
                                 diList.notifyError();
                             }
                         });
+
+                        jQuery('#addCARFormIssuance .section').val($section);
                     }   
                 },
                 error: function () {
