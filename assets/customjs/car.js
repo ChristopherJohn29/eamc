@@ -57,7 +57,7 @@ var car = {
                         "<div class='btn-group mb-2'>" +
                         "<button type='button' class='btn btn-success dropdown-toggle' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><i class='fa fa-file'></i> <i class='mdi mdi-chevron-down'></i></button>" +
                         "<div class='dropdown-menu'>" +
-                        "<a class='dropdown-item edit-car' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#add-car-issuance'>Issuance of NC</a>" +
+                        "<a class='dropdown-item edit-car' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#add-car-issuance'>Issuance of NC</a>" +
                         "<a class='dropdown-item' href='#'>History</a>" +
                         "<a class='dropdown-item edit-corrective-action' href='#' data-car_id='" + car_id + "' data-bs-toggle='modal' data-bs-target='#root-cause'>Corrective Action</a>" +
                         "<a class='dropdown-item edit-correction-action' href='#' data-car_id='" + car_id + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>Correction</a>" +
@@ -955,6 +955,14 @@ var car = {
             $identification_date = jQuery(this).data('identification_date');
             $issuance_of_nc = jQuery(this).data('issuance_of_nc');
             $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
+            $status = jQuery(this).data('status');
+
+            if($status == 'For Issuance of NC'){
+                jQuery('#saveCorrection').addClass('hidden');
+            } else {
+                jQuery('#saveCorrection').removeClass('hidden');
+            }
+            
 
             $findings = jQuery(this).data('findings');
             $consequences = jQuery(this).data('consequences');
