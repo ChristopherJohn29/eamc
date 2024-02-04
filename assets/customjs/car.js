@@ -1014,7 +1014,7 @@ var car = {
                                         $('#addCARFormIssuance .section').append(html);
                                     });
             
-                                   
+                                    jQuery('#addCARFormIssuance .section').val($section);
                                 }   
                             },
                             error: function () {
@@ -1023,7 +1023,6 @@ var car = {
                             }
                         });
 
-                        jQuery('#addCARFormIssuance .section').val($section);
                     }   
                 },
                 error: function () {
