@@ -473,7 +473,6 @@ var car = {
         return isValid;
     },
 
-
     notifySuccess: function(){
         !(function (p) {
             "use strict";
