@@ -431,48 +431,6 @@ var car = {
         });
     },
 
-    loadCorrectionAction: function(){
-
-        $('#car-global-datatable').on('click', '.edit-correctiion-action', function () {
-
-            var car_id = jQuery(this).data('car_id');
-            jQuery('.car_id').val(car_id);
-
-            // $.ajax({
-            //     type: 'POST',
-            //     url: '../car/getCorrectionAction', // Replace 'MyController' with your controller name
-            //     data: {car_id: car_id},
-            //     success: function (response) {
-            //         if(response != 'null'){
-
-            //             response = JSON.parse(response);
-
-            //             console.log(response[0].existing_nonconformity);
-
-            //             $('input[name="existing_nonconformity"][value="'+ response[0].existing_nonconformity +'"]').prop('checked', true);
-            //             $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
-            //             $('input[name="opportunity_identified_yn"][value="'+ response[0].opportunity_identified +'"]').prop('checked', true);
-
-            //             // $('#issued_to').html('<option value=""></option>');
-            //             // $.each(JSON.parse(response), function (index, item) {
-            //             //     // Access each item's properties
-            //             //     var id = item.id;
-            //             //     var dep_name = item.dep_name;
-
-            //             //     var html = '<option value="'+dep_name+'">'+dep_name+'</option>';
-            //             //     // Do something with the data, for example, display it on the page
-            //             //     $('#issued_to').append(html);
-            //             // });
-            //         }   
-            //     },
-            //     error: function () {
-            //         // Handle errors
-            //         diList.notifyError();
-            //     }
-            // });
-        });
-    },
-
     validateForm : function (){
         var isValid = true;
         
