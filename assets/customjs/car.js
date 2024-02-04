@@ -958,9 +958,10 @@ var car = {
             $status = jQuery(this).data('status');
 
             if($status == 'For Issuance of NC'){
-                jQuery('#saveCorrection').addClass('hidden');
-            } else {
                 jQuery('#saveCorrection').removeClass('hidden');
+            } else {
+                
+                jQuery('#saveCorrection').addClass('hidden');
             }
             
 
