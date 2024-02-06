@@ -1,3 +1,9 @@
 .hidden{
     display: none !important;
 }
+
+input[readonly] {
+    color: #777; /* Set text color to gray */
+    background-color: #f4f4f4; /* Optional: Set background color */
+    /* Add any other styling you want */
+}

@@ -25,6 +25,43 @@ class MainModel extends CI_Model {
         return $result;
     }
 
+    public function getDivisionByID($id){
+        $this->db->select('*');
+        $this->db->from('division');
+        $this->db->where('status', 1);
+        $this->db->where('id', $id);
+                
+
+        $query = $this->db->get();
+        $result = $query->result_array();
+
+        return $result;
+    }
+
+    public function getDepartmentByID($id){
+        $this->db->select('*');
+        $this->db->from('department');
+        $this->db->where('status', 1);
+        $this->db->where('id', $id); 
+
+        $query = $this->db->get();
+        $result = $query->result_array();
+
+        return $result;
+    }
+
+    public function getSectionByID($id){
+        $this->db->select('*');
+        $this->db->from('section');
+        $this->db->where('status', 1);
+        $this->db->where('id', $id); 
+
+        $query = $this->db->get();
+        $result = $query->result_array();
+
+        return $result;
+    }
+
     public function getCorrectiveAction($car_id){
         $this->db->select('*');
         $this->db->from('corrective_action');

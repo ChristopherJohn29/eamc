@@ -236,7 +236,6 @@
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-
                   <form action="" id="correction_form" enctype="multipart/form-data">
                      <input type="hidden" name="car_id" class="car_id">
                      <div id="correction" class="mb-3">
@@ -350,7 +349,7 @@
                            <div class="col-lg-12">
                               <div class="card">
                                  <div class="card-body">
-                                    <div class="row">
+                                    <div class="row mb-2">
                                        <div class="col-lg-9">
                                           <h4 class="header-title">Is the nonconformity existing in other areas? Can this occur elsewhere?</h4>
                                           <p class="sub-header">If yes, the Root Cause Analysis and Corrective Actions shall be considered in all areas affected</p>
@@ -367,14 +366,14 @@
                                        </div>
                                        <div class="form-group col-lg-12">
                                             <label for="existing_nonconformity_remarks" class="form-label">Remarks</label>
-                                            <textarea class="form-control" id="existing_nonconformity_remarks" rows="4"></textarea>
+                                            <textarea class="form-control" id="existing_nonconformity_remarks" name="existing_nonconformity_remarks" rows="4"></textarea>
                                         </div>
                                     </div>
               
 
                                     <div class="row">
                                        <div class="col-lg-9">
-                                          <h4 class="header-title">Is there a need to make changes to QMS? E.g., updating Documented information?</h4>
+                                          <h4 class="header-title mb-2">Is there a need to make changes to QMS? E.g., updating Documented information?</h4>
                                        </div>
                                        <div class="col-lg-3 text-inlign">
                                           <div class="form-check form-check-inline">
@@ -388,14 +387,11 @@
                                        </div>
                                        <div class="form-group col-lg-12">
                                             <label for="update_doc_info_remarks" class="form-label">Remarks</label>
-                                            <textarea class="form-control" id="update_doc_info_remarks" rows="4"></textarea>
+                                            <textarea class="form-control" id="update_doc_info_remarks" name="update_doc_info_remarks" rows="4"></textarea>
                                         </div>
                                     </div>
 
                               
-
-
-                                    
                                  </div> <!-- end card-body -->
                               </div> <!-- end card -->
                            </div>
@@ -438,9 +434,9 @@
                                  </div> <!-- end card-body-->
                               </div> <!-- end card-->
                            </div>
-                           <div class="text-end">
-                              <button type="button" class="btn btn-primary left" id="add-risk-number">Add Risk Number</button>
-                           </div>
+                        </div>
+                        <div class="text-end mb-3">
+                           <button type="button" class="btn btn-primary left" id="add-risk-number">Add Risk Number</button>
                         </div>
 
                         <div id="checkboxes">
@@ -508,11 +504,11 @@
                                  </div> <!-- end card-body-->
                               </div> <!-- end card-->
                            </div>
-                           <div class="text-end">
-                              <button type="button" class="btn btn-primary left" id="add-opportunity-number">Add Opportunity Number</button>
-                           </div>
+                           
                         </div>
-
+                        <div class="text-end mb-3">
+                           <button type="button" class="btn btn-primary left" id="add-opportunity-number">Add Opportunity Number</button>
+                        </div>
 
                         <div id="rootcause" class="mb-3">
                            <div class="col-lg-12 rootcause-repeatable">
@@ -551,9 +547,9 @@
                                  </div> <!-- end card-body-->
                               </div> <!-- end card-->
                            </div>
-                           <div class="text-end">
-                              <button type="button" class="btn btn-primary left" id="add-rootcause">Add Rootcause</button>
-                           </div>
+                        </div>
+                        <div class="text-end mb-3">
+                           <button type="button" class="btn btn-primary left" id="add-rootcause">Add Rootcause</button>
                         </div>
 
                         <div id="identified-root" class="mb-3 font-11">
@@ -571,10 +567,10 @@
                                           <div class="col-xl-3 mb-1">
                                              <div class="mb-3 mb-xl-0">
                                              <label class="form-label">TPN Control</label>
-                                                <select class="form-select" name="tpn_control[]">
-                                                   <option>Total</option>
-                                                   <option>Partial</option>
-                                                   <option>No</option>
+                                                <select class="form-select tpn-control" name="tpn_control[]">
+                                                   <option value="total">Total</option>
+                                                   <option value="partial">Partial</option>
+                                                   <option value="no">No</option>
                                                 </select>
                                              </div>
                                           </div>
@@ -584,6 +580,43 @@
                                              <input type="text" class="form-control" name="identified_root_corrective_action[]">
                                              </div>
                                           </div>
+
+                                          <div class="col-xl-4 mb-1">
+                                             <div class="form-group">
+                                                   <label for="issued_by" class="form-label">Issued By</label>
+                                                   <select class="form-select issued_by" name="tpn_issued_by[]">
+                                                      <option value=""></option>
+                                                      <?php
+                                                         foreach ($division as $key => $value) {
+                                                            echo '<option value="'.$value['id'].'">'.$value['div_name'].'</option>';
+                                                         }
+                                                      ?>
+                                                   </select>
+                                                   <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                                             </div>
+                                          </div>
+
+                                          <div class="col-xl-3 mb-1">
+                                             <div class="form-group">
+                                                   <label for="issued_to" class="form-label">Issued To</label>
+                                                   <select class="form-select issued_to" name="tpn_issued_to[]">
+                                                      <option value=""></option>
+                                                   </select>
+                                                   <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                                             </div>
+                                          </div>
+                                          
+                                          <div class="col-xl-3 mb-1">
+                                             <div class="form-group">
+                                                   <label for="issued_to" class="form-label">Section Unit</label>
+                                                   <select class="form-select section"  name="tpn_section[]">
+                                                      <option value=""></option>
+                                                   </select>
+                                                   <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                                             </div>
+                                          </div>
+
+
                                           <div class="col-xl-4">
                                              <div class="mb-3 mb-xl-0">
                                              <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
@@ -615,10 +648,11 @@
                                  </div> <!-- end card-body-->
                               </div> <!-- end card-->
                            </div>
-                           <div class="text-end">
+                        </div>   
+
+                        <div class="text-end mb-3">
                               <button type="button" class="btn btn-primary left" id="add-identified-root">Add Identified Root Cause</button>
                            </div>
-                        </div>   
                      </form>
                      
                   </div>
@@ -629,8 +663,6 @@
                </div><!-- /.modal-content -->
          </div><!-- /.modal-dialog -->
       </div>
-
-
 
       <!-- start page title -->
       <div class="row">

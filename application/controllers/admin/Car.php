@@ -177,12 +177,16 @@ class car extends CI_Controller {
         // Handle each array of file uploads
         $risk_attachments = handleFileUpload('risk_number_attachment');
 
+        // var_dump( $risk_attachments);
+
         $opportunity_attachments = handleFileUpload('opportunity_number_attachment');
         $rootcause_attachments = handleFileUpload('rootcause_attachment_attachment');
         $identified_attachments = handleFileUpload('identified_root_attachment_attachment');
 
         $existing_nonconformity = $this->input->post('existing_nonconformity');
+        $existing_nonconformity_remarks = $this->input->post('existing_nonconformity_remarks');
         $update_doc_info = $this->input->post('update_doc_info');
+        $update_doc_info_remarks = $this->input->post('update_doc_info_remarks');
     
         //array
         $risk_entry = array();
@@ -235,6 +239,10 @@ class car extends CI_Controller {
         $identified_root_corrective_action = $this->input->post('identified_root_corrective_action');
         $identified_root_person_responsible = $this->input->post('identified_root_person_responsible');
         $identified_root_completion_date = $this->input->post('identified_root_completion_date');
+
+        $tpn_issued_by = $this->input->post('tpn_issued_by');
+        $tpn_issued_to = $this->input->post('tpn_issued_to');
+        $tpn_section = $this->input->post('tpn_section');
     
         $identified_entry = array();
     
@@ -245,7 +253,10 @@ class car extends CI_Controller {
                 'identified_root_corrective_action' => $identified_root_corrective_action[$key],
                 'identified_root_person_responsible' => $identified_root_person_responsible[$key],
                 'identified_root_completion_date' => $identified_root_completion_date[$key],
-                'identified_attachments' => $identified_attachments['identified_root_attachment_attachment'][$key]
+                'identified_attachments' => $identified_attachments['identified_root_attachment_attachment'][$key],
+                'tpn_issued_by' => $tpn_issued_by[$key],
+                'tpn_issued_to' => $tpn_issued_to[$key],
+                'tpn_section' => $tpn_section[$key]
             );
         }
     
@@ -256,6 +267,8 @@ class car extends CI_Controller {
             'car_id' => $car_id,
             'existing_nonconformity' => $existing_nonconformity,
             'update_doc_info' => $update_doc_info,
+            'existing_nonconformity_remarks' => $existing_nonconformity_remarks,
+            'update_doc_info_remarks' => $update_doc_info_remarks,
             'risk_entry' => json_encode($risk_entry),
             'opportunity_identified' => $opportunity_identified_yn,
             'opportunity_entry' => json_encode($opportunity_entry),
@@ -400,6 +413,27 @@ class car extends CI_Controller {
         $department = $this->MainModel->getDepartment($_POST['division']);
 
         echo json_encode($department);
+    }
+
+    public function getDepartmentByID(){
+        
+        $data = $this->MainModel->getDepartmentByID($_POST['id']);
+
+        echo json_encode($data);
+    }
+
+    public function getDivisionByID(){
+        
+        $data = $this->MainModel->getDivisionByID($_POST['id']);
+
+        echo json_encode($data);
+    }
+
+    public function getSectionByID(){
+        
+        $data = $this->MainModel->getSectionByID($_POST['id']);
+
+        echo json_encode($data);
     }
 
     public function getCorrectiveAction(){
