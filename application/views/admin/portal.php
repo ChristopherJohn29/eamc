@@ -277,6 +277,7 @@
                                             <tr>
                                             <th class="document-title">Document Title</th>
                                             <th>Document Code</th>
+                                            <th>Revision No.</th>
                                             <th>Effectivity Date</th>
                                             <th>Action</th>
                                             </tr>

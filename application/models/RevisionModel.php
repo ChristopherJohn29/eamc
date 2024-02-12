@@ -22,10 +22,12 @@ class RevisionModel extends CI_Model {
         return $this->db->update('document_revision', array('status' => 0, 'last_update_by' => $this->session->userdata('user_id')));
     }
 
-    public function saveRevision($revision_desc = '', $doc_id = ''){
+    public function saveRevision($revision_desc = '', $doc_id = '', $revision_no = '', $effectivity_date = ''){
         $data = array(
             'revision_desc' => $revision_desc,
             'doc_id' => $doc_id,
+            'revision_no' => $revision_no,
+            'effectivity_date' => $effectivity_date,
             'created_date' => date('Y-m-d H:i:s'),
             'created_by' => $this->session->userdata('user_id')
         );
@@ -36,7 +38,11 @@ class RevisionModel extends CI_Model {
     public function updateRevision(array $data){
 
         $this->db->where('id', $data['id']);
-        return $this->db->update('document_revision', array('revision_desc' => $data['revision_desc'], 'last_update_by' => $this->session->userdata('user_id')));
+        return $this->db->update('document_revision', array(
+            'revision_desc' => $data['revision_desc'],
+            'revision_no' => $data['revision_no'],
+            'effectivity_date' => $data['effectivity_date'],
+         'last_update_by' => $this->session->userdata('user_id')));
 
     }
     

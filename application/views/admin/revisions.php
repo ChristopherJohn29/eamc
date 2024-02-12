@@ -11,12 +11,22 @@
                 </div>
                 <div class="modal-body">
                 <form id="createRevisionForm">
+                    <div class="form-group">
+                            <label for="revision_no" class="form-label">Revision No.</label>
+                            <input type="text" class="form-control" id="revision_no" name="revision_no" required>
+                            <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                    </div>
                     <div class="mb-2">
                         <input type="hidden" id="doc_id" name="doc_id" value="<?=$doc_id?>" class="form-control" required>
                         <input type="hidden" id="doc_user_id" name="doc_user_id" value="<?=$doc_user_id?>" class="form-control" required>
-                        <label for="revision_desc" class="form-label">Revision Description (required)</label>
+                        <label for="revision_desc" class="form-label">Description of Change</label>
                         <textarea class="form-control" id="revision_desc" rows="3" required></textarea>
                         <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                    </div>
+                    <div class="form-group">
+                            <label for="effectivity_date" class="form-label">Effectivity Date</label>
+                            <input type="date" class="form-control" id="effectivity_date">
+                            <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                     </div>
                 </form>
                 </div>
@@ -37,11 +47,22 @@
                 </div>
                 <div class="modal-body">
                 <form id="editRevisionForm">
+                    <div class="form-group">
+                            <label for="revision_no_edit" class="form-label">Revision No.</label>
+                            <input type="text" class="form-control" id="revision_no_edit" name="revision_no" required>
+                            <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                    </div>
                     <div class="mb-2">
-                        <input type="hidden" id="revision_id" name="revision_id" class="form-control" required>
-                        <label for="revision_desc_edit" class="form-label">Revision Description (required)</label>
-                        <textarea class="form-control" id="revision_desc_edit" rows="3" required></textarea>
+                        <input type="hidden" id="doc_id" name="doc_id" value="<?=$doc_id?>" class="form-control" required>
+                        <input type="hidden" id="doc_user_id" name="doc_user_id" value="<?=$doc_user_id?>" class="form-control" required>
+                        <label for="revision_desc_edit" class="form-label">Description of Change</label>
+                        <textarea class="form-control" id="revision_desc_edit" name="revision_desc" rows="3" required></textarea>
                         <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                    </div>
+                    <div class="form-group">
+                            <label for="effectivity_date" class="form-label">Effectivity Date</label>
+                            <input type="date" class="form-control" id="effectivity_date_edit" name="effectivity_date">
+                            <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                     </div>
                 </form>
                 </div>

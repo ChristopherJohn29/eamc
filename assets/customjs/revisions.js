@@ -56,9 +56,13 @@ var revision = {
         jQuery('#revision-datatable').on('click','.edit-data', function(){
 
             var revision_desc = jQuery(this).data('revision_desc');
+            var revision_no = jQuery(this).data('revision_no');
+            var effectivity_date = jQuery(this).data('effectivity_date');
             var revision_id = jQuery(this).data('id');
 
             jQuery('#revision_desc_edit').val(revision_desc);
+            jQuery('#revision_no_edit').val(revision_no);
+            jQuery('#effectivity_date_edit').val(effectivity_date);
             jQuery('#revision_id').val(revision_id);
 
             jQuery("#edit-revision").modal('toggle');
@@ -70,11 +74,15 @@ var revision = {
             
             if (revision.validateEditForm()) {
                 var revision_desc = jQuery('#revision_desc_edit').val();
+                var revision_no = jQuery('#revision_no_edit').val();
+                var effectivity_date = jQuery('#effectivity_date_edit').val();
                 var revision_id = jQuery('#revision_id').val();
 
                 var data = {
                     revision_desc: revision_desc,
-                    revision_id: revision_id
+                    revision_id: revision_id,
+                    revision_no: revision_no,
+                    effectivity_date: effectivity_date
                 };
 
                 jQuery("#edit-revision").modal('toggle');

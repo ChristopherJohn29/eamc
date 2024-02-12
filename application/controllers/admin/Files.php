@@ -74,8 +74,8 @@ class files extends CI_Controller {
         // Handle the uploaded file
         $config['upload_path'] = './uploads/'; // Set your upload directory
         $config['allowed_types'] = 'pdf|doc|docx|ppt|pptx|xls|xlsx|jpg|jpeg|png|gif'; // Define allowed file types
-        $config['max_size'] = 2048; // Define maximum file size in kilobytes
-        $config['file_name'] = $unique_file_name; // Set the filename to the unique name
+        $config['max_size'] = 15360; // Define maximum file size in kilobytes (15 MB)
+        $config['file_name'] = $unique_file_name;// Set the filename to the unique name
     
         $this->load->library('upload', $config);
     
@@ -104,9 +104,7 @@ class files extends CI_Controller {
         $documentData = $this->DocumentedInformationModel->getDI($doc_id);
 
         if ($documentData[0]['status'] == 'FFU' || $documentData[0]['status'] == 'AD' || $documentData[0]['status'] == 'D') {
-            if ($documentData[0]['doc_type_id'] == '1') {
-                $status = 'TR';
-            }
+            $status = 'TR';
         } else {
             $status = $documentData[0]['status'];
         }
