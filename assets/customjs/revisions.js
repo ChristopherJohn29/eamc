@@ -249,12 +249,14 @@ var revision = {
                         // Access each item's properties
                         var id = item.id;
                         var revision_desc = item.revision_desc;
+                        var revision_no = item.revision_no;
+                        var effectivity_date = item.effectivity_date;
                         var created_by_email = item.created_by_email ? item.created_by_email : '';
                         var created_date = item.created_date;
                         var last_updated_by_email = item.last_updated_by_email ? item.last_updated_by_email : '';
                     
                         // Do something with the data, for example, display it on the page
-                        $('#revision-datatable tbody').append("<tr><td>"+revision_desc+"</td><td>"+created_by_email+"</td><td>"+created_date+"</td><td>"+last_updated_by_email+"</td><td><button title='Edit'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-warning waves-effect waves-light edit-data' data-id='"+id+"' data-revision_desc='"+revision_desc+"'><i class='mdi mdi-file'></i></button><button title='Delete'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-danger waves-effect waves-light data-delete' data-id='"+id+"'><i class='mdi mdi-close'></i></button></td></tr>");
+                        $('#revision-datatable tbody').append("<tr><td>"+revision_no+"</td><td>"+revision_desc+"</td><td>"+effectivity_date+"</td><td><button title='Edit'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-warning waves-effect waves-light edit-data' data-id='"+id+"' data-revision_desc='"+revision_desc+"' data-revision_no='"+revision_no+"' data-effectivity_date='"+effectivity_date+"'><i class='mdi mdi-file'></i></button><button title='Delete'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-danger waves-effect waves-light data-delete' data-id='"+id+"'><i class='mdi mdi-close'></i></button></td></tr>");
                     });
 
                     tippy('*[data-plugin="tippy"]');
