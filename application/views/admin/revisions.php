@@ -96,10 +96,9 @@
                   <table id="revision-datatable" class="table dt-responsive nowrap w-100">
                      <thead>
                         <tr>
-                           <th>Revision</th>
-                           <th>Created By</th>
-                           <th>Date Created</th>
-                           <th>Last Update By</th>
+                           <th>Revision No.</th>
+                           <th>Description of Change</th>
+                           <th>Effectivity Date</th>
                            <th>Option</th>
                         </tr>
                      </thead>

@@ -118,6 +118,8 @@ var revision = {
             
             if (revision.validateForm()) {
                 var revision_desc = jQuery('#revision_desc').val();
+                var revision_no = jQuery('#revision_no').val();
+                var effectivity_date = jQuery('#effectivity_date').val();
                 var doc_id = jQuery('#doc_id').val();
                 var doc_user_id = jQuery('#doc_user_id').val();
 
@@ -126,7 +128,7 @@ var revision = {
                 $.ajax({
                     type: 'POST',
                     url: '../../revisions/save', // Replace 'MyController' with your controller name
-                    data: { revision_desc: revision_desc, doc_id, doc_user_id},
+                    data: { revision_desc: revision_desc, doc_id, doc_user_id, revision_no, effectivity_date},
                     success: function (response) {
                         // Handle the response from the server
                         if(response == 'saved'){
