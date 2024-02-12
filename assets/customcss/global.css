@@ -20,3 +20,8 @@ tr td:not(:last-child) {
 .hidden{
     display: none !important;
 }
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    background-color: #064c26 !important;
+
+}
