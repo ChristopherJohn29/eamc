@@ -55,6 +55,7 @@
                     <div class="mb-2">
                         <input type="hidden" id="doc_id" name="doc_id" value="<?=$doc_id?>" class="form-control" required>
                         <input type="hidden" id="doc_user_id" name="doc_user_id" value="<?=$doc_user_id?>" class="form-control" required>
+                        <input type="hidden" id="revision_id" name="revision_id" value="" class="form-control" required>
                         <label for="revision_desc_edit" class="form-label">Description of Change</label>
                         <textarea class="form-control" id="revision_desc_edit" name="revision_desc" rows="3" required></textarea>
                         <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
