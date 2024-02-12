@@ -124,6 +124,13 @@ class car extends CI_Controller {
             // Car_id doesn't exist, perform an insert
             $result = $this->db->insert('correction', $data);
         }
+
+        $cardata = array(
+            'for_correction_status' => 'For OSQM Review'
+        );
+
+        $this->db->where('id', $car_id);
+        $result = $this->db->update('car', $cardata);
         
         if ($result) {
             echo 'saved';
@@ -284,6 +291,13 @@ class car extends CI_Controller {
             // Car_id doesn't exist, perform an insert
             $result = $this->db->insert('corrective_action', $data);
         }
+
+        $cardata = array(
+            'corrective_action_status' => 'For OSQM Review'
+        );
+
+        $this->db->where('id', $car_id);
+        $result = $this->db->update('car', $cardata);
         
         if ($result) {
             echo 'saved';
@@ -413,6 +427,13 @@ class car extends CI_Controller {
         $department = $this->MainModel->getDepartment($_POST['division']);
 
         echo json_encode($department);
+    }
+
+    public function getDivision(){
+        
+        $data = $this->MainModel->getDivision();
+
+        echo json_encode($data);
     }
 
     public function getDepartmentByID(){

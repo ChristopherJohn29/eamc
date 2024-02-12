@@ -472,6 +472,10 @@ class documentedinformation extends CI_Controller {
         {
             $data['status'] = 'D';
         }
+        else if($_POST['technical_review'] == 'For Forms Committee Review')
+        {
+            $data['status'] = 'FCRA';
+        }
         else {
             $data['status'] = 'AD';
         }

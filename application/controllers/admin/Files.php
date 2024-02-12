@@ -105,8 +105,6 @@ class files extends CI_Controller {
 
         if ($documentData[0]['status'] == 'FFU' || $documentData[0]['status'] == 'AD' || $documentData[0]['status'] == 'D') {
             if ($documentData[0]['doc_type_id'] == '1') {
-                $status = 'FCRA';
-            } else {
                 $status = 'TR';
             }
         } else {

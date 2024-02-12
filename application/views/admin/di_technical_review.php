@@ -132,6 +132,7 @@
                               <option value="Approved">Approved</option>
                               <option value="Disapproved">Disapproved</option>
                               <option value="Approved Draft">Approved Draft</option>
+                              <option value="For Forms Committee Review">For Forms Committee Review</option>
                            </select>
                            <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                         </div>
