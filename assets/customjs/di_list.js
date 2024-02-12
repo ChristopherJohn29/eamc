@@ -162,7 +162,7 @@ var diList = {
             var approved_by_position_existing = jQuery(this).data('approved_by_position_existing');
             var existing = jQuery(this).data('existing');
             
-            jQuery('#sec_id_edit option[value="'+sec_id+'"]').prop('disabled', false);
+            jQuery('#sec_id_edit option[value="'+sec_id+'"]').removeClass('hidden');
             
             jQuery('#doc_id_edit').val(doc_id);
             jQuery('#user_id_edit').val(user_id);
@@ -431,15 +431,15 @@ var diList = {
         jQuery('#dep_id').change(function(){
             if(jQuery(this).val() != ''){
                 jQuery('select#sec_id').val('');
-                jQuery('select#sec_id option').prop('disabled', true);
-                jQuery('select#sec_id option[data-dep_id="' + jQuery(this).val() + '"]').prop('disabled', false);
+                jQuery('select#sec_id option').addClass('hidden');
+                jQuery('select#sec_id option[data-dep_id="' + jQuery(this).val() + '"]').removeClass('hidden', false);
             }
         });
         jQuery('#dep_id_edit').change(function(){
             if(jQuery(this).val() != ''){
                 jQuery('select#sec_id_edit').val('');
-                jQuery('select#sec_id_edit option').prop('disabled', true);
-                jQuery('select#sec_id_edit option[data-dep_id="' + jQuery(this).val() + '"]').prop('disabled', false);
+                jQuery('select#sec_id_edit option').addClass('hidden');
+                jQuery('select#sec_id_edit option[data-dep_id="' + jQuery(this).val() + '"]').removeClass('hidden', false);
             }
         });
     },
