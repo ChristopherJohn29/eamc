@@ -99,7 +99,7 @@ class files extends CI_Controller {
 
         // FFU -> Tecnical Review
         // APPROVED DRAFT -> Technical Review
-        // Disapprove -> Technical Review
+        // Disapprove -> Technical Review//
 
         $documentData = $this->DocumentedInformationModel->getDI($doc_id);
 
