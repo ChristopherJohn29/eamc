@@ -96,7 +96,7 @@
                               <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                         </div>
                         <div class="form-group col-md-4">
-                              <label for="final_review_by_existing" class="form-label">Review By</label>
+                              <label for="final_review_by_existing" class="form-label">Reviewed By</label>
                               <input type="text" class="form-control" id="final_review_by_existing" name="final_review_by_existing">
                               <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                         </div>
@@ -227,7 +227,7 @@
                               <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                         </div>
                         <div class="form-group col-md-4">
-                              <label for="final_review_by_existing_edit" class="form-label">Review By</label>
+                              <label for="final_review_by_existing_edit" class="form-label">Reviewed By</label>
                               <input type="text" class="form-control" id="final_review_by_existing_edit" name="final_review_by_existing_edit">
                               <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                         </div>
@@ -245,7 +245,7 @@
                               <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                         </div>
                         <div class="form-group col-md-4">
-                              <label for="final_review_by_position_existing_edit" class="form-label">Position (Review By)</label>
+                              <label for="final_review_by_position_existing_edit" class="form-label">Position (Reviewed By)</label>
                               <input type="text" class="form-control" id="final_review_by_position_existing_edit" name="final_review_by_position_existing_edit">
                               <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                         </div>
