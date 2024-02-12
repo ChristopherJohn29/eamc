@@ -60,7 +60,7 @@
                                  <option value=""></option>
                                  <?php
                                     foreach ($section as $key => $value) {
-                                       echo '<option value="'.$value['id'].'" disabled data-dep_id="'.$value['dep_id'].'">'.$value['section_name'].'</option>';
+                                       echo '<option value="'.$value['id'].'" class="hidden" data-dep_id="'.$value['dep_id'].'">'.$value['section_name'].'</option>';
                                     }
                                  ?>
                               </select>
