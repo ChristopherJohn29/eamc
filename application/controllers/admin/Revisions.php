@@ -65,8 +65,10 @@ class revisions extends CI_Controller {
     {
         $revision_desc = $_POST['revision_desc'];
         $doc_id = $_POST['doc_id'];
+        $revision_no = $_POST['revision_no'];
+        $effectivity_date = $_POST['effectivity_date'];
 
-        $save = $this->RevisionModel->saveRevision($revision_desc, $doc_id);
+        $save = $this->RevisionModel->saveRevision($revision_desc, $doc_id, $revision_no,  $effectivity_date);
          
         if ($save) {
             // Insertion successful
@@ -92,7 +94,9 @@ class revisions extends CI_Controller {
 
         $data = array(
             'revision_desc' => $_POST['revision_desc'],
-            'id' => $_POST['revision_id']
+            'id' => $_POST['revision_id'],
+            'revision_no' => $_POST['revision_no'],
+            'effectivity_date' => $_POST['effectivity_date']
             
         );
 

@@ -302,9 +302,9 @@
                                  if($document_data['existing'] == 1){
                                     ?>
                                     <tr>
-                                       <td><?=$document_data['prepared_by_existing']?></td>
-                                       <td><?=$document_data['final_review_by_existing']?></td>
-                                       <td><?=$document_data['approved_by_existing']?></td>
+                                       <td><?=strtoupper($document_data['prepared_by_existing'])?></td>
+                                       <td><?=strtoupper($document_data['final_review_by_existing'])?></td>
+                                       <td><?=strtoupper($document_data['approved_by_existing'])?></td>
                                     </tr>
                                     <tr>
                                        <td><?=$document_data['prepared_by_position_existing']?></td>
@@ -315,9 +315,9 @@
                                  } else {
                                     ?>
                                     <tr>
-                                       <td><?=$document_data['prepared_by']?></td>
-                                       <td><?=$document_data['final_reviewer']?></td>
-                                       <td><?=$document_data['approval_person']?></td>
+                                       <td><?=strtoupper($document_data['prepared_by'])?></td>
+                                       <td><?=strtoupper($document_data['final_reviewer'])?></td>
+                                       <td><?=strtoupper($document_data['approval_person'])?></td>
                                     </tr>
                                     <tr>
                                        <td><?=$document_data['prepared_by_position']?></td>
@@ -331,7 +331,7 @@
 
                               </tbody>
                         </table>
-                              <div class="text-center">Disclaimer: Cannot be used for legal purposes</div>
+                              <div class="text-center">Disclaimer: THIS COPY CANNOT BE DOWNLOADED AND BE USED FOR LEGAL PURPOSES</div>
                               </div>
                            </div>
                         </div>

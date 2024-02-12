@@ -56,7 +56,7 @@ var diList = {
                             "<i class='fa fa-clock'></i></button>";
                         
                         
-                        var html = "<tr><td>" + doc_title + "</td><td>" + doc_code + "</td><td>" + effectivity_date + "</td><td><a href='../../../file/"+dep_id+"/"+id+"/"+latest_file_id+"' title='View File'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-info waves-effect waves-light view-data' data-id='"+latest_file_id+"'><i class='mdi mdi-eye'></i></a></td></tr>";
+                        var html = "<tr><td>" + doc_title + "</td><td>" + doc_code + "</td><td>" + revision_no + "</td><td>" + effectivity_date + "</td><td><a href='../../../file/"+dep_id+"/"+id+"/"+latest_file_id+"' title='View File'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-info waves-effect waves-light view-data' data-id='"+latest_file_id+"'><i class='mdi mdi-eye'></i></a></td></tr>";
                         // Do something with the data, for example, display it on the page
                         $('#di-global-datatable tbody').append(html);
 

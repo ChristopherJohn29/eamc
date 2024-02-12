@@ -82,7 +82,7 @@
                            <input class="form-check-input" type="checkbox" value="1" id="existing">
                            <label class="form-check-label" for="existing">For Existing Document</label>
                            <div id="tooltip-container" class="d-inline-block">
-                           <i class="fas fa-info-circle" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title=""></i>
+                           <i class="fas fa-info-circle" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title='select the checkbox "for existing documents" and enter the details below based on the approved document.' data-original-title=""></i>
                            </div>
                      </div>
                      
@@ -114,7 +114,7 @@
                               <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                         </div>
                         <div class="form-group col-md-4">
-                              <label for="final_review_by_position_existing" class="form-label">Position (Review By)</label>
+                              <label for="final_review_by_position_existing" class="form-label">Position (Reviewed By)</label>
                               <input type="text" class="form-control" id="final_review_by_position_existing" name="final_review_by_position_existing">
                               <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                         </div>

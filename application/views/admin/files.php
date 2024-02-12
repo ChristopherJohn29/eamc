@@ -71,6 +71,7 @@
                   <table id="files-datatable" class="table dt-responsive nowrap w-100">
                      <thead>
                         <tr>
+                           <th>ID</th>
                            <th>Filename</th>
                            <th>Created By</th>
                            <th>Date Created</th>
