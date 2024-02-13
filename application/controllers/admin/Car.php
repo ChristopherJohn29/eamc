@@ -68,6 +68,91 @@ class car extends CI_Controller {
 		$this->load->view('template/template', $data);
     }
 
+    public function saveCorrectionFR(){
+        //array
+        $car_id = $this->input->post('car_id');
+        $review_correction_dealing_with_consequences = $this->input->post('review_correction_dealing_with_consequences');
+        $review_correction_dealing_with_consequences_remarks = $this->input->post('review_correction_dealing_with_consequences_remarks');
+
+        $correction_entry = array();
+
+        $correction = $this->input->post('correction');
+        $correction_person_responsible = $this->input->post('correction_person_responsible');
+        $correction_completion_date = $this->input->post('correction_completion_date');
+        $correction_acceptable = $this->input->post('correction_acceptable');
+        $correction_acceptable_remarks = $this->input->post('correction_acceptable_remarks');
+    
+        foreach($correction as $key => $value){
+            if($correction[$key]){
+                $correction_entry[] = array(
+                    'correction' => $correction[$key],
+                    'correction_person_responsible' => $correction_person_responsible[$key],
+                    'correction_completion_date' => $correction_completion_date[$key],
+                    'correction_acceptable' => $correction_acceptable[$key],
+                    'correction_acceptable_remarks' => $correction_acceptable_remarks[$key]
+                );
+            }
+            
+        }
+        
+        $consequence_entry = array();
+
+        //array
+        $consequence = $this->input->post('consequence');
+        $consequence_person_responsible = $this->input->post('consequence_person_responsible');
+        $consequence_completion_date = $this->input->post('consequence_completion_date');
+        $consequence_acceptable = $this->input->post('consequence_acceptable');
+        $consequence_acceptable_remarks = $this->input->post('consequence_acceptable_remarks');
+    
+        foreach($consequence as $key => $value){
+            if($consequence[$key]){
+                $consequence_entry[] = array(
+                    'consequence' => $consequence[$key],
+                    'consequence_person_responsible' => $consequence_person_responsible[$key],
+                    'consequence_completion_date' => $consequence_completion_date[$key],
+                    'consequence_acceptable' => $consequence_acceptable[$key],
+                    'consequence_acceptable_remarks' => $consequence_acceptable_remarks[$key]
+                );
+            }
+           
+        }
+
+
+        $existing_record = $this->db->get_where('correction', array('car_id' => $car_id))->row();
+
+        $data = array(
+            'car_id' => $car_id,
+            'correction_entry' => json_encode($correction_entry),
+            'consequence_entry' => json_encode($consequence_entry),
+            'review_correction_dealing_with_consequences' => $review_correction_dealing_with_consequences,
+            'review_correction_dealing_with_consequences_remarks' => $review_correction_dealing_with_consequences_remarks,
+        );
+        
+        if ($existing_record) {
+            // Car_id exists, perform an update
+            $this->db->where('car_id', $car_id);
+            $result = $this->db->update('correction', $data);
+        } else {
+            // Car_id doesn't exist, perform an insert
+            $result = $this->db->insert('correction', $data);
+        }
+
+        $cardata = array(
+            'for_correction_status' => 'For Approval'
+        );
+
+        $this->db->where('id', $car_id);
+        $result = $this->db->update('car', $cardata);
+        
+        if ($result) {
+            echo 'saved';
+        } else {
+            echo 'error';
+        }
+
+
+    }
+
     public function saveCorrection(){
         //array
         $car_id = $this->input->post('car_id');

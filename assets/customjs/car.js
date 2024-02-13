@@ -47,7 +47,7 @@ var car = {
                         var osqm_review_correction = "";
                         var osqm_review_corrective_action = "";
                         
-                        if(for_correction_status == 'For OSQM Review'){
+                        if(for_correction_status == 'For OSQM Review' || for_correction_status == 'For Approval'){
                             var osqm_review_correction = "<a class='dropdown-item for-osqm-review-correction' href='#' data-car_id='" + car_id + "' data-bs-toggle='modal' data-bs-target='#corrective-action-review'>Correction - For OSQM Review</a>";
                         }
 
@@ -405,11 +405,21 @@ var car = {
 
                         response = JSON.parse(response);
 
+                        var review_correction_dealing_with_consequences = response[0].review_correction_dealing_with_consequences;
+                        var review_correction_dealing_with_consequences_remarks = response[0].review_correction_dealing_with_consequences_remarks;
+
+                        
+                        jQuery('.review_correction_dealing_with_consequences').val(review_correction_dealing_with_consequences);
+                        jQuery('.review_correction_dealing_with_consequences_remarks').val(review_correction_dealing_with_consequences_remarks);
+
                         var correctionEntries = JSON.parse(response[0].correction_entry);
                         
+                        var count = 0;
+
                         // Loop through correction entries and create HTML for each entry
                         correctionEntries.forEach(function (correction) {
 
+                            
                             var correctionHtml = `
                                 <div class="col-lg-12 correction-repeatable added-repeat">
                                     <div class="card">
@@ -439,17 +449,17 @@ var car = {
                                                     <label for="acceptable" class="form-label">Acceptable</label>
                                                     <div class="col-lg-3 text-inlign mb-2">
                                                         <div class="form-check form-check-inline">
-                                                            <input type="radio" name="consequence_acceptable[]" value="1" class="form-check-input">
-                                                            <label class="form-check-label" for="consequence_acceptable">YES</label>
+                                                            <input type="radio" name="correction_acceptable[${count}]" value="1" class="form-check-input">
+                                                            <label class="form-check-label" for="correction_acceptable">YES</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
-                                                            <input type="radio" name="consequence_acceptable[]" value="0" class="form-check-input">
-                                                            <label class="form-check-label" for="consequence_acceptable">NO</label>
+                                                            <input type="radio" name="correction_acceptable[${count}]" value="0" class="form-check-input">
+                                                            <label class="form-check-label" for="correction_acceptable">NO</label>
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-lg-12">
-                                                        <label for="consequence_acceptable_remarks" class="form-label">Remarks</label>
-                                                        <textarea class="form-control" name="consequence_acceptable_remarks[]" rows="4"></textarea>
+                                                        <label for="correction_acceptable_remarks" class="form-label">Remarks</label>
+                                                        <textarea class="form-control" name="correction_acceptable_remarks[${count}]" rows="4"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -458,7 +468,8 @@ var car = {
                                 </div>
                             `;
 
-                    
+                            count++;
+
                             // Append the correction HTML to the container
                             $('#correction-review').append(correctionHtml);
                         });
@@ -508,7 +519,7 @@ var car = {
                                                     </div>
                                                     <div class="form-group col-lg-12">
                                                         <label for="consequence_acceptable_remarks" class="form-label">Remarks</label>
-                                                        <textarea class="form-control" name="consequence_acceptable_remarks[]" rows="4"></textarea>
+                                                        <textarea class="form-control" name="consequence_acceptable_remarks[${count}]" rows="4"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1343,6 +1354,40 @@ var car = {
                 }
             });
         });
+
+        jQuery('#saveCorrectionFR').click(function(e){
+            e.preventDefault();
+
+            var formData = new FormData($("#correction_form_review")[0]);
+
+            console.log(formData);
+
+            // Make an AJAX request to submit the form data
+            $.ajax({
+                type: "POST", // or "GET" depending on your server-side handling
+                url: "../car/saveCorrectionFR", // Replace with your server-side endpoint
+                data: formData,
+                processData: false,  // Prevent jQuery from processing the data
+                contentType: false,
+                success: function (response) {
+                    // Handle the response from the server
+                    if(response == 'saved'){
+                        car.notifySuccess();
+                        car.load();
+                        $('#correction_form')[0].reset();
+                        $('#corrective-action').modal('hide');
+
+                    } else {
+                        car.notifyError();
+                    }
+                },
+                error: function () {
+                    // Handle errors
+                    car.notifyError();
+                }
+            });
+        });
+
 
 
     },

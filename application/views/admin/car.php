@@ -366,7 +366,7 @@
 
                      <div class="row mb-2">
                         <div class="form-group col-md-12">
-                           <label for="review_correction_dealing_with_consequences" class="form-label">Remarks </label>
+                           <label for="review_correction_dealing_with_consequences_remarks" class="form-label">Remarks </label>
                            <textarea class="form-control review_correction_dealing_with_consequences_remarks" name="review_correction_dealing_with_consequences_remarks" rows="4"></textarea>
                         </div>
                      </div>
@@ -375,7 +375,7 @@
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
-                     <button type="button" class="btn btn-primary" id="saveCorrection">Save</button>
+                     <button type="button" class="btn btn-primary" id="saveCorrectionFR">Save</button>
                   </div>
                </div><!-- /.modal-content -->
          </div><!-- /.modal-dialog -->
