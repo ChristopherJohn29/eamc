@@ -38,7 +38,7 @@ class register extends CI_Controller {
 			'section' => $_POST['section'],
 			'role' => $_POST['role'],
 			'department' => $_POST['department'],
-			'division' => $_POST['division'],
+			'division' => isset($_POST['division']) ? $_POST['division'] : '',
 			'created_date' => date('Y-m-d H:i:s'),
 			'fullname' => $_POST['firstname'].' '.$_POST['lastname']
 		];

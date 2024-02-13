@@ -32,7 +32,7 @@
             <?php 
             
             $requiredRoles = array(
-                'designation' => 'commitee',
+                'designation' => 'committee',
                 'section' => 'forms',
                 'role' => ['chair', 'member'],
             );

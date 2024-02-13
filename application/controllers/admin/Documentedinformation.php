@@ -162,7 +162,7 @@ class documentedinformation extends CI_Controller {
     public function formsReview(){
 
         $requiredRoles = array(
-            'designation' => 'commitee',
+            'designation' => 'committee',
             'section' => 'forms',
             'role' => ['chair', 'member'],
         );
