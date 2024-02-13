@@ -381,6 +381,147 @@
          </div><!-- /.modal-dialog -->
       </div>
 
+      <div id="corrective-action-approval" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-xl">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h4 class="modal-title" id="standard-modalLabel">For Approval</h4>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                  <form action="" id="correction_form_approval" enctype="multipart/form-data">
+                     <input type="hidden" name="car_id" class="car_id">
+                     <div id="correction-approval" class="mb-3">
+                        
+                        
+                     </div>
+
+                     <div id="consequencesdiv-approval">
+                    
+                        
+                     </div>
+
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="approval_correction_dealing_with_consequences" class="form-label">Review of Correction and Dealing with the Consequences</label>
+                           <select class="form-select approval_correction_dealing_with_consequences" name="approval_correction_dealing_with_consequences">
+                              <option value="For Verification">For Verification</option>
+                              <option value="For Revision">For Revision</option>
+                           </select>
+                        </div>
+                     </div>
+
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="approval_correction_dealing_with_consequences_remarks" class="form-label">Remarks </label>
+                           <textarea class="form-control approval_correction_dealing_with_consequences_remarks" name="approval_correction_dealing_with_consequences_remarks" rows="4"></textarea>
+                        </div>
+                     </div>
+
+                  </form>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                     <button type="button" class="btn btn-primary" id="saveCorrectionFA">Save</button>
+                  </div>
+               </div><!-- /.modal-content -->
+         </div><!-- /.modal-dialog -->
+      </div>
+
+      <div id="corrective-action-verification" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-xl">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h4 class="modal-title" id="standard-modalLabel">For Verification</h4>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                  <form action="" id="correction_form_verification" enctype="multipart/form-data">
+                     <input type="hidden" name="car_id" class="car_id">
+                     <div id="correction-verification" class="mb-3">
+                        
+                        
+                     </div>
+
+                     <div id="consequencesdiv-verification">
+                    
+                        
+                     </div>
+
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="verification_correction_dealing_with_consequences" class="form-label">Review of Correction and Dealing with the Consequences</label>
+                           <select class="form-select verification_correction_dealing_with_consequences" name="verification_correction_dealing_with_consequences">
+                              <option value="For Validation">For Validation</option>
+                              <option value="For Revision">For Revision</option>
+                           </select>
+                        </div>
+                     </div>
+
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="verification_correction_dealing_with_consequences_remarks" class="form-label">Remarks </label>
+                           <textarea class="form-control verification_correction_dealing_with_consequences_remarks" name="verification_correction_dealing_with_consequences_remarks" rows="4"></textarea>
+                        </div>
+                     </div>
+
+                  </form>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                     <button type="button" class="btn btn-primary" id="saveCorrectionFV">Save</button>
+                  </div>
+               </div><!-- /.modal-content -->
+         </div><!-- /.modal-dialog -->
+      </div>
+
+      <div id="corrective-action-validation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-xl">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h4 class="modal-title" id="standard-modalLabel">For Validation</h4>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                  <form action="" id="correction_form_validation" enctype="multipart/form-data">
+                     <input type="hidden" name="car_id" class="car_id">
+                     <div id="correction-validation" class="mb-3">
+                        
+                        
+                     </div>
+
+                     <div id="consequencesdiv-validation">
+                    
+                        
+                     </div>
+
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="validation_correction_dealing_with_consequences" class="form-label">Review of Correction and Dealing with the Consequences</label>
+                           <select class="form-select verification_correction_dealing_with_consequences" name="validation_correction_dealing_with_consequences">
+                              <option value="Recommendation for Closure">Recommendation for Closure</option>
+                              <option value="For Revision">For Revision</option>
+                           </select>
+                        </div>
+                     </div>
+
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="validation_correction_dealing_with_consequences_remarks" class="form-label">Remarks </label>
+                           <textarea class="form-control validation_correction_dealing_with_consequences_remarks" name="validation_correction_dealing_with_consequences_remarks" rows="4"></textarea>
+                        </div>
+                     </div>
+
+                  </form>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                     <button type="button" class="btn btn-primary" id="saveCorrectionFVA">Save</button>
+                  </div>
+               </div><!-- /.modal-content -->
+         </div><!-- /.modal-dialog -->
+      </div>
+
       <div id="root-cause" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
          <div class="modal-dialog modal-xl">
                <div class="modal-content">

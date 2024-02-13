@@ -79,8 +79,8 @@ class car extends CI_Controller {
         $correction = $this->input->post('correction');
         $correction_person_responsible = $this->input->post('correction_person_responsible');
         $correction_completion_date = $this->input->post('correction_completion_date');
-        $correction_acceptable = $this->input->post('correction_acceptable');
-        $correction_acceptable_remarks = $this->input->post('correction_acceptable_remarks');
+        $correction_acceptable_review = $this->input->post('correction_acceptable_review');
+        $correction_acceptable_remarks_review = $this->input->post('correction_acceptable_remarks_review');
     
         foreach($correction as $key => $value){
             if($correction[$key]){
@@ -88,8 +88,8 @@ class car extends CI_Controller {
                     'correction' => $correction[$key],
                     'correction_person_responsible' => $correction_person_responsible[$key],
                     'correction_completion_date' => $correction_completion_date[$key],
-                    'correction_acceptable' => $correction_acceptable[$key],
-                    'correction_acceptable_remarks' => $correction_acceptable_remarks[$key]
+                    'correction_acceptable_review' => $correction_acceptable_review[$key],
+                    'correction_acceptable_remarks_review' => $correction_acceptable_remarks_review[$key]
                 );
             }
             
@@ -101,8 +101,8 @@ class car extends CI_Controller {
         $consequence = $this->input->post('consequence');
         $consequence_person_responsible = $this->input->post('consequence_person_responsible');
         $consequence_completion_date = $this->input->post('consequence_completion_date');
-        $consequence_acceptable = $this->input->post('consequence_acceptable');
-        $consequence_acceptable_remarks = $this->input->post('consequence_acceptable_remarks');
+        $consequence_acceptable_review = $this->input->post('consequence_acceptable_review');
+        $consequence_acceptable_remarks_review = $this->input->post('consequence_acceptable_remarks_review');
     
         foreach($consequence as $key => $value){
             if($consequence[$key]){
@@ -110,8 +110,8 @@ class car extends CI_Controller {
                     'consequence' => $consequence[$key],
                     'consequence_person_responsible' => $consequence_person_responsible[$key],
                     'consequence_completion_date' => $consequence_completion_date[$key],
-                    'consequence_acceptable' => $consequence_acceptable[$key],
-                    'consequence_acceptable_remarks' => $consequence_acceptable_remarks[$key]
+                    'consequence_acceptable_review' => $consequence_acceptable_review[$key],
+                    'consequence_acceptable_remarks_review' => $consequence_acceptable_remarks_review[$key]
                 );
             }
            
@@ -149,8 +149,255 @@ class car extends CI_Controller {
         } else {
             echo 'error';
         }
+    }
 
+    public function saveCorrectionFA(){
+        //array
+        $car_id = $this->input->post('car_id');
+        $approval_correction_dealing_with_consequences = $this->input->post('approval_correction_dealing_with_consequences');
+        $approval_correction_dealing_with_consequences_remarks = $this->input->post('approval_correction_dealing_with_consequences_remarks');
+    
+        $correction_entry = array();
+    
+        $correction = $this->input->post('correction');
+        $correction_person_responsible = $this->input->post('correction_person_responsible');
+        $correction_completion_date = $this->input->post('correction_completion_date');
+        $correction_acceptable_approval = $this->input->post('correction_acceptable_approval');
+        $correction_acceptable_remarks_approval = $this->input->post('correction_acceptable_remarks_approval');
+    
+        foreach($correction as $key => $value){
+            if($correction[$key]){
+                $correction_entry[] = array(
+                    'correction' => $correction[$key],
+                    'correction_person_responsible' => $correction_person_responsible[$key],
+                    'correction_completion_date' => $correction_completion_date[$key],
+                    'correction_acceptable_approval' => $correction_acceptable_approval[$key],
+                    'correction_acceptable_remarks_approval' => $correction_acceptable_remarks_approval[$key]
+                );
+            }
+            
+        }
+        
+        $consequence_entry = array();
+    
+        //array
+        $consequence = $this->input->post('consequence');
+        $consequence_person_responsible = $this->input->post('consequence_person_responsible');
+        $consequence_completion_date = $this->input->post('consequence_completion_date');
+        $consequence_acceptable_approval = $this->input->post('consequence_acceptable_approval');
+        $consequence_acceptable_remarks_approval = $this->input->post('consequence_acceptable_remarks_approval');
+    
+        foreach($consequence as $key => $value){
+            if($consequence[$key]){
+                $consequence_entry[] = array(
+                    'consequence' => $consequence[$key],
+                    'consequence_person_responsible' => $consequence_person_responsible[$key],
+                    'consequence_completion_date' => $consequence_completion_date[$key],
+                    'consequence_acceptable_approval' => $consequence_acceptable_approval[$key],
+                    'consequence_acceptable_remarks_approval' => $consequence_acceptable_remarks_approval[$key]
+                );
+            }
+           
+        }
+    
+    
+        $existing_record = $this->db->get_where('correction', array('car_id' => $car_id))->row();
+    
+        $data = array(
+            'car_id' => $car_id,
+            'correction_entry' => json_encode($correction_entry),
+            'consequence_entry' => json_encode($consequence_entry),
+            'approval_correction_dealing_with_consequences' => $approval_correction_dealing_with_consequences,
+            'approval_correction_dealing_with_consequences_remarks' => $approval_correction_dealing_with_consequences_remarks,
+        );
+        
+        if ($existing_record) {
+            // Car_id exists, perform an update
+            $this->db->where('car_id', $car_id);
+            $result = $this->db->update('correction', $data);
+        } else {
+            // Car_id doesn't exist, perform an insert
+            $result = $this->db->insert('correction', $data);
+        }
+    
+        $cardata = array(
+            'for_correction_status' => 'For Approval'
+        );
+    
+        $this->db->where('id', $car_id);
+        $result = $this->db->update('car', $cardata);
+        
+        if ($result) {
+            echo 'saved';
+        } else {
+            echo 'error';
+        }
+    }
 
+    public function saveCorrectionFV(){
+        //array
+        $car_id = $this->input->post('car_id');
+        $verification_correction_dealing_with_consequences = $this->input->post('verification_correction_dealing_with_consequences');
+        $verification_correction_dealing_with_consequences_remarks = $this->input->post('verification_correction_dealing_with_consequences_remarks');
+    
+        $correction_entry = array();
+    
+        $correction = $this->input->post('correction');
+        $correction_person_responsible = $this->input->post('correction_person_responsible');
+        $correction_completion_date = $this->input->post('correction_completion_date');
+        $correction_acceptable_verification = $this->input->post('correction_acceptable_verification');
+        $correction_acceptable_remarks_verification = $this->input->post('correction_acceptable_remarks_verification');
+    
+        foreach($correction as $key => $value){
+            if($correction[$key]){
+                $correction_entry[] = array(
+                    'correction' => $correction[$key],
+                    'correction_person_responsible' => $correction_person_responsible[$key],
+                    'correction_completion_date' => $correction_completion_date[$key],
+                    'correction_acceptable_verification' => $correction_acceptable_verification[$key],
+                    'correction_acceptable_remarks_verification' => $correction_acceptable_remarks_verification[$key]
+                );
+            }
+            
+        }
+        
+        $consequence_entry = array();
+    
+        //array
+        $consequence = $this->input->post('consequence');
+        $consequence_person_responsible = $this->input->post('consequence_person_responsible');
+        $consequence_completion_date = $this->input->post('consequence_completion_date');
+        $consequence_acceptable_verification = $this->input->post('consequence_acceptable_verification');
+        $consequence_acceptable_remarks_verification = $this->input->post('consequence_acceptable_remarks_verification');
+    
+        foreach($consequence as $key => $value){
+            if($consequence[$key]){
+                $consequence_entry[] = array(
+                    'consequence' => $consequence[$key],
+                    'consequence_person_responsible' => $consequence_person_responsible[$key],
+                    'consequence_completion_date' => $consequence_completion_date[$key],
+                    'consequence_acceptable_verification' => $consequence_acceptable_verification[$key],
+                    'consequence_acceptable_remarks_verification' => $consequence_acceptable_remarks_verification[$key]
+                );
+            }
+           
+        }
+    
+    
+        $existing_record = $this->db->get_where('correction', array('car_id' => $car_id))->row();
+    
+        $data = array(
+            'car_id' => $car_id,
+            'correction_entry' => json_encode($correction_entry),
+            'consequence_entry' => json_encode($consequence_entry),
+            'verification_correction_dealing_with_consequences' => $verification_correction_dealing_with_consequences,
+            'verification_correction_dealing_with_consequences_remarks' => $verification_correction_dealing_with_consequences_remarks,
+        );
+        
+        if ($existing_record) {
+            // Car_id exists, perform an update
+            $this->db->where('car_id', $car_id);
+            $result = $this->db->update('correction', $data);
+        } else {
+            // Car_id doesn't exist, perform an insert
+            $result = $this->db->insert('correction', $data);
+        }
+    
+        $cardata = array(
+            'for_correction_status' => 'For verification'
+        );
+    
+        $this->db->where('id', $car_id);
+        $result = $this->db->update('car', $cardata);
+        
+        if ($result) {
+            echo 'saved';
+        } else {
+            echo 'error';
+        }
+    }
+
+    public function saveCorrectionFVA(){
+        //array
+        $car_id = $this->input->post('car_id');
+        $validation_correction_dealing_with_consequences = $this->input->post('validation_correction_dealing_with_consequences');
+        $validation_correction_dealing_with_consequences_remarks = $this->input->post('validation_correction_dealing_with_consequences_remarks');
+    
+        $correction_entry = array();
+    
+        $correction = $this->input->post('correction');
+        $correction_person_responsible = $this->input->post('correction_person_responsible');
+        $correction_completion_date = $this->input->post('correction_completion_date');
+        $correction_acceptable_validation = $this->input->post('correction_acceptable_validation');
+        $correction_acceptable_remarks_validation = $this->input->post('correction_acceptable_remarks_validation');
+    
+        foreach($correction as $key => $value){
+            if($correction[$key]){
+                $correction_entry[] = array(
+                    'correction' => $correction[$key],
+                    'correction_person_responsible' => $correction_person_responsible[$key],
+                    'correction_completion_date' => $correction_completion_date[$key],
+                    'correction_acceptable_validation' => $correction_acceptable_validation[$key],
+                    'correction_acceptable_remarks_validation' => $correction_acceptable_remarks_validation[$key]
+                );
+            }
+            
+        }
+        
+        $consequence_entry = array();
+    
+        //array
+        $consequence = $this->input->post('consequence');
+        $consequence_person_responsible = $this->input->post('consequence_person_responsible');
+        $consequence_completion_date = $this->input->post('consequence_completion_date');
+        $consequence_acceptable_validation = $this->input->post('consequence_acceptable_validation');
+        $consequence_acceptable_remarks_validation = $this->input->post('consequence_acceptable_remarks_validation');
+    
+        foreach($consequence as $key => $value){
+            if($consequence[$key]){
+                $consequence_entry[] = array(
+                    'consequence' => $consequence[$key],
+                    'consequence_person_responsible' => $consequence_person_responsible[$key],
+                    'consequence_completion_date' => $consequence_completion_date[$key],
+                    'consequence_acceptable_validation' => $consequence_acceptable_validation[$key],
+                    'consequence_acceptable_remarks_validation' => $consequence_acceptable_remarks_validation[$key]
+                );
+            }
+           
+        }
+    
+    
+        $existing_record = $this->db->get_where('correction', array('car_id' => $car_id))->row();
+    
+        $data = array(
+            'car_id' => $car_id,
+            'correction_entry' => json_encode($correction_entry),
+            'consequence_entry' => json_encode($consequence_entry),
+            'validation_correction_dealing_with_consequences' => $validation_correction_dealing_with_consequences,
+            'validation_correction_dealing_with_consequences_remarks' => $validation_correction_dealing_with_consequences_remarks,
+        );
+        
+        if ($existing_record) {
+            // Car_id exists, perform an update
+            $this->db->where('car_id', $car_id);
+            $result = $this->db->update('correction', $data);
+        } else {
+            // Car_id doesn't exist, perform an insert
+            $result = $this->db->insert('correction', $data);
+        }
+    
+        $cardata = array(
+            'for_correction_status' => 'For validation'
+        );
+    
+        $this->db->where('id', $car_id);
+        $result = $this->db->update('car', $cardata);
+        
+        if ($result) {
+            echo 'saved';
+        } else {
+            echo 'error';
+        }
     }
 
     public function saveCorrection(){
