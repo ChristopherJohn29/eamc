@@ -35,7 +35,7 @@ var diList = {
                         var effectivity_date = item.effectivity_date;
                         var revision_no = item.revision_no;
 
-                        if(status == 'FR'){
+                        if(status == 'FCRA'){
                             $action_button = "<button title='Forms Review'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-blue edit-data'"+
                             "data-id='"+id+"' data-user_id='"+user_id+"'" +
                             "data-doc_title='"+doc_title+"' data-doc_code='"+doc_code+"'" +
