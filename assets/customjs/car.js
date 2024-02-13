@@ -1872,8 +1872,107 @@ var car = {
                     if(response == 'saved'){
                         car.notifySuccess();
                         car.load();
-                        $('#correction_form')[0].reset();
-                        $('#corrective-action').modal('hide');
+                        $('#correction_form_review')[0].reset();
+                        $('#corrective-action-review').modal('hide');
+
+                    } else {
+                        car.notifyError();
+                    }
+                },
+                error: function () {
+                    // Handle errors
+                    car.notifyError();
+                }
+            });
+        });
+
+        jQuery('#saveCorrectionFA').click(function(e){
+            e.preventDefault();
+
+            var formData = new FormData($("#correction_form_approval")[0]);
+
+            console.log(formData);
+
+            // Make an AJAX request to submit the form data
+            $.ajax({
+                type: "POST", // or "GET" depending on your server-side handling
+                url: "../car/saveCorrectionFA", // Replace with your server-side endpoint
+                data: formData,
+                processData: false,  // Prevent jQuery from processing the data
+                contentType: false,
+                success: function (response) {
+                    // Handle the response from the server
+                    if(response == 'saved'){
+                        car.notifySuccess();
+                        car.load();
+                        $('#correction_form_approval')[0].reset();
+                        $('#corrective-action-approval').modal('hide');
+
+                    } else {
+                        car.notifyError();
+                    }
+                },
+                error: function () {
+                    // Handle errors
+                    car.notifyError();
+                }
+            });
+        });
+
+        jQuery('#saveCorrectionFV').click(function(e){
+            e.preventDefault();
+
+            var formData = new FormData($("#correction_form_verification")[0]);
+
+            console.log(formData);
+
+            // Make an AJAX request to submit the form data
+            $.ajax({
+                type: "POST", // or "GET" depending on your server-side handling
+                url: "../car/saveCorrectionFV", // Replace with your server-side endpoint
+                data: formData,
+                processData: false,  // Prevent jQuery from processing the data
+                contentType: false,
+                success: function (response) {
+                    // Handle the response from the server
+                    if(response == 'saved'){
+                        car.notifySuccess();
+                        car.load();
+                        $('#correction_form_verification')[0].reset();
+                        $('#corrective-action-verification').modal('hide');
+
+                    } else {
+                        car.notifyError();
+                    }
+                },
+                error: function () {
+                    // Handle errors
+                    car.notifyError();
+                }
+            });
+        });
+
+        jQuery('#saveCorrectionFVA').click(function(e){
+            e.preventDefault();
+
+            var formData = new FormData($("#correction_form_validation")[0]);
+
+            console.log(formData);
+
+            // Make an AJAX request to submit the form data
+            $.ajax({
+                type: "POST", // or "GET" depending on your server-side handling
+                url: "../car/saveCorrectionFVA", // Replace with your server-side endpoint
+                data: formData,
+                processData: false,  // Prevent jQuery from processing the data
+                contentType: false,
+                success: function (response) {
+                    // Handle the response from the server
+                    if(response == 'saved'){
+                        car.notifySuccess();
+                        car.load();
+                        $('#correction_form_validation')[0].reset();
+                        $('#corrective-action-validation').modal('hide');
 
                     } else {
                         car.notifyError();
