@@ -174,7 +174,7 @@ class documentedinformation extends CI_Controller {
         $data['customcss'] = 'di_forms_review.css';
         $data['customjs'] = 'di_forms_review.js';
 
-        $data['department'] =  $this->DepartmentModel->getDepartment();
+        $data['department'] =  $this->DepartmentModel->loadDepartment();
 
         $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
         $data['section'] =  $this->SectionModel->getSection();
