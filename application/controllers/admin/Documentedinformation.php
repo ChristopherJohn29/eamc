@@ -174,16 +174,7 @@ class documentedinformation extends CI_Controller {
         $data['customcss'] = 'di_forms_review.css';
         $data['customjs'] = 'di_forms_review.js';
 
-        $requiredRoles = array(
-            'designation' => 'division',
-            'role' => ['osqm_dco', 'osqm_qmr'],
-        );
-
-        if (!$this->role_checker->checkRole($requiredRoles)) {
-            $data['department'] =  $this->DepartmentModel->getDepartment();
-        } else {
-            $data['department'] =  $this->DepartmentModel->loadDepartment();
-        }
+        $data['department'] =  $this->DepartmentModel->getDepartment();
 
         $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
         $data['section'] =  $this->SectionModel->getSection();
