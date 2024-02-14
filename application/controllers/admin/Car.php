@@ -138,7 +138,7 @@ class car extends CI_Controller {
         }
 
         $cardata = array(
-            'for_correction_status' => 'For Approval'
+            'for_correction_status' => $review_correction_dealing_with_consequences
         );
 
         $this->db->where('id', $car_id);
@@ -221,7 +221,7 @@ class car extends CI_Controller {
         }
     
         $cardata = array(
-            'for_correction_status' => 'For Approval'
+            'for_correction_status' => $approval_correction_dealing_with_consequences
         );
     
         $this->db->where('id', $car_id);
@@ -304,7 +304,7 @@ class car extends CI_Controller {
         }
     
         $cardata = array(
-            'for_correction_status' => 'For verification'
+            'for_correction_status' => $verification_correction_dealing_with_consequences
         );
     
         $this->db->where('id', $car_id);
@@ -387,7 +387,7 @@ class car extends CI_Controller {
         }
     
         $cardata = array(
-            'for_correction_status' => 'For validation'
+            'for_correction_status' => $validation_correction_dealing_with_consequences
         );
     
         $this->db->where('id', $car_id);
