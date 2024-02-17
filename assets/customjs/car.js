@@ -49,6 +49,10 @@ var car = {
                         var osqm_approval_correction = "";
                         var osqm_verification_correction = "";
                         var osqm_validation_correction = "";
+                        var osqm_review_corrective_action = "";
+                        var osqm_approval_corrective_action = "";
+                        var osqm_verification_corrective_action = "";
+                        var osqm_validation_corrective_action = "";
 
 
                         var osqm_review_corrective_action = "";
@@ -71,6 +75,18 @@ var car = {
 
                         if(corrective_action_status == 'For OSQM Review'){
                             var osqm_review_corrective_action = "<a class='dropdown-item for-osqm-review-corrective-action' href='#' data-car_id='" + car_id + "' data-bs-toggle='modal' data-bs-target='#root-cause-review'>Corrective Action - For OSQM Review</a>";
+                        }
+
+                        if(corrective_action_status == 'For Approval'){
+                            var osqm_approval_corrective_action = "<a class='dropdown-item for-osqm-approval-corrective-action' href='#' data-car_id='" + car_id + "' data-bs-toggle='modal' data-bs-target='#root-cause-review'>Corrective Action - For OSQM Review</a>";
+                        }
+
+                        if(corrective_action_status == 'For Verification'){
+                            var osqm_verification_corrective_action = "<a class='dropdown-item for-osqm-verification-corrective-action' href='#' data-car_id='" + car_id + "' data-bs-toggle='modal' data-bs-target='#root-cause-review'>Corrective Action - For OSQM Review</a>";
+                        }
+
+                        if(corrective_action_status == 'For Validation'){
+                            var osqm_validation_corrective_action = "<a class='dropdown-item for-osqm-validation-corrective-action' href='#' data-car_id='" + car_id + "' data-bs-toggle='modal' data-bs-target='#root-cause-review'>Corrective Action - For OSQM Review</a>";
                         }
                         
                         var html = "<tr><td>" + car_no + 
@@ -96,6 +112,9 @@ var car = {
                         osqm_approval_correction+
                         osqm_verification_correction+
                         osqm_validation_correction+
+                        osqm_approval_corrective_action +
+                        osqm_verification_corrective_action +
+                        osqm_validation_corrective_action +
                         "</div>" +
                         "</div>" +
                         "</td></tr>";
@@ -440,7 +459,19 @@ var car = {
                         // Loop through correction entries and create HTML for each entry
                         correctionEntries.forEach(function (correction) {
 
+
+                            var approval = correction.correction_acceptable_approval[count] !== undefined ? correction.correction_acceptable_approval[count] : '';
+                            var verification = correction.correction_acceptable_verification[count] !== undefined ? correction.correction_acceptable_verification[count] : '';
+                            var validation = correction.correction_acceptable_validation[count] !== undefined ? correction.correction_acceptable_validation[count] : '';
                             
+                            var approval_remarks = correction.correction_acceptable_remarks_approval[count] !== undefined ? correction.correction_acceptable_remarks_approval[count] : '';
+                            var verification_remarks = correction.correction_acceptable_remarks_verification[count] !== undefined ? correction.correction_acceptable_remarks_verification[count] : '';
+                            var validation_remarks = correction.correction_acceptable_remarks_validation[count] !== undefined ? correction.correction_acceptable_remarks_validation[count] : '';
+
+
+                            var reviewValue = correction.correction_acceptable_review[count] !== undefined ? correction.correction_acceptable_review[count] : ''; // Added
+                            var remarksReview = correction.correction_acceptable_remarks_review[count] !== undefined ? correction.correction_acceptable_remarks_review[count] : ''; // Added
+
                             var correctionHtml = `
                                 <div class="col-lg-12 correction-repeatable added-repeat">
                                     <div class="card">
@@ -468,19 +499,28 @@ var car = {
                                                 </div>
                                                 <div class="row">
                                                     <label for="acceptable" class="form-label">Acceptable</label>
+
+                                                    <input type="hidden" value="${approval}" name="correction_acceptable_approval[${count}]">
+                                                    <input type="hidden" value="${verification}" name="correction_acceptable_verification[${count}]">
+                                                    <input type="hidden" value="${validation}" name="correction_acceptable_validation[${count}]">
+
+                                                    <input type="hidden" value="${approval_remarks}" name="correction_acceptable_remarks_approval[${count}]">
+                                                    <input type="hidden" value="${verification_remarks}" name="correction_acceptable_remarks_verification[${count}]">
+                                                    <input type="hidden" value="${validation_remarks}" name="correction_acceptable_remarks_validation[${count}]">
+
                                                     <div class="col-lg-3 text-inlign mb-2">
                                                         <div class="form-check form-check-inline">
-                                                            <input type="radio" name="correction_acceptable_review[${count}]" value="1" class="form-check-input">
+                                                            <input type="radio" name="correction_acceptable_review[${count}]" value="1" class="form-check-input" ${reviewValue === '1' ? 'checked' : ''}>
                                                             <label class="form-check-label" for="correction_acceptable_review">YES</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
-                                                            <input type="radio" name="correction_acceptable_review[${count}]" value="0" class="form-check-input">
+                                                            <input type="radio" name="correction_acceptable_review[${count}]" value="0" class="form-check-input" ${reviewValue === '0' ? 'checked' : ''}>
                                                             <label class="form-check-label" for="correction_acceptable_review">NO</label>
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-lg-12">
                                                         <label for="correction_acceptable_remarks_review" class="form-label">Remarks</label>
-                                                        <textarea class="form-control" name="correction_acceptable_remarks_review[${count}]" rows="4"></textarea>
+                                                        <textarea class="form-control" name="correction_acceptable_remarks_review[${count}]" rows="4">${remarksReview}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -500,6 +540,18 @@ var car = {
                         var count = 0;
                         // Loop through correction entries and create HTML for each entry
                         consequenceEntries.forEach(function (consequence) {
+
+                            var approval = consequence.consequence_acceptable_approval[count] !== undefined ? consequence.consequence_acceptable_approval[count] : '';
+                            var verification = consequence.consequence_acceptable_verification[count] !== undefined ? consequence.consequence_acceptable_verification[count] : '';
+                            var validation = consequence.consequence_acceptable_validation[count] !== undefined ? consequence.consequence_acceptable_validation[count] : '';
+
+                            var approval_remarks = consequence.consequence_acceptable_remarks_approval[count] !== undefined ? consequence.consequence_acceptable_remarks_approval[count] : '';
+                            var verification_remarks = consequence.consequence_acceptable_remarks_verification[count] !== undefined ? consequence.consequence_acceptable_remarks_verification[count] : '';
+                            var validation_remarks = consequence.consequence_acceptable_remarks_validation[count] !== undefined ? consequence.consequence_acceptable_remarks_validation[count] : '';
+
+
+                            var reviewValue = consequence.consequence_acceptable_review[count] !== undefined ? consequence.consequence_acceptable_review[count] : ''; // Added
+                            var remarksReview = consequence.consequence_acceptable_remarks_review[count] !== undefined ? consequence.consequence_acceptable_remarks_review[count] : ''; // Added
 
                             var consequenceHtml = `
                                 <div class="col-lg-12 consequences-repeatable added-repeat">
@@ -528,19 +580,28 @@ var car = {
                                                 </div>
                                                 <div class="row">
                                                     <label for="acceptable" class="form-label">Acceptable</label>
+                                                    
+                                                        <input type="hidden" value="${approval}" name="consequence_acceptable_approval[${count}]">
+                                                        <input type="hidden" value="${verification}" name="consequence_acceptable_verification[${count}]">
+                                                        <input type="hidden" value="${validation}" name="consequence_acceptable_validation[${count}]">
+                                                        
+                                                        <input type="hidden" value="${approval_remarks}" name="consequence_acceptable_remarks_approval[${count}]">
+                                                        <input type="hidden" value="${verification_remarks}" name="consequence_acceptable_remarks_verification[${count}]">
+                                                        <input type="hidden" value="${validation_remarks}" name="consequence_acceptable_remarks_validation[${count}]">
+
                                                         <div class="col-lg-3 text-inlign mb-2">
                                                             <div class="form-check form-check-inline">
-                                                                <input type="radio" name="consequence_acceptable_review[${count}]" value="1" class="form-check-input">
+                                                                <input type="radio" name="consequence_acceptable_review[${count}]" value="1" class="form-check-input" ${reviewValue === '1' ? 'checked' : ''}>
                                                                 <label class="form-check-label" for="consequence_acceptable_review">YES</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input type="radio" name="consequence_acceptable_review[${count}]" value="0" class="form-check-input">
+                                                                <input type="radio" name="consequence_acceptable_review[${count}]" value="0" class="form-check-input" ${reviewValue === '0' ? 'checked' : ''}>
                                                                 <label class="form-check-label" for="consequence_acceptable_review">NO</label>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-lg-12">
                                                             <label for="consequence_acceptable_remarks_review" class="form-label">Remarks</label>
-                                                            <textarea class="form-control" name="consequence_acceptable_remarks_review[${count}]" rows="4"></textarea>
+                                                            <textarea class="form-control" name="consequence_acceptable_remarks_review[${count}]" rows="4">${remarksReview}</textarea>
                                                         </div>
                                                     </div>
                                             </div>
@@ -599,7 +660,19 @@ var car = {
                         // Loop through correction entries and create HTML for each entry
                         correctionEntries.forEach(function (correction) {
         
+        
+                            var review = correction.correction_acceptable_review[count] !== undefined ? correction.correction_acceptable_review[count] : '';
+                            var verification = correction.correction_acceptable_verification[count] !== undefined ? correction.correction_acceptable_verification[count] : '';
+                            var validation = correction.correction_acceptable_validation[count] !== undefined ? correction.correction_acceptable_validation[count] : '';
                             
+                            var review_remarks = correction.correction_acceptable_remarks_review[count] !== undefined ? correction.correction_acceptable_remarks_review[count] : '';
+                            var verification_remarks = correction.correction_acceptable_remarks_verification[count] !== undefined ? correction.correction_acceptable_remarks_verification[count] : '';
+                            var validation_remarks = correction.correction_acceptable_remarks_validation[count] !== undefined ? correction.correction_acceptable_remarks_validation[count] : '';
+        
+        
+                            var approvalValue = correction.correction_acceptable_approval[count] !== undefined ? correction.correction_acceptable_approval[count] : ''; // Added
+                            var remarksReview = correction.correction_acceptable_remarks_approval[count] !== undefined ? correction.correction_acceptable_remarks_approval[count] : ''; // Added
+        
                             var correctionHtml = `
                                 <div class="col-lg-12 correction-repeatable added-repeat">
                                     <div class="card">
@@ -627,19 +700,28 @@ var car = {
                                                 </div>
                                                 <div class="row">
                                                     <label for="acceptable" class="form-label">Acceptable</label>
+        
+                                                    <input type="hidden" value="${review}" name="correction_acceptable_review[${count}]">
+                                                    <input type="hidden" value="${verification}" name="correction_acceptable_verification[${count}]">
+                                                    <input type="hidden" value="${validation}" name="correction_acceptable_validation[${count}]">
+        
+                                                    <input type="hidden" value="${review_remarks}" name="correction_acceptable_remarks_review[${count}]">
+                                                    <input type="hidden" value="${verification_remarks}" name="correction_acceptable_remarks_verification[${count}]">
+                                                    <input type="hidden" value="${validation_remarks}" name="correction_acceptable_remarks_validation[${count}]">
+        
                                                     <div class="col-lg-3 text-inlign mb-2">
                                                         <div class="form-check form-check-inline">
-                                                            <input type="radio" name="correction_acceptable_approval[${count}]" value="1" class="form-check-input">
+                                                            <input type="radio" name="correction_acceptable_approval[${count}]" value="1" class="form-check-input" ${approvalValue === '1' ? 'checked' : ''}>
                                                             <label class="form-check-label" for="correction_acceptable_approval">YES</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
-                                                            <input type="radio" name="correction_acceptable_approval[${count}]" value="0" class="form-check-input">
+                                                            <input type="radio" name="correction_acceptable_approval[${count}]" value="0" class="form-check-input" ${approvalValue === '0' ? 'checked' : ''}>
                                                             <label class="form-check-label" for="correction_acceptable_approval">NO</label>
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-lg-12">
                                                         <label for="correction_acceptable_remarks_approval" class="form-label">Remarks</label>
-                                                        <textarea class="form-control" name="correction_acceptable_remarks_approval[${count}]" rows="4"></textarea>
+                                                        <textarea class="form-control" name="correction_acceptable_remarks_approval[${count}]" rows="4">${remarksReview}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -659,6 +741,18 @@ var car = {
                         var count = 0;
                         // Loop through correction entries and create HTML for each entry
                         consequenceEntries.forEach(function (consequence) {
+        
+                            var review = consequence.consequence_acceptable_review[count] !== undefined ? consequence.consequence_acceptable_review[count] : '';
+                            var verification = consequence.consequence_acceptable_verification[count] !== undefined ? consequence.consequence_acceptable_verification[count] : '';
+                            var validation = consequence.consequence_acceptable_validation[count] !== undefined ? consequence.consequence_acceptable_validation[count] : '';
+        
+                            var review_remarks = consequence.consequence_acceptable_remarks_review[count] !== undefined ? consequence.consequence_acceptable_remarks_review[count] : '';
+                            var verification_remarks = consequence.consequence_acceptable_remarks_verification[count] !== undefined ? consequence.consequence_acceptable_remarks_verification[count] : '';
+                            var validation_remarks = consequence.consequence_acceptable_remarks_validation[count] !== undefined ? consequence.consequence_acceptable_remarks_validation[count] : '';
+        
+        
+                            var approvalValue = consequence.consequence_acceptable_approval[count] !== undefined ? consequence.consequence_acceptable_approval[count] : ''; // Added
+                            var remarksReview = consequence.consequence_acceptable_remarks_approval[count] !== undefined ? consequence.consequence_acceptable_remarks_approval[count] : ''; // Added
         
                             var consequenceHtml = `
                                 <div class="col-lg-12 consequences-repeatable added-repeat">
@@ -687,21 +781,30 @@ var car = {
                                                 </div>
                                                 <div class="row">
                                                     <label for="acceptable" class="form-label">Acceptable</label>
-                                                    <div class="col-lg-3 text-inlign mb-2">
-                                                        <div class="form-check form-check-inline">
-                                                            <input type="radio" name="consequence_acceptable_approval[${count}]" value="1" class="form-check-input">
-                                                            <label class="form-check-label" for="consequence_acceptable_approval">YES</label>
+                                                    
+                                                        <input type="hidden" value="${review}" name="consequence_acceptable_review[${count}]">
+                                                        <input type="hidden" value="${verification}" name="consequence_acceptable_verification[${count}]">
+                                                        <input type="hidden" value="${validation}" name="consequence_acceptable_validation[${count}]">
+                                                        
+                                                        <input type="hidden" value="${review_remarks}" name="consequence_acceptable_remarks_review[${count}]">
+                                                        <input type="hidden" value="${verification_remarks}" name="consequence_acceptable_remarks_verification[${count}]">
+                                                        <input type="hidden" value="${validation_remarks}" name="consequence_acceptable_remarks_validation[${count}]">
+        
+                                                        <div class="col-lg-3 text-inlign mb-2">
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="consequence_acceptable_approval[${count}]" value="1" class="form-check-input" ${approvalValue === '1' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="consequence_acceptable_approval">YES</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="consequence_acceptable_approval[${count}]" value="0" class="form-check-input" ${approvalValue === '0' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="consequence_acceptable_approval">NO</label>
+                                                            </div>
                                                         </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input type="radio" name="consequence_acceptable_approval[${count}]" value="0" class="form-check-input">
-                                                            <label class="form-check-label" for="consequence_acceptable_approval">NO</label>
+                                                        <div class="form-group col-lg-12">
+                                                            <label for="consequence_acceptable_remarks_approval" class="form-label">Remarks</label>
+                                                            <textarea class="form-control" name="consequence_acceptable_remarks_approval[${count}]" rows="4">${remarksReview}</textarea>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group col-lg-12">
-                                                        <label for="consequence_acceptable_remarks_approval" class="form-label">Remarks</label>
-                                                        <textarea class="form-control" name="consequence_acceptable_remarks_approval[${count}]" rows="4"></textarea>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -758,7 +861,19 @@ var car = {
                         // Loop through correction entries and create HTML for each entry
                         correctionEntries.forEach(function (correction) {
         
+        
+                            var review = correction.correction_acceptable_review[count] !== undefined ? correction.correction_acceptable_review[count] : '';
+                            var approval = correction.correction_acceptable_approval[count] !== undefined ? correction.correction_acceptable_approval[count] : '';
+                            var validation = correction.correction_acceptable_validation[count] !== undefined ? correction.correction_acceptable_validation[count] : '';
                             
+                            var review_remarks = correction.correction_acceptable_remarks_review[count] !== undefined ? correction.correction_acceptable_remarks_review[count] : '';
+                            var approval_remarks = correction.correction_acceptable_remarks_approval[count] !== undefined ? correction.correction_acceptable_remarks_approval[count] : '';
+                            var validation_remarks = correction.correction_acceptable_remarks_validation[count] !== undefined ? correction.correction_acceptable_remarks_validation[count] : '';
+        
+        
+                            var verificationValue = correction.correction_acceptable_verification[count] !== undefined ? correction.correction_acceptable_verification[count] : ''; // Added
+                            var remarksReview = correction.correction_acceptable_remarks_verification[count] !== undefined ? correction.correction_acceptable_remarks_verification[count] : ''; // Added
+        
                             var correctionHtml = `
                                 <div class="col-lg-12 correction-repeatable added-repeat">
                                     <div class="card">
@@ -786,19 +901,28 @@ var car = {
                                                 </div>
                                                 <div class="row">
                                                     <label for="acceptable" class="form-label">Acceptable</label>
+        
+                                                    <input type="hidden" value="${review}" name="correction_acceptable_review[${count}]">
+                                                    <input type="hidden" value="${approval}" name="correction_acceptable_approval[${count}]">
+                                                    <input type="hidden" value="${validation}" name="correction_acceptable_validation[${count}]">
+        
+                                                    <input type="hidden" value="${review_remarks}" name="correction_acceptable_remarks_review[${count}]">
+                                                    <input type="hidden" value="${approval_remarks}" name="correction_acceptable_remarks_approval[${count}]">
+                                                    <input type="hidden" value="${validation_remarks}" name="correction_acceptable_remarks_validation[${count}]">
+        
                                                     <div class="col-lg-3 text-inlign mb-2">
                                                         <div class="form-check form-check-inline">
-                                                            <input type="radio" name="correction_acceptable_verification[${count}]" value="1" class="form-check-input">
+                                                            <input type="radio" name="correction_acceptable_verification[${count}]" value="1" class="form-check-input" ${verificationValue === '1' ? 'checked' : ''}>
                                                             <label class="form-check-label" for="correction_acceptable_verification">YES</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
-                                                            <input type="radio" name="correction_acceptable_verification[${count}]" value="0" class="form-check-input">
+                                                            <input type="radio" name="correction_acceptable_verification[${count}]" value="0" class="form-check-input" ${verificationValue === '0' ? 'checked' : ''}>
                                                             <label class="form-check-label" for="correction_acceptable_verification">NO</label>
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-lg-12">
                                                         <label for="correction_acceptable_remarks_verification" class="form-label">Remarks</label>
-                                                        <textarea class="form-control" name="correction_acceptable_remarks_verification[${count}]" rows="4"></textarea>
+                                                        <textarea class="form-control" name="correction_acceptable_remarks_verification[${count}]" rows="4">${remarksReview}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -818,6 +942,18 @@ var car = {
                         var count = 0;
                         // Loop through correction entries and create HTML for each entry
                         consequenceEntries.forEach(function (consequence) {
+        
+                            var review = consequence.consequence_acceptable_review[count] !== undefined ? consequence.consequence_acceptable_review[count] : '';
+                            var approval = consequence.consequence_acceptable_approval[count] !== undefined ? consequence.consequence_acceptable_approval[count] : '';
+                            var validation = consequence.consequence_acceptable_validation[count] !== undefined ? consequence.consequence_acceptable_validation[count] : '';
+        
+                            var review_remarks = consequence.consequence_acceptable_remarks_review[count] !== undefined ? consequence.consequence_acceptable_remarks_review[count] : '';
+                            var approval_remarks = consequence.consequence_acceptable_remarks_approval[count] !== undefined ? consequence.consequence_acceptable_remarks_approval[count] : '';
+                            var validation_remarks = consequence.consequence_acceptable_remarks_validation[count] !== undefined ? consequence.consequence_acceptable_remarks_validation[count] : '';
+        
+        
+                            var verificationValue = consequence.consequence_acceptable_verification[count] !== undefined ? consequence.consequence_acceptable_verification[count] : ''; // Added
+                            var remarksReview = consequence.consequence_acceptable_remarks_verification[count] !== undefined ? consequence.consequence_acceptable_remarks_verification[count] : ''; // Added
         
                             var consequenceHtml = `
                                 <div class="col-lg-12 consequences-repeatable added-repeat">
@@ -846,21 +982,30 @@ var car = {
                                                 </div>
                                                 <div class="row">
                                                     <label for="acceptable" class="form-label">Acceptable</label>
-                                                    <div class="col-lg-3 text-inlign mb-2">
-                                                        <div class="form-check form-check-inline">
-                                                            <input type="radio" name="consequence_acceptable_verification[${count}]" value="1" class="form-check-input">
-                                                            <label class="form-check-label" for="consequence_acceptable_verification">YES</label>
+                                                    
+                                                        <input type="hidden" value="${review}" name="consequence_acceptable_review[${count}]">
+                                                        <input type="hidden" value="${approval}" name="consequence_acceptable_approval[${count}]">
+                                                        <input type="hidden" value="${validation}" name="consequence_acceptable_validation[${count}]">
+                                                        
+                                                        <input type="hidden" value="${review_remarks}" name="consequence_acceptable_remarks_review[${count}]">
+                                                        <input type="hidden" value="${approval_remarks}" name="consequence_acceptable_remarks_approval[${count}]">
+                                                        <input type="hidden" value="${validation_remarks}" name="consequence_acceptable_remarks_validation[${count}]">
+        
+                                                        <div class="col-lg-3 text-inlign mb-2">
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="consequence_acceptable_verification[${count}]" value="1" class="form-check-input" ${verificationValue === '1' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="consequence_acceptable_verification">YES</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="consequence_acceptable_verification[${count}]" value="0" class="form-check-input" ${verificationValue === '0' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="consequence_acceptable_verification">NO</label>
+                                                            </div>
                                                         </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input type="radio" name="consequence_acceptable_verification[${count}]" value="0" class="form-check-input">
-                                                            <label class="form-check-label" for="consequence_acceptable_verification">NO</label>
+                                                        <div class="form-group col-lg-12">
+                                                            <label for="consequence_acceptable_remarks_verification" class="form-label">Remarks</label>
+                                                            <textarea class="form-control" name="consequence_acceptable_remarks_verification[${count}]" rows="4">${remarksReview}</textarea>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group col-lg-12">
-                                                        <label for="consequence_acceptable_remarks_verification" class="form-label">Remarks</label>
-                                                        <textarea class="form-control" name="consequence_acceptable_remarks_verification[${count}]" rows="4"></textarea>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -886,6 +1031,7 @@ var car = {
         
         
         });
+
 
         $('#car-global-datatable').on('click', '.for-osqm-validation-correction', function () {
 
@@ -917,7 +1063,19 @@ var car = {
                         // Loop through correction entries and create HTML for each entry
                         correctionEntries.forEach(function (correction) {
         
+        
+                            var review = correction.correction_acceptable_review[count] !== undefined ? correction.correction_acceptable_review[count] : '';
+                            var approval = correction.correction_acceptable_approval[count] !== undefined ? correction.correction_acceptable_approval[count] : '';
+                            var verification = correction.correction_acceptable_verification[count] !== undefined ? correction.correction_acceptable_validation[count] : '';
                             
+                            var review_remarks = correction.correction_acceptable_remarks_review[count] !== undefined ? correction.correction_acceptable_remarks_review[count] : '';
+                            var approval_remarks = correction.correction_acceptable_remarks_approval[count] !== undefined ? correction.correction_acceptable_remarks_approval[count] : '';
+                            var verification_remarks = correction.correction_acceptable_remarks_verification[count] !== undefined ? correction.correction_acceptable_remarks_verification[count] : '';
+        
+        
+                            var validationValue = correction.correction_acceptable_validation[count] !== undefined ? correction.correction_acceptable_validation[count] : ''; // Added
+                            var remarksReview = correction.correction_acceptable_remarks_validation[count] !== undefined ? correction.correction_acceptable_remarks_validation[count] : ''; // Added
+        
                             var correctionHtml = `
                                 <div class="col-lg-12 correction-repeatable added-repeat">
                                     <div class="card">
@@ -945,19 +1103,28 @@ var car = {
                                                 </div>
                                                 <div class="row">
                                                     <label for="acceptable" class="form-label">Acceptable</label>
+        
+                                                    <input type="hidden" value="${review}" name="correction_acceptable_review[${count}]">
+                                                    <input type="hidden" value="${approval}" name="correction_acceptable_approval[${count}]">
+                                                    <input type="hidden" value="${verification}" name="correction_acceptable_verification[${count}]">
+        
+                                                    <input type="hidden" value="${review_remarks}" name="correction_acceptable_remarks_review[${count}]">
+                                                    <input type="hidden" value="${approval_remarks}" name="correction_acceptable_remarks_approval[${count}]">
+                                                    <input type="hidden" value="${verification_remarks}" name="correction_acceptable_remarks_verification[${count}]">
+        
                                                     <div class="col-lg-3 text-inlign mb-2">
                                                         <div class="form-check form-check-inline">
-                                                            <input type="radio" name="correction_acceptable_validation[${count}]" value="1" class="form-check-input">
+                                                            <input type="radio" name="correction_acceptable_validation[${count}]" value="1" class="form-check-input" ${validationValue === '1' ? 'checked' : ''}>
                                                             <label class="form-check-label" for="correction_acceptable_validation">YES</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
-                                                            <input type="radio" name="correction_acceptable_validation[${count}]" value="0" class="form-check-input">
+                                                            <input type="radio" name="correction_acceptable_validation[${count}]" value="0" class="form-check-input" ${validationValue === '0' ? 'checked' : ''}>
                                                             <label class="form-check-label" for="correction_acceptable_validation">NO</label>
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-lg-12">
                                                         <label for="correction_acceptable_remarks_validation" class="form-label">Remarks</label>
-                                                        <textarea class="form-control" name="correction_acceptable_remarks_validation[${count}]" rows="4"></textarea>
+                                                        <textarea class="form-control" name="correction_acceptable_remarks_validation[${count}]" rows="4">${remarksReview}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -977,6 +1144,18 @@ var car = {
                         var count = 0;
                         // Loop through correction entries and create HTML for each entry
                         consequenceEntries.forEach(function (consequence) {
+        
+                            var review = consequence.consequence_acceptable_review[count] !== undefined ? consequence.consequence_acceptable_review[count] : '';
+                            var approval = consequence.consequence_acceptable_approval[count] !== undefined ? consequence.consequence_acceptable_approval[count] : '';
+                            var verification = consequence.consequence_acceptable_verification[count] !== undefined ? consequence.consequence_acceptable_verification[count] : '';
+        
+                            var review_remarks = consequence.consequence_acceptable_remarks_review[count] !== undefined ? consequence.consequence_acceptable_remarks_review[count] : '';
+                            var approval_remarks = consequence.consequence_acceptable_remarks_approval[count] !== undefined ? consequence.consequence_acceptable_remarks_approval[count] : '';
+                            var verification_remarks = consequence.consequence_acceptable_remarks_verification[count] !== undefined ? consequence.consequence_acceptable_remarks_verification[count] : '';
+        
+        
+                            var validationValue = consequence.consequence_acceptable_validation[count] !== undefined ? consequence.consequence_acceptable_validation[count] : ''; // Added
+                            var remarksReview = consequence.consequence_acceptable_remarks_validation[count] !== undefined ? consequence.consequence_acceptable_remarks_validation[count] : ''; // Added
         
                             var consequenceHtml = `
                                 <div class="col-lg-12 consequences-repeatable added-repeat">
@@ -1005,21 +1184,30 @@ var car = {
                                                 </div>
                                                 <div class="row">
                                                     <label for="acceptable" class="form-label">Acceptable</label>
-                                                    <div class="col-lg-3 text-inlign mb-2">
-                                                        <div class="form-check form-check-inline">
-                                                            <input type="radio" name="consequence_acceptable_validation[${count}]" value="1" class="form-check-input">
-                                                            <label class="form-check-label" for="consequence_acceptable_validation">YES</label>
+                                                    
+                                                        <input type="hidden" value="${review}" name="consequence_acceptable_review[${count}]">
+                                                        <input type="hidden" value="${approval}" name="consequence_acceptable_approval[${count}]">
+                                                        <input type="hidden" value="${verification}" name="consequence_acceptable_verification[${count}]">
+                                                        
+                                                        <input type="hidden" value="${review_remarks}" name="consequence_acceptable_remarks_review[${count}]">
+                                                        <input type="hidden" value="${approval_remarks}" name="consequence_acceptable_remarks_approval[${count}]">
+                                                        <input type="hidden" value="${verification_remarks}" name="consequence_acceptable_remarks_verification[${count}]">
+        
+                                                        <div class="col-lg-3 text-inlign mb-2">
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="consequence_acceptable_validation[${count}]" value="1" class="form-check-input" ${validationValue === '1' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="consequence_acceptable_validation">YES</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="consequence_acceptable_validation[${count}]" value="0" class="form-check-input" ${validationValue === '0' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="consequence_acceptable_validation">NO</label>
+                                                            </div>
                                                         </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input type="radio" name="consequence_acceptable_validation[${count}]" value="0" class="form-check-input">
-                                                            <label class="form-check-label" for="consequence_acceptable_validation">NO</label>
+                                                        <div class="form-group col-lg-12">
+                                                            <label for="consequence_acceptable_remarks_validation" class="form-label">Remarks</label>
+                                                            <textarea class="form-control" name="consequence_acceptable_remarks_validation[${count}]" rows="4">${remarksReview}</textarea>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group col-lg-12">
-                                                        <label for="consequence_acceptable_remarks_validation" class="form-label">Remarks</label>
-                                                        <textarea class="form-control" name="consequence_acceptable_remarks_validation[${count}]" rows="4"></textarea>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1045,6 +1233,8 @@ var car = {
         
         
         });
+
+       
 
         $('#car-global-datatable').on('click', '.edit-corrective-action', function () {
 
@@ -1578,6 +1768,1835 @@ var car = {
                 }
             });
         });
+
+        $('#car-global-datatable').on('click', '.for-osqm-review-corrective-action', function () {
+
+            var car_id = jQuery(this).data('car_id');
+            jQuery('.car_id').val(car_id);
+            $('#risk-number-review').empty();
+            $('#opportunity-number-review').empty();
+            $('#rootcause-review').empty();
+            $('#identified-root-review').empty();
+
+            $.ajax({
+                type: 'POST',
+                url: '../car/getCorrectiveAction', // Replace 'MyController' with your controller name
+                data: {car_id: car_id},
+                success: function (response) {
+                    if(response != 'null'){
+                        
+                        response = JSON.parse(response);
+
+                        if(response[0]){
+                            $('input[name="existing_nonconformity"][value="'+ response[0].existing_nonconformity +'"]').prop('checked', true);
+                            $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
+                            $('input[name="opportunity_identified_yn"][value="'+ response[0].opportunity_identified +'"]').prop('checked', true);
+
+                            $('#existing_nonconformity_remarks').val(response[0].existing_nonconformity_remarks);
+                            $('#update_doc_info_remarks').val(response[0].update_doc_info_remarks);
+
+                            var riskEntries = JSON.parse(response[0].risk_entry);
+
+                            
+
+                            var count = 0;
+                            riskEntries.forEach(function (risk) {
+
+                                var approval = risk.risk_number_acceptable_approval[count] !== undefined ? risk.risk_number_acceptable_approval[count] : '';
+                                var verification = risk.risk_number_acceptable_verification[count] !== undefined ? risk.risk_number_acceptable_verification[count] : '';
+                                var validation = risk.risk_number_acceptable_validation[count] !== undefined ? risk.risk_number_acceptable_validation[count] : ''
+
+                                var approval_remarks = risk.risk_number_acceptable_remarks_approval[count] !== undefined ? risk.risk_number_acceptable_remarks_approval[count] : '';
+                                var verification_remarks = risk.risk_number_acceptable_remarks_verification[count] !== undefined ? risk.risk_number_acceptable_remarks_verification[count] : '';
+                                var validation_remarks = risk.risk_number_acceptable_remarks_validation[count] !== undefined ? risk.risk_number_acceptable_remarks_validation[count] : '';
+
+                                var reviewValue = risk.risk_number_acceptable_review[count] !== undefined ? risk.risk_number_acceptable_review[count] : ''; // Added
+                                var remarksReview = risk.risk_number_acceptable_remarks_review[count] !== undefined ? risk.risk_number_acceptable_remarks_review[count] : ''; // Added
+
+                                var riskHtml = `
+                                    <div class="col-lg-12 risk-number-repeatable">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Risk Number</label>
+                                                                <input type="text" class="form-control" readonly name="risk_number[]" value="${risk.risk_number}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Details / Updates</label>
+                                                                <input type="text" class="form-control" readonly name="risk_number_details_update[]" value="${risk.risk_number_details_update}">
+                                                            </div>
+                                                        </div>
+                                     
+                                                        <div class="col-xl-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Attachment</label>
+                                                                <input type="hidden" name="risk_attachments[]" value="${risk.risk_attachments}">
+                                                                <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <label for="acceptable" class="form-label">Acceptable</label>
+
+                                                            <input type="hidden" value="${approval}" name="risk_number_acceptable_approval[${count}]">
+                                                            <input type="hidden" value="${verification}" name="risk_number_acceptable_verification[${count}]">
+                                                            <input type="hidden" value="${validation}" name="risk_number_acceptable_validation[${count}]">
+
+                                                            <input type="hidden" value="${approval_remarks}" name="risk_number_acceptable_remarks_approval[${count}]">
+                                                            <input type="hidden" value="${verification_remarks}" name="risk_number_acceptable_remarks_verification[${count}]">
+                                                            <input type="hidden" value="${validation_remarks}" name="risk_number_acceptable_remarks_validation[${count}]">
+                                                            
+                                                            <div class="col-lg-3 text-inlign mb-2">
+                                                                <div class="form-check form-check-inline">
+                                                                    <input type="radio" name="risk_number_acceptable_review[${count}]" value="1" class="form-check-input" ${reviewValue === '1' ? 'checked' : ''}>
+                                                                    <label class="form-check-label" for="risk_number_acceptable_review">YES</label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <input type="radio" name="risk_number_acceptable_review[${count}]" value="0" class="form-check-input" ${reviewValue === '0' ? 'checked' : ''}>
+                                                                    <label class="form-check-label" for="risk_number_acceptable_review">NO</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group col-lg-12">
+                                                                <label for="risk_number_acceptable_remarks_review" class="form-label">Remarks</label>
+                                                                <textarea class="form-control" name="risk_number_acceptable_remarks_review[${count}]" rows="4">${remarksReview}</textarea>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                                // Append the risk HTML to the container
+
+                                count++;
+                                $('#risk-number-review').append(riskHtml);
+                            });
+
+
+                            var opportunityEntries = JSON.parse(response[0].opportunity_entry);
+                            
+                            var count = 0;
+                            opportunityEntries.forEach(function (opportunity) {
+
+                                var approval = opportunity.opportunity_number_acceptable_approval[count] !== undefined ? opportunity.risk_number_acceptable_approval[count] : '';
+                                var verification = opportunity.opportunity_number_acceptable_verification[count] !== undefined ? opportunity.opportunity_number_acceptable_verification[count] : '';
+                                var validation = opportunity.opportunity_number_acceptable_validation[count] !== undefined ? opportunity.opportunity_number_acceptable_validation[count] : '';
+
+                                var approval_remarks = opportunity.opportunity_number_acceptable_remarks_approval[count] !== undefined ? opportunity.risk_number_acceptable_remarks_approval[count] : '';
+                                var verification_remarks = opportunity.opportunity_number_acceptable_remarks_verification[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_verification[count] : '';
+                                var validation_remarks = opportunity.opportunity_number_acceptable_remarks_validation[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_validation[count] : '';
+
+
+                                var reviewValue = opportunity.opportunity_number_acceptable_review[count] !== undefined ? opportunity.opportunity_number_acceptable_review[count] : ''; // Added
+                                var remarksReview = opportunity.opportunity_number_acceptable_remarks_review[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_review[count] : ''; // Added
+
+                                var opportunityHtml = `
+                                    <div class="col-lg-12 opportunity-number-repeatable">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Opportunity Number</label>
+                                                                <input type="text" class="form-control" readonly name="opportunity_number[]" value="${opportunity.opportunity_number}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Opportunities Identified (if applicable)</label>
+                                                                <input type="text" class="form-control" readonly name="opportunity_identified[]" value="${opportunity.opportunity_identified}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Attachment</label>
+                                                                <input type="hidden" name="opportunity_attachments[]" value="${opportunity.opportunity_attachments}">
+                                                                <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
+                                                            </div>
+                                                        </div>
+                                        
+                                                    </div>
+                                                    <div class="row">
+                                                        <label for="acceptable" class="form-label">Acceptable</label>
+
+                                                            <input type="hidden" value="${approval}" name="opportunity_number_acceptable_approval[${count}]">
+                                                            <input type="hidden" value="${verification}" name="opportunity_number_acceptable_verification[${count}]">
+                                                            <input type="hidden" value="${validation}" name="opportunity_number_acceptable_validation[${count}]">
+
+                                                            <input type="hidden" value="${approval_remarks}" name="opportunity_number_acceptable_remarks_approval[${count}]">
+                                                            <input type="hidden" value="${verification_remarks}" name="opportunity_number_acceptable_remarks_verification[${count}]">
+                                                            <input type="hidden" value="${validation_remarks}" name="opportunity_number_acceptable_remarks_validation[${count}]">
+
+                                                        <div class="col-lg-3 text-inlign mb-2">
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="opportunity_number_acceptable_review[${count}]" value="1" class="form-check-input" ${reviewValue === '1' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="opportunity_number_acceptable_review">YES</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="opportunity_number_acceptable_review[${count}]" value="0" class="form-check-input" ${reviewValue === '0' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="opportunity_number_acceptable_review">NO</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-lg-12">
+                                                            <label for="opportunity_number_acceptable_remarks_review" class="form-label">Remarks</label>
+                                                            <textarea class="form-control" name="opportunity_number_acceptable_remarks_review[${count}]" rows="4">${remarksReview}</textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                                // Append the opportunity HTML to the container
+                                count++;
+                                $('#opportunity-number-review').append(opportunityHtml);
+                            });
+
+
+                            var rootCauseEntries = JSON.parse(response[0].root_cause_entry);
+                            var count = 0;
+                            rootCauseEntries.forEach(function (rootCause) {
+
+                                var approval = rootCause.rootcause_acceptable_approval[count] !== undefined ? rootCause.rootcause_acceptable_approval[count] : '';
+                                var verification = rootCause.rootcause_acceptable_verification[count] !== undefined ? rootCause.rootcause_acceptable_verification[count] : '';
+                                var validation = rootCause.rootcause_acceptable_validation[count] !== undefined ? rootCause.rootcause_acceptable_validation[count] : '';
+
+                                var approval_remarks = rootCause.rootcause_acceptable_remarks_approval[count] !== undefined ? rootCause.rootcause_acceptable_remarks_approval[count] : '';
+                                var verification_remarks = rootCause.rootcause_acceptable_remarks_verification[count] !== undefined ? rootCause.rootcause_acceptable_remarks_verification[count] : '';
+                                var validation_remarks = rootCause.rootcause_acceptable_remarks_validation[count] !== undefined ? rootCause.rootcause_acceptable_remarks_validation[count] : '';
+
+
+                                var reviewValue = rootCause.rootcause_acceptable_review[count] !== undefined ? rootCause.rootcause_acceptable_review[count] : ''; // Added
+                                var remarksReview = rootCause.rootcause_acceptable_remarks_review[count] !== undefined ? rootCause.rootcause_acceptable_remarks_review[count] : ''; // Added
+
+                                var rootCauseHtml = `
+                                    <div class="col-lg-12 rootcause-repeatable">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Root Cause Analysis Used</label>
+                                                                <input type="text" class="form-control" readonly name="rootcause[]" value="${rootCause.rootcause}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">File Name</label>
+                                                                <input type="text" class="form-control" readonly name="rootcause_file_name[]" value="${rootCause.rootcause_file_name}">
+                                                            </div>
+                                                        </div>
+                                                        <<div class="col-xl-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Attachment</label>
+                                                                <input type="hidden" name="rootcause_attachments[]" value="${risk.rootcause_attachments}">
+                                                                <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
+                                                            </div>
+                                                        </div>
+                                            
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <label for="acceptable" class="form-label">Acceptable</label>
+
+                                                            <input type="hidden" value="${approval}" name="rootcause_acceptable_approval[${count}]">
+                                                            <input type="hidden" value="${verification}" name="rootcause_acceptable_verification[${count}]">
+                                                            <input type="hidden" value="${validation}" name="rootcause_acceptable_validation[${count}]">
+
+                                                            <input type="hidden" value="${approval_remarks}" name="rootcause_acceptable_remarks_approval[${count}]">
+                                                            <input type="hidden" value="${verification_remarks}" name="rootcause_acceptable_remarks_verification[${count}]">
+                                                            <input type="hidden" value="${validation_remarks}" name="rootcause_acceptable_remarks_validation[${count}]">
+
+                                                        <div class="col-lg-3 text-inlign mb-2">
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="rootcause_acceptable_review[${count}]" value="1" class="form-check-input" ${reviewValue === '1' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="rootcause_acceptable_review">YES</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="rootcause_acceptable_review[${count}]" value="0" class="form-check-input" ${reviewValue === '0' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="rootcause_acceptable_review">NO</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-lg-12">
+                                                            <label for="rootcause_acceptable_remarks_review" class="form-label">Remarks</label>
+                                                            <textarea class="form-control" name="rootcause_acceptable_remarks_review[${count}]" rows="4">${remarksReview}</textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                                // Append the root cause HTML to the container
+                                count++;
+                                $('#rootcause-review').append(rootCauseHtml);
+                            });
+
+
+                            var identifiedRootEntries = JSON.parse(response[0].identified_root_entry);
+                            var count = 0;
+                            identifiedRootEntries.forEach(function (identifiedRoot) {
+
+                                var issued_by = '';
+                                var issued_to = '';
+                                var section_name = '';
+
+                                var approval = identifiedRoot.identified_root_acceptable_approval[count] !== undefined ? identifiedRoot.identified_root_acceptable_approval[count] : '';
+                                var verification = identifiedRoot.identified_root_acceptable_verification[count] !== undefined ? identifiedRoot.identified_root_acceptable_verification[count] : '';
+                                var validation = identifiedRoot.identified_root_acceptable_validation[count] !== undefined ? identifiedRoot.identified_root_acceptable_validation[count] : '';
+                                
+                                var approval_remarks = identifiedRoot.identified_root_acceptable_remarks_approval[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_approval[count] : '';
+                                var verification_remarks = identifiedRoot.identified_root_acceptable_remarks_verification[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_verification[count] : '';
+                                var validation_remarks = identifiedRoot.identified_root_acceptable_remarks_validation[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_validation[count] : '';
+
+                                var reviewValue = identifiedRoot.identified_root_acceptable_review[count] !== undefined ? identifiedRoot.identified_root_acceptable_review[count] : ''; // Added
+                                var remarksReview = identifiedRoot.identified_root_acceptable_remarks_review[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_review[count] : ''; // Added
+
+                                
+                                if(identifiedRoot.tpn_issued_by){
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '../car/getDivisionByID', // Replace 'MyController' with your controller name
+                                        data: {id: identifiedRoot.tpn_issued_by},
+                                        success: function (response) {
+                                            response = JSON.parse(response);
+
+                                            if(response[0]){
+                                                 issued_by = response[0].div_name;
+                                            }
+                                        }
+                                    });
+                                }
+
+                                if(identifiedRoot.tpn_issued_to){
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '../car/getDepartmentByID', // Replace 'MyController' with your controller name
+                                        data: {id: identifiedRoot.tpn_issued_to},
+                                        success: function (response) {
+                                            response = JSON.parse(response);
+                                            if(response[0]){
+                                                 issued_to = response[0].dep_name;
+                                            }
+                                        }
+                                    });
+                                }
+                                
+                                if(identifiedRoot.section){
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '../car/getSectionByID', // Replace 'MyController' with your controller name
+                                        data: {id: identifiedRoot.section},
+                                        success: function (response) {
+                                            response = JSON.parse(response);
+                                            if(response[0]){
+                                                 section_name = response[0].section_name;
+                                            }
+                                        }
+                                    });
+                                }
+
+                                setTimeout(function() {
+
+                                var identifiedRootHtml = `
+                                    <div class="col-lg-12 identified-root-repeatable">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col-xl-4 mb-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Identified Root Cause</label>
+                                                                <input type="text" readonly class="form-control" name="identified_root[]" value="${identifiedRoot.identified_root}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3 mb-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">TPN Control</label>
+                                                                <input type="text" readonly class="form-control" name="tpn_control[]" value="${identifiedRoot.tpn_control}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3 mb-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Corrective Action</label>
+                                                                <input type="text" readonly class="form-control" name="identified_root_corrective_action[]" value="${identifiedRoot.identified_root_corrective_action}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4 mb-1">
+                                                            <div class="form-group">
+                                                                <label for="issued_by" class="form-label">Issued By</label>
+                                                                <input type="text" readonly class="form-control" name="tpn_issued_by[]" value="${issued_by}">
+                                                                <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3 mb-1">
+                                                            <div class="form-group">
+                                                                <label for="issued_to" class="form-label">Issued To</label>
+                                                                <input type="text" readonly class="form-control" name="tpn_issued_to[]" value="${issued_to}">
+                                                                <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3 mb-1">
+                                                            <div class="form-group">
+                                                                <label for="section" class="form-label">Section Unit</label>
+                                                                <input type="text" readonly class="form-control" name="section[]" value="${section_name}">
+                                                                <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Person Responsible</label>
+                                                                <input type="text" readonly class="form-control" name="identified_root_person_responsible[]" placeholder="Enter Name of personnel" value="${identifiedRoot.identified_root_person_responsible}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Completion Date</label>
+                                                                <input type="date" readonly class="form-control" name="identified_root_completion_date[]" value="${identifiedRoot.identified_root_completion_date}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Attachment</label>
+                                                                <input type="hidden" name="identified_attachments[]" value="${risk.identified_attachments}">
+                                                                <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label for="acceptable" class="form-label">Acceptable</label>
+
+                                                            <input type="hidden" value="${approval}" name="identified_root_acceptable_approval[${count}]">
+                                                            <input type="hidden" value="${verification}" name="identified_root_acceptable_verification[${count}]">
+                                                            <input type="hidden" value="${validation}" name="identified_root_acceptable_validation[${count}]">
+
+                                                            <input type="hidden" value="${approval_remarks}" name="identified_root_acceptable_remarks_approval[${count}]">
+                                                            <input type="hidden" value="${verification_remarks}" name="identified_root_acceptable_remarks_verification[${count}]">
+                                                            <input type="hidden" value="${validation_remarks}" name="identified_root_acceptable_remarks_validation[${count}]">
+
+                                                        <div class="col-lg-3 text-inlign mb-2">
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="identified_root_acceptable_review[${count}]" value="1" class="form-check-input" ${reviewValue === '1' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="identified_root_acceptable_review">YES</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="identified_root_acceptable_review[${count}]" value="0" class="form-check-input" ${reviewValue === '0' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="identified_root_acceptable_review">NO</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-lg-12">
+                                                            <label for="identified_root_acceptable_remarks_review" class="form-label">Remarks</label>
+                                                            <textarea class="form-control" name="identified_root_acceptable_remarks_review[${count}]" rows="4">${remarksReview}</textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                                // Append the identified root HTML to the container
+                                count++;
+                                $('#identified-root-review').append(identifiedRootHtml);
+                                }, 3000);
+                            });
+
+                        }
+
+                    }   
+
+                    
+              
+
+
+                },
+                error: function () {
+                    // Handle errors
+                    diList.notifyError();
+                }
+            });
+        });
+
+        $('#car-global-datatable').on('click', '.for-osqm-approval-corrective-action', function () {
+
+            var car_id = jQuery(this).data('car_id');
+            jQuery('.car_id').val(car_id);
+            $('#risk-number-approval').empty();
+            $('#opportunity-number-approval').empty();
+            $('#rootcause-approval').empty();
+            $('#identified-root-approval').empty();
+        
+            $.ajax({
+                type: 'POST',
+                url: '../car/getCorrectiveAction', // Replace 'MyController' with your controller name
+                data: {car_id: car_id},
+                success: function (response) {
+                    if(response != 'null'){
+                        
+                        response = JSON.parse(response);
+        
+                        if(response[0]){
+                            $('input[name="existing_nonconformity"][value="'+ response[0].existing_nonconformity +'"]').prop('checked', true);
+                            $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
+                            $('input[name="opportunity_identified_yn"][value="'+ response[0].opportunity_identified +'"]').prop('checked', true);
+        
+                            $('#existing_nonconformity_remarks').val(response[0].existing_nonconformity_remarks);
+                            $('#update_doc_info_remarks').val(response[0].update_doc_info_remarks);
+        
+                            var riskEntries = JSON.parse(response[0].risk_entry);
+        
+                            
+        
+                            var count = 0;
+                            riskEntries.forEach(function (risk) {
+        
+                                var review = risk.risk_number_acceptable_review[count] !== undefined ? risk.risk_number_acceptable_review[count] : '';
+                                var verification = risk.risk_number_acceptable_verification[count] !== undefined ? risk.risk_number_acceptable_verification[count] : '';
+                                var validation = risk.risk_number_acceptable_validation[count] !== undefined ? risk.risk_number_acceptable_validation[count] : ''
+        
+                                var review_remarks = risk.risk_number_acceptable_remarks_review[count] !== undefined ? risk.risk_number_acceptable_remarks_review[count] : '';
+                                var verification_remarks = risk.risk_number_acceptable_remarks_verification[count] !== undefined ? risk.risk_number_acceptable_remarks_verification[count] : '';
+                                var validation_remarks = risk.risk_number_acceptable_remarks_validation[count] !== undefined ? risk.risk_number_acceptable_remarks_validation[count] : '';
+        
+                                var approvalValue = risk.risk_number_acceptable_approval[count] !== undefined ? risk.risk_number_acceptable_approval[count] : ''; // Added
+                                var remarksReview = risk.risk_number_acceptable_remarks_approval[count] !== undefined ? risk.risk_number_acceptable_remarks_approval[count] : ''; // Added
+        
+                                var riskHtml = `
+                                    <div class="col-lg-12 risk-number-repeatable">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Risk Number</label>
+                                                                <input type="text" class="form-control" readonly name="risk_number[]" value="${risk.risk_number}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Details / Updates</label>
+                                                                <input type="text" class="form-control" readonly name="risk_number_details_update[]" value="${risk.risk_number_details_update}">
+                                                            </div>
+                                                        </div>
+                                     
+                                                        <div class="col-xl-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Attachment</label>
+                                                                <input type="hidden" name="risk_attachments[]" value="${risk.risk_attachments}">
+                                                                <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
+                                                            </div>
+                                                        </div>
+        
+                                                        <div class="row">
+                                                            <label for="acceptable" class="form-label">Acceptable</label>
+        
+                                                            <input type="hidden" value="${review}" name="risk_number_acceptable_review[${count}]">
+                                                            <input type="hidden" value="${verification}" name="risk_number_acceptable_verification[${count}]">
+                                                            <input type="hidden" value="${validation}" name="risk_number_acceptable_validation[${count}]">
+        
+                                                            <input type="hidden" value="${review_remarks}" name="risk_number_acceptable_remarks_review[${count}]">
+                                                            <input type="hidden" value="${verification_remarks}" name="risk_number_acceptable_remarks_verification[${count}]">
+                                                            <input type="hidden" value="${validation_remarks}" name="risk_number_acceptable_remarks_validation[${count}]">
+                                                            
+                                                            <div class="col-lg-3 text-inlign mb-2">
+                                                                <div class="form-check form-check-inline">
+                                                                    <input type="radio" name="risk_number_acceptable_approval[${count}]" value="1" class="form-check-input" ${approvalValue === '1' ? 'checked' : ''}>
+                                                                    <label class="form-check-label" for="risk_number_acceptable_approval">YES</label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <input type="radio" name="risk_number_acceptable_approval[${count}]" value="0" class="form-check-input" ${approvalValue === '0' ? 'checked' : ''}>
+                                                                    <label class="form-check-label" for="risk_number_acceptable_approval">NO</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group col-lg-12">
+                                                                <label for="risk_number_acceptable_remarks_approval" class="form-label">Remarks</label>
+                                                                <textarea class="form-control" name="risk_number_acceptable_remarks_approval[${count}]" rows="4">${remarksReview}</textarea>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                                // Append the risk HTML to the container
+        
+                                count++;
+                                $('#risk-number-approval').append(riskHtml);
+                            });
+        
+        
+                            var opportunityEntries = JSON.parse(response[0].opportunity_entry);
+                            
+                            var count = 0;
+                            opportunityEntries.forEach(function (opportunity) {
+        
+                                var review = opportunity.opportunity_number_acceptable_review[count] !== undefined ? opportunity.risk_number_acceptable_review[count] : '';
+                                var verification = opportunity.opportunity_number_acceptable_verification[count] !== undefined ? opportunity.opportunity_number_acceptable_verification[count] : '';
+                                var validation = opportunity.opportunity_number_acceptable_validation[count] !== undefined ? opportunity.opportunity_number_acceptable_validation[count] : '';
+        
+                                var review_remarks = opportunity.opportunity_number_acceptable_remarks_review[count] !== undefined ? opportunity.risk_number_acceptable_remarks_review[count] : '';
+                                var verification_remarks = opportunity.opportunity_number_acceptable_remarks_verification[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_verification[count] : '';
+                                var validation_remarks = opportunity.opportunity_number_acceptable_remarks_validation[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_validation[count] : '';
+        
+        
+                                var approvalValue = opportunity.opportunity_number_acceptable_approval[count] !== undefined ? opportunity.opportunity_number_acceptable_approval[count] : ''; // Added
+                                var remarksReview = opportunity.opportunity_number_acceptable_remarks_approval[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_approval[count] : ''; // Added
+        
+                                var opportunityHtml = `
+                                    <div class="col-lg-12 opportunity-number-repeatable">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Opportunity Number</label>
+                                                                <input type="text" class="form-control" readonly name="opportunity_number[]" value="${opportunity.opportunity_number}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Opportunities Identified (if applicable)</label>
+                                                                <input type="text" class="form-control" readonly name="opportunity_identified[]" value="${opportunity.opportunity_identified}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Attachment</label>
+                                                                <input type="hidden" name="opportunity_attachments[]" value="${opportunity.opportunity_attachments}">
+                                                                <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
+                                                            </div>
+                                                        </div>
+                                        
+                                                    </div>
+                                                    <div class="row">
+                                                        <label for="acceptable" class="form-label">Acceptable</label>
+        
+                                                            <input type="hidden" value="${review}" name="opportunity_number_acceptable_review[${count}]">
+                                                            <input type="hidden" value="${verification}" name="opportunity_number_acceptable_verification[${count}]">
+                                                            <input type="hidden" value="${validation}" name="opportunity_number_acceptable_validation[${count}]">
+        
+                                                            <input type="hidden" value="${review_remarks}" name="opportunity_number_acceptable_remarks_review[${count}]">
+                                                            <input type="hidden" value="${verification_remarks}" name="opportunity_number_acceptable_remarks_verification[${count}]">
+                                                            <input type="hidden" value="${validation_remarks}" name="opportunity_number_acceptable_remarks_validation[${count}]">
+        
+                                                        <div class="col-lg-3 text-inlign mb-2">
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="opportunity_number_acceptable_approval[${count}]" value="1" class="form-check-input" ${approvalValue === '1' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="opportunity_number_acceptable_approval">YES</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="opportunity_number_acceptable_approval[${count}]" value="0" class="form-check-input" ${approvalValue === '0' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="opportunity_number_acceptable_approval">NO</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-lg-12">
+                                                            <label for="opportunity_number_acceptable_remarks_approval" class="form-label">Remarks</label>
+                                                            <textarea class="form-control" name="opportunity_number_acceptable_remarks_approval[${count}]" rows="4">${remarksReview}</textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                                // Append the opportunity HTML to the container
+                                count++;
+                                $('#opportunity-number-approval').append(opportunityHtml);
+                            });
+        
+        
+                            var rootCauseEntries = JSON.parse(response[0].root_cause_entry);
+                            var count = 0;
+                            rootCauseEntries.forEach(function (rootCause) {
+        
+                                var review = rootCause.rootcause_acceptable_review[count] !== undefined ? rootCause.rootcause_acceptable_review[count] : '';
+                                var verification = rootCause.rootcause_acceptable_verification[count] !== undefined ? rootCause.rootcause_acceptable_verification[count] : '';
+                                var validation = rootCause.rootcause_acceptable_validation[count] !== undefined ? rootCause.rootcause_acceptable_validation[count] : '';
+        
+                                var review_remarks = rootCause.rootcause_acceptable_remarks_review[count] !== undefined ? rootCause.rootcause_acceptable_remarks_review[count] : '';
+                                var verification_remarks = rootCause.rootcause_acceptable_remarks_verification[count] !== undefined ? rootCause.rootcause_acceptable_remarks_verification[count] : '';
+                                var validation_remarks = rootCause.rootcause_acceptable_remarks_validation[count] !== undefined ? rootCause.rootcause_acceptable_remarks_validation[count] : '';
+        
+        
+                                var approvalValue = rootCause.rootcause_acceptable_approval[count] !== undefined ? rootCause.rootcause_acceptable_approval[count] : ''; // Added
+                                var remarksReview = rootCause.rootcause_acceptable_remarks_approval[count] !== undefined ? rootCause.rootcause_acceptable_remarks_approval[count] : ''; // Added
+        
+                                var rootCauseHtml = `
+                                    <div class="col-lg-12 rootcause-repeatable">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Root Cause Analysis Used</label>
+                                                                <input type="text" class="form-control" readonly name="rootcause[]" value="${rootCause.rootcause}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">File Name</label>
+                                                                <input type="text" class="form-control" readonly name="rootcause_file_name[]" value="${rootCause.rootcause_file_name}">
+                                                            </div>
+                                                        </div>
+                                                        <<div class="col-xl-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Attachment</label>
+                                                                <input type="hidden" name="rootcause_attachments[]" value="${risk.rootcause_attachments}">
+                                                                <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
+                                                            </div>
+                                                        </div>
+                                            
+                                                    </div>
+        
+                                                    <div class="row">
+                                                        <label for="acceptable" class="form-label">Acceptable</label>
+        
+                                                            <input type="hidden" value="${review}" name="rootcause_acceptable_review[${count}]">
+                                                            <input type="hidden" value="${verification}" name="rootcause_acceptable_verification[${count}]">
+                                                            <input type="hidden" value="${validation}" name="rootcause_acceptable_validation[${count}]">
+        
+                                                            <input type="hidden" value="${review_remarks}" name="rootcause_acceptable_remarks_review[${count}]">
+                                                            <input type="hidden" value="${verification_remarks}" name="rootcause_acceptable_remarks_verification[${count}]">
+                                                            <input type="hidden" value="${validation_remarks}" name="rootcause_acceptable_remarks_validation[${count}]">
+        
+                                                        <div class="col-lg-3 text-inlign mb-2">
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="rootcause_acceptable_approval[${count}]" value="1" class="form-check-input" ${approvalValue === '1' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="rootcause_acceptable_approval">YES</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="rootcause_acceptable_approval[${count}]" value="0" class="form-check-input" ${approvalValue === '0' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="rootcause_acceptable_approval">NO</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-lg-12">
+                                                            <label for="rootcause_acceptable_remarks_approval" class="form-label">Remarks</label>
+                                                            <textarea class="form-control" name="rootcause_acceptable_remarks_approval[${count}]" rows="4">${remarksReview}</textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                                // Append the root cause HTML to the container
+                                count++;
+                                $('#rootcause-approval').append(rootCauseHtml);
+                            });
+        
+        
+                            var identifiedRootEntries = JSON.parse(response[0].identified_root_entry);
+                            var count = 0;
+                            identifiedRootEntries.forEach(function (identifiedRoot) {
+        
+                                var issued_by = '';
+                                var issued_to = '';
+                                var section_name = '';
+        
+                                var review = identifiedRoot.identified_root_acceptable_review[count] !== undefined ? identifiedRoot.identified_root_acceptable_review[count] : '';
+                                var verification = identifiedRoot.identified_root_acceptable_verification[count] !== undefined ? identifiedRoot.identified_root_acceptable_verification[count] : '';
+                                var validation = identifiedRoot.identified_root_acceptable_validation[count] !== undefined ? identifiedRoot.identified_root_acceptable_validation[count] : '';
+                                
+                                var review_remarks = identifiedRoot.identified_root_acceptable_remarks_review[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_review[count] : '';
+                                var verification_remarks = identifiedRoot.identified_root_acceptable_remarks_verification[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_verification[count] : '';
+                                var validation_remarks = identifiedRoot.identified_root_acceptable_remarks_validation[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_validation[count] : '';
+        
+                                var approvalValue = identifiedRoot.identified_root_acceptable_approval[count] !== undefined ? identifiedRoot.identified_root_acceptable_approval[count] : ''; // Added
+                                var remarksReview = identifiedRoot.identified_root_acceptable_remarks_approval[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_approval[count] : ''; // Added
+        
+                                
+                                if(identifiedRoot.tpn_issued_by){
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '../car/getDivisionByID', // Replace 'MyController' with your controller name
+                                        data: {id: identifiedRoot.tpn_issued_by},
+                                        success: function (response) {
+                                            response = JSON.parse(response);
+        
+                                            if(response[0]){
+                                                 issued_by = response[0].div_name;
+                                            }
+                                        }
+                                    });
+                                }
+        
+                                if(identifiedRoot.tpn_issued_to){
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '../car/getDepartmentByID', // Replace 'MyController' with your controller name
+                                        data: {id: identifiedRoot.tpn_issued_to},
+                                        success: function (response) {
+                                            response = JSON.parse(response);
+                                            if(response[0]){
+                                                 issued_to = response[0].dep_name;
+                                            }
+                                        }
+                                    });
+                                }
+                                
+                                if(identifiedRoot.section){
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '../car/getSectionByID', // Replace 'MyController' with your controller name
+                                        data: {id: identifiedRoot.section},
+                                        success: function (response) {
+                                            response = JSON.parse(response);
+                                            if(response[0]){
+                                                 section_name = response[0].section_name;
+                                            }
+                                        }
+                                    });
+                                }
+        
+                                setTimeout(function() {
+        
+                                var identifiedRootHtml = `
+                                    <div class="col-lg-12 identified-root-repeatable">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col-xl-4 mb-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Identified Root Cause</label>
+                                                                <input type="text" readonly class="form-control" name="identified_root[]" value="${identifiedRoot.identified_root}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3 mb-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">TPN Control</label>
+                                                                <input type="text" readonly class="form-control" name="tpn_control[]" value="${identifiedRoot.tpn_control}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3 mb-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Corrective Action</label>
+                                                                <input type="text" readonly class="form-control" name="identified_root_corrective_action[]" value="${identifiedRoot.identified_root_corrective_action}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4 mb-1">
+                                                            <div class="form-group">
+                                                                <label for="issued_by" class="form-label">Issued By</label>
+                                                                <input type="text" readonly class="form-control" name="tpn_issued_by[]" value="${issued_by}">
+                                                                <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3 mb-1">
+                                                            <div class="form-group">
+                                                                <label for="issued_to" class="form-label">Issued To</label>
+                                                                <input type="text" readonly class="form-control" name="tpn_issued_to[]" value="${issued_to}">
+                                                                <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3 mb-1">
+                                                            <div class="form-group">
+                                                                <label for="section" class="form-label">Section Unit</label>
+                                                                <input type="text" readonly class="form-control" name="section[]" value="${section_name}">
+                                                                <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Person Responsible</label>
+                                                                <input type="text" readonly class="form-control" name="identified_root_person_responsible[]" placeholder="Enter Name of personnel" value="${identifiedRoot.identified_root_person_responsible}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Completion Date</label>
+                                                                <input type="date" readonly class="form-control" name="identified_root_completion_date[]" value="${identifiedRoot.identified_root_completion_date}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Attachment</label>
+                                                                <input type="hidden" name="identified_attachments[]" value="${risk.identified_attachments}">
+                                                                <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label for="acceptable" class="form-label">Acceptable</label>
+        
+                                                            <input type="hidden" value="${review}" name="identified_root_acceptable_review[${count}]">
+                                                            <input type="hidden" value="${verification}" name="identified_root_acceptable_verification[${count}]">
+                                                            <input type="hidden" value="${validation}" name="identified_root_acceptable_validation[${count}]">
+        
+                                                            <input type="hidden" value="${review_remarks}" name="identified_root_acceptable_remarks_review[${count}]">
+                                                            <input type="hidden" value="${verification_remarks}" name="identified_root_acceptable_remarks_verification[${count}]">
+                                                            <input type="hidden" value="${validation_remarks}" name="identified_root_acceptable_remarks_validation[${count}]">
+        
+                                                        <div class="col-lg-3 text-inlign mb-2">
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="identified_root_acceptable_approval[${count}]" value="1" class="form-check-input" ${approvalValue === '1' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="identified_root_acceptable_approval">YES</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="identified_root_acceptable_approval[${count}]" value="0" class="form-check-input" ${approvalValue === '0' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="identified_root_acceptable_approval">NO</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-lg-12">
+                                                            <label for="identified_root_acceptable_remarks_approval" class="form-label">Remarks</label>
+                                                            <textarea class="form-control" name="identified_root_acceptable_remarks_approval[${count}]" rows="4">${remarksReview}</textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                                // Append the identified root HTML to the container
+                                count++;
+                                $('#identified-root-approval').append(identifiedRootHtml);
+                                }, 3000);
+                            });
+        
+                        }
+        
+                    }   
+        
+                    
+              
+        
+        
+                },
+                error: function () {
+                    // Handle errors
+                    diList.notifyError();
+                }
+            });
+        });
+
+        $('#car-global-datatable').on('click', '.for-osqm-verification-corrective-action', function () {
+
+            var car_id = jQuery(this).data('car_id');
+            jQuery('.car_id').val(car_id);
+            $('#risk-number-verification').empty();
+            $('#opportunity-number-verification').empty();
+            $('#rootcause-verification').empty();
+            $('#identified-root-verification').empty();
+        
+            $.ajax({
+                type: 'POST',
+                url: '../car/getCorrectiveAction', // Replace 'MyController' with your controller name
+                data: {car_id: car_id},
+                success: function (response) {
+                    if(response != 'null'){
+                        
+                        response = JSON.parse(response);
+        
+                        if(response[0]){
+                            $('input[name="existing_nonconformity"][value="'+ response[0].existing_nonconformity +'"]').prop('checked', true);
+                            $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
+                            $('input[name="opportunity_identified_yn"][value="'+ response[0].opportunity_identified +'"]').prop('checked', true);
+        
+                            $('#existing_nonconformity_remarks').val(response[0].existing_nonconformity_remarks);
+                            $('#update_doc_info_remarks').val(response[0].update_doc_info_remarks);
+        
+                            var riskEntries = JSON.parse(response[0].risk_entry);
+        
+                            
+        
+                            var count = 0;
+                            riskEntries.forEach(function (risk) {
+        
+                                var review = risk.risk_number_acceptable_review[count] !== undefined ? risk.risk_number_acceptable_review[count] : '';
+                                var approval = risk.risk_number_acceptable_approval[count] !== undefined ? risk.risk_number_acceptable_approval[count] : '';
+                                var validation = risk.risk_number_acceptable_validation[count] !== undefined ? risk.risk_number_acceptable_validation[count] : ''
+        
+                                var review_remarks = risk.risk_number_acceptable_remarks_review[count] !== undefined ? risk.risk_number_acceptable_remarks_review[count] : '';
+                                var approval_remarks = risk.risk_number_acceptable_remarks_approval[count] !== undefined ? risk.risk_number_acceptable_remarks_approval[count] : '';
+                                var validation_remarks = risk.risk_number_acceptable_remarks_validation[count] !== undefined ? risk.risk_number_acceptable_remarks_validation[count] : '';
+        
+                                var verificationValue = risk.risk_number_acceptable_verification[count] !== undefined ? risk.risk_number_acceptable_verification[count] : ''; // Added
+                                var remarksReview = risk.risk_number_acceptable_remarks_verification[count] !== undefined ? risk.risk_number_acceptable_remarks_verification[count] : ''; // Added
+        
+                                var riskHtml = `
+                                    <div class="col-lg-12 risk-number-repeatable">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Risk Number</label>
+                                                                <input type="text" class="form-control" readonly name="risk_number[]" value="${risk.risk_number}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Details / Updates</label>
+                                                                <input type="text" class="form-control" readonly name="risk_number_details_update[]" value="${risk.risk_number_details_update}">
+                                                            </div>
+                                                        </div>
+                                     
+                                                        <div class="col-xl-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Attachment</label>
+                                                                <input type="hidden" name="risk_attachments[]" value="${risk.risk_attachments}">
+                                                                <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
+                                                            </div>
+                                                        </div>
+        
+                                                        <div class="row">
+                                                            <label for="acceptable" class="form-label">Acceptable</label>
+        
+                                                            <input type="hidden" value="${review}" name="risk_number_acceptable_review[${count}]">
+                                                            <input type="hidden" value="${approval}" name="risk_number_acceptable_approval[${count}]">
+                                                            <input type="hidden" value="${validation}" name="risk_number_acceptable_validation[${count}]">
+        
+                                                            <input type="hidden" value="${review_remarks}" name="risk_number_acceptable_remarks_review[${count}]">
+                                                            <input type="hidden" value="${approval_remarks}" name="risk_number_acceptable_remarks_approval[${count}]">
+                                                            <input type="hidden" value="${validation_remarks}" name="risk_number_acceptable_remarks_validation[${count}]">
+                                                            
+                                                            <div class="col-lg-3 text-inlign mb-2">
+                                                                <div class="form-check form-check-inline">
+                                                                    <input type="radio" name="risk_number_acceptable_verification[${count}]" value="1" class="form-check-input" ${verificationValue === '1' ? 'checked' : ''}>
+                                                                    <label class="form-check-label" for="risk_number_acceptable_verification">YES</label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <input type="radio" name="risk_number_acceptable_verification[${count}]" value="0" class="form-check-input" ${verificationValue === '0' ? 'checked' : ''}>
+                                                                    <label class="form-check-label" for="risk_number_acceptable_verification">NO</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group col-lg-12">
+                                                                <label for="risk_number_acceptable_remarks_verification" class="form-label">Remarks</label>
+                                                                <textarea class="form-control" name="risk_number_acceptable_remarks_verification[${count}]" rows="4">${remarksReview}</textarea>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                                // Append the risk HTML to the container
+        
+                                count++;
+                                $('#risk-number-verification').append(riskHtml);
+                            });
+        
+        
+                            var opportunityEntries = JSON.parse(response[0].opportunity_entry);
+                            
+                            var count = 0;
+                            opportunityEntries.forEach(function (opportunity) {
+        
+                                var review = opportunity.opportunity_number_acceptable_review[count] !== undefined ? opportunity.risk_number_acceptable_review[count] : '';
+                                var approval = opportunity.opportunity_number_acceptable_approval[count] !== undefined ? opportunity.opportunity_number_acceptable_approval[count] : '';
+                                var validation = opportunity.opportunity_number_acceptable_validation[count] !== undefined ? opportunity.opportunity_number_acceptable_validation[count] : '';
+        
+                                var review_remarks = opportunity.opportunity_number_acceptable_remarks_review[count] !== undefined ? opportunity.risk_number_acceptable_remarks_review[count] : '';
+                                var approval_remarks = opportunity.opportunity_number_acceptable_remarks_approval[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_approval[count] : '';
+                                var validation_remarks = opportunity.opportunity_number_acceptable_remarks_validation[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_validation[count] : '';
+        
+        
+                                var verificationValue = opportunity.opportunity_number_acceptable_verification[count] !== undefined ? opportunity.opportunity_number_acceptable_verification[count] : ''; // Added
+                                var remarksReview = opportunity.opportunity_number_acceptable_remarks_verification[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_verification[count] : ''; // Added
+        
+                                var opportunityHtml = `
+                                    <div class="col-lg-12 opportunity-number-repeatable">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Opportunity Number</label>
+                                                                <input type="text" class="form-control" readonly name="opportunity_number[]" value="${opportunity.opportunity_number}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Opportunities Identified (if applicable)</label>
+                                                                <input type="text" class="form-control" readonly name="opportunity_identified[]" value="${opportunity.opportunity_identified}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Attachment</label>
+                                                                <input type="hidden" name="opportunity_attachments[]" value="${opportunity.opportunity_attachments}">
+                                                                <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
+                                                            </div>
+                                                        </div>
+                                        
+                                                    </div>
+                                                    <div class="row">
+                                                        <label for="acceptable" class="form-label">Acceptable</label>
+        
+                                                            <input type="hidden" value="${review}" name="opportunity_number_acceptable_review[${count}]">
+                                                            <input type="hidden" value="${approval}" name="opportunity_number_acceptable_approval[${count}]">
+                                                            <input type="hidden" value="${validation}" name="opportunity_number_acceptable_validation[${count}]">
+        
+                                                            <input type="hidden" value="${review_remarks}" name="opportunity_number_acceptable_remarks_review[${count}]">
+                                                            <input type="hidden" value="${approval_remarks}" name="opportunity_number_acceptable_remarks_approval[${count}]">
+                                                            <input type="hidden" value="${validation_remarks}" name="opportunity_number_acceptable_remarks_validation[${count}]">
+        
+                                                        <div class="col-lg-3 text-inlign mb-2">
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="opportunity_number_acceptable_verification[${count}]" value="1" class="form-check-input" ${verificationValue === '1' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="opportunity_number_acceptable_verification">YES</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="opportunity_number_acceptable_verification[${count}]" value="0" class="form-check-input" ${verificationValue === '0' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="opportunity_number_acceptable_verification">NO</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-lg-12">
+                                                            <label for="opportunity_number_acceptable_remarks_verification" class="form-label">Remarks</label>
+                                                            <textarea class="form-control" name="opportunity_number_acceptable_remarks_verification[${count}]" rows="4">${remarksReview}</textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                                // Append the opportunity HTML to the container
+                                count++;
+                                $('#opportunity-number-verification').append(opportunityHtml);
+                            });
+        
+        
+                            var rootCauseEntries = JSON.parse(response[0].root_cause_entry);
+                            var count = 0;
+                            rootCauseEntries.forEach(function (rootCause) {
+        
+                                var review = rootCause.rootcause_acceptable_review[count] !== undefined ? rootCause.rootcause_acceptable_review[count] : '';
+                                var approval = rootCause.rootcause_acceptable_approval[count] !== undefined ? rootCause.rootcause_acceptable_approval[count] : '';
+                                var validation = rootCause.rootcause_acceptable_validation[count] !== undefined ? rootCause.rootcause_acceptable_validation[count] : '';
+        
+                                var review_remarks = rootCause.rootcause_acceptable_remarks_review[count] !== undefined ? rootCause.rootcause_acceptable_remarks_review[count] : '';
+                                var approval_remarks = rootCause.rootcause_acceptable_remarks_approval[count] !== undefined ? rootCause.rootcause_acceptable_remarks_approval[count] : '';
+                                var validation_remarks = rootCause.rootcause_acceptable_remarks_validation[count] !== undefined ? rootCause.rootcause_acceptable_remarks_validation[count] : '';
+        
+        
+                                var verificationValue = rootCause.rootcause_acceptable_verification[count] !== undefined ? rootCause.rootcause_acceptable_verification[count] : ''; // Added
+                                var remarksReview = rootCause.rootcause_acceptable_remarks_verification[count] !== undefined ? rootCause.rootcause_acceptable_remarks_verification[count] : ''; // Added
+        
+                                var rootCauseHtml = `
+                                    <div class="col-lg-12 rootcause-repeatable">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Root Cause Analysis Used</label>
+                                                                <input type="text" class="form-control" readonly name="rootcause[]" value="${rootCause.rootcause}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">File Name</label>
+                                                                <input type="text" class="form-control" readonly name="rootcause_file_name[]" value="${rootCause.rootcause_file_name}">
+                                                            </div>
+                                                        </div>
+                                                        <<div class="col-xl-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Attachment</label>
+                                                                <input type="hidden" name="rootcause_attachments[]" value="${risk.rootcause_attachments}">
+                                                                <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
+                                                            </div>
+                                                        </div>
+                                            
+                                                    </div>
+        
+                                                    <div class="row">
+                                                        <label for="acceptable" class="form-label">Acceptable</label>
+        
+                                                            <input type="hidden" value="${review}" name="rootcause_acceptable_review[${count}]">
+                                                            <input type="hidden" value="${approval}" name="rootcause_acceptable_approval[${count}]">
+                                                            <input type="hidden" value="${validation}" name="rootcause_acceptable_validation[${count}]">
+        
+                                                            <input type="hidden" value="${review_remarks}" name="rootcause_acceptable_remarks_review[${count}]">
+                                                            <input type="hidden" value="${approval_remarks}" name="rootcause_acceptable_remarks_approval[${count}]">
+                                                            <input type="hidden" value="${validation_remarks}" name="rootcause_acceptable_remarks_validation[${count}]">
+        
+                                                        <div class="col-lg-3 text-inlign mb-2">
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="rootcause_acceptable_verification[${count}]" value="1" class="form-check-input" ${verificationValue === '1' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="rootcause_acceptable_verification">YES</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="rootcause_acceptable_verification[${count}]" value="0" class="form-check-input" ${verificationValue === '0' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="rootcause_acceptable_verification">NO</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-lg-12">
+                                                            <label for="rootcause_acceptable_remarks_verification" class="form-label">Remarks</label>
+                                                            <textarea class="form-control" name="rootcause_acceptable_remarks_verification[${count}]" rows="4">${remarksReview}</textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                                // Append the root cause HTML to the container
+                                count++;
+                                $('#rootcause-verification').append(rootCauseHtml);
+                            });
+        
+        
+                            var identifiedRootEntries = JSON.parse(response[0].identified_root_entry);
+                            var count = 0;
+                            identifiedRootEntries.forEach(function (identifiedRoot) {
+        
+                                var issued_by = '';
+                                var issued_to = '';
+                                var section_name = '';
+        
+                                var review = identifiedRoot.identified_root_acceptable_review[count] !== undefined ? identifiedRoot.identified_root_acceptable_review[count] : '';
+                                var approval = identifiedRoot.identified_root_acceptable_approval[count] !== undefined ? identifiedRoot.identified_root_acceptable_approval[count] : '';
+                                var validation = identifiedRoot.identified_root_acceptable_validation[count] !== undefined ? identifiedRoot.identified_root_acceptable_validation[count] : '';
+                                
+                                var review_remarks = identifiedRoot.identified_root_acceptable_remarks_review[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_review[count] : '';
+                                var approval_remarks = identifiedRoot.identified_root_acceptable_remarks_approval[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_approval[count] : '';
+                                var validation_remarks = identifiedRoot.identified_root_acceptable_remarks_validation[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_validation[count] : '';
+        
+                                var verificationValue = identifiedRoot.identified_root_acceptable_verification[count] !== undefined ? identifiedRoot.identified_root_acceptable_verification[count] : ''; // Added
+                                var remarksReview = identifiedRoot.identified_root_acceptable_remarks_verification[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_verification[count] : ''; // Added
+        
+                                
+                                if(identifiedRoot.tpn_issued_by){
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '../car/getDivisionByID', // Replace 'MyController' with your controller name
+                                        data: {id: identifiedRoot.tpn_issued_by},
+                                        success: function (response) {
+                                            response = JSON.parse(response);
+        
+                                            if(response[0]){
+                                                 issued_by = response[0].div_name;
+                                            }
+                                        }
+                                    });
+                                }
+        
+                                if(identifiedRoot.tpn_issued_to){
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '../car/getDepartmentByID', // Replace 'MyController' with your controller name
+                                        data: {id: identifiedRoot.tpn_issued_to},
+                                        success: function (response) {
+                                            response = JSON.parse(response);
+                                            if(response[0]){
+                                                 issued_to = response[0].dep_name;
+                                            }
+                                        }
+                                    });
+                                }
+                                
+                                if(identifiedRoot.section){
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '../car/getSectionByID', // Replace 'MyController' with your controller name
+                                        data: {id: identifiedRoot.section},
+                                        success: function (response) {
+                                            response = JSON.parse(response);
+                                            if(response[0]){
+                                                 section_name = response[0].section_name;
+                                            }
+                                        }
+                                    });
+                                }
+        
+                                setTimeout(function() {
+        
+                                var identifiedRootHtml = `
+                                    <div class="col-lg-12 identified-root-repeatable">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col-xl-4 mb-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Identified Root Cause</label>
+                                                                <input type="text" readonly class="form-control" name="identified_root[]" value="${identifiedRoot.identified_root}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3 mb-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">TPN Control</label>
+                                                                <input type="text" readonly class="form-control" name="tpn_control[]" value="${identifiedRoot.tpn_control}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3 mb-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Corrective Action</label>
+                                                                <input type="text" readonly class="form-control" name="identified_root_corrective_action[]" value="${identifiedRoot.identified_root_corrective_action}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4 mb-1">
+                                                            <div class="form-group">
+                                                                <label for="issued_by" class="form-label">Issued By</label>
+                                                                <input type="text" readonly class="form-control" name="tpn_issued_by[]" value="${issued_by}">
+                                                                <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3 mb-1">
+                                                            <div class="form-group">
+                                                                <label for="issued_to" class="form-label">Issued To</label>
+                                                                <input type="text" readonly class="form-control" name="tpn_issued_to[]" value="${issued_to}">
+                                                                <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3 mb-1">
+                                                            <div class="form-group">
+                                                                <label for="section" class="form-label">Section Unit</label>
+                                                                <input type="text" readonly class="form-control" name="section[]" value="${section_name}">
+                                                                <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Person Responsible</label>
+                                                                <input type="text" readonly class="form-control" name="identified_root_person_responsible[]" placeholder="Enter Name of personnel" value="${identifiedRoot.identified_root_person_responsible}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Completion Date</label>
+                                                                <input type="date" readonly class="form-control" name="identified_root_completion_date[]" value="${identifiedRoot.identified_root_completion_date}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Attachment</label>
+                                                                <input type="hidden" name="identified_attachments[]" value="${risk.identified_attachments}">
+                                                                <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label for="acceptable" class="form-label">Acceptable</label>
+        
+                                                            <input type="hidden" value="${review}" name="identified_root_acceptable_review[${count}]">
+                                                            <input type="hidden" value="${approval}" name="identified_root_acceptable_approval[${count}]">
+                                                            <input type="hidden" value="${validation}" name="identified_root_acceptable_validation[${count}]">
+        
+                                                            <input type="hidden" value="${review_remarks}" name="identified_root_acceptable_remarks_review[${count}]">
+                                                            <input type="hidden" value="${approval_remarks}" name="identified_root_acceptable_remarks_approval[${count}]">
+                                                            <input type="hidden" value="${validation_remarks}" name="identified_root_acceptable_remarks_validation[${count}]">
+        
+                                                        <div class="col-lg-3 text-inlign mb-2">
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="identified_root_acceptable_verification[${count}]" value="1" class="form-check-input" ${verificationValue === '1' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="identified_root_acceptable_verification">YES</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="identified_root_acceptable_verification[${count}]" value="0" class="form-check-input" ${verificationValue === '0' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="identified_root_acceptable_verification">NO</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-lg-12">
+                                                            <label for="identified_root_acceptable_remarks_verification" class="form-label">Remarks</label>
+                                                            <textarea class="form-control" name="identified_root_acceptable_remarks_verification[${count}]" rows="4">${remarksReview}</textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                                // Append the identified root HTML to the container
+                                count++;
+                                $('#identified-root-verification').append(identifiedRootHtml);
+                                }, 3000);
+                            });
+        
+                        }
+        
+                    }   
+        
+                    
+              
+        
+        
+                },
+                error: function () {
+                    // Handle errors
+                    diList.notifyError();
+                }
+            });
+        });
+
+        $('#car-global-datatable').on('click', '.for-osqm-validation-corrective-action', function () {
+
+            var car_id = jQuery(this).data('car_id');
+            jQuery('.car_id').val(car_id);
+            $('#risk-number-validation').empty();
+            $('#opportunity-number-validation').empty();
+            $('#rootcause-validation').empty();
+            $('#identified-root-validation').empty();
+        
+            $.ajax({
+                type: 'POST',
+                url: '../car/getCorrectiveAction', // Replace 'MyController' with your controller name
+                data: {car_id: car_id},
+                success: function (response) {
+                    if(response != 'null'){
+                        
+                        response = JSON.parse(response);
+        
+                        if(response[0]){
+                            $('input[name="existing_nonconformity"][value="'+ response[0].existing_nonconformity +'"]').prop('checked', true);
+                            $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
+                            $('input[name="opportunity_identified_yn"][value="'+ response[0].opportunity_identified +'"]').prop('checked', true);
+        
+                            $('#existing_nonconformity_remarks').val(response[0].existing_nonconformity_remarks);
+                            $('#update_doc_info_remarks').val(response[0].update_doc_info_remarks);
+        
+                            var riskEntries = JSON.parse(response[0].risk_entry);
+        
+                            
+        
+                            var count = 0;
+                            riskEntries.forEach(function (risk) {
+        
+                                var review = risk.risk_number_acceptable_review[count] !== undefined ? risk.risk_number_acceptable_review[count] : '';
+                                var approval = risk.risk_number_acceptable_approval[count] !== undefined ? risk.risk_number_acceptable_approval[count] : '';
+                                var verification = risk.risk_number_acceptable_verification[count] !== undefined ? risk.risk_number_acceptable_verification[count] : ''
+        
+                                var review_remarks = risk.risk_number_acceptable_remarks_review[count] !== undefined ? risk.risk_number_acceptable_remarks_review[count] : '';
+                                var approval_remarks = risk.risk_number_acceptable_remarks_approval[count] !== undefined ? risk.risk_number_acceptable_remarks_approval[count] : '';
+                                var verification_remarks = risk.risk_number_acceptable_remarks_verification[count] !== undefined ? risk.risk_number_acceptable_remarks_verification[count] : '';
+        
+                                var validationValue = risk.risk_number_acceptable_validation[count] !== undefined ? risk.risk_number_acceptable_validation[count] : ''; // Added
+                                var remarksReview = risk.risk_number_acceptable_remarks_validation[count] !== undefined ? risk.risk_number_acceptable_remarks_validation[count] : ''; // Added
+        
+                                var riskHtml = `
+                                    <div class="col-lg-12 risk-number-repeatable">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Risk Number</label>
+                                                                <input type="text" class="form-control" readonly name="risk_number[]" value="${risk.risk_number}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Details / Updates</label>
+                                                                <input type="text" class="form-control" readonly name="risk_number_details_update[]" value="${risk.risk_number_details_update}">
+                                                            </div>
+                                                        </div>
+                                     
+                                                        <div class="col-xl-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Attachment</label>
+                                                                <input type="hidden" name="risk_attachments[]" value="${risk.risk_attachments}">
+                                                                <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
+                                                            </div>
+                                                        </div>
+        
+                                                        <div class="row">
+                                                            <label for="acceptable" class="form-label">Acceptable</label>
+        
+                                                            <input type="hidden" value="${review}" name="risk_number_acceptable_review[${count}]">
+                                                            <input type="hidden" value="${approval}" name="risk_number_acceptable_approval[${count}]">
+                                                            <input type="hidden" value="${verification}" name="risk_number_acceptable_verification[${count}]">
+        
+                                                            <input type="hidden" value="${review_remarks}" name="risk_number_acceptable_remarks_review[${count}]">
+                                                            <input type="hidden" value="${approval_remarks}" name="risk_number_acceptable_remarks_approval[${count}]">
+                                                            <input type="hidden" value="${verification_remarks}" name="risk_number_acceptable_remarks_verification[${count}]">
+                                                            
+                                                            <div class="col-lg-3 text-inlign mb-2">
+                                                                <div class="form-check form-check-inline">
+                                                                    <input type="radio" name="risk_number_acceptable_validation[${count}]" value="1" class="form-check-input" ${validationValue === '1' ? 'checked' : ''}>
+                                                                    <label class="form-check-label" for="risk_number_acceptable_validation">YES</label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <input type="radio" name="risk_number_acceptable_validation[${count}]" value="0" class="form-check-input" ${validationValue === '0' ? 'checked' : ''}>
+                                                                    <label class="form-check-label" for="risk_number_acceptable_validation">NO</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group col-lg-12">
+                                                                <label for="risk_number_acceptable_remarks_validation" class="form-label">Remarks</label>
+                                                                <textarea class="form-control" name="risk_number_acceptable_remarks_validation[${count}]" rows="4">${remarksReview}</textarea>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                                // Append the risk HTML to the container
+        
+                                count++;
+                                $('#risk-number-validation').append(riskHtml);
+                            });
+        
+        
+                            var opportunityEntries = JSON.parse(response[0].opportunity_entry);
+                            
+                            var count = 0;
+                            opportunityEntries.forEach(function (opportunity) {
+        
+                                var review = opportunity.opportunity_number_acceptable_review[count] !== undefined ? opportunity.risk_number_acceptable_review[count] : '';
+                                var approval = opportunity.opportunity_number_acceptable_approval[count] !== undefined ? opportunity.opportunity_number_acceptable_approval[count] : '';
+                                var verification = opportunity.opportunity_number_acceptable_verification[count] !== undefined ? opportunity.opportunity_number_acceptable_verification[count] : '';
+        
+                                var review_remarks = opportunity.opportunity_number_acceptable_remarks_review[count] !== undefined ? opportunity.risk_number_acceptable_remarks_review[count] : '';
+                                var approval_remarks = opportunity.opportunity_number_acceptable_remarks_approval[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_approval[count] : '';
+                                var verification_remarks = opportunity.opportunity_number_acceptable_remarks_verification[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_verification[count] : '';
+        
+        
+                                var validationValue = opportunity.opportunity_number_acceptable_validation[count] !== undefined ? opportunity.opportunity_number_acceptable_validation[count] : ''; // Added
+                                var remarksReview = opportunity.opportunity_number_acceptable_remarks_validation[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_validation[count] : ''; // Added
+        
+                                var opportunityHtml = `
+                                    <div class="col-lg-12 opportunity-number-repeatable">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Opportunity Number</label>
+                                                                <input type="text" class="form-control" readonly name="opportunity_number[]" value="${opportunity.opportunity_number}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Opportunities Identified (if applicable)</label>
+                                                                <input type="text" class="form-control" readonly name="opportunity_identified[]" value="${opportunity.opportunity_identified}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Attachment</label>
+                                                                <input type="hidden" name="opportunity_attachments[]" value="${opportunity.opportunity_attachments}">
+                                                                <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
+                                                            </div>
+                                                        </div>
+                                        
+                                                    </div>
+                                                    <div class="row">
+                                                        <label for="acceptable" class="form-label">Acceptable</label>
+        
+                                                            <input type="hidden" value="${review}" name="opportunity_number_acceptable_review[${count}]">
+                                                            <input type="hidden" value="${approval}" name="opportunity_number_acceptable_approval[${count}]">
+                                                            <input type="hidden" value="${verification}" name="opportunity_number_acceptable_verification[${count}]">
+        
+                                                            <input type="hidden" value="${review_remarks}" name="opportunity_number_acceptable_remarks_review[${count}]">
+                                                            <input type="hidden" value="${approval_remarks}" name="opportunity_number_acceptable_remarks_approval[${count}]">
+                                                            <input type="hidden" value="${verification_remarks}" name="opportunity_number_acceptable_remarks_verification[${count}]">
+        
+                                                        <div class="col-lg-3 text-inlign mb-2">
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="opportunity_number_acceptable_validation[${count}]" value="1" class="form-check-input" ${validationValue === '1' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="opportunity_number_acceptable_validation">YES</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="opportunity_number_acceptable_validation[${count}]" value="0" class="form-check-input" ${validationValue === '0' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="opportunity_number_acceptable_validation">NO</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-lg-12">
+                                                            <label for="opportunity_number_acceptable_remarks_validation" class="form-label">Remarks</label>
+                                                            <textarea class="form-control" name="opportunity_number_acceptable_remarks_validation[${count}]" rows="4">${remarksReview}</textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                                // Append the opportunity HTML to the container
+                                count++;
+                                $('#opportunity-number-validation').append(opportunityHtml);
+                            });
+        
+        
+                            var rootCauseEntries = JSON.parse(response[0].root_cause_entry);
+                            var count = 0;
+                            rootCauseEntries.forEach(function (rootCause) {
+        
+                                var review = rootCause.rootcause_acceptable_review[count] !== undefined ? rootCause.rootcause_acceptable_review[count] : '';
+                                var approval = rootCause.rootcause_acceptable_approval[count] !== undefined ? rootCause.rootcause_acceptable_approval[count] : '';
+                                var verification = rootCause.rootcause_acceptable_verification[count] !== undefined ? rootCause.rootcause_acceptable_verification[count] : '';
+        
+                                var review_remarks = rootCause.rootcause_acceptable_remarks_review[count] !== undefined ? rootCause.rootcause_acceptable_remarks_review[count] : '';
+                                var approval_remarks = rootCause.rootcause_acceptable_remarks_approval[count] !== undefined ? rootCause.rootcause_acceptable_remarks_approval[count] : '';
+                                var verification_remarks = rootCause.rootcause_acceptable_remarks_verification[count] !== undefined ? rootCause.rootcause_acceptable_remarks_verification[count] : '';
+        
+        
+                                var validationValue = rootCause.rootcause_acceptable_validation[count] !== undefined ? rootCause.rootcause_acceptable_validation[count] : ''; // Added
+                                var remarksReview = rootCause.rootcause_acceptable_remarks_validation[count] !== undefined ? rootCause.rootcause_acceptable_remarks_validation[count] : ''; // Added
+        
+                                var rootCauseHtml = `
+                                    <div class="col-lg-12 rootcause-repeatable">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Root Cause Analysis Used</label>
+                                                                <input type="text" class="form-control" readonly name="rootcause[]" value="${rootCause.rootcause}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">File Name</label>
+                                                                <input type="text" class="form-control" readonly name="rootcause_file_name[]" value="${rootCause.rootcause_file_name}">
+                                                            </div>
+                                                        </div>
+                                                        <<div class="col-xl-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Attachment</label>
+                                                                <input type="hidden" name="rootcause_attachments[]" value="${risk.rootcause_attachments}">
+                                                                <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
+                                                            </div>
+                                                        </div>
+                                            
+                                                    </div>
+        
+                                                    <div class="row">
+                                                        <label for="acceptable" class="form-label">Acceptable</label>
+        
+                                                            <input type="hidden" value="${review}" name="rootcause_acceptable_review[${count}]">
+                                                            <input type="hidden" value="${approval}" name="rootcause_acceptable_approval[${count}]">
+                                                            <input type="hidden" value="${verification}" name="rootcause_acceptable_verification[${count}]">
+        
+                                                            <input type="hidden" value="${review_remarks}" name="rootcause_acceptable_remarks_review[${count}]">
+                                                            <input type="hidden" value="${approval_remarks}" name="rootcause_acceptable_remarks_approval[${count}]">
+                                                            <input type="hidden" value="${verification_remarks}" name="rootcause_acceptable_remarks_verification[${count}]">
+        
+                                                        <div class="col-lg-3 text-inlign mb-2">
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="rootcause_acceptable_validation[${count}]" value="1" class="form-check-input" ${validationValue === '1' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="rootcause_acceptable_validation">YES</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="rootcause_acceptable_validation[${count}]" value="0" class="form-check-input" ${validationValue === '0' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="rootcause_acceptable_validation">NO</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-lg-12">
+                                                            <label for="rootcause_acceptable_remarks_validation" class="form-label">Remarks</label>
+                                                            <textarea class="form-control" name="rootcause_acceptable_remarks_validation[${count}]" rows="4">${remarksReview}</textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                                // Append the root cause HTML to the container
+                                count++;
+                                $('#rootcause-validation').append(rootCauseHtml);
+                            });
+        
+        
+                            var identifiedRootEntries = JSON.parse(response[0].identified_root_entry);
+                            var count = 0;
+                            identifiedRootEntries.forEach(function (identifiedRoot) {
+        
+                                var issued_by = '';
+                                var issued_to = '';
+                                var section_name = '';
+        
+                                var review = identifiedRoot.identified_root_acceptable_review[count] !== undefined ? identifiedRoot.identified_root_acceptable_review[count] : '';
+                                var approval = identifiedRoot.identified_root_acceptable_approval[count] !== undefined ? identifiedRoot.identified_root_acceptable_approval[count] : '';
+                                var verification = identifiedRoot.identified_root_acceptable_verification[count] !== undefined ? identifiedRoot.identified_root_acceptable_verification[count] : '';
+                                
+                                var review_remarks = identifiedRoot.identified_root_acceptable_remarks_review[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_review[count] : '';
+                                var approval_remarks = identifiedRoot.identified_root_acceptable_remarks_approval[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_approval[count] : '';
+                                var verification_remarks = identifiedRoot.identified_root_acceptable_remarks_verification[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_verification[count] : '';
+        
+                                var validationValue = identifiedRoot.identified_root_acceptable_validation[count] !== undefined ? identifiedRoot.identified_root_acceptable_validation[count] : ''; // Added
+                                var remarksReview = identifiedRoot.identified_root_acceptable_remarks_validation[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_validation[count] : ''; // Added
+        
+                                
+                                if(identifiedRoot.tpn_issued_by){
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '../car/getDivisionByID', // Replace 'MyController' with your controller name
+                                        data: {id: identifiedRoot.tpn_issued_by},
+                                        success: function (response) {
+                                            response = JSON.parse(response);
+        
+                                            if(response[0]){
+                                                 issued_by = response[0].div_name;
+                                            }
+                                        }
+                                    });
+                                }
+        
+                                if(identifiedRoot.tpn_issued_to){
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '../car/getDepartmentByID', // Replace 'MyController' with your controller name
+                                        data: {id: identifiedRoot.tpn_issued_to},
+                                        success: function (response) {
+                                            response = JSON.parse(response);
+                                            if(response[0]){
+                                                 issued_to = response[0].dep_name;
+                                            }
+                                        }
+                                    });
+                                }
+                                
+                                if(identifiedRoot.section){
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '../car/getSectionByID', // Replace 'MyController' with your controller name
+                                        data: {id: identifiedRoot.section},
+                                        success: function (response) {
+                                            response = JSON.parse(response);
+                                            if(response[0]){
+                                                 section_name = response[0].section_name;
+                                            }
+                                        }
+                                    });
+                                }
+        
+                                setTimeout(function() {
+        
+                                var identifiedRootHtml = `
+                                    <div class="col-lg-12 identified-root-repeatable">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col-xl-4 mb-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Identified Root Cause</label>
+                                                                <input type="text" readonly class="form-control" name="identified_root[]" value="${identifiedRoot.identified_root}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3 mb-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">TPN Control</label>
+                                                                <input type="text" readonly class="form-control" name="tpn_control[]" value="${identifiedRoot.tpn_control}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3 mb-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Corrective Action</label>
+                                                                <input type="text" readonly class="form-control" name="identified_root_corrective_action[]" value="${identifiedRoot.identified_root_corrective_action}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4 mb-1">
+                                                            <div class="form-group">
+                                                                <label for="issued_by" class="form-label">Issued By</label>
+                                                                <input type="text" readonly class="form-control" name="tpn_issued_by[]" value="${issued_by}">
+                                                                <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3 mb-1">
+                                                            <div class="form-group">
+                                                                <label for="issued_to" class="form-label">Issued To</label>
+                                                                <input type="text" readonly class="form-control" name="tpn_issued_to[]" value="${issued_to}">
+                                                                <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3 mb-1">
+                                                            <div class="form-group">
+                                                                <label for="section" class="form-label">Section Unit</label>
+                                                                <input type="text" readonly class="form-control" name="section[]" value="${section_name}">
+                                                                <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Person Responsible</label>
+                                                                <input type="text" readonly class="form-control" name="identified_root_person_responsible[]" placeholder="Enter Name of personnel" value="${identifiedRoot.identified_root_person_responsible}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Completion Date</label>
+                                                                <input type="date" readonly class="form-control" name="identified_root_completion_date[]" value="${identifiedRoot.identified_root_completion_date}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Attachment</label>
+                                                                <input type="hidden" name="identified_attachments[]" value="${risk.identified_attachments}">
+                                                                <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label for="acceptable" class="form-label">Acceptable</label>
+        
+                                                            <input type="hidden" value="${review}" name="identified_root_acceptable_review[${count}]">
+                                                            <input type="hidden" value="${approval}" name="identified_root_acceptable_approval[${count}]">
+                                                            <input type="hidden" value="${verification}" name="identified_root_acceptable_verification[${count}]">
+        
+                                                            <input type="hidden" value="${review_remarks}" name="identified_root_acceptable_remarks_review[${count}]">
+                                                            <input type="hidden" value="${approval_remarks}" name="identified_root_acceptable_remarks_approval[${count}]">
+                                                            <input type="hidden" value="${verification_remarks}" name="identified_root_acceptable_remarks_verification[${count}]">
+        
+                                                        <div class="col-lg-3 text-inlign mb-2">
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="identified_root_acceptable_validation[${count}]" value="1" class="form-check-input" ${validationValue === '1' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="identified_root_acceptable_validation">YES</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="identified_root_acceptable_validation[${count}]" value="0" class="form-check-input" ${validationValue === '0' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="identified_root_acceptable_validation">NO</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-lg-12">
+                                                            <label for="identified_root_acceptable_remarks_validation" class="form-label">Remarks</label>
+                                                            <textarea class="form-control" name="identified_root_acceptable_remarks_validation[${count}]" rows="4">${remarksReview}</textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                                // Append the identified root HTML to the container
+                                count++;
+                                $('#identified-root-validation').append(identifiedRootHtml);
+                                }, 3000);
+                            });
+        
+                        }
+        
+                    }   
+        
+                    
+              
+        
+        
+                },
+                error: function () {
+                    // Handle errors
+                    diList.notifyError();
+                }
+            });
+        });
+
+
+
+     
+        
     },
 
     validateForm : function (){
@@ -1800,6 +3819,36 @@ var car = {
             $.ajax({
                 type: "POST", // or "GET" depending on your server-side handling
                 url: "../car/saveRoot", // Replace with your server-side endpoint
+                data: formData,
+                processData: false,  // Prevent jQuery from processing the data
+                contentType: false,
+                success: function (response) {
+                    // Handle the response from the server
+                    if(response == 'saved'){
+                        car.notifySuccess();
+                        car.load();
+                        $('#root_cause_form')[0].reset();
+                        $('#root-cause').modal('hide');
+                    } else {
+                        car.notifyError();
+                    }
+                },
+                error: function () {
+                    // Handle errors
+                    car.notifyError();
+                }
+            });
+        });
+
+        jQuery('#saveRootFR').click(function(e){
+            e.preventDefault();
+
+            var formData = new FormData($("#root_cause_form")[0]);
+
+            // Make an AJAX request to submit the form data
+            $.ajax({
+                type: "POST", // or "GET" depending on your server-side handling
+                url: "../car/saveRootFR", // Replace with your server-side endpoint
                 data: formData,
                 processData: false,  // Prevent jQuery from processing the data
                 contentType: false,
