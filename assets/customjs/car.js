@@ -3859,8 +3859,8 @@ var car = {
                     if(response == 'saved'){
                         car.notifySuccess();
                         car.load();
-                        $('#root_cause_form')[0].reset();
-                        $('#root-cause').modal('hide');
+                        $('#root_cause_form_review')[0].reset();
+                        $('#root-cause-review').modal('hide');
                     } else {
                         car.notifyError();
                     }
@@ -3889,8 +3889,8 @@ var car = {
                     if(response == 'saved'){
                         car.notifySuccess();
                         car.load();
-                        $('#root_cause_form')[0].reset();
-                        $('#root-cause').modal('hide');
+                        $('#root_cause_form_approval')[0].reset();
+                        $('#root-cause-approval').modal('hide');
                     } else {
                         car.notifyError();
                     }
@@ -3919,8 +3919,8 @@ var car = {
                     if(response == 'saved'){
                         car.notifySuccess();
                         car.load();
-                        $('#root_cause_form')[0].reset();
-                        $('#root-cause').modal('hide');
+                        $('#root_cause_form_verification')[0].reset();
+                        $('#root-cause-verification').modal('hide');
                     } else {
                         car.notifyError();
                     }
@@ -3949,8 +3949,8 @@ var car = {
                     if(response == 'saved'){
                         car.notifySuccess();
                         car.load();
-                        $('#root_cause_form')[0].reset();
-                        $('#root-cause').modal('hide');
+                        $('#root_cause_form_validation')[0].reset();
+                        $('#root-cause-validation').modal('hide');
                     } else {
                         car.notifyError();
                     }
