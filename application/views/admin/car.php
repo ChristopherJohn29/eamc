@@ -499,7 +499,7 @@
                         <div class="form-group col-md-12">
                            <label for="validation_correction_dealing_with_consequences" class="form-label">Review of Correction and Dealing with the Consequences</label>
                            <select class="form-select verification_correction_dealing_with_consequences" name="validation_correction_dealing_with_consequences">
-                              <option value="Recommendation for Closure">Recommendation for Closure</option>
+                              <option value="For Closure">Recommendation for Closure</option>
                               <option value="For Revision">For Revision</option>
                            </select>
                         </div>
