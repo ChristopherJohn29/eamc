@@ -57,35 +57,35 @@ var car = {
 
                         var osqm_review_corrective_action = "";
                         
-                        if(for_correction_status == 'For Approval'){
+                        if(for_correction_status == 'For Approval' || for_correction_status == 'For Verification' || for_correction_status == 'For Validation' || for_correction_status == 'For Closure'){
                             var osqm_approval_correction = "<a class='dropdown-item for-osqm-approval-correction' href='#' data-car_id='" + car_id + "' data-bs-toggle='modal' data-bs-target='#corrective-action-approval'>Correction - For Approval</a>";
                         }
 
-                        if(for_correction_status == 'For Verification'){
+                        if(for_correction_status == 'For Verification' || for_correction_status == 'For Validation' || for_correction_status == 'For Closure'){
                             var osqm_verification_correction = "<a class='dropdown-item for-osqm-verification-correction' href='#' data-car_id='" + car_id + "' data-bs-toggle='modal' data-bs-target='#corrective-action-verification'>Correction - For Verification</a>";
                         }
 
-                        if(for_correction_status == 'For Validation'){
+                        if(for_correction_status == 'For Validation' || for_correction_status == 'For Closure'){
                             var osqm_validation_correction = "<a class='dropdown-item for-osqm-validation-correction' href='#' data-car_id='" + car_id + "' data-bs-toggle='modal' data-bs-target='#corrective-action-validation'>Correction - For Validation</a>";
                         }
                         
-                        if(for_correction_status == 'For OSQM Review' || for_correction_status == 'For Approval'){
+                        if(for_correction_status == 'For OSQM Review' || for_correction_status == 'For Approval' || for_correction_status == 'For Verification' || for_correction_status == 'For Validation' || for_correction_status == 'For Closure'){
                             var osqm_review_correction = "<a class='dropdown-item for-osqm-review-correction' href='#' data-car_id='" + car_id + "' data-bs-toggle='modal' data-bs-target='#corrective-action-review'>Correction - For OSQM Review</a>";
                         }
 
-                        if(corrective_action_status == 'For OSQM Review'){
+                        if(corrective_action_status == 'For OSQM Review' || corrective_action_status == 'For Approval' || corrective_action_status == 'For Verification' || corrective_action_status == 'For Validation' || corrective_action_status == 'For Closure'){
                             var osqm_review_corrective_action = "<a class='dropdown-item for-osqm-review-corrective-action' href='#' data-car_id='" + car_id + "' data-bs-toggle='modal' data-bs-target='#root-cause-review'>Corrective Action - For OSQM Review</a>";
                         }
 
-                        if(corrective_action_status == 'For Approval'){
+                        if(corrective_action_status == 'For Approval' || corrective_action_status == 'For Verification' || corrective_action_status == 'For Validation' || corrective_action_status == 'For Closure'){
                             var osqm_approval_corrective_action = "<a class='dropdown-item for-osqm-approval-corrective-action' href='#' data-car_id='" + car_id + "' data-bs-toggle='modal' data-bs-target='#root-cause-review'>Corrective Action - For OSQM Review</a>";
                         }
 
-                        if(corrective_action_status == 'For Verification'){
+                        if(corrective_action_status == 'For Verification' || corrective_action_status == 'For Validation' || corrective_action_status == 'For Closure'){
                             var osqm_verification_corrective_action = "<a class='dropdown-item for-osqm-verification-corrective-action' href='#' data-car_id='" + car_id + "' data-bs-toggle='modal' data-bs-target='#root-cause-review'>Corrective Action - For OSQM Review</a>";
                         }
 
-                        if(corrective_action_status == 'For Validation'){
+                        if(corrective_action_status == 'For Validation'  || corrective_action_status == 'For Closure'){
                             var osqm_validation_corrective_action = "<a class='dropdown-item for-osqm-validation-corrective-action' href='#' data-car_id='" + car_id + "' data-bs-toggle='modal' data-bs-target='#root-cause-review'>Corrective Action - For OSQM Review</a>";
                         }
                         
