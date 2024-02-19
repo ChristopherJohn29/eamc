@@ -469,13 +469,13 @@ class car extends CI_Controller {
         $consequence_acceptable_review = $this->input->post('consequence_acceptable_review');
         $consequence_acceptable_remarks_review = $this->input->post('consequence_acceptable_remarks_review');
 
-        $consequence_acceptable_review = $this->input->post('consequence_acceptable_approval');
+        $consequence_acceptable_approval = $this->input->post('consequence_acceptable_approval');
         $consequence_acceptable_remarks_approval = $this->input->post('consequence_acceptable_remarks_approval');
 
-        $consequence_acceptable_review = $this->input->post('consequence_acceptable_verification');
+        $consequence_acceptable_verification = $this->input->post('consequence_acceptable_verification');
         $consequence_acceptable_remarks_verification = $this->input->post('consequence_acceptable_remarks_verification');
 
-        $consequence_acceptable_review = $this->input->post('consequence_acceptable_validation');
+        $consequence_acceptable_validation = $this->input->post('consequence_acceptable_validation');
         $consequence_acceptable_remarks_validation = $this->input->post('consequence_acceptable_remarks_validation');
     
         foreach($consequence as $key => $value){
