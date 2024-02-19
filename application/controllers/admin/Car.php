@@ -1421,7 +1421,7 @@ class car extends CI_Controller {
             // Merge custom configuration with default configuration
             $default_config = array(
                 'upload_path'   => FCPATH . 'uploads/',
-                'allowed_types' => 'gif|jpg|png|pdf',  // Adjust as needed
+                'allowed_types' => 'gif|jpg|png|pdf|docx|doc',  // Adjust as needed
             );
 
             $config = array_merge($default_config, $custom_config);
