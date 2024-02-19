@@ -611,6 +611,11 @@ class car extends CI_Controller {
    
         //array
         $risk_entry = array();
+
+        $existing_nonconformity = $this->input->post('existing_nonconformity');
+        $existing_nonconformity_remarks = $this->input->post('existing_nonconformity_remarks');
+        $update_doc_info = $this->input->post('update_doc_info');
+        $update_doc_info_remarks = $this->input->post('update_doc_info_remarks');
     
         $risk_number = $this->input->post('risk_number');
         $risk_number_details_update = $this->input->post('risk_number_details_update');
@@ -813,6 +818,11 @@ class car extends CI_Controller {
    
         //array
         $risk_entry = array();
+
+        $existing_nonconformity = $this->input->post('existing_nonconformity');
+        $existing_nonconformity_remarks = $this->input->post('existing_nonconformity_remarks');
+        $update_doc_info = $this->input->post('update_doc_info');
+        $update_doc_info_remarks = $this->input->post('update_doc_info_remarks');
     
         $risk_number = $this->input->post('risk_number');
         $risk_number_details_update = $this->input->post('risk_number_details_update');
@@ -1015,6 +1025,11 @@ class car extends CI_Controller {
    
         //array
         $risk_entry = array();
+
+        $existing_nonconformity = $this->input->post('existing_nonconformity');
+        $existing_nonconformity_remarks = $this->input->post('existing_nonconformity_remarks');
+        $update_doc_info = $this->input->post('update_doc_info');
+        $update_doc_info_remarks = $this->input->post('update_doc_info_remarks');
     
         $risk_number = $this->input->post('risk_number');
         $risk_number_details_update = $this->input->post('risk_number_details_update');
@@ -1217,6 +1232,12 @@ class car extends CI_Controller {
    
         //array
         $risk_entry = array();
+
+        $existing_nonconformity = $this->input->post('existing_nonconformity');
+        $existing_nonconformity_remarks = $this->input->post('existing_nonconformity_remarks');
+
+        $update_doc_info = $this->input->post('update_doc_info');
+        $update_doc_info_remarks = $this->input->post('update_doc_info_remarks');
     
         $risk_number = $this->input->post('risk_number');
         $risk_number_details_update = $this->input->post('risk_number_details_update');
