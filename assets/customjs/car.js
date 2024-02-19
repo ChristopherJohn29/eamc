@@ -459,8 +459,8 @@ var car = {
                         // Loop through correction entries and create HTML for each entry
                         correctionEntries.forEach(function (correction) {
 
-                            console.log(correction);
-                            
+                            var correction = JSON.parse(correction);
+
                             var approval = Array.isArray(correction.correction_acceptable_approval) && correction.correction_acceptable_approval[count] !== undefined ? correction.correction_acceptable_approval[count] : '';
                             var verification = Array.isArray(correction.correction_acceptable_verification) && correction.correction_acceptable_verification[count] !== undefined ? correction.correction_acceptable_verification[count] : '';
                             var validation = Array.isArray(correction.correction_acceptable_validation) && correction.correction_acceptable_validation[count] !== undefined ? correction.correction_acceptable_validation[count] : '';
