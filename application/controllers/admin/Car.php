@@ -84,13 +84,13 @@ class car extends CI_Controller {
         $correction_acceptable_remarks_review = $this->input->post('correction_acceptable_remarks_review');
 
         $correction_acceptable_approval = $this->input->post('correction_acceptable_approval');
-        $correction_acceptable_remarks_review = $this->input->post('correction_acceptable_remarks_approval');
+        $correction_acceptable_remarks_approval = $this->input->post('correction_acceptable_remarks_approval');
 
-        $correction_acceptable_review = $this->input->post('correction_acceptable_verification');
-        $correction_acceptable_remarks_review = $this->input->post('correction_acceptable_remarks_verification');
+        $correction_acceptable_verification = $this->input->post('correction_acceptable_verification');
+        $correction_acceptable_remarks_verification = $this->input->post('correction_acceptable_remarks_verification');
 
-        $correction_acceptable_review = $this->input->post('correction_acceptable_validation');
-        $correction_acceptable_remarks_review = $this->input->post('correction_acceptable_remarks_validation');
+        $correction_acceptable_validation = $this->input->post('correction_acceptable_validation');
+        $correction_acceptable_remarks_validation = $this->input->post('correction_acceptable_remarks_validation');
     
         foreach($correction as $key => $value){
             if($correction[$key]){
@@ -122,14 +122,14 @@ class car extends CI_Controller {
         $consequence_acceptable_review = $this->input->post('consequence_acceptable_review');
         $consequence_acceptable_remarks_review = $this->input->post('consequence_acceptable_remarks_review');
 
-        $consequence_acceptable_review = $this->input->post('consequence_acceptable_approval');
-        $consequence_acceptable_remarks_review = $this->input->post('consequence_acceptable_remarks_approval');
+        $consequence_acceptable_approval = $this->input->post('consequence_acceptable_approval');
+        $consequence_acceptable_remarks_approval = $this->input->post('consequence_acceptable_remarks_approval');
 
-        $consequence_acceptable_review = $this->input->post('consequence_acceptable_verification');
-        $consequence_acceptable_remarks_review = $this->input->post('consequence_acceptable_remarks_verification');
+        $consequence_acceptable_verification = $this->input->post('consequence_acceptable_verification');
+        $consequence_acceptable_remarks_verification = $this->input->post('consequence_acceptable_remarks_verification');
 
-        $consequence_acceptable_review = $this->input->post('consequence_acceptable_validation');
-        $consequence_acceptable_remarks_review = $this->input->post('consequence_acceptable_remarks_validation');
+        $consequence_acceptable_validation = $this->input->post('consequence_acceptable_validation');
+        $consequence_acceptable_remarks_validation = $this->input->post('consequence_acceptable_remarks_validation');
     
         foreach($consequence as $key => $value){
             if($consequence[$key]){
@@ -139,12 +139,12 @@ class car extends CI_Controller {
                     'consequence_completion_date' => $consequence_completion_date[$key],
                     'consequence_acceptable_review' => $consequence_acceptable_review[$key],
                     'consequence_acceptable_remarks_review' => $consequence_acceptable_remarks_review[$key],
-                    'consequence_acceptable_approval' => $consequence_acceptable_review[$key],
-                    'consequence_acceptable_remarks_approval' => $consequence_acceptable_remarks_review[$key],
-                    'consequence_acceptable_verification' => $consequence_acceptable_review[$key],
-                    'consequence_acceptable_remarks_verification' => $consequence_acceptable_remarks_review[$key],
-                    'consequence_acceptable_validation' => $consequence_acceptable_review[$key],
-                    'consequence_acceptable_remarks_validation' => $consequence_acceptable_remarks_review[$key],
+                    'consequence_acceptable_approval' => $consequence_acceptable_approval[$key],
+                    'consequence_acceptable_remarks_approval' => $consequence_acceptable_remarks_approval[$key],
+                    'consequence_acceptable_verification' => $consequence_acceptable_verification[$key],
+                    'consequence_acceptable_remarks_verification' => $consequence_acceptable_remarks_verification[$key],
+                    'consequence_acceptable_validation' => $consequence_acceptable_validation[$key],
+                    'consequence_acceptable_remarks_validation' => $consequence_acceptable_remarks_validation[$key],
                 );
             }
            
@@ -200,13 +200,13 @@ class car extends CI_Controller {
         $correction_acceptable_remarks_review = $this->input->post('correction_acceptable_remarks_review');
 
         $correction_acceptable_approval = $this->input->post('correction_acceptable_approval');
-        $correction_acceptable_remarks_review = $this->input->post('correction_acceptable_remarks_approval');
+        $correction_acceptable_remarks_approval = $this->input->post('correction_acceptable_remarks_approval');
 
-        $correction_acceptable_review = $this->input->post('correction_acceptable_verification');
-        $correction_acceptable_remarks_review = $this->input->post('correction_acceptable_remarks_verification');
+        $correction_acceptable_verification = $this->input->post('correction_acceptable_verification');
+        $correction_acceptable_remarks_verification = $this->input->post('correction_acceptable_remarks_verification');
 
-        $correction_acceptable_review = $this->input->post('correction_acceptable_validation');
-        $correction_acceptable_remarks_review = $this->input->post('correction_acceptable_remarks_validation');
+        $correction_acceptable_validation = $this->input->post('correction_acceptable_validation');
+        $correction_acceptable_remarks_validation = $this->input->post('correction_acceptable_remarks_validation');
     
         foreach($correction as $key => $value){
             if($correction[$key]){
@@ -315,13 +315,13 @@ class car extends CI_Controller {
         $correction_acceptable_remarks_review = $this->input->post('correction_acceptable_remarks_review');
 
         $correction_acceptable_approval = $this->input->post('correction_acceptable_approval');
-        $correction_acceptable_remarks_review = $this->input->post('correction_acceptable_remarks_approval');
+        $correction_acceptable_remarks_approval = $this->input->post('correction_acceptable_remarks_approval');
 
-        $correction_acceptable_review = $this->input->post('correction_acceptable_verification');
-        $correction_acceptable_remarks_review = $this->input->post('correction_acceptable_remarks_verification');
+        $correction_acceptable_verification = $this->input->post('correction_acceptable_verification');
+        $correction_acceptable_remarks_verification = $this->input->post('correction_acceptable_remarks_verification');
 
-        $correction_acceptable_review = $this->input->post('correction_acceptable_validation');
-        $correction_acceptable_remarks_review = $this->input->post('correction_acceptable_remarks_validation');
+        $correction_acceptable_validation = $this->input->post('correction_acceptable_validation');
+        $correction_acceptable_remarks_validation = $this->input->post('correction_acceptable_remarks_validation');
     
         foreach($correction as $key => $value){
             if($correction[$key]){
@@ -353,14 +353,14 @@ class car extends CI_Controller {
         $consequence_acceptable_review = $this->input->post('consequence_acceptable_review');
         $consequence_acceptable_remarks_review = $this->input->post('consequence_acceptable_remarks_review');
 
-        $consequence_acceptable_review = $this->input->post('consequence_acceptable_approval');
-        $consequence_acceptable_remarks_review = $this->input->post('consequence_acceptable_remarks_approval');
+        $consequence_acceptable_approval = $this->input->post('consequence_acceptable_approval');
+        $consequence_acceptable_remarks_approval = $this->input->post('consequence_acceptable_remarks_approval');
 
-        $consequence_acceptable_review = $this->input->post('consequence_acceptable_verification');
-        $consequence_acceptable_remarks_review = $this->input->post('consequence_acceptable_remarks_verification');
+        $consequence_acceptable_verification = $this->input->post('consequence_acceptable_verification');
+        $consequence_acceptable_remarks_verification = $this->input->post('consequence_acceptable_remarks_verification');
 
-        $consequence_acceptable_review = $this->input->post('consequence_acceptable_validation');
-        $consequence_acceptable_remarks_review = $this->input->post('consequence_acceptable_remarks_validation');
+        $consequence_acceptable_validation = $this->input->post('consequence_acceptable_validation');
+        $consequence_acceptable_remarks_validation = $this->input->post('consequence_acceptable_remarks_validation');
     
         foreach($consequence as $key => $value){
             if($consequence[$key]){
@@ -370,12 +370,12 @@ class car extends CI_Controller {
                     'consequence_completion_date' => $consequence_completion_date[$key],
                     'consequence_acceptable_review' => $consequence_acceptable_review[$key],
                     'consequence_acceptable_remarks_review' => $consequence_acceptable_remarks_review[$key],
-                    'consequence_acceptable_approval' => $consequence_acceptable_review[$key],
-                    'consequence_acceptable_remarks_approval' => $consequence_acceptable_remarks_review[$key],
-                    'consequence_acceptable_verification' => $consequence_acceptable_review[$key],
-                    'consequence_acceptable_remarks_verification' => $consequence_acceptable_remarks_review[$key],
-                    'consequence_acceptable_validation' => $consequence_acceptable_review[$key],
-                    'consequence_acceptable_remarks_validation' => $consequence_acceptable_remarks_review[$key],
+                    'consequence_acceptable_approval' => $consequence_acceptable_approval[$key],
+                    'consequence_acceptable_remarks_approval' => $consequence_acceptable_remarks_approval[$key],
+                    'consequence_acceptable_verification' => $consequence_acceptable_verification[$key],
+                    'consequence_acceptable_remarks_verification' => $consequence_acceptable_remarks_verification[$key],
+                    'consequence_acceptable_validation' => $consequence_acceptable_validation[$key],
+                    'consequence_acceptable_remarks_validation' => $consequence_acceptable_remarks_validation[$key],
                 );
             }
            
@@ -431,13 +431,13 @@ class car extends CI_Controller {
         $correction_acceptable_remarks_review = $this->input->post('correction_acceptable_remarks_review');
 
         $correction_acceptable_approval = $this->input->post('correction_acceptable_approval');
-        $correction_acceptable_remarks_review = $this->input->post('correction_acceptable_remarks_approval');
+        $correction_acceptable_remarks_approval = $this->input->post('correction_acceptable_remarks_approval');
 
-        $correction_acceptable_review = $this->input->post('correction_acceptable_verification');
-        $correction_acceptable_remarks_review = $this->input->post('correction_acceptable_remarks_verification');
+        $correction_acceptable_verification = $this->input->post('correction_acceptable_verification');
+        $correction_acceptable_remarks_verification = $this->input->post('correction_acceptable_remarks_verification');
 
-        $correction_acceptable_review = $this->input->post('correction_acceptable_validation');
-        $correction_acceptable_remarks_review = $this->input->post('correction_acceptable_remarks_validation');
+        $correction_acceptable_validation = $this->input->post('correction_acceptable_validation');
+        $correction_acceptable_remarks_validation = $this->input->post('correction_acceptable_remarks_validation');
     
         foreach($correction as $key => $value){
             if($correction[$key]){
@@ -470,13 +470,13 @@ class car extends CI_Controller {
         $consequence_acceptable_remarks_review = $this->input->post('consequence_acceptable_remarks_review');
 
         $consequence_acceptable_review = $this->input->post('consequence_acceptable_approval');
-        $consequence_acceptable_remarks_review = $this->input->post('consequence_acceptable_remarks_approval');
+        $consequence_acceptable_remarks_approval = $this->input->post('consequence_acceptable_remarks_approval');
 
         $consequence_acceptable_review = $this->input->post('consequence_acceptable_verification');
-        $consequence_acceptable_remarks_review = $this->input->post('consequence_acceptable_remarks_verification');
+        $consequence_acceptable_remarks_verification = $this->input->post('consequence_acceptable_remarks_verification');
 
         $consequence_acceptable_review = $this->input->post('consequence_acceptable_validation');
-        $consequence_acceptable_remarks_review = $this->input->post('consequence_acceptable_remarks_validation');
+        $consequence_acceptable_remarks_validation = $this->input->post('consequence_acceptable_remarks_validation');
     
         foreach($consequence as $key => $value){
             if($consequence[$key]){
@@ -486,12 +486,12 @@ class car extends CI_Controller {
                     'consequence_completion_date' => $consequence_completion_date[$key],
                     'consequence_acceptable_review' => $consequence_acceptable_review[$key],
                     'consequence_acceptable_remarks_review' => $consequence_acceptable_remarks_review[$key],
-                    'consequence_acceptable_approval' => $consequence_acceptable_review[$key],
-                    'consequence_acceptable_remarks_approval' => $consequence_acceptable_remarks_review[$key],
-                    'consequence_acceptable_verification' => $consequence_acceptable_review[$key],
-                    'consequence_acceptable_remarks_verification' => $consequence_acceptable_remarks_review[$key],
-                    'consequence_acceptable_validation' => $consequence_acceptable_review[$key],
-                    'consequence_acceptable_remarks_validation' => $consequence_acceptable_remarks_review[$key],
+                    'consequence_acceptable_approval' => $consequence_acceptable_approval[$key],
+                    'consequence_acceptable_remarks_approval' => $consequence_acceptable_remarks_approval[$key],
+                    'consequence_acceptable_verification' => $consequence_acceptable_verification[$key],
+                    'consequence_acceptable_remarks_verification' => $consequence_acceptable_remarks_verification[$key],
+                    'consequence_acceptable_validation' => $consequence_acceptable_validation[$key],
+                    'consequence_acceptable_remarks_validation' => $consequence_acceptable_remarks_validation[$key],
                 );
             }
            
@@ -660,7 +660,7 @@ class car extends CI_Controller {
         $opportunity_number_acceptable_remarks_approval = $this->input->post('opportunity_number_acceptable_remarks_approval');
 
         $opportunity_number_acceptable_verification = $this->input->post('opportunity_number_acceptable_verification');
-        $opportunity_number_acceptable_remarks_verification = $this->input->post('opportunity_number_acceptable_remarks_review');
+        $opportunity_number_acceptable_remarks_verification = $this->input->post('opportunity_number_acceptable_remarks_verification');
 
         $opportunity_number_acceptable_validation = $this->input->post('opportunity_number_acceptable_validation');
         $opportunity_number_acceptable_remarks_validation = $this->input->post('opportunity_number_acceptable_remarks_validation');
@@ -674,12 +674,12 @@ class car extends CI_Controller {
                 'opportunity_attachments' => $opportunity_attachments[$key],
                 'opportunity_number_acceptable_review' => $opportunity_number_acceptable_review[$key],
                 'opportunity_number_acceptable_remarks_review' => $opportunity_number_acceptable_remarks_review[$key],
-                'opportunity_number_acceptable_approval' => $opportunity_number_acceptable_review[$key],
-                'opportunity_number_acceptable_remarks_approval' => $opportunity_number_acceptable_remarks_review[$key],
-                'opportunity_number_acceptable_verification' => $opportunity_number_acceptable_review[$key],
-                'opportunity_number_acceptable_remarks_verification' => $opportunity_number_acceptable_remarks_review[$key],
-                'opportunity_number_acceptable_validation' => $opportunity_number_acceptable_review[$key],
-                'opportunity_number_acceptable_remarks_validation' => $opportunity_number_acceptable_remarks_review[$key],
+                'opportunity_number_acceptable_approval' => $opportunity_number_acceptable_approval[$key],
+                'opportunity_number_acceptable_remarks_approval' => $opportunity_number_acceptable_remarks_approval[$key],
+                'opportunity_number_acceptable_verification' => $opportunity_number_acceptable_verification[$key],
+                'opportunity_number_acceptable_remarks_verification' => $opportunity_number_acceptable_remarks_verification[$key],
+                'opportunity_number_acceptable_validation' => $opportunity_number_acceptable_validation[$key],
+                'opportunity_number_acceptable_remarks_validation' => $opportunity_number_acceptable_remarks_validation[$key],
             );
         }
     
@@ -751,8 +751,8 @@ class car extends CI_Controller {
                 'identified_root_person_responsible' => $identified_root_person_responsible[$key],
                 'identified_root_completion_date' => $identified_root_completion_date[$key],
                 'identified_attachments' => $identified_attachments[$key],
-                'identified_root_acceptable_review' => $identified_attachments[$key],
-                'identified_root_acceptable_remarks_review' => $identified_attachments[$key],
+                'identified_root_acceptable_review' => $identified_root_acceptable_review[$key],
+                'identified_root_acceptable_remarks_review' => $identified_root_acceptable_remarks_review[$key],
                 'identified_root_acceptable_approval' => $identified_root_acceptable_approval[$key],
                 'identified_root_acceptable_remarks_approval' => $identified_root_acceptable_remarks_approval[$key],
                 'identified_root_acceptable_verification' => $identified_root_acceptable_verification[$key],
@@ -862,7 +862,7 @@ class car extends CI_Controller {
         $opportunity_number_acceptable_remarks_approval = $this->input->post('opportunity_number_acceptable_remarks_approval');
 
         $opportunity_number_acceptable_verification = $this->input->post('opportunity_number_acceptable_verification');
-        $opportunity_number_acceptable_remarks_verification = $this->input->post('opportunity_number_acceptable_remarks_review');
+        $opportunity_number_acceptable_remarks_verification = $this->input->post('opportunity_number_acceptable_remarks_verification');
 
         $opportunity_number_acceptable_validation = $this->input->post('opportunity_number_acceptable_validation');
         $opportunity_number_acceptable_remarks_validation = $this->input->post('opportunity_number_acceptable_remarks_validation');
@@ -876,12 +876,12 @@ class car extends CI_Controller {
                 'opportunity_attachments' => $opportunity_attachments[$key],
                 'opportunity_number_acceptable_review' => $opportunity_number_acceptable_review[$key],
                 'opportunity_number_acceptable_remarks_review' => $opportunity_number_acceptable_remarks_review[$key],
-                'opportunity_number_acceptable_approval' => $opportunity_number_acceptable_review[$key],
-                'opportunity_number_acceptable_remarks_approval' => $opportunity_number_acceptable_remarks_review[$key],
-                'opportunity_number_acceptable_verification' => $opportunity_number_acceptable_review[$key],
-                'opportunity_number_acceptable_remarks_verification' => $opportunity_number_acceptable_remarks_review[$key],
-                'opportunity_number_acceptable_validation' => $opportunity_number_acceptable_review[$key],
-                'opportunity_number_acceptable_remarks_validation' => $opportunity_number_acceptable_remarks_review[$key],
+                'opportunity_number_acceptable_approval' => $opportunity_number_acceptable_approval[$key],
+                'opportunity_number_acceptable_remarks_approval' => $opportunity_number_acceptable_remarks_approval[$key],
+                'opportunity_number_acceptable_verification' => $opportunity_number_acceptable_verification[$key],
+                'opportunity_number_acceptable_remarks_verification' => $opportunity_number_acceptable_remarks_verification[$key],
+                'opportunity_number_acceptable_validation' => $opportunity_number_acceptable_validation[$key],
+                'opportunity_number_acceptable_remarks_validation' => $opportunity_number_acceptable_remarks_validation[$key],
             );
         }
     
@@ -953,8 +953,8 @@ class car extends CI_Controller {
                 'identified_root_person_responsible' => $identified_root_person_responsible[$key],
                 'identified_root_completion_date' => $identified_root_completion_date[$key],
                 'identified_attachments' => $identified_attachments[$key],
-                'identified_root_acceptable_review' => $identified_attachments[$key],
-                'identified_root_acceptable_remarks_review' => $identified_attachments[$key],
+                'identified_root_acceptable_review' => $identified_root_acceptable_review[$key],
+                'identified_root_acceptable_remarks_review' => $identified_root_acceptable_remarks_review[$key],
                 'identified_root_acceptable_approval' => $identified_root_acceptable_approval[$key],
                 'identified_root_acceptable_remarks_approval' => $identified_root_acceptable_remarks_approval[$key],
                 'identified_root_acceptable_verification' => $identified_root_acceptable_verification[$key],
@@ -1064,7 +1064,7 @@ class car extends CI_Controller {
         $opportunity_number_acceptable_remarks_approval = $this->input->post('opportunity_number_acceptable_remarks_approval');
 
         $opportunity_number_acceptable_verification = $this->input->post('opportunity_number_acceptable_verification');
-        $opportunity_number_acceptable_remarks_verification = $this->input->post('opportunity_number_acceptable_remarks_review');
+        $opportunity_number_acceptable_remarks_verification = $this->input->post('opportunity_number_acceptable_remarks_verification');
 
         $opportunity_number_acceptable_validation = $this->input->post('opportunity_number_acceptable_validation');
         $opportunity_number_acceptable_remarks_validation = $this->input->post('opportunity_number_acceptable_remarks_validation');
@@ -1078,12 +1078,12 @@ class car extends CI_Controller {
                 'opportunity_attachments' => $opportunity_attachments[$key],
                 'opportunity_number_acceptable_review' => $opportunity_number_acceptable_review[$key],
                 'opportunity_number_acceptable_remarks_review' => $opportunity_number_acceptable_remarks_review[$key],
-                'opportunity_number_acceptable_approval' => $opportunity_number_acceptable_review[$key],
-                'opportunity_number_acceptable_remarks_approval' => $opportunity_number_acceptable_remarks_review[$key],
-                'opportunity_number_acceptable_verification' => $opportunity_number_acceptable_review[$key],
-                'opportunity_number_acceptable_remarks_verification' => $opportunity_number_acceptable_remarks_review[$key],
-                'opportunity_number_acceptable_validation' => $opportunity_number_acceptable_review[$key],
-                'opportunity_number_acceptable_remarks_validation' => $opportunity_number_acceptable_remarks_review[$key],
+                'opportunity_number_acceptable_approval' => $opportunity_number_acceptable_approval[$key],
+                'opportunity_number_acceptable_remarks_approval' => $opportunity_number_acceptable_remarks_approval[$key],
+                'opportunity_number_acceptable_verification' => $opportunity_number_acceptable_verification[$key],
+                'opportunity_number_acceptable_remarks_verification' => $opportunity_number_acceptable_remarks_verification[$key],
+                'opportunity_number_acceptable_validation' => $opportunity_number_acceptable_validation[$key],
+                'opportunity_number_acceptable_remarks_validation' => $opportunity_number_acceptable_remarks_validation[$key],
             );
         }
     
@@ -1155,8 +1155,8 @@ class car extends CI_Controller {
                 'identified_root_person_responsible' => $identified_root_person_responsible[$key],
                 'identified_root_completion_date' => $identified_root_completion_date[$key],
                 'identified_attachments' => $identified_attachments[$key],
-                'identified_root_acceptable_review' => $identified_attachments[$key],
-                'identified_root_acceptable_remarks_review' => $identified_attachments[$key],
+                'identified_root_acceptable_review' => $identified_root_acceptable_review[$key],
+                'identified_root_acceptable_remarks_review' => $identified_root_acceptable_remarks_review[$key],
                 'identified_root_acceptable_approval' => $identified_root_acceptable_approval[$key],
                 'identified_root_acceptable_remarks_approval' => $identified_root_acceptable_remarks_approval[$key],
                 'identified_root_acceptable_verification' => $identified_root_acceptable_verification[$key],
@@ -1266,7 +1266,7 @@ class car extends CI_Controller {
         $opportunity_number_acceptable_remarks_approval = $this->input->post('opportunity_number_acceptable_remarks_approval');
 
         $opportunity_number_acceptable_verification = $this->input->post('opportunity_number_acceptable_verification');
-        $opportunity_number_acceptable_remarks_verification = $this->input->post('opportunity_number_acceptable_remarks_review');
+        $opportunity_number_acceptable_remarks_verification = $this->input->post('opportunity_number_acceptable_remarks_verification');
 
         $opportunity_number_acceptable_validation = $this->input->post('opportunity_number_acceptable_validation');
         $opportunity_number_acceptable_remarks_validation = $this->input->post('opportunity_number_acceptable_remarks_validation');
@@ -1280,12 +1280,12 @@ class car extends CI_Controller {
                 'opportunity_attachments' => $opportunity_attachments[$key],
                 'opportunity_number_acceptable_review' => $opportunity_number_acceptable_review[$key],
                 'opportunity_number_acceptable_remarks_review' => $opportunity_number_acceptable_remarks_review[$key],
-                'opportunity_number_acceptable_approval' => $opportunity_number_acceptable_review[$key],
-                'opportunity_number_acceptable_remarks_approval' => $opportunity_number_acceptable_remarks_review[$key],
-                'opportunity_number_acceptable_verification' => $opportunity_number_acceptable_review[$key],
-                'opportunity_number_acceptable_remarks_verification' => $opportunity_number_acceptable_remarks_review[$key],
-                'opportunity_number_acceptable_validation' => $opportunity_number_acceptable_review[$key],
-                'opportunity_number_acceptable_remarks_validation' => $opportunity_number_acceptable_remarks_review[$key],
+                'opportunity_number_acceptable_approval' => $opportunity_number_acceptable_approval[$key],
+                'opportunity_number_acceptable_remarks_approval' => $opportunity_number_acceptable_remarks_approval[$key],
+                'opportunity_number_acceptable_verification' => $opportunity_number_acceptable_verification[$key],
+                'opportunity_number_acceptable_remarks_verification' => $opportunity_number_acceptable_remarks_verification[$key],
+                'opportunity_number_acceptable_validation' => $opportunity_number_acceptable_validation[$key],
+                'opportunity_number_acceptable_remarks_validation' => $opportunity_number_acceptable_remarks_validation[$key],
             );
         }
     
@@ -1357,8 +1357,8 @@ class car extends CI_Controller {
                 'identified_root_person_responsible' => $identified_root_person_responsible[$key],
                 'identified_root_completion_date' => $identified_root_completion_date[$key],
                 'identified_attachments' => $identified_attachments[$key],
-                'identified_root_acceptable_review' => $identified_attachments[$key],
-                'identified_root_acceptable_remarks_review' => $identified_attachments[$key],
+                'identified_root_acceptable_review' => $identified_root_acceptable_review[$key],
+                'identified_root_acceptable_remarks_review' => $identified_root_acceptable_remarks_review[$key],
                 'identified_root_acceptable_approval' => $identified_root_acceptable_approval[$key],
                 'identified_root_acceptable_remarks_approval' => $identified_root_acceptable_remarks_approval[$key],
                 'identified_root_acceptable_verification' => $identified_root_acceptable_verification[$key],
