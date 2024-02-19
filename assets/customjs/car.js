@@ -1259,8 +1259,8 @@ var car = {
                             $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
                             $('input[name="opportunity_identified_yn"][value="'+ response[0].opportunity_identified +'"]').prop('checked', true);
 
-                            $('#existing_nonconformity_remarks').val(response[0].existing_nonconformity_remarks);
-                            $('#update_doc_info_remarks').val(response[0].update_doc_info_remarks);
+                            $('[name="existing_nonconformity_remarks"]').val(response[0].existing_nonconformity_remarks);
+                            $('[name="update_doc_info_remarks"]').val(response[0].update_doc_info_remarks);
 
                             var riskEntries = JSON.parse(response[0].risk_entry);
 
@@ -1792,8 +1792,8 @@ var car = {
                             $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
                             $('input[name="opportunity_identified_yn"][value="'+ response[0].opportunity_identified +'"]').prop('checked', true);
 
-                            $('#existing_nonconformity_remarks').val(response[0].existing_nonconformity_remarks);
-                            $('#update_doc_info_remarks').val(response[0].update_doc_info_remarks);
+                            $('[name="existing_nonconformity_remarks"]').val(response[0].existing_nonconformity_remarks);
+                            $('[name="update_doc_info_remarks"]').val(response[0].update_doc_info_remarks);
 
                             var riskEntries = JSON.parse(response[0].risk_entry);
 
@@ -2248,8 +2248,8 @@ var car = {
                             $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
                             $('input[name="opportunity_identified_yn"][value="'+ response[0].opportunity_identified +'"]').prop('checked', true);
         
-                            $('#existing_nonconformity_remarks').val(response[0].existing_nonconformity_remarks);
-                            $('#update_doc_info_remarks').val(response[0].update_doc_info_remarks);
+                            $('[name="existing_nonconformity_remarks"]').val(response[0].existing_nonconformity_remarks);
+                            $('[name="update_doc_info_remarks"]').val(response[0].update_doc_info_remarks);
         
                             var riskEntries = JSON.parse(response[0].risk_entry);
         
@@ -2704,8 +2704,8 @@ var car = {
                             $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
                             $('input[name="opportunity_identified_yn"][value="'+ response[0].opportunity_identified +'"]').prop('checked', true);
         
-                            $('#existing_nonconformity_remarks').val(response[0].existing_nonconformity_remarks);
-                            $('#update_doc_info_remarks').val(response[0].update_doc_info_remarks);
+                            $('[name="existing_nonconformity_remarks"]').val(response[0].existing_nonconformity_remarks);
+                            $('[name="update_doc_info_remarks"]').val(response[0].update_doc_info_remarks);
         
                             var riskEntries = JSON.parse(response[0].risk_entry);
         
@@ -3160,8 +3160,8 @@ var car = {
                             $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
                             $('input[name="opportunity_identified_yn"][value="'+ response[0].opportunity_identified +'"]').prop('checked', true);
         
-                            $('#existing_nonconformity_remarks').val(response[0].existing_nonconformity_remarks);
-                            $('#update_doc_info_remarks').val(response[0].update_doc_info_remarks);
+                            $('[name="existing_nonconformity_remarks"]').val(response[0].existing_nonconformity_remarks);
+                            $('[name="update_doc_info_remarks"]').val(response[0].update_doc_info_remarks);
         
                             var riskEntries = JSON.parse(response[0].risk_entry);
         
