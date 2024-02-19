@@ -460,17 +460,17 @@ var car = {
                         correctionEntries.forEach(function (correction) {
 
 
-                            var approval = correction.correction_acceptable_approval[count] !== undefined ? correction.correction_acceptable_approval[count] : '';
-                            var verification = correction.correction_acceptable_verification[count] !== undefined ? correction.correction_acceptable_verification[count] : '';
-                            var validation = correction.correction_acceptable_validation[count] !== undefined ? correction.correction_acceptable_validation[count] : '';
+                            var approval = Array.isArray(correction.correction_acceptable_approval) && correction.correction_acceptable_approval[count] !== undefined ? correction.correction_acceptable_approval[count] : '';
+                            var verification = Array.isArray(correction.correction_acceptable_verification) && correction.correction_acceptable_verification[count] !== undefined ? correction.correction_acceptable_verification[count] : '';
+                            var validation = Array.isArray(correction.correction_acceptable_validation) && correction.correction_acceptable_validation[count] !== undefined ? correction.correction_acceptable_validation[count] : '';
                             
-                            var approval_remarks = correction.correction_acceptable_remarks_approval[count] !== undefined ? correction.correction_acceptable_remarks_approval[count] : '';
-                            var verification_remarks = correction.correction_acceptable_remarks_verification[count] !== undefined ? correction.correction_acceptable_remarks_verification[count] : '';
-                            var validation_remarks = correction.correction_acceptable_remarks_validation[count] !== undefined ? correction.correction_acceptable_remarks_validation[count] : '';
+                            var approval_remarks = Array.isArray(correction.correction_acceptable_remarks_approval) && correction.correction_acceptable_remarks_approval[count] !== undefined ? correction.correction_acceptable_remarks_approval[count] : '';
+                            var verification_remarks = Array.isArray(correction.correction_acceptable_remarks_verification) && correction.correction_acceptable_remarks_verification[count] !== undefined ? correction.correction_acceptable_remarks_verification[count] : '';
+                            var validation_remarks = Array.isArray(correction.correction_acceptable_remarks_validation) && correction.correction_acceptable_remarks_validation[count] !== undefined ? correction.correction_acceptable_remarks_validation[count] : '';
 
 
-                            var reviewValue = correction.correction_acceptable_review[count] !== undefined ? correction.correction_acceptable_review[count] : ''; // Added
-                            var remarksReview = correction.correction_acceptable_remarks_review[count] !== undefined ? correction.correction_acceptable_remarks_review[count] : ''; // Added
+                            var reviewValue = Array.isArray(correction.correction_acceptable_review) && correction.correction_acceptable_review[count] !== undefined ? correction.correction_acceptable_review[count] : ''; // Added
+                            var remarksReview = Array.isArray(correction.correction_acceptable_remarks_review) && correction.correction_acceptable_remarks_review[count] !== undefined ? correction.correction_acceptable_remarks_review[count] : ''; // Added
 
                             var correctionHtml = `
                                 <div class="col-lg-12 correction-repeatable added-repeat">
