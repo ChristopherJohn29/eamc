@@ -3843,12 +3843,102 @@ var car = {
         jQuery('#saveRootFR').click(function(e){
             e.preventDefault();
 
-            var formData = new FormData($("#root_cause_form")[0]);
+            var formData = new FormData($("#root_cause_form_review")[0]);
 
             // Make an AJAX request to submit the form data
             $.ajax({
                 type: "POST", // or "GET" depending on your server-side handling
                 url: "../car/saveRootFR", // Replace with your server-side endpoint
+                data: formData,
+                processData: false,  // Prevent jQuery from processing the data
+                contentType: false,
+                success: function (response) {
+                    // Handle the response from the server
+                    if(response == 'saved'){
+                        car.notifySuccess();
+                        car.load();
+                        $('#root_cause_form')[0].reset();
+                        $('#root-cause').modal('hide');
+                    } else {
+                        car.notifyError();
+                    }
+                },
+                error: function () {
+                    // Handle errors
+                    car.notifyError();
+                }
+            });
+        });
+
+        jQuery('#saveRootFA').click(function(e){
+            e.preventDefault();
+
+            var formData = new FormData($("#root_cause_form_approval")[0]);
+
+            // Make an AJAX request to submit the form data
+            $.ajax({
+                type: "POST", // or "GET" depending on your server-side handling
+                url: "../car/saveRootFA", // Replace with your server-side endpoint
+                data: formData,
+                processData: false,  // Prevent jQuery from processing the data
+                contentType: false,
+                success: function (response) {
+                    // Handle the response from the server
+                    if(response == 'saved'){
+                        car.notifySuccess();
+                        car.load();
+                        $('#root_cause_form')[0].reset();
+                        $('#root-cause').modal('hide');
+                    } else {
+                        car.notifyError();
+                    }
+                },
+                error: function () {
+                    // Handle errors
+                    car.notifyError();
+                }
+            });
+        });
+
+        jQuery('#saveRootFV').click(function(e){
+            e.preventDefault();
+
+            var formData = new FormData($("#root_cause_form_verification")[0]);
+
+            // Make an AJAX request to submit the form data
+            $.ajax({
+                type: "POST", // or "GET" depending on your server-side handling
+                url: "../car/saveRootFV", // Replace with your server-side endpoint
+                data: formData,
+                processData: false,  // Prevent jQuery from processing the data
+                contentType: false,
+                success: function (response) {
+                    // Handle the response from the server
+                    if(response == 'saved'){
+                        car.notifySuccess();
+                        car.load();
+                        $('#root_cause_form')[0].reset();
+                        $('#root-cause').modal('hide');
+                    } else {
+                        car.notifyError();
+                    }
+                },
+                error: function () {
+                    // Handle errors
+                    car.notifyError();
+                }
+            });
+        });
+
+        jQuery('#saveRootFVA').click(function(e){
+            e.preventDefault();
+
+            var formData = new FormData($("#root_cause_form_validation")[0]);
+
+            // Make an AJAX request to submit the form data
+            $.ajax({
+                type: "POST", // or "GET" depending on your server-side handling
+                url: "../car/saveRootFVA", // Replace with your server-side endpoint
                 data: formData,
                 processData: false,  // Prevent jQuery from processing the data
                 contentType: false,
