@@ -759,9 +759,9 @@ class car extends CI_Controller {
                 'identified_root_acceptable_remarks_verification' => $identified_root_acceptable_remarks_verification[$key],
                 'identified_root_acceptable_validation' => $identified_root_acceptable_validation[$key],
                 'identified_root_acceptable_remarks_validation' => $identified_root_acceptable_remarks_validation[$key],
-                'tpn_issued_by' => $tpn_issued_by[$key],
-                'tpn_issued_to' => $tpn_issued_to[$key],
-                'tpn_section' => $tpn_section[$key]
+                'tpn_issued_by' => isset($tpn_issued_by[$key]) ? $tpn_issued_by[$key] : "",
+                'tpn_issued_to' => isset($tpn_issued_to[$key]) ? $tpn_issued_to[$key] : "",
+                'tpn_section' => isset($tpn_section[$key]) ? $tpn_section[$key] : "",
             );
         }
     
@@ -961,9 +961,9 @@ class car extends CI_Controller {
                 'identified_root_acceptable_remarks_verification' => $identified_root_acceptable_remarks_verification[$key],
                 'identified_root_acceptable_validation' => $identified_root_acceptable_validation[$key],
                 'identified_root_acceptable_remarks_validation' => $identified_root_acceptable_remarks_validation[$key],
-                'tpn_issued_by' => $tpn_issued_by[$key],
-                'tpn_issued_to' => $tpn_issued_to[$key],
-                'tpn_section' => $tpn_section[$key]
+                'tpn_issued_by' => isset($tpn_issued_by[$key]) ? $tpn_issued_by[$key] : "",
+                'tpn_issued_to' => isset($tpn_issued_to[$key]) ? $tpn_issued_to[$key] : "",
+                'tpn_section' => isset($tpn_section[$key]) ? $tpn_section[$key] : "",
             );
         }
     
@@ -1163,9 +1163,9 @@ class car extends CI_Controller {
                 'identified_root_acceptable_remarks_verification' => $identified_root_acceptable_remarks_verification[$key],
                 'identified_root_acceptable_validation' => $identified_root_acceptable_validation[$key],
                 'identified_root_acceptable_remarks_validation' => $identified_root_acceptable_remarks_validation[$key],
-                'tpn_issued_by' => $tpn_issued_by[$key],
-                'tpn_issued_to' => $tpn_issued_to[$key],
-                'tpn_section' => $tpn_section[$key]
+                'tpn_issued_by' => isset($tpn_issued_by[$key]) ? $tpn_issued_by[$key] : "",
+                'tpn_issued_to' => isset($tpn_issued_to[$key]) ? $tpn_issued_to[$key] : "",
+                'tpn_section' => isset($tpn_section[$key]) ? $tpn_section[$key] : "",
             );
         }
     
@@ -1365,9 +1365,9 @@ class car extends CI_Controller {
                 'identified_root_acceptable_remarks_verification' => $identified_root_acceptable_remarks_verification[$key],
                 'identified_root_acceptable_validation' => $identified_root_acceptable_validation[$key],
                 'identified_root_acceptable_remarks_validation' => $identified_root_acceptable_remarks_validation[$key],
-                'tpn_issued_by' => $tpn_issued_by[$key],
-                'tpn_issued_to' => $tpn_issued_to[$key],
-                'tpn_section' => $tpn_section[$key]
+                'tpn_issued_by' => isset($tpn_issued_by[$key]) ? $tpn_issued_by[$key] : "",
+                'tpn_issued_to' => isset($tpn_issued_to[$key]) ? $tpn_issued_to[$key] : "",
+                'tpn_section' => isset($tpn_section[$key]) ? $tpn_section[$key] : "",
             );
         }
     
@@ -1532,9 +1532,9 @@ class car extends CI_Controller {
                 'identified_root_person_responsible' => $identified_root_person_responsible[$key],
                 'identified_root_completion_date' => $identified_root_completion_date[$key],
                 'identified_attachments' => $identified_attachments['identified_root_attachment_attachment'][$key],
-                'tpn_issued_by' => $tpn_issued_by[$key],
-                'tpn_issued_to' => $tpn_issued_to[$key],
-                'tpn_section' => $tpn_section[$key]
+                'tpn_issued_by' => isset($tpn_issued_by[$key]) ? $tpn_issued_by[$key] : "",
+                'tpn_issued_to' => isset($tpn_issued_to[$key]) ? $tpn_issued_to[$key] : "",
+                'tpn_section' => isset($tpn_section[$key]) ? $tpn_section[$key] : "",
             );
         }
     
