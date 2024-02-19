@@ -472,6 +472,9 @@ var car = {
                             var reviewValue = Array.isArray(correction.correction_acceptable_review) && correction.correction_acceptable_review[count] !== undefined ? correction.correction_acceptable_review[count] : ''; // Added
                             var remarksReview = Array.isArray(correction.correction_acceptable_remarks_review) && correction.correction_acceptable_remarks_review[count] !== undefined ? correction.correction_acceptable_remarks_review[count] : ''; // Added
 
+                            console.log(reviewValue);
+                            console.log(remarksReview);
+
                             var correctionHtml = `
                                 <div class="col-lg-12 correction-repeatable added-repeat">
                                     <div class="card">
