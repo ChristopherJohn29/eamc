@@ -459,7 +459,7 @@ var car = {
                         // Loop through correction entries and create HTML for each entry
                         correctionEntries.forEach(function (correction) {
 
-                            var correction = JSON.parse(correction);
+                            console.log(correction.correction_acceptable_review);
 
                             var approval = Array.isArray(correction.correction_acceptable_approval) && correction.correction_acceptable_approval[count] !== undefined ? correction.correction_acceptable_approval[count] : '';
                             var verification = Array.isArray(correction.correction_acceptable_verification) && correction.correction_acceptable_verification[count] !== undefined ? correction.correction_acceptable_verification[count] : '';
