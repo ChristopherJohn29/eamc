@@ -1105,7 +1105,7 @@
                            <div class="form-group col-md-12">
                               <label for="approval_action_root_cause_analysis" class="form-label">Review of Action and Root Cause Analysis</label>
                               <select class="form-select approval_action_root_cause_analysis" name="approval_action_root_cause_analysis">
-                                 <option value="For Approval">For Verification</option>
+                                 <option value="For Verification">For Verification</option>
                                  <option value="For Revision">For Revision</option>
                               </select>
                            </div>
@@ -1373,7 +1373,7 @@
                            <div class="form-group col-md-12">
                               <label for="verification_action_root_cause_analysis" class="form-label">Review of Action and Root Cause Analysis</label>
                               <select class="form-select verification_action_root_cause_analysis" name="verification_action_root_cause_analysis">
-                                 <option value="For Approval">For Validation</option>
+                                 <option value="For Validation">For Validation</option>
                                  <option value="For Revision">For Revision</option>
                               </select>
                            </div>
@@ -1641,7 +1641,7 @@
                            <div class="form-group col-md-12">
                               <label for="validation_action_root_cause_analysis" class="form-label">Review of Action and Root Cause Analysis</label>
                               <select class="form-select validation_action_root_cause_analysis" name="validation_action_root_cause_analysis">
-                                 <option value="For Approval">Recommended for Closure</option>
+                                 <option value="For Closure">Recommended for Closure</option>
                                  <option value="For Revision">For Revision</option>
                               </select>
                            </div>
