@@ -541,17 +541,17 @@ var car = {
                         // Loop through correction entries and create HTML for each entry
                         consequenceEntries.forEach(function (consequence) {
 
-                            var approval = consequence.consequence_acceptable_approval[count] !== undefined ? consequence.consequence_acceptable_approval[count] : '';
-                            var verification = consequence.consequence_acceptable_verification[count] !== undefined ? consequence.consequence_acceptable_verification[count] : '';
-                            var validation = consequence.consequence_acceptable_validation[count] !== undefined ? consequence.consequence_acceptable_validation[count] : '';
+                            var approval = Array.isArray(consequence.consequence_acceptable_approval) && consequence.consequence_acceptable_approval[count] !== undefined ? consequence.consequence_acceptable_approval[count] : '';
+                            var verification = Array.isArray(consequence.consequence_acceptable_verification) && consequence.consequence_acceptable_verification[count] !== undefined ? consequence.consequence_acceptable_verification[count] : '';
+                            var validation = Array.isArray(consequence.consequence_acceptable_validation) && consequence.consequence_acceptable_validation[count] !== undefined ? consequence.consequence_acceptable_validation[count] : '';
 
-                            var approval_remarks = consequence.consequence_acceptable_remarks_approval[count] !== undefined ? consequence.consequence_acceptable_remarks_approval[count] : '';
-                            var verification_remarks = consequence.consequence_acceptable_remarks_verification[count] !== undefined ? consequence.consequence_acceptable_remarks_verification[count] : '';
-                            var validation_remarks = consequence.consequence_acceptable_remarks_validation[count] !== undefined ? consequence.consequence_acceptable_remarks_validation[count] : '';
+                            var approval_remarks = Array.isArray(consequence.consequence_acceptable_remarks_approval) && consequence.consequence_acceptable_remarks_approval[count] !== undefined ? consequence.consequence_acceptable_remarks_approval[count] : '';
+                            var verification_remarks = Array.isArray(consequence.consequence_acceptable_remarks_verification) && consequence.consequence_acceptable_remarks_verification[count] !== undefined ? consequence.consequence_acceptable_remarks_verification[count] : '';
+                            var validation_remarks = Array.isArray(consequence.consequence_acceptable_remarks_validation) && consequence.consequence_acceptable_remarks_validation[count] !== undefined ? consequence.consequence_acceptable_remarks_validation[count] : '';
 
 
-                            var reviewValue = consequence.consequence_acceptable_review[count] !== undefined ? consequence.consequence_acceptable_review[count] : ''; // Added
-                            var remarksReview = consequence.consequence_acceptable_remarks_review[count] !== undefined ? consequence.consequence_acceptable_remarks_review[count] : ''; // Added
+                            var reviewValue = Array.isArray(consequence.consequence_acceptable_review) && consequence.consequence_acceptable_review[count] !== undefined ? consequence.consequence_acceptable_review[count] : ''; // Added
+                            var remarksReview = Array.isArray(consequence.consequence_acceptable_remarks_review) && consequence.consequence_acceptable_remarks_review[count] !== undefined ? consequence.consequence_acceptable_remarks_review[count] : ''; // Added
 
                             var consequenceHtml = `
                                 <div class="col-lg-12 consequences-repeatable added-repeat">
@@ -661,17 +661,17 @@ var car = {
                         correctionEntries.forEach(function (correction) {
         
         
-                            var review = correction.correction_acceptable_review[count] !== undefined ? correction.correction_acceptable_review[count] : '';
-                            var verification = correction.correction_acceptable_verification[count] !== undefined ? correction.correction_acceptable_verification[count] : '';
-                            var validation = correction.correction_acceptable_validation[count] !== undefined ? correction.correction_acceptable_validation[count] : '';
+                            var review = Array.isArray(correction.correction_acceptable_review) && correction.correction_acceptable_review[count] !== undefined ? correction.correction_acceptable_review[count] : '';
+                            var verification = Array.isArray(correction.correction_acceptable_verification) && correction.correction_acceptable_verification[count] !== undefined ? correction.correction_acceptable_verification[count] : '';
+                            var validation = Array.isArray(correction.correction_acceptable_validation) && correction.correction_acceptable_validation[count] !== undefined ? correction.correction_acceptable_validation[count] : '';
                             
-                            var review_remarks = correction.correction_acceptable_remarks_review[count] !== undefined ? correction.correction_acceptable_remarks_review[count] : '';
-                            var verification_remarks = correction.correction_acceptable_remarks_verification[count] !== undefined ? correction.correction_acceptable_remarks_verification[count] : '';
-                            var validation_remarks = correction.correction_acceptable_remarks_validation[count] !== undefined ? correction.correction_acceptable_remarks_validation[count] : '';
+                            var review_remarks = Array.isArray(correction.correction_acceptable_remarks_review) && correction.correction_acceptable_remarks_review[count] !== undefined ? correction.correction_acceptable_remarks_review[count] : '';
+                            var verification_remarks = Array.isArray(correction.correction_acceptable_remarks_verification) && correction.correction_acceptable_remarks_verification[count] !== undefined ? correction.correction_acceptable_remarks_verification[count] : '';
+                            var validation_remarks = Array.isArray(correction.correction_acceptable_remarks_validation) && correction.correction_acceptable_remarks_validation[count] !== undefined ? correction.correction_acceptable_remarks_validation[count] : '';
         
         
-                            var approvalValue = correction.correction_acceptable_approval[count] !== undefined ? correction.correction_acceptable_approval[count] : ''; // Added
-                            var remarksReview = correction.correction_acceptable_remarks_approval[count] !== undefined ? correction.correction_acceptable_remarks_approval[count] : ''; // Added
+                            var approvalValue = Array.isArray(correction.correction_acceptable_approval) && correction.correction_acceptable_approval[count] !== undefined ? correction.correction_acceptable_approval[count] : ''; // Added
+                            var remarksReview = Array.isArray(correction.correction_acceptable_remarks_approval) && correction.correction_acceptable_remarks_approval[count] !== undefined ? correction.correction_acceptable_remarks_approval[count] : ''; // Added
         
                             var correctionHtml = `
                                 <div class="col-lg-12 correction-repeatable added-repeat">
@@ -742,17 +742,17 @@ var car = {
                         // Loop through correction entries and create HTML for each entry
                         consequenceEntries.forEach(function (consequence) {
         
-                            var review = consequence.consequence_acceptable_review[count] !== undefined ? consequence.consequence_acceptable_review[count] : '';
-                            var verification = consequence.consequence_acceptable_verification[count] !== undefined ? consequence.consequence_acceptable_verification[count] : '';
-                            var validation = consequence.consequence_acceptable_validation[count] !== undefined ? consequence.consequence_acceptable_validation[count] : '';
+                            var review = Array.isArray(consequence.consequence_acceptable_review) && consequence.consequence_acceptable_review[count] !== undefined ? consequence.consequence_acceptable_review[count] : '';
+                            var verification = Array.isArray(consequence.consequence_acceptable_verification) && consequence.consequence_acceptable_verification[count] !== undefined ? consequence.consequence_acceptable_verification[count] : '';
+                            var validation = Array.isArray(consequence.consequence_acceptable_validation) && consequence.consequence_acceptable_validation[count] !== undefined ? consequence.consequence_acceptable_validation[count] : '';
         
-                            var review_remarks = consequence.consequence_acceptable_remarks_review[count] !== undefined ? consequence.consequence_acceptable_remarks_review[count] : '';
-                            var verification_remarks = consequence.consequence_acceptable_remarks_verification[count] !== undefined ? consequence.consequence_acceptable_remarks_verification[count] : '';
-                            var validation_remarks = consequence.consequence_acceptable_remarks_validation[count] !== undefined ? consequence.consequence_acceptable_remarks_validation[count] : '';
+                            var review_remarks = Array.isArray(consequence.consequence_acceptable_remarks_review) && consequence.consequence_acceptable_remarks_review[count] !== undefined ? consequence.consequence_acceptable_remarks_review[count] : '';
+                            var verification_remarks = Array.isArray(consequence.consequence_acceptable_remarks_verification) && consequence.consequence_acceptable_remarks_verification[count] !== undefined ? consequence.consequence_acceptable_remarks_verification[count] : '';
+                            var validation_remarks = Array.isArray(consequence.consequence_acceptable_remarks_validation) && consequence.consequence_acceptable_remarks_validation[count] !== undefined ? consequence.consequence_acceptable_remarks_validation[count] : '';
         
         
-                            var approvalValue = consequence.consequence_acceptable_approval[count] !== undefined ? consequence.consequence_acceptable_approval[count] : ''; // Added
-                            var remarksReview = consequence.consequence_acceptable_remarks_approval[count] !== undefined ? consequence.consequence_acceptable_remarks_approval[count] : ''; // Added
+                            var approvalValue = Array.isArray(consequence.consequence_acceptable_approval) && consequence.consequence_acceptable_approval[count] !== undefined ? consequence.consequence_acceptable_approval[count] : ''; // Added
+                            var remarksReview = Array.isArray(consequence.consequence_acceptable_remarks_approval) && consequence.consequence_acceptable_remarks_approval[count] !== undefined ? consequence.consequence_acceptable_remarks_approval[count] : ''; // Added
         
                             var consequenceHtml = `
                                 <div class="col-lg-12 consequences-repeatable added-repeat">
@@ -862,17 +862,17 @@ var car = {
                         correctionEntries.forEach(function (correction) {
         
         
-                            var review = correction.correction_acceptable_review[count] !== undefined ? correction.correction_acceptable_review[count] : '';
-                            var approval = correction.correction_acceptable_approval[count] !== undefined ? correction.correction_acceptable_approval[count] : '';
-                            var validation = correction.correction_acceptable_validation[count] !== undefined ? correction.correction_acceptable_validation[count] : '';
+                            var review = Array.isArray(correction.correction_acceptable_review) && correction.correction_acceptable_review[count] !== undefined ? correction.correction_acceptable_review[count] : '';
+                            var approval = Array.isArray(correction.correction_acceptable_approval) && correction.correction_acceptable_approval[count] !== undefined ? correction.correction_acceptable_approval[count] : '';
+                            var validation = Array.isArray(correction.correction_acceptable_validation) && correction.correction_acceptable_validation[count] !== undefined ? correction.correction_acceptable_validation[count] : '';
                             
-                            var review_remarks = correction.correction_acceptable_remarks_review[count] !== undefined ? correction.correction_acceptable_remarks_review[count] : '';
-                            var approval_remarks = correction.correction_acceptable_remarks_approval[count] !== undefined ? correction.correction_acceptable_remarks_approval[count] : '';
-                            var validation_remarks = correction.correction_acceptable_remarks_validation[count] !== undefined ? correction.correction_acceptable_remarks_validation[count] : '';
+                            var review_remarks = Array.isArray(correction.correction_acceptable_remarks_review) && correction.correction_acceptable_remarks_review[count] !== undefined ? correction.correction_acceptable_remarks_review[count] : '';
+                            var approval_remarks = Array.isArray(correction.correction_acceptable_remarks_approval) && correction.correction_acceptable_remarks_approval[count] !== undefined ? correction.correction_acceptable_remarks_approval[count] : '';
+                            var validation_remarks = Array.isArray(correction.correction_acceptable_remarks_validation) && correction.correction_acceptable_remarks_validation[count] !== undefined ? correction.correction_acceptable_remarks_validation[count] : '';
         
         
-                            var verificationValue = correction.correction_acceptable_verification[count] !== undefined ? correction.correction_acceptable_verification[count] : ''; // Added
-                            var remarksReview = correction.correction_acceptable_remarks_verification[count] !== undefined ? correction.correction_acceptable_remarks_verification[count] : ''; // Added
+                            var verificationValue = Array.isArray(correction.correction_acceptable_verification) && correction.correction_acceptable_verification[count] !== undefined ? correction.correction_acceptable_verification[count] : ''; // Added
+                            var remarksReview = Array.isArray(correction.correction_acceptable_remarks_verification) && correction.correction_acceptable_remarks_verification[count] !== undefined ? correction.correction_acceptable_remarks_verification[count] : ''; // Added
         
                             var correctionHtml = `
                                 <div class="col-lg-12 correction-repeatable added-repeat">
@@ -943,17 +943,17 @@ var car = {
                         // Loop through correction entries and create HTML for each entry
                         consequenceEntries.forEach(function (consequence) {
         
-                            var review = consequence.consequence_acceptable_review[count] !== undefined ? consequence.consequence_acceptable_review[count] : '';
-                            var approval = consequence.consequence_acceptable_approval[count] !== undefined ? consequence.consequence_acceptable_approval[count] : '';
-                            var validation = consequence.consequence_acceptable_validation[count] !== undefined ? consequence.consequence_acceptable_validation[count] : '';
+                            var review = Array.isArray(consequence.consequence_acceptable_review) && consequence.consequence_acceptable_review[count] !== undefined ? consequence.consequence_acceptable_review[count] : '';
+                            var approval = Array.isArray(consequence.consequence_acceptable_approval) && consequence.consequence_acceptable_approval[count] !== undefined ? consequence.consequence_acceptable_approval[count] : '';
+                            var validation = Array.isArray(consequence.consequence_acceptable_validation) && consequence.consequence_acceptable_validation[count] !== undefined ? consequence.consequence_acceptable_validation[count] : '';
         
-                            var review_remarks = consequence.consequence_acceptable_remarks_review[count] !== undefined ? consequence.consequence_acceptable_remarks_review[count] : '';
-                            var approval_remarks = consequence.consequence_acceptable_remarks_approval[count] !== undefined ? consequence.consequence_acceptable_remarks_approval[count] : '';
-                            var validation_remarks = consequence.consequence_acceptable_remarks_validation[count] !== undefined ? consequence.consequence_acceptable_remarks_validation[count] : '';
+                            var review_remarks = Array.isArray(consequence.consequence_acceptable_remarks_review) && consequence.consequence_acceptable_remarks_review[count] !== undefined ? consequence.consequence_acceptable_remarks_review[count] : '';
+                            var approval_remarks = Array.isArray(consequence.consequence_acceptable_remarks_approval) && consequence.consequence_acceptable_remarks_approval[count] !== undefined ? consequence.consequence_acceptable_remarks_approval[count] : '';
+                            var validation_remarks = Array.isArray(consequence.consequence_acceptable_remarks_validation) && consequence.consequence_acceptable_remarks_validation[count] !== undefined ? consequence.consequence_acceptable_remarks_validation[count] : '';
         
         
-                            var verificationValue = consequence.consequence_acceptable_verification[count] !== undefined ? consequence.consequence_acceptable_verification[count] : ''; // Added
-                            var remarksReview = consequence.consequence_acceptable_remarks_verification[count] !== undefined ? consequence.consequence_acceptable_remarks_verification[count] : ''; // Added
+                            var verificationValue = Array.isArray(consequence.consequence_acceptable_verification) && consequence.consequence_acceptable_verification[count] !== undefined ? consequence.consequence_acceptable_verification[count] : ''; // Added
+                            var remarksReview = Array.isArray(consequence.consequence_acceptable_remarks_verification) && consequence.consequence_acceptable_remarks_verification[count] !== undefined ? consequence.consequence_acceptable_remarks_verification[count] : ''; // Added
         
                             var consequenceHtml = `
                                 <div class="col-lg-12 consequences-repeatable added-repeat">
@@ -1064,17 +1064,17 @@ var car = {
                         correctionEntries.forEach(function (correction) {
         
         
-                            var review = correction.correction_acceptable_review[count] !== undefined ? correction.correction_acceptable_review[count] : '';
-                            var approval = correction.correction_acceptable_approval[count] !== undefined ? correction.correction_acceptable_approval[count] : '';
-                            var verification = correction.correction_acceptable_verification[count] !== undefined ? correction.correction_acceptable_validation[count] : '';
+                            var review = Array.isArray(correction.correction_acceptable_review) && correction.correction_acceptable_review[count] !== undefined ? correction.correction_acceptable_review[count] : '';
+                            var approval = Array.isArray(correction.correction_acceptable_approval) && correction.correction_acceptable_approval[count] !== undefined ? correction.correction_acceptable_approval[count] : '';
+                            var verification = Array.isArray(correction.correction_acceptable_verification) && correction.correction_acceptable_verification[count] !== undefined ? correction.correction_acceptable_validation[count] : '';
                             
-                            var review_remarks = correction.correction_acceptable_remarks_review[count] !== undefined ? correction.correction_acceptable_remarks_review[count] : '';
-                            var approval_remarks = correction.correction_acceptable_remarks_approval[count] !== undefined ? correction.correction_acceptable_remarks_approval[count] : '';
-                            var verification_remarks = correction.correction_acceptable_remarks_verification[count] !== undefined ? correction.correction_acceptable_remarks_verification[count] : '';
+                            var review_remarks = Array.isArray(correction.correction_acceptable_remarks_review) && correction.correction_acceptable_remarks_review[count] !== undefined ? correction.correction_acceptable_remarks_review[count] : '';
+                            var approval_remarks = Array.isArray(correction.correction_acceptable_remarks_approval) && correction.correction_acceptable_remarks_approval[count] !== undefined ? correction.correction_acceptable_remarks_approval[count] : '';
+                            var verification_remarks = Array.isArray(correction.correction_acceptable_remarks_verification) && correction.correction_acceptable_remarks_verification[count] !== undefined ? correction.correction_acceptable_remarks_verification[count] : '';
         
         
-                            var validationValue = correction.correction_acceptable_validation[count] !== undefined ? correction.correction_acceptable_validation[count] : ''; // Added
-                            var remarksReview = correction.correction_acceptable_remarks_validation[count] !== undefined ? correction.correction_acceptable_remarks_validation[count] : ''; // Added
+                            var validationValue = Array.isArray(correction.correction_acceptable_validation) && correction.correction_acceptable_validation[count] !== undefined ? correction.correction_acceptable_validation[count] : ''; // Added
+                            var remarksReview = Array.isArray(correction.correction_acceptable_remarks_validation) && correction.correction_acceptable_remarks_validation[count] !== undefined ? correction.correction_acceptable_remarks_validation[count] : ''; // Added
         
                             var correctionHtml = `
                                 <div class="col-lg-12 correction-repeatable added-repeat">
@@ -1145,17 +1145,17 @@ var car = {
                         // Loop through correction entries and create HTML for each entry
                         consequenceEntries.forEach(function (consequence) {
         
-                            var review = consequence.consequence_acceptable_review[count] !== undefined ? consequence.consequence_acceptable_review[count] : '';
-                            var approval = consequence.consequence_acceptable_approval[count] !== undefined ? consequence.consequence_acceptable_approval[count] : '';
-                            var verification = consequence.consequence_acceptable_verification[count] !== undefined ? consequence.consequence_acceptable_verification[count] : '';
+                            var review = Array.isArray(consequence.consequence_acceptable_review) && consequence.consequence_acceptable_review[count] !== undefined ? consequence.consequence_acceptable_review[count] : '';
+                            var approval = Array.isArray(consequence.consequence_acceptable_approval) && consequence.consequence_acceptable_approval[count] !== undefined ? consequence.consequence_acceptable_approval[count] : '';
+                            var verification = Array.isArray(consequence.consequence_acceptable_verification) && consequence.consequence_acceptable_verification[count] !== undefined ? consequence.consequence_acceptable_verification[count] : '';
         
-                            var review_remarks = consequence.consequence_acceptable_remarks_review[count] !== undefined ? consequence.consequence_acceptable_remarks_review[count] : '';
-                            var approval_remarks = consequence.consequence_acceptable_remarks_approval[count] !== undefined ? consequence.consequence_acceptable_remarks_approval[count] : '';
-                            var verification_remarks = consequence.consequence_acceptable_remarks_verification[count] !== undefined ? consequence.consequence_acceptable_remarks_verification[count] : '';
+                            var review_remarks = Array.isArray(consequence.consequence_acceptable_remarks_review) && consequence.consequence_acceptable_remarks_review[count] !== undefined ? consequence.consequence_acceptable_remarks_review[count] : '';
+                            var approval_remarks = Array.isArray(consequence.consequence_acceptable_remarks_approval) && consequence.consequence_acceptable_remarks_approval[count] !== undefined ? consequence.consequence_acceptable_remarks_approval[count] : '';
+                            var verification_remarks = Array.isArray(consequence.consequence_acceptable_remarks_verification) && consequence.consequence_acceptable_remarks_verification[count] !== undefined ? consequence.consequence_acceptable_remarks_verification[count] : '';
         
         
-                            var validationValue = consequence.consequence_acceptable_validation[count] !== undefined ? consequence.consequence_acceptable_validation[count] : ''; // Added
-                            var remarksReview = consequence.consequence_acceptable_remarks_validation[count] !== undefined ? consequence.consequence_acceptable_remarks_validation[count] : ''; // Added
+                            var validationValue = Array.isArray(consequence.consequence_acceptable_validation) && consequence.consequence_acceptable_validation[count] !== undefined ? consequence.consequence_acceptable_validation[count] : ''; // Added
+                            var remarksReview = Array.isArray(consequence.consequence_acceptable_remarks_validation) && consequence.consequence_acceptable_remarks_validation[count] !== undefined ? consequence.consequence_acceptable_remarks_validation[count] : ''; // Added
         
                             var consequenceHtml = `
                                 <div class="col-lg-12 consequences-repeatable added-repeat">
@@ -1802,16 +1802,16 @@ var car = {
                             var count = 0;
                             riskEntries.forEach(function (risk) {
 
-                                var approval = risk.risk_number_acceptable_approval[count] !== undefined ? risk.risk_number_acceptable_approval[count] : '';
-                                var verification = risk.risk_number_acceptable_verification[count] !== undefined ? risk.risk_number_acceptable_verification[count] : '';
-                                var validation = risk.risk_number_acceptable_validation[count] !== undefined ? risk.risk_number_acceptable_validation[count] : ''
+                                var approval = Array.isArray(risk.risk_number_acceptable_approval) && risk.risk_number_acceptable_approval[count] !== undefined ? risk.risk_number_acceptable_approval[count] : '';
+                                var verification = Array.isArray(risk.risk_number_acceptable_verification) && risk.risk_number_acceptable_verification[count] !== undefined ? risk.risk_number_acceptable_verification[count] : '';
+                                var validation = Array.isArray(risk.risk_number_acceptable_validation) && risk.risk_number_acceptable_validation[count] !== undefined ? risk.risk_number_acceptable_validation[count] : ''
 
-                                var approval_remarks = risk.risk_number_acceptable_remarks_approval[count] !== undefined ? risk.risk_number_acceptable_remarks_approval[count] : '';
-                                var verification_remarks = risk.risk_number_acceptable_remarks_verification[count] !== undefined ? risk.risk_number_acceptable_remarks_verification[count] : '';
-                                var validation_remarks = risk.risk_number_acceptable_remarks_validation[count] !== undefined ? risk.risk_number_acceptable_remarks_validation[count] : '';
+                                var approval_remarks = Array.isArray(risk.risk_number_acceptable_remarks_approval) && risk.risk_number_acceptable_remarks_approval[count] !== undefined ? risk.risk_number_acceptable_remarks_approval[count] : '';
+                                var verification_remarks = Array.isArray(risk.risk_number_acceptable_remarks_verification) && risk.risk_number_acceptable_remarks_verification[count] !== undefined ? risk.risk_number_acceptable_remarks_verification[count] : '';
+                                var validation_remarks = Array.isArray(risk.risk_number_acceptable_remarks_validation) && risk.risk_number_acceptable_remarks_validation[count] !== undefined ? risk.risk_number_acceptable_remarks_validation[count] : '';
 
-                                var reviewValue = risk.risk_number_acceptable_review[count] !== undefined ? risk.risk_number_acceptable_review[count] : ''; // Added
-                                var remarksReview = risk.risk_number_acceptable_remarks_review[count] !== undefined ? risk.risk_number_acceptable_remarks_review[count] : ''; // Added
+                                var reviewValue = Array.isArray(risk.risk_number_acceptable_review) && risk.risk_number_acceptable_review[count] !== undefined ? risk.risk_number_acceptable_review[count] : ''; // Added
+                                var remarksReview = Array.isArray(risk.risk_number_acceptable_remarks_review) && risk.risk_number_acceptable_remarks_review[count] !== undefined ? risk.risk_number_acceptable_remarks_review[count] : ''; // Added
 
                                 var riskHtml = `
                                     <div class="col-lg-12 risk-number-repeatable">
@@ -1885,17 +1885,17 @@ var car = {
                             var count = 0;
                             opportunityEntries.forEach(function (opportunity) {
 
-                                var approval = opportunity.opportunity_number_acceptable_approval[count] !== undefined ? opportunity.risk_number_acceptable_approval[count] : '';
-                                var verification = opportunity.opportunity_number_acceptable_verification[count] !== undefined ? opportunity.opportunity_number_acceptable_verification[count] : '';
-                                var validation = opportunity.opportunity_number_acceptable_validation[count] !== undefined ? opportunity.opportunity_number_acceptable_validation[count] : '';
+                                var approval = Array.isArray(opportunity.opportunity_number_acceptable_approval) && opportunity.opportunity_number_acceptable_approval[count] !== undefined ? opportunity.risk_number_acceptable_approval[count] : '';
+                                var verification = Array.isArray(opportunity.opportunity_number_acceptable_verification) && opportunity.opportunity_number_acceptable_verification[count] !== undefined ? opportunity.opportunity_number_acceptable_verification[count] : '';
+                                var validation = Array.isArray(opportunity.opportunity_number_acceptable_validation) && opportunity.opportunity_number_acceptable_validation[count] !== undefined ? opportunity.opportunity_number_acceptable_validation[count] : '';
 
-                                var approval_remarks = opportunity.opportunity_number_acceptable_remarks_approval[count] !== undefined ? opportunity.risk_number_acceptable_remarks_approval[count] : '';
-                                var verification_remarks = opportunity.opportunity_number_acceptable_remarks_verification[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_verification[count] : '';
-                                var validation_remarks = opportunity.opportunity_number_acceptable_remarks_validation[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_validation[count] : '';
+                                var approval_remarks = Array.isArray(opportunity.opportunity_number_acceptable_remarks_approval) && opportunity.opportunity_number_acceptable_remarks_approval[count] !== undefined ? opportunity.risk_number_acceptable_remarks_approval[count] : '';
+                                var verification_remarks = Array.isArray(opportunity.opportunity_number_acceptable_remarks_verification) && opportunity.opportunity_number_acceptable_remarks_verification[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_verification[count] : '';
+                                var validation_remarks = Array.isArray(opportunity.opportunity_number_acceptable_remarks_validation) && opportunity.opportunity_number_acceptable_remarks_validation[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_validation[count] : '';
 
 
-                                var reviewValue = opportunity.opportunity_number_acceptable_review[count] !== undefined ? opportunity.opportunity_number_acceptable_review[count] : ''; // Added
-                                var remarksReview = opportunity.opportunity_number_acceptable_remarks_review[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_review[count] : ''; // Added
+                                var reviewValue = Array.isArray(opportunity.opportunity_number_acceptable_review) && opportunity.opportunity_number_acceptable_review[count] !== undefined ? opportunity.opportunity_number_acceptable_review[count] : ''; // Added
+                                var remarksReview = Array.isArray(opportunity.opportunity_number_acceptable_remarks_review) && opportunity.opportunity_number_acceptable_remarks_review[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_review[count] : ''; // Added
 
                                 var opportunityHtml = `
                                     <div class="col-lg-12 opportunity-number-repeatable">
@@ -1965,17 +1965,17 @@ var car = {
                             var count = 0;
                             rootCauseEntries.forEach(function (rootCause) {
 
-                                var approval = rootCause.rootcause_acceptable_approval[count] !== undefined ? rootCause.rootcause_acceptable_approval[count] : '';
-                                var verification = rootCause.rootcause_acceptable_verification[count] !== undefined ? rootCause.rootcause_acceptable_verification[count] : '';
-                                var validation = rootCause.rootcause_acceptable_validation[count] !== undefined ? rootCause.rootcause_acceptable_validation[count] : '';
+                                var approval = Array.isArray(rootCause.rootcause_acceptable_approval) && rootCause.rootcause_acceptable_approval[count] !== undefined ? rootCause.rootcause_acceptable_approval[count] : '';
+                                var verification = Array.isArray(rootCause.rootcause_acceptable_verification) && rootCause.rootcause_acceptable_verification[count] !== undefined ? rootCause.rootcause_acceptable_verification[count] : '';
+                                var validation = Array.isArray(rootCause.rootcause_acceptable_validation) && rootCause.rootcause_acceptable_validation[count] !== undefined ? rootCause.rootcause_acceptable_validation[count] : '';
 
-                                var approval_remarks = rootCause.rootcause_acceptable_remarks_approval[count] !== undefined ? rootCause.rootcause_acceptable_remarks_approval[count] : '';
-                                var verification_remarks = rootCause.rootcause_acceptable_remarks_verification[count] !== undefined ? rootCause.rootcause_acceptable_remarks_verification[count] : '';
-                                var validation_remarks = rootCause.rootcause_acceptable_remarks_validation[count] !== undefined ? rootCause.rootcause_acceptable_remarks_validation[count] : '';
+                                var approval_remarks = Array.isArray(rootCause.rootcause_acceptable_remarks_approval) && rootCause.rootcause_acceptable_remarks_approval[count] !== undefined ? rootCause.rootcause_acceptable_remarks_approval[count] : '';
+                                var verification_remarks = Array.isArray(rootCause.rootcause_acceptable_remarks_verification) && rootCause.rootcause_acceptable_remarks_verification[count] !== undefined ? rootCause.rootcause_acceptable_remarks_verification[count] : '';
+                                var validation_remarks = Array.isArray(rootCause.rootcause_acceptable_remarks_validation) && rootCause.rootcause_acceptable_remarks_validation[count] !== undefined ? rootCause.rootcause_acceptable_remarks_validation[count] : '';
 
 
-                                var reviewValue = rootCause.rootcause_acceptable_review[count] !== undefined ? rootCause.rootcause_acceptable_review[count] : ''; // Added
-                                var remarksReview = rootCause.rootcause_acceptable_remarks_review[count] !== undefined ? rootCause.rootcause_acceptable_remarks_review[count] : ''; // Added
+                                var reviewValue = Array.isArray(rootCause.rootcause_acceptable_review) && rootCause.rootcause_acceptable_review[count] !== undefined ? rootCause.rootcause_acceptable_review[count] : ''; // Added
+                                var remarksReview = Array.isArray(rootCause.rootcause_acceptable_remarks_review) && rootCause.rootcause_acceptable_remarks_review[count] !== undefined ? rootCause.rootcause_acceptable_remarks_review[count] : ''; // Added
 
                                 var rootCauseHtml = `
                                     <div class="col-lg-12 rootcause-repeatable">
@@ -2050,16 +2050,16 @@ var car = {
                                 var issued_to = '';
                                 var section_name = '';
 
-                                var approval = identifiedRoot.identified_root_acceptable_approval[count] !== undefined ? identifiedRoot.identified_root_acceptable_approval[count] : '';
-                                var verification = identifiedRoot.identified_root_acceptable_verification[count] !== undefined ? identifiedRoot.identified_root_acceptable_verification[count] : '';
-                                var validation = identifiedRoot.identified_root_acceptable_validation[count] !== undefined ? identifiedRoot.identified_root_acceptable_validation[count] : '';
+                                var approval = Array.isArray(identifiedRoot.identified_root_acceptable_approval) && identifiedRoot.identified_root_acceptable_approval[count] !== undefined ? identifiedRoot.identified_root_acceptable_approval[count] : '';
+                                var verification = Array.isArray(identifiedRoot.identified_root_acceptable_verification) && identifiedRoot.identified_root_acceptable_verification[count] !== undefined ? identifiedRoot.identified_root_acceptable_verification[count] : '';
+                                var validation = Array.isArray(identifiedRoot.identified_root_acceptable_validation) && identifiedRoot.identified_root_acceptable_validation[count] !== undefined ? identifiedRoot.identified_root_acceptable_validation[count] : '';
                                 
-                                var approval_remarks = identifiedRoot.identified_root_acceptable_remarks_approval[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_approval[count] : '';
-                                var verification_remarks = identifiedRoot.identified_root_acceptable_remarks_verification[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_verification[count] : '';
-                                var validation_remarks = identifiedRoot.identified_root_acceptable_remarks_validation[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_validation[count] : '';
+                                var approval_remarks = Array.isArray(identifiedRoot.identified_root_acceptable_remarks_approval) && identifiedRoot.identified_root_acceptable_remarks_approval[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_approval[count] : '';
+                                var verification_remarks = Array.isArray(identifiedRoot.identified_root_acceptable_remarks_verification) && identifiedRoot.identified_root_acceptable_remarks_verification[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_verification[count] : '';
+                                var validation_remarks = Array.isArray(identifiedRoot.identified_root_acceptable_remarks_validation) && identifiedRoot.identified_root_acceptable_remarks_validation[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_validation[count] : '';
 
-                                var reviewValue = identifiedRoot.identified_root_acceptable_review[count] !== undefined ? identifiedRoot.identified_root_acceptable_review[count] : ''; // Added
-                                var remarksReview = identifiedRoot.identified_root_acceptable_remarks_review[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_review[count] : ''; // Added
+                                var reviewValue = Array.isArray(identifiedRoot.identified_root_acceptable_review) && identifiedRoot.identified_root_acceptable_review[count] !== undefined ? identifiedRoot.identified_root_acceptable_review[count] : ''; // Added
+                                var remarksReview = Array.isArray(identifiedRoot.identified_root_acceptable_remarks_review) && identifiedRoot.identified_root_acceptable_remarks_review[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_review[count] : ''; // Added
 
                                 
                                 if(identifiedRoot.tpn_issued_by){
@@ -2258,16 +2258,16 @@ var car = {
                             var count = 0;
                             riskEntries.forEach(function (risk) {
         
-                                var review = risk.risk_number_acceptable_review[count] !== undefined ? risk.risk_number_acceptable_review[count] : '';
-                                var verification = risk.risk_number_acceptable_verification[count] !== undefined ? risk.risk_number_acceptable_verification[count] : '';
-                                var validation = risk.risk_number_acceptable_validation[count] !== undefined ? risk.risk_number_acceptable_validation[count] : ''
+                                var review = Array.isArray(risk.risk_number_acceptable_review) && risk.risk_number_acceptable_review[count] !== undefined ? risk.risk_number_acceptable_review[count] : '';
+                                var verification = Array.isArray(risk.risk_number_acceptable_verification) && risk.risk_number_acceptable_verification[count] !== undefined ? risk.risk_number_acceptable_verification[count] : '';
+                                var validation = Array.isArray(risk.risk_number_acceptable_validation) && risk.risk_number_acceptable_validation[count] !== undefined ? risk.risk_number_acceptable_validation[count] : ''
         
-                                var review_remarks = risk.risk_number_acceptable_remarks_review[count] !== undefined ? risk.risk_number_acceptable_remarks_review[count] : '';
-                                var verification_remarks = risk.risk_number_acceptable_remarks_verification[count] !== undefined ? risk.risk_number_acceptable_remarks_verification[count] : '';
-                                var validation_remarks = risk.risk_number_acceptable_remarks_validation[count] !== undefined ? risk.risk_number_acceptable_remarks_validation[count] : '';
+                                var review_remarks = Array.isArray(risk.risk_number_acceptable_remarks_review) && risk.risk_number_acceptable_remarks_review[count] !== undefined ? risk.risk_number_acceptable_remarks_review[count] : '';
+                                var verification_remarks = Array.isArray(risk.risk_number_acceptable_remarks_verification) && risk.risk_number_acceptable_remarks_verification[count] !== undefined ? risk.risk_number_acceptable_remarks_verification[count] : '';
+                                var validation_remarks = Array.isArray(risk.risk_number_acceptable_remarks_validation) && risk.risk_number_acceptable_remarks_validation[count] !== undefined ? risk.risk_number_acceptable_remarks_validation[count] : '';
         
-                                var approvalValue = risk.risk_number_acceptable_approval[count] !== undefined ? risk.risk_number_acceptable_approval[count] : ''; // Added
-                                var remarksReview = risk.risk_number_acceptable_remarks_approval[count] !== undefined ? risk.risk_number_acceptable_remarks_approval[count] : ''; // Added
+                                var approvalValue = Array.isArray(risk.risk_number_acceptable_approval) && risk.risk_number_acceptable_approval[count] !== undefined ? risk.risk_number_acceptable_approval[count] : ''; // Added
+                                var remarksReview = Array.isArray(risk.risk_number_acceptable_remarks_approval) && risk.risk_number_acceptable_remarks_approval[count] !== undefined ? risk.risk_number_acceptable_remarks_approval[count] : ''; // Added
         
                                 var riskHtml = `
                                     <div class="col-lg-12 risk-number-repeatable">
@@ -2341,17 +2341,17 @@ var car = {
                             var count = 0;
                             opportunityEntries.forEach(function (opportunity) {
         
-                                var review = opportunity.opportunity_number_acceptable_review[count] !== undefined ? opportunity.risk_number_acceptable_review[count] : '';
-                                var verification = opportunity.opportunity_number_acceptable_verification[count] !== undefined ? opportunity.opportunity_number_acceptable_verification[count] : '';
-                                var validation = opportunity.opportunity_number_acceptable_validation[count] !== undefined ? opportunity.opportunity_number_acceptable_validation[count] : '';
+                                var review = Array.isArray(opportunity.opportunity_number_acceptable_review) && opportunity.opportunity_number_acceptable_review[count] !== undefined ? opportunity.risk_number_acceptable_review[count] : '';
+                                var verification = Array.isArray(opportunity.opportunity_number_acceptable_verification) && opportunity.opportunity_number_acceptable_verification[count] !== undefined ? opportunity.opportunity_number_acceptable_verification[count] : '';
+                                var validation = Array.isArray(opportunity.opportunity_number_acceptable_validation) && opportunity.opportunity_number_acceptable_validation[count] !== undefined ? opportunity.opportunity_number_acceptable_validation[count] : '';
         
-                                var review_remarks = opportunity.opportunity_number_acceptable_remarks_review[count] !== undefined ? opportunity.risk_number_acceptable_remarks_review[count] : '';
-                                var verification_remarks = opportunity.opportunity_number_acceptable_remarks_verification[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_verification[count] : '';
-                                var validation_remarks = opportunity.opportunity_number_acceptable_remarks_validation[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_validation[count] : '';
+                                var review_remarks = Array.isArray(opportunity.opportunity_number_acceptable_remarks_review) && opportunity.opportunity_number_acceptable_remarks_review[count] !== undefined ? opportunity.risk_number_acceptable_remarks_review[count] : '';
+                                var verification_remarks = Array.isArray(opportunity.opportunity_number_acceptable_remarks_verification) && opportunity.opportunity_number_acceptable_remarks_verification[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_verification[count] : '';
+                                var validation_remarks = Array.isArray(opportunity.opportunity_number_acceptable_remarks_validation) && opportunity.opportunity_number_acceptable_remarks_validation[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_validation[count] : '';
         
         
-                                var approvalValue = opportunity.opportunity_number_acceptable_approval[count] !== undefined ? opportunity.opportunity_number_acceptable_approval[count] : ''; // Added
-                                var remarksReview = opportunity.opportunity_number_acceptable_remarks_approval[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_approval[count] : ''; // Added
+                                var approvalValue = Array.isArray(opportunity.opportunity_number_acceptable_approval) && opportunity.opportunity_number_acceptable_approval[count] !== undefined ? opportunity.opportunity_number_acceptable_approval[count] : ''; // Added
+                                var remarksReview = Array.isArray(opportunity.opportunity_number_acceptable_remarks_approval) && opportunity.opportunity_number_acceptable_remarks_approval[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_approval[count] : ''; // Added
         
                                 var opportunityHtml = `
                                     <div class="col-lg-12 opportunity-number-repeatable">
@@ -2421,17 +2421,17 @@ var car = {
                             var count = 0;
                             rootCauseEntries.forEach(function (rootCause) {
         
-                                var review = rootCause.rootcause_acceptable_review[count] !== undefined ? rootCause.rootcause_acceptable_review[count] : '';
-                                var verification = rootCause.rootcause_acceptable_verification[count] !== undefined ? rootCause.rootcause_acceptable_verification[count] : '';
-                                var validation = rootCause.rootcause_acceptable_validation[count] !== undefined ? rootCause.rootcause_acceptable_validation[count] : '';
+                                var review = Array.isArray(rootCause.rootcause_acceptable_review) && rootCause.rootcause_acceptable_review[count] !== undefined ? rootCause.rootcause_acceptable_review[count] : '';
+                                var verification = Array.isArray(rootCause.rootcause_acceptable_verification) && rootCause.rootcause_acceptable_verification[count] !== undefined ? rootCause.rootcause_acceptable_verification[count] : '';
+                                var validation = Array.isArray(rootCause.rootcause_acceptable_validation) && rootCause.rootcause_acceptable_validation[count] !== undefined ? rootCause.rootcause_acceptable_validation[count] : '';
         
-                                var review_remarks = rootCause.rootcause_acceptable_remarks_review[count] !== undefined ? rootCause.rootcause_acceptable_remarks_review[count] : '';
-                                var verification_remarks = rootCause.rootcause_acceptable_remarks_verification[count] !== undefined ? rootCause.rootcause_acceptable_remarks_verification[count] : '';
-                                var validation_remarks = rootCause.rootcause_acceptable_remarks_validation[count] !== undefined ? rootCause.rootcause_acceptable_remarks_validation[count] : '';
+                                var review_remarks = Array.isArray(rootCause.rootcause_acceptable_remarks_review) && rootCause.rootcause_acceptable_remarks_review[count] !== undefined ? rootCause.rootcause_acceptable_remarks_review[count] : '';
+                                var verification_remarks = Array.isArray(rootCause.rootcause_acceptable_remarks_verification) && rootCause.rootcause_acceptable_remarks_verification[count] !== undefined ? rootCause.rootcause_acceptable_remarks_verification[count] : '';
+                                var validation_remarks = Array.isArray(rootCause.rootcause_acceptable_remarks_validation) && rootCause.rootcause_acceptable_remarks_validation[count] !== undefined ? rootCause.rootcause_acceptable_remarks_validation[count] : '';
         
         
-                                var approvalValue = rootCause.rootcause_acceptable_approval[count] !== undefined ? rootCause.rootcause_acceptable_approval[count] : ''; // Added
-                                var remarksReview = rootCause.rootcause_acceptable_remarks_approval[count] !== undefined ? rootCause.rootcause_acceptable_remarks_approval[count] : ''; // Added
+                                var approvalValue = Array.isArray(rootCause.rootcause_acceptable_approval) && rootCause.rootcause_acceptable_approval[count] !== undefined ? rootCause.rootcause_acceptable_approval[count] : ''; // Added
+                                var remarksReview = Array.isArray(rootCause.rootcause_acceptable_remarks_approval) && rootCause.rootcause_acceptable_remarks_approval[count] !== undefined ? rootCause.rootcause_acceptable_remarks_approval[count] : ''; // Added
         
                                 var rootCauseHtml = `
                                     <div class="col-lg-12 rootcause-repeatable">
@@ -2506,16 +2506,16 @@ var car = {
                                 var issued_to = '';
                                 var section_name = '';
         
-                                var review = identifiedRoot.identified_root_acceptable_review[count] !== undefined ? identifiedRoot.identified_root_acceptable_review[count] : '';
-                                var verification = identifiedRoot.identified_root_acceptable_verification[count] !== undefined ? identifiedRoot.identified_root_acceptable_verification[count] : '';
-                                var validation = identifiedRoot.identified_root_acceptable_validation[count] !== undefined ? identifiedRoot.identified_root_acceptable_validation[count] : '';
+                                var review = Array.isArray(identifiedRoot.identified_root_acceptable_review) && identifiedRoot.identified_root_acceptable_review[count] !== undefined ? identifiedRoot.identified_root_acceptable_review[count] : '';
+                                var verification = Array.isArray(identifiedRoot.identified_root_acceptable_verification) && identifiedRoot.identified_root_acceptable_verification[count] !== undefined ? identifiedRoot.identified_root_acceptable_verification[count] : '';
+                                var validation = Array.isArray(identifiedRoot.identified_root_acceptable_validation) && identifiedRoot.identified_root_acceptable_validation[count] !== undefined ? identifiedRoot.identified_root_acceptable_validation[count] : '';
                                 
-                                var review_remarks = identifiedRoot.identified_root_acceptable_remarks_review[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_review[count] : '';
-                                var verification_remarks = identifiedRoot.identified_root_acceptable_remarks_verification[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_verification[count] : '';
-                                var validation_remarks = identifiedRoot.identified_root_acceptable_remarks_validation[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_validation[count] : '';
+                                var review_remarks = Array.isArray(identifiedRoot.identified_root_acceptable_remarks_review) && identifiedRoot.identified_root_acceptable_remarks_review[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_review[count] : '';
+                                var verification_remarks = Array.isArray(identifiedRoot.identified_root_acceptable_remarks_verification) && identifiedRoot.identified_root_acceptable_remarks_verification[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_verification[count] : '';
+                                var validation_remarks = Array.isArray(identifiedRoot.identified_root_acceptable_remarks_validation) && identifiedRoot.identified_root_acceptable_remarks_validation[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_validation[count] : '';
         
-                                var approvalValue = identifiedRoot.identified_root_acceptable_approval[count] !== undefined ? identifiedRoot.identified_root_acceptable_approval[count] : ''; // Added
-                                var remarksReview = identifiedRoot.identified_root_acceptable_remarks_approval[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_approval[count] : ''; // Added
+                                var approvalValue = Array.isArray(identifiedRoot.identified_root_acceptable_approval) && identifiedRoot.identified_root_acceptable_approval[count] !== undefined ? identifiedRoot.identified_root_acceptable_approval[count] : ''; // Added
+                                var remarksReview = Array.isArray(identifiedRoot.identified_root_acceptable_remarks_approval) && identifiedRoot.identified_root_acceptable_remarks_approval[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_approval[count] : ''; // Added
         
                                 
                                 if(identifiedRoot.tpn_issued_by){
@@ -2714,16 +2714,16 @@ var car = {
                             var count = 0;
                             riskEntries.forEach(function (risk) {
         
-                                var review = risk.risk_number_acceptable_review[count] !== undefined ? risk.risk_number_acceptable_review[count] : '';
-                                var approval = risk.risk_number_acceptable_approval[count] !== undefined ? risk.risk_number_acceptable_approval[count] : '';
-                                var validation = risk.risk_number_acceptable_validation[count] !== undefined ? risk.risk_number_acceptable_validation[count] : ''
+                                var review = Array.isArray(risk.risk_number_acceptable_review) && risk.risk_number_acceptable_review[count] !== undefined ? risk.risk_number_acceptable_review[count] : '';
+                                var approval = Array.isArray(risk.risk_number_acceptable_approval) && risk.risk_number_acceptable_approval[count] !== undefined ? risk.risk_number_acceptable_approval[count] : '';
+                                var validation = Array.isArray(risk.risk_number_acceptable_validation) && risk.risk_number_acceptable_validation[count] !== undefined ? risk.risk_number_acceptable_validation[count] : ''
         
-                                var review_remarks = risk.risk_number_acceptable_remarks_review[count] !== undefined ? risk.risk_number_acceptable_remarks_review[count] : '';
-                                var approval_remarks = risk.risk_number_acceptable_remarks_approval[count] !== undefined ? risk.risk_number_acceptable_remarks_approval[count] : '';
-                                var validation_remarks = risk.risk_number_acceptable_remarks_validation[count] !== undefined ? risk.risk_number_acceptable_remarks_validation[count] : '';
+                                var review_remarks = Array.isArray(risk.risk_number_acceptable_remarks_review) && risk.risk_number_acceptable_remarks_review[count] !== undefined ? risk.risk_number_acceptable_remarks_review[count] : '';
+                                var approval_remarks = Array.isArray(risk.risk_number_acceptable_remarks_approval) && risk.risk_number_acceptable_remarks_approval[count] !== undefined ? risk.risk_number_acceptable_remarks_approval[count] : '';
+                                var validation_remarks = Array.isArray(risk.risk_number_acceptable_remarks_validation) && risk.risk_number_acceptable_remarks_validation[count] !== undefined ? risk.risk_number_acceptable_remarks_validation[count] : '';
         
-                                var verificationValue = risk.risk_number_acceptable_verification[count] !== undefined ? risk.risk_number_acceptable_verification[count] : ''; // Added
-                                var remarksReview = risk.risk_number_acceptable_remarks_verification[count] !== undefined ? risk.risk_number_acceptable_remarks_verification[count] : ''; // Added
+                                var verificationValue = Array.isArray(risk.risk_number_acceptable_verification) && risk.risk_number_acceptable_verification[count] !== undefined ? risk.risk_number_acceptable_verification[count] : ''; // Added
+                                var remarksReview = Array.isArray(risk.risk_number_acceptable_remarks_verification) && risk.risk_number_acceptable_remarks_verification[count] !== undefined ? risk.risk_number_acceptable_remarks_verification[count] : ''; // Added
         
                                 var riskHtml = `
                                     <div class="col-lg-12 risk-number-repeatable">
@@ -2797,17 +2797,17 @@ var car = {
                             var count = 0;
                             opportunityEntries.forEach(function (opportunity) {
         
-                                var review = opportunity.opportunity_number_acceptable_review[count] !== undefined ? opportunity.risk_number_acceptable_review[count] : '';
-                                var approval = opportunity.opportunity_number_acceptable_approval[count] !== undefined ? opportunity.opportunity_number_acceptable_approval[count] : '';
-                                var validation = opportunity.opportunity_number_acceptable_validation[count] !== undefined ? opportunity.opportunity_number_acceptable_validation[count] : '';
+                                var review = Array.isArray(opportunity.opportunity_number_acceptable_review) && opportunity.opportunity_number_acceptable_review[count] !== undefined ? opportunity.risk_number_acceptable_review[count] : '';
+                                var approval = Array.isArray(opportunity.opportunity_number_acceptable_approval) && opportunity.opportunity_number_acceptable_approval[count] !== undefined ? opportunity.opportunity_number_acceptable_approval[count] : '';
+                                var validation = Array.isArray(opportunity.opportunity_number_acceptable_validation) && opportunity.opportunity_number_acceptable_validation[count] !== undefined ? opportunity.opportunity_number_acceptable_validation[count] : '';
         
-                                var review_remarks = opportunity.opportunity_number_acceptable_remarks_review[count] !== undefined ? opportunity.risk_number_acceptable_remarks_review[count] : '';
-                                var approval_remarks = opportunity.opportunity_number_acceptable_remarks_approval[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_approval[count] : '';
-                                var validation_remarks = opportunity.opportunity_number_acceptable_remarks_validation[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_validation[count] : '';
+                                var review_remarks = Array.isArray(opportunity.opportunity_number_acceptable_remarks_review) && opportunity.opportunity_number_acceptable_remarks_review[count] !== undefined ? opportunity.risk_number_acceptable_remarks_review[count] : '';
+                                var approval_remarks = Array.isArray(opportunity.opportunity_number_acceptable_remarks_approval) && opportunity.opportunity_number_acceptable_remarks_approval[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_approval[count] : '';
+                                var validation_remarks = Array.isArray(opportunity.opportunity_number_acceptable_remarks_validation) && opportunity.opportunity_number_acceptable_remarks_validation[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_validation[count] : '';
         
         
-                                var verificationValue = opportunity.opportunity_number_acceptable_verification[count] !== undefined ? opportunity.opportunity_number_acceptable_verification[count] : ''; // Added
-                                var remarksReview = opportunity.opportunity_number_acceptable_remarks_verification[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_verification[count] : ''; // Added
+                                var verificationValue = Array.isArray(opportunity.opportunity_number_acceptable_verification) && opportunity.opportunity_number_acceptable_verification[count] !== undefined ? opportunity.opportunity_number_acceptable_verification[count] : ''; // Added
+                                var remarksReview = Array.isArray(opportunity.opportunity_number_acceptable_remarks_verification) && opportunity.opportunity_number_acceptable_remarks_verification[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_verification[count] : ''; // Added
         
                                 var opportunityHtml = `
                                     <div class="col-lg-12 opportunity-number-repeatable">
@@ -2877,17 +2877,17 @@ var car = {
                             var count = 0;
                             rootCauseEntries.forEach(function (rootCause) {
         
-                                var review = rootCause.rootcause_acceptable_review[count] !== undefined ? rootCause.rootcause_acceptable_review[count] : '';
-                                var approval = rootCause.rootcause_acceptable_approval[count] !== undefined ? rootCause.rootcause_acceptable_approval[count] : '';
-                                var validation = rootCause.rootcause_acceptable_validation[count] !== undefined ? rootCause.rootcause_acceptable_validation[count] : '';
+                                var review = Array.isArray(rootCause.rootcause_acceptable_review) && rootCause.rootcause_acceptable_review[count] !== undefined ? rootCause.rootcause_acceptable_review[count] : '';
+                                var approval = Array.isArray(rootCause.rootcause_acceptable_approval) && rootCause.rootcause_acceptable_approval[count] !== undefined ? rootCause.rootcause_acceptable_approval[count] : '';
+                                var validation = Array.isArray(rootCause.rootcause_acceptable_validation) && rootCause.rootcause_acceptable_validation[count] !== undefined ? rootCause.rootcause_acceptable_validation[count] : '';
         
-                                var review_remarks = rootCause.rootcause_acceptable_remarks_review[count] !== undefined ? rootCause.rootcause_acceptable_remarks_review[count] : '';
-                                var approval_remarks = rootCause.rootcause_acceptable_remarks_approval[count] !== undefined ? rootCause.rootcause_acceptable_remarks_approval[count] : '';
-                                var validation_remarks = rootCause.rootcause_acceptable_remarks_validation[count] !== undefined ? rootCause.rootcause_acceptable_remarks_validation[count] : '';
+                                var review_remarks = Array.isArray(rootCause.rootcause_acceptable_remarks_review) && rootCause.rootcause_acceptable_remarks_review[count] !== undefined ? rootCause.rootcause_acceptable_remarks_review[count] : '';
+                                var approval_remarks = Array.isArray(rootCause.rootcause_acceptable_remarks_approval) && rootCause.rootcause_acceptable_remarks_approval[count] !== undefined ? rootCause.rootcause_acceptable_remarks_approval[count] : '';
+                                var validation_remarks = Array.isArray(rootCause.rootcause_acceptable_remarks_validation) && rootCause.rootcause_acceptable_remarks_validation[count] !== undefined ? rootCause.rootcause_acceptable_remarks_validation[count] : '';
         
         
-                                var verificationValue = rootCause.rootcause_acceptable_verification[count] !== undefined ? rootCause.rootcause_acceptable_verification[count] : ''; // Added
-                                var remarksReview = rootCause.rootcause_acceptable_remarks_verification[count] !== undefined ? rootCause.rootcause_acceptable_remarks_verification[count] : ''; // Added
+                                var verificationValue = Array.isArray(rootCause.rootcause_acceptable_verification) && rootCause.rootcause_acceptable_verification[count] !== undefined ? rootCause.rootcause_acceptable_verification[count] : ''; // Added
+                                var remarksReview = Array.isArray(rootCause.rootcause_acceptable_remarks_verification) && rootCause.rootcause_acceptable_remarks_verification[count] !== undefined ? rootCause.rootcause_acceptable_remarks_verification[count] : ''; // Added
         
                                 var rootCauseHtml = `
                                     <div class="col-lg-12 rootcause-repeatable">
@@ -2962,16 +2962,16 @@ var car = {
                                 var issued_to = '';
                                 var section_name = '';
         
-                                var review = identifiedRoot.identified_root_acceptable_review[count] !== undefined ? identifiedRoot.identified_root_acceptable_review[count] : '';
-                                var approval = identifiedRoot.identified_root_acceptable_approval[count] !== undefined ? identifiedRoot.identified_root_acceptable_approval[count] : '';
-                                var validation = identifiedRoot.identified_root_acceptable_validation[count] !== undefined ? identifiedRoot.identified_root_acceptable_validation[count] : '';
+                                var review = Array.isArray(identifiedRoot.identified_root_acceptable_review) && identifiedRoot.identified_root_acceptable_review[count] !== undefined ? identifiedRoot.identified_root_acceptable_review[count] : '';
+                                var approval = Array.isArray(identifiedRoot.identified_root_acceptable_approval) && identifiedRoot.identified_root_acceptable_approval[count] !== undefined ? identifiedRoot.identified_root_acceptable_approval[count] : '';
+                                var validation = Array.isArray(identifiedRoot.identified_root_acceptable_validation) && identifiedRoot.identified_root_acceptable_validation[count] !== undefined ? identifiedRoot.identified_root_acceptable_validation[count] : '';
                                 
-                                var review_remarks = identifiedRoot.identified_root_acceptable_remarks_review[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_review[count] : '';
-                                var approval_remarks = identifiedRoot.identified_root_acceptable_remarks_approval[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_approval[count] : '';
-                                var validation_remarks = identifiedRoot.identified_root_acceptable_remarks_validation[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_validation[count] : '';
+                                var review_remarks = Array.isArray(identifiedRoot.identified_root_acceptable_remarks_review) && identifiedRoot.identified_root_acceptable_remarks_review[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_review[count] : '';
+                                var approval_remarks = Array.isArray(identifiedRoot.identified_root_acceptable_remarks_approval) && identifiedRoot.identified_root_acceptable_remarks_approval[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_approval[count] : '';
+                                var validation_remarks = Array.isArray(identifiedRoot.identified_root_acceptable_remarks_validation) && identifiedRoot.identified_root_acceptable_remarks_validation[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_validation[count] : '';
         
-                                var verificationValue = identifiedRoot.identified_root_acceptable_verification[count] !== undefined ? identifiedRoot.identified_root_acceptable_verification[count] : ''; // Added
-                                var remarksReview = identifiedRoot.identified_root_acceptable_remarks_verification[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_verification[count] : ''; // Added
+                                var verificationValue = Array.isArray(identifiedRoot.identified_root_acceptable_verification) && identifiedRoot.identified_root_acceptable_verification[count] !== undefined ? identifiedRoot.identified_root_acceptable_verification[count] : ''; // Added
+                                var remarksReview = Array.isArray(identifiedRoot.identified_root_acceptable_remarks_verification) && identifiedRoot.identified_root_acceptable_remarks_verification[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_verification[count] : ''; // Added
         
                                 
                                 if(identifiedRoot.tpn_issued_by){
@@ -3170,16 +3170,16 @@ var car = {
                             var count = 0;
                             riskEntries.forEach(function (risk) {
         
-                                var review = risk.risk_number_acceptable_review[count] !== undefined ? risk.risk_number_acceptable_review[count] : '';
-                                var approval = risk.risk_number_acceptable_approval[count] !== undefined ? risk.risk_number_acceptable_approval[count] : '';
-                                var verification = risk.risk_number_acceptable_verification[count] !== undefined ? risk.risk_number_acceptable_verification[count] : ''
+                                var review = Array.isArray(risk.risk_number_acceptable_review) && risk.risk_number_acceptable_review[count] !== undefined ? risk.risk_number_acceptable_review[count] : '';
+                                var approval = Array.isArray(risk.risk_number_acceptable_approval) && risk.risk_number_acceptable_approval[count] !== undefined ? risk.risk_number_acceptable_approval[count] : '';
+                                var verification = Array.isArray(risk.risk_number_acceptable_verification) && risk.risk_number_acceptable_verification[count] !== undefined ? risk.risk_number_acceptable_verification[count] : ''
         
-                                var review_remarks = risk.risk_number_acceptable_remarks_review[count] !== undefined ? risk.risk_number_acceptable_remarks_review[count] : '';
-                                var approval_remarks = risk.risk_number_acceptable_remarks_approval[count] !== undefined ? risk.risk_number_acceptable_remarks_approval[count] : '';
-                                var verification_remarks = risk.risk_number_acceptable_remarks_verification[count] !== undefined ? risk.risk_number_acceptable_remarks_verification[count] : '';
+                                var review_remarks = Array.isArray(risk.risk_number_acceptable_remarks_review) && risk.risk_number_acceptable_remarks_review[count] !== undefined ? risk.risk_number_acceptable_remarks_review[count] : '';
+                                var approval_remarks = Array.isArray(risk.risk_number_acceptable_remarks_approval) && risk.risk_number_acceptable_remarks_approval[count] !== undefined ? risk.risk_number_acceptable_remarks_approval[count] : '';
+                                var verification_remarks = Array.isArray(risk.risk_number_acceptable_remarks_verification) && risk.risk_number_acceptable_remarks_verification[count] !== undefined ? risk.risk_number_acceptable_remarks_verification[count] : '';
         
-                                var validationValue = risk.risk_number_acceptable_validation[count] !== undefined ? risk.risk_number_acceptable_validation[count] : ''; // Added
-                                var remarksReview = risk.risk_number_acceptable_remarks_validation[count] !== undefined ? risk.risk_number_acceptable_remarks_validation[count] : ''; // Added
+                                var validationValue = Array.isArray(risk.risk_number_acceptable_validation) && risk.risk_number_acceptable_validation[count] !== undefined ? risk.risk_number_acceptable_validation[count] : ''; // Added
+                                var remarksReview = Array.isArray(risk.risk_number_acceptable_remarks_validation) && risk.risk_number_acceptable_remarks_validation[count] !== undefined ? risk.risk_number_acceptable_remarks_validation[count] : ''; // Added
         
                                 var riskHtml = `
                                     <div class="col-lg-12 risk-number-repeatable">
@@ -3253,17 +3253,17 @@ var car = {
                             var count = 0;
                             opportunityEntries.forEach(function (opportunity) {
         
-                                var review = opportunity.opportunity_number_acceptable_review[count] !== undefined ? opportunity.risk_number_acceptable_review[count] : '';
-                                var approval = opportunity.opportunity_number_acceptable_approval[count] !== undefined ? opportunity.opportunity_number_acceptable_approval[count] : '';
-                                var verification = opportunity.opportunity_number_acceptable_verification[count] !== undefined ? opportunity.opportunity_number_acceptable_verification[count] : '';
+                                var review = Array.isArray(opportunity.opportunity_number_acceptable_review) && opportunity.opportunity_number_acceptable_review[count] !== undefined ? opportunity.risk_number_acceptable_review[count] : '';
+                                var approval = Array.isArray(opportunity.opportunity_number_acceptable_approval) && opportunity.opportunity_number_acceptable_approval[count] !== undefined ? opportunity.opportunity_number_acceptable_approval[count] : '';
+                                var verification = Array.isArray(opportunity.opportunity_number_acceptable_verification) && opportunity.opportunity_number_acceptable_verification[count] !== undefined ? opportunity.opportunity_number_acceptable_verification[count] : '';
         
-                                var review_remarks = opportunity.opportunity_number_acceptable_remarks_review[count] !== undefined ? opportunity.risk_number_acceptable_remarks_review[count] : '';
-                                var approval_remarks = opportunity.opportunity_number_acceptable_remarks_approval[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_approval[count] : '';
-                                var verification_remarks = opportunity.opportunity_number_acceptable_remarks_verification[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_verification[count] : '';
+                                var review_remarks = Array.isArray(opportunity.opportunity_number_acceptable_remarks_review) && opportunity.opportunity_number_acceptable_remarks_review[count] !== undefined ? opportunity.risk_number_acceptable_remarks_review[count] : '';
+                                var approval_remarks = Array.isArray(opportunity.opportunity_number_acceptable_remarks_approval) && opportunity.opportunity_number_acceptable_remarks_approval[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_approval[count] : '';
+                                var verification_remarks = Array.isArray(opportunity.opportunity_number_acceptable_remarks_verification) && opportunity.opportunity_number_acceptable_remarks_verification[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_verification[count] : '';
         
         
-                                var validationValue = opportunity.opportunity_number_acceptable_validation[count] !== undefined ? opportunity.opportunity_number_acceptable_validation[count] : ''; // Added
-                                var remarksReview = opportunity.opportunity_number_acceptable_remarks_validation[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_validation[count] : ''; // Added
+                                var validationValue = Array.isArray(opportunity.opportunity_number_acceptable_validation) && opportunity.opportunity_number_acceptable_validation[count] !== undefined ? opportunity.opportunity_number_acceptable_validation[count] : ''; // Added
+                                var remarksReview = Array.isArray(opportunity.opportunity_number_acceptable_remarks_validation) && opportunity.opportunity_number_acceptable_remarks_validation[count] !== undefined ? opportunity.opportunity_number_acceptable_remarks_validation[count] : ''; // Added
         
                                 var opportunityHtml = `
                                     <div class="col-lg-12 opportunity-number-repeatable">
@@ -3333,17 +3333,17 @@ var car = {
                             var count = 0;
                             rootCauseEntries.forEach(function (rootCause) {
         
-                                var review = rootCause.rootcause_acceptable_review[count] !== undefined ? rootCause.rootcause_acceptable_review[count] : '';
-                                var approval = rootCause.rootcause_acceptable_approval[count] !== undefined ? rootCause.rootcause_acceptable_approval[count] : '';
-                                var verification = rootCause.rootcause_acceptable_verification[count] !== undefined ? rootCause.rootcause_acceptable_verification[count] : '';
+                                var review = Array.isArray(rootCause.rootcause_acceptable_review) && rootCause.rootcause_acceptable_review[count] !== undefined ? rootCause.rootcause_acceptable_review[count] : '';
+                                var approval = Array.isArray(rootCause.rootcause_acceptable_approval) && rootCause.rootcause_acceptable_approval[count] !== undefined ? rootCause.rootcause_acceptable_approval[count] : '';
+                                var verification = Array.isArray(rootCause.rootcause_acceptable_verification) && rootCause.rootcause_acceptable_verification[count] !== undefined ? rootCause.rootcause_acceptable_verification[count] : '';
         
-                                var review_remarks = rootCause.rootcause_acceptable_remarks_review[count] !== undefined ? rootCause.rootcause_acceptable_remarks_review[count] : '';
-                                var approval_remarks = rootCause.rootcause_acceptable_remarks_approval[count] !== undefined ? rootCause.rootcause_acceptable_remarks_approval[count] : '';
-                                var verification_remarks = rootCause.rootcause_acceptable_remarks_verification[count] !== undefined ? rootCause.rootcause_acceptable_remarks_verification[count] : '';
+                                var review_remarks = Array.isArray(rootCause.rootcause_acceptable_remarks_review) && rootCause.rootcause_acceptable_remarks_review[count] !== undefined ? rootCause.rootcause_acceptable_remarks_review[count] : '';
+                                var approval_remarks = Array.isArray(rootCause.rootcause_acceptable_remarks_approval) && rootCause.rootcause_acceptable_remarks_approval[count] !== undefined ? rootCause.rootcause_acceptable_remarks_approval[count] : '';
+                                var verification_remarks = Array.isArray(rootCause.rootcause_acceptable_remarks_verification) && rootCause.rootcause_acceptable_remarks_verification[count] !== undefined ? rootCause.rootcause_acceptable_remarks_verification[count] : '';
         
         
-                                var validationValue = rootCause.rootcause_acceptable_validation[count] !== undefined ? rootCause.rootcause_acceptable_validation[count] : ''; // Added
-                                var remarksReview = rootCause.rootcause_acceptable_remarks_validation[count] !== undefined ? rootCause.rootcause_acceptable_remarks_validation[count] : ''; // Added
+                                var validationValue = Array.isArray(rootCause.rootcause_acceptable_validation) && rootCause.rootcause_acceptable_validation[count] !== undefined ? rootCause.rootcause_acceptable_validation[count] : ''; // Added
+                                var remarksReview = Array.isArray(rootCause.rootcause_acceptable_remarks_validation) && rootCause.rootcause_acceptable_remarks_validation[count] !== undefined ? rootCause.rootcause_acceptable_remarks_validation[count] : ''; // Added
         
                                 var rootCauseHtml = `
                                     <div class="col-lg-12 rootcause-repeatable">
@@ -3418,16 +3418,16 @@ var car = {
                                 var issued_to = '';
                                 var section_name = '';
         
-                                var review = identifiedRoot.identified_root_acceptable_review[count] !== undefined ? identifiedRoot.identified_root_acceptable_review[count] : '';
-                                var approval = identifiedRoot.identified_root_acceptable_approval[count] !== undefined ? identifiedRoot.identified_root_acceptable_approval[count] : '';
-                                var verification = identifiedRoot.identified_root_acceptable_verification[count] !== undefined ? identifiedRoot.identified_root_acceptable_verification[count] : '';
+                                var review = Array.isArray(identifiedRoot.identified_root_acceptable_review) && identifiedRoot.identified_root_acceptable_review[count] !== undefined ? identifiedRoot.identified_root_acceptable_review[count] : '';
+                                var approval = Array.isArray(identifiedRoot.identified_root_acceptable_approval) && identifiedRoot.identified_root_acceptable_approval[count] !== undefined ? identifiedRoot.identified_root_acceptable_approval[count] : '';
+                                var verification = Array.isArray(identifiedRoot.identified_root_acceptable_verification) && identifiedRoot.identified_root_acceptable_verification[count] !== undefined ? identifiedRoot.identified_root_acceptable_verification[count] : '';
                                 
-                                var review_remarks = identifiedRoot.identified_root_acceptable_remarks_review[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_review[count] : '';
-                                var approval_remarks = identifiedRoot.identified_root_acceptable_remarks_approval[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_approval[count] : '';
-                                var verification_remarks = identifiedRoot.identified_root_acceptable_remarks_verification[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_verification[count] : '';
+                                var review_remarks = Array.isArray(identifiedRoot.identified_root_acceptable_remarks_review) && identifiedRoot.identified_root_acceptable_remarks_review[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_review[count] : '';
+                                var approval_remarks = Array.isArray(identifiedRoot.identified_root_acceptable_remarks_approval) && identifiedRoot.identified_root_acceptable_remarks_approval[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_approval[count] : '';
+                                var verification_remarks = Array.isArray(identifiedRoot.identified_root_acceptable_remarks_verification) && identifiedRoot.identified_root_acceptable_remarks_verification[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_verification[count] : '';
         
-                                var validationValue = identifiedRoot.identified_root_acceptable_validation[count] !== undefined ? identifiedRoot.identified_root_acceptable_validation[count] : ''; // Added
-                                var remarksReview = identifiedRoot.identified_root_acceptable_remarks_validation[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_validation[count] : ''; // Added
+                                var validationValue = Array.isArray(identifiedRoot.identified_root_acceptable_validation) && identifiedRoot.identified_root_acceptable_validation[count] !== undefined ? identifiedRoot.identified_root_acceptable_validation[count] : ''; // Added
+                                var remarksReview = Array.isArray(identifiedRoot.identified_root_acceptable_remarks_validation) && identifiedRoot.identified_root_acceptable_remarks_validation[count] !== undefined ? identifiedRoot.identified_root_acceptable_remarks_validation[count] : ''; // Added
         
                                 
                                 if(identifiedRoot.tpn_issued_by){
