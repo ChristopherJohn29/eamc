@@ -1212,7 +1212,7 @@ class car extends CI_Controller {
         }
 
         $cardata = array(
-            'corrective_action_status' => $review_action_root_cause_analysis
+            'corrective_action_status' => $verification_action_root_cause_analysis
         );
 
         $this->db->where('id', $car_id);

@@ -1797,6 +1797,12 @@ var car = {
                             $('[name="existing_nonconformity_remarks"]').val(response[0].existing_nonconformity_remarks);
                             $('[name="update_doc_info_remarks"]').val(response[0].update_doc_info_remarks);
 
+                            var review_action_root_cause_analysis = response[0].review_action_root_cause_analysis;
+                            var review_action_root_cause_analysis_remarks = response[0].review_action_root_cause_analysis_remarks;
+
+                            jQuery('.review_action_root_cause_analysis').val(review_action_root_cause_analysis);
+                            jQuery('.review_action_root_cause_analysis_remarks').val(review_action_root_cause_analysis_remarks);
+
                             var riskEntries = JSON.parse(response[0].risk_entry);
 
                             
@@ -2252,11 +2258,16 @@ var car = {
         
                             $('[name="existing_nonconformity_remarks"]').val(response[0].existing_nonconformity_remarks);
                             $('[name="update_doc_info_remarks"]').val(response[0].update_doc_info_remarks);
+
+                            var approval_action_root_cause_analysis = response[0].approval_action_root_cause_analysis;
+                            var approval_action_root_cause_analysis_remarks = response[0].approval_action_root_cause_analysis_remarks;
+
+                            jQuery('.approval_action_root_cause_analysis').val(approval_action_root_cause_analysis);
+                            jQuery('.approval_action_root_cause_analysis_remarks').val(approval_action_root_cause_analysis_remarks);
         
                             var riskEntries = JSON.parse(response[0].risk_entry);
-        
                             
-        
+    
                             var count = 0;
                             riskEntries.forEach(function (risk) {
         
@@ -2708,6 +2719,12 @@ var car = {
         
                             $('[name="existing_nonconformity_remarks"]').val(response[0].existing_nonconformity_remarks);
                             $('[name="update_doc_info_remarks"]').val(response[0].update_doc_info_remarks);
+
+                            var verification_action_root_cause_analysis = response[0].verification_action_root_cause_analysis;
+                            var verification_action_root_cause_analysis_remarks = response[0].verification_action_root_cause_analysis_remarks;
+
+                            jQuery('.verification_action_root_cause_analysis').val(verification_action_root_cause_analysis);
+                            jQuery('.verification_action_root_cause_analysis_remarks').val(verification_action_root_cause_analysis_remarks);
         
                             var riskEntries = JSON.parse(response[0].risk_entry);
         
@@ -3165,9 +3182,14 @@ var car = {
                             $('[name="existing_nonconformity_remarks"]').val(response[0].existing_nonconformity_remarks);
                             $('[name="update_doc_info_remarks"]').val(response[0].update_doc_info_remarks);
         
+                            var validation_action_root_cause_analysis = response[0].validation_action_root_cause_analysis;
+                            var validation_action_root_cause_analysis_remarks = response[0].validation_action_root_cause_analysis_remarks;
+
+                            jQuery('.validation_action_root_cause_analysis').val(validation_action_root_cause_analysis);
+                            jQuery('.validation_action_root_cause_analysis_remarks').val(validation_action_root_cause_analysis_remarks);
+
                             var riskEntries = JSON.parse(response[0].risk_entry);
         
-                            
         
                             var count = 0;
                             riskEntries.forEach(function (risk) {
