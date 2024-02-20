@@ -785,7 +785,7 @@ class car extends CI_Controller {
             'root_cause_entry' => json_encode($rootcause_entry),
             'identified_root_entry' => json_encode($identified_entry),
             'review_action_root_cause_analysis' => $review_action_root_cause_analysis,
-            'review_action_root_cause_analysis_remarks' => $review_action_root_cause_analysis,
+            'review_action_root_cause_analysis_remarks' => $review_action_root_cause_analysis_remarks,
         );
         
         if ($existing_record) {
