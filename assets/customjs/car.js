@@ -58,35 +58,35 @@ var car = {
                         var osqm_review_corrective_action = "";
                         
                         if(for_correction_status == 'For Approval' || for_correction_status == 'For Verification' || for_correction_status == 'For Validation' || for_correction_status == 'For Closure'){
-                            var osqm_approval_correction = "<a class='dropdown-item for-osqm-approval-correction' href='#' data-car_id='" + car_id + "' data-bs-toggle='modal' data-bs-target='#corrective-action-approval'>Correction - For Approval</a>";
+                            var osqm_approval_correction = "<a class='dropdown-item for-osqm-approval-correction' href='#' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action-approval'>Correction - For Approval</a>";
                         }
 
                         if(for_correction_status == 'For Verification' || for_correction_status == 'For Validation' || for_correction_status == 'For Closure'){
-                            var osqm_verification_correction = "<a class='dropdown-item for-osqm-verification-correction' href='#' data-car_id='" + car_id + "' data-bs-toggle='modal' data-bs-target='#corrective-action-verification'>Correction - For Verification</a>";
+                            var osqm_verification_correction = "<a class='dropdown-item for-osqm-verification-correction' href='#' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action-verification'>Correction - For Verification</a>";
                         }
 
                         if(for_correction_status == 'For Validation' || for_correction_status == 'For Closure'){
-                            var osqm_validation_correction = "<a class='dropdown-item for-osqm-validation-correction' href='#' data-car_id='" + car_id + "' data-bs-toggle='modal' data-bs-target='#corrective-action-validation'>Correction - For Validation</a>";
+                            var osqm_validation_correction = "<a class='dropdown-item for-osqm-validation-correction' href='#' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action-validation'>Correction - For Validation</a>";
                         }
                         
                         if(for_correction_status == 'For OSQM Review' || for_correction_status == 'For Approval' || for_correction_status == 'For Verification' || for_correction_status == 'For Validation' || for_correction_status == 'For Closure'){
-                            var osqm_review_correction = "<a class='dropdown-item for-osqm-review-correction' href='#' data-car_id='" + car_id + "' data-bs-toggle='modal' data-bs-target='#corrective-action-review'>Correction - For OSQM Review</a>";
+                            var osqm_review_correction = "<a class='dropdown-item for-osqm-review-correction' href='#' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action-review'>Correction - For OSQM Review</a>";
                         }
 
                         if(corrective_action_status == 'For OSQM Review' || corrective_action_status == 'For Approval' || corrective_action_status == 'For Verification' || corrective_action_status == 'For Validation' || corrective_action_status == 'For Closure'){
-                            var osqm_review_corrective_action = "<a class='dropdown-item for-osqm-review-corrective-action' href='#' data-car_id='" + car_id + "' data-bs-toggle='modal' data-bs-target='#root-cause-review'>Corrective Action - For OSQM Review</a>";
+                            var osqm_review_corrective_action = "<a class='dropdown-item for-osqm-review-corrective-action' href='#' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#root-cause-review'>Corrective Action - For OSQM Review</a>";
                         }
 
                         if(corrective_action_status == 'For Approval' || corrective_action_status == 'For Verification' || corrective_action_status == 'For Validation' || corrective_action_status == 'For Closure'){
-                            var osqm_approval_corrective_action = "<a class='dropdown-item for-osqm-approval-corrective-action' href='#' data-car_id='" + car_id + "' data-bs-toggle='modal' data-bs-target='#root-cause-approval'>Corrective Action - For Approval</a>";
+                            var osqm_approval_corrective_action = "<a class='dropdown-item for-osqm-approval-corrective-action' href='#' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#root-cause-approval'>Corrective Action - For Approval</a>";
                         }
 
                         if(corrective_action_status == 'For Verification' || corrective_action_status == 'For Validation' || corrective_action_status == 'For Closure'){
-                            var osqm_verification_corrective_action = "<a class='dropdown-item for-osqm-verification-corrective-action' href='#' data-car_id='" + car_id + "' data-bs-toggle='modal' data-bs-target='#root-cause-verification'>Corrective Action - For Verification</a>";
+                            var osqm_verification_corrective_action = "<a class='dropdown-item for-osqm-verification-corrective-action' href='#' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#root-cause-verification'>Corrective Action - For Verification</a>";
                         }
 
                         if(corrective_action_status == 'For Validation'  || corrective_action_status == 'For Closure'){
-                            var osqm_validation_corrective_action = "<a class='dropdown-item for-osqm-validation-corrective-action' href='#' data-car_id='" + car_id + "' data-bs-toggle='modal' data-bs-target='#root-cause-validation'>Corrective Action - For Validation</a>";
+                            var osqm_validation_corrective_action = "<a class='dropdown-item for-osqm-validation-corrective-action' href='#' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#root-cause-validation'>Corrective Action - For Validation</a>";
                         }
 
                         if(corrective_action_status == 'For Closure' && for_correction_status == 'For Closure'){
@@ -244,6 +244,98 @@ var car = {
 
     loadCorrectiveAction: function(){
         $('#car-global-datatable').on('click', '.edit-correction-action', function () {
+
+
+            $car_id = jQuery(this).data('car_id');
+            $requestor = jQuery(this).data('requestor');
+            $car_no = jQuery(this).data('car_no');
+            $source = jQuery(this).data('source');
+            $issued_by = jQuery(this).data('issued_by');
+            $issued_to = jQuery(this).data('issued_to');
+            $section = jQuery(this).data('section');
+            $identification_date = jQuery(this).data('identification_date');
+            $issuance_of_nc = jQuery(this).data('issuance_of_nc');
+            $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
+            $status = jQuery(this).data('status');
+            
+
+            $findings = jQuery(this).data('findings');
+            $consequences = jQuery(this).data('consequences');
+            $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
+        
+            jQuery('.addCARFormIssuance .car_id').val($car_id);
+            jQuery('.addCARFormIssuance .requestor').val($requestor);
+            jQuery('.addCARFormIssuance .car_no').val($car_no);
+            jQuery('.addCARFormIssuance .source').val($source); // Replace 'source' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issued_by').val($issued_by); // Replace 'issued_by' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issued_to').val($issued_to); // Replace 'issued_to' with the actual ID of your element
+            jQuery('.addCARFormIssuance .identification_date').val($identification_date); // Replace 'identification_date' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issuance_of_nc').val($issuance_of_nc); // Replace 'issuance_of_nc' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element        
+            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+
+            division = jQuery('.addCARFormIssuance .issued_by').val();
+
+            $.ajax({
+                type: 'POST',
+                url: '../car/getDepartment', // Replace 'MyController' with your controller name
+                data: {division: division},
+                success: function (response) {
+                    if(response != 'null'){
+
+                        $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
+                        $.each(JSON.parse(response), function (index, item) {
+                            // Access each item's properties
+                            var id = item.id;
+                            var dep_name = item.dep_name;
+
+                            var html = '<option value="'+id+'">'+dep_name+'</option>';
+                            // Do something with the data, for example, display it on the page
+                            $('.addCARFormIssuance .issued_to').append(html);
+                        });
+
+                        jQuery('.addCARFormIssuance .issued_to').val($issued_to);
+
+                        department = $issued_to;
+                        $.ajax({
+                            type: 'POST',
+                            url: '../car/getSection', // Replace 'MyController' with your controller name
+                            data: {department: department},
+                            success: function (response) {
+                                if(response != 'null'){
+            
+                                    $('.addCARFormIssuance .section').html('<option value=""></option>');
+                                    $.each(JSON.parse(response), function (index, item) {
+                                        // Access each item's properties
+                                        var id = item.id;
+                                        var section_name = item.section_name;
+                
+                                        var html = '<option value="'+id+'">'+section_name+'</option>';
+                                        // Do something with the data, for example, display it on the page
+                                        $('.addCARFormIssuance .section').append(html);
+                                    });
+            
+                                    jQuery('.addCARFormIssuance .section').val($section);
+                                }   
+                            },
+                            error: function () {
+                                // Handle errors
+                                diList.notifyError();
+                            }
+                        });
+
+                    }   
+                },
+                error: function () {
+                    // Handle errors
+                    diList.notifyError();
+                }
+            });
+
+
+
 
             var car_id = jQuery(this).data('car_id');
             jQuery('.car_id').val(car_id);
@@ -434,6 +526,94 @@ var car = {
         });
 
         $('#car-global-datatable').on('click', '.for-osqm-review-correction', function () {
+
+            $car_id = jQuery(this).data('car_id');
+            $requestor = jQuery(this).data('requestor');
+            $car_no = jQuery(this).data('car_no');
+            $source = jQuery(this).data('source');
+            $issued_by = jQuery(this).data('issued_by');
+            $issued_to = jQuery(this).data('issued_to');
+            $section = jQuery(this).data('section');
+            $identification_date = jQuery(this).data('identification_date');
+            $issuance_of_nc = jQuery(this).data('issuance_of_nc');
+            $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
+            $status = jQuery(this).data('status');
+            
+
+            $findings = jQuery(this).data('findings');
+            $consequences = jQuery(this).data('consequences');
+            $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
+        
+            jQuery('.addCARFormIssuance .car_id').val($car_id);
+            jQuery('.addCARFormIssuance .requestor').val($requestor);
+            jQuery('.addCARFormIssuance .car_no').val($car_no);
+            jQuery('.addCARFormIssuance .source').val($source); // Replace 'source' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issued_by').val($issued_by); // Replace 'issued_by' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issued_to').val($issued_to); // Replace 'issued_to' with the actual ID of your element
+            jQuery('.addCARFormIssuance .identification_date').val($identification_date); // Replace 'identification_date' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issuance_of_nc').val($issuance_of_nc); // Replace 'issuance_of_nc' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element        
+            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+
+            division = jQuery('.addCARFormIssuance .issued_by').val();
+
+            $.ajax({
+                type: 'POST',
+                url: '../car/getDepartment', // Replace 'MyController' with your controller name
+                data: {division: division},
+                success: function (response) {
+                    if(response != 'null'){
+
+                        $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
+                        $.each(JSON.parse(response), function (index, item) {
+                            // Access each item's properties
+                            var id = item.id;
+                            var dep_name = item.dep_name;
+
+                            var html = '<option value="'+id+'">'+dep_name+'</option>';
+                            // Do something with the data, for example, display it on the page
+                            $('.addCARFormIssuance .issued_to').append(html);
+                        });
+
+                        jQuery('.addCARFormIssuance .issued_to').val($issued_to);
+
+                        department = $issued_to;
+                        $.ajax({
+                            type: 'POST',
+                            url: '../car/getSection', // Replace 'MyController' with your controller name
+                            data: {department: department},
+                            success: function (response) {
+                                if(response != 'null'){
+            
+                                    $('.addCARFormIssuance .section').html('<option value=""></option>');
+                                    $.each(JSON.parse(response), function (index, item) {
+                                        // Access each item's properties
+                                        var id = item.id;
+                                        var section_name = item.section_name;
+                
+                                        var html = '<option value="'+id+'">'+section_name+'</option>';
+                                        // Do something with the data, for example, display it on the page
+                                        $('.addCARFormIssuance .section').append(html);
+                                    });
+            
+                                    jQuery('.addCARFormIssuance .section').val($section);
+                                }   
+                            },
+                            error: function () {
+                                // Handle errors
+                                diList.notifyError();
+                            }
+                        });
+
+                    }   
+                },
+                error: function () {
+                    // Handle errors
+                    diList.notifyError();
+                }
+            });
 
             var car_id = jQuery(this).data('car_id');
             jQuery('.car_id').val(car_id);
@@ -636,6 +816,94 @@ var car = {
 
         $('#car-global-datatable').on('click', '.for-osqm-approval-correction', function () {
 
+            $car_id = jQuery(this).data('car_id');
+            $requestor = jQuery(this).data('requestor');
+            $car_no = jQuery(this).data('car_no');
+            $source = jQuery(this).data('source');
+            $issued_by = jQuery(this).data('issued_by');
+            $issued_to = jQuery(this).data('issued_to');
+            $section = jQuery(this).data('section');
+            $identification_date = jQuery(this).data('identification_date');
+            $issuance_of_nc = jQuery(this).data('issuance_of_nc');
+            $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
+            $status = jQuery(this).data('status');
+            
+
+            $findings = jQuery(this).data('findings');
+            $consequences = jQuery(this).data('consequences');
+            $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
+        
+            jQuery('.addCARFormIssuance .car_id').val($car_id);
+            jQuery('.addCARFormIssuance .requestor').val($requestor);
+            jQuery('.addCARFormIssuance .car_no').val($car_no);
+            jQuery('.addCARFormIssuance .source').val($source); // Replace 'source' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issued_by').val($issued_by); // Replace 'issued_by' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issued_to').val($issued_to); // Replace 'issued_to' with the actual ID of your element
+            jQuery('.addCARFormIssuance .identification_date').val($identification_date); // Replace 'identification_date' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issuance_of_nc').val($issuance_of_nc); // Replace 'issuance_of_nc' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element        
+            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+
+            division = jQuery('.addCARFormIssuance .issued_by').val();
+
+            $.ajax({
+                type: 'POST',
+                url: '../car/getDepartment', // Replace 'MyController' with your controller name
+                data: {division: division},
+                success: function (response) {
+                    if(response != 'null'){
+
+                        $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
+                        $.each(JSON.parse(response), function (index, item) {
+                            // Access each item's properties
+                            var id = item.id;
+                            var dep_name = item.dep_name;
+
+                            var html = '<option value="'+id+'">'+dep_name+'</option>';
+                            // Do something with the data, for example, display it on the page
+                            $('.addCARFormIssuance .issued_to').append(html);
+                        });
+
+                        jQuery('.addCARFormIssuance .issued_to').val($issued_to);
+
+                        department = $issued_to;
+                        $.ajax({
+                            type: 'POST',
+                            url: '../car/getSection', // Replace 'MyController' with your controller name
+                            data: {department: department},
+                            success: function (response) {
+                                if(response != 'null'){
+            
+                                    $('.addCARFormIssuance .section').html('<option value=""></option>');
+                                    $.each(JSON.parse(response), function (index, item) {
+                                        // Access each item's properties
+                                        var id = item.id;
+                                        var section_name = item.section_name;
+                
+                                        var html = '<option value="'+id+'">'+section_name+'</option>';
+                                        // Do something with the data, for example, display it on the page
+                                        $('.addCARFormIssuance .section').append(html);
+                                    });
+            
+                                    jQuery('.addCARFormIssuance .section').val($section);
+                                }   
+                            },
+                            error: function () {
+                                // Handle errors
+                                diList.notifyError();
+                            }
+                        });
+
+                    }   
+                },
+                error: function () {
+                    // Handle errors
+                    diList.notifyError();
+                }
+            });
+
             var car_id = jQuery(this).data('car_id');
             jQuery('.car_id').val(car_id);
             $('#correction-approval').empty();
@@ -836,6 +1104,94 @@ var car = {
         });
 
         $('#car-global-datatable').on('click', '.for-osqm-verification-correction', function () {
+
+            $car_id = jQuery(this).data('car_id');
+            $requestor = jQuery(this).data('requestor');
+            $car_no = jQuery(this).data('car_no');
+            $source = jQuery(this).data('source');
+            $issued_by = jQuery(this).data('issued_by');
+            $issued_to = jQuery(this).data('issued_to');
+            $section = jQuery(this).data('section');
+            $identification_date = jQuery(this).data('identification_date');
+            $issuance_of_nc = jQuery(this).data('issuance_of_nc');
+            $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
+            $status = jQuery(this).data('status');
+            
+
+            $findings = jQuery(this).data('findings');
+            $consequences = jQuery(this).data('consequences');
+            $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
+        
+            jQuery('.addCARFormIssuance .car_id').val($car_id);
+            jQuery('.addCARFormIssuance .requestor').val($requestor);
+            jQuery('.addCARFormIssuance .car_no').val($car_no);
+            jQuery('.addCARFormIssuance .source').val($source); // Replace 'source' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issued_by').val($issued_by); // Replace 'issued_by' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issued_to').val($issued_to); // Replace 'issued_to' with the actual ID of your element
+            jQuery('.addCARFormIssuance .identification_date').val($identification_date); // Replace 'identification_date' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issuance_of_nc').val($issuance_of_nc); // Replace 'issuance_of_nc' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element        
+            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+
+            division = jQuery('.addCARFormIssuance .issued_by').val();
+
+            $.ajax({
+                type: 'POST',
+                url: '../car/getDepartment', // Replace 'MyController' with your controller name
+                data: {division: division},
+                success: function (response) {
+                    if(response != 'null'){
+
+                        $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
+                        $.each(JSON.parse(response), function (index, item) {
+                            // Access each item's properties
+                            var id = item.id;
+                            var dep_name = item.dep_name;
+
+                            var html = '<option value="'+id+'">'+dep_name+'</option>';
+                            // Do something with the data, for example, display it on the page
+                            $('.addCARFormIssuance .issued_to').append(html);
+                        });
+
+                        jQuery('.addCARFormIssuance .issued_to').val($issued_to);
+
+                        department = $issued_to;
+                        $.ajax({
+                            type: 'POST',
+                            url: '../car/getSection', // Replace 'MyController' with your controller name
+                            data: {department: department},
+                            success: function (response) {
+                                if(response != 'null'){
+            
+                                    $('.addCARFormIssuance .section').html('<option value=""></option>');
+                                    $.each(JSON.parse(response), function (index, item) {
+                                        // Access each item's properties
+                                        var id = item.id;
+                                        var section_name = item.section_name;
+                
+                                        var html = '<option value="'+id+'">'+section_name+'</option>';
+                                        // Do something with the data, for example, display it on the page
+                                        $('.addCARFormIssuance .section').append(html);
+                                    });
+            
+                                    jQuery('.addCARFormIssuance .section').val($section);
+                                }   
+                            },
+                            error: function () {
+                                // Handle errors
+                                diList.notifyError();
+                            }
+                        });
+
+                    }   
+                },
+                error: function () {
+                    // Handle errors
+                    diList.notifyError();
+                }
+            });
 
             var car_id = jQuery(this).data('car_id');
             jQuery('.car_id').val(car_id);
@@ -1039,6 +1395,94 @@ var car = {
 
         $('#car-global-datatable').on('click', '.for-osqm-validation-correction', function () {
 
+            $car_id = jQuery(this).data('car_id');
+            $requestor = jQuery(this).data('requestor');
+            $car_no = jQuery(this).data('car_no');
+            $source = jQuery(this).data('source');
+            $issued_by = jQuery(this).data('issued_by');
+            $issued_to = jQuery(this).data('issued_to');
+            $section = jQuery(this).data('section');
+            $identification_date = jQuery(this).data('identification_date');
+            $issuance_of_nc = jQuery(this).data('issuance_of_nc');
+            $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
+            $status = jQuery(this).data('status');
+            
+
+            $findings = jQuery(this).data('findings');
+            $consequences = jQuery(this).data('consequences');
+            $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
+        
+            jQuery('.addCARFormIssuance .car_id').val($car_id);
+            jQuery('.addCARFormIssuance .requestor').val($requestor);
+            jQuery('.addCARFormIssuance .car_no').val($car_no);
+            jQuery('.addCARFormIssuance .source').val($source); // Replace 'source' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issued_by').val($issued_by); // Replace 'issued_by' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issued_to').val($issued_to); // Replace 'issued_to' with the actual ID of your element
+            jQuery('.addCARFormIssuance .identification_date').val($identification_date); // Replace 'identification_date' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issuance_of_nc').val($issuance_of_nc); // Replace 'issuance_of_nc' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element        
+            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+
+            division = jQuery('.addCARFormIssuance .issued_by').val();
+
+            $.ajax({
+                type: 'POST',
+                url: '../car/getDepartment', // Replace 'MyController' with your controller name
+                data: {division: division},
+                success: function (response) {
+                    if(response != 'null'){
+
+                        $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
+                        $.each(JSON.parse(response), function (index, item) {
+                            // Access each item's properties
+                            var id = item.id;
+                            var dep_name = item.dep_name;
+
+                            var html = '<option value="'+id+'">'+dep_name+'</option>';
+                            // Do something with the data, for example, display it on the page
+                            $('.addCARFormIssuance .issued_to').append(html);
+                        });
+
+                        jQuery('.addCARFormIssuance .issued_to').val($issued_to);
+
+                        department = $issued_to;
+                        $.ajax({
+                            type: 'POST',
+                            url: '../car/getSection', // Replace 'MyController' with your controller name
+                            data: {department: department},
+                            success: function (response) {
+                                if(response != 'null'){
+            
+                                    $('.addCARFormIssuance .section').html('<option value=""></option>');
+                                    $.each(JSON.parse(response), function (index, item) {
+                                        // Access each item's properties
+                                        var id = item.id;
+                                        var section_name = item.section_name;
+                
+                                        var html = '<option value="'+id+'">'+section_name+'</option>';
+                                        // Do something with the data, for example, display it on the page
+                                        $('.addCARFormIssuance .section').append(html);
+                                    });
+            
+                                    jQuery('.addCARFormIssuance .section').val($section);
+                                }   
+                            },
+                            error: function () {
+                                // Handle errors
+                                diList.notifyError();
+                            }
+                        });
+
+                    }   
+                },
+                error: function () {
+                    // Handle errors
+                    diList.notifyError();
+                }
+            });
+
             var car_id = jQuery(this).data('car_id');
             jQuery('.car_id').val(car_id);
             $('#correction-validation').empty();
@@ -1241,6 +1685,94 @@ var car = {
        
 
         $('#car-global-datatable').on('click', '.edit-corrective-action', function () {
+
+            $car_id = jQuery(this).data('car_id');
+            $requestor = jQuery(this).data('requestor');
+            $car_no = jQuery(this).data('car_no');
+            $source = jQuery(this).data('source');
+            $issued_by = jQuery(this).data('issued_by');
+            $issued_to = jQuery(this).data('issued_to');
+            $section = jQuery(this).data('section');
+            $identification_date = jQuery(this).data('identification_date');
+            $issuance_of_nc = jQuery(this).data('issuance_of_nc');
+            $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
+            $status = jQuery(this).data('status');
+            
+
+            $findings = jQuery(this).data('findings');
+            $consequences = jQuery(this).data('consequences');
+            $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
+        
+            jQuery('.addCARFormIssuance .car_id').val($car_id);
+            jQuery('.addCARFormIssuance .requestor').val($requestor);
+            jQuery('.addCARFormIssuance .car_no').val($car_no);
+            jQuery('.addCARFormIssuance .source').val($source); // Replace 'source' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issued_by').val($issued_by); // Replace 'issued_by' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issued_to').val($issued_to); // Replace 'issued_to' with the actual ID of your element
+            jQuery('.addCARFormIssuance .identification_date').val($identification_date); // Replace 'identification_date' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issuance_of_nc').val($issuance_of_nc); // Replace 'issuance_of_nc' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element        
+            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+
+            division = jQuery('.addCARFormIssuance .issued_by').val();
+
+            $.ajax({
+                type: 'POST',
+                url: '../car/getDepartment', // Replace 'MyController' with your controller name
+                data: {division: division},
+                success: function (response) {
+                    if(response != 'null'){
+
+                        $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
+                        $.each(JSON.parse(response), function (index, item) {
+                            // Access each item's properties
+                            var id = item.id;
+                            var dep_name = item.dep_name;
+
+                            var html = '<option value="'+id+'">'+dep_name+'</option>';
+                            // Do something with the data, for example, display it on the page
+                            $('.addCARFormIssuance .issued_to').append(html);
+                        });
+
+                        jQuery('.addCARFormIssuance .issued_to').val($issued_to);
+
+                        department = $issued_to;
+                        $.ajax({
+                            type: 'POST',
+                            url: '../car/getSection', // Replace 'MyController' with your controller name
+                            data: {department: department},
+                            success: function (response) {
+                                if(response != 'null'){
+            
+                                    $('.addCARFormIssuance .section').html('<option value=""></option>');
+                                    $.each(JSON.parse(response), function (index, item) {
+                                        // Access each item's properties
+                                        var id = item.id;
+                                        var section_name = item.section_name;
+                
+                                        var html = '<option value="'+id+'">'+section_name+'</option>';
+                                        // Do something with the data, for example, display it on the page
+                                        $('.addCARFormIssuance .section').append(html);
+                                    });
+            
+                                    jQuery('.addCARFormIssuance .section').val($section);
+                                }   
+                            },
+                            error: function () {
+                                // Handle errors
+                                diList.notifyError();
+                            }
+                        });
+
+                    }   
+                },
+                error: function () {
+                    // Handle errors
+                    diList.notifyError();
+                }
+            });
 
             var car_id = jQuery(this).data('car_id');
             jQuery('.car_id').val(car_id);
@@ -1777,6 +2309,94 @@ var car = {
 
         $('#car-global-datatable').on('click', '.for-osqm-review-corrective-action', function () {
 
+            $car_id = jQuery(this).data('car_id');
+            $requestor = jQuery(this).data('requestor');
+            $car_no = jQuery(this).data('car_no');
+            $source = jQuery(this).data('source');
+            $issued_by = jQuery(this).data('issued_by');
+            $issued_to = jQuery(this).data('issued_to');
+            $section = jQuery(this).data('section');
+            $identification_date = jQuery(this).data('identification_date');
+            $issuance_of_nc = jQuery(this).data('issuance_of_nc');
+            $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
+            $status = jQuery(this).data('status');
+            
+
+            $findings = jQuery(this).data('findings');
+            $consequences = jQuery(this).data('consequences');
+            $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
+        
+            jQuery('.addCARFormIssuance .car_id').val($car_id);
+            jQuery('.addCARFormIssuance .requestor').val($requestor);
+            jQuery('.addCARFormIssuance .car_no').val($car_no);
+            jQuery('.addCARFormIssuance .source').val($source); // Replace 'source' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issued_by').val($issued_by); // Replace 'issued_by' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issued_to').val($issued_to); // Replace 'issued_to' with the actual ID of your element
+            jQuery('.addCARFormIssuance .identification_date').val($identification_date); // Replace 'identification_date' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issuance_of_nc').val($issuance_of_nc); // Replace 'issuance_of_nc' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element        
+            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+
+            division = jQuery('.addCARFormIssuance .issued_by').val();
+
+            $.ajax({
+                type: 'POST',
+                url: '../car/getDepartment', // Replace 'MyController' with your controller name
+                data: {division: division},
+                success: function (response) {
+                    if(response != 'null'){
+
+                        $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
+                        $.each(JSON.parse(response), function (index, item) {
+                            // Access each item's properties
+                            var id = item.id;
+                            var dep_name = item.dep_name;
+
+                            var html = '<option value="'+id+'">'+dep_name+'</option>';
+                            // Do something with the data, for example, display it on the page
+                            $('.addCARFormIssuance .issued_to').append(html);
+                        });
+
+                        jQuery('.addCARFormIssuance .issued_to').val($issued_to);
+
+                        department = $issued_to;
+                        $.ajax({
+                            type: 'POST',
+                            url: '../car/getSection', // Replace 'MyController' with your controller name
+                            data: {department: department},
+                            success: function (response) {
+                                if(response != 'null'){
+            
+                                    $('.addCARFormIssuance .section').html('<option value=""></option>');
+                                    $.each(JSON.parse(response), function (index, item) {
+                                        // Access each item's properties
+                                        var id = item.id;
+                                        var section_name = item.section_name;
+                
+                                        var html = '<option value="'+id+'">'+section_name+'</option>';
+                                        // Do something with the data, for example, display it on the page
+                                        $('.addCARFormIssuance .section').append(html);
+                                    });
+            
+                                    jQuery('.addCARFormIssuance .section').val($section);
+                                }   
+                            },
+                            error: function () {
+                                // Handle errors
+                                diList.notifyError();
+                            }
+                        });
+
+                    }   
+                },
+                error: function () {
+                    // Handle errors
+                    diList.notifyError();
+                }
+            });
+
             var car_id = jQuery(this).data('car_id');
             jQuery('.car_id').val(car_id);
             $('#risk-number-review').empty();
@@ -2239,6 +2859,94 @@ var car = {
 
         $('#car-global-datatable').on('click', '.for-osqm-approval-corrective-action', function () {
 
+            $car_id = jQuery(this).data('car_id');
+            $requestor = jQuery(this).data('requestor');
+            $car_no = jQuery(this).data('car_no');
+            $source = jQuery(this).data('source');
+            $issued_by = jQuery(this).data('issued_by');
+            $issued_to = jQuery(this).data('issued_to');
+            $section = jQuery(this).data('section');
+            $identification_date = jQuery(this).data('identification_date');
+            $issuance_of_nc = jQuery(this).data('issuance_of_nc');
+            $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
+            $status = jQuery(this).data('status');
+            
+
+            $findings = jQuery(this).data('findings');
+            $consequences = jQuery(this).data('consequences');
+            $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
+        
+            jQuery('.addCARFormIssuance .car_id').val($car_id);
+            jQuery('.addCARFormIssuance .requestor').val($requestor);
+            jQuery('.addCARFormIssuance .car_no').val($car_no);
+            jQuery('.addCARFormIssuance .source').val($source); // Replace 'source' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issued_by').val($issued_by); // Replace 'issued_by' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issued_to').val($issued_to); // Replace 'issued_to' with the actual ID of your element
+            jQuery('.addCARFormIssuance .identification_date').val($identification_date); // Replace 'identification_date' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issuance_of_nc').val($issuance_of_nc); // Replace 'issuance_of_nc' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element        
+            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+
+            division = jQuery('.addCARFormIssuance .issued_by').val();
+
+            $.ajax({
+                type: 'POST',
+                url: '../car/getDepartment', // Replace 'MyController' with your controller name
+                data: {division: division},
+                success: function (response) {
+                    if(response != 'null'){
+
+                        $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
+                        $.each(JSON.parse(response), function (index, item) {
+                            // Access each item's properties
+                            var id = item.id;
+                            var dep_name = item.dep_name;
+
+                            var html = '<option value="'+id+'">'+dep_name+'</option>';
+                            // Do something with the data, for example, display it on the page
+                            $('.addCARFormIssuance .issued_to').append(html);
+                        });
+
+                        jQuery('.addCARFormIssuance .issued_to').val($issued_to);
+
+                        department = $issued_to;
+                        $.ajax({
+                            type: 'POST',
+                            url: '../car/getSection', // Replace 'MyController' with your controller name
+                            data: {department: department},
+                            success: function (response) {
+                                if(response != 'null'){
+            
+                                    $('.addCARFormIssuance .section').html('<option value=""></option>');
+                                    $.each(JSON.parse(response), function (index, item) {
+                                        // Access each item's properties
+                                        var id = item.id;
+                                        var section_name = item.section_name;
+                
+                                        var html = '<option value="'+id+'">'+section_name+'</option>';
+                                        // Do something with the data, for example, display it on the page
+                                        $('.addCARFormIssuance .section').append(html);
+                                    });
+            
+                                    jQuery('.addCARFormIssuance .section').val($section);
+                                }   
+                            },
+                            error: function () {
+                                // Handle errors
+                                diList.notifyError();
+                            }
+                        });
+
+                    }   
+                },
+                error: function () {
+                    // Handle errors
+                    diList.notifyError();
+                }
+            });
+
             var car_id = jQuery(this).data('car_id');
             jQuery('.car_id').val(car_id);
             $('#risk-number-approval').empty();
@@ -2699,6 +3407,94 @@ var car = {
         });
 
         $('#car-global-datatable').on('click', '.for-osqm-verification-corrective-action', function () {
+
+            $car_id = jQuery(this).data('car_id');
+            $requestor = jQuery(this).data('requestor');
+            $car_no = jQuery(this).data('car_no');
+            $source = jQuery(this).data('source');
+            $issued_by = jQuery(this).data('issued_by');
+            $issued_to = jQuery(this).data('issued_to');
+            $section = jQuery(this).data('section');
+            $identification_date = jQuery(this).data('identification_date');
+            $issuance_of_nc = jQuery(this).data('issuance_of_nc');
+            $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
+            $status = jQuery(this).data('status');
+            
+
+            $findings = jQuery(this).data('findings');
+            $consequences = jQuery(this).data('consequences');
+            $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
+        
+            jQuery('.addCARFormIssuance .car_id').val($car_id);
+            jQuery('.addCARFormIssuance .requestor').val($requestor);
+            jQuery('.addCARFormIssuance .car_no').val($car_no);
+            jQuery('.addCARFormIssuance .source').val($source); // Replace 'source' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issued_by').val($issued_by); // Replace 'issued_by' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issued_to').val($issued_to); // Replace 'issued_to' with the actual ID of your element
+            jQuery('.addCARFormIssuance .identification_date').val($identification_date); // Replace 'identification_date' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issuance_of_nc').val($issuance_of_nc); // Replace 'issuance_of_nc' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element        
+            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+
+            division = jQuery('.addCARFormIssuance .issued_by').val();
+
+            $.ajax({
+                type: 'POST',
+                url: '../car/getDepartment', // Replace 'MyController' with your controller name
+                data: {division: division},
+                success: function (response) {
+                    if(response != 'null'){
+
+                        $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
+                        $.each(JSON.parse(response), function (index, item) {
+                            // Access each item's properties
+                            var id = item.id;
+                            var dep_name = item.dep_name;
+
+                            var html = '<option value="'+id+'">'+dep_name+'</option>';
+                            // Do something with the data, for example, display it on the page
+                            $('.addCARFormIssuance .issued_to').append(html);
+                        });
+
+                        jQuery('.addCARFormIssuance .issued_to').val($issued_to);
+
+                        department = $issued_to;
+                        $.ajax({
+                            type: 'POST',
+                            url: '../car/getSection', // Replace 'MyController' with your controller name
+                            data: {department: department},
+                            success: function (response) {
+                                if(response != 'null'){
+            
+                                    $('.addCARFormIssuance .section').html('<option value=""></option>');
+                                    $.each(JSON.parse(response), function (index, item) {
+                                        // Access each item's properties
+                                        var id = item.id;
+                                        var section_name = item.section_name;
+                
+                                        var html = '<option value="'+id+'">'+section_name+'</option>';
+                                        // Do something with the data, for example, display it on the page
+                                        $('.addCARFormIssuance .section').append(html);
+                                    });
+            
+                                    jQuery('.addCARFormIssuance .section').val($section);
+                                }   
+                            },
+                            error: function () {
+                                // Handle errors
+                                diList.notifyError();
+                            }
+                        });
+
+                    }   
+                },
+                error: function () {
+                    // Handle errors
+                    diList.notifyError();
+                }
+            });
 
             var car_id = jQuery(this).data('car_id');
             jQuery('.car_id').val(car_id);
@@ -3162,6 +3958,94 @@ var car = {
 
         $('#car-global-datatable').on('click', '.for-osqm-validation-corrective-action', function () {
 
+            $car_id = jQuery(this).data('car_id');
+            $requestor = jQuery(this).data('requestor');
+            $car_no = jQuery(this).data('car_no');
+            $source = jQuery(this).data('source');
+            $issued_by = jQuery(this).data('issued_by');
+            $issued_to = jQuery(this).data('issued_to');
+            $section = jQuery(this).data('section');
+            $identification_date = jQuery(this).data('identification_date');
+            $issuance_of_nc = jQuery(this).data('issuance_of_nc');
+            $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
+            $status = jQuery(this).data('status');
+            
+
+            $findings = jQuery(this).data('findings');
+            $consequences = jQuery(this).data('consequences');
+            $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
+        
+            jQuery('.addCARFormIssuance .car_id').val($car_id);
+            jQuery('.addCARFormIssuance .requestor').val($requestor);
+            jQuery('.addCARFormIssuance .car_no').val($car_no);
+            jQuery('.addCARFormIssuance .source').val($source); // Replace 'source' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issued_by').val($issued_by); // Replace 'issued_by' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issued_to').val($issued_to); // Replace 'issued_to' with the actual ID of your element
+            jQuery('.addCARFormIssuance .identification_date').val($identification_date); // Replace 'identification_date' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issuance_of_nc').val($issuance_of_nc); // Replace 'issuance_of_nc' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element        
+            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+
+            division = jQuery('.addCARFormIssuance .issued_by').val();
+
+            $.ajax({
+                type: 'POST',
+                url: '../car/getDepartment', // Replace 'MyController' with your controller name
+                data: {division: division},
+                success: function (response) {
+                    if(response != 'null'){
+
+                        $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
+                        $.each(JSON.parse(response), function (index, item) {
+                            // Access each item's properties
+                            var id = item.id;
+                            var dep_name = item.dep_name;
+
+                            var html = '<option value="'+id+'">'+dep_name+'</option>';
+                            // Do something with the data, for example, display it on the page
+                            $('.addCARFormIssuance .issued_to').append(html);
+                        });
+
+                        jQuery('.addCARFormIssuance .issued_to').val($issued_to);
+
+                        department = $issued_to;
+                        $.ajax({
+                            type: 'POST',
+                            url: '../car/getSection', // Replace 'MyController' with your controller name
+                            data: {department: department},
+                            success: function (response) {
+                                if(response != 'null'){
+            
+                                    $('.addCARFormIssuance .section').html('<option value=""></option>');
+                                    $.each(JSON.parse(response), function (index, item) {
+                                        // Access each item's properties
+                                        var id = item.id;
+                                        var section_name = item.section_name;
+                
+                                        var html = '<option value="'+id+'">'+section_name+'</option>';
+                                        // Do something with the data, for example, display it on the page
+                                        $('.addCARFormIssuance .section').append(html);
+                                    });
+            
+                                    jQuery('.addCARFormIssuance .section').val($section);
+                                }   
+                            },
+                            error: function () {
+                                // Handle errors
+                                diList.notifyError();
+                            }
+                        });
+
+                    }   
+                },
+                error: function () {
+                    // Handle errors
+                    diList.notifyError();
+                }
+            });
+
             var car_id = jQuery(this).data('car_id');
             jQuery('.car_id').val(car_id);
             $('#risk-number-validation').empty();
@@ -3621,9 +4505,6 @@ var car = {
             });
         });
 
-
-
-     
         
     },
 
@@ -4457,6 +5338,7 @@ var car = {
     carEdit: function(){
        
         $('#car-global-datatable').on('click', '.edit-car', function () {
+
             $car_id = jQuery(this).data('car_id');
             $requestor = jQuery(this).data('requestor');
             $car_no = jQuery(this).data('car_no');
@@ -4551,6 +5433,7 @@ var car = {
                     diList.notifyError();
                 }
             });
+
         });
 
     },

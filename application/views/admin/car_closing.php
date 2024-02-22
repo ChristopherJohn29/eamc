@@ -1667,9 +1667,6 @@
          </div><!-- /.modal-dialog -->
       </div>
 
-      
-
-
       <!-- start page title -->
       <div class="row">
          <div class="col-12">

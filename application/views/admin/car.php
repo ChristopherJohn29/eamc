@@ -166,7 +166,7 @@
 
                         <div class="form-group col-md-3">
                               <label for="issued_to" class="form-label">Issued To</label>
-                              <select class="form-select issued_to" name="issued_to">
+                              <select class="form-select issued_to" name="issued_to" disabled>
                                  <option value=""></option>
                               </select>
                               <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
@@ -174,7 +174,7 @@
 
                         <div class="form-group col-md-3">
                               <label for="issued_to" class="form-label">Section Unit</label>
-                              <select class="form-select section" name="section">
+                              <select class="form-select section" name="section" disabled>
                                  <option value=""></option>
                               </select>
                               <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
@@ -236,6 +236,95 @@
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
+
+                  <form class="addCARFormIssuance">
+                     <input type="hidden" name="car_id" class="car_id">
+                     <div class="row mb-2">
+                        <div class="form-group col-md-4">
+                              <label for="requestor" class="form-label">Requestor</label>
+                              <input type="text" class="form-control requestor" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                        <div class="form-group col-md-4">
+                              <label for="car_no" class="form-label">CAR No.</label>
+                              <input type="text" class="form-control car_no" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                        <div class="form-group col-md-4">
+                              <label for="identification_date" class="form-label">Identification Date</label>
+                              <input type="date" class="form-control identification_date" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                     </div>
+
+                     <div class="row mb-2">
+
+                        <div class="form-group col-md-3">
+                              <label for="source" class="form-label">Source</label>
+                              <select class="form-select source" name="source" disabled>
+                                 <option value=""></option>
+                                 <?php
+                                    foreach ($source as $key => $value) {
+                                       echo '<option value="'.$value['id'].'">'.$value['source_name'].'</option>';
+                                    }
+                                 ?>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_by" class="form-label">Issued By</label>
+                              <select class="form-select issued_by" name="issued_by" disabled>
+                                 <option value=""></option>
+                                 <?php
+                                    foreach ($division as $key => $value) {
+                                       echo '<option value="'.$value['id'].'">'.$value['div_name'].'</option>';
+                                    }
+                                 ?>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_to" class="form-label">Issued To</label>
+                              <select class="form-select issued_to" name="issued_to" disabled>
+                                 <option value=""></option>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_to" class="form-label">Section Unit</label>
+                              <select class="form-select section" name="section" disabled>
+                                 <option value=""></option>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                     </div>
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="findings" class="form-label">Findings</label>
+                           <textarea class="form-control findings" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="consequences" class="form-label">Consequences</label>
+                           <textarea class="form-control consequences" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="requirements_not_fulfilled" class="form-label">Requirements Not Fulfilled: </label><i>(e.g., ISO 9001 Requirements, Statutory & Regulatory Requirements, Policies, Procedures, Guidelines, Work Instructions, or other forms of Documented Information.)</i>
+                           <textarea class="form-control requirements_not_fulfilled" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+
+                  </form>
+
                   <form action="" id="correction_form" enctype="multipart/form-data">
                      <input type="hidden" name="car_id" class="car_id">
                      <div id="correction" class="mb-3">
@@ -342,6 +431,93 @@
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
+                  <form class="addCARFormIssuance">
+                     <input type="hidden" name="car_id" class="car_id">
+                     <div class="row mb-2">
+                        <div class="form-group col-md-4">
+                              <label for="requestor" class="form-label">Requestor</label>
+                              <input type="text" class="form-control requestor" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                        <div class="form-group col-md-4">
+                              <label for="car_no" class="form-label">CAR No.</label>
+                              <input type="text" class="form-control car_no" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                        <div class="form-group col-md-4">
+                              <label for="identification_date" class="form-label">Identification Date</label>
+                              <input type="date" class="form-control identification_date" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                     </div>
+
+                     <div class="row mb-2">
+
+                        <div class="form-group col-md-3">
+                              <label for="source" class="form-label">Source</label>
+                              <select class="form-select source" name="source" disabled>
+                                 <option value=""></option>
+                                 <?php
+                                    foreach ($source as $key => $value) {
+                                       echo '<option value="'.$value['id'].'">'.$value['source_name'].'</option>';
+                                    }
+                                 ?>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_by" class="form-label">Issued By</label>
+                              <select class="form-select issued_by" name="issued_by" disabled>
+                                 <option value=""></option>
+                                 <?php
+                                    foreach ($division as $key => $value) {
+                                       echo '<option value="'.$value['id'].'">'.$value['div_name'].'</option>';
+                                    }
+                                 ?>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_to" class="form-label">Issued To</label>
+                              <select class="form-select issued_to" name="issued_to" disabled>
+                                 <option value=""></option>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_to" class="form-label">Section Unit</label>
+                              <select class="form-select section" name="section" disabled>
+                                 <option value=""></option>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                     </div>
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="findings" class="form-label">Findings</label>
+                           <textarea class="form-control findings" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="consequences" class="form-label">Consequences</label>
+                           <textarea class="form-control consequences" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="requirements_not_fulfilled" class="form-label">Requirements Not Fulfilled: </label><i>(e.g., ISO 9001 Requirements, Statutory & Regulatory Requirements, Policies, Procedures, Guidelines, Work Instructions, or other forms of Documented Information.)</i>
+                           <textarea class="form-control requirements_not_fulfilled" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+
+                  </form>
                   <form action="" id="correction_form_review" enctype="multipart/form-data">
                      <input type="hidden" name="car_id" class="car_id">
                      <div id="correction-review" class="mb-3">
@@ -389,6 +565,93 @@
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
+                  <form class="addCARFormIssuance">
+                     <input type="hidden" name="car_id" class="car_id">
+                     <div class="row mb-2">
+                        <div class="form-group col-md-4">
+                              <label for="requestor" class="form-label">Requestor</label>
+                              <input type="text" class="form-control requestor" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                        <div class="form-group col-md-4">
+                              <label for="car_no" class="form-label">CAR No.</label>
+                              <input type="text" class="form-control car_no" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                        <div class="form-group col-md-4">
+                              <label for="identification_date" class="form-label">Identification Date</label>
+                              <input type="date" class="form-control identification_date" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                     </div>
+
+                     <div class="row mb-2">
+
+                        <div class="form-group col-md-3">
+                              <label for="source" class="form-label">Source</label>
+                              <select class="form-select source" name="source" disabled>
+                                 <option value=""></option>
+                                 <?php
+                                    foreach ($source as $key => $value) {
+                                       echo '<option value="'.$value['id'].'">'.$value['source_name'].'</option>';
+                                    }
+                                 ?>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_by" class="form-label">Issued By</label>
+                              <select class="form-select issued_by" name="issued_by" disabled>
+                                 <option value=""></option>
+                                 <?php
+                                    foreach ($division as $key => $value) {
+                                       echo '<option value="'.$value['id'].'">'.$value['div_name'].'</option>';
+                                    }
+                                 ?>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_to" class="form-label">Issued To</label>
+                              <select class="form-select issued_to" name="issued_to" disabled>
+                                 <option value=""></option>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_to" class="form-label">Section Unit</label>
+                              <select class="form-select section" name="section" disabled>
+                                 <option value=""></option>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                     </div>
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="findings" class="form-label">Findings</label>
+                           <textarea class="form-control findings" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="consequences" class="form-label">Consequences</label>
+                           <textarea class="form-control consequences" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="requirements_not_fulfilled" class="form-label">Requirements Not Fulfilled: </label><i>(e.g., ISO 9001 Requirements, Statutory & Regulatory Requirements, Policies, Procedures, Guidelines, Work Instructions, or other forms of Documented Information.)</i>
+                           <textarea class="form-control requirements_not_fulfilled" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+
+                  </form>
                   <form action="" id="correction_form_approval" enctype="multipart/form-data">
                      <input type="hidden" name="car_id" class="car_id">
                      <div id="correction-approval" class="mb-3">
@@ -436,6 +699,93 @@
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
+                  <form class="addCARFormIssuance">
+                     <input type="hidden" name="car_id" class="car_id">
+                     <div class="row mb-2">
+                        <div class="form-group col-md-4">
+                              <label for="requestor" class="form-label">Requestor</label>
+                              <input type="text" class="form-control requestor" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                        <div class="form-group col-md-4">
+                              <label for="car_no" class="form-label">CAR No.</label>
+                              <input type="text" class="form-control car_no" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                        <div class="form-group col-md-4">
+                              <label for="identification_date" class="form-label">Identification Date</label>
+                              <input type="date" class="form-control identification_date" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                     </div>
+
+                     <div class="row mb-2">
+
+                        <div class="form-group col-md-3">
+                              <label for="source" class="form-label">Source</label>
+                              <select class="form-select source" name="source" disabled>
+                                 <option value=""></option>
+                                 <?php
+                                    foreach ($source as $key => $value) {
+                                       echo '<option value="'.$value['id'].'">'.$value['source_name'].'</option>';
+                                    }
+                                 ?>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_by" class="form-label">Issued By</label>
+                              <select class="form-select issued_by" name="issued_by" disabled>
+                                 <option value=""></option>
+                                 <?php
+                                    foreach ($division as $key => $value) {
+                                       echo '<option value="'.$value['id'].'">'.$value['div_name'].'</option>';
+                                    }
+                                 ?>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_to" class="form-label">Issued To</label>
+                              <select class="form-select issued_to" name="issued_to" disabled>
+                                 <option value=""></option>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_to" class="form-label">Section Unit</label>
+                              <select class="form-select section" name="section" disabled>
+                                 <option value=""></option>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                     </div>
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="findings" class="form-label">Findings</label>
+                           <textarea class="form-control findings" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="consequences" class="form-label">Consequences</label>
+                           <textarea class="form-control consequences" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="requirements_not_fulfilled" class="form-label">Requirements Not Fulfilled: </label><i>(e.g., ISO 9001 Requirements, Statutory & Regulatory Requirements, Policies, Procedures, Guidelines, Work Instructions, or other forms of Documented Information.)</i>
+                           <textarea class="form-control requirements_not_fulfilled" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+
+                  </form>
                   <form action="" id="correction_form_verification" enctype="multipart/form-data">
                      <input type="hidden" name="car_id" class="car_id">
                      <div id="correction-verification" class="mb-3">
@@ -483,6 +833,93 @@
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
+                  <form class="addCARFormIssuance">
+                     <input type="hidden" name="car_id" class="car_id">
+                     <div class="row mb-2">
+                        <div class="form-group col-md-4">
+                              <label for="requestor" class="form-label">Requestor</label>
+                              <input type="text" class="form-control requestor" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                        <div class="form-group col-md-4">
+                              <label for="car_no" class="form-label">CAR No.</label>
+                              <input type="text" class="form-control car_no" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                        <div class="form-group col-md-4">
+                              <label for="identification_date" class="form-label">Identification Date</label>
+                              <input type="date" class="form-control identification_date" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                     </div>
+
+                     <div class="row mb-2">
+
+                        <div class="form-group col-md-3">
+                              <label for="source" class="form-label">Source</label>
+                              <select class="form-select source" name="source" disabled>
+                                 <option value=""></option>
+                                 <?php
+                                    foreach ($source as $key => $value) {
+                                       echo '<option value="'.$value['id'].'">'.$value['source_name'].'</option>';
+                                    }
+                                 ?>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_by" class="form-label">Issued By</label>
+                              <select class="form-select issued_by" name="issued_by" disabled>
+                                 <option value=""></option>
+                                 <?php
+                                    foreach ($division as $key => $value) {
+                                       echo '<option value="'.$value['id'].'">'.$value['div_name'].'</option>';
+                                    }
+                                 ?>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_to" class="form-label">Issued To</label>
+                              <select class="form-select issued_to" name="issued_to" disabled>
+                                 <option value=""></option>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_to" class="form-label">Section Unit</label>
+                              <select class="form-select section" name="section" disabled>
+                                 <option value=""></option>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                     </div>
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="findings" class="form-label">Findings</label>
+                           <textarea class="form-control findings" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="consequences" class="form-label">Consequences</label>
+                           <textarea class="form-control consequences" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="requirements_not_fulfilled" class="form-label">Requirements Not Fulfilled: </label><i>(e.g., ISO 9001 Requirements, Statutory & Regulatory Requirements, Policies, Procedures, Guidelines, Work Instructions, or other forms of Documented Information.)</i>
+                           <textarea class="form-control requirements_not_fulfilled" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+
+                  </form>
                   <form action="" id="correction_form_validation" enctype="multipart/form-data">
                      <input type="hidden" name="car_id" class="car_id">
                      <div id="correction-validation" class="mb-3">
@@ -530,6 +967,93 @@
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
+                  <form class="addCARFormIssuance">
+                     <input type="hidden" name="car_id" class="car_id">
+                     <div class="row mb-2">
+                        <div class="form-group col-md-4">
+                              <label for="requestor" class="form-label">Requestor</label>
+                              <input type="text" class="form-control requestor" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                        <div class="form-group col-md-4">
+                              <label for="car_no" class="form-label">CAR No.</label>
+                              <input type="text" class="form-control car_no" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                        <div class="form-group col-md-4">
+                              <label for="identification_date" class="form-label">Identification Date</label>
+                              <input type="date" class="form-control identification_date" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                     </div>
+
+                     <div class="row mb-2">
+
+                        <div class="form-group col-md-3">
+                              <label for="source" class="form-label">Source</label>
+                              <select class="form-select source" name="source" disabled>
+                                 <option value=""></option>
+                                 <?php
+                                    foreach ($source as $key => $value) {
+                                       echo '<option value="'.$value['id'].'">'.$value['source_name'].'</option>';
+                                    }
+                                 ?>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_by" class="form-label">Issued By</label>
+                              <select class="form-select issued_by" name="issued_by" disabled>
+                                 <option value=""></option>
+                                 <?php
+                                    foreach ($division as $key => $value) {
+                                       echo '<option value="'.$value['id'].'">'.$value['div_name'].'</option>';
+                                    }
+                                 ?>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_to" class="form-label">Issued To</label>
+                              <select class="form-select issued_to" name="issued_to" disabled>
+                                 <option value=""></option>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_to" class="form-label">Section Unit</label>
+                              <select class="form-select section" name="section" disabled>
+                                 <option value=""></option>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                     </div>
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="findings" class="form-label">Findings</label>
+                           <textarea class="form-control findings" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="consequences" class="form-label">Consequences</label>
+                           <textarea class="form-control consequences" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="requirements_not_fulfilled" class="form-label">Requirements Not Fulfilled: </label><i>(e.g., ISO 9001 Requirements, Statutory & Regulatory Requirements, Policies, Procedures, Guidelines, Work Instructions, or other forms of Documented Information.)</i>
+                           <textarea class="form-control requirements_not_fulfilled" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+
+                  </form>
 
                      <form action="" id="root_cause_form" enctype="multipart/form-data">
                      <input type="hidden" name="car_id" class="car_id">
@@ -860,6 +1384,93 @@
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
+                  <form class="addCARFormIssuance">
+                     <input type="hidden" name="car_id" class="car_id">
+                     <div class="row mb-2">
+                        <div class="form-group col-md-4">
+                              <label for="requestor" class="form-label">Requestor</label>
+                              <input type="text" class="form-control requestor" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                        <div class="form-group col-md-4">
+                              <label for="car_no" class="form-label">CAR No.</label>
+                              <input type="text" class="form-control car_no" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                        <div class="form-group col-md-4">
+                              <label for="identification_date" class="form-label">Identification Date</label>
+                              <input type="date" class="form-control identification_date" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                     </div>
+
+                     <div class="row mb-2">
+
+                        <div class="form-group col-md-3">
+                              <label for="source" class="form-label">Source</label>
+                              <select class="form-select source" name="source" disabled>
+                                 <option value=""></option>
+                                 <?php
+                                    foreach ($source as $key => $value) {
+                                       echo '<option value="'.$value['id'].'">'.$value['source_name'].'</option>';
+                                    }
+                                 ?>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_by" class="form-label">Issued By</label>
+                              <select class="form-select issued_by" name="issued_by" disabled>
+                                 <option value=""></option>
+                                 <?php
+                                    foreach ($division as $key => $value) {
+                                       echo '<option value="'.$value['id'].'">'.$value['div_name'].'</option>';
+                                    }
+                                 ?>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_to" class="form-label">Issued To</label>
+                              <select class="form-select issued_to" name="issued_to" disabled>
+                                 <option value=""></option>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_to" class="form-label">Section Unit</label>
+                              <select class="form-select section" name="section" disabled>
+                                 <option value=""></option>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                     </div>
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="findings" class="form-label">Findings</label>
+                           <textarea class="form-control findings" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="consequences" class="form-label">Consequences</label>
+                           <textarea class="form-control consequences" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="requirements_not_fulfilled" class="form-label">Requirements Not Fulfilled: </label><i>(e.g., ISO 9001 Requirements, Statutory & Regulatory Requirements, Policies, Procedures, Guidelines, Work Instructions, or other forms of Documented Information.)</i>
+                           <textarea class="form-control requirements_not_fulfilled" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+
+                  </form>
                      <form action="" id="root_cause_form_review" enctype="multipart/form-data">
 
                         <input type="hidden" name="car_id" class="car_id">
@@ -999,6 +1610,93 @@
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
+                  <form class="addCARFormIssuance">
+                     <input type="hidden" name="car_id" class="car_id">
+                     <div class="row mb-2">
+                        <div class="form-group col-md-4">
+                              <label for="requestor" class="form-label">Requestor</label>
+                              <input type="text" class="form-control requestor" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                        <div class="form-group col-md-4">
+                              <label for="car_no" class="form-label">CAR No.</label>
+                              <input type="text" class="form-control car_no" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                        <div class="form-group col-md-4">
+                              <label for="identification_date" class="form-label">Identification Date</label>
+                              <input type="date" class="form-control identification_date" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                     </div>
+
+                     <div class="row mb-2">
+
+                        <div class="form-group col-md-3">
+                              <label for="source" class="form-label">Source</label>
+                              <select class="form-select source" name="source" disabled>
+                                 <option value=""></option>
+                                 <?php
+                                    foreach ($source as $key => $value) {
+                                       echo '<option value="'.$value['id'].'">'.$value['source_name'].'</option>';
+                                    }
+                                 ?>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_by" class="form-label">Issued By</label>
+                              <select class="form-select issued_by" name="issued_by" disabled>
+                                 <option value=""></option>
+                                 <?php
+                                    foreach ($division as $key => $value) {
+                                       echo '<option value="'.$value['id'].'">'.$value['div_name'].'</option>';
+                                    }
+                                 ?>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_to" class="form-label">Issued To</label>
+                              <select class="form-select issued_to" name="issued_to" disabled>
+                                 <option value=""></option>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_to" class="form-label">Section Unit</label>
+                              <select class="form-select section" name="section" disabled>
+                                 <option value=""></option>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                     </div>
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="findings" class="form-label">Findings</label>
+                           <textarea class="form-control findings" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="consequences" class="form-label">Consequences</label>
+                           <textarea class="form-control consequences" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="requirements_not_fulfilled" class="form-label">Requirements Not Fulfilled: </label><i>(e.g., ISO 9001 Requirements, Statutory & Regulatory Requirements, Policies, Procedures, Guidelines, Work Instructions, or other forms of Documented Information.)</i>
+                           <textarea class="form-control requirements_not_fulfilled" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+
+                  </form>
                      <form action="" id="root_cause_form_approval" enctype="multipart/form-data">
 
                         <input type="hidden" name="car_id" class="car_id">
@@ -1138,6 +1836,93 @@
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
+                  <form class="addCARFormIssuance">
+                     <input type="hidden" name="car_id" class="car_id">
+                     <div class="row mb-2">
+                        <div class="form-group col-md-4">
+                              <label for="requestor" class="form-label">Requestor</label>
+                              <input type="text" class="form-control requestor" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                        <div class="form-group col-md-4">
+                              <label for="car_no" class="form-label">CAR No.</label>
+                              <input type="text" class="form-control car_no" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                        <div class="form-group col-md-4">
+                              <label for="identification_date" class="form-label">Identification Date</label>
+                              <input type="date" class="form-control identification_date" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                     </div>
+
+                     <div class="row mb-2">
+
+                        <div class="form-group col-md-3">
+                              <label for="source" class="form-label">Source</label>
+                              <select class="form-select source" name="source" disabled>
+                                 <option value=""></option>
+                                 <?php
+                                    foreach ($source as $key => $value) {
+                                       echo '<option value="'.$value['id'].'">'.$value['source_name'].'</option>';
+                                    }
+                                 ?>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_by" class="form-label">Issued By</label>
+                              <select class="form-select issued_by" name="issued_by" disabled>
+                                 <option value=""></option>
+                                 <?php
+                                    foreach ($division as $key => $value) {
+                                       echo '<option value="'.$value['id'].'">'.$value['div_name'].'</option>';
+                                    }
+                                 ?>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_to" class="form-label">Issued To</label>
+                              <select class="form-select issued_to" name="issued_to" disabled>
+                                 <option value=""></option>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_to" class="form-label">Section Unit</label>
+                              <select class="form-select section" name="section" disabled>
+                                 <option value=""></option>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                     </div>
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="findings" class="form-label">Findings</label>
+                           <textarea class="form-control findings" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="consequences" class="form-label">Consequences</label>
+                           <textarea class="form-control consequences" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="requirements_not_fulfilled" class="form-label">Requirements Not Fulfilled: </label><i>(e.g., ISO 9001 Requirements, Statutory & Regulatory Requirements, Policies, Procedures, Guidelines, Work Instructions, or other forms of Documented Information.)</i>
+                           <textarea class="form-control requirements_not_fulfilled" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+
+                  </form>
                      <form action="" id="root_cause_form_verification" enctype="multipart/form-data">
 
                         <input type="hidden" name="car_id" class="car_id">
@@ -1406,6 +2191,93 @@
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
+                  <form class="addCARFormIssuance">
+                     <input type="hidden" name="car_id" class="car_id">
+                     <div class="row mb-2">
+                        <div class="form-group col-md-4">
+                              <label for="requestor" class="form-label">Requestor</label>
+                              <input type="text" class="form-control requestor" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                        <div class="form-group col-md-4">
+                              <label for="car_no" class="form-label">CAR No.</label>
+                              <input type="text" class="form-control car_no" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                        <div class="form-group col-md-4">
+                              <label for="identification_date" class="form-label">Identification Date</label>
+                              <input type="date" class="form-control identification_date" disabled>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                     </div>
+
+                     <div class="row mb-2">
+
+                        <div class="form-group col-md-3">
+                              <label for="source" class="form-label">Source</label>
+                              <select class="form-select source" name="source" disabled>
+                                 <option value=""></option>
+                                 <?php
+                                    foreach ($source as $key => $value) {
+                                       echo '<option value="'.$value['id'].'">'.$value['source_name'].'</option>';
+                                    }
+                                 ?>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_by" class="form-label">Issued By</label>
+                              <select class="form-select issued_by" name="issued_by" disabled>
+                                 <option value=""></option>
+                                 <?php
+                                    foreach ($division as $key => $value) {
+                                       echo '<option value="'.$value['id'].'">'.$value['div_name'].'</option>';
+                                    }
+                                 ?>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_to" class="form-label">Issued To</label>
+                              <select class="form-select issued_to" name="issued_to" disabled>
+                                 <option value=""></option>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                              <label for="issued_to" class="form-label">Section Unit</label>
+                              <select class="form-select section" name="section" disabled>
+                                 <option value=""></option>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+
+                     </div>
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="findings" class="form-label">Findings</label>
+                           <textarea class="form-control findings" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="consequences" class="form-label">Consequences</label>
+                           <textarea class="form-control consequences" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="requirements_not_fulfilled" class="form-label">Requirements Not Fulfilled: </label><i>(e.g., ISO 9001 Requirements, Statutory & Regulatory Requirements, Policies, Procedures, Guidelines, Work Instructions, or other forms of Documented Information.)</i>
+                           <textarea class="form-control requirements_not_fulfilled" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+
+                  </form>
                      <form action="" id="root_cause_form_validation" enctype="multipart/form-data">
 
                         <input type="hidden" name="car_id" class="car_id">
