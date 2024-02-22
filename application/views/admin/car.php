@@ -1119,7 +1119,7 @@
                               </div> <!-- end card -->
                            </div>
                         </div>
-                         <h3>Section 3: ROOT CAUSE ANALYSIS</h3>
+                         <h3>Section 4: CORRECTIVE ACTIONS</h3>
                         <div id="risk-number" class="mb-3">
                            <div class="col-lg-12 risk-number-repeatable">
                               <div class="card">
@@ -1538,7 +1538,7 @@
                               </div> <!-- end card -->
                            </div>
                         </div>
-                        <h3>Section 3: ROOT CAUSE ANALYSIS</h3>
+                        <h3>Section 4: CORRECTIVE ACTIONS</h3>
                         <div id="risk-number-review" class="mb-3">
                            
                         </div>
@@ -1765,7 +1765,7 @@
                               </div> <!-- end card -->
                            </div>
                         </div>
-                        <h3>Section 3: ROOT CAUSE ANALYSIS</h3>
+                        <h3>Section 4: CORRECTIVE ACTIONS</h3>
                         <div id="risk-number-approval" class="mb-3">
                            
                         </div>
@@ -1992,7 +1992,7 @@
                               </div> <!-- end card -->
                            </div>
                         </div>
-                        <h3>Section 3: ROOT CAUSE ANALYSIS</h3>
+                        <h3>Section 4: CORRECTIVE ACTIONS</h3>
                         <div id="risk-number-verification" class="mb-3">
                            
                         </div>
@@ -2348,7 +2348,7 @@
                               </div> <!-- end card -->
                            </div>
                         </div>
-                        <h3>Section 3: ROOT CAUSE ANALYSIS</h3>
+                        <h3>Section 4: CORRECTIVE ACTIONS</h3>
                         <div id="risk-number-validation" class="mb-3">
                            
                         </div>
