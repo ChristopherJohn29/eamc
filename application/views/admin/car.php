@@ -238,7 +238,7 @@
                   <div class="modal-body">
 
                   <form class="addCARFormIssuance">
-                     <h2>Section 1: NON CONFORMITY DEFINITION</h2>
+                     <h3>Section 1: NON CONFORMITY DEFINITION</h3>
                      <input type="hidden" name="car_id" class="car_id">
                      <div class="row mb-2">
                         <div class="form-group col-md-4">
@@ -327,7 +327,7 @@
                   </form>
 
                   <form action="" id="correction_form" enctype="multipart/form-data">
-                     <h2>Section 2: CORRECTION & DEALING WITH THE CONSEQUENCES</h2>
+                     <h3>Section 2: CORRECTION & DEALING WITH THE CONSEQUENCES</h3>
                      <input type="hidden" name="car_id" class="car_id">
                      <div id="correction" class="mb-3">
                         <div class="col-lg-12 correction-repeatable orig-correction">
@@ -434,7 +434,7 @@
                   </div>
                   <div class="modal-body">
                   <form class="addCARFormIssuance">
-                  <h2>Section 1: NON CONFORMITY DEFINITION</h2>
+                  <h3>Section 1: NON CONFORMITY DEFINITION</h3>
                      <input type="hidden" name="car_id" class="car_id">
                      <div class="row mb-2">
                         <div class="form-group col-md-4">
@@ -522,7 +522,7 @@
 
                   </form>
                   <form action="" id="correction_form_review" enctype="multipart/form-data">
-                  <h2>Section 2: CORRECTION & DEALING WITH THE CONSEQUENCES</h2>
+                  <h3>Section 2: CORRECTION & DEALING WITH THE CONSEQUENCES</h3>
                      <input type="hidden" name="car_id" class="car_id">
                      <div id="correction-review" class="mb-3">
                         
@@ -570,7 +570,7 @@
                   </div>
                   <div class="modal-body">
                   <form class="addCARFormIssuance">
-                  <h2>Section 1: NON CONFORMITY DEFINITION</h2>
+                  <h3>Section 1: NON CONFORMITY DEFINITION</h3>
                      <input type="hidden" name="car_id" class="car_id">
                      <div class="row mb-2">
                         <div class="form-group col-md-4">
@@ -658,7 +658,7 @@
 
                   </form>
                   <form action="" id="correction_form_approval" enctype="multipart/form-data">
-                  <h2>Section 2: CORRECTION & DEALING WITH THE CONSEQUENCES</h2>
+                  <h3>Section 2: CORRECTION & DEALING WITH THE CONSEQUENCES</h3>
                      <input type="hidden" name="car_id" class="car_id">
                      <div id="correction-approval" class="mb-3">
                         
@@ -793,7 +793,7 @@
 
                   </form>
                   <form action="" id="correction_form_verification" enctype="multipart/form-data">
-                  <h2>Section 2: CORRECTION & DEALING WITH THE CONSEQUENCES</h2>
+                  <h3>Section 2: CORRECTION & DEALING WITH THE CONSEQUENCES</h3>
                      <input type="hidden" name="car_id" class="car_id">
                      <div id="correction-verification" class="mb-3">
                         
@@ -841,7 +841,7 @@
                   </div>
                   <div class="modal-body">
                   <form class="addCARFormIssuance">
-                  <h2>Section 1: NON CONFORMITY DEFINITION</h2>
+                  <h3>Section 1: NON CONFORMITY DEFINITION</h3>
                      <input type="hidden" name="car_id" class="car_id">
                      <div class="row mb-2">
                         <div class="form-group col-md-4">
@@ -929,7 +929,7 @@
 
                   </form>
                   <form action="" id="correction_form_validation" enctype="multipart/form-data">
-                  <h2>Section 2: CORRECTION & DEALING WITH THE CONSEQUENCES</h2>
+                  <h3>Section 2: CORRECTION & DEALING WITH THE CONSEQUENCES</h3>
                      <input type="hidden" name="car_id" class="car_id">
                      <div id="correction-validation" class="mb-3">
                         
@@ -977,7 +977,7 @@
                   </div>
                   <div class="modal-body">
                   <form class="addCARFormIssuance">
-                  <h2>Section 1: NON CONFORMITY DEFINITION</h2>
+                  <h3>Section 1: NON CONFORMITY DEFINITION</h3>
                      <input type="hidden" name="car_id" class="car_id">
                      <div class="row mb-2">
                         <div class="form-group col-md-4">
@@ -1066,7 +1066,7 @@
                   </form>
 
                      <form action="" id="root_cause_form" enctype="multipart/form-data">
-                     <h2>Section 3: ROOT CAUSE ANALYSIS</h2>
+                     <h3>Section 3: ROOT CAUSE ANALYSIS</h3>
                      <input type="hidden" name="car_id" class="car_id">
                         <div id="checkboxes">
                            <div class="col-lg-12">
@@ -1119,7 +1119,7 @@
                               </div> <!-- end card -->
                            </div>
                         </div>
-                         <h2>Section 3: ROOT CAUSE ANALYSIS</h2>
+                         <h3>Section 3: ROOT CAUSE ANALYSIS</h3>
                         <div id="risk-number" class="mb-3">
                            <div class="col-lg-12 risk-number-repeatable">
                               <div class="card">
@@ -1396,7 +1396,7 @@
                   </div>
                   <div class="modal-body">
                   <form class="addCARFormIssuance">
-                  <h2>Section 1: NON CONFORMITY DEFINITION</h2>
+                  <h3>Section 1: NON CONFORMITY DEFINITION</h3>
                      <input type="hidden" name="car_id" class="car_id">
                      <div class="row mb-2">
                         <div class="form-group col-md-4">
@@ -1484,7 +1484,7 @@
 
                   </form>
                      <form action="" id="root_cause_form_review" enctype="multipart/form-data">
-                     <h2>Section 3: ROOT CAUSE ANALYSIS</h2>
+                     <h3>Section 3: ROOT CAUSE ANALYSIS</h3>
                         <input type="hidden" name="car_id" class="car_id">
 
                         <div id="checkboxes">
@@ -1538,7 +1538,7 @@
                               </div> <!-- end card -->
                            </div>
                         </div>
-                        <h2>Section 3: ROOT CAUSE ANALYSIS</h2>
+                        <h3>Section 3: ROOT CAUSE ANALYSIS</h3>
                         <div id="risk-number-review" class="mb-3">
                            
                         </div>
@@ -1623,7 +1623,7 @@
                   </div>
                   <div class="modal-body">
                   <form class="addCARFormIssuance">
-                  <h2>Section 1: NON CONFORMITY DEFINITION</h2>
+                  <h3>Section 1: NON CONFORMITY DEFINITION</h3>
                      <input type="hidden" name="car_id" class="car_id">
                      <div class="row mb-2">
                         <div class="form-group col-md-4">
@@ -1711,7 +1711,7 @@
 
                   </form>
                      <form action="" id="root_cause_form_approval" enctype="multipart/form-data">
-                     <h2>Section 3: ROOT CAUSE ANALYSIS</h2>
+                     <h3>Section 3: ROOT CAUSE ANALYSIS</h3>
                         <input type="hidden" name="car_id" class="car_id">
 
                         <div id="checkboxes">
@@ -1765,7 +1765,7 @@
                               </div> <!-- end card -->
                            </div>
                         </div>
-                        <h2>Section 3: ROOT CAUSE ANALYSIS</h2>
+                        <h3>Section 3: ROOT CAUSE ANALYSIS</h3>
                         <div id="risk-number-approval" class="mb-3">
                            
                         </div>
@@ -1850,7 +1850,7 @@
                   </div>
                   <div class="modal-body">
                   <form class="addCARFormIssuance">
-                  <h2>Section 1: NON CONFORMITY DEFINITION</h2>
+                  <h3>Section 1: NON CONFORMITY DEFINITION</h3>
                      <input type="hidden" name="car_id" class="car_id">
                      <div class="row mb-2">
                         <div class="form-group col-md-4">
@@ -1938,7 +1938,7 @@
 
                   </form>
                      <form action="" id="root_cause_form_verification" enctype="multipart/form-data">
-                     <h2>Section 3: ROOT CAUSE ANALYSIS</h2>
+                     <h3>Section 3: ROOT CAUSE ANALYSIS</h3>
                         <input type="hidden" name="car_id" class="car_id">
 
                         <div id="checkboxes">
@@ -1992,7 +1992,7 @@
                               </div> <!-- end card -->
                            </div>
                         </div>
-                        <h2>Section 3: ROOT CAUSE ANALYSIS</h2>
+                        <h3>Section 3: ROOT CAUSE ANALYSIS</h3>
                         <div id="risk-number-verification" class="mb-3">
                            
                         </div>
@@ -2206,7 +2206,7 @@
                   </div>
                   <div class="modal-body">
                   <form class="addCARFormIssuance">
-                  <h2>Section 1: NON CONFORMITY DEFINITION</h2>
+                  <h3>Section 1: NON CONFORMITY DEFINITION</h3>
                      <input type="hidden" name="car_id" class="car_id">
                      <div class="row mb-2">
                         <div class="form-group col-md-4">
@@ -2294,7 +2294,7 @@
 
                   </form>
                      <form action="" id="root_cause_form_validation" enctype="multipart/form-data">
-                     <h2>Section 3: ROOT CAUSE ANALYSIS</h2>
+                     <h3>Section 3: ROOT CAUSE ANALYSIS</h3>
                         <input type="hidden" name="car_id" class="car_id">
 
                         <div id="checkboxes">
@@ -2348,7 +2348,7 @@
                               </div> <!-- end card -->
                            </div>
                         </div>
-                        <h2>Section 3: ROOT CAUSE ANALYSIS</h2>
+                        <h3>Section 3: ROOT CAUSE ANALYSIS</h3>
                         <div id="risk-number-validation" class="mb-3">
                            
                         </div>
