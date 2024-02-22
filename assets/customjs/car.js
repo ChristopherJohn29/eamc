@@ -88,6 +88,10 @@ var car = {
                         if(corrective_action_status == 'For Validation'  || corrective_action_status == 'For Closure'){
                             var osqm_validation_corrective_action = "<a class='dropdown-item for-osqm-validation-corrective-action' href='#' data-car_id='" + car_id + "' data-bs-toggle='modal' data-bs-target='#root-cause-validation'>Corrective Action - For Validation</a>";
                         }
+
+                        if(corrective_action_status == 'For Closure' && for_correction_status == 'For Closure'){
+                            var osqm_validation_correction = "<a class='dropdown-item' href='/closing?c="+car_id+"' target='blank'>Closing</a>";
+                        }
                         
                         var html = "<tr><td>" + car_no + 
                         "</td><td>" + source_name + 

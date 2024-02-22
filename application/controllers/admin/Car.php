@@ -1652,9 +1652,16 @@ class car extends CI_Controller {
 
     public function closing(){
 
+        if(isset($_GET['c']) && $_GET['c']){
+            $data['car_id'] = $_GET['c'];
+        } else {
+            show_404();
+        }
+       
+
         $this->role_checker->checkViewerRole();
         $data['page'] = 'admin/car_closing';
-		$data['title'] = 'Closing';
+		$data['title'] = 'Corrective Action Request (CAR) Closure';
         $data['customcss'] = 'car_closing.css';
         $data['customjs'] = 'car_closing.js';
         $data['source'] = $this->MainModel->getCarSource();
@@ -1770,6 +1777,14 @@ class car extends CI_Controller {
     public function getCar(){
         
         $department = $this->MainModel->getCar($_POST['status']);
+
+        echo json_encode($department);
+    }
+
+    public function getCarByID(){
+        
+        $car_id = $_POST['car_id'];
+        $department = $this->MainModel->getCarByID($car_id);
 
         echo json_encode($department);
     }
