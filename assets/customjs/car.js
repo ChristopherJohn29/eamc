@@ -90,7 +90,7 @@ var car = {
                         }
 
                         if(corrective_action_status == 'For Closure' && for_correction_status == 'For Closure'){
-                            var osqm_validation_correction = "<a class='dropdown-item' href='/closing?c="+car_id+"' target='blank'>Closing</a>";
+                            var osqm_validation_correction = "<a class='dropdown-item' href='admin/car/closing?c="+car_id+"' target='blank'>Closing</a>";
                         }
                         
                         var html = "<tr><td>" + car_no + 
