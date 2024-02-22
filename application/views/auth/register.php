@@ -86,7 +86,7 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="form-label" for="mobileNumber">Mobile Number</label>
-                                        <input type="tel" class="form-control" id="mobileNumber" placeholder="09123456789" required>
+                                        <input type="tel" class="form-control" id="mobileNumber" min="11" placeholder="09123456789" required>
                                         <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                     </div>
                                 </div>

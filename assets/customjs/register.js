@@ -105,7 +105,7 @@ var register = {
 
     validateForm : function (){
         var isValid = true;
-
+    
         // Check required fields
         $("#register [required]").each(function () {
           if ($(this).val() === "") {
@@ -120,7 +120,7 @@ var register = {
             $(this).next('.parsley-errors-list').find('.parsley-required').text('');
           }
         });
-
+    
         // Password validation
         var password = $('#password').val();
         var username = $('#username').val();
@@ -131,7 +131,7 @@ var register = {
         var symbolCheck = /[=?<>@#$*!]/.test(password);
         var usernameCheck = (username === password);
         var errorMessage = '';
-
+    
         if (!/.{8,}/.test(password)) {
             errorMessage += '<ul class="added-pass-error parsley-errors-list filled"><li class="parsley-required">Password must be at least 8 characters.  </li></ul>';
             isValid = false;
@@ -155,9 +155,9 @@ var register = {
             isValid = false;
         }
         
-
+    
         if (!(lengthCheck && numberCheck && symbolCheck && !usernameCheck)) {
-
+    
             jQuery('.added-pass-error').remove();
             passwordErrorDiv.removeClass('hidden');
             passwordError.text('Invalid password format');
@@ -172,8 +172,32 @@ var register = {
             $('#password').removeClass('parsley-error');
         }
         
+        // Email validation
+        var email = $('#email').val();
+        if (!register.validateEmail(email)) {
+            $('#email').addClass('parsley-error');
+            isValid = false;
+        } else {
+            $('#email').removeClass('parsley-error');
+        }
+    
+        // Mobile number validation
+        var mobileNumber = $('#mobileNumber').val();
+        if (mobileNumber.length < 11) {
+            $('#mobileNumber').addClass('parsley-error');
+            isValid = false;
+        } else {
+            $('#mobileNumber').removeClass('parsley-error');
+        }
+        
         return isValid;
     },
+
+    validateEmail: function(email) {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    },
+    
 
     passwordChange: function(){
         jQuery('#submit-register').attr('disabled',true);
