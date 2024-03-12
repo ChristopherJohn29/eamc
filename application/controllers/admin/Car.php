@@ -1492,11 +1492,13 @@ class car extends CI_Controller {
     
         $risk_number = $this->input->post('risk_number');
         $risk_number_details_update = $this->input->post('risk_number_details_update');
+        $risk_number_attachment_url = $this->input->post('risk_number_attachment_url');
     
         foreach($risk_number as $key => $value){
             $risk_entry[] = array(
                 'risk_number' => $risk_number[$key],
                 'risk_number_details_update' => $risk_number_details_update[$key],
+                'risk_number_attachment_url' => $risk_number_attachment_url[$key],
                 'risk_attachments' => $risk_attachments['risk_number_attachment'][$key]
             );
         }
@@ -1507,6 +1509,7 @@ class car extends CI_Controller {
         //array
         $opportunity_number = $this->input->post('opportunity_number');
         $opportunity_identified = $this->input->post('opportunity_identified');
+        $opportunity_number_attachment_url = $this->input->post('opportunity_number_attachment_url');
     
         $opportunity_entry = array();
     
@@ -1514,12 +1517,14 @@ class car extends CI_Controller {
             $opportunity_entry[] = array(
                 'opportunity_number' => $opportunity_number[$key],
                 'opportunity_identified' => $opportunity_identified[$key],
+                'opportunity_number_attachment_url' => $opportunity_number_attachment_url[$key],
                 'opportunity_attachments' => $opportunity_attachments['opportunity_number_attachment'][$key]
             );
         }
     
         //array
         $rootcause = $this->input->post('rootcause');
+        $rootcause_file_url = $this->input->post('rootcause_file_url');
         $rootcause_file_name = $this->input->post('rootcause_file_name');
     
         $rootcause_entry = array();
@@ -1528,6 +1533,7 @@ class car extends CI_Controller {
             $rootcause_entry[] = array(
                 'rootcause' => $rootcause[$key],
                 'rootcause_file_name' => $rootcause_file_name[$key],
+                'rootcause_file_url' => $rootcause_file_url[$key],
                 'rootcause_attachments' => $rootcause_attachments['rootcause_attachment_attachment'][$key]
             );
         }
@@ -1538,6 +1544,7 @@ class car extends CI_Controller {
         $identified_root_corrective_action = $this->input->post('identified_root_corrective_action');
         $identified_root_person_responsible = $this->input->post('identified_root_person_responsible');
         $identified_root_completion_date = $this->input->post('identified_root_completion_date');
+        $identified_root_attachment_url = $this->input->post('identified_root_attachment_url');
 
         $tpn_issued_by = $this->input->post('tpn_issued_by');
         $tpn_issued_to = $this->input->post('tpn_issued_to');
@@ -1552,6 +1559,7 @@ class car extends CI_Controller {
                 'identified_root_corrective_action' => $identified_root_corrective_action[$key],
                 'identified_root_person_responsible' => $identified_root_person_responsible[$key],
                 'identified_root_completion_date' => $identified_root_completion_date[$key],
+                'identified_root_attachment_url' => $identified_root_attachment_url[$key],
                 'identified_attachments' => $identified_attachments['identified_root_attachment_attachment'][$key],
                 'tpn_issued_by' => isset($tpn_issued_by[$key]) ? $tpn_issued_by[$key] : "",
                 'tpn_issued_to' => isset($tpn_issued_to[$key]) ? $tpn_issued_to[$key] : "",

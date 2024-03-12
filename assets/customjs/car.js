@@ -1819,7 +1819,12 @@ var car = {
                                                                 <input type="text" class="form-control" readonly name="risk_number_details_update[]" value="${risk.risk_number_details_update}">
                                                             </div>
                                                         </div>
-                                     
+                                                        <div class="col-xl-3">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">File URL</label>
+                                                                <input type="text" class="form-control" readonly name="risk_number_attachment_url[]" value="${risk.risk_number_attachment_url}">
+                                                            </div>
+                                                        </div>
                                                         <div class="col-xl-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Attachment</label>
@@ -1853,10 +1858,16 @@ var car = {
                                                                 <input type="text" class="form-control" readonly name="opportunity_number[]" value="${opportunity.opportunity_number}">
                                                             </div>
                                                         </div>
-                                                        <div class="col-xl-4">
+                                                        <div class="col-xl-3">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Opportunities Identified (if applicable)</label>
                                                                 <input type="text" class="form-control" readonly name="opportunity_identified[]" value="${opportunity.opportunity_identified}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <div class="mb-3 mb-xl-0">
+                                                            <label class="form-label">File URL</label>
+                                                            <input type="text" class="form-control" readonly name="opportunity_number_attachment_url[]" value="${opportunity.opportunity_number_attachment_url}">
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-1">
@@ -1886,25 +1897,30 @@ var car = {
                                             <div class="card-body">
                                                 <div class="mb-3">
                                                     <div class="row">
-                                                        <div class="col-xl-4">
+                                                        <div class="col-xl-3">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Root Cause Analysis Used</label>
                                                                 <input type="text" class="form-control" readonly name="rootcause[]" value="${rootCause.rootcause}">
                                                             </div>
                                                         </div>
-                                                        <div class="col-xl-4">
+                                                        <div class="col-xl-3">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">File Name</label>
                                                                 <input type="text" class="form-control" readonly name="rootcause_file_name[]" value="${rootCause.rootcause_file_name}">
                                                             </div>
                                                         </div>
-                                                        <<div class="col-xl-1">
+                                                        <div class="col-xl-3">
+                                                            <div class="mb-3 mb-xl-0">
+                                                            <label class="form-label">File URL</label>
+                                                            <input type="text" class="form-control" readonly name="rootcause_file_url[]" value="${rootCause.rootcause_file_url}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Attachment</label>
                                                                 <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
                                                             </div>
                                                         </div>
-                                            
                                                     </div>
                                                 </div>
                                             </div>
@@ -1981,13 +1997,13 @@ var car = {
                                                                 <input type="text" readonly class="form-control" name="identified_root[]" value="${identifiedRoot.identified_root}">
                                                             </div>
                                                         </div>
-                                                        <div class="col-xl-3 mb-1">
+                                                        <div class="col-xl-4 mb-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">TPN Control</label>
                                                                 <input type="text" readonly class="form-control" name="tpn_control[]" value="${identifiedRoot.tpn_control}">
                                                             </div>
                                                         </div>
-                                                        <div class="col-xl-3 mb-1">
+                                                        <div class="col-xl-4 mb-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Corrective Action</label>
                                                                 <input type="text" readonly class="form-control" name="identified_root_corrective_action[]" value="${identifiedRoot.identified_root_corrective_action}">
@@ -2000,30 +2016,36 @@ var car = {
                                                                 <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                             </div>
                                                         </div>
-                                                        <div class="col-xl-3 mb-1">
+                                                        <div class="col-xl-4 mb-1">
                                                             <div class="form-group">
                                                                 <label for="issued_to" class="form-label">Issued To</label>
                                                                 <input type="text" readonly class="form-control" name="tpn_issued_to[${count}]" value="${issued_to}">
                                                                 <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                             </div>
                                                         </div>
-                                                        <div class="col-xl-3 mb-1">
+                                                        <div class="col-xl-4 mb-1">
                                                             <div class="form-group">
                                                                 <label for="section" class="form-label">Section Unit</label>
                                                                 <input type="text" readonly class="form-control" name="section[${count}]" value="${section_name}">
                                                                 <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                             </div>
                                                         </div>
-                                                        <div class="col-xl-4">
+                                                        <div class="col-xl-4 mb-2">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Person Responsible</label>
                                                                 <input type="text" readonly class="form-control" name="identified_root_person_responsible[]" placeholder="Enter Name of personnel" value="${identifiedRoot.identified_root_person_responsible}">
                                                             </div>
                                                         </div>
-                                                        <div class="col-xl-3">
+                                                        <div class="col-xl-4">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Completion Date</label>
                                                                 <input type="date" readonly class="form-control" name="identified_root_completion_date[]" value="${identifiedRoot.identified_root_completion_date}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                            <label class="form-label">File URL</label>
+                                                            <input type="text" class="form-control" readonly name="identified_root_attachment_url[]"  value="${identifiedRoot.identified_root_attachment_url}">
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-1">
@@ -2056,7 +2078,7 @@ var car = {
                         <div class="card-body">
                             <div class="mb-3">
                                 <div class="row">
-                                    <div class="col-xl-4">
+                                    <div class="col-xl-4 mb-2">
                                         <div class="mb-3 mb-xl-0">
                                             <label class="form-label">Risk Number</label>
                                             <input type="text" class="form-control" name="risk_number[]" value="">
@@ -2066,6 +2088,12 @@ var car = {
                                         <div class="mb-3 mb-xl-0">
                                             <label class="form-label">Details / Updates</label>
                                             <input type="text" class="form-control" name="risk_number_details_update[]" value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3">
+                                        <div class="mb-3 mb-xl-0">
+                                        <label class="form-label">File URL</label>
+                                        <input type="text" class="form-control" name="risk_number_attachment_url[]">
                                         </div>
                                     </div>
                                     <div class="col-xl-3">
@@ -2095,7 +2123,7 @@ var car = {
                         <div class="card-body">
                             <div class="mb-3">
                                 <div class="row">
-                                    <div class="col-xl-4">
+                                    <div class="col-xl-4 mb-2">
                                         <div class="mb-3 mb-xl-0">
                                             <label class="form-label">Opportunity Number</label>
                                             <input type="text" class="form-control" name="opportunity_number[]" value="">
@@ -2105,6 +2133,12 @@ var car = {
                                         <div class="mb-3 mb-xl-0">
                                             <label class="form-label">Opportunities Identified (if applicable)</label>
                                             <input type="text" class="form-control" name="opportunity_identified[]" value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3">
+                                        <div class="mb-3 mb-xl-0">
+                                        <label class="form-label">File URL</label>
+                                        <input type="text" class="form-control" name="opportunity_number_attachment_url[]">
                                         </div>
                                     </div>
                                     <div class="col-xl-3">
@@ -2134,7 +2168,7 @@ var car = {
                                         <div class="card-body">
                                             <div class="mb-3">
                                                 <div class="row">
-                                                    <div class="col-xl-4">
+                                                    <div class="col-xl-4 mb-2">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">Root Cause Analysis Used</label>
                                                             <input type="text" class="form-control" name="rootcause[]" value="">
@@ -2150,6 +2184,12 @@ var car = {
                                                         <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">Attachment</label>
                                                             <input type="file" class="form-control" name="rootcause_attachment_attachment[]" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-4">
+                                                        <div class="mb-3 mb-xl-0">
+                                                        <label class="form-label">File URL</label>
+                                                        <input type="text" class="form-control" name="rootcause_file_url[]">
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-1">
@@ -2243,19 +2283,25 @@ var car = {
                                                                     <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-xl-4">
+                                                            <div class="col-xl-4 mb-2">
                                                                 <div class="mb-3 mb-xl-0">
                                                                     <label class="form-label">Person Responsible</label>
                                                                     <input type="text" class="form-control" name="identified_root_person_responsible[]" placeholder="Enter Name of personnel" value="">
                                                                 </div>
                                                             </div>
-                                                            <div class="col-xl-3">
+                                                            <div class="col-xl-4">
                                                                 <div class="mb-3 mb-xl-0">
                                                                     <label class="form-label">Completion Date</label>
                                                                     <input type="date" class="form-control" name="identified_root_completion_date[]" value="">
                                                                 </div>
                                                             </div>
-                                                            <div class="col-xl-3">
+                                                            <div class="col-xl-4">
+                                                                <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">File URL</label>
+                                                                <input type="text" class="form-control" name="identified_root_attachment_url[]">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xl-4">
                                                                 <div class="mb-3 mb-xl-0">
                                                                     <label class="form-label">Attachment</label>
                                                                     <input type="file" class="form-control" name="identified_root_attachment_attachment[]" value="">
@@ -5167,14 +5213,15 @@ var car = {
 
     rootCause: function(){
         $("#add-rootcause").on("click", function(){
+
             // Clone the first .rootcause-repeatable div
-            var clone = $(".rootcause-repeatable:last").clone();
+            var clone = $('#rootcause').find(".rootcause-repeatable:last").clone();
             
             // Clear input values in the cloned section
             clone.find('input').val('');
     
             // Append the cloned section to the parent container
-            $(".rootcause-repeatable:last").after(clone);
+            $('#rootcause').find(".rootcause-repeatable:last").after(clone);
     
             // Show the remove button for the new entry
             clone.find('.remove-rootcause-action').show();
@@ -5306,13 +5353,13 @@ var car = {
     identifiedRoot: function(){
         $("#add-identified-root").on("click", function(){
             // Clone the first .identified-root-repeatable div
-            var clone = $(".identified-root-repeatable:last").clone();
+            var clone = jQuery('#identified-root').find(".identified-root-repeatable:last").clone();
             
             // Clear input values in the cloned section
             clone.find('input').val('');
     
             // Append the cloned section to the parent container
-            $(".identified-root-repeatable:last").after(clone);
+            jQuery('#identified-root').find(".identified-root-repeatable:last").after(clone);
     
             // Show the remove button for the new entry
             clone.find('.remove-identified-root-action').show();
