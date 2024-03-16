@@ -640,6 +640,8 @@ class car extends CI_Controller {
                     // $attachments[$key][] = "";
                 }
             }
+
+            print_r($attachments);
     
             return $attachments;
         }
