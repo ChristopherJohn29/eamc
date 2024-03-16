@@ -604,6 +604,179 @@ class car extends CI_Controller {
 
     }
 
+    public function saveRoot(){
+        
+        function handleFileUpload($key, $custom_config = array()) {
+            $CI = get_instance();
+            $CI->load->library('upload');
+
+            // Merge custom configuration with default configuration
+            $default_config = array(
+                'upload_path'   => FCPATH . 'uploads/',
+                'allowed_types' => 'gif|jpg|png|pdf|docx|doc',  // Adjust as needed
+            );
+
+            $config = array_merge($default_config, $custom_config);
+
+            $CI->upload->initialize($config);
+
+            $files = $_FILES[$key];
+    
+            $attachments = array();
+    
+            foreach ($files['name'] as $index => $name) {
+                $_FILES[$key] = array(
+                    'name'     => $files['name'][$index],
+                    'type'     => $files['type'][$index],
+                    'tmp_name' => $files['tmp_name'][$index],
+                    'error'    => $files['error'][$index],
+                    'size'     => $files['size'][$index]
+                );
+    
+                if ($CI->upload->do_upload($key)) {
+                    $attachments[$key][] = $CI->upload->data('file_name');
+                } else {
+                    // Handle upload error
+                    return array('error' => $CI->upload->display_errors());
+                }
+            }
+    
+            return $attachments;
+        }
+    
+        // Handle each array of file uploads
+        $risk_attachments = handleFileUpload('risk_number_attachment');
+
+        // var_dump( $risk_attachments);
+
+        $opportunity_attachments = handleFileUpload('opportunity_number_attachment');
+        $rootcause_attachments = handleFileUpload('rootcause_attachment_attachment');
+        $identified_attachments = handleFileUpload('identified_root_attachment_attachment');
+
+        $existing_nonconformity = $this->input->post('existing_nonconformity');
+        $existing_nonconformity_remarks = $this->input->post('existing_nonconformity_remarks');
+        $update_doc_info = $this->input->post('update_doc_info');
+        $update_doc_info_remarks = $this->input->post('update_doc_info_remarks');
+    
+        //array
+        $risk_entry = array();
+    
+        $risk_number = $this->input->post('risk_number');
+        $risk_number_details_update = $this->input->post('risk_number_details_update');
+        $risk_number_attachment_url = $this->input->post('risk_number_attachment_url');
+    
+        foreach($risk_number as $key => $value){
+            $risk_entry[] = array(
+                'risk_number' => $risk_number[$key],
+                'risk_number_details_update' => $risk_number_details_update[$key],
+                'risk_number_attachment_url' => $risk_number_attachment_url[$key],
+                'risk_attachments' => $risk_attachments['risk_number_attachment'][$key]
+            );
+        }
+        
+        $car_id = $this->input->post('car_id');
+        $opportunity_identified_yn = $this->input->post('opportunity_identified_yn');
+    
+        //array
+        $opportunity_number = $this->input->post('opportunity_number');
+        $opportunity_identified = $this->input->post('opportunity_identified');
+        $opportunity_number_attachment_url = $this->input->post('opportunity_number_attachment_url');
+    
+        $opportunity_entry = array();
+    
+        foreach($opportunity_number as $key => $value){
+            $opportunity_entry[] = array(
+                'opportunity_number' => $opportunity_number[$key],
+                'opportunity_identified' => $opportunity_identified[$key],
+                'opportunity_number_attachment_url' => $opportunity_number_attachment_url[$key],
+                'opportunity_attachments' => $opportunity_attachments['opportunity_number_attachment'][$key]
+            );
+        }
+    
+        //array
+        $rootcause = $this->input->post('rootcause');
+        $rootcause_file_url = $this->input->post('rootcause_file_url');
+        $rootcause_file_name = $this->input->post('rootcause_file_name');
+    
+        $rootcause_entry = array();
+    
+        foreach($rootcause as $key => $value){
+            $rootcause_entry[] = array(
+                'rootcause' => $rootcause[$key],
+                'rootcause_file_name' => $rootcause_file_name[$key],
+                'rootcause_file_url' => $rootcause_file_url[$key],
+                'rootcause_attachments' => $rootcause_attachments['rootcause_attachment_attachment'][$key]
+            );
+        }
+    
+        //array
+        $identified_root = $this->input->post('identified_root');
+        $tpn_control = $this->input->post('tpn_control');
+        $identified_root_corrective_action = $this->input->post('identified_root_corrective_action');
+        $identified_root_person_responsible = $this->input->post('identified_root_person_responsible');
+        $identified_root_completion_date = $this->input->post('identified_root_completion_date');
+        $identified_root_attachment_url = $this->input->post('identified_root_attachment_url');
+
+        $tpn_issued_by = $this->input->post('tpn_issued_by');
+        $tpn_issued_to = $this->input->post('tpn_issued_to');
+        $tpn_section = $this->input->post('tpn_section');
+    
+        $identified_entry = array();
+    
+        foreach($identified_root as $key => $value){
+            $identified_entry[] = array(
+                'identified_root' => $identified_root[$key],
+                'tpn_control' => $tpn_control[$key],
+                'identified_root_corrective_action' => $identified_root_corrective_action[$key],
+                'identified_root_person_responsible' => $identified_root_person_responsible[$key],
+                'identified_root_completion_date' => $identified_root_completion_date[$key],
+                'identified_root_attachment_url' => $identified_root_attachment_url[$key],
+                'identified_attachments' => $identified_attachments['identified_root_attachment_attachment'][$key],
+                'tpn_issued_by' => isset($tpn_issued_by[$key]) ? $tpn_issued_by[$key] : "",
+                'tpn_issued_to' => isset($tpn_issued_to[$key]) ? $tpn_issued_to[$key] : "",
+                'tpn_section' => isset($tpn_section[$key]) ? $tpn_section[$key] : "",
+            );
+        }
+    
+        // Use $data for any further processing or database insertion
+        $existing_record = $this->db->get_where('corrective_action', array('car_id' => $car_id))->row();
+
+        $data = array(
+            'car_id' => $car_id,
+            'existing_nonconformity' => $existing_nonconformity,
+            'update_doc_info' => $update_doc_info,
+            'existing_nonconformity_remarks' => $existing_nonconformity_remarks,
+            'update_doc_info_remarks' => $update_doc_info_remarks,
+            'risk_entry' => json_encode($risk_entry),
+            'opportunity_identified' => $opportunity_identified_yn,
+            'opportunity_entry' => json_encode($opportunity_entry),
+            'root_cause_entry' => json_encode($rootcause_entry),
+            'identified_root_entry' => json_encode($identified_entry),
+        );
+        
+        if ($existing_record) {
+            // Car_id exists, perform an update
+            $this->db->where('car_id', $car_id);
+            $result = $this->db->update('corrective_action', $data);
+        } else {
+            // Car_id doesn't exist, perform an insert
+            $result = $this->db->insert('corrective_action', $data);
+        }
+
+        $cardata = array(
+            'corrective_action_status' => 'For OSQM Review'
+        );
+
+        $this->db->where('id', $car_id);
+        $result = $this->db->update('car', $cardata);
+        
+        if ($result) {
+            echo 'saved';
+        } else {
+            echo 'error';
+        }
+    }
+
     public function saveRootFR(){
 
         $review_action_root_cause_analysis = $this->input->post('review_action_root_cause_analysis');
@@ -620,6 +793,7 @@ class car extends CI_Controller {
         $risk_number = $this->input->post('risk_number');
         $risk_number_details_update = $this->input->post('risk_number_details_update');
         $risk_attachments = $this->input->post('risk_attachments');
+        $risk_number_attachment_url = $this->input->post('risk_number_attachment_url');
 
         $risk_number_acceptable_review = $this->input->post('risk_number_acceptable_review');
         $risk_number_acceptable_remarks_review = $this->input->post('risk_number_acceptable_remarks_review');
@@ -637,6 +811,7 @@ class car extends CI_Controller {
             $risk_entry[] = array(
                 'risk_number' => $risk_number[$key],
                 'risk_number_details_update' => $risk_number_details_update[$key],
+                'risk_number_attachment_url' => $risk_number_attachment_url[$key],
                 'risk_attachments' => $risk_attachments[$key],
                 'risk_number_acceptable_review' => $risk_number_acceptable_review[$key],
                 'risk_number_acceptable_remarks_review' => $risk_number_acceptable_remarks_review[$key],
@@ -654,6 +829,7 @@ class car extends CI_Controller {
     
         //array
         $opportunity_number = $this->input->post('opportunity_number');
+        $opportunity_number_attachment_url = $this->input->post('opportunity_number_attachment_url');
         $opportunity_identified = $this->input->post('opportunity_identified');
         $opportunity_attachments = $this->input->post('opportunity_attachments');
 
@@ -675,6 +851,7 @@ class car extends CI_Controller {
         foreach($opportunity_number as $key => $value){
             $opportunity_entry[] = array(
                 'opportunity_number' => $opportunity_number[$key],
+                'opportunity_number_attachment_url' => $opportunity_number_attachment_url[$key],
                 'opportunity_identified' => $opportunity_identified[$key],
                 'opportunity_attachments' => $opportunity_attachments[$key],
                 'opportunity_number_acceptable_review' => $opportunity_number_acceptable_review[$key],
@@ -692,6 +869,7 @@ class car extends CI_Controller {
         $rootcause = $this->input->post('rootcause');
         $rootcause_file_name = $this->input->post('rootcause_file_name');
         $rootcause_attachments =  $this->input->post('rootcause_attachments');
+        $rootcause_file_url = $this->input->post('rootcause_file_url');
 
         $rootcause_acceptable_review =  $this->input->post('rootcause_acceptable_review');
         $rootcause_acceptable_remarks_review =  $this->input->post('rootcause_acceptable_remarks_review');
@@ -712,6 +890,7 @@ class car extends CI_Controller {
                 'rootcause' => $rootcause[$key],
                 'rootcause_file_name' => $rootcause_file_name[$key],
                 'rootcause_attachments' => $rootcause_attachments[$key],
+                'rootcause_file_url' => $rootcause_file_url[$key],
                 'rootcause_acceptable_review' => $rootcause_acceptable_review[$key],
                 'rootcause_acceptable_remarks_review' => $rootcause_acceptable_remarks_review[$key],
                 'rootcause_acceptable_approval' => $rootcause_acceptable_approval[$key],
@@ -732,6 +911,7 @@ class car extends CI_Controller {
         $identified_attachments = $this->input->post('identified_attachments');
         $identified_root_acceptable_review = $this->input->post('identified_root_acceptable_review');
         $identified_root_acceptable_remarks_review = $this->input->post('identified_root_acceptable_remarks_review');
+        $identified_root_attachment_url = $this->input->post('identified_root_attachment_url');
 
         $identified_root_acceptable_approval = $this->input->post('identified_root_acceptable_approval');
         $identified_root_acceptable_remarks_approval = $this->input->post('identified_root_acceptable_remarks_approval');
@@ -756,6 +936,7 @@ class car extends CI_Controller {
                 'identified_root_person_responsible' => $identified_root_person_responsible[$key],
                 'identified_root_completion_date' => $identified_root_completion_date[$key],
                 'identified_attachments' => $identified_attachments[$key],
+                'identified_root_attachment_url' => $identified_root_attachment_url[$key],
                 'identified_root_acceptable_review' => $identified_root_acceptable_review[$key],
                 'identified_root_acceptable_remarks_review' => $identified_root_acceptable_remarks_review[$key],
                 'identified_root_acceptable_approval' => $identified_root_acceptable_approval[$key],
@@ -1433,178 +1614,7 @@ class car extends CI_Controller {
         }
     }
 
-    public function saveRoot(){
-        
-        function handleFileUpload($key, $custom_config = array()) {
-            $CI = get_instance();
-            $CI->load->library('upload');
-
-            // Merge custom configuration with default configuration
-            $default_config = array(
-                'upload_path'   => FCPATH . 'uploads/',
-                'allowed_types' => 'gif|jpg|png|pdf|docx|doc',  // Adjust as needed
-            );
-
-            $config = array_merge($default_config, $custom_config);
-
-            $CI->upload->initialize($config);
-
-            $files = $_FILES[$key];
     
-            $attachments = array();
-    
-            foreach ($files['name'] as $index => $name) {
-                $_FILES[$key] = array(
-                    'name'     => $files['name'][$index],
-                    'type'     => $files['type'][$index],
-                    'tmp_name' => $files['tmp_name'][$index],
-                    'error'    => $files['error'][$index],
-                    'size'     => $files['size'][$index]
-                );
-    
-                if ($CI->upload->do_upload($key)) {
-                    $attachments[$key][] = $CI->upload->data('file_name');
-                } else {
-                    // Handle upload error
-                    return array('error' => $CI->upload->display_errors());
-                }
-            }
-    
-            return $attachments;
-        }
-    
-        // Handle each array of file uploads
-        $risk_attachments = handleFileUpload('risk_number_attachment');
-
-        // var_dump( $risk_attachments);
-
-        $opportunity_attachments = handleFileUpload('opportunity_number_attachment');
-        $rootcause_attachments = handleFileUpload('rootcause_attachment_attachment');
-        $identified_attachments = handleFileUpload('identified_root_attachment_attachment');
-
-        $existing_nonconformity = $this->input->post('existing_nonconformity');
-        $existing_nonconformity_remarks = $this->input->post('existing_nonconformity_remarks');
-        $update_doc_info = $this->input->post('update_doc_info');
-        $update_doc_info_remarks = $this->input->post('update_doc_info_remarks');
-    
-        //array
-        $risk_entry = array();
-    
-        $risk_number = $this->input->post('risk_number');
-        $risk_number_details_update = $this->input->post('risk_number_details_update');
-        $risk_number_attachment_url = $this->input->post('risk_number_attachment_url');
-    
-        foreach($risk_number as $key => $value){
-            $risk_entry[] = array(
-                'risk_number' => $risk_number[$key],
-                'risk_number_details_update' => $risk_number_details_update[$key],
-                'risk_number_attachment_url' => $risk_number_attachment_url[$key],
-                'risk_attachments' => $risk_attachments['risk_number_attachment'][$key]
-            );
-        }
-        
-        $car_id = $this->input->post('car_id');
-        $opportunity_identified_yn = $this->input->post('opportunity_identified_yn');
-    
-        //array
-        $opportunity_number = $this->input->post('opportunity_number');
-        $opportunity_identified = $this->input->post('opportunity_identified');
-        $opportunity_number_attachment_url = $this->input->post('opportunity_number_attachment_url');
-    
-        $opportunity_entry = array();
-    
-        foreach($opportunity_number as $key => $value){
-            $opportunity_entry[] = array(
-                'opportunity_number' => $opportunity_number[$key],
-                'opportunity_identified' => $opportunity_identified[$key],
-                'opportunity_number_attachment_url' => $opportunity_number_attachment_url[$key],
-                'opportunity_attachments' => $opportunity_attachments['opportunity_number_attachment'][$key]
-            );
-        }
-    
-        //array
-        $rootcause = $this->input->post('rootcause');
-        $rootcause_file_url = $this->input->post('rootcause_file_url');
-        $rootcause_file_name = $this->input->post('rootcause_file_name');
-    
-        $rootcause_entry = array();
-    
-        foreach($rootcause as $key => $value){
-            $rootcause_entry[] = array(
-                'rootcause' => $rootcause[$key],
-                'rootcause_file_name' => $rootcause_file_name[$key],
-                'rootcause_file_url' => $rootcause_file_url[$key],
-                'rootcause_attachments' => $rootcause_attachments['rootcause_attachment_attachment'][$key]
-            );
-        }
-    
-        //array
-        $identified_root = $this->input->post('identified_root');
-        $tpn_control = $this->input->post('tpn_control');
-        $identified_root_corrective_action = $this->input->post('identified_root_corrective_action');
-        $identified_root_person_responsible = $this->input->post('identified_root_person_responsible');
-        $identified_root_completion_date = $this->input->post('identified_root_completion_date');
-        $identified_root_attachment_url = $this->input->post('identified_root_attachment_url');
-
-        $tpn_issued_by = $this->input->post('tpn_issued_by');
-        $tpn_issued_to = $this->input->post('tpn_issued_to');
-        $tpn_section = $this->input->post('tpn_section');
-    
-        $identified_entry = array();
-    
-        foreach($identified_root as $key => $value){
-            $identified_entry[] = array(
-                'identified_root' => $identified_root[$key],
-                'tpn_control' => $tpn_control[$key],
-                'identified_root_corrective_action' => $identified_root_corrective_action[$key],
-                'identified_root_person_responsible' => $identified_root_person_responsible[$key],
-                'identified_root_completion_date' => $identified_root_completion_date[$key],
-                'identified_root_attachment_url' => $identified_root_attachment_url[$key],
-                'identified_attachments' => $identified_attachments['identified_root_attachment_attachment'][$key],
-                'tpn_issued_by' => isset($tpn_issued_by[$key]) ? $tpn_issued_by[$key] : "",
-                'tpn_issued_to' => isset($tpn_issued_to[$key]) ? $tpn_issued_to[$key] : "",
-                'tpn_section' => isset($tpn_section[$key]) ? $tpn_section[$key] : "",
-            );
-        }
-    
-        // Use $data for any further processing or database insertion
-        $existing_record = $this->db->get_where('corrective_action', array('car_id' => $car_id))->row();
-
-        $data = array(
-            'car_id' => $car_id,
-            'existing_nonconformity' => $existing_nonconformity,
-            'update_doc_info' => $update_doc_info,
-            'existing_nonconformity_remarks' => $existing_nonconformity_remarks,
-            'update_doc_info_remarks' => $update_doc_info_remarks,
-            'risk_entry' => json_encode($risk_entry),
-            'opportunity_identified' => $opportunity_identified_yn,
-            'opportunity_entry' => json_encode($opportunity_entry),
-            'root_cause_entry' => json_encode($rootcause_entry),
-            'identified_root_entry' => json_encode($identified_entry),
-        );
-        
-        if ($existing_record) {
-            // Car_id exists, perform an update
-            $this->db->where('car_id', $car_id);
-            $result = $this->db->update('corrective_action', $data);
-        } else {
-            // Car_id doesn't exist, perform an insert
-            $result = $this->db->insert('corrective_action', $data);
-        }
-
-        $cardata = array(
-            'corrective_action_status' => 'For OSQM Review'
-        );
-
-        $this->db->where('id', $car_id);
-        $result = $this->db->update('car', $cardata);
-        
-        if ($result) {
-            echo 'saved';
-        } else {
-            echo 'error';
-        }
-    }
 
     public function osqmReview(){
 
