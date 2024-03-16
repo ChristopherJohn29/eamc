@@ -788,9 +788,7 @@ class car extends CI_Controller {
             'identified_root_entry' => json_encode($identified_entry),
         );
 
-        print_r($data);
-        exit;
-        
+     
         if ($existing_record) {
             // Car_id exists, perform an update
             $this->db->where('car_id', $car_id);
