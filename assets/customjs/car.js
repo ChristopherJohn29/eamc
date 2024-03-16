@@ -1817,26 +1817,26 @@ var car = {
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Risk Number</label>
-                                                                <textarea rows="4" class="form-control" name="risk_number[]">${risk.risk_number}</textarea>
+                                                                <textarea rows="4" class="form-control" name="risk_number[${count}]">${risk.risk_number}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Details / Updates</label>
-                                                                <textarea rows="4" class="form-control" name="risk_number_details_update[]">${risk.risk_number_details_update}</textarea>
+                                                                <textarea rows="4" class="form-control" name="risk_number_details_update[${count}]">${risk.risk_number_details_update}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-4">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">File URL</label>
-                                                                <input type="text" class="form-control" readonly name="risk_number_attachment_url[]" value="${risk.risk_number_attachment_url}">
+                                                                <input type="text" class="form-control" readonly name="risk_number_attachment_url[${count}]" value="${risk.risk_number_attachment_url}">
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Attachment</label>
-                                                                <input type="file" class="form-control hidden risk_number_attachment" name="risk_number_attachment[${risk.risk_number_attachment_url}]" value="">
-                                                                <input type="hidden" name="risk_attachments[]" value="${count}">
+                                                                <input type="file" class="form-control hidden risk_number_attachment" name="risk_number_attachment[]" value="">
+                                                                <input type="hidden" name="risk_attachments[${count}]" value="${risk.risk_attachments}">
                                                                 <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
                                                             </div>
                                                         </div>
@@ -1865,26 +1865,26 @@ var car = {
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Opportunity Number</label>
-                                                                <textarea rows="4" class="form-control" name="opportunity_number[]">${opportunity.opportunity_number}</textarea>
+                                                                <textarea rows="4" class="form-control" name="opportunity_number[${count}]">${opportunity.opportunity_number}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Opportunities Identified (if applicable)</label>
-                                                                <textarea rows="4" class="form-control" name="opportunity_identified[]">${opportunity.opportunity_identified}</textarea>
+                                                                <textarea rows="4" class="form-control" name="opportunity_identified[${count}]">${opportunity.opportunity_identified}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-3">
                                                             <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">File URL</label>
-                                                            <input type="text" class="form-control" readonly name="opportunity_number_attachment_url[]" value="${opportunity.opportunity_number_attachment_url}">
+                                                            <input type="text" class="form-control" readonly name="opportunity_number_attachment_url[${count}]" value="${opportunity.opportunity_number_attachment_url}">
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Attachment</label>
                                                                 <input type="file" class="form-control hidden opportunity_number_attachment" name="opportunity_number_attachment[${count}]" value="">
-                                                                <input type="hidden" name="opportunity_attachments[]" value="${opportunity.opportunity_attachments}">
+                                                                <input type="hidden" name="opportunity_attachments[${count}]" value="${opportunity.opportunity_attachments}">
                                                                 <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
                                                             </div>
                                                         </div>
@@ -1913,26 +1913,26 @@ var car = {
                                                         <div class="col-xl-3">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Root Cause Analysis Used</label>
-                                                                <input type="text" class="form-control" readonly name="rootcause[]" value="${rootCause.rootcause}">
+                                                                <input type="text" class="form-control" readonly name="rootcause[${count}]" value="${rootCause.rootcause}">
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-3">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">File Name</label>
-                                                                <input type="text" class="form-control" readonly name="rootcause_file_name[]" value="${rootCause.rootcause_file_name}">
+                                                                <input type="text" class="form-control" readonly name="rootcause_file_name[${count}]" value="${rootCause.rootcause_file_name}">
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-3">
                                                             <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">File URL</label>
-                                                            <input type="text" class="form-control" readonly name="rootcause_file_url[]" value="${rootCause.rootcause_file_url}">
+                                                            <input type="text" class="form-control" readonly name="rootcause_file_url[${count}]" value="${rootCause.rootcause_file_url}">
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Attachment</label>
                                                                 <input type="file" class="form-control hidden rootcause_attachment_attachment" name="rootcause_attachment_attachment[${count}]" value="">
-                                                                <input type="hidden" name="rootcause_attachments[]" value="${rootCause.rootcause_attachments}">
+                                                                <input type="hidden" name="rootcause_attachments[${count}]" value="${rootCause.rootcause_attachments}">
                                                                 <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
                                                             </div>
                                                         </div>
@@ -2010,31 +2010,31 @@ var car = {
                                                         <div class="col-xl-6 mb-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Identified Root Cause</label>
-                                                                <textarea rows="4" class="form-control" name="identified_root[]">${identifiedRoot.identified_root}</textarea>
+                                                                <textarea rows="4" class="form-control" name="identified_root[${count}]">${identifiedRoot.identified_root}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-6 mb-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Corrective Action</label>
-                                                                <textarea rows="4" class="form-control" name="identified_root_corrective_action[]">${identifiedRoot.identified_root_corrective_action}</textarea>
+                                                                <textarea rows="4" class="form-control" name="identified_root_corrective_action[${count}]">${identifiedRoot.identified_root_corrective_action}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-4 mb-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">TPN Control</label>
-                                                                <input type="text" readonly class="form-control" name="tpn_control[]" value="${identifiedRoot.tpn_control}">
+                                                                <input type="text" readonly class="form-control" name="tpn_control[${count}]" value="${identifiedRoot.tpn_control}">
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-4 mb-2">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Person Responsible</label>
-                                                                <input type="text" readonly class="form-control" name="identified_root_person_responsible[]" placeholder="Enter Name of personnel" value="${identifiedRoot.identified_root_person_responsible}">
+                                                                <input type="text" readonly class="form-control" name="identified_root_person_responsible[${count}]" placeholder="Enter Name of personnel" value="${identifiedRoot.identified_root_person_responsible}">
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-4">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Completion Date</label>
-                                                                <input type="date" readonly class="form-control" name="identified_root_completion_date[]" value="${identifiedRoot.identified_root_completion_date}">
+                                                                <input type="date" readonly class="form-control" name="identified_root_completion_date[${count}]" value="${identifiedRoot.identified_root_completion_date}">
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-4 mb-1">
@@ -2061,14 +2061,14 @@ var car = {
                                                         <div class="col-xl-4">
                                                             <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">File URL</label>
-                                                            <input type="text" class="form-control" readonly name="identified_root_attachment_url[]"  value="${identifiedRoot.identified_root_attachment_url}">
+                                                            <input type="text" class="form-control" readonly name="identified_root_attachment_url[${count}]"  value="${identifiedRoot.identified_root_attachment_url}">
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Attachment</label>
                                                                 <input type="file" class="form-control hidden identified_root_attachment_attachment" name="identified_root_attachment_attachment[${count}]" value="">
-                                                                <input type="hidden" name="identified_attachments[]" value="${identifiedRoot.identified_attachments}">
+                                                                <input type="hidden" name="identified_attachments[${count}]" value="${identifiedRoot.identified_attachments}">
                                                                 <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
                                                             </div>
                                                         </div>
@@ -2539,25 +2539,25 @@ var car = {
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Risk Number</label>
-                                                                <textarea rows="4" class="form-control" name="risk_number[]">${risk.risk_number}</textarea>
+                                                                <textarea rows="4" class="form-control" name="risk_number[${count}]">${risk.risk_number}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Details / Updates</label>
-                                                                <textarea rows="4" class="form-control" name="risk_number_details_update[]">${risk.risk_number_details_update}</textarea>
+                                                                <textarea rows="4" class="form-control" name="risk_number_details_update[${count}]">${risk.risk_number_details_update}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-4">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">File URL</label>
-                                                                <input type="text" class="form-control" readonly name="risk_number_attachment_url[]" value="${risk.risk_number_attachment_url}">
+                                                                <input type="text" class="form-control" readonly name="risk_number_attachment_url[${count}]" value="${risk.risk_number_attachment_url}">
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Attachment</label>
-                                                                <input type="hidden" name="risk_attachments[]" value="${risk.risk_attachments}">
+                                                                <input type="hidden" name="risk_attachments[${count}]" value="${risk.risk_attachments}">
                                                                 <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
                                                             </div>
                                                         </div>
@@ -2625,25 +2625,25 @@ var car = {
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Opportunity Number</label>
-                                                                <textarea rows="4" class="form-control" name="opportunity_number[]">${opportunity.opportunity_number}</textarea>
+                                                                <textarea rows="4" class="form-control" name="opportunity_number[${count}]">${opportunity.opportunity_number}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Opportunities Identified (if applicable)</label>
-                                                                <textarea rows="4" class="form-control" name="opportunity_identified[]">${opportunity.opportunity_identified}</textarea>
+                                                                <textarea rows="4" class="form-control" name="opportunity_identified[${count}]">${opportunity.opportunity_identified}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-3">
                                                             <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">File URL</label>
-                                                            <input type="text" class="form-control" readonly name="opportunity_number_attachment_url[]" value="${opportunity.opportunity_number_attachment_url}">
+                                                            <input type="text" class="form-control" readonly name="opportunity_number_attachment_url[${count}]" value="${opportunity.opportunity_number_attachment_url}">
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Attachment</label>
-                                                                <input type="hidden" name="opportunity_attachments[]" value="${opportunity.opportunity_attachments}">
+                                                                <input type="hidden" name="opportunity_attachments[${count}]" value="${opportunity.opportunity_attachments}">
                                                                 <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
                                                             </div>
                                                         </div>
@@ -2710,25 +2710,25 @@ var car = {
                                                         <div class="col-xl-3">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Root Cause Analysis Used</label>
-                                                                <input type="text" class="form-control" readonly name="rootcause[]" value="${rootCause.rootcause}">
+                                                                <input type="text" class="form-control" readonly name="rootcause[${count}]" value="${rootCause.rootcause}">
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-3">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">File Name</label>
-                                                                <input type="text" class="form-control" readonly name="rootcause_file_name[]" value="${rootCause.rootcause_file_name}">
+                                                                <input type="text" class="form-control" readonly name="rootcause_file_name[${count}]" value="${rootCause.rootcause_file_name}">
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-3">
                                                             <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">File URL</label>
-                                                            <input type="text" class="form-control" readonly name="rootcause_file_url[]" value="${rootCause.rootcause_file_url}">
+                                                            <input type="text" class="form-control" readonly name="rootcause_file_url[${count}]" value="${rootCause.rootcause_file_url}">
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Attachment</label>
-                                                                <input type="hidden" name="rootcause_attachments[]" value="${rootCause.rootcause_attachments}">
+                                                                <input type="hidden" name="rootcause_attachments[${count}]" value="${rootCause.rootcause_attachments}">
                                                                 <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
                                                             </div>
                                                         </div>
@@ -2844,31 +2844,31 @@ var car = {
                                                         <div class="col-xl-6 mb-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Identified Root Cause</label>
-                                                                <textarea rows="4" class="form-control" name="identified_root[]">${identifiedRoot.identified_root}</textarea>
+                                                                <textarea rows="4" class="form-control" name="identified_root[${count}]">${identifiedRoot.identified_root}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-6 mb-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Corrective Action</label>
-                                                                <textarea rows="4" class="form-control" name="identified_root_corrective_action[]">${identifiedRoot.identified_root_corrective_action}</textarea>
+                                                                <textarea rows="4" class="form-control" name="identified_root_corrective_action[${count}]">${identifiedRoot.identified_root_corrective_action}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-4 mb-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">TPN Control</label>
-                                                                <input type="text" readonly class="form-control" name="tpn_control[]" value="${identifiedRoot.tpn_control}">
+                                                                <input type="text" readonly class="form-control" name="tpn_control[${count}]" value="${identifiedRoot.tpn_control}">
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-4 mb-2">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Person Responsible</label>
-                                                                <input type="text" readonly class="form-control" name="identified_root_person_responsible[]" placeholder="Enter Name of personnel" value="${identifiedRoot.identified_root_person_responsible}">
+                                                                <input type="text" readonly class="form-control" name="identified_root_person_responsible[${count}]" placeholder="Enter Name of personnel" value="${identifiedRoot.identified_root_person_responsible}">
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-4">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Completion Date</label>
-                                                                <input type="date" readonly class="form-control" name="identified_root_completion_date[]" value="${identifiedRoot.identified_root_completion_date}">
+                                                                <input type="date" readonly class="form-control" name="identified_root_completion_date[${count}]" value="${identifiedRoot.identified_root_completion_date}">
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-4 mb-1">
@@ -2895,13 +2895,13 @@ var car = {
                                                         <div class="col-xl-4">
                                                             <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">File URL</label>
-                                                            <input type="text" class="form-control" readonly name="identified_root_attachment_url[]"  value="${identifiedRoot.identified_root_attachment_url}">
+                                                            <input type="text" class="form-control" readonly name="identified_root_attachment_url[${count}]"  value="${identifiedRoot.identified_root_attachment_url}">
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Attachment</label>
-                                                                <input type="hidden" name="identified_attachments[]" value="${identifiedRoot.identified_attachments}">
+                                                                <input type="hidden" name="identified_attachments[${count}]" value="${identifiedRoot.identified_attachments}">
                                                                 <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
                                                             </div>
                                                         </div>
@@ -3526,14 +3526,14 @@ var car = {
             '<textarea class="form-control approval_action_root_cause_analysis_remarks" name="approval_action_root_cause_analysis_remarks" rows="4"></textarea>' +
             '</div>' +
         '</div>';
-
+        
         jQuery('#car-action').html($action);
-
+        
         jQuery('#car-action').removeClass();
         jQuery('#car-action').addClass('mt-4');
         jQuery('#car-action').addClass('row');
         jQuery('#car-action').addClass('corrective-action-approval');
-     
+        
         $car_id = jQuery(this).data('car_id');
         $requestor = jQuery(this).data('requestor');
         $car_no = jQuery(this).data('car_no');
@@ -3546,11 +3546,11 @@ var car = {
         $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
         $status = jQuery(this).data('status');
         
-     
+        
         $findings = jQuery(this).data('findings');
         $consequences = jQuery(this).data('consequences');
         $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
-     
+        
         jQuery('.addCARFormIssuance .car_id').val($car_id);
         jQuery('.addCARFormIssuance .requestor').val($requestor);
         jQuery('.addCARFormIssuance .car_no').val($car_no);
@@ -3563,29 +3563,29 @@ var car = {
         jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
         jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
         jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-     
+        
         division = jQuery('.addCARFormIssuance .issued_by').val();
-     
+        
         $.ajax({
             type: 'POST',
             url: '../car/getDepartment', // Replace 'MyController' with your controller name
             data: {division: division},
             success: function (response) {
                 if(response != 'null'){
-     
+        
                     $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
                     $.each(JSON.parse(response), function (index, item) {
                         // Access each item's properties
                         var id = item.id;
                         var dep_name = item.dep_name;
-     
+        
                         var html = '<option value="'+id+'">'+dep_name+'</option>';
                         // Do something with the data, for example, display it on the page
                         $('.addCARFormIssuance .issued_to').append(html);
                     });
-     
+        
                     jQuery('.addCARFormIssuance .issued_to').val($issued_to);
-     
+        
                     department = $issued_to;
                     $.ajax({
                         type: 'POST',
@@ -3613,7 +3613,7 @@ var car = {
                             diList.notifyError();
                         }
                     });
-     
+        
                 }   
             },
             error: function () {
@@ -3621,14 +3621,14 @@ var car = {
                 diList.notifyError();
             }
         });
-     
+        
         var car_id = jQuery(this).data('car_id');
         jQuery('.car_id').val(car_id);
         $('#risk-number').empty();
         $('#opportunity-number').empty();
         $('#rootcause').empty();
         $('#identified-root').empty();
-     
+        
         $.ajax({
             type: 'POST',
             url: '../car/getCorrectiveAction', // Replace 'MyController' with your controller name
@@ -3637,30 +3637,30 @@ var car = {
                 if(response != 'null'){
                     
                     response = JSON.parse(response);
-     
+        
                     if(response[0]){
                         $('input[name="existing_nonconformity"][value="'+ response[0].existing_nonconformity +'"]').prop('checked', true);
                         $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
                         $('input[name="opportunity_identified_yn"][value="'+ response[0].opportunity_identified +'"]').prop('checked', true);
-     
+        
                         $('[name="existing_nonconformity_remarks"]').val(response[0].existing_nonconformity_remarks);
                         $('[name="update_doc_info_remarks"]').val(response[0].update_doc_info_remarks);
-     
+        
                         var riskEntries = JSON.parse(response[0].risk_entry);
-     
+                        var count;
                         riskEntries.forEach(function (risk) {
-
+        
                             var review = risk.risk_number_acceptable_review !== undefined ? risk.risk_number_acceptable_review : '';
                             var verification = risk.risk_number_acceptable_verification !== undefined ? risk.risk_number_acceptable_verification : '';
                             var validation = risk.risk_number_acceptable_validation !== undefined ? risk.risk_number_acceptable_validation : ''
-    
+        
                             var review_remarks = risk.risk_number_acceptable_remarks_review !== undefined ? risk.risk_number_acceptable_remarks_review : '';
                             var verification_remarks = risk.risk_number_acceptable_remarks_verification !== undefined ? risk.risk_number_acceptable_remarks_verification : '';
                             var validation_remarks = risk.risk_number_acceptable_remarks_validation !== undefined ? risk.risk_number_acceptable_remarks_validation : '';
-    
+        
                             var approvalValue = risk.risk_number_acceptable_approval !== undefined ? risk.risk_number_acceptable_approval : ''; // Added
                             var remarksReview = risk.risk_number_acceptable_remarks_approval !== undefined ? risk.risk_number_acceptable_remarks_approval : ''; // Added
-    
+        
                             var riskHtml = `
                                 <div class="col-lg-12 risk-number-repeatable">
                                     <div class="card">
@@ -3670,25 +3670,25 @@ var car = {
                                                     <div class="col-xl-6">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">Risk Number</label>
-                                                            <textarea rows="4" class="form-control" name="risk_number[]">${risk.risk_number}</textarea>
+                                                            <textarea rows="4" class="form-control" name="risk_number[${count}]">${risk.risk_number}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-6">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">Details / Updates</label>
-                                                            <textarea rows="4" class="form-control" name="risk_number_details_update[]">${risk.risk_number_details_update}</textarea>
+                                                            <textarea rows="4" class="form-control" name="risk_number_details_update[${count}]">${risk.risk_number_details_update}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">File URL</label>
-                                                            <input type="text" class="form-control" readonly name="risk_number_attachment_url[]" value="${risk.risk_number_attachment_url}">
+                                                            <input type="text" class="form-control" readonly name="risk_number_attachment_url[${count}]" value="${risk.risk_number_attachment_url}">
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-1">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">Attachment</label>
-                                                            <input type="hidden" name="rootcause_attachments[]" value="${rootCause.rootcause_attachments}">
+                                                            <input type="hidden" name="rootcause_attachments[${count}]" value="${rootCause.rootcause_attachments}">
                                                             <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
                                                         </div>
                                                     </div>
@@ -3696,11 +3696,11 @@ var car = {
                                                 </div>
                                                 <div class="row">
                                                         <label for="acceptable" class="form-label">Acceptable</label>
-    
+        
                                                         <input type="hidden" value="${review}" name="risk_number_acceptable_review[${count}]">
                                                         <input type="hidden" value="${verification}" name="risk_number_acceptable_verification[${count}]">
                                                         <input type="hidden" value="${validation}" name="risk_number_acceptable_validation[${count}]">
-    
+        
                                                         <input type="hidden" value="${review_remarks}" name="risk_number_acceptable_remarks_review[${count}]">
                                                         <input type="hidden" value="${verification_remarks}" name="risk_number_acceptable_remarks_verification[${count}]">
                                                         <input type="hidden" value="${validation_remarks}" name="risk_number_acceptable_remarks_validation[${count}]">
@@ -3726,26 +3726,27 @@ var car = {
                                 </div>
                             `;
                             // Append the risk HTML to the container
+                            count++;
                             $('#risk-number').append(riskHtml);
                         });
-     
-     
+        
+        
                         var opportunityEntries = JSON.parse(response[0].opportunity_entry);
-     
+                        var count = 0;
                         opportunityEntries.forEach(function (opportunity) {
-
+        
                             var review = opportunity.opportunity_number_acceptable_review !== undefined ? opportunity.risk_number_acceptable_review : '';
                             var verification = opportunity.opportunity_number_acceptable_verification !== undefined ? opportunity.opportunity_number_acceptable_verification : '';
                             var validation = opportunity.opportunity_number_acceptable_validation !== undefined ? opportunity.opportunity_number_acceptable_validation : '';
-    
+        
                             var review_remarks = opportunity.opportunity_number_acceptable_remarks_review !== undefined ? opportunity.risk_number_acceptable_remarks_review : '';
                             var verification_remarks = opportunity.opportunity_number_acceptable_remarks_verification !== undefined ? opportunity.opportunity_number_acceptable_remarks_verification : '';
                             var validation_remarks = opportunity.opportunity_number_acceptable_remarks_validation !== undefined ? opportunity.opportunity_number_acceptable_remarks_validation : '';
-    
-    
+        
+        
                             var approvalValue = opportunity.opportunity_number_acceptable_approval !== undefined ? opportunity.opportunity_number_acceptable_approval : ''; // Added
                             var remarksReview = opportunity.opportunity_number_acceptable_remarks_approval !== undefined ? opportunity.opportunity_number_acceptable_remarks_approval : ''; // Added
-    
+        
                             var opportunityHtml = `
                                 <div class="col-lg-12 opportunity-number-repeatable">
                                     <div class="card">
@@ -3755,25 +3756,25 @@ var car = {
                                                     <div class="col-xl-6">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">Opportunity Number</label>
-                                                            <textarea rows="4" class="form-control" name="opportunity_number[]">${opportunity.opportunity_number}</textarea>
+                                                            <textarea rows="4" class="form-control" name="opportunity_number[${count}]">${opportunity.opportunity_number}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-6">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">Opportunities Identified (if applicable)</label>
-                                                            <textarea rows="4" class="form-control" name="opportunity_identified[]">${opportunity.opportunity_identified}</textarea>
+                                                            <textarea rows="4" class="form-control" name="opportunity_identified[${count}]">${opportunity.opportunity_identified}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-3">
                                                         <div class="mb-3 mb-xl-0">
                                                         <label class="form-label">File URL</label>
-                                                        <input type="text" class="form-control" readonly name="opportunity_number_attachment_url[]" value="${opportunity.opportunity_number_attachment_url}">
+                                                        <input type="text" class="form-control" readonly name="opportunity_number_attachment_url[${count}]" value="${opportunity.opportunity_number_attachment_url}">
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-1">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">Attachment</label>
-                                                            <input type="hidden" name="opportunity_attachments[]" value="${opportunity.opportunity_attachments}">
+                                                            <input type="hidden" name="opportunity_attachments[${count}]" value="${opportunity.opportunity_attachments}">
                                                             <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
                                                         </div>
                                                     </div>
@@ -3781,15 +3782,15 @@ var car = {
                                                 </div>
                                                 <div class="row">
                                                     <label for="acceptable" class="form-label">Acceptable</label>
-    
+        
                                                         <input type="hidden" value="${review}" name="opportunity_number_acceptable_review[${count}]">
                                                         <input type="hidden" value="${verification}" name="opportunity_number_acceptable_verification[${count}]">
                                                         <input type="hidden" value="${validation}" name="opportunity_number_acceptable_validation[${count}]">
-    
+        
                                                         <input type="hidden" value="${review_remarks}" name="opportunity_number_acceptable_remarks_review[${count}]">
                                                         <input type="hidden" value="${verification_remarks}" name="opportunity_number_acceptable_remarks_verification[${count}]">
                                                         <input type="hidden" value="${validation_remarks}" name="opportunity_number_acceptable_remarks_validation[${count}]">
-    
+        
                                                     <div class="col-lg-3 text-inlign mb-2">
                                                         <div class="form-check form-check-inline">
                                                             <input type="radio" name="opportunity_number_acceptable_approval[${count}]" value="1" class="form-check-input" ${approvalValue === '1' ? 'checked' : ''}>
@@ -3811,26 +3812,27 @@ var car = {
                                 </div>
                             `;
                             // Append the opportunity HTML to the container
+                            count++;
                             $('#opportunity-number').append(opportunityHtml);
                         });
-     
-     
+        
+        
                         var rootCauseEntries = JSON.parse(response[0].root_cause_entry);
-     
+                        var count = 0;
                         rootCauseEntries.forEach(function (rootCause) {
-
+        
                             var review = rootCause.rootcause_acceptable_review !== undefined ? rootCause.rootcause_acceptable_review : '';
                             var verification = rootCause.rootcause_acceptable_verification !== undefined ? rootCause.rootcause_acceptable_verification : '';
                             var validation = rootCause.rootcause_acceptable_validation !== undefined ? rootCause.rootcause_acceptable_validation : '';
-    
+        
                             var review_remarks = rootCause.rootcause_acceptable_remarks_review !== undefined ? rootCause.rootcause_acceptable_remarks_review : '';
                             var verification_remarks = rootCause.rootcause_acceptable_remarks_verification !== undefined ? rootCause.rootcause_acceptable_remarks_verification : '';
                             var validation_remarks = rootCause.rootcause_acceptable_remarks_validation !== undefined ? rootCause.rootcause_acceptable_remarks_validation : '';
-    
-    
+        
+        
                             var approvalValue = rootCause.rootcause_acceptable_approval !== undefined ? rootCause.rootcause_acceptable_approval : ''; // Added
                             var remarksReview = rootCause.rootcause_acceptable_remarks_approval !== undefined ? rootCause.rootcause_acceptable_remarks_approval : ''; // Added
-    
+        
                             var rootCauseHtml = `
                                 <div class="col-lg-12 rootcause-repeatable">
                                     <div class="card">
@@ -3840,19 +3842,19 @@ var car = {
                                                     <div class="col-xl-3">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">Root Cause Analysis Used</label>
-                                                            <input type="text" class="form-control" readonly name="rootcause[]" value="${rootCause.rootcause}">
+                                                            <input type="text" class="form-control" readonly name="rootcause[${count}]" value="${rootCause.rootcause}">
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-3">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">File Name</label>
-                                                            <input type="text" class="form-control" readonly name="rootcause_file_name[]" value="${rootCause.rootcause_file_name}">
+                                                            <input type="text" class="form-control" readonly name="rootcause_file_name[${count}]" value="${rootCause.rootcause_file_name}">
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-3">
                                                         <div class="mb-3 mb-xl-0">
                                                         <label class="form-label">File URL</label>
-                                                        <input type="text" class="form-control" readonly name="rootcause_file_url[]" value="${rootCause.rootcause_file_url}">
+                                                        <input type="text" class="form-control" readonly name="rootcause_file_url[${count}]" value="${rootCause.rootcause_file_url}">
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-1">
@@ -3864,15 +3866,15 @@ var car = {
                                                 </div>
                                                 <div class="row">
                                                 <label for="acceptable" class="form-label">Acceptable</label>
-
+        
                                                     <input type="hidden" value="${review}" name="rootcause_acceptable_review[${count}]">
                                                     <input type="hidden" value="${verification}" name="rootcause_acceptable_verification[${count}]">
                                                     <input type="hidden" value="${validation}" name="rootcause_acceptable_validation[${count}]">
-
+        
                                                     <input type="hidden" value="${review_remarks}" name="rootcause_acceptable_remarks_review[${count}]">
                                                     <input type="hidden" value="${verification_remarks}" name="rootcause_acceptable_remarks_verification[${count}]">
                                                     <input type="hidden" value="${validation_remarks}" name="rootcause_acceptable_remarks_validation[${count}]">
-
+        
                                                 <div class="col-lg-3 text-inlign mb-2">
                                                     <div class="form-check form-check-inline">
                                                         <input type="radio" name="rootcause_acceptable_approval[${count}]" value="1" class="form-check-input" ${approvalValue === '1' ? 'checked' : ''}>
@@ -3894,18 +3896,19 @@ var car = {
                                 </div>
                             `;
                             // Append the root cause HTML to the container
+                            count++;
                             $('#rootcause').append(rootCauseHtml);
                         });
-     
-     
+        
+        
                         var identifiedRootEntries = JSON.parse(response[0].identified_root_entry);
                         var count = 0;
                         identifiedRootEntries.forEach(function (identifiedRoot) {
-     
+        
                             var issued_by = '';
                             var issued_to = '';
                             var section_name = '';
-
+        
                             var review = identifiedRoot.identified_root_acceptable_review !== undefined ? identifiedRoot.identified_root_acceptable_review : '';
                             var verification = identifiedRoot.identified_root_acceptable_verification !== undefined ? identifiedRoot.identified_root_acceptable_verification : '';
                             var validation = identifiedRoot.identified_root_acceptable_validation !== undefined ? identifiedRoot.identified_root_acceptable_validation : '';
@@ -3913,7 +3916,7 @@ var car = {
                             var review_remarks = identifiedRoot.identified_root_acceptable_remarks_review !== undefined ? identifiedRoot.identified_root_acceptable_remarks_review : '';
                             var verification_remarks = identifiedRoot.identified_root_acceptable_remarks_verification !== undefined ? identifiedRoot.identified_root_acceptable_remarks_verification : '';
                             var validation_remarks = identifiedRoot.identified_root_acceptable_remarks_validation !== undefined ? identifiedRoot.identified_root_acceptable_remarks_validation : '';
-    
+        
                             var approvalValue = identifiedRoot.identified_root_acceptable_approval !== undefined ? identifiedRoot.identified_root_acceptable_approval : ''; // Added
                             var remarksReview = identifiedRoot.identified_root_acceptable_remarks_approval !== undefined ? identifiedRoot.identified_root_acceptable_remarks_approval : ''; // Added
                             
@@ -3924,14 +3927,14 @@ var car = {
                                     data: {id: identifiedRoot.tpn_issued_by},
                                     success: function (response) {
                                         response = JSON.parse(response);
-     
+        
                                         if(response[0]){
                                              issued_by = response[0].div_name;
                                         }
                                     }
                                 });
                             }
-     
+        
                             if(identifiedRoot.tpn_issued_to){
                                 $.ajax({
                                     type: 'POST',
@@ -3959,9 +3962,9 @@ var car = {
                                     }
                                 });
                             }
-     
+        
                             setTimeout(function() {
-     
+        
                             var identifiedRootHtml = `
                                 <div class="col-lg-12 identified-root-repeatable">
                                     <div class="card">
@@ -3971,31 +3974,31 @@ var car = {
                                                     <div class="col-xl-6 mb-1">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">Identified Root Cause</label>
-                                                            <textarea rows="4" class="form-control" name="identified_root[]">${identifiedRoot.identified_root}</textarea>
+                                                            <textarea rows="4" class="form-control" name="identified_root[${count}]">${identifiedRoot.identified_root}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-6 mb-1">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">Corrective Action</label>
-                                                            <textarea rows="4" class="form-control" name="identified_root_corrective_action[]">${identifiedRoot.identified_root_corrective_action}</textarea>
+                                                            <textarea rows="4" class="form-control" name="identified_root_corrective_action[${count}]">${identifiedRoot.identified_root_corrective_action}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4 mb-1">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">TPN Control</label>
-                                                            <input type="text" readonly class="form-control" name="tpn_control[]" value="${identifiedRoot.tpn_control}">
+                                                            <input type="text" readonly class="form-control" name="tpn_control[${count}]" value="${identifiedRoot.tpn_control}">
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4 mb-2">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">Person Responsible</label>
-                                                            <input type="text" readonly class="form-control" name="identified_root_person_responsible[]" placeholder="Enter Name of personnel" value="${identifiedRoot.identified_root_person_responsible}">
+                                                            <input type="text" readonly class="form-control" name="identified_root_person_responsible[${count}]" placeholder="Enter Name of personnel" value="${identifiedRoot.identified_root_person_responsible}">
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">Completion Date</label>
-                                                            <input type="date" readonly class="form-control" name="identified_root_completion_date[]" value="${identifiedRoot.identified_root_completion_date}">
+                                                            <input type="date" readonly class="form-control" name="identified_root_completion_date[${count}]" value="${identifiedRoot.identified_root_completion_date}">
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4 mb-1">
@@ -4022,28 +4025,28 @@ var car = {
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                         <label class="form-label">File URL</label>
-                                                        <input type="text" class="form-control" readonly name="identified_root_attachment_url[]"  value="${identifiedRoot.identified_root_attachment_url}">
+                                                        <input type="text" class="form-control" readonly name="identified_root_attachment_url[${count}]"  value="${identifiedRoot.identified_root_attachment_url}">
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-1">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">Attachment</label>
-                                                            <input type="hidden" name="identified_attachments[]" value="${identifiedRoot.identified_attachments}">
+                                                            <input type="hidden" name="identified_attachments[${count}]" value="${identifiedRoot.identified_attachments}">
                                                             <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <label for="acceptable" class="form-label">Acceptable</label>
-    
+        
                                                         <input type="hidden" value="${review}" name="identified_root_acceptable_review[${count}]">
                                                         <input type="hidden" value="${verification}" name="identified_root_acceptable_verification[${count}]">
                                                         <input type="hidden" value="${validation}" name="identified_root_acceptable_validation[${count}]">
-    
+        
                                                         <input type="hidden" value="${review_remarks}" name="identified_root_acceptable_remarks_review[${count}]">
                                                         <input type="hidden" value="${verification_remarks}" name="identified_root_acceptable_remarks_verification[${count}]">
                                                         <input type="hidden" value="${validation_remarks}" name="identified_root_acceptable_remarks_validation[${count}]">
-    
+        
                                                     <div class="col-lg-3 text-inlign mb-2">
                                                         <div class="form-check form-check-inline">
                                                             <input type="radio" name="identified_root_acceptable_approval[${count}]" value="1" class="form-check-input" ${approvalValue === '1' ? 'checked' : ''}>
@@ -4066,13 +4069,13 @@ var car = {
                             `;
                             // Append the identified root HTML to the container
                             $('#identified-root').append(identifiedRootHtml);
-     
+        
                             count++;
                             }, 3000);
                         });
-     
+        
                     }
-     
+        
                 }   
               
             },
