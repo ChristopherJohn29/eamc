@@ -672,7 +672,7 @@ class car extends CI_Controller {
         $risk_number_attachment_url = $this->input->post('risk_number_attachment_url');
     
         foreach($risk_number as $key => $value){
-            if(isset($risk_number_attachment_url[$key]) || isset($risk_attachments['risk_number_attachment'][$key]) || $risk_attachments_exist[$key]){
+            if((isset($risk_number_attachment_url[$key]) && $risk_number_attachment_url[$key] != "") || isset($risk_attachments['risk_number_attachment'][$key]) || (isset($risk_attachments_exist[$key]) && $risk_attachments_exist[$key] != "")){
                 $risk_entry[] = array(
                     'risk_number' => $risk_number[$key],
                     'risk_number_details_update' => $risk_number_details_update[$key],
@@ -693,7 +693,7 @@ class car extends CI_Controller {
         $opportunity_entry = array();
     
         foreach($opportunity_number as $key => $value){
-            if(isset($opportunity_number_attachment_url[$key]) || isset($opportunity_attachments['opportunity_number_attachment'][$key]) || $opportunity_attachments[$key]){
+            if((isset($opportunity_number_attachment_url[$key]) && $opportunity_number_attachment_url[$key] != "") || isset($opportunity_attachments['opportunity_number_attachment'][$key]) || (isset($opportunity_attachments[$key]) && $opportunity_attachments[$key] != "")){
                 $opportunity_entry[] = array(
                     'opportunity_number' => $opportunity_number[$key],
                     'opportunity_identified' => $opportunity_identified[$key],
@@ -712,7 +712,7 @@ class car extends CI_Controller {
     
         foreach($rootcause as $key => $value){
 
-            if(isset($rootcause_file_url[$key]) || isset($rootcause_attachments['rootcause_attachment_attachment'][$key]) || $rootcause_attachments[$key]){
+            if((isset($rootcause_file_url[$key]) && $rootcause_file_url[$key] != "") || isset($rootcause_attachments['rootcause_attachment_attachment'][$key]) || (isset($rootcause_attachments[$key]) && $rootcause_attachments[$key] != "")){
 
                 $rootcause_entry[] = array(
                     'rootcause' => $rootcause[$key],
@@ -738,7 +738,7 @@ class car extends CI_Controller {
         $identified_entry = array();
     
         foreach($identified_root as $key => $value){
-            if(isset($identified_root_attachment_url[$key]) || isset($identified_attachments['identified_root_attachment_attachment'][$key]) || $identified_attachments[$key]){
+            if((isset($identified_root_attachment_url[$key]) && $identified_root_attachment_url[$key] != "") || isset($identified_attachments['identified_root_attachment_attachment'][$key]) || (isset($identified_attachments[$key]) &&  $identified_attachments[$key] !== "") ){
                 $identified_entry[] = array(
                     'identified_root' => $identified_root[$key],
                     'tpn_control' => $tpn_control[$key],
