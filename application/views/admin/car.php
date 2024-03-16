@@ -1123,7 +1123,7 @@
                                                    <div class="col-xl-3">
                                                       <div class="mb-3 mb-xl-0">
                                                          <label class="form-label">Attachment</label>
-                                                         <input type="file" class="form-control" name="rootcause_attachment_attachment[]">
+                                                         <input type="file" class="form-control rootcause_attachment_attachment" name="rootcause_attachment_attachment[]">
                                                       </div>
                                                    </div>
                                                    <div class="col-xl-1">
@@ -1242,7 +1242,7 @@
                                        <div class="col-xl-4">
                                           <div class="mb-3 mb-xl-0">
                                              <label class="form-label">Attachment</label>
-                                             <input type="file" class="form-control" name="identified_root_attachment_attachment[]">
+                                             <input type="file" class="form-control identified_root_attachment_attachment" name="identified_root_attachment_attachment[]">
                                           </div>
                                        </div>
                                        <div class="col-xl-1">
@@ -1290,7 +1290,7 @@
                                        <div class="col-xl-4">
                                           <div class="mb-3 mb-xl-0">
                                              <label class="form-label">Attachment</label>
-                                             <input type="file" class="form-control" name="risk_number_attachment[]">
+                                             <input type="file" class="form-control risk_number_attachment" name="risk_number_attachment[]">
                                           </div>
                                        </div>
                                        <div class="col-xl-1">
@@ -1362,7 +1362,7 @@
                                        <div class="col-xl-3">
                                           <div class="mb-3 mb-xl-0">
                                              <label class="form-label">Attachment</label>
-                                             <input type="file" class="form-control" name="opportunity_number_attachment[]">
+                                             <input type="file" class="form-control opportunity_number_attachment" name="opportunity_number_attachment[]">
                                           </div>
                                        </div>
                                        <div class="col-xl-1">

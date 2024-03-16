@@ -1835,7 +1835,7 @@ var car = {
                                                         <div class="col-xl-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Attachment</label>
-                                                                <input type="file" class="form-control hidden" name="risk_number_attachment[${risk.risk_number_attachment_url}]" value="">
+                                                                <input type="file" class="form-control hidden risk_number_attachment" name="risk_number_attachment[${risk.risk_number_attachment_url}]" value="">
                                                                 <input type="hidden" name="risk_attachments[]" value="${count}">
                                                                 <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
                                                             </div>
@@ -1883,7 +1883,7 @@ var car = {
                                                         <div class="col-xl-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Attachment</label>
-                                                                <input type="file" class="form-control hidden" name="opportunity_number_attachment[${count}]" value="">
+                                                                <input type="file" class="form-control hidden opportunity_number_attachment" name="opportunity_number_attachment[${count}]" value="">
                                                                 <input type="hidden" name="opportunity_attachments[]" value="${opportunity.opportunity_attachments}">
                                                                 <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
                                                             </div>
@@ -1931,7 +1931,7 @@ var car = {
                                                         <div class="col-xl-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Attachment</label>
-                                                                <input type="file" class="form-control hidden" name="rootcause_attachment_attachment[${count}]" value="">
+                                                                <input type="file" class="form-control hidden rootcause_attachment_attachment" name="rootcause_attachment_attachment[${count}]" value="">
                                                                 <input type="hidden" name="rootcause_attachments[]" value="${rootCause.rootcause_attachments}">
                                                                 <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
                                                             </div>
@@ -2067,7 +2067,7 @@ var car = {
                                                         <div class="col-xl-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Attachment</label>
-                                                                <input type="file" class="form-control hidden" name="identified_root_attachment_attachment[${count}]" value="">
+                                                                <input type="file" class="form-control hidden identified_root_attachment_attachment" name="identified_root_attachment_attachment[${count}]" value="">
                                                                 <input type="hidden" name="identified_attachments[]" value="${identifiedRoot.identified_attachments}">
                                                                 <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
                                                             </div>
@@ -2117,7 +2117,7 @@ var car = {
                                     <div class="col-xl-4">
                                         <div class="mb-3 mb-xl-0">
                                             <label class="form-label">Attachment</label>
-                                            <input type="file" class="form-control" name="risk_number_attachment[]" value="">
+                                            <input type="file" class="form-control risk_number_attachment" name="risk_number_attachment[]" value="">
                                         </div>
                                     </div>
                                     <div class="col-xl-1">
@@ -2162,7 +2162,7 @@ var car = {
                                     <div class="col-xl-3">
                                         <div class="mb-3 mb-xl-0">
                                             <label class="form-label">Attachment</label>
-                                            <input type="file" class="form-control" name="opportunity_number_attachment[]" value="">
+                                            <input type="file" class="form-control opportunity_number_attachment" name="opportunity_number_attachment[]" value="">
                                         </div>
                                     </div>
                                     <div class="col-xl-1">
@@ -2201,7 +2201,7 @@ var car = {
                                                     <div class="col-xl-3">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">Attachment</label>
-                                                            <input type="file" class="form-control" name="rootcause_attachment_attachment[]" value="">
+                                                            <input type="file" class="form-control rootcause_attachment_attachment" name="rootcause_attachment_attachment[]" value="">
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -2323,7 +2323,7 @@ var car = {
                                                             <div class="col-xl-4">
                                                                 <div class="mb-3 mb-xl-0">
                                                                     <label class="form-label">Attachment</label>
-                                                                    <input type="file" class="form-control" name="identified_root_attachment_attachment[]" value="">
+                                                                    <input type="file" class="form-control identified_root_attachment_attachment" name="identified_root_attachment_attachment[]" value="">
                                                                 </div>
                                                             </div>
                                                             <div class="col-xl-1">
@@ -5918,31 +5918,35 @@ var car = {
 
             if(jQuery('#car-action.corrective-action').length){
                 // Iterate over file inputs and append to formData
-                $('[name^="risk_number_attachment[]"]').each(function (index, element) {
+                $('.risk_number_attachment').each(function (index, element) {
                     var files = element.files;
+                    var name = jQuery(this).attr('name');
                     for (var i = 0; i < files.length; i++) {
-                        formData.append('risk_number_attachment[]', files[i]);
+                        formData.append(name, files[i]);
                     }
                 });
 
-                $('[name^="opportunity_number_attachment[]"]').each(function (index, element) {
+                $('.opportunity_number_attachment').each(function (index, element) {
                     var files = element.files;
+                    var name = jQuery(this).attr('name');
                     for (var i = 0; i < files.length; i++) {
-                        formData.append('opportunity_number_attachment[]', files[i]);
+                        formData.append(name, files[i]);
                     }
                 });
 
-                $('[name^="rootcause_attachment_attachment[]"]').each(function (index, element) {
+                $('.rootcause_attachment_attachment').each(function (index, element) {
                     var files = element.files;
+                    var name = jQuery(this).attr('name');
                     for (var i = 0; i < files.length; i++) {
-                        formData.append('rootcause_attachment_attachment[]', files[i]);
+                        formData.append(name, files[i]);
                     }
                 });
 
-                $('[name^="identified_root_attachment_attachment[]"]').each(function (index, element) {
+                $('.identified_root_attachment_attachment').each(function (index, element) {
                     var files = element.files;
+                    var name = jQuery(this).attr('name');
                     for (var i = 0; i < files.length; i++) {
-                        formData.append('identified_root_attachment_attachment[]', files[i]);
+                        formData.append(name, files[i]);
                     }
                 });
 
