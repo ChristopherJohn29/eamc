@@ -622,7 +622,6 @@ class car extends CI_Controller {
 
             $files = $_FILES[$key];
 
-            print_r($files);
     
             $attachments = array();
     
@@ -635,7 +634,7 @@ class car extends CI_Controller {
                     'size'     => $files['size'][$index]
                 );
     
-                if ($CI->upload->do_upload($key)) {
+                if ($CI->upload->do_upload($_FILES[$key])) {
                     $attachments[$key][$index] = $CI->upload->data('file_name');
                 } else {
                     // Handle upload error
