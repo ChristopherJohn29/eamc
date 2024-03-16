@@ -1806,7 +1806,7 @@ var car = {
                             $('[name="update_doc_info_remarks"]').val(response[0].update_doc_info_remarks);
          
                             var riskEntries = JSON.parse(response[0].risk_entry);
-         
+                            var count = 0;
                             riskEntries.forEach(function (risk) {
                                 var riskHtml = `
                                     <div class="col-lg-12 risk-number-repeatable">
@@ -1835,7 +1835,7 @@ var car = {
                                                         <div class="col-xl-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Attachment</label>
-                                                                <input type="hidden" name="rootcause_attachments[]" value="${rootCause.rootcause_attachments}">
+                                                                <input type="hidden" name="risk_attachments[]" value="${risk.risk_attachments}">
                                                                 <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
                                                             </div>
                                                         </div>
@@ -1847,12 +1847,13 @@ var car = {
                                     </div>
                                 `;
                                 // Append the risk HTML to the container
+                                count++;
                                 $('#risk-number').append(riskHtml);
                             });
          
          
                             var opportunityEntries = JSON.parse(response[0].opportunity_entry);
-         
+                            var count = 0;
                             opportunityEntries.forEach(function (opportunity) {
                                 var opportunityHtml = `
                                     <div class="col-lg-12 opportunity-number-repeatable">
@@ -1893,12 +1894,13 @@ var car = {
                                     </div>
                                 `;
                                 // Append the opportunity HTML to the container
+                                count++;
                                 $('#opportunity-number').append(opportunityHtml);
                             });
          
          
                             var rootCauseEntries = JSON.parse(response[0].root_cause_entry);
-         
+                            var count = 0;
                             rootCauseEntries.forEach(function (rootCause) {
                                 var rootCauseHtml = `
                                     <div class="col-lg-12 rootcause-repeatable">
@@ -1937,6 +1939,7 @@ var car = {
                                     </div>
                                 `;
                                 // Append the root cause HTML to the container
+                                count++;
                                 $('#rootcause').append(rootCauseHtml);
                             });
          
