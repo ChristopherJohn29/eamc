@@ -609,44 +609,38 @@ class car extends CI_Controller {
         function handleFileUpload($key, $custom_config = array()) {
             $CI = get_instance();
             $CI->load->library('upload');
-        
+
             // Merge custom configuration with default configuration
             $default_config = array(
                 'upload_path'   => FCPATH . 'uploads/',
                 'allowed_types' => 'gif|jpg|png|pdf|docx|doc',  // Adjust as needed
             );
-        
+
             $config = array_merge($default_config, $custom_config);
-        
+
             $CI->upload->initialize($config);
-        
+
             $files = $_FILES[$key];
-        
-            // print_r($files);
-            
+    
             $attachments = array();
-            
+    
             foreach ($files['name'] as $index => $name) {
-                if (isset($files['name'][$index]) && !empty($files['name'][$index])) {
-                    $_FILES[$key]['file_' . $index] = array(
-                        'name'     => $files['name'][$index],
-                        'type'     => $files['type'][$index],
-                        'tmp_name' => $files['tmp_name'][$index],
-                        'error'    => $files['error'][$index],
-                        'size'     => $files['size'][$index]
-                    );
-            
-                    if ($CI->upload->do_upload('file_' . $index)) {
-                        $attachments[] = $CI->upload->data('file_name');
-                    } else {
-                        // Handle upload error
-                        // $attachments[$key][] = "";
-                    }   
-                }   
+                $_FILES[$key] = array(
+                    'name'     => $files['name'][$index],
+                    'type'     => $files['type'][$index],
+                    'tmp_name' => $files['tmp_name'][$index],
+                    'error'    => $files['error'][$index],
+                    'size'     => $files['size'][$index]
+                );
+    
+                if ($CI->upload->do_upload($key)) {
+                    $attachments[$key][] = $CI->upload->data('file_name');
+                } else {
+                    // Handle upload error
+                    return array('error' => $CI->upload->display_errors());
+                }
             }
-        
-            // print_r($attachments);
-            
+    
             return $attachments;
         }
     
@@ -660,9 +654,6 @@ class car extends CI_Controller {
 
 
         $rootcause_attachments = handleFileUpload('rootcause_attachment_attachment');
-
-
-        print_r($rootcause_attachments);
         $rootcause_attachments_exist = $this->input->post('rootcause_attachments');
 
         $identified_attachments = handleFileUpload('identified_root_attachment_attachment');
