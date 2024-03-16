@@ -626,25 +626,24 @@ class car extends CI_Controller {
             $attachments = array();
     
             foreach ($files['name'] as $index => $name) {
-                if(isset($files['name'][$index]) && !empty($files['name'][$index])){
-                    $_FILES[$key] = array(
+                if (isset($files['name'][$index]) && !empty($files['name'][$index])) {
+                    $_FILES[$key][$index] = array(
                         'name'     => $files['name'][$index],
                         'type'     => $files['type'][$index],
                         'tmp_name' => $files['tmp_name'][$index],
                         'error'    => $files['error'][$index],
                         'size'     => $files['size'][$index]
                     );
-        
-                    if ($CI->upload->do_upload($_FILES[$key])) {
+            
+                    if ($CI->upload->do_upload($_FILES[$key][$index])) {
                         $attachments[$key][$index] = $CI->upload->data('file_name');
                     } else {
                         // Handle upload error
                         // $attachments[$key][] = "";
                     }   
-                }
-                
+                }   
             }
-
+        
             // print_r($attachments);
     
             return $attachments;
