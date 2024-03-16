@@ -3515,7 +3515,7 @@ var car = {
             '<div class="form-group col-md-12">' +
             '<label for="approval_action_root_cause_analysis" class="form-label">Review of Action and Root Cause Analysis</label>' +
             '<select class="form-select approval_action_root_cause_analysis" name="approval_action_root_cause_analysis">' +
-                '<option value="For Approval">For Verification</option>' +
+                '<option value="For Verification">For Verification</option>' +
                 '<option value="For Revision">For Revision</option>' +
             '</select>' +
             '</div>' +
