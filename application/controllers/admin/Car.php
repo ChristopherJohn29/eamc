@@ -634,7 +634,7 @@ class car extends CI_Controller {
                 );
     
                 if ($CI->upload->do_upload($key)) {
-                    $attachments[$key][] = $CI->upload->data('file_name');
+                    $attachments[$key][$index] = $CI->upload->data('file_name');
                 } else {
                     // Handle upload error
                     // $attachments[$key][] = "";
