@@ -5956,6 +5956,8 @@ var car = {
                 var action = "../car/saveRoot";
             } else if(jQuery('#car-action.corrective-action-review').length){
                 var action = "../car/saveRootFR";
+            } else if(jQuery('#car-action.corrective-action-approval').length){
+                var action = "../car/saveRootFA";
             }
 
             // Make an AJAX request to submit the form data

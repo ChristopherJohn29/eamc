@@ -1052,6 +1052,7 @@ class car extends CI_Controller {
         $risk_number = $this->input->post('risk_number');
         $risk_number_details_update = $this->input->post('risk_number_details_update');
         $risk_attachments = $this->input->post('risk_attachments');
+        $risk_number_attachment_url = $this->input->post('risk_number_attachment_url');
 
         $risk_number_acceptable_review = $this->input->post('risk_number_acceptable_review');
         $risk_number_acceptable_remarks_review = $this->input->post('risk_number_acceptable_remarks_review');
@@ -1070,6 +1071,7 @@ class car extends CI_Controller {
                 'risk_number' => $risk_number[$key],
                 'risk_number_details_update' => $risk_number_details_update[$key],
                 'risk_attachments' => $risk_attachments[$key],
+                'risk_number_attachment_url' => $risk_number_attachment_url[$key],
                 'risk_number_acceptable_review' => $risk_number_acceptable_review[$key],
                 'risk_number_acceptable_remarks_review' => $risk_number_acceptable_remarks_review[$key],
                 'risk_number_acceptable_approval' => $risk_number_acceptable_approval[$key],
@@ -1086,6 +1088,7 @@ class car extends CI_Controller {
     
         //array
         $opportunity_number = $this->input->post('opportunity_number');
+        $opportunity_number_attachment_url = $this->input->post('opportunity_number_attachment_url');
         $opportunity_identified = $this->input->post('opportunity_identified');
         $opportunity_attachments = $this->input->post('opportunity_attachments');
 
@@ -1107,6 +1110,7 @@ class car extends CI_Controller {
         foreach($opportunity_number as $key => $value){
             $opportunity_entry[] = array(
                 'opportunity_number' => $opportunity_number[$key],
+                'opportunity_number_attachment_url' => $opportunity_number_attachment_url[$key],
                 'opportunity_identified' => $opportunity_identified[$key],
                 'opportunity_attachments' => $opportunity_attachments[$key],
                 'opportunity_number_acceptable_review' => $opportunity_number_acceptable_review[$key],
@@ -1124,6 +1128,7 @@ class car extends CI_Controller {
         $rootcause = $this->input->post('rootcause');
         $rootcause_file_name = $this->input->post('rootcause_file_name');
         $rootcause_attachments =  $this->input->post('rootcause_attachments');
+        $rootcause_file_url = $this->input->post('rootcause_file_url');
 
         $rootcause_acceptable_review =  $this->input->post('rootcause_acceptable_review');
         $rootcause_acceptable_remarks_review =  $this->input->post('rootcause_acceptable_remarks_review');
@@ -1144,6 +1149,7 @@ class car extends CI_Controller {
                 'rootcause' => $rootcause[$key],
                 'rootcause_file_name' => $rootcause_file_name[$key],
                 'rootcause_attachments' => $rootcause_attachments[$key],
+                'rootcause_file_url' => $rootcause_file_url[$key],
                 'rootcause_acceptable_review' => $rootcause_acceptable_review[$key],
                 'rootcause_acceptable_remarks_review' => $rootcause_acceptable_remarks_review[$key],
                 'rootcause_acceptable_approval' => $rootcause_acceptable_approval[$key],
@@ -1164,6 +1170,7 @@ class car extends CI_Controller {
         $identified_attachments = $this->input->post('identified_attachments');
         $identified_root_acceptable_review = $this->input->post('identified_root_acceptable_review');
         $identified_root_acceptable_remarks_review = $this->input->post('identified_root_acceptable_remarks_review');
+        $identified_root_attachment_url = $this->input->post('identified_root_attachment_url');
 
         $identified_root_acceptable_approval = $this->input->post('identified_root_acceptable_approval');
         $identified_root_acceptable_remarks_approval = $this->input->post('identified_root_acceptable_remarks_approval');
@@ -1188,6 +1195,7 @@ class car extends CI_Controller {
                 'identified_root_person_responsible' => $identified_root_person_responsible[$key],
                 'identified_root_completion_date' => $identified_root_completion_date[$key],
                 'identified_attachments' => $identified_attachments[$key],
+                'identified_root_attachment_url' => $identified_root_attachment_url[$key],
                 'identified_root_acceptable_review' => $identified_root_acceptable_review[$key],
                 'identified_root_acceptable_remarks_review' => $identified_root_acceptable_remarks_review[$key],
                 'identified_root_acceptable_approval' => $identified_root_acceptable_approval[$key],
