@@ -671,20 +671,13 @@ class car extends CI_Controller {
         $risk_number_details_update = $this->input->post('risk_number_details_update');
         $risk_number_attachment_url = $this->input->post('risk_number_attachment_url');
     
-        foreach ($risk_number as $key => $value) {
-            // Check if any of the conditions is true
-            if ((isset($risk_number_attachment_url[$key]) && $risk_number_attachment_url[$key] != "") || 
-                isset($risk_attachments['risk_number_attachment'][$key]) || 
-                (isset($risk_attachments_exist[$key]) && $risk_attachments_exist[$key] != "")
-            ) {
-                // Construct the risk_entry array
-                $risk_entry[] = array(
-                    'risk_number' => $risk_number[$key],
-                    'risk_number_details_update' => isset($risk_number_details_update[$key]) ? $risk_number_details_update[$key] : "", // Added isset check
-                    'risk_number_attachment_url' => isset($risk_number_attachment_url[$key]) ? $risk_number_attachment_url[$key] : "", // Added isset check
-                    'risk_attachments' => isset($risk_attachments['risk_number_attachment'][$key]) ? $risk_attachments['risk_number_attachment'][$key] : (isset($risk_attachments_exist[$key]) ? $risk_attachments_exist[$key] : "") // Improved ternary condition
-                );
-            } 
+        foreach($risk_number as $key => $value){
+            $risk_entry[] = array(
+                'risk_number' => $risk_number[$key],
+                'risk_number_details_update' => $risk_number_details_update[$key],
+                'risk_number_attachment_url' => $risk_number_attachment_url[$key],
+                'risk_attachments' => isset($risk_attachments['risk_number_attachment'][$key]) ? $risk_attachments['risk_number_attachment'][$key] : $risk_attachments_exist[$key]
+            );
         }
         
         $car_id = $this->input->post('car_id');
@@ -697,43 +690,29 @@ class car extends CI_Controller {
     
         $opportunity_entry = array();
     
-        foreach ($opportunity_number as $key => $value) {
-            // Check if any of the conditions is true
-            if ((isset($opportunity_number_attachment_url[$key]) && $opportunity_number_attachment_url[$key] != "") || 
-                isset($opportunity_attachments['opportunity_number_attachment'][$key]) || 
-                (isset($opportunity_attachments_exist[$key]) && $opportunity_attachments_exist[$key] != "")
-            ) {
-                // Construct the opportunity_entry array
-                $opportunity_entry[] = array(
-                    'opportunity_number' => $opportunity_number[$key],
-                    'opportunity_identified' => isset($opportunity_identified[$key]) ? $opportunity_identified[$key] : "", // Added isset check
-                    'opportunity_number_attachment_url' => isset($opportunity_number_attachment_url[$key]) ? $opportunity_number_attachment_url[$key] : "", // Added isset check
-                    'opportunity_attachments' => isset($opportunity_attachments['opportunity_number_attachment'][$key]) ? $opportunity_attachments['opportunity_number_attachment'][$key] : (isset($opportunity_attachments_exist[$key]) ? $opportunity_attachments_exist[$key] : "") // Improved ternary condition
-                );
-            }
+        foreach($opportunity_number as $key => $value){
+            $opportunity_entry[] = array(
+                'opportunity_number' => $opportunity_number[$key],
+                'opportunity_identified' => $opportunity_identified[$key],
+                'opportunity_number_attachment_url' => $opportunity_number_attachment_url[$key],
+                'opportunity_attachments' => isset($opportunity_attachments['opportunity_number_attachment'][$key]) ? $opportunity_attachments['opportunity_number_attachment'][$key] : $opportunity_attachments_exist[$key],
+            );
         }
     
         //array
         $rootcause = $this->input->post('rootcause');
         $rootcause_file_url = $this->input->post('rootcause_file_url');
         $rootcause_file_name = $this->input->post('rootcause_file_name');
-        
+    
         $rootcause_entry = array();
     
-        foreach ($rootcause as $key => $value) {
-            // Check if any of the conditions is true
-            if ((isset($rootcause_file_url[$key]) && $rootcause_file_url[$key] != "") || 
-                isset($rootcause_attachments['rootcause_attachment_attachment'][$key]) || 
-                (isset($rootcause_attachments_exist[$key]) && $rootcause_attachments_exist[$key] != "")
-            ) {
-                // Construct the rootcause_entry array
-                $rootcause_entry[] = array(
-                    'rootcause' => $rootcause[$key],
-                    'rootcause_file_name' => isset($rootcause_file_name[$key]) ? $rootcause_file_name[$key] : "", // Added isset check
-                    'rootcause_file_url' => isset($rootcause_file_url[$key]) ? $rootcause_file_url[$key] : "", // Added isset check
-                    'rootcause_attachments' => isset($rootcause_attachments['rootcause_attachment_attachment'][$key]) ? $rootcause_attachments['rootcause_attachment_attachment'][$key] : (isset($rootcause_attachments_exist[$key]) ? $rootcause_attachments_exist[$key] : "") // Improved ternary condition
-                );
-            }
+        foreach($rootcause as $key => $value){
+            $rootcause_entry[] = array(
+                'rootcause' => $rootcause[$key],
+                'rootcause_file_name' => $rootcause_file_name[$key],
+                'rootcause_file_url' => $rootcause_file_url[$key],
+                'rootcause_attachments' => isset($rootcause_attachments['rootcause_attachment_attachment'][$key]) ? $rootcause_attachments['rootcause_attachment_attachment'][$key] : $rootcause_attachments_exist[$key],
+            );
         }
     
         //array
@@ -750,26 +729,19 @@ class car extends CI_Controller {
     
         $identified_entry = array();
     
-        foreach ($identified_root as $key => $value) {
-            // Check if any of the conditions is true
-            if ((isset($identified_root_attachment_url[$key]) && $identified_root_attachment_url[$key] != "") || 
-                isset($identified_attachments['identified_root_attachment_attachment'][$key]) || 
-                (isset($identified_attachments_exist[$key]) && $identified_attachments_exist[$key] !== "")
-            ) {
-                // Construct the identified_entry array
-                $identified_entry[] = array(
-                    'identified_root' => $identified_root[$key],
-                    'tpn_control' => isset($tpn_control[$key]) ? $tpn_control[$key] : "", // Added isset check
-                    'identified_root_corrective_action' => isset($identified_root_corrective_action[$key]) ? $identified_root_corrective_action[$key] : "", // Added isset check
-                    'identified_root_person_responsible' => isset($identified_root_person_responsible[$key]) ? $identified_root_person_responsible[$key] : "", // Added isset check
-                    'identified_root_completion_date' => isset($identified_root_completion_date[$key]) ? $identified_root_completion_date[$key] : "", // Added isset check
-                    'identified_root_attachment_url' => isset($identified_root_attachment_url[$key]) ? $identified_root_attachment_url[$key] : "", // Added isset check
-                    'identified_attachments' => isset($identified_attachments['identified_root_attachment_attachment'][$key]) ? $identified_attachments['identified_root_attachment_attachment'][$key] : (isset($identified_attachments_exist[$key]) ? $identified_attachments_exist[$key] : ""), // Improved ternary condition
-                    'tpn_issued_by' => isset($tpn_issued_by[$key]) ? $tpn_issued_by[$key] : "", // Added isset check
-                    'tpn_issued_to' => isset($tpn_issued_to[$key]) ? $tpn_issued_to[$key] : "", // Added isset check
-                    'tpn_section' => isset($tpn_section[$key]) ? $tpn_section[$key] : "", // Added isset check
-                );
-            }
+        foreach($identified_root as $key => $value){
+            $identified_entry[] = array(
+                'identified_root' => $identified_root[$key],
+                'tpn_control' => $tpn_control[$key],
+                'identified_root_corrective_action' => $identified_root_corrective_action[$key],
+                'identified_root_person_responsible' => $identified_root_person_responsible[$key],
+                'identified_root_completion_date' => $identified_root_completion_date[$key],
+                'identified_root_attachment_url' => $identified_root_attachment_url[$key],
+                'identified_attachments' => isset($identified_attachments['identified_root_attachment_attachment'][$key]) ? $identified_attachments['identified_root_attachment_attachment'][$key] : $identified_attachments_exist[$key],
+                'tpn_issued_by' => isset($tpn_issued_by[$key]) ? $tpn_issued_by[$key] : "",
+                'tpn_issued_to' => isset($tpn_issued_to[$key]) ? $tpn_issued_to[$key] : "",
+                'tpn_section' => isset($tpn_section[$key]) ? $tpn_section[$key] : "",
+            );
         }
     
         // Use $data for any further processing or database insertion
