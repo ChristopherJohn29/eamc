@@ -621,6 +621,8 @@ class car extends CI_Controller {
             $CI->upload->initialize($config);
 
             $files = $_FILES[$key];
+
+            print_r($files);
     
             $attachments = array();
     
