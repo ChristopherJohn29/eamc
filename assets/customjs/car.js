@@ -739,7 +739,7 @@ var car = {
                         });
             
                         var consequenceEntries = JSON.parse(response[0].consequence_entry);
-                        
+                        var count = 0;
                         // Loop through correction entries and create HTML for each entry
                         consequenceEntries.forEach(function (consequence) {
             
@@ -795,7 +795,7 @@ var car = {
                                     </div>
                                 </div>
                             `;
-            
+                            count++;
                             // Append the correction HTML to the container
                             $('#consequencesdiv').append(consequenceHtml);
                         });
@@ -1310,7 +1310,7 @@ var car = {
                         });
             
                         var consequenceEntries = JSON.parse(response[0].consequence_entry);
-                        
+                        var count = 0;
                         // Loop through correction entries and create HTML for each entry
                         consequenceEntries.forEach(function (consequence) {
             
@@ -1367,7 +1367,7 @@ var car = {
                                     </div>
                                 </div>
                             `;
-            
+                            count++;
                             // Append the correction HTML to the container
                             $('#consequencesdiv').append(consequenceHtml);
                         });
@@ -1593,7 +1593,7 @@ var car = {
                         });
             
                         var consequenceEntries = JSON.parse(response[0].consequence_entry);
-                        
+                        var count = 0;
                         // Loop through correction entries and create HTML for each entry
                         consequenceEntries.forEach(function (consequence) {
             
@@ -1877,7 +1877,7 @@ var car = {
                         });
             
                         var consequenceEntries = JSON.parse(response[0].consequence_entry);
-                        
+                        var count = 0;
                         // Loop through correction entries and create HTML for each entry
                         consequenceEntries.forEach(function (consequence) {
             
@@ -1934,7 +1934,7 @@ var car = {
                                     </div>
                                 </div>
                             `;
-            
+                            count++;
                             // Append the correction HTML to the container
                             $('#consequencesdiv').append(consequenceHtml);
                         });
