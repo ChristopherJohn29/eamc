@@ -1686,6 +1686,11 @@ var car = {
 
         $('#car-global-datatable').on('click', '.edit-corrective-action', function () {
 
+            jQuery('#add-rootcause').removeClass('hidden');
+            jQuery('#add-identified-root').removeClass('hidden');
+            jQuery('#add-risk-number').removeClass('hidden');
+            jQuery('#add-opportunity-number').removeClass('hidden');
+
             jQuery('#car-action').html('');
          
             jQuery('#car-action').removeClass();
@@ -2373,6 +2378,11 @@ var car = {
         });
 
         $('#car-global-datatable').on('click', '.for-osqm-review-corrective-action', function () {
+            
+            jQuery('#add-rootcause').addClass('hidden');
+            jQuery('#add-identified-root').addClass('hidden');
+            jQuery('#add-risk-number').addClass('hidden');
+            jQuery('#add-opportunity-number').addClass('hidden');
 
             var $action = '<div class="row mb-2">' +
                     '<div class="form-group col-md-12">' +
@@ -3511,6 +3521,11 @@ var car = {
 
         $('#car-global-datatable').on('click', '.for-osqm-approval-corrective-action', function () {
 
+            jQuery('#add-rootcause').addClass('hidden');
+            jQuery('#add-identified-root').addClass('hidden');
+            jQuery('#add-risk-number').addClass('hidden');
+            jQuery('#add-opportunity-number').addClass('hidden');
+
             var $action = '<div class="row mb-2">' +
             '<div class="form-group col-md-12">' +
             '<label for="approval_action_root_cause_analysis" class="form-label">Review of Action and Root Cause Analysis</label>' +
@@ -4637,7 +4652,7 @@ var car = {
         });
 
         $('#car-global-datatable').on('click', '.for-osqm-verification-corrective-action-past', function () {
-
+            
             $car_id = jQuery(this).data('car_id');
             $requestor = jQuery(this).data('requestor');
             $car_no = jQuery(this).data('car_no');
@@ -5188,11 +5203,16 @@ var car = {
 
         $('#car-global-datatable').on('click', '.for-osqm-verification-corrective-action', function () {
 
+            jQuery('#add-rootcause').addClass('hidden');
+            jQuery('#add-identified-root').addClass('hidden');
+            jQuery('#add-risk-number').addClass('hidden');
+            jQuery('#add-opportunity-number').addClass('hidden');
+
             var $action = '<div class="row mb-2">' +
                 '<div class="form-group col-md-12">' +
                 '<label for="verification_action_root_cause_analysis" class="form-label">Review of Action and Root Cause Analysis</label>' +
                 '<select class="form-select verification_action_root_cause_analysis" name="verification_action_root_cause_analysis">' +
-                    '<option value="For Verification">For Validation</option>' +
+                    '<option value="For Validation">For Validation</option>' +
                     '<option value="For Revision">For Revision</option>' +
                 '</select>' +
                 '</div>' +
@@ -6210,6 +6230,11 @@ var car = {
         });
 
         $('#car-global-datatable').on('click', '.for-osqm-validation-corrective-action', function () {
+
+            jQuery('#add-rootcause').addClass('hidden');
+            jQuery('#add-identified-root').addClass('hidden');
+            jQuery('#add-risk-number').addClass('hidden');
+            jQuery('#add-opportunity-number').addClass('hidden');
 
             var $action = '<div class="row mb-2">' +
                 '<div class="form-group col-md-12">' +
