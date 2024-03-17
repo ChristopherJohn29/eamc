@@ -7757,7 +7757,7 @@ var car = {
                 var action = "../car/saveRootFA";
             } else if(jQuery('#car-action.corrective-action-verification').length){
                 var action = "../car/saveRootFV";
-            } else if(jQuery('#car-action.corrective-action-verification').length){
+            } else if(jQuery('#car-action.corrective-action-validation').length){
                 var action = "../car/saveRootFVA";
             }
 
@@ -7951,7 +7951,7 @@ var car = {
                 var action = "../car/saveCorrectionFA";
             } else if(jQuery('#car-correction-action.correction-action-verification').length){
                 var action = "../car/saveCorrectionFV";
-            } else if(jQuery('#car-correction-action.correction-action-verification').length){
+            } else if(jQuery('#car-correction-action.correction-action-validation').length){
                 var action = "../car/saveCorrectionFVA";
             }
 
