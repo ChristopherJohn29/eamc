@@ -6993,7 +6993,7 @@ var car = {
                 '<div class="form-group col-md-12">' +
                 '<label for="closing_action" class="form-label">For Closure</label>' +
                 '<select class="form-select closing_action" name="closing_action">' +
-                    '<option value="For Approval">For Closure</option>' +
+                    '<option value="Closed">For Closure</option>' +
                     '<option value="For Revision">For Revision</option>' +
                 '</select>' +
                 '</div>' +
