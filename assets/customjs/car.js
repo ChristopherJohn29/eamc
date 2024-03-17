@@ -247,9 +247,9 @@ var car = {
 
             jQuery('#add-correction').removeClass('hidden');
             jQuery('#add-consequences').removeClass('hidden');
-
+        
             jQuery('#car-correction-action').html('');
-
+        
             jQuery('#car-correction-action').removeClass();
             jQuery('#car-correction-action').addClass('mt-4');
             jQuery('#car-correction-action').addClass('row');
@@ -416,7 +416,7 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                                            <textarea class="form-control" name="consequence[]" rows="4">${correction.consequence}</textarea>
+                                                            <textarea class="form-control" name="consequence[]" rows="4">${consequence.consequence}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -553,12 +553,12 @@ var car = {
             '</div>';
             
             jQuery('#car-correction-action').html($action);
-
+        
             jQuery('#car-correction-action').removeClass();
             jQuery('#car-correction-action').addClass('mt-4');
             jQuery('#car-correction-action').addClass('row');
             jQuery('#car-correction-action').addClass('correction-action-review');
-
+        
             jQuery('#add-correction').addClass('hidden');
             jQuery('#add-consequences').addClass('hidden');
          
@@ -756,7 +756,7 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                                            <textarea class="form-control" name="consequence[]" rows="4">${correction.consequence}</textarea>
+                                                            <textarea class="form-control" name="consequence[]" rows="4">${consequence.consequence}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -1124,12 +1124,12 @@ var car = {
             '</div>';
             
             jQuery('#car-correction-action').html($action);
-
+        
             jQuery('#car-correction-action').removeClass();
             jQuery('#car-correction-action').addClass('mt-4');
             jQuery('#car-correction-action').addClass('row');
             jQuery('#car-correction-action').addClass('correction-action-approval');
-
+        
             jQuery('#add-correction').addClass('hidden');
             jQuery('#add-consequences').addClass('hidden');
             
@@ -1327,7 +1327,7 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                                            <textarea class="form-control" name="consequence[]" rows="4">${correction.consequence}</textarea>
+                                                            <textarea class="form-control" name="consequence[]" rows="4">${consequence.consequence}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -1392,7 +1392,7 @@ var car = {
 
             jQuery('#add-correction').addClass('hidden');
             jQuery('#add-consequences').addClass('hidden');
-
+        
             var $action = '<div class="row mb-2">' +
                 '<div class="form-group col-md-12">' +
                 '<label for="verification_correction_dealing_with_consequences" class="form-label">Review of Correction and Dealing with the Consequences</label>' +
@@ -1410,7 +1410,7 @@ var car = {
             '</div>';
             
             jQuery('#car-correction-action').html($action);
-
+        
             jQuery('#car-correction-action').removeClass();
             jQuery('#car-correction-action').addClass('mt-4');
             jQuery('#car-correction-action').addClass('row');
@@ -1610,7 +1610,7 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                                            <textarea class="form-control" name="consequence[]" rows="4">${correction.consequence}</textarea>
+                                                            <textarea class="form-control" name="consequence[]" rows="4">${consequence.consequence}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -1676,7 +1676,7 @@ var car = {
 
             jQuery('#add-correction').addClass('hidden');
             jQuery('#add-consequences').addClass('hidden');
-
+        
             var $action = '<div class="row mb-2">' +
                 '<div class="form-group col-md-12">' +
                 '<label for="validation_correction_dealing_with_consequences" class="form-label">Review of Correction and Dealing with the Consequences</label>' +
@@ -1694,7 +1694,7 @@ var car = {
             '</div>';
             
             jQuery('#car-correction-action').html($action);
-
+        
             jQuery('#car-correction-action').removeClass();
             jQuery('#car-correction-action').addClass('mt-4');
             jQuery('#car-correction-action').addClass('row');
@@ -1896,7 +1896,7 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                                            <textarea class="form-control" name="consequence[]" rows="4">${correction.consequence}</textarea>
+                                                            <textarea class="form-control" name="consequence[]" rows="4">${consequence.consequence}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
