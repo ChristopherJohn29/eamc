@@ -3647,7 +3647,7 @@ var car = {
                         $('[name="update_doc_info_remarks"]').val(response[0].update_doc_info_remarks);
         
                         var riskEntries = JSON.parse(response[0].risk_entry);
-                        var count;
+                        var count = 0;
                         riskEntries.forEach(function (risk) {
         
                             var review = risk.risk_number_acceptable_review !== undefined ? risk.risk_number_acceptable_review : '';
