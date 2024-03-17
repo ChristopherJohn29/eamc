@@ -681,10 +681,14 @@ class car extends CI_Controller {
         $risk_number = $this->input->post('risk_number');
         $risk_number_details_update = $this->input->post('risk_number_details_update');
         $risk_number_attachment_url = $this->input->post('risk_number_attachment_url');
+        
+        if(!empty($car)){
+            $risk_entry = json_decode($car[0]['risk_entry'], true);
 
-        $risk_entry = json_decode($car[0]['risk_entry'], true);
-
-        if(empty($risk_entry)){
+            if(empty($risk_entry)){
+                $risk_entry = array();
+            }
+        } else {
             $risk_entry = array();
         }
     
@@ -711,9 +715,15 @@ class car extends CI_Controller {
         $opportunity_identified = $this->input->post('opportunity_identified');
         $opportunity_number_attachment_url = $this->input->post('opportunity_number_attachment_url');
 
-        $opportunity_entry = json_decode($car[0]['opportunity_entry'], true);
+        
 
-        if(empty($opportunity_entry)){
+        if(!empty($car)){
+            $opportunity_entry = json_decode($car[0]['opportunity_entry'], true);
+
+            if(empty($opportunity_entry)){
+                $opportunity_entry = array();
+            }
+        } else {
             $opportunity_entry = array();
         }
     
@@ -736,9 +746,14 @@ class car extends CI_Controller {
         $rootcause_file_url = $this->input->post('rootcause_file_url');
         $rootcause_file_name = $this->input->post('rootcause_file_name');
         
-        $rootcause_entry = json_decode($car[0]['root_cause_entry'], true);
 
-        if(empty($rootcause_entry)){
+        if(!empty($car)){
+            $rootcause_entry = json_decode($car[0]['root_cause_entry'], true);
+
+            if(empty($rootcause_entry)){
+                $rootcause_entry = array();
+            }
+        } else {
             $rootcause_entry = array();
         }
     
@@ -768,9 +783,14 @@ class car extends CI_Controller {
         $tpn_issued_to = $this->input->post('tpn_issued_to');
         $tpn_section = $this->input->post('tpn_section');
 
-        $identified_entry = json_decode($car[0]['identified_root_entry'], true);
 
-        if(empty($identified_entry)){
+        if(!empty($car)){
+            $identified_entry = json_decode($car[0]['identified_root_entry'], true);
+
+            if(empty($identified_entry)){
+                $identified_entry = array();
+            }
+        } else {
             $identified_entry = array();
         }
     
