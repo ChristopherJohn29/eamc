@@ -170,6 +170,8 @@ class car extends CI_Controller {
             'closing_action' => json_encode($closing_action),
             'closing_action_remarks' => json_encode($closing_action_remarks),
         );
+
+        $existing_record = $this->db->get_where('correction', array('car_id' => $car_id))->row();
         
         if ($existing_record) {
             // Car_id exists, perform an update
