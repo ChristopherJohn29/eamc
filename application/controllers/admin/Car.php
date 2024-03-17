@@ -157,6 +157,46 @@ class car extends CI_Controller {
 
     }
 
+    public function saveClosing(){
+        //array
+        $car_id = $this->input->post('car_id');
+
+
+        $closing_action = $this->input->post('closing_action');
+        $closing_action_remarks = $this->input->post('closing_action_remarks');
+
+        $data = array(
+            'car_id' => $car_id,
+            'closing_action' => json_encode($closing_action),
+            'closing_action_remarks' => json_encode($closing_action_remarks),
+        );
+        
+        if ($existing_record) {
+            // Car_id exists, perform an update
+            $this->db->where('car_id', $car_id);
+            $result = $this->db->update('car', $data);
+        } else {
+            // Car_id doesn't exist, perform an insert
+            $result = $this->db->insert('car', $data);
+        }
+
+        $cardata = array(
+            'for_correction_status' => $closing_action,
+            'corrective_action_status' => $closing_action
+        );
+
+        $this->db->where('id', $car_id);
+        $result = $this->db->update('car', $cardata);
+        
+        if ($result) {
+            echo 'saved';
+        } else {
+            echo 'error';
+        }
+
+
+    }
+
     public function saveCorrectionFR(){
         //array
         $car_id = $this->input->post('car_id');
