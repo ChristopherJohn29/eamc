@@ -6519,7 +6519,7 @@ var car = {
                 '<div class="form-group col-md-12">' +
                 '<label for="validation_action_root_cause_analysis" class="form-label">Review of Action and Root Cause Analysis</label>' +
                 '<select class="form-select validation_action_root_cause_analysis" name="validation_action_root_cause_analysis">' +
-                    '<option value="For Verification">For Closing</option>' +
+                    '<option value="For Closure">For Closure</option>' +
                     '<option value="For Revision">For Revision</option>' +
                 '</select>' +
                 '</div>' +
