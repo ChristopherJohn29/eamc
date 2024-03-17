@@ -1395,7 +1395,7 @@ var car = {
         
             var $action = '<div class="row mb-2">' +
                 '<div class="form-group col-md-12">' +
-                '<label for="verification_correction_dealing_with_consequences" class="form-label">Review of Correction and Dealing with the Consequences</label>' +
+                '<label for="verification_correction_dealing_with_consequences" class="form-label">Verification of Correction of Nonconformity and Dealing with the Consequences</label>' +
                 '<select class="form-select verification_correction_dealing_with_consequences" name="verification_correction_dealing_with_consequences">' +
                     '<option value="For Validation">For Validation</option>' +
                     '<option value="For Revision">For Revision</option>' +
@@ -1564,7 +1564,7 @@ var car = {
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <label for="acceptable" class="form-label">Acceptable</label>
+                                                    <label for="acceptable" class="form-label">5.1 Was the nonconformity properly corrected?</label>
         
                                                     <div class="col-lg-3 text-inlign mb-2">
                                                         <div class="form-check form-check-inline">
@@ -1628,7 +1628,7 @@ var car = {
                                 
                                                 </div>
                                                 <div class="row">
-                                                    <label for="acceptable" class="form-label">Acceptable</label>
+                                                    <label for="acceptable" class="form-label">5.2 Was the consequences properly handled or treated?</label>
         
                                                         <div class="col-lg-3 text-inlign mb-2">
                                                             <div class="form-check form-check-inline">
@@ -1679,7 +1679,7 @@ var car = {
         
             var $action = '<div class="row mb-2">' +
                 '<div class="form-group col-md-12">' +
-                '<label for="validation_correction_dealing_with_consequences" class="form-label">Review of Correction and Dealing with the Consequences</label>' +
+                '<label for="validation_correction_dealing_with_consequences" class="form-label">Validation of Correction of Nonconformity and Dealing with the Consequences</label>' +
                 '<select class="form-select validation_correction_dealing_with_consequences" name="validation_correction_dealing_with_consequences">' +
                     '<option value="For Closure">For Closure</option>' +
                     '<option value="For Revision">For Revision</option>' +
@@ -1811,7 +1811,6 @@ var car = {
                         
                         jQuery('.validation_correction_dealing_with_consequences').val(validation_correction_dealing_with_consequences);
                         jQuery('.validation_correction_dealing_with_consequences_remarks').val(validation_correction_dealing_with_consequences_remarks);
-        
             
                         console.log(response);
             
@@ -1820,9 +1819,8 @@ var car = {
                         // Loop through correction entries and create HTML for each entry
                         correctionEntries.forEach(function (correction) {
         
-                            var validationValue = correction.correction_acceptable_validation !== undefined ? correction.correction_acceptable_validation : ''; // Added
-                            var remarksReview = correction.correction_acceptable_remarks_validation !== undefined ? correction.correction_acceptable_remarks_validation : ''; // Added
-        
+                            var verificationValue = correction.correction_acceptable_verification !== undefined ? correction.correction_acceptable_verification : ''; // Added
+                            var remarksReview = correction.correction_acceptable_remarks_verification !== undefined ? correction.correction_acceptable_remarks_verification : ''; 
             
                             var correctionHtml = `
                                 <div class="col-lg-12 correction-repeatable added-repeat">
@@ -1850,21 +1848,21 @@ var car = {
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <label for="acceptable" class="form-label">Acceptable</label>
+                                                    <label for="acceptable" class="form-label">5.1 Was the nonconformity properly corrected?</label>
         
                                                     <div class="col-lg-3 text-inlign mb-2">
                                                         <div class="form-check form-check-inline">
-                                                            <input type="radio" name="correction_acceptable_validation[${count}]" value="1" class="form-check-input" ${validationValue === '1' ? 'checked' : ''}>
-                                                            <label class="form-check-label" for="correction_acceptable_validation">YES</label>
+                                                            <input type="radio" readonly name="correction_acceptable_verification[${count}]" value="1" class="form-check-input" ${verificationValue === '1' ? 'checked' : ''}>
+                                                            <label class="form-check-label" for="correction_acceptable_verification">YES</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
-                                                            <input type="radio" name="correction_acceptable_validation[${count}]" value="0" class="form-check-input" ${validationValue === '0' ? 'checked' : ''}>
-                                                            <label class="form-check-label" for="correction_acceptable_validation">NO</label>
+                                                            <input type="radio" readonly name="correction_acceptable_verification[${count}]" value="0" class="form-check-input" ${verificationValue === '0' ? 'checked' : ''}>
+                                                            <label class="form-check-label" for="correction_acceptable_verification">NO</label>
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-lg-12">
-                                                        <label for="correction_acceptable_remarks_validation" class="form-label">Remarks</label>
-                                                        <textarea class="form-control" name="correction_acceptable_remarks_validation[${count}]" rows="4">${remarksReview}</textarea>
+                                                        <label for="correction_acceptable_remarks_verification" class="form-label">Remarks</label>
+                                                        <textarea class="form-control" readonly name="correction_acceptable_remarks_verification[${count}]" rows="4">${remarksReview}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1884,8 +1882,8 @@ var car = {
                         consequenceEntries.forEach(function (consequence) {
             
                             
-                            var validationValue = consequence.consequence_acceptable_validation !== undefined ? consequence.consequence_acceptable_validation : ''; // Added
-                            var remarksReview = consequence.consequence_acceptable_remarks_validation !== undefined ? consequence.consequence_acceptable_remarks_validation : ''; // Added
+                            var verificationValue = consequence.consequence_acceptable_verification !== undefined ? consequence.consequence_acceptable_verification : ''; // Added
+                            var remarksReview = consequence.consequence_acceptable_remarks_verification !== undefined ? consequence.consequence_acceptable_remarks_verification : ''; // Added
         
                             var consequenceHtml = `
                                 <div class="col-lg-12 consequences-repeatable added-repeat">
@@ -1914,21 +1912,21 @@ var car = {
                                 
                                                 </div>
                                                 <div class="row">
-                                                    <label for="acceptable" class="form-label">Acceptable</label>
+                                                    <label for="acceptable" class="form-label">5.2 Was the consequences properly handled or treated?</label>
         
                                                         <div class="col-lg-3 text-inlign mb-2">
                                                             <div class="form-check form-check-inline">
-                                                                <input type="radio" name="consequence_acceptable_validation[${count}]" value="1" class="form-check-input" ${validationValue === '1' ? 'checked' : ''}>
-                                                                <label class="form-check-label" for="consequence_acceptable_validation">YES</label>
+                                                                <input type="radio" readonly name="consequence_acceptable_verification[${count}]" value="1" class="form-check-input" ${verificationValue === '1' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="consequence_acceptable_verification">YES</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input type="radio" name="consequence_acceptable_validation[${count}]" value="0" class="form-check-input" ${validationValue === '0' ? 'checked' : ''}>
-                                                                <label class="form-check-label" for="consequence_acceptable_validation">NO</label>
+                                                                <input type="radio" readonly name="consequence_acceptable_verification[${count}]" value="0" class="form-check-input" ${verificationValue === '0' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="consequence_acceptable_verification">NO</label>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-lg-12">
-                                                            <label for="consequence_acceptable_remarks_validation" class="form-label">Remarks</label>
-                                                            <textarea class="form-control" name="consequence_acceptable_remarks_validation[${count}]" rows="4">${remarksReview}</textarea>
+                                                            <label for="consequence_acceptable_remarks_verification" class="form-label">Remarks</label>
+                                                            <textarea class="form-control" readonly name="consequence_acceptable_remarks_verification[${count}]" rows="4">${remarksReview}</textarea>
                                                         </div>
                                                 </div>
                                             </div>
