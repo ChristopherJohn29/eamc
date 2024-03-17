@@ -245,9 +245,6 @@ var car = {
     },
 
     loadCorrectiveAction: function(){
-        
-
-
 
         $('#car-global-datatable').on('click', '.edit-correction-action', function () {
 
@@ -7122,6 +7119,10 @@ var car = {
                         
                         // Loop through correction entries and create HTML for each entry
                         correctionEntries.forEach(function (correction) {
+
+                            var verificationValue = correction.correction_acceptable_verification !== undefined ? correction.correction_acceptable_verification : ''; // Added
+                            var remarksReview = correction.correction_acceptable_remarks_verification !== undefined ? correction.correction_acceptable_remarks_verification : ''; 
+            
                             var correctionHtml = `
                                 <div class="col-lg-12 correction-repeatable added-repeat">
                                     <div class="card">
@@ -7147,6 +7148,24 @@ var car = {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="row">
+                                                    <label for="acceptable" class="form-label">5.1 Was the nonconformity properly corrected?</label>
+        
+                                                    <div class="col-lg-3 text-inlign mb-2">
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" readonly name="correction_acceptable_verification[${count}]" value="1" class="form-check-input" ${verificationValue === '1' ? 'checked' : ''}>
+                                                            <label class="form-check-label" for="correction_acceptable_verification">YES</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" readonly name="correction_acceptable_verification[${count}]" value="0" class="form-check-input" ${verificationValue === '0' ? 'checked' : ''}>
+                                                            <label class="form-check-label" for="correction_acceptable_verification">NO</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-lg-12">
+                                                        <label for="correction_acceptable_remarks_verification" class="form-label">Remarks</label>
+                                                        <textarea class="form-control" readonly name="correction_acceptable_remarks_verification[${count}]" rows="4">${remarksReview}</textarea>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -7162,6 +7181,9 @@ var car = {
                         
                         // Loop through correction entries and create HTML for each entry
                         consequenceEntries.forEach(function (consequence) {
+
+                            var verificationValue = consequence.consequence_acceptable_verification !== undefined ? consequence.consequence_acceptable_verification : ''; // Added
+                            var remarksReview = consequence.consequence_acceptable_remarks_verification !== undefined ? consequence.consequence_acceptable_remarks_verification : ''; // Added
         
                             var consequenceHtml = `
                                 <div class="col-lg-12 consequences-repeatable added-repeat">
@@ -7188,6 +7210,24 @@ var car = {
                                                         </div>
                                                     </div>
                                 
+                                                </div>
+                                                <div class="row">
+                                                    <label for="acceptable" class="form-label">5.2 Was the consequences properly handled or treated?</label>
+        
+                                                        <div class="col-lg-3 text-inlign mb-2">
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" readonly name="consequence_acceptable_verification[${count}]" value="1" class="form-check-input" ${verificationValue === '1' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="consequence_acceptable_verification">YES</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" readonly name="consequence_acceptable_verification[${count}]" value="0" class="form-check-input" ${verificationValue === '0' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="consequence_acceptable_verification">NO</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-lg-12">
+                                                            <label for="consequence_acceptable_remarks_verification" class="form-label">Remarks</label>
+                                                            <textarea class="form-control" readonly name="consequence_acceptable_remarks_verification[${count}]" rows="4">${remarksReview}</textarea>
+                                                        </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -7387,6 +7427,13 @@ var car = {
                                         var issued_by = '';
                                         var issued_to = '';
                                         var section_name = '';
+
+                                        var verificationValue = identifiedRoot.identified_root_acceptable_verification !== undefined ? identifiedRoot.identified_root_acceptable_verification : ''; // Added
+                                        var remarksReview = identifiedRoot.identified_root_acceptable_remarks_verification !== undefined ? identifiedRoot.identified_root_acceptable_remarks_verification : ''; // Added
+                                        
+                                        var verificationValueSecond = identifiedRoot.identified_root_acceptable_verification_second !== undefined ? identifiedRoot.identified_root_acceptable_verification_second : ''; // Added
+                                        var remarksReviewSecond = identifiedRoot.identified_root_acceptable_remarks_verification_second !== undefined ? identifiedRoot.identified_root_acceptable_remarks_verification_second : ''; // Added
+                                        
                                         
                                         if(identifiedRoot.tpn_issued_by){
                                             $.ajax({
@@ -7503,6 +7550,43 @@ var car = {
                                                                         <input type="hidden" name="identified_attachments[${count}]" value="${identifiedRoot.identified_attachments}">
                                                                         <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
                                                                     </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <label for="acceptable" class="form-label">5.3 Follow-up on Corrective Action after completion of all actions: <br> Where the corrective actions implemented</label>
+
+                                                                <div class="col-lg-3 text-inlign mb-2">
+                                                                    <div class="form-check form-check-inline">
+                                                                        <input type="radio" readonly name="identified_root_acceptable_verification[${count}]" value="1" class="form-check-input" ${verificationValue === '1' ? 'checked' : ''}>
+                                                                        <label class="form-check-label" for="identified_root_acceptable_verification">YES</label>
+                                                                    </div>
+                                                                    <div class="form-check form-check-inline">
+                                                                        <input type="radio" readonly name="identified_root_acceptable_verification[${count}]" value="0" class="form-check-input" ${verificationValue === '0' ? 'checked' : ''}>
+                                                                        <label class="form-check-label" for="identified_root_acceptable_verification">NO</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-lg-12">
+                                                                    <label for="identified_root_acceptable_remarks_verification" class="form-label">Remarks</label>
+                                                                    <textarea class="form-control" readonly name="identified_root_acceptable_remarks_verification[${count}]" rows="4">${remarksReview}</textarea>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <label for="acceptable" class="form-label">5.4 Effectivenes of Corrective Action for a period after implementation of all corrective actions <br> Did it prevent the Nonconformity (NC) from recurring after three months of monitoring? </label>
+
+                                                                <div class="col-lg-3 text-inlign mb-2">
+                                                                    <div class="form-check form-check-inline">
+                                                                        <input type="radio" readonly name="identified_root_acceptable_verification_second[${count}]" value="1" class="form-check-input" ${verificationValueSecond === '1' ? 'checked' : ''}>
+                                                                        <label class="form-check-label" for="identified_root_acceptable_verification_second">YES</label>
+                                                                    </div>
+                                                                    <div class="form-check form-check-inline">
+                                                                        <input type="radio" readonly name="identified_root_acceptable_verification_second[${count}]" value="0" class="form-check-input" ${verificationValueSecond === '0' ? 'checked' : ''}>
+                                                                        <label class="form-check-label" for="identified_root_acceptable_verification_second">NO</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-lg-12">
+                                                                    <label for="identified_root_acceptable_remarks_verification_second" class="form-label">Remarks</label>
+                                                                    <textarea readonly class="form-control" name="identified_root_acceptable_remarks_verification_second[${count}]" rows="4">${remarksReviewSecond}</textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
