@@ -64,7 +64,7 @@
                         </div>
                         <div class="form-group col-md-3">
                            <label for="issued_to" class="form-label">Issued To</label>
-                           <select class="form-select" id="issued_to" name="issued_to" disabled>
+                           <select class="form-select" id="issued_to" name="issued_to">
                               <option value=""></option>
                            </select>
                            <ul class="parsley-errors-list filled hidden">
@@ -73,7 +73,7 @@
                         </div>
                         <div class="form-group col-md-3">
                            <label for="issued_to" class="form-label">Section Unit</label>
-                           <select class="form-select" id="section" name="section" disabled>
+                           <select class="form-select" id="section" name="section">
                               <option value=""></option>
                            </select>
                            <ul class="parsley-errors-list filled hidden">
