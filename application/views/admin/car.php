@@ -339,16 +339,17 @@
                   <form action="" id="correction_form" enctype="multipart/form-data">
                      <h3>Section 2: CORRECTION & DEALING WITH THE CONSEQUENCES</h3>
                      <input type="hidden" name="car_id" class="car_id">
+                     <h5>2.1 Correction of the nonconformity: (Immediate action to control and correct the nonconformity)</h5>
                      <div id="correction" class="mb-3">
                         <div class="col-lg-12 correction-repeatable orig-correction">
                            <div class="card">
                               <div class="card-body">
                                  <div class="mb-3">
                                     <div class="row">
-                                       <div class="col-xl-4">
+                                       <div class="col-xl-12">
                                           <div class="mb-3 mb-xl-0">
                                              <label for="exampleInputEmail1" class="form-label">Correction</label>
-                                             <input type="text" class="form-control" name="correction[]">
+                                             <textarea class="form-control" name="correction[]" rows="4"></textarea>
                                           </div>
                                        </div>
                                        <div class="col-xl-4">
@@ -357,7 +358,7 @@
                                              <input type="text" class="form-control" name="correction_person_responsible[]" placeholder="Enter Name of personel">
                                           </div>
                                        </div>
-                                       <div class="col-xl-3">
+                                       <div class="col-xl-4">
                                           <div class="mb-3 mb-xl-0">
                                              <label for="exampleInputEmail1" class="form-label">Completion Date</label>
                                              <input type="date" class="form-control" name="correction_completion_date[]" placeholder="Select Date">
@@ -380,16 +381,17 @@
                      <div class="text-end mb-3">
                         <button type="button" class="btn btn-primary left" id="add-correction">Add Correction</button>
                      </div>
+                     <h5>2.2 Dealing with the Consequences: (Action to handle or treat the result or efect of the nonconformance)</h5>
                      <div id="consequencesdiv">
                         <div class="col-lg-12 consequences-repeatable orig-consequence">
                            <div class="card">
                               <div class="card-body">
                                  <div class="mb-3">
                                     <div class="row">
-                                       <div class="col-xl-4">
+                                       <div class="col-xl-12">
                                           <div class="mb-3 mb-xl-0">
                                              <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                             <input type="text" class="form-control" name="consequence[]">
+                                             <textarea class="form-control" name="consequence[]" rows="4"></textarea>
                                           </div>
                                        </div>
                                        <div class="col-xl-4">
@@ -398,7 +400,7 @@
                                              <input type="text" class="form-control" name="consequence_person_responsible[]" placeholder="Enter Name of personel">
                                           </div>
                                        </div>
-                                       <div class="col-xl-3">
+                                       <div class="col-xl-4">
                                           <div class="mb-3 mb-xl-0">
                                              <label for="exampleInputEmail1" class="form-label">Completion Date</label>
                                              <input type="date" class="form-control" name="consequence_completion_date[]" placeholder="Select Date">
@@ -420,6 +422,10 @@
                      </div>
                      <div class="text-end">
                         <button type="button" class="btn btn-primary left" id="add-consequences">Add Consequences</button>
+                     </div>
+
+                     <div class="row mt-4" id="car-correction-action">
+
                      </div>
                   </form>
                </div>

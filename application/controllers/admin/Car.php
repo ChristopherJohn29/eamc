@@ -68,9 +68,100 @@ class car extends CI_Controller {
 		$this->load->view('template/template', $data);
     }
 
+    public function saveCorrection(){
+        //array
+        $car_id = $this->input->post('car_id');
+
+        $car = $this->MainModel->getCorrectionAction($car_id);
+
+        $correction = $this->input->post('correction');
+        $correction_person_responsible = $this->input->post('correction_person_responsible');
+        $correction_completion_date = $this->input->post('correction_completion_date');
+
+
+        if(!empty($car)){
+            $correction_entry = json_decode($car[0]['correction_entry'], true);
+
+            if(empty($correction_entry)){
+                $correction_entry = array();
+            }
+        } else {
+            $correction_entry = array();
+        }
+    
+        foreach($correction as $key => $value){
+            if($correction[$key]){
+                $correction_entry[$key]['correction'] = isset($correction[$key]) ? $correction[$key] : "";
+                $correction_entry[$key]['correction_person_responsible'] = isset($correction_person_responsible[$key]) ? $correction_person_responsible[$key] : "";
+                $correction_entry[$key]['correction_completion_date'] = isset($correction_completion_date[$key]) ? $correction_completion_date[$key] : "";
+            }
+            
+        }
+        
+        //array
+        $consequence = $this->input->post('consequence');
+        $consequence_person_responsible = $this->input->post('consequence_person_responsible');
+        $consequence_completion_date = $this->input->post('consequence_completion_date');
+
+        if(!empty($car)){
+            $consequence_entry = json_decode($car[0]['consequence_entry'], true);
+
+            if(empty($consequence_entry)){
+                $consequence_entry = array();
+            }
+        } else {
+            $consequence_entry = array();
+        }
+    
+        foreach($consequence as $key => $value){
+            if($consequence[$key]){
+                $consequence_entry[$key]['consequence'] = isset($consequence[$key]) ? $consequence[$key] : "";
+                $consequence_entry[$key]['consequence_person_responsible'] = isset($consequence_person_responsible[$key]) ? $consequence_person_responsible[$key] : "";
+                $consequence_entry[$key]['consequence_completion_date'] = isset($consequence_completion_date[$key]) ? $consequence_completion_date[$key] : "";
+
+            }
+           
+        }
+
+
+        $existing_record = $this->db->get_where('correction', array('car_id' => $car_id))->row();
+
+        $data = array(
+            'car_id' => $car_id,
+            'correction_entry' => json_encode($correction_entry),
+            'consequence_entry' => json_encode($consequence_entry),
+        );
+        
+        if ($existing_record) {
+            // Car_id exists, perform an update
+            $this->db->where('car_id', $car_id);
+            $result = $this->db->update('correction', $data);
+        } else {
+            // Car_id doesn't exist, perform an insert
+            $result = $this->db->insert('correction', $data);
+        }
+
+        $cardata = array(
+            'for_correction_status' => 'For OSQM Review'
+        );
+
+        $this->db->where('id', $car_id);
+        $result = $this->db->update('car', $cardata);
+        
+        if ($result) {
+            echo 'saved';
+        } else {
+            echo 'error';
+        }
+
+
+    }
+
     public function saveCorrectionFR(){
         //array
         $car_id = $this->input->post('car_id');
+        $car = $this->MainModel->getCorrectionAction($car_id);
+
         $review_correction_dealing_with_consequences = $this->input->post('review_correction_dealing_with_consequences');
         $review_correction_dealing_with_consequences_remarks = $this->input->post('review_correction_dealing_with_consequences_remarks');
 
@@ -83,35 +174,29 @@ class car extends CI_Controller {
         $correction_acceptable_review = $this->input->post('correction_acceptable_review');
         $correction_acceptable_remarks_review = $this->input->post('correction_acceptable_remarks_review');
 
-        $correction_acceptable_approval = $this->input->post('correction_acceptable_approval');
-        $correction_acceptable_remarks_approval = $this->input->post('correction_acceptable_remarks_approval');
+        $correction_entry = json_decode($car[0]['correction_entry'], true);
 
-        $correction_acceptable_verification = $this->input->post('correction_acceptable_verification');
-        $correction_acceptable_remarks_verification = $this->input->post('correction_acceptable_remarks_verification');
+        if(empty($correction_entry)){
+            $correction_entry = array();
+        }
 
-        $correction_acceptable_validation = $this->input->post('correction_acceptable_validation');
-        $correction_acceptable_remarks_validation = $this->input->post('correction_acceptable_remarks_validation');
-    
         foreach($correction as $key => $value){
             if($correction[$key]){
-                $correction_entry[] = array(
-                    'correction' => $correction[$key],
-                    'correction_person_responsible' => $correction_person_responsible[$key],
-                    'correction_completion_date' => $correction_completion_date[$key],
-                    'correction_acceptable_review' => $correction_acceptable_review[$key],
-                    'correction_acceptable_remarks_review' => $correction_acceptable_remarks_review[$key],
-                    'correction_acceptable_approval' => $correction_acceptable_approval[$key],
-                    'correction_acceptable_remarks_approval' => $correction_acceptable_remarks_approval[$key],
-                    'correction_acceptable_verification' => $correction_acceptable_verification[$key],
-                    'correction_acceptable_remarks_verification' => $correction_acceptable_remarks_verification[$key],
-                    'correction_acceptable_validation' => $correction_acceptable_validation[$key],
-                    'correction_acceptable_remarks_validation' => $correction_acceptable_remarks_validation[$key],
-                );
+                $correction_entry[$key]['correction'] = isset($correction[$key]) ? $correction[$key] : "";
+                $correction_entry[$key]['correction_person_responsible'] = isset($correction_person_responsible[$key]) ? $correction_person_responsible[$key] : "";
+                $correction_entry[$key]['correction_completion_date'] = isset($correction_completion_date[$key]) ? $correction_completion_date[$key] : "";
+                $correction_entry[$key]['correction_acceptable_review'] = isset($correction_acceptable_review[$key]) ? $correction_acceptable_review[$key] : "";
+                $correction_entry[$key]['correction_acceptable_remarks_review'] = isset($correction_acceptable_remarks_review[$key]) ? $correction_acceptable_remarks_review[$key] : "";
+
             }
             
         }
         
-        $consequence_entry = array();
+        $consequence_entry = json_decode($car[0]['consequence_entry'], true);
+
+        if(empty($consequence_entry)){
+            $consequence_entry = array();
+        }
 
         //array
         $consequence = $this->input->post('consequence');
@@ -121,31 +206,14 @@ class car extends CI_Controller {
 
         $consequence_acceptable_review = $this->input->post('consequence_acceptable_review');
         $consequence_acceptable_remarks_review = $this->input->post('consequence_acceptable_remarks_review');
-
-        $consequence_acceptable_approval = $this->input->post('consequence_acceptable_approval');
-        $consequence_acceptable_remarks_approval = $this->input->post('consequence_acceptable_remarks_approval');
-
-        $consequence_acceptable_verification = $this->input->post('consequence_acceptable_verification');
-        $consequence_acceptable_remarks_verification = $this->input->post('consequence_acceptable_remarks_verification');
-
-        $consequence_acceptable_validation = $this->input->post('consequence_acceptable_validation');
-        $consequence_acceptable_remarks_validation = $this->input->post('consequence_acceptable_remarks_validation');
     
         foreach($consequence as $key => $value){
             if($consequence[$key]){
-                $consequence_entry[] = array(
-                    'consequence' => $consequence[$key],
-                    'consequence_person_responsible' => $consequence_person_responsible[$key],
-                    'consequence_completion_date' => $consequence_completion_date[$key],
-                    'consequence_acceptable_review' => $consequence_acceptable_review[$key],
-                    'consequence_acceptable_remarks_review' => $consequence_acceptable_remarks_review[$key],
-                    'consequence_acceptable_approval' => $consequence_acceptable_approval[$key],
-                    'consequence_acceptable_remarks_approval' => $consequence_acceptable_remarks_approval[$key],
-                    'consequence_acceptable_verification' => $consequence_acceptable_verification[$key],
-                    'consequence_acceptable_remarks_verification' => $consequence_acceptable_remarks_verification[$key],
-                    'consequence_acceptable_validation' => $consequence_acceptable_validation[$key],
-                    'consequence_acceptable_remarks_validation' => $consequence_acceptable_remarks_validation[$key],
-                );
+                $consequence_entry[$key]['consequence'] = isset($consequence[$key]) ? $consequence[$key] : "";
+                $consequence_entry[$key]['consequence_person_responsible'] = isset($consequence_person_responsible[$key]) ? $consequence_person_responsible[$key] : "";
+                $consequence_entry[$key]['consequence_completion_date'] = isset($consequence_completion_date[$key]) ? $consequence_completion_date[$key] : "";
+                $consequence_entry[$key]['consequence_acceptable_review'] = isset($consequence_acceptable_review[$key]) ? $consequence_acceptable_review[$key] : "";
+                $consequence_entry[$key]['consequence_acceptable_remarks_review'] = isset($consequence_acceptable_remarks_review[$key]) ? $consequence_acceptable_remarks_review[$key] : "";
             }
            
         }
@@ -187,47 +255,42 @@ class car extends CI_Controller {
     public function saveCorrectionFA(){
         //array
         $car_id = $this->input->post('car_id');
+        $car = $this->MainModel->getCorrectionAction($car_id);
         $approval_correction_dealing_with_consequences = $this->input->post('approval_correction_dealing_with_consequences');
         $approval_correction_dealing_with_consequences_remarks = $this->input->post('approval_correction_dealing_with_consequences_remarks');
     
-        $correction_entry = array();
+        $correction_entry = json_decode($car[0]['correction_entry'], true);
+
+        if(empty($correction_entry)){
+            $correction_entry = array();
+        }
+
 
         $correction = $this->input->post('correction');
         $correction_person_responsible = $this->input->post('correction_person_responsible');
         $correction_completion_date = $this->input->post('correction_completion_date');
 
-        $correction_acceptable_review = $this->input->post('correction_acceptable_review');
-        $correction_acceptable_remarks_review = $this->input->post('correction_acceptable_remarks_review');
 
         $correction_acceptable_approval = $this->input->post('correction_acceptable_approval');
         $correction_acceptable_remarks_approval = $this->input->post('correction_acceptable_remarks_approval');
-
-        $correction_acceptable_verification = $this->input->post('correction_acceptable_verification');
-        $correction_acceptable_remarks_verification = $this->input->post('correction_acceptable_remarks_verification');
-
-        $correction_acceptable_validation = $this->input->post('correction_acceptable_validation');
-        $correction_acceptable_remarks_validation = $this->input->post('correction_acceptable_remarks_validation');
     
         foreach($correction as $key => $value){
             if($correction[$key]){
-                $correction_entry[] = array(
-                    'correction' => $correction[$key],
-                    'correction_person_responsible' => $correction_person_responsible[$key],
-                    'correction_completion_date' => $correction_completion_date[$key],
-                    'correction_acceptable_review' => $correction_acceptable_review[$key],
-                    'correction_acceptable_remarks_review' => $correction_acceptable_remarks_review[$key],
-                    'correction_acceptable_approval' => $correction_acceptable_approval[$key],
-                    'correction_acceptable_remarks_approval' => $correction_acceptable_remarks_approval[$key],
-                    'correction_acceptable_verification' => $correction_acceptable_verification[$key],
-                    'correction_acceptable_remarks_verification' => $correction_acceptable_remarks_verification[$key],
-                    'correction_acceptable_validation' => $correction_acceptable_validation[$key],
-                    'correction_acceptable_remarks_validation' => $correction_acceptable_remarks_validation[$key],
-                );
+                $correction_entry[$key]['correction'] = isset($correction[$key]) ? $correction[$key] : "";
+                $correction_entry[$key]['correction_person_responsible'] = isset($correction_person_responsible[$key]) ? $correction_person_responsible[$key] : "";
+                $correction_entry[$key]['correction_completion_date'] = isset($correction_completion_date[$key]) ? $correction_completion_date[$key] : "";
+                $correction_entry[$key]['correction_acceptable_approval'] = isset($correction_acceptable_approval[$key]) ? $correction_acceptable_approval[$key] : "";
+                $correction_entry[$key]['correction_acceptable_remarks_approval'] = isset($correction_acceptable_remarks_approval[$key]) ? $correction_acceptable_remarks_approval[$key] : "";
+
             }
             
         }
         
-        $consequence_entry = array();
+        $consequence_entry = json_decode($car[0]['consequence_entry'], true);
+
+        if(empty($consequence_entry)){
+            $consequence_entry = array();
+        }
 
         //array
         $consequence = $this->input->post('consequence');
@@ -235,33 +298,18 @@ class car extends CI_Controller {
         $consequence_completion_date = $this->input->post('consequence_completion_date');
 
 
-        $consequence_acceptable_review = $this->input->post('consequence_acceptable_review');
-        $consequence_acceptable_remarks_review = $this->input->post('consequence_acceptable_remarks_review');
-
         $consequence_acceptable_approval = $this->input->post('consequence_acceptable_approval');
         $consequence_acceptable_remarks_approval = $this->input->post('consequence_acceptable_remarks_approval');
 
-        $consequence_acceptable_verification = $this->input->post('consequence_acceptable_verification');
-        $consequence_acceptable_remarks_verification = $this->input->post('consequence_acceptable_remarks_verification');
-
-        $consequence_acceptable_validation = $this->input->post('consequence_acceptable_validation');
-        $consequence_acceptable_remarks_validation = $this->input->post('consequence_acceptable_remarks_validation');
     
         foreach($consequence as $key => $value){
             if($consequence[$key]){
-                $consequence_entry[] = array(
-                    'consequence' => $consequence[$key],
-                    'consequence_person_responsible' => $consequence_person_responsible[$key],
-                    'consequence_completion_date' => $consequence_completion_date[$key],
-                    'consequence_acceptable_review' => $consequence_acceptable_review[$key],
-                    'consequence_acceptable_remarks_review' => $consequence_acceptable_remarks_review[$key],
-                    'consequence_acceptable_approval' => $consequence_acceptable_approval[$key],
-                    'consequence_acceptable_remarks_approval' => $consequence_acceptable_remarks_approval[$key],
-                    'consequence_acceptable_verification' => $consequence_acceptable_verification[$key],
-                    'consequence_acceptable_remarks_verification' => $consequence_acceptable_remarks_verification[$key],
-                    'consequence_acceptable_validation' => $consequence_acceptable_validation[$key],
-                    'consequence_acceptable_remarks_validation' => $consequence_acceptable_remarks_validation[$key],
-                );
+                $consequence_entry[$key]['consequence'] = isset($consequence[$key]) ? $consequence[$key] : "";
+                $consequence_entry[$key]['consequence_person_responsible'] = isset($consequence_person_responsible[$key]) ? $consequence_person_responsible[$key] : "";
+                $consequence_entry[$key]['consequence_completion_date'] = isset($consequence_completion_date[$key]) ? $consequence_completion_date[$key] : "";
+                $consequence_entry[$key]['consequence_acceptable_approval'] = isset($consequence_acceptable_approval[$key]) ? $consequence_acceptable_approval[$key] : "";
+                $consequence_entry[$key]['consequence_acceptable_remarks_approval'] = isset($consequence_acceptable_remarks_approval[$key]) ? $consequence_acceptable_remarks_approval[$key] : "";
+
             }
            
         }
@@ -302,47 +350,40 @@ class car extends CI_Controller {
     public function saveCorrectionFV(){
         //array
         $car_id = $this->input->post('car_id');
+        $car = $this->MainModel->getCorrectionAction($car_id);
         $verification_correction_dealing_with_consequences = $this->input->post('verification_correction_dealing_with_consequences');
         $verification_correction_dealing_with_consequences_remarks = $this->input->post('verification_correction_dealing_with_consequences_remarks');
     
-        $correction_entry = array();
+        $correction_entry = json_decode($car[0]['correction_entry'], true);
+
+        if(empty($correction_entry)){
+            $correction_entry = array();
+        }
 
         $correction = $this->input->post('correction');
         $correction_person_responsible = $this->input->post('correction_person_responsible');
         $correction_completion_date = $this->input->post('correction_completion_date');
 
-        $correction_acceptable_review = $this->input->post('correction_acceptable_review');
-        $correction_acceptable_remarks_review = $this->input->post('correction_acceptable_remarks_review');
-
-        $correction_acceptable_approval = $this->input->post('correction_acceptable_approval');
-        $correction_acceptable_remarks_approval = $this->input->post('correction_acceptable_remarks_approval');
-
         $correction_acceptable_verification = $this->input->post('correction_acceptable_verification');
         $correction_acceptable_remarks_verification = $this->input->post('correction_acceptable_remarks_verification');
-
-        $correction_acceptable_validation = $this->input->post('correction_acceptable_validation');
-        $correction_acceptable_remarks_validation = $this->input->post('correction_acceptable_remarks_validation');
     
         foreach($correction as $key => $value){
             if($correction[$key]){
-                $correction_entry[] = array(
-                    'correction' => $correction[$key],
-                    'correction_person_responsible' => $correction_person_responsible[$key],
-                    'correction_completion_date' => $correction_completion_date[$key],
-                    'correction_acceptable_review' => $correction_acceptable_review[$key],
-                    'correction_acceptable_remarks_review' => $correction_acceptable_remarks_review[$key],
-                    'correction_acceptable_approval' => $correction_acceptable_approval[$key],
-                    'correction_acceptable_remarks_approval' => $correction_acceptable_remarks_approval[$key],
-                    'correction_acceptable_verification' => $correction_acceptable_verification[$key],
-                    'correction_acceptable_remarks_verification' => $correction_acceptable_remarks_verification[$key],
-                    'correction_acceptable_validation' => $correction_acceptable_validation[$key],
-                    'correction_acceptable_remarks_validation' => $correction_acceptable_remarks_validation[$key],
-                );
+                $correction_entry[$key]['correction'] = isset($correction[$key]) ? $correction[$key] : "";
+                $correction_entry[$key]['correction_person_responsible'] = isset($correction_person_responsible[$key]) ? $correction_person_responsible[$key] : "";
+                $correction_entry[$key]['correction_completion_date'] = isset($correction_completion_date[$key]) ? $correction_completion_date[$key] : "";
+                $correction_entry[$key]['correction_acceptable_verification'] = isset($correction_acceptable_verification[$key]) ? $correction_acceptable_verification[$key] : "";
+                $correction_entry[$key]['correction_acceptable_remarks_verification'] = isset($correction_acceptable_remarks_verification[$key]) ? $correction_acceptable_remarks_verification[$key] : "";
+
             }
             
         }
         
-        $consequence_entry = array();
+        $consequence_entry = json_decode($car[0]['consequence_entry'], true);
+
+        if(empty($consequence_entry)){
+            $consequence_entry = array();
+        }
 
         //array
         $consequence = $this->input->post('consequence');
@@ -350,33 +391,17 @@ class car extends CI_Controller {
         $consequence_completion_date = $this->input->post('consequence_completion_date');
 
 
-        $consequence_acceptable_review = $this->input->post('consequence_acceptable_review');
-        $consequence_acceptable_remarks_review = $this->input->post('consequence_acceptable_remarks_review');
-
-        $consequence_acceptable_approval = $this->input->post('consequence_acceptable_approval');
-        $consequence_acceptable_remarks_approval = $this->input->post('consequence_acceptable_remarks_approval');
-
         $consequence_acceptable_verification = $this->input->post('consequence_acceptable_verification');
         $consequence_acceptable_remarks_verification = $this->input->post('consequence_acceptable_remarks_verification');
-
-        $consequence_acceptable_validation = $this->input->post('consequence_acceptable_validation');
-        $consequence_acceptable_remarks_validation = $this->input->post('consequence_acceptable_remarks_validation');
     
         foreach($consequence as $key => $value){
             if($consequence[$key]){
-                $consequence_entry[] = array(
-                    'consequence' => $consequence[$key],
-                    'consequence_person_responsible' => $consequence_person_responsible[$key],
-                    'consequence_completion_date' => $consequence_completion_date[$key],
-                    'consequence_acceptable_review' => $consequence_acceptable_review[$key],
-                    'consequence_acceptable_remarks_review' => $consequence_acceptable_remarks_review[$key],
-                    'consequence_acceptable_approval' => $consequence_acceptable_approval[$key],
-                    'consequence_acceptable_remarks_approval' => $consequence_acceptable_remarks_approval[$key],
-                    'consequence_acceptable_verification' => $consequence_acceptable_verification[$key],
-                    'consequence_acceptable_remarks_verification' => $consequence_acceptable_remarks_verification[$key],
-                    'consequence_acceptable_validation' => $consequence_acceptable_validation[$key],
-                    'consequence_acceptable_remarks_validation' => $consequence_acceptable_remarks_validation[$key],
-                );
+                $consequence_entry[$key]['consequence'] = isset($consequence[$key]) ? $consequence[$key] : "";
+                $consequence_entry[$key]['consequence_person_responsible'] = isset($consequence_person_responsible[$key]) ? $consequence_person_responsible[$key] : "";
+                $consequence_entry[$key]['consequence_completion_date'] = isset($consequence_completion_date[$key]) ? $consequence_completion_date[$key] : "";
+                $consequence_entry[$key]['consequence_acceptable_verification'] = isset($consequence_acceptable_verification[$key]) ? $consequence_acceptable_verification[$key] : "";
+                $consequence_entry[$key]['consequence_acceptable_remarks_verification'] = isset($consequence_acceptable_remarks_verification[$key]) ? $consequence_acceptable_remarks_verification[$key] : "";
+
             }
            
         }
@@ -418,23 +443,21 @@ class car extends CI_Controller {
     public function saveCorrectionFVA(){
         //array
         $car_id = $this->input->post('car_id');
+        $car = $this->MainModel->getCorrectionAction($car_id);
+
         $validation_correction_dealing_with_consequences = $this->input->post('validation_correction_dealing_with_consequences');
         $validation_correction_dealing_with_consequences_remarks = $this->input->post('validation_correction_dealing_with_consequences_remarks');
     
-        $correction_entry = array();
+        $correction_entry = json_decode($car[0]['correction_entry'], true);
+
+        if(empty($correction_entry)){
+            $correction_entry = array();
+        }
 
         $correction = $this->input->post('correction');
         $correction_person_responsible = $this->input->post('correction_person_responsible');
         $correction_completion_date = $this->input->post('correction_completion_date');
 
-        $correction_acceptable_review = $this->input->post('correction_acceptable_review');
-        $correction_acceptable_remarks_review = $this->input->post('correction_acceptable_remarks_review');
-
-        $correction_acceptable_approval = $this->input->post('correction_acceptable_approval');
-        $correction_acceptable_remarks_approval = $this->input->post('correction_acceptable_remarks_approval');
-
-        $correction_acceptable_verification = $this->input->post('correction_acceptable_verification');
-        $correction_acceptable_remarks_verification = $this->input->post('correction_acceptable_remarks_verification');
 
         $correction_acceptable_validation = $this->input->post('correction_acceptable_validation');
         $correction_acceptable_remarks_validation = $this->input->post('correction_acceptable_remarks_validation');
@@ -445,12 +468,6 @@ class car extends CI_Controller {
                     'correction' => $correction[$key],
                     'correction_person_responsible' => $correction_person_responsible[$key],
                     'correction_completion_date' => $correction_completion_date[$key],
-                    'correction_acceptable_review' => $correction_acceptable_review[$key],
-                    'correction_acceptable_remarks_review' => $correction_acceptable_remarks_review[$key],
-                    'correction_acceptable_approval' => $correction_acceptable_approval[$key],
-                    'correction_acceptable_remarks_approval' => $correction_acceptable_remarks_approval[$key],
-                    'correction_acceptable_verification' => $correction_acceptable_verification[$key],
-                    'correction_acceptable_remarks_verification' => $correction_acceptable_remarks_verification[$key],
                     'correction_acceptable_validation' => $correction_acceptable_validation[$key],
                     'correction_acceptable_remarks_validation' => $correction_acceptable_remarks_validation[$key],
                 );
@@ -458,22 +475,17 @@ class car extends CI_Controller {
             
         }
         
-        $consequence_entry = array();
+        $consequence_entry = json_decode($car[0]['consequence_entry'], true);
+
+        if(empty($consequence_entry)){
+            $consequence_entry = array();
+        }
 
         //array
         $consequence = $this->input->post('consequence');
         $consequence_person_responsible = $this->input->post('consequence_person_responsible');
         $consequence_completion_date = $this->input->post('consequence_completion_date');
 
-
-        $consequence_acceptable_review = $this->input->post('consequence_acceptable_review');
-        $consequence_acceptable_remarks_review = $this->input->post('consequence_acceptable_remarks_review');
-
-        $consequence_acceptable_approval = $this->input->post('consequence_acceptable_approval');
-        $consequence_acceptable_remarks_approval = $this->input->post('consequence_acceptable_remarks_approval');
-
-        $consequence_acceptable_verification = $this->input->post('consequence_acceptable_verification');
-        $consequence_acceptable_remarks_verification = $this->input->post('consequence_acceptable_remarks_verification');
 
         $consequence_acceptable_validation = $this->input->post('consequence_acceptable_validation');
         $consequence_acceptable_remarks_validation = $this->input->post('consequence_acceptable_remarks_validation');
@@ -484,12 +496,6 @@ class car extends CI_Controller {
                     'consequence' => $consequence[$key],
                     'consequence_person_responsible' => $consequence_person_responsible[$key],
                     'consequence_completion_date' => $consequence_completion_date[$key],
-                    'consequence_acceptable_review' => $consequence_acceptable_review[$key],
-                    'consequence_acceptable_remarks_review' => $consequence_acceptable_remarks_review[$key],
-                    'consequence_acceptable_approval' => $consequence_acceptable_approval[$key],
-                    'consequence_acceptable_remarks_approval' => $consequence_acceptable_remarks_approval[$key],
-                    'consequence_acceptable_verification' => $consequence_acceptable_verification[$key],
-                    'consequence_acceptable_remarks_verification' => $consequence_acceptable_remarks_verification[$key],
                     'consequence_acceptable_validation' => $consequence_acceptable_validation[$key],
                     'consequence_acceptable_remarks_validation' => $consequence_acceptable_remarks_validation[$key],
                 );
@@ -531,78 +537,7 @@ class car extends CI_Controller {
         }
     }
 
-    public function saveCorrection(){
-        //array
-        $car_id = $this->input->post('car_id');
-
-        $correction_entry = array();
-
-        $correction = $this->input->post('correction');
-        $correction_person_responsible = $this->input->post('correction_person_responsible');
-        $correction_completion_date = $this->input->post('correction_completion_date');
     
-        foreach($correction as $key => $value){
-            if($correction[$key]){
-                $correction_entry[] = array(
-                    'correction' => $correction[$key],
-                    'correction_person_responsible' => $correction_person_responsible[$key],
-                    'correction_completion_date' => $correction_completion_date[$key]
-                );
-            }
-            
-        }
-        
-        $consequence_entry = array();
-
-        //array
-        $consequence = $this->input->post('consequence');
-        $consequence_person_responsible = $this->input->post('consequence_person_responsible');
-        $consequence_completion_date = $this->input->post('consequence_completion_date');
-    
-        foreach($consequence as $key => $value){
-            if($consequence[$key]){
-                $consequence_entry[] = array(
-                    'consequence' => $consequence[$key],
-                    'consequence_person_responsible' => $consequence_person_responsible[$key],
-                    'consequence_completion_date' => $consequence_completion_date[$key]
-                );
-            }
-           
-        }
-
-
-        $existing_record = $this->db->get_where('correction', array('car_id' => $car_id))->row();
-
-        $data = array(
-            'car_id' => $car_id,
-            'correction_entry' => json_encode($correction_entry),
-            'consequence_entry' => json_encode($consequence_entry),
-        );
-        
-        if ($existing_record) {
-            // Car_id exists, perform an update
-            $this->db->where('car_id', $car_id);
-            $result = $this->db->update('correction', $data);
-        } else {
-            // Car_id doesn't exist, perform an insert
-            $result = $this->db->insert('correction', $data);
-        }
-
-        $cardata = array(
-            'for_correction_status' => 'For OSQM Review'
-        );
-
-        $this->db->where('id', $car_id);
-        $result = $this->db->update('car', $cardata);
-        
-        if ($result) {
-            echo 'saved';
-        } else {
-            echo 'error';
-        }
-
-
-    }
 
     public function saveRoot(){
 

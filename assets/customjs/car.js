@@ -58,19 +58,19 @@ var car = {
                         var osqm_review_corrective_action = "";
                         
                         if(for_correction_status == 'For Approval' || for_correction_status == 'For Verification' || for_correction_status == 'For Validation' || for_correction_status == 'For Closure'){
-                            var osqm_approval_correction = "<a class='dropdown-item for-osqm-approval-correction' href='#' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action-approval'>Correction - For Approval</a>";
+                            var osqm_approval_correction = "<a class='dropdown-item for-osqm-approval-correction' href='#' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>Correction - For Approval</a>";
                         }
 
                         if(for_correction_status == 'For Verification' || for_correction_status == 'For Validation' || for_correction_status == 'For Closure'){
-                            var osqm_verification_correction = "<a class='dropdown-item for-osqm-verification-correction' href='#' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action-verification'>Correction - For Verification</a>";
+                            var osqm_verification_correction = "<a class='dropdown-item for-osqm-verification-correction' href='#' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>Correction - For Verification</a>";
                         }
 
                         if(for_correction_status == 'For Validation' || for_correction_status == 'For Closure'){
-                            var osqm_validation_correction = "<a class='dropdown-item for-osqm-validation-correction' href='#' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action-validation'>Correction - For Validation</a>";
+                            var osqm_validation_correction = "<a class='dropdown-item for-osqm-validation-correction' href='#' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>Correction - For Validation</a>";
                         }
                         
                         if(for_correction_status == 'For OSQM Review' || for_correction_status == 'For Approval' || for_correction_status == 'For Verification' || for_correction_status == 'For Validation' || for_correction_status == 'For Closure'){
-                            var osqm_review_correction = "<a class='dropdown-item for-osqm-review-correction' href='#' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action-review'>Correction - For OSQM Review</a>";
+                            var osqm_review_correction = "<a class='dropdown-item for-osqm-review-correction' href='#' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>Correction - For OSQM Review</a>";
                         }
 
                         if(corrective_action_status == 'For OSQM Review' || corrective_action_status == 'For Approval' || corrective_action_status == 'For Verification' || corrective_action_status == 'For Validation' || corrective_action_status == 'For Closure'){
@@ -245,7 +245,16 @@ var car = {
     loadCorrectiveAction: function(){
         $('#car-global-datatable').on('click', '.edit-correction-action', function () {
 
+            jQuery('#add-correction').removeClass('hidden');
+            jQuery('#add-consequences').removeClass('hidden');
 
+            jQuery('#car-correction-action').html('');
+
+            jQuery('#car-correction-action').removeClass();
+            jQuery('#car-correction-action').addClass('mt-4');
+            jQuery('#car-correction-action').addClass('row');
+            jQuery('#car-correction-action').addClass('correction-action');
+        
             $car_id = jQuery(this).data('car_id');
             $requestor = jQuery(this).data('requestor');
             $car_no = jQuery(this).data('car_no');
@@ -258,7 +267,7 @@ var car = {
             $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
             $status = jQuery(this).data('status');
             
-
+        
             $findings = jQuery(this).data('findings');
             $consequences = jQuery(this).data('consequences');
             $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
@@ -275,29 +284,29 @@ var car = {
             jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
             jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
             jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-
+        
             division = jQuery('.addCARFormIssuance .issued_by').val();
-
+        
             $.ajax({
                 type: 'POST',
                 url: '../car/getDepartment', // Replace 'MyController' with your controller name
                 data: {division: division},
                 success: function (response) {
                     if(response != 'null'){
-
+        
                         $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
                         $.each(JSON.parse(response), function (index, item) {
                             // Access each item's properties
                             var id = item.id;
                             var dep_name = item.dep_name;
-
+        
                             var html = '<option value="'+id+'">'+dep_name+'</option>';
                             // Do something with the data, for example, display it on the page
                             $('.addCARFormIssuance .issued_to').append(html);
                         });
-
+        
                         jQuery('.addCARFormIssuance .issued_to').val($issued_to);
-
+        
                         department = $issued_to;
                         $.ajax({
                             type: 'POST',
@@ -325,7 +334,7 @@ var car = {
                                 diList.notifyError();
                             }
                         });
-
+        
                     }   
                 },
                 error: function () {
@@ -333,26 +342,26 @@ var car = {
                     diList.notifyError();
                 }
             });
-
-
-
-
+        
+        
+        
+        
             var car_id = jQuery(this).data('car_id');
             jQuery('.car_id').val(car_id);
             $('#correction').empty();
             $('#consequencesdiv').empty();
-
+        
             $.ajax({
                 type: 'POST',
                 url: '../car/getCorrectionAction', // Replace 'MyController' with your controller name
                 data: {car_id: car_id},
                 success: function (response) {
                     if(response != '[]'){
-
+        
                         response = JSON.parse(response);
-
+        
                         console.log(response);
-
+        
                         var correctionEntries = JSON.parse(response[0].correction_entry);
                         
                         // Loop through correction entries and create HTML for each entry
@@ -363,10 +372,10 @@ var car = {
                                         <div class="card-body">
                                             <div class="mb-3">
                                                 <div class="row">
-                                                    <div class="col-xl-4">
+                                                    <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Correction</label>
-                                                            <input type="text" class="form-control" readonly name="correction[]" value="${correction.correction}">
+                                                            <textarea class="form-control" name="correction[]" rows="4">${correction.correction}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -375,7 +384,7 @@ var car = {
                                                             <input type="text" class="form-control" readonly name="correction_person_responsible[]" placeholder="Enter Name of personnel" value="${correction.correction_person_responsible}">
                                                         </div>
                                                     </div>
-                                                    <div class="col-xl-3">
+                                                    <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Completion Date</label>
                                                             <input type="date" class="form-control" readonly name="correction_completion_date[]" value="${correction.correction_completion_date}">
@@ -387,27 +396,27 @@ var car = {
                                     </div>
                                 </div>
                             `;
-
+        
                     
                             // Append the correction HTML to the container
                             $('#correction').append(correctionHtml);
                         });
-
+        
                         var consequenceEntries = JSON.parse(response[0].consequence_entry);
                         
                         // Loop through correction entries and create HTML for each entry
                         consequenceEntries.forEach(function (consequence) {
-
+        
                             var consequenceHtml = `
                                 <div class="col-lg-12 consequences-repeatable added-repeat">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="mb-3">
                                                 <div class="row">
-                                                    <div class="col-xl-4">
+                                                    <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                                            <input type="text" class="form-control" readonly name="consequence[]" value="${consequence.consequence}">
+                                                            <textarea class="form-control" name="consequence[]" rows="4">${correction.consequence}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -416,7 +425,7 @@ var car = {
                                                             <input type="text" class="form-control" readonly name="consequence_person_responsible[]" placeholder="Enter Name of personnel" value="${consequence.consequence_person_responsible}">
                                                         </div>
                                                     </div>
-                                                    <div class="col-xl-3">
+                                                    <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Completion Date</label>
                                                             <input type="date" class="form-control" readonly name="consequence_completion_date[]" value="${consequence.consequence_completion_date}">
@@ -429,11 +438,11 @@ var car = {
                                     </div>
                                 </div>
                             `;
-
+        
                             // Append the correction HTML to the container
                             $('#consequencesdiv').append(consequenceHtml);
                         });
-
+        
                     } else {
                         // car.notifyError();
                     }   
@@ -444,10 +453,10 @@ var car = {
                                 <div class="card-body">
                                     <div class="mb-3">
                                         <div class="row">
-                                            <div class="col-xl-4">
+                                            <div class="col-xl-12">
                                                 <div class="mb-3 mb-xl-0">
                                                     <label for="exampleInputEmail1" class="form-label">Correction</label>
-                                                    <input type="text" class="form-control" name="correction[]" value="">
+                                                    <textarea class="form-control" name="correction[]" rows="4"></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-xl-4">
@@ -456,7 +465,7 @@ var car = {
                                                     <input type="text" class="form-control" name="correction_person_responsible[]" placeholder="Enter Name of personnel" value="">
                                                 </div>
                                             </div>
-                                            <div class="col-xl-3">
+                                            <div class="col-xl-4">
                                                 <div class="mb-3 mb-xl-0">
                                                     <label for="exampleInputEmail1" class="form-label">Completion Date</label>
                                                     <input type="date" class="form-control" name="correction_completion_date[]" value="">
@@ -474,19 +483,19 @@ var car = {
                             </div>
                         </div>
                     `;
-
+        
                     $('#correction').append(correctionHtmlLast);
-
+        
                     var consequenceHtmlLast = `
                             <div class="col-lg-12 consequences-repeatable">
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="mb-3">
                                             <div class="row">
-                                                <div class="col-xl-4">
+                                                <div class="col-xl-12">
                                                     <div class="mb-3 mb-xl-0">
                                                         <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                                        <input type="text" class="form-control" name="consequence[]" value="">
+                                                        <textarea class="form-control" name="consequence[]" rows="4"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4">
@@ -495,7 +504,7 @@ var car = {
                                                         <input type="text" class="form-control" name="consequence_person_responsible[]" placeholder="Enter Name of personnel" value="">
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-3">
+                                                <div class="col-xl-4">
                                                     <div class="mb-3 mb-xl-0">
                                                         <label for="exampleInputEmail1" class="form-label">Completion Date</label>
                                                         <input type="date" class="form-control" name="consequence_completion_date[]" value="">
@@ -513,7 +522,7 @@ var car = {
                                 </div>
                             </div>
                     `;
-
+        
                     $('#consequencesdiv').append(consequenceHtmlLast);
             
                 },
@@ -522,11 +531,38 @@ var car = {
                     car.notifyError();
                 }
             });
-
+        
         });
 
         $('#car-global-datatable').on('click', '.for-osqm-review-correction', function () {
 
+            var $action = '<div class="row mb-2">' +
+                '<div class="form-group col-md-12">' +
+                '<label for="review_correction_dealing_with_consequences" class="form-label">Review of Correction and Dealing with the Consequences</label>' +
+                '<select class="form-select review_correction_dealing_with_consequences" name="review_correction_dealing_with_consequences">' +
+                    '<option value="For Approval">For Approval</option>' +
+                    '<option value="For Revision">For Revision</option>' +
+                '</select>' +
+                '</div>' +
+            '</div>' +
+            '<div class="row mb-2">' +
+                '<div class="form-group col-md-12">' +
+                '<label for="review_correction_dealing_with_consequences_remarks" class="form-label">Remarks </label>' +
+                '<textarea class="form-control review_correction_dealing_with_consequences_remarks" name="review_correction_dealing_with_consequences_remarks" rows="4"></textarea>' +
+                '</div>' +
+            '</div>';
+            
+            jQuery('#car-correction-action').html($action);
+
+            jQuery('#car-correction-action').removeClass();
+            jQuery('#car-correction-action').addClass('mt-4');
+            jQuery('#car-correction-action').addClass('row');
+            jQuery('#car-correction-action').addClass('correction-action-review');
+
+            jQuery('#add-correction').addClass('hidden');
+            jQuery('#add-consequences').addClass('hidden');
+         
+            
             $car_id = jQuery(this).data('car_id');
             $requestor = jQuery(this).data('requestor');
             $car_no = jQuery(this).data('car_no');
@@ -539,11 +575,11 @@ var car = {
             $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
             $status = jQuery(this).data('status');
             
-
+            
             $findings = jQuery(this).data('findings');
             $consequences = jQuery(this).data('consequences');
             $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
-        
+            
             jQuery('.addCARFormIssuance .car_id').val($car_id);
             jQuery('.addCARFormIssuance .requestor').val($requestor);
             jQuery('.addCARFormIssuance .car_no').val($car_no);
@@ -556,29 +592,29 @@ var car = {
             jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
             jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
             jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-
+            
             division = jQuery('.addCARFormIssuance .issued_by').val();
-
+            
             $.ajax({
                 type: 'POST',
                 url: '../car/getDepartment', // Replace 'MyController' with your controller name
                 data: {division: division},
                 success: function (response) {
                     if(response != 'null'){
-
+            
                         $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
                         $.each(JSON.parse(response), function (index, item) {
                             // Access each item's properties
                             var id = item.id;
                             var dep_name = item.dep_name;
-
+            
                             var html = '<option value="'+id+'">'+dep_name+'</option>';
                             // Do something with the data, for example, display it on the page
                             $('.addCARFormIssuance .issued_to').append(html);
                         });
-
+            
                         jQuery('.addCARFormIssuance .issued_to').val($issued_to);
-
+            
                         department = $issued_to;
                         $.ajax({
                             type: 'POST',
@@ -606,7 +642,7 @@ var car = {
                                 diList.notifyError();
                             }
                         });
-
+            
                     }   
                 },
                 error: function () {
@@ -614,58 +650,51 @@ var car = {
                     diList.notifyError();
                 }
             });
-
+            
+            
+            
+            
             var car_id = jQuery(this).data('car_id');
             jQuery('.car_id').val(car_id);
-            $('#correction-review').empty();
-            $('#consequencesdiv-review').empty();
-
+            $('#correction').empty();
+            $('#consequencesdiv').empty();
+            
             $.ajax({
                 type: 'POST',
                 url: '../car/getCorrectionAction', // Replace 'MyController' with your controller name
                 data: {car_id: car_id},
                 success: function (response) {
                     if(response != '[]'){
-
+            
                         response = JSON.parse(response);
-
+        
                         var review_correction_dealing_with_consequences = response[0].review_correction_dealing_with_consequences;
                         var review_correction_dealing_with_consequences_remarks = response[0].review_correction_dealing_with_consequences_remarks;
-
+        
                         
                         jQuery('.review_correction_dealing_with_consequences').val(review_correction_dealing_with_consequences);
                         jQuery('.review_correction_dealing_with_consequences_remarks').val(review_correction_dealing_with_consequences_remarks);
-
+            
+                        console.log(response);
+            
                         var correctionEntries = JSON.parse(response[0].correction_entry);
-                        
                         var count = 0;
-
                         // Loop through correction entries and create HTML for each entry
                         correctionEntries.forEach(function (correction) {
-
-
-                            var approval = correction.correction_acceptable_approval !== undefined ? correction.correction_acceptable_approval : '';
-                            var verification = correction.correction_acceptable_verification !== undefined ? correction.correction_acceptable_verification : '';
-                            var validation = correction.correction_acceptable_validation !== undefined ? correction.correction_acceptable_validation : '';
-                            
-                            var approval_remarks = correction.correction_acceptable_remarks_approval !== undefined ? correction.correction_acceptable_remarks_approval : '';
-                            var verification_remarks = correction.correction_acceptable_remarks_verification !== undefined ? correction.correction_acceptable_remarks_verification : '';
-                            var validation_remarks = correction.correction_acceptable_remarks_validation !== undefined ? correction.correction_acceptable_remarks_validation : '';
-
-
+            
                             var reviewValue = correction.correction_acceptable_review !== undefined ? correction.correction_acceptable_review : ''; // Added
                             var remarksReview = correction.correction_acceptable_remarks_review !== undefined ? correction.correction_acceptable_remarks_review : ''; // Added
-
+            
                             var correctionHtml = `
                                 <div class="col-lg-12 correction-repeatable added-repeat">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="mb-3">
-                                                <div class="row mb-2">
-                                                    <div class="col-xl-4">
+                                                <div class="row">
+                                                    <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Correction</label>
-                                                            <input type="text" class="form-control" readonly name="correction[]" value="${correction.correction}">
+                                                            <textarea class="form-control" name="correction[]" rows="4">${correction.correction}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -683,15 +712,6 @@ var car = {
                                                 </div>
                                                 <div class="row">
                                                     <label for="acceptable" class="form-label">Acceptable</label>
-
-                                                    <input type="hidden" value="${approval}" name="correction_acceptable_approval[${count}]">
-                                                    <input type="hidden" value="${verification}" name="correction_acceptable_verification[${count}]">
-                                                    <input type="hidden" value="${validation}" name="correction_acceptable_validation[${count}]">
-
-                                                    <input type="hidden" value="${approval_remarks}" name="correction_acceptable_remarks_approval[${count}]">
-                                                    <input type="hidden" value="${verification_remarks}" name="correction_acceptable_remarks_verification[${count}]">
-                                                    <input type="hidden" value="${validation_remarks}" name="correction_acceptable_remarks_validation[${count}]">
-
                                                     <div class="col-lg-3 text-inlign mb-2">
                                                         <div class="form-check form-check-inline">
                                                             <input type="radio" name="correction_acceptable_review[${count}]" value="1" class="form-check-input" ${reviewValue === '1' ? 'checked' : ''}>
@@ -712,47 +732,37 @@ var car = {
                                     </div>
                                 </div>
                             `;
-
+            
                             count++;
-
                             // Append the correction HTML to the container
-                            $('#correction-review').append(correctionHtml);
+                            $('#correction').append(correctionHtml);
                         });
-
+            
                         var consequenceEntries = JSON.parse(response[0].consequence_entry);
                         
-                        var count = 0;
                         // Loop through correction entries and create HTML for each entry
                         consequenceEntries.forEach(function (consequence) {
-
-                            var approval = consequence.consequence_acceptable_approval !== undefined ? consequence.consequence_acceptable_approval : '';
-                            var verification = consequence.consequence_acceptable_verification !== undefined ? consequence.consequence_acceptable_verification : '';
-                            var validation = consequence.consequence_acceptable_validation !== undefined ? consequence.consequence_acceptable_validation : '';
-
-                            var approval_remarks = consequence.consequence_acceptable_remarks_approval !== undefined ? consequence.consequence_acceptable_remarks_approval : '';
-                            var verification_remarks = consequence.consequence_acceptable_remarks_verification !== undefined ? consequence.consequence_acceptable_remarks_verification : '';
-                            var validation_remarks = consequence.consequence_acceptable_remarks_validation !== undefined ? consequence.consequence_acceptable_remarks_validation : '';
-
-
+            
+                            
                             var reviewValue = consequence.consequence_acceptable_review !== undefined ? consequence.consequence_acceptable_review : ''; // Added
-                            var remarksReview = consequence.consequence_acceptable_remarks_review !== undefined ? consequence.consequence_acceptable_remarks_review : ''; // Added
-
+                            var remarksReview = consequence.consequence_acceptable_remarks_review !== undefined ? consequence.consequence_acceptable_remarks_review : '';
+            
                             var consequenceHtml = `
                                 <div class="col-lg-12 consequences-repeatable added-repeat">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="mb-3">
-                                                <div class="row mb-2">
-                                                    <div class="col-xl-4">
+                                                <div class="row">
+                                                    <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                                            <input type="text" class="form-control" readonly name="consequence[]" value="${consequence.consequence}">
+                                                            <textarea class="form-control" name="consequence[]" rows="4">${correction.consequence}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
-                                                            <input type="text" class="form-control" readonly name="consequence_person_responsible[]" value="${consequence.consequence_person_responsible}">
+                                                            <input type="text" class="form-control" readonly name="consequence_person_responsible[]" placeholder="Enter Name of personnel" value="${consequence.consequence_person_responsible}">
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -761,18 +771,10 @@ var car = {
                                                             <input type="date" class="form-control" readonly name="consequence_completion_date[]" value="${consequence.consequence_completion_date}">
                                                         </div>
                                                     </div>
+                                
                                                 </div>
                                                 <div class="row">
                                                     <label for="acceptable" class="form-label">Acceptable</label>
-                                                    
-                                                        <input type="hidden" value="${approval}" name="consequence_acceptable_approval[${count}]">
-                                                        <input type="hidden" value="${verification}" name="consequence_acceptable_verification[${count}]">
-                                                        <input type="hidden" value="${validation}" name="consequence_acceptable_validation[${count}]">
-                                                        
-                                                        <input type="hidden" value="${approval_remarks}" name="consequence_acceptable_remarks_approval[${count}]">
-                                                        <input type="hidden" value="${verification_remarks}" name="consequence_acceptable_remarks_verification[${count}]">
-                                                        <input type="hidden" value="${validation_remarks}" name="consequence_acceptable_remarks_validation[${count}]">
-
                                                         <div class="col-lg-3 text-inlign mb-2">
                                                             <div class="form-check form-check-inline">
                                                                 <input type="radio" name="consequence_acceptable_review[${count}]" value="1" class="form-check-input" ${reviewValue === '1' ? 'checked' : ''}>
@@ -787,22 +789,23 @@ var car = {
                                                             <label for="consequence_acceptable_remarks_review" class="form-label">Remarks</label>
                                                             <textarea class="form-control" name="consequence_acceptable_remarks_review[${count}]" rows="4">${remarksReview}</textarea>
                                                         </div>
-                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             `;
-                            
-                            count++;
+            
                             // Append the correction HTML to the container
-                            $('#consequencesdiv-review').append(consequenceHtml);
+                            $('#consequencesdiv').append(consequenceHtml);
                         });
-
+            
                     } else {
                         // car.notifyError();
                     }   
                     
+            
+            
             
                 },
                 error: function () {
@@ -810,11 +813,10 @@ var car = {
                     car.notifyError();
                 }
             });
-
-        
+            
         });
 
-        $('#car-global-datatable').on('click', '.for-osqm-approval-correction', function () {
+        $('#car-global-datatable').on('click', '.for-osqm-approval-correction-past', function () {
 
             $car_id = jQuery(this).data('car_id');
             $requestor = jQuery(this).data('requestor');
@@ -1103,8 +1105,34 @@ var car = {
         
         });
 
-        $('#car-global-datatable').on('click', '.for-osqm-verification-correction', function () {
+        $('#car-global-datatable').on('click', '.for-osqm-approval-correction', function () {
 
+            var $action = '<div class="row mb-2">' +
+                '<div class="form-group col-md-12">' +
+                '<label for="approval_correction_dealing_with_consequences" class="form-label">Review of Correction and Dealing with the Consequences</label>' +
+                '<select class="form-select approval_correction_dealing_with_consequences" name="approval_correction_dealing_with_consequences">' +
+                    '<option value="For Verification">For Verification</option>' +
+                    '<option value="For Revision">For Revision</option>' +
+                '</select>' +
+                '</div>' +
+            '</div>' +
+            '<div class="row mb-2">' +
+                '<div class="form-group col-md-12">' +
+                '<label for="approval_correction_dealing_with_consequences_remarks" class="form-label">Remarks </label>' +
+                '<textarea class="form-control approval_correction_dealing_with_consequences_remarks" name="approval_correction_dealing_with_consequences_remarks" rows="4"></textarea>' +
+                '</div>' +
+            '</div>';
+            
+            jQuery('#car-correction-action').html($action);
+
+            jQuery('#car-correction-action').removeClass();
+            jQuery('#car-correction-action').addClass('mt-4');
+            jQuery('#car-correction-action').addClass('row');
+            jQuery('#car-correction-action').addClass('correction-action-approval');
+
+            jQuery('#add-correction').addClass('hidden');
+            jQuery('#add-consequences').addClass('hidden');
+            
             $car_id = jQuery(this).data('car_id');
             $requestor = jQuery(this).data('requestor');
             $car_no = jQuery(this).data('car_no');
@@ -1117,11 +1145,11 @@ var car = {
             $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
             $status = jQuery(this).data('status');
             
-
+            
             $findings = jQuery(this).data('findings');
             $consequences = jQuery(this).data('consequences');
             $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
-        
+            
             jQuery('.addCARFormIssuance .car_id').val($car_id);
             jQuery('.addCARFormIssuance .requestor').val($requestor);
             jQuery('.addCARFormIssuance .car_no').val($car_no);
@@ -1134,29 +1162,29 @@ var car = {
             jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
             jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
             jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-
+            
             division = jQuery('.addCARFormIssuance .issued_by').val();
-
+            
             $.ajax({
                 type: 'POST',
                 url: '../car/getDepartment', // Replace 'MyController' with your controller name
                 data: {division: division},
                 success: function (response) {
                     if(response != 'null'){
-
+            
                         $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
                         $.each(JSON.parse(response), function (index, item) {
                             // Access each item's properties
                             var id = item.id;
                             var dep_name = item.dep_name;
-
+            
                             var html = '<option value="'+id+'">'+dep_name+'</option>';
                             // Do something with the data, for example, display it on the page
                             $('.addCARFormIssuance .issued_to').append(html);
                         });
-
+            
                         jQuery('.addCARFormIssuance .issued_to').val($issued_to);
-
+            
                         department = $issued_to;
                         $.ajax({
                             type: 'POST',
@@ -1184,7 +1212,7 @@ var car = {
                                 diList.notifyError();
                             }
                         });
-
+            
                     }   
                 },
                 error: function () {
@@ -1192,58 +1220,51 @@ var car = {
                     diList.notifyError();
                 }
             });
-
+            
+            
+            
+            
             var car_id = jQuery(this).data('car_id');
             jQuery('.car_id').val(car_id);
-            $('#correction-verification').empty();
-            $('#consequencesdiv-verification').empty();
-        
+            $('#correction').empty();
+            $('#consequencesdiv').empty();
+            
             $.ajax({
                 type: 'POST',
                 url: '../car/getCorrectionAction', // Replace 'MyController' with your controller name
                 data: {car_id: car_id},
                 success: function (response) {
                     if(response != '[]'){
-        
+            
                         response = JSON.parse(response);
         
-                        var verification_correction_dealing_with_consequences = response[0].verification_correction_dealing_with_consequences;
-                        var verification_correction_dealing_with_consequences_remarks = response[0].verification_correction_dealing_with_consequences_remarks;
+                        var approval_correction_dealing_with_consequences = response[0].approval_correction_dealing_with_consequences;
+                        var approval_correction_dealing_with_consequences_remarks = response[0].approval_correction_dealing_with_consequences_remarks;
         
                         
-                        jQuery('.verification_correction_dealing_with_consequences').val(verification_correction_dealing_with_consequences);
-                        jQuery('.verification_correction_dealing_with_consequences_remarks').val(verification_correction_dealing_with_consequences_remarks);
-        
+                        jQuery('.approval_correction_dealing_with_consequences').val(approval_correction_dealing_with_consequences);
+                        jQuery('.approval_correction_dealing_with_consequences_remarks').val(approval_correction_dealing_with_consequences_remarks);
+            
+                        console.log(response);
+            
                         var correctionEntries = JSON.parse(response[0].correction_entry);
-                        
                         var count = 0;
-        
                         // Loop through correction entries and create HTML for each entry
                         correctionEntries.forEach(function (correction) {
         
-        
-                            var review = correction.correction_acceptable_review !== undefined ? correction.correction_acceptable_review : '';
-                            var approval = correction.correction_acceptable_approval !== undefined ? correction.correction_acceptable_approval : '';
-                            var validation = correction.correction_acceptable_validation !== undefined ? correction.correction_acceptable_validation : '';
-                            
-                            var review_remarks = correction.correction_acceptable_remarks_review !== undefined ? correction.correction_acceptable_remarks_review : '';
-                            var approval_remarks = correction.correction_acceptable_remarks_approval !== undefined ? correction.correction_acceptable_remarks_approval : '';
-                            var validation_remarks = correction.correction_acceptable_remarks_validation !== undefined ? correction.correction_acceptable_remarks_validation : '';
-        
-        
-                            var verificationValue = correction.correction_acceptable_verification !== undefined ? correction.correction_acceptable_verification : ''; // Added
-                            var remarksReview = correction.correction_acceptable_remarks_verification !== undefined ? correction.correction_acceptable_remarks_verification : ''; // Added
-        
+                            var approvalValue = correction.correction_acceptable_approval !== undefined ? correction.correction_acceptable_approval : ''; // Added
+                            var remarksReview = correction.correction_acceptable_remarks_approval !== undefined ? correction.correction_acceptable_remarks_approval : '';
+            
                             var correctionHtml = `
                                 <div class="col-lg-12 correction-repeatable added-repeat">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="mb-3">
-                                                <div class="row mb-2">
-                                                    <div class="col-xl-4">
+                                                <div class="row">
+                                                    <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Correction</label>
-                                                            <input type="text" class="form-control" readonly name="correction[]" value="${correction.correction}">
+                                                            <textarea class="form-control" name="correction[]" rows="4">${correction.correction}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -1262,13 +1283,288 @@ var car = {
                                                 <div class="row">
                                                     <label for="acceptable" class="form-label">Acceptable</label>
         
-                                                    <input type="hidden" value="${review}" name="correction_acceptable_review[${count}]">
-                                                    <input type="hidden" value="${approval}" name="correction_acceptable_approval[${count}]">
-                                                    <input type="hidden" value="${validation}" name="correction_acceptable_validation[${count}]">
+                                                    <div class="col-lg-3 text-inlign mb-2">
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" name="correction_acceptable_approval[${count}]" value="1" class="form-check-input" ${approvalValue === '1' ? 'checked' : ''}>
+                                                            <label class="form-check-label" for="correction_acceptable_approval">YES</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" name="correction_acceptable_approval[${count}]" value="0" class="form-check-input" ${approvalValue === '0' ? 'checked' : ''}>
+                                                            <label class="form-check-label" for="correction_acceptable_approval">NO</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-lg-12">
+                                                        <label for="correction_acceptable_remarks_approval" class="form-label">Remarks</label>
+                                                        <textarea class="form-control" name="correction_acceptable_remarks_approval[${count}]" rows="4">${remarksReview}</textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+            
+                            count++;
+                            // Append the correction HTML to the container
+                            $('#correction').append(correctionHtml);
+                        });
+            
+                        var consequenceEntries = JSON.parse(response[0].consequence_entry);
+                        
+                        // Loop through correction entries and create HTML for each entry
+                        consequenceEntries.forEach(function (consequence) {
+            
+                            
+                            var approvalValue = consequence.consequence_acceptable_approval !== undefined ? consequence.consequence_acceptable_approval : ''; // Added
+                            var remarksReview = consequence.consequence_acceptable_remarks_approval !== undefined ? consequence.consequence_acceptable_remarks_approval : ''; // Added
+            
+                            var consequenceHtml = `
+                                <div class="col-lg-12 consequences-repeatable added-repeat">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="mb-3">
+                                                <div class="row">
+                                                    <div class="col-xl-12">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
+                                                            <textarea class="form-control" name="consequence[]" rows="4">${correction.consequence}</textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-4">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
+                                                            <input type="text" class="form-control" readonly name="consequence_person_responsible[]" placeholder="Enter Name of personnel" value="${consequence.consequence_person_responsible}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-4">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label for="exampleInputEmail1" class="form-label">Completion Date</label>
+                                                            <input type="date" class="form-control" readonly name="consequence_completion_date[]" value="${consequence.consequence_completion_date}">
+                                                        </div>
+                                                    </div>
+                                
+                                                </div>
+                                                <div class="row">
+                                                    <label for="acceptable" class="form-label">Acceptable</label>
         
-                                                    <input type="hidden" value="${review_remarks}" name="correction_acceptable_remarks_review[${count}]">
-                                                    <input type="hidden" value="${approval_remarks}" name="correction_acceptable_remarks_approval[${count}]">
-                                                    <input type="hidden" value="${validation_remarks}" name="correction_acceptable_remarks_validation[${count}]">
+                                                        <div class="col-lg-3 text-inlign mb-2">
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="consequence_acceptable_approval[${count}]" value="1" class="form-check-input" ${approvalValue === '1' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="consequence_acceptable_approval">YES</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" name="consequence_acceptable_approval[${count}]" value="0" class="form-check-input" ${approvalValue === '0' ? 'checked' : ''}>
+                                                                <label class="form-check-label" for="consequence_acceptable_approval">NO</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-lg-12">
+                                                            <label for="consequence_acceptable_remarks_approval" class="form-label">Remarks</label>
+                                                            <textarea class="form-control" name="consequence_acceptable_remarks_approval[${count}]" rows="4">${remarksReview}</textarea>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+            
+                            // Append the correction HTML to the container
+                            $('#consequencesdiv').append(consequenceHtml);
+                        });
+            
+                    } else {
+                        // car.notifyError();
+                    }   
+                    
+            
+            
+            
+                },
+                error: function () {
+                    // Handle errors
+                    car.notifyError();
+                }
+            });
+            
+        });
+
+        $('#car-global-datatable').on('click', '.for-osqm-verification-correction', function () {
+
+            jQuery('#add-correction').addClass('hidden');
+            jQuery('#add-consequences').addClass('hidden');
+
+            var $action = '<div class="row mb-2">' +
+                '<div class="form-group col-md-12">' +
+                '<label for="verification_correction_dealing_with_consequences" class="form-label">Review of Correction and Dealing with the Consequences</label>' +
+                '<select class="form-select verification_correction_dealing_with_consequences" name="verification_correction_dealing_with_consequences">' +
+                    '<option value="For Validation">For Validation</option>' +
+                    '<option value="For Revision">For Revision</option>' +
+                '</select>' +
+                '</div>' +
+            '</div>' +
+            '<div class="row mb-2">' +
+                '<div class="form-group col-md-12">' +
+                '<label for="verification_correction_dealing_with_consequences_remarks" class="form-label">Remarks </label>' +
+                '<textarea class="form-control verification_correction_dealing_with_consequences_remarks" name="verification_correction_dealing_with_consequences_remarks" rows="4"></textarea>' +
+                '</div>' +
+            '</div>';
+            
+            jQuery('#car-correction-action').html($action);
+
+            jQuery('#car-correction-action').removeClass();
+            jQuery('#car-correction-action').addClass('mt-4');
+            jQuery('#car-correction-action').addClass('row');
+            jQuery('#car-correction-action').addClass('correction-action-verification');
+            
+            $car_id = jQuery(this).data('car_id');
+            $requestor = jQuery(this).data('requestor');
+            $car_no = jQuery(this).data('car_no');
+            $source = jQuery(this).data('source');
+            $issued_by = jQuery(this).data('issued_by');
+            $issued_to = jQuery(this).data('issued_to');
+            $section = jQuery(this).data('section');
+            $identification_date = jQuery(this).data('identification_date');
+            $issuance_of_nc = jQuery(this).data('issuance_of_nc');
+            $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
+            $status = jQuery(this).data('status');
+            
+            
+            $findings = jQuery(this).data('findings');
+            $consequences = jQuery(this).data('consequences');
+            $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
+            
+            jQuery('.addCARFormIssuance .car_id').val($car_id);
+            jQuery('.addCARFormIssuance .requestor').val($requestor);
+            jQuery('.addCARFormIssuance .car_no').val($car_no);
+            jQuery('.addCARFormIssuance .source').val($source); // Replace 'source' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issued_by').val($issued_by); // Replace 'issued_by' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issued_to').val($issued_to); // Replace 'issued_to' with the actual ID of your element
+            jQuery('.addCARFormIssuance .identification_date').val($identification_date); // Replace 'identification_date' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issuance_of_nc').val($issuance_of_nc); // Replace 'issuance_of_nc' with the actual ID of your element
+            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element        
+            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            
+            division = jQuery('.addCARFormIssuance .issued_by').val();
+            
+            $.ajax({
+                type: 'POST',
+                url: '../car/getDepartment', // Replace 'MyController' with your controller name
+                data: {division: division},
+                success: function (response) {
+                    if(response != 'null'){
+            
+                        $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
+                        $.each(JSON.parse(response), function (index, item) {
+                            // Access each item's properties
+                            var id = item.id;
+                            var dep_name = item.dep_name;
+            
+                            var html = '<option value="'+id+'">'+dep_name+'</option>';
+                            // Do something with the data, for example, display it on the page
+                            $('.addCARFormIssuance .issued_to').append(html);
+                        });
+            
+                        jQuery('.addCARFormIssuance .issued_to').val($issued_to);
+            
+                        department = $issued_to;
+                        $.ajax({
+                            type: 'POST',
+                            url: '../car/getSection', // Replace 'MyController' with your controller name
+                            data: {department: department},
+                            success: function (response) {
+                                if(response != 'null'){
+            
+                                    $('.addCARFormIssuance .section').html('<option value=""></option>');
+                                    $.each(JSON.parse(response), function (index, item) {
+                                        // Access each item's properties
+                                        var id = item.id;
+                                        var section_name = item.section_name;
+                
+                                        var html = '<option value="'+id+'">'+section_name+'</option>';
+                                        // Do something with the data, for example, display it on the page
+                                        $('.addCARFormIssuance .section').append(html);
+                                    });
+            
+                                    jQuery('.addCARFormIssuance .section').val($section);
+                                }   
+                            },
+                            error: function () {
+                                // Handle errors
+                                diList.notifyError();
+                            }
+                        });
+            
+                    }   
+                },
+                error: function () {
+                    // Handle errors
+                    diList.notifyError();
+                }
+            });
+            
+            
+            
+            
+            var car_id = jQuery(this).data('car_id');
+            jQuery('.car_id').val(car_id);
+            $('#correction').empty();
+            $('#consequencesdiv').empty();
+            
+            $.ajax({
+                type: 'POST',
+                url: '../car/getCorrectionAction', // Replace 'MyController' with your controller name
+                data: {car_id: car_id},
+                success: function (response) {
+                    if(response != '[]'){
+            
+                        response = JSON.parse(response);
+                        
+                        var verification_correction_dealing_with_consequences = response[0].verification_correction_dealing_with_consequences;
+                        var verification_correction_dealing_with_consequences_remarks = response[0].verification_correction_dealing_with_consequences_remarks;
+        
+                        
+                        jQuery('.verification_correction_dealing_with_consequences').val(verification_correction_dealing_with_consequences);
+                        jQuery('.verification_correction_dealing_with_consequences_remarks').val(verification_correction_dealing_with_consequences_remarks);
+            
+                        console.log(response);
+            
+                        var correctionEntries = JSON.parse(response[0].correction_entry);
+                        var count = 0;
+                        // Loop through correction entries and create HTML for each entry
+                        correctionEntries.forEach(function (correction) {
+        
+                            var verificationValue = correction.correction_acceptable_verification !== undefined ? correction.correction_acceptable_verification : ''; // Added
+                            var remarksReview = correction.correction_acceptable_remarks_verification !== undefined ? correction.correction_acceptable_remarks_verification : ''; 
+            
+                            var correctionHtml = `
+                                <div class="col-lg-12 correction-repeatable added-repeat">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="mb-3">
+                                                <div class="row">
+                                                    <div class="col-xl-12">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label for="exampleInputEmail1" class="form-label">Correction</label>
+                                                            <textarea class="form-control" name="correction[]" rows="4">${correction.correction}</textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-4">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
+                                                            <input type="text" class="form-control" readonly name="correction_person_responsible[]" placeholder="Enter Name of personnel" value="${correction.correction_person_responsible}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-4">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label for="exampleInputEmail1" class="form-label">Completion Date</label>
+                                                            <input type="date" class="form-control" readonly name="correction_completion_date[]" value="${correction.correction_completion_date}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <label for="acceptable" class="form-label">Acceptable</label>
         
                                                     <div class="col-lg-3 text-inlign mb-2">
                                                         <div class="form-check form-check-inline">
@@ -1290,28 +1586,18 @@ var car = {
                                     </div>
                                 </div>
                             `;
-        
+            
                             count++;
-        
                             // Append the correction HTML to the container
-                            $('#correction-verification').append(correctionHtml);
+                            $('#correction').append(correctionHtml);
                         });
-        
+            
                         var consequenceEntries = JSON.parse(response[0].consequence_entry);
                         
-                        var count = 0;
                         // Loop through correction entries and create HTML for each entry
                         consequenceEntries.forEach(function (consequence) {
-        
-                            var review = consequence.consequence_acceptable_review !== undefined ? consequence.consequence_acceptable_review : '';
-                            var approval = consequence.consequence_acceptable_approval !== undefined ? consequence.consequence_acceptable_approval : '';
-                            var validation = consequence.consequence_acceptable_validation !== undefined ? consequence.consequence_acceptable_validation : '';
-        
-                            var review_remarks = consequence.consequence_acceptable_remarks_review !== undefined ? consequence.consequence_acceptable_remarks_review : '';
-                            var approval_remarks = consequence.consequence_acceptable_remarks_approval !== undefined ? consequence.consequence_acceptable_remarks_approval : '';
-                            var validation_remarks = consequence.consequence_acceptable_remarks_validation !== undefined ? consequence.consequence_acceptable_remarks_validation : '';
-        
-        
+            
+                            
                             var verificationValue = consequence.consequence_acceptable_verification !== undefined ? consequence.consequence_acceptable_verification : ''; // Added
                             var remarksReview = consequence.consequence_acceptable_remarks_verification !== undefined ? consequence.consequence_acceptable_remarks_verification : ''; // Added
         
@@ -1320,17 +1606,17 @@ var car = {
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="mb-3">
-                                                <div class="row mb-2">
-                                                    <div class="col-xl-4">
+                                                <div class="row">
+                                                    <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                                            <input type="text" class="form-control" readonly name="consequence[]" value="${consequence.consequence}">
+                                                            <textarea class="form-control" name="consequence[]" rows="4">${correction.consequence}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
-                                                            <input type="text" class="form-control" readonly name="consequence_person_responsible[]" value="${consequence.consequence_person_responsible}">
+                                                            <input type="text" class="form-control" readonly name="consequence_person_responsible[]" placeholder="Enter Name of personnel" value="${consequence.consequence_person_responsible}">
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -1339,17 +1625,10 @@ var car = {
                                                             <input type="date" class="form-control" readonly name="consequence_completion_date[]" value="${consequence.consequence_completion_date}">
                                                         </div>
                                                     </div>
+                                
                                                 </div>
                                                 <div class="row">
                                                     <label for="acceptable" class="form-label">Acceptable</label>
-                                                    
-                                                        <input type="hidden" value="${review}" name="consequence_acceptable_review[${count}]">
-                                                        <input type="hidden" value="${approval}" name="consequence_acceptable_approval[${count}]">
-                                                        <input type="hidden" value="${validation}" name="consequence_acceptable_validation[${count}]">
-                                                        
-                                                        <input type="hidden" value="${review_remarks}" name="consequence_acceptable_remarks_review[${count}]">
-                                                        <input type="hidden" value="${approval_remarks}" name="consequence_acceptable_remarks_approval[${count}]">
-                                                        <input type="hidden" value="${validation_remarks}" name="consequence_acceptable_remarks_validation[${count}]">
         
                                                         <div class="col-lg-3 text-inlign mb-2">
                                                             <div class="form-check form-check-inline">
@@ -1365,22 +1644,23 @@ var car = {
                                                             <label for="consequence_acceptable_remarks_verification" class="form-label">Remarks</label>
                                                             <textarea class="form-control" name="consequence_acceptable_remarks_verification[${count}]" rows="4">${remarksReview}</textarea>
                                                         </div>
-                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             `;
-                            
-                            count++;
+            
                             // Append the correction HTML to the container
-                            $('#consequencesdiv-verification').append(consequenceHtml);
+                            $('#consequencesdiv').append(consequenceHtml);
                         });
-        
+            
                     } else {
                         // car.notifyError();
                     }   
                     
+            
+            
             
                 },
                 error: function () {
@@ -1388,13 +1668,38 @@ var car = {
                     car.notifyError();
                 }
             });
-        
-        
+            
         });
 
 
         $('#car-global-datatable').on('click', '.for-osqm-validation-correction', function () {
 
+            jQuery('#add-correction').addClass('hidden');
+            jQuery('#add-consequences').addClass('hidden');
+
+            var $action = '<div class="row mb-2">' +
+                '<div class="form-group col-md-12">' +
+                '<label for="validation_correction_dealing_with_consequences" class="form-label">Review of Correction and Dealing with the Consequences</label>' +
+                '<select class="form-select validation_correction_dealing_with_consequences" name="validation_correction_dealing_with_consequences">' +
+                    '<option value="For Closure">For Closure</option>' +
+                    '<option value="For Revision">For Revision</option>' +
+                '</select>' +
+                '</div>' +
+            '</div>' +
+            '<div class="row mb-2">' +
+                '<div class="form-group col-md-12">' +
+                '<label for="validation_correction_dealing_with_consequences_remarks" class="form-label">Remarks </label>' +
+                '<textarea class="form-control validation_correction_dealing_with_consequences_remarks" name="validation_correction_dealing_with_consequences_remarks" rows="4"></textarea>' +
+                '</div>' +
+            '</div>';
+            
+            jQuery('#car-correction-action').html($action);
+
+            jQuery('#car-correction-action').removeClass();
+            jQuery('#car-correction-action').addClass('mt-4');
+            jQuery('#car-correction-action').addClass('row');
+            jQuery('#car-correction-action').addClass('correction-action-validation');
+            
             $car_id = jQuery(this).data('car_id');
             $requestor = jQuery(this).data('requestor');
             $car_no = jQuery(this).data('car_no');
@@ -1407,11 +1712,11 @@ var car = {
             $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
             $status = jQuery(this).data('status');
             
-
+            
             $findings = jQuery(this).data('findings');
             $consequences = jQuery(this).data('consequences');
             $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
-        
+            
             jQuery('.addCARFormIssuance .car_id').val($car_id);
             jQuery('.addCARFormIssuance .requestor').val($requestor);
             jQuery('.addCARFormIssuance .car_no').val($car_no);
@@ -1424,29 +1729,29 @@ var car = {
             jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
             jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
             jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-
+            
             division = jQuery('.addCARFormIssuance .issued_by').val();
-
+            
             $.ajax({
                 type: 'POST',
                 url: '../car/getDepartment', // Replace 'MyController' with your controller name
                 data: {division: division},
                 success: function (response) {
                     if(response != 'null'){
-
+            
                         $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
                         $.each(JSON.parse(response), function (index, item) {
                             // Access each item's properties
                             var id = item.id;
                             var dep_name = item.dep_name;
-
+            
                             var html = '<option value="'+id+'">'+dep_name+'</option>';
                             // Do something with the data, for example, display it on the page
                             $('.addCARFormIssuance .issued_to').append(html);
                         });
-
+            
                         jQuery('.addCARFormIssuance .issued_to').val($issued_to);
-
+            
                         department = $issued_to;
                         $.ajax({
                             type: 'POST',
@@ -1474,7 +1779,7 @@ var car = {
                                 diList.notifyError();
                             }
                         });
-
+            
                     }   
                 },
                 error: function () {
@@ -1482,21 +1787,24 @@ var car = {
                     diList.notifyError();
                 }
             });
-
+            
+            
+            
+            
             var car_id = jQuery(this).data('car_id');
             jQuery('.car_id').val(car_id);
-            $('#correction-validation').empty();
-            $('#consequencesdiv-validation').empty();
-        
+            $('#correction').empty();
+            $('#consequencesdiv').empty();
+            
             $.ajax({
                 type: 'POST',
                 url: '../car/getCorrectionAction', // Replace 'MyController' with your controller name
                 data: {car_id: car_id},
                 success: function (response) {
                     if(response != '[]'){
-        
+            
                         response = JSON.parse(response);
-        
+                        
                         var validation_correction_dealing_with_consequences = response[0].validation_correction_dealing_with_consequences;
                         var validation_correction_dealing_with_consequences_remarks = response[0].validation_correction_dealing_with_consequences_remarks;
         
@@ -1504,36 +1812,28 @@ var car = {
                         jQuery('.validation_correction_dealing_with_consequences').val(validation_correction_dealing_with_consequences);
                         jQuery('.validation_correction_dealing_with_consequences_remarks').val(validation_correction_dealing_with_consequences_remarks);
         
+            
+                        console.log(response);
+            
                         var correctionEntries = JSON.parse(response[0].correction_entry);
-                        
                         var count = 0;
-        
                         // Loop through correction entries and create HTML for each entry
                         correctionEntries.forEach(function (correction) {
-        
-        
-                            var review = correction.correction_acceptable_review !== undefined ? correction.correction_acceptable_review : '';
-                            var approval = correction.correction_acceptable_approval !== undefined ? correction.correction_acceptable_approval : '';
-                            var verification = correction.correction_acceptable_verification !== undefined ? correction.correction_acceptable_validation : '';
-                            
-                            var review_remarks = correction.correction_acceptable_remarks_review !== undefined ? correction.correction_acceptable_remarks_review : '';
-                            var approval_remarks = correction.correction_acceptable_remarks_approval !== undefined ? correction.correction_acceptable_remarks_approval : '';
-                            var verification_remarks = correction.correction_acceptable_remarks_verification !== undefined ? correction.correction_acceptable_remarks_verification : '';
-        
         
                             var validationValue = correction.correction_acceptable_validation !== undefined ? correction.correction_acceptable_validation : ''; // Added
                             var remarksReview = correction.correction_acceptable_remarks_validation !== undefined ? correction.correction_acceptable_remarks_validation : ''; // Added
         
+            
                             var correctionHtml = `
                                 <div class="col-lg-12 correction-repeatable added-repeat">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="mb-3">
-                                                <div class="row mb-2">
-                                                    <div class="col-xl-4">
+                                                <div class="row">
+                                                    <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Correction</label>
-                                                            <input type="text" class="form-control" readonly name="correction[]" value="${correction.correction}">
+                                                            <textarea class="form-control" name="correction[]" rows="4">${correction.correction}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -1551,14 +1851,6 @@ var car = {
                                                 </div>
                                                 <div class="row">
                                                     <label for="acceptable" class="form-label">Acceptable</label>
-        
-                                                    <input type="hidden" value="${review}" name="correction_acceptable_review[${count}]">
-                                                    <input type="hidden" value="${approval}" name="correction_acceptable_approval[${count}]">
-                                                    <input type="hidden" value="${verification}" name="correction_acceptable_verification[${count}]">
-        
-                                                    <input type="hidden" value="${review_remarks}" name="correction_acceptable_remarks_review[${count}]">
-                                                    <input type="hidden" value="${approval_remarks}" name="correction_acceptable_remarks_approval[${count}]">
-                                                    <input type="hidden" value="${verification_remarks}" name="correction_acceptable_remarks_verification[${count}]">
         
                                                     <div class="col-lg-3 text-inlign mb-2">
                                                         <div class="form-check form-check-inline">
@@ -1580,28 +1872,18 @@ var car = {
                                     </div>
                                 </div>
                             `;
-        
+            
                             count++;
-        
                             // Append the correction HTML to the container
-                            $('#correction-validation').append(correctionHtml);
+                            $('#correction').append(correctionHtml);
                         });
-        
+            
                         var consequenceEntries = JSON.parse(response[0].consequence_entry);
                         
-                        var count = 0;
                         // Loop through correction entries and create HTML for each entry
                         consequenceEntries.forEach(function (consequence) {
-        
-                            var review = consequence.consequence_acceptable_review !== undefined ? consequence.consequence_acceptable_review : '';
-                            var approval = consequence.consequence_acceptable_approval !== undefined ? consequence.consequence_acceptable_approval : '';
-                            var verification = consequence.consequence_acceptable_verification !== undefined ? consequence.consequence_acceptable_verification : '';
-        
-                            var review_remarks = consequence.consequence_acceptable_remarks_review !== undefined ? consequence.consequence_acceptable_remarks_review : '';
-                            var approval_remarks = consequence.consequence_acceptable_remarks_approval !== undefined ? consequence.consequence_acceptable_remarks_approval : '';
-                            var verification_remarks = consequence.consequence_acceptable_remarks_verification !== undefined ? consequence.consequence_acceptable_remarks_verification : '';
-        
-        
+            
+                            
                             var validationValue = consequence.consequence_acceptable_validation !== undefined ? consequence.consequence_acceptable_validation : ''; // Added
                             var remarksReview = consequence.consequence_acceptable_remarks_validation !== undefined ? consequence.consequence_acceptable_remarks_validation : ''; // Added
         
@@ -1610,17 +1892,17 @@ var car = {
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="mb-3">
-                                                <div class="row mb-2">
-                                                    <div class="col-xl-4">
+                                                <div class="row">
+                                                    <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                                            <input type="text" class="form-control" readonly name="consequence[]" value="${consequence.consequence}">
+                                                            <textarea class="form-control" name="consequence[]" rows="4">${correction.consequence}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
-                                                            <input type="text" class="form-control" readonly name="consequence_person_responsible[]" value="${consequence.consequence_person_responsible}">
+                                                            <input type="text" class="form-control" readonly name="consequence_person_responsible[]" placeholder="Enter Name of personnel" value="${consequence.consequence_person_responsible}">
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -1629,17 +1911,10 @@ var car = {
                                                             <input type="date" class="form-control" readonly name="consequence_completion_date[]" value="${consequence.consequence_completion_date}">
                                                         </div>
                                                     </div>
+                                
                                                 </div>
                                                 <div class="row">
                                                     <label for="acceptable" class="form-label">Acceptable</label>
-                                                    
-                                                        <input type="hidden" value="${review}" name="consequence_acceptable_review[${count}]">
-                                                        <input type="hidden" value="${approval}" name="consequence_acceptable_approval[${count}]">
-                                                        <input type="hidden" value="${verification}" name="consequence_acceptable_verification[${count}]">
-                                                        
-                                                        <input type="hidden" value="${review_remarks}" name="consequence_acceptable_remarks_review[${count}]">
-                                                        <input type="hidden" value="${approval_remarks}" name="consequence_acceptable_remarks_approval[${count}]">
-                                                        <input type="hidden" value="${verification_remarks}" name="consequence_acceptable_remarks_verification[${count}]">
         
                                                         <div class="col-lg-3 text-inlign mb-2">
                                                             <div class="form-check form-check-inline">
@@ -1655,22 +1930,23 @@ var car = {
                                                             <label for="consequence_acceptable_remarks_validation" class="form-label">Remarks</label>
                                                             <textarea class="form-control" name="consequence_acceptable_remarks_validation[${count}]" rows="4">${remarksReview}</textarea>
                                                         </div>
-                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             `;
-                            
-                            count++;
+            
                             // Append the correction HTML to the container
-                            $('#consequencesdiv-validation').append(consequenceHtml);
+                            $('#consequencesdiv').append(consequenceHtml);
                         });
-        
+            
                     } else {
                         // car.notifyError();
                     }   
                     
+            
+            
             
                 },
                 error: function () {
@@ -1678,8 +1954,7 @@ var car = {
                     car.notifyError();
                 }
             });
-        
-        
+            
         });
 
        
@@ -7091,10 +7366,22 @@ var car = {
 
             var formData = new FormData($("#correction_form")[0]);
 
+            if(jQuery('#car-correction-action.correction-action').length){
+                var action = "../car/saveCorrection";
+            } else if(jQuery('#car-correction-action.correction-action-review').length){
+                var action = "../car/saveCorrectionFR";
+            } else if(jQuery('#car-correction-action.correction-action-approval').length){
+                var action = "../car/saveCorrectionFA";
+            } else if(jQuery('#car-correction-action.correction-action-verification').length){
+                var action = "../car/saveCorrectionFV";
+            } else if(jQuery('#car-correction-action.correction-action-verification').length){
+                var action = "../car/saveCorrectionFVA";
+            }
+
             // Make an AJAX request to submit the form data
             $.ajax({
                 type: "POST", // or "GET" depending on your server-side handling
-                url: "../car/saveCorrection", // Replace with your server-side endpoint
+                url: action, // Replace with your server-side endpoint
                 data: formData,
                 processData: false,  // Prevent jQuery from processing the data
                 contentType: false,
