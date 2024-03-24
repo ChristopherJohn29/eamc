@@ -521,7 +521,7 @@ var car = {
                                                 <div class="col-xl-4">
                                                     <div class="mb-3 mb-xl-0">
                                                         <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
-                                                        <input type="text" class="form-control" name="consequence_person_responsible[${count}]" placeholder="Enter Name of personnel" value="">
+                                                        <input type="text" class="form-control" name="consequence_person_responsible[]" placeholder="Enter Name of personnel" value="">
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4">
