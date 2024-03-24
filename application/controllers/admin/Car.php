@@ -76,7 +76,7 @@ class car extends CI_Controller {
 
         $correction = $this->input->post('correction');
         $correction_person_responsible = $this->input->post('correction_person_responsible');
-        $correction_person_responsible = $this->input->post('correction_person_responsible_url');
+        $correction_person_responsible_url = $this->input->post('correction_person_responsible_url');
         $correction_completion_date = $this->input->post('correction_completion_date');
 
 
@@ -215,7 +215,7 @@ class car extends CI_Controller {
 
         $correction = $this->input->post('correction');
         $correction_person_responsible = $this->input->post('correction_person_responsible');
-        $correction_person_responsible = $this->input->post('correction_person_responsible_url');
+        $correction_person_responsible_url = $this->input->post('correction_person_responsible_url');
         $correction_completion_date = $this->input->post('correction_completion_date');
 
         $correction_acceptable_review = $this->input->post('correction_acceptable_review');
@@ -318,7 +318,7 @@ class car extends CI_Controller {
 
         $correction = $this->input->post('correction');
         $correction_person_responsible = $this->input->post('correction_person_responsible');
-        $correction_person_responsible = $this->input->post('correction_person_responsible_url');
+        $correction_person_responsible_url = $this->input->post('correction_person_responsible_url');
         $correction_completion_date = $this->input->post('correction_completion_date');
 
 
@@ -416,7 +416,7 @@ class car extends CI_Controller {
 
         $correction = $this->input->post('correction');
         $correction_person_responsible = $this->input->post('correction_person_responsible');
-        $correction_person_responsible = $this->input->post('correction_person_responsible_url');
+        $correction_person_responsible_url = $this->input->post('correction_person_responsible_url');
         $correction_completion_date = $this->input->post('correction_completion_date');
 
         $correction_acceptable_verification = $this->input->post('correction_acceptable_verification');
@@ -514,7 +514,7 @@ class car extends CI_Controller {
 
         $correction = $this->input->post('correction');
         $correction_person_responsible = $this->input->post('correction_person_responsible');
-        $correction_person_responsible = $this->input->post('correction_person_responsible_url');
+        $correction_person_responsible_url = $this->input->post('correction_person_responsible_url');
         $correction_completion_date = $this->input->post('correction_completion_date');
 
 
