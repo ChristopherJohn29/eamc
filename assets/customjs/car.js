@@ -1667,7 +1667,7 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Correction</label>
-                                                            <textarea class="form-control" name="correction[]" rows="4">${correction.correction}</textarea>
+                                                            <textarea class="form-control" name="correction[${count}]" rows="4">${correction.correction}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
