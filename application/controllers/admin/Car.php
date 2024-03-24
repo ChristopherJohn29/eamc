@@ -76,6 +76,7 @@ class car extends CI_Controller {
 
         $correction = $this->input->post('correction');
         $correction_person_responsible = $this->input->post('correction_person_responsible');
+        $correction_person_responsible = $this->input->post('correction_person_responsible_url');
         $correction_completion_date = $this->input->post('correction_completion_date');
 
 
@@ -93,6 +94,7 @@ class car extends CI_Controller {
             if($correction[$key]){
                 $correction_entry[$key]['correction'] = isset($correction[$key]) ? $correction[$key] : "";
                 $correction_entry[$key]['correction_person_responsible'] = isset($correction_person_responsible[$key]) ? $correction_person_responsible[$key] : "";
+                $correction_entry[$key]['correction_person_responsible_url'] = isset($correction_person_responsible_url[$key]) ? $correction_person_responsible_url[$key] : "";
                 $correction_entry[$key]['correction_completion_date'] = isset($correction_completion_date[$key]) ? $correction_completion_date[$key] : "";
             }
             
@@ -101,6 +103,7 @@ class car extends CI_Controller {
         //array
         $consequence = $this->input->post('consequence');
         $consequence_person_responsible = $this->input->post('consequence_person_responsible');
+        $consequence_person_responsible_url = $this->input->post('consequence_person_responsible_url');
         $consequence_completion_date = $this->input->post('consequence_completion_date');
 
         if(!empty($car)){
@@ -117,6 +120,7 @@ class car extends CI_Controller {
             if($consequence[$key]){
                 $consequence_entry[$key]['consequence'] = isset($consequence[$key]) ? $consequence[$key] : "";
                 $consequence_entry[$key]['consequence_person_responsible'] = isset($consequence_person_responsible[$key]) ? $consequence_person_responsible[$key] : "";
+                $consequence_entry[$key]['consequence_person_responsible_url'] = isset($consequence_person_responsible_url[$key]) ? $consequence_person_responsible_url[$key] : "";
                 $consequence_entry[$key]['consequence_completion_date'] = isset($consequence_completion_date[$key]) ? $consequence_completion_date[$key] : "";
 
             }
@@ -211,6 +215,7 @@ class car extends CI_Controller {
 
         $correction = $this->input->post('correction');
         $correction_person_responsible = $this->input->post('correction_person_responsible');
+        $correction_person_responsible = $this->input->post('correction_person_responsible_url');
         $correction_completion_date = $this->input->post('correction_completion_date');
 
         $correction_acceptable_review = $this->input->post('correction_acceptable_review');
@@ -226,6 +231,7 @@ class car extends CI_Controller {
             if($correction[$key]){
                 $correction_entry[$key]['correction'] = isset($correction[$key]) ? $correction[$key] : "";
                 $correction_entry[$key]['correction_person_responsible'] = isset($correction_person_responsible[$key]) ? $correction_person_responsible[$key] : "";
+                $correction_entry[$key]['correction_person_responsible_url'] = isset($correction_person_responsible_url[$key]) ? $correction_person_responsible_url[$key] : "";
                 $correction_entry[$key]['correction_completion_date'] = isset($correction_completion_date[$key]) ? $correction_completion_date[$key] : "";
                 $correction_entry[$key]['correction_acceptable_review'] = isset($correction_acceptable_review[$key]) ? $correction_acceptable_review[$key] : "";
                 $correction_entry[$key]['correction_acceptable_remarks_review'] = isset($correction_acceptable_remarks_review[$key]) ? $correction_acceptable_remarks_review[$key] : "";
@@ -243,6 +249,7 @@ class car extends CI_Controller {
         //array
         $consequence = $this->input->post('consequence');
         $consequence_person_responsible = $this->input->post('consequence_person_responsible');
+        $consequence_person_responsible_url = $this->input->post('consequence_person_responsible_url');
         $consequence_completion_date = $this->input->post('consequence_completion_date');
 
 
@@ -253,6 +260,7 @@ class car extends CI_Controller {
             if($consequence[$key]){
                 $consequence_entry[$key]['consequence'] = isset($consequence[$key]) ? $consequence[$key] : "";
                 $consequence_entry[$key]['consequence_person_responsible'] = isset($consequence_person_responsible[$key]) ? $consequence_person_responsible[$key] : "";
+                $consequence_entry[$key]['consequence_person_responsible_url'] = isset($consequence_person_responsible_url[$key]) ? $consequence_person_responsible_url[$key] : "";
                 $consequence_entry[$key]['consequence_completion_date'] = isset($consequence_completion_date[$key]) ? $consequence_completion_date[$key] : "";
                 $consequence_entry[$key]['consequence_acceptable_review'] = isset($consequence_acceptable_review[$key]) ? $consequence_acceptable_review[$key] : "";
                 $consequence_entry[$key]['consequence_acceptable_remarks_review'] = isset($consequence_acceptable_remarks_review[$key]) ? $consequence_acceptable_remarks_review[$key] : "";
@@ -310,6 +318,7 @@ class car extends CI_Controller {
 
         $correction = $this->input->post('correction');
         $correction_person_responsible = $this->input->post('correction_person_responsible');
+        $correction_person_responsible = $this->input->post('correction_person_responsible_url');
         $correction_completion_date = $this->input->post('correction_completion_date');
 
 
@@ -320,6 +329,7 @@ class car extends CI_Controller {
             if($correction[$key]){
                 $correction_entry[$key]['correction'] = isset($correction[$key]) ? $correction[$key] : "";
                 $correction_entry[$key]['correction_person_responsible'] = isset($correction_person_responsible[$key]) ? $correction_person_responsible[$key] : "";
+                $correction_entry[$key]['correction_person_responsible_url'] = isset($correction_person_responsible_url[$key]) ? $correction_person_responsible_url[$key] : "";
                 $correction_entry[$key]['correction_completion_date'] = isset($correction_completion_date[$key]) ? $correction_completion_date[$key] : "";
                 $correction_entry[$key]['correction_acceptable_approval'] = isset($correction_acceptable_approval[$key]) ? $correction_acceptable_approval[$key] : "";
                 $correction_entry[$key]['correction_acceptable_remarks_approval'] = isset($correction_acceptable_remarks_approval[$key]) ? $correction_acceptable_remarks_approval[$key] : "";
@@ -337,6 +347,7 @@ class car extends CI_Controller {
         //array
         $consequence = $this->input->post('consequence');
         $consequence_person_responsible = $this->input->post('consequence_person_responsible');
+        $consequence_person_responsible_url = $this->input->post('consequence_person_responsible_url');
         $consequence_completion_date = $this->input->post('consequence_completion_date');
 
 
@@ -348,6 +359,7 @@ class car extends CI_Controller {
             if($consequence[$key]){
                 $consequence_entry[$key]['consequence'] = isset($consequence[$key]) ? $consequence[$key] : "";
                 $consequence_entry[$key]['consequence_person_responsible'] = isset($consequence_person_responsible[$key]) ? $consequence_person_responsible[$key] : "";
+                $consequence_entry[$key]['consequence_person_responsible_url'] = isset($consequence_person_responsible_url[$key]) ? $consequence_person_responsible_url[$key] : "";
                 $consequence_entry[$key]['consequence_completion_date'] = isset($consequence_completion_date[$key]) ? $consequence_completion_date[$key] : "";
                 $consequence_entry[$key]['consequence_acceptable_approval'] = isset($consequence_acceptable_approval[$key]) ? $consequence_acceptable_approval[$key] : "";
                 $consequence_entry[$key]['consequence_acceptable_remarks_approval'] = isset($consequence_acceptable_remarks_approval[$key]) ? $consequence_acceptable_remarks_approval[$key] : "";
@@ -404,6 +416,7 @@ class car extends CI_Controller {
 
         $correction = $this->input->post('correction');
         $correction_person_responsible = $this->input->post('correction_person_responsible');
+        $correction_person_responsible = $this->input->post('correction_person_responsible_url');
         $correction_completion_date = $this->input->post('correction_completion_date');
 
         $correction_acceptable_verification = $this->input->post('correction_acceptable_verification');
@@ -413,6 +426,7 @@ class car extends CI_Controller {
             if($correction[$key]){
                 $correction_entry[$key]['correction'] = isset($correction[$key]) ? $correction[$key] : "";
                 $correction_entry[$key]['correction_person_responsible'] = isset($correction_person_responsible[$key]) ? $correction_person_responsible[$key] : "";
+                $correction_entry[$key]['correction_person_responsible_url'] = isset($correction_person_responsible_url[$key]) ? $correction_person_responsible_url[$key] : "";
                 $correction_entry[$key]['correction_completion_date'] = isset($correction_completion_date[$key]) ? $correction_completion_date[$key] : "";
                 $correction_entry[$key]['correction_acceptable_verification'] = isset($correction_acceptable_verification[$key]) ? $correction_acceptable_verification[$key] : "";
                 $correction_entry[$key]['correction_acceptable_remarks_verification'] = isset($correction_acceptable_remarks_verification[$key]) ? $correction_acceptable_remarks_verification[$key] : "";
@@ -430,6 +444,7 @@ class car extends CI_Controller {
         //array
         $consequence = $this->input->post('consequence');
         $consequence_person_responsible = $this->input->post('consequence_person_responsible');
+        $consequence_person_responsible_url = $this->input->post('consequence_person_responsible_url');
         $consequence_completion_date = $this->input->post('consequence_completion_date');
 
 
@@ -440,6 +455,7 @@ class car extends CI_Controller {
             if($consequence[$key]){
                 $consequence_entry[$key]['consequence'] = isset($consequence[$key]) ? $consequence[$key] : "";
                 $consequence_entry[$key]['consequence_person_responsible'] = isset($consequence_person_responsible[$key]) ? $consequence_person_responsible[$key] : "";
+                $consequence_entry[$key]['consequence_person_responsible_url'] = isset($consequence_person_responsible_url[$key]) ? $consequence_person_responsible_url[$key] : "";
                 $consequence_entry[$key]['consequence_completion_date'] = isset($consequence_completion_date[$key]) ? $consequence_completion_date[$key] : "";
                 $consequence_entry[$key]['consequence_acceptable_verification'] = isset($consequence_acceptable_verification[$key]) ? $consequence_acceptable_verification[$key] : "";
                 $consequence_entry[$key]['consequence_acceptable_remarks_verification'] = isset($consequence_acceptable_remarks_verification[$key]) ? $consequence_acceptable_remarks_verification[$key] : "";
@@ -498,6 +514,7 @@ class car extends CI_Controller {
 
         $correction = $this->input->post('correction');
         $correction_person_responsible = $this->input->post('correction_person_responsible');
+        $correction_person_responsible = $this->input->post('correction_person_responsible_url');
         $correction_completion_date = $this->input->post('correction_completion_date');
 
 
@@ -510,6 +527,7 @@ class car extends CI_Controller {
         //array
         $consequence = $this->input->post('consequence');
         $consequence_person_responsible = $this->input->post('consequence_person_responsible');
+        $consequence_person_responsible_url = $this->input->post('consequence_person_responsible_url');
         $consequence_completion_date = $this->input->post('consequence_completion_date');
 
 

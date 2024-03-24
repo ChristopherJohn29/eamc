@@ -366,7 +366,7 @@ var car = {
                         console.log(response);
         
                         var correctionEntries = JSON.parse(response[0].correction_entry);
-                        
+                        var count = 0;
                         // Loop through correction entries and create HTML for each entry
                         correctionEntries.forEach(function (correction) {
                             var correctionHtml = `
@@ -378,19 +378,25 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Correction</label>
-                                                            <textarea class="form-control" name="correction[]" rows="4">${correction.correction}</textarea>
+                                                            <textarea class="form-control" name="correction[${count}]" rows="4">${correction.correction}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
-                                                            <input type="text" class="form-control" readonly name="correction_person_responsible[]" placeholder="Enter Name of personnel" value="${correction.correction_person_responsible}">
+                                                            <input type="text" class="form-control" readonly name="correction_person_responsible[${count}]" placeholder="Enter Name of personnel" value="${correction.correction_person_responsible}">
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Completion Date</label>
-                                                            <input type="date" class="form-control" readonly name="correction_completion_date[]" value="${correction.correction_completion_date}">
+                                                            <input type="date" class="form-control" readonly name="correction_completion_date[${count}]" value="${correction.correction_completion_date}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-6 mt-2">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label class="form-label">File URL</label>
+                                                            <input type="text" class="form-control selectize-close-btn" readonly name="correction_person_responsible_url[${count}]" value="${correction.correction_person_responsible_url}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -400,13 +406,13 @@ var car = {
                                 </div>
                             `;
         
-                    
+                            count++;
                             // Append the correction HTML to the container
                             $('#correction').append(correctionHtml);
                         });
         
                         var consequenceEntries = JSON.parse(response[0].consequence_entry);
-                        
+                        var count = 0;
                         // Loop through correction entries and create HTML for each entry
                         consequenceEntries.forEach(function (consequence) {
         
@@ -419,29 +425,34 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                                            <textarea class="form-control" name="consequence[]" rows="4">${consequence.consequence}</textarea>
+                                                            <textarea class="form-control" name="consequence[${count}]" rows="4">${consequence.consequence}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
-                                                            <input type="text" class="form-control" readonly name="consequence_person_responsible[]" placeholder="Enter Name of personnel" value="${consequence.consequence_person_responsible}">
+                                                            <input type="text" class="form-control" readonly name="consequence_person_responsible[${count}]" placeholder="Enter Name of personnel" value="${consequence.consequence_person_responsible}">
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Completion Date</label>
-                                                            <input type="date" class="form-control" readonly name="consequence_completion_date[]" value="${consequence.consequence_completion_date}">
+                                                            <input type="date" class="form-control" readonly name="consequence_completion_date[${count}]" value="${consequence.consequence_completion_date}">
                                                         </div>
                                                     </div>
-                                
+                                                    <div class="col-xl-6 mt-2">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label class="form-label">File URL</label>
+                                                            <input type="text" class="form-control selectize-close-btn" readonly name="consequence_person_responsible_url[${count}]" value="${consequence.consequence_person_responsible_url}">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             `;
-        
+                            count++
                             // Append the correction HTML to the container
                             $('#consequencesdiv').append(consequenceHtml);
                         });
@@ -459,19 +470,25 @@ var car = {
                                             <div class="col-xl-12">
                                                 <div class="mb-3 mb-xl-0">
                                                     <label for="exampleInputEmail1" class="form-label">Correction</label>
-                                                    <textarea class="form-control" name="correction[]" rows="4"></textarea>
+                                                    <textarea class="form-control" name="correction[${count}]" rows="4"></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-xl-4">
                                                 <div class="mb-3 mb-xl-0">
                                                     <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
-                                                    <input type="text" class="form-control" name="correction_person_responsible[]" placeholder="Enter Name of personnel" value="">
+                                                    <input type="text" class="form-control" name="correction_person_responsible[${count}]" placeholder="Enter Name of personnel" value="">
                                                 </div>
                                             </div>
                                             <div class="col-xl-4">
                                                 <div class="mb-3 mb-xl-0">
                                                     <label for="exampleInputEmail1" class="form-label">Completion Date</label>
-                                                    <input type="date" class="form-control" name="correction_completion_date[]" value="">
+                                                    <input type="date" class="form-control" name="correction_completion_date[${count}]" value="">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 mt-2">
+                                                <div class="mb-3 mb-xl-0">
+                                                    <label class="form-label">File URL</label>
+                                                    <input type="text" class="form-control selectize-close-btn" readonly name="correction_person_responsible_url[${count}]" value="">
                                                 </div>
                                             </div>
                                             <div class="col-xl-1">
@@ -498,19 +515,25 @@ var car = {
                                                 <div class="col-xl-12">
                                                     <div class="mb-3 mb-xl-0">
                                                         <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                                        <textarea class="form-control" name="consequence[]" rows="4"></textarea>
+                                                        <textarea class="form-control" name="consequence[${count}]" rows="4"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4">
                                                     <div class="mb-3 mb-xl-0">
                                                         <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
-                                                        <input type="text" class="form-control" name="consequence_person_responsible[]" placeholder="Enter Name of personnel" value="">
+                                                        <input type="text" class="form-control" name="consequence_person_responsible[${count}]" placeholder="Enter Name of personnel" value="">
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4">
                                                     <div class="mb-3 mb-xl-0">
                                                         <label for="exampleInputEmail1" class="form-label">Completion Date</label>
-                                                        <input type="date" class="form-control" name="consequence_completion_date[]" value="">
+                                                        <input type="date" class="form-control" name="consequence_completion_date[${count}]" value="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 mt-2">
+                                                    <div class="mb-3 mb-xl-0">
+                                                        <label class="form-label">File URL</label>
+                                                        <input type="text" class="form-control selectize-close-btn" readonly name="consequence_person_responsible_url[${count}]" value="">
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-1">
@@ -527,6 +550,22 @@ var car = {
                     `;
         
                     $('#consequencesdiv').append(consequenceHtmlLast);
+        
+                    setTimeout(function() {
+                        jQuery(".selectize-close-btn").selectize({
+                            plugins: ["remove_button"],
+                            persist: !1,
+                            create: !0,
+                            render: {
+                                item: function (e, a) {
+                                    return '<div>"' + a(e.text) + '"</div>';
+                                },
+                            },
+                            onDelete: function (e) {
+                                return confirm(1 < e.length ? "Are you sure you want to remove these " + e.length + " items?" : 'Are you sure you want to remove "' + e[0] + '"?');
+                            },
+                        });
+                    }, 1000);
             
                 },
                 error: function () {
@@ -535,10 +574,12 @@ var car = {
                 }
             });
         
+        
+        
         });
-
+        
         $('#car-global-datatable').on('click', '.for-osqm-review-correction', function () {
-
+        
             var $action = '<div class="row mb-2">' +
                 '<div class="form-group col-md-12">' +
                 '<label for="review_correction_dealing_with_consequences" class="form-label">Review of Correction and Dealing with the Consequences</label>' +
@@ -564,7 +605,7 @@ var car = {
         
             jQuery('#add-correction').addClass('hidden');
             jQuery('#add-consequences').addClass('hidden');
-         
+            
             
             $car_id = jQuery(this).data('car_id');
             $requestor = jQuery(this).data('requestor');
@@ -697,19 +738,25 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Correction</label>
-                                                            <textarea class="form-control" name="correction[]" rows="4">${correction.correction}</textarea>
+                                                            <textarea class="form-control" name="correction[${count}]" rows="4">${correction.correction}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
-                                                            <input type="text" class="form-control" readonly name="correction_person_responsible[]" placeholder="Enter Name of personnel" value="${correction.correction_person_responsible}">
+                                                            <input type="text" class="form-control" readonly name="correction_person_responsible[${count}]" placeholder="Enter Name of personnel" value="${correction.correction_person_responsible}">
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Completion Date</label>
-                                                            <input type="date" class="form-control" readonly name="correction_completion_date[]" value="${correction.correction_completion_date}">
+                                                            <input type="date" class="form-control" readonly name="correction_completion_date[${count}]" value="${correction.correction_completion_date}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-6 mt-2">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label class="form-label">File URL</label>
+                                                            <input type="text" class="form-control selectize-close-btn" readonly name="correction_person_responsible_url[${count}]" value="${correction.correction_person_responsible_url}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -759,22 +806,27 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                                            <textarea class="form-control" name="consequence[]" rows="4">${consequence.consequence}</textarea>
+                                                            <textarea class="form-control" name="consequence[${count}]" rows="4">${consequence.consequence}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
-                                                            <input type="text" class="form-control" readonly name="consequence_person_responsible[]" placeholder="Enter Name of personnel" value="${consequence.consequence_person_responsible}">
+                                                            <input type="text" class="form-control" readonly name="consequence_person_responsible[${count}]" placeholder="Enter Name of personnel" value="${consequence.consequence_person_responsible}">
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Completion Date</label>
-                                                            <input type="date" class="form-control" readonly name="consequence_completion_date[]" value="${consequence.consequence_completion_date}">
+                                                            <input type="date" class="form-control" readonly name="consequence_completion_date[${count}]" value="${consequence.consequence_completion_date}">
                                                         </div>
                                                     </div>
-                                
+                                                    <div class="col-xl-6 mt-2">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label class="form-label">File URL</label>
+                                                            <input type="text" class="form-control selectize-close-btn" readonly name="consequence_person_responsible_url[${count}]" value="${consequence.consequence_person_responsible_url}">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="row">
                                                     <label for="acceptable" class="form-label">Acceptable</label>
@@ -801,6 +853,22 @@ var car = {
                             count++;
                             // Append the correction HTML to the container
                             $('#consequencesdiv').append(consequenceHtml);
+        
+                            setTimeout(function() {
+                                jQuery(".selectize-close-btn").selectize({
+                                    plugins: ["remove_button"],
+                                    persist: !1,
+                                    create: !0,
+                                    render: {
+                                        item: function (e, a) {
+                                            return '<div>"' + a(e.text) + '"</div>';
+                                        },
+                                    },
+                                    onDelete: function (e) {
+                                        return confirm(1 < e.length ? "Are you sure you want to remove these " + e.length + " items?" : 'Are you sure you want to remove "' + e[0] + '"?');
+                                    },
+                                });
+                            }, 1000);
                         });
             
                     } else {
@@ -818,9 +886,9 @@ var car = {
             });
             
         });
-
+        
         $('#car-global-datatable').on('click', '.for-osqm-approval-correction', function () {
-
+        
             var $action = '<div class="row mb-2">' +
                 '<div class="form-group col-md-12">' +
                 '<label for="approval_correction_dealing_with_consequences" class="form-label">Review of Correction and Dealing with the Consequences</label>' +
@@ -978,19 +1046,25 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Correction</label>
-                                                            <textarea class="form-control" name="correction[]" rows="4">${correction.correction}</textarea>
+                                                            <textarea class="form-control" name="correction[${count}]" rows="4">${correction.correction}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
-                                                            <input type="text" class="form-control" readonly name="correction_person_responsible[]" placeholder="Enter Name of personnel" value="${correction.correction_person_responsible}">
+                                                            <input type="text" class="form-control" readonly name="correction_person_responsible[${count}]" placeholder="Enter Name of personnel" value="${correction.correction_person_responsible}">
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Completion Date</label>
-                                                            <input type="date" class="form-control" readonly name="correction_completion_date[]" value="${correction.correction_completion_date}">
+                                                            <input type="date" class="form-control" readonly name="correction_completion_date[${count}]" value="${correction.correction_completion_date}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-6 mt-2">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label class="form-label">File URL</label>
+                                                            <input type="text" class="form-control selectize-close-btn" readonly name="correction_person_responsible_url[${count}]" value="${correction.correction_person_responsible_url}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1041,22 +1115,27 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                                            <textarea class="form-control" name="consequence[]" rows="4">${consequence.consequence}</textarea>
+                                                            <textarea class="form-control" name="consequence[${count}]" rows="4">${consequence.consequence}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
-                                                            <input type="text" class="form-control" readonly name="consequence_person_responsible[]" placeholder="Enter Name of personnel" value="${consequence.consequence_person_responsible}">
+                                                            <input type="text" class="form-control" readonly name="consequence_person_responsible[${count}]" placeholder="Enter Name of personnel" value="${consequence.consequence_person_responsible}">
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Completion Date</label>
-                                                            <input type="date" class="form-control" readonly name="consequence_completion_date[]" value="${consequence.consequence_completion_date}">
+                                                            <input type="date" class="form-control" readonly name="consequence_completion_date[${count}]" value="${consequence.consequence_completion_date}">
                                                         </div>
                                                     </div>
-                                
+                                                    <div class="col-xl-6 mt-2">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label class="form-label">File URL</label>
+                                                            <input type="text" class="form-control selectize-close-btn" readonly name="consequence_person_responsible_url[${count}]" value="${consequence.consequence_person_responsible_url}">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="row">
                                                     <label for="acceptable" class="form-label">Acceptable</label>
@@ -1084,6 +1163,22 @@ var car = {
                             count++;
                             // Append the correction HTML to the container
                             $('#consequencesdiv').append(consequenceHtml);
+        
+                            setTimeout(function() {
+                                jQuery(".selectize-close-btn").selectize({
+                                    plugins: ["remove_button"],
+                                    persist: !1,
+                                    create: !0,
+                                    render: {
+                                        item: function (e, a) {
+                                            return '<div>"' + a(e.text) + '"</div>';
+                                        },
+                                    },
+                                    onDelete: function (e) {
+                                        return confirm(1 < e.length ? "Are you sure you want to remove these " + e.length + " items?" : 'Are you sure you want to remove "' + e[0] + '"?');
+                                    },
+                                });
+                            }, 1000);
                         });
             
                     } else {
@@ -1101,9 +1196,9 @@ var car = {
             });
             
         });
-
+        
         $('#car-global-datatable').on('click', '.for-osqm-verification-correction', function () {
-
+        
             jQuery('#add-correction').addClass('hidden');
             jQuery('#add-consequences').addClass('hidden');
         
@@ -1261,19 +1356,25 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Correction</label>
-                                                            <textarea class="form-control" name="correction[]" rows="4">${correction.correction}</textarea>
+                                                            <textarea class="form-control" name="correction[${count}]" rows="4">${correction.correction}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
-                                                            <input type="text" class="form-control" readonly name="correction_person_responsible[]" placeholder="Enter Name of personnel" value="${correction.correction_person_responsible}">
+                                                            <input type="text" class="form-control" readonly name="correction_person_responsible[${count}]" placeholder="Enter Name of personnel" value="${correction.correction_person_responsible}">
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Completion Date</label>
-                                                            <input type="date" class="form-control" readonly name="correction_completion_date[]" value="${correction.correction_completion_date}">
+                                                            <input type="date" class="form-control" readonly name="correction_completion_date[${count}]" value="${correction.correction_completion_date}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-6 mt-2">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label class="form-label">File URL</label>
+                                                            <input type="text" class="form-control selectize-close-btn" readonly name="correction_person_responsible_url[${count}]" value="${correction.correction_person_responsible_url}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1324,22 +1425,27 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                                            <textarea class="form-control" name="consequence[]" rows="4">${consequence.consequence}</textarea>
+                                                            <textarea class="form-control" name="consequence[${count}]" rows="4">${consequence.consequence}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
-                                                            <input type="text" class="form-control" readonly name="consequence_person_responsible[]" placeholder="Enter Name of personnel" value="${consequence.consequence_person_responsible}">
+                                                            <input type="text" class="form-control" readonly name="consequence_person_responsible[${count}]" placeholder="Enter Name of personnel" value="${consequence.consequence_person_responsible}">
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Completion Date</label>
-                                                            <input type="date" class="form-control" readonly name="consequence_completion_date[]" value="${consequence.consequence_completion_date}">
+                                                            <input type="date" class="form-control" readonly name="consequence_completion_date[${count}]" value="${consequence.consequence_completion_date}">
                                                         </div>
                                                     </div>
-                                
+                                                    <div class="col-xl-6 mt-2">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label class="form-label">File URL</label>
+                                                            <input type="text" class="form-control selectize-close-btn" readonly name="consequence_person_responsible_url[${count}]" value="${consequence.consequence_person_responsible_url}">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="row">
                                                     <label for="acceptable" class="form-label">5.2 Was the consequences properly handled or treated?</label>
@@ -1364,9 +1470,25 @@ var car = {
                                     </div>
                                 </div>
                             `;
-            
+                            count++;
                             // Append the correction HTML to the container
                             $('#consequencesdiv').append(consequenceHtml);
+        
+                            setTimeout(function() {
+                                jQuery(".selectize-close-btn").selectize({
+                                    plugins: ["remove_button"],
+                                    persist: !1,
+                                    create: !0,
+                                    render: {
+                                        item: function (e, a) {
+                                            return '<div>"' + a(e.text) + '"</div>';
+                                        },
+                                    },
+                                    onDelete: function (e) {
+                                        return confirm(1 < e.length ? "Are you sure you want to remove these " + e.length + " items?" : 'Are you sure you want to remove "' + e[0] + '"?');
+                                    },
+                                });
+                            }, 1000);
                         });
             
                     } else {
@@ -1384,10 +1506,10 @@ var car = {
             });
             
         });
-
-
+        
+        
         $('#car-global-datatable').on('click', '.for-osqm-validation-correction', function () {
-
+        
             jQuery('#add-correction').addClass('hidden');
             jQuery('#add-consequences').addClass('hidden');
         
@@ -1551,13 +1673,19 @@ var car = {
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
-                                                            <input type="text" class="form-control" readonly name="correction_person_responsible[]" placeholder="Enter Name of personnel" value="${correction.correction_person_responsible}">
+                                                            <input type="text" class="form-control" readonly name="correction_person_responsible[${count}]" placeholder="Enter Name of personnel" value="${correction.correction_person_responsible}">
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Completion Date</label>
-                                                            <input type="date" class="form-control" readonly name="correction_completion_date[]" value="${correction.correction_completion_date}">
+                                                            <input type="date" class="form-control" readonly name="correction_completion_date[${count}]" value="${correction.correction_completion_date}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-6 mt-2">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label class="form-label">File URL</label>
+                                                            <input type="text" class="form-control selectize-close-btn" readonly name="correction_person_responsible_url[${count}]" value="${correction.correction_person_responsible_url}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1608,22 +1736,27 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                                            <textarea class="form-control" name="consequence[]" rows="4">${consequence.consequence}</textarea>
+                                                            <textarea class="form-control" name="consequence[${count}]" rows="4">${consequence.consequence}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
-                                                            <input type="text" class="form-control" readonly name="consequence_person_responsible[]" placeholder="Enter Name of personnel" value="${consequence.consequence_person_responsible}">
+                                                            <input type="text" class="form-control" readonly name="consequence_person_responsible[${count}]" placeholder="Enter Name of personnel" value="${consequence.consequence_person_responsible}">
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Completion Date</label>
-                                                            <input type="date" class="form-control" readonly name="consequence_completion_date[]" value="${consequence.consequence_completion_date}">
+                                                            <input type="date" class="form-control" readonly name="consequence_completion_date[${count}]" value="${consequence.consequence_completion_date}">
                                                         </div>
                                                     </div>
-                                
+                                                    <div class="col-xl-6 mt-2">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label class="form-label">File URL</label>
+                                                            <input type="text" class="form-control selectize-close-btn" readonly name="consequence_person_responsible_url[${count}]" value="${consequence.consequence_person_responsible_url}">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="row">
                                                     <label for="acceptable" class="form-label">5.2 Was the consequences properly handled or treated?</label>
@@ -1651,6 +1784,22 @@ var car = {
                             count++;
                             // Append the correction HTML to the container
                             $('#consequencesdiv').append(consequenceHtml);
+        
+                            setTimeout(function() {
+                                jQuery(".selectize-close-btn").selectize({
+                                    plugins: ["remove_button"],
+                                    persist: !1,
+                                    create: !0,
+                                    render: {
+                                        item: function (e, a) {
+                                            return '<div>"' + a(e.text) + '"</div>';
+                                        },
+                                    },
+                                    onDelete: function (e) {
+                                        return confirm(1 < e.length ? "Are you sure you want to remove these " + e.length + " items?" : 'Are you sure you want to remove "' + e[0] + '"?');
+                                    },
+                                });
+                            }, 1000);
                         });
             
                     } else {
@@ -1668,8 +1817,7 @@ var car = {
             });
             
         });
-
-       
+        
 
         $('#car-global-datatable').on('click', '.edit-corrective-action', function () {
 
@@ -2043,9 +2191,6 @@ var car = {
                                 `;
                                 // Append the identified root HTML to the container
                                 $('#identified-root').append(identifiedRootHtml);
-         
-                                count++;
-                                }, 3000);
 
                                 setTimeout(function() {
                                     jQuery(".selectize-close-btn").selectize({
@@ -2061,7 +2206,12 @@ var car = {
                                             return confirm(1 < e.length ? "Are you sure you want to remove these " + e.length + " items?" : 'Are you sure you want to remove "' + e[0] + '"?');
                                         },
                                     });
+                                }, 1000);
+         
+                                count++;
                                 }, 3000);
+
+                              
                             });
          
                         }
@@ -2319,24 +2469,25 @@ var car = {
                             diList.notifyError();
                         }
                     });
+
+                    setTimeout(function() {
+                        jQuery(".selectize-close-btn").selectize({
+                            plugins: ["remove_button"],
+                            persist: !1,
+                            create: !0,
+                            render: {
+                                item: function (e, a) {
+                                    return '<div>"' + a(e.text) + '"</div>';
+                                },
+                            },
+                            onDelete: function (e) {
+                                return confirm(1 < e.length ? "Are you sure you want to remove these " + e.length + " items?" : 'Are you sure you want to remove "' + e[0] + '"?');
+                            },
+                        });
+                    }, 1000);
                     
                 }, 3000);
 
-                setTimeout(function() {
-                    jQuery(".selectize-close-btn").selectize({
-                        plugins: ["remove_button"],
-                        persist: !1,
-                        create: !0,
-                        render: {
-                            item: function (e, a) {
-                                return '<div>"' + a(e.text) + '"</div>';
-                            },
-                        },
-                        onDelete: function (e) {
-                            return confirm(1 < e.length ? "Are you sure you want to remove these " + e.length + " items?" : 'Are you sure you want to remove "' + e[0] + '"?');
-                        },
-                    });
-                }, 3000);
          
          
                 },
@@ -2897,9 +3048,7 @@ var car = {
                                 `;
                                 // Append the identified root HTML to the container
                                 $('#identified-root').append(identifiedRootHtml);
-         
-                                count++;
-                                }, 3000);
+
 
                                 setTimeout(function() {
                                     jQuery(".selectize-close-btn").selectize({
@@ -2915,6 +3064,9 @@ var car = {
                                             return confirm(1 < e.length ? "Are you sure you want to remove these " + e.length + " items?" : 'Are you sure you want to remove "' + e[0] + '"?');
                                         },
                                     });
+                                }, 1000);
+         
+                                count++;
                                 }, 3000);
                             });
          
@@ -3475,9 +3627,6 @@ var car = {
                             // Append the identified root HTML to the container
                             $('#identified-root').append(identifiedRootHtml);
         
-                            count++;
-                            }, 3000);
-
                             setTimeout(function() {
                                 jQuery(".selectize-close-btn").selectize({
                                     plugins: ["remove_button"],
@@ -3492,6 +3641,9 @@ var car = {
                                         return confirm(1 < e.length ? "Are you sure you want to remove these " + e.length + " items?" : 'Are you sure you want to remove "' + e[0] + '"?');
                                     },
                                 });
+                            }, 1000);
+
+                            count++;
                             }, 3000);
                         });
         
@@ -3939,9 +4091,6 @@ var car = {
                                 `;
                                 // Append the identified root HTML to the container
                                 $('#identified-root').append(identifiedRootHtml);
-         
-                                count++;
-                                }, 3000);
 
                                 setTimeout(function() {
                                     jQuery(".selectize-close-btn").selectize({
@@ -3957,7 +4106,11 @@ var car = {
                                             return confirm(1 < e.length ? "Are you sure you want to remove these " + e.length + " items?" : 'Are you sure you want to remove "' + e[0] + '"?');
                                         },
                                     });
+                                }, 1000);
+         
+                                count++;
                                 }, 3000);
+
                             });
          
                         }
@@ -4405,9 +4558,7 @@ var car = {
                                 `;
                                 // Append the identified root HTML to the container
                                 $('#identified-root').append(identifiedRootHtml);
-         
-                                count++;
-                                }, 3000);
+
 
                                 setTimeout(function() {
                                     jQuery(".selectize-close-btn").selectize({
@@ -4423,7 +4574,11 @@ var car = {
                                             return confirm(1 < e.length ? "Are you sure you want to remove these " + e.length + " items?" : 'Are you sure you want to remove "' + e[0] + '"?');
                                         },
                                     });
+                                }, 1000);
+         
+                                count++;
                                 }, 3000);
+
                             });
          
                         }
@@ -5024,9 +5179,6 @@ var car = {
                                         `;
                                         // Append the identified root HTML to the container
                                         $('#identified-root_closing').append(identifiedRootHtml);
-                 
-                                        count++;
-                                        }, 3000);
 
                                         setTimeout(function() {
                                             jQuery(".selectize-close-btn").selectize({
@@ -5042,7 +5194,11 @@ var car = {
                                                     return confirm(1 < e.length ? "Are you sure you want to remove these " + e.length + " items?" : 'Are you sure you want to remove "' + e[0] + '"?');
                                                 },
                                             });
+                                        }, 1000);
+                 
+                                        count++;
                                         }, 3000);
+
                                     });
                  
                                 }
