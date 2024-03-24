@@ -470,25 +470,25 @@ var car = {
                                             <div class="col-xl-12">
                                                 <div class="mb-3 mb-xl-0">
                                                     <label for="exampleInputEmail1" class="form-label">Correction</label>
-                                                    <textarea class="form-control" name="correction[${count}]" rows="4"></textarea>
+                                                    <textarea class="form-control" name="correction[]" rows="4"></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-xl-4">
                                                 <div class="mb-3 mb-xl-0">
                                                     <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
-                                                    <input type="text" class="form-control" name="correction_person_responsible[${count}]" placeholder="Enter Name of personnel" value="">
+                                                    <input type="text" class="form-control" name="correction_person_responsible[]" placeholder="Enter Name of personnel" value="">
                                                 </div>
                                             </div>
                                             <div class="col-xl-4">
                                                 <div class="mb-3 mb-xl-0">
                                                     <label for="exampleInputEmail1" class="form-label">Completion Date</label>
-                                                    <input type="date" class="form-control" name="correction_completion_date[${count}]" value="">
+                                                    <input type="date" class="form-control" name="correction_completion_date[]" value="">
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 mt-2">
                                                 <div class="mb-3 mb-xl-0">
                                                     <label class="form-label">File URL</label>
-                                                    <input type="text" class="form-control selectize-close-btn" readonly name="correction_person_responsible_url[${count}]" value="">
+                                                    <input type="text" class="form-control selectize-close-btn" readonly name="correction_person_responsible_url[]" value="">
                                                 </div>
                                             </div>
                                             <div class="col-xl-1">
@@ -515,7 +515,7 @@ var car = {
                                                 <div class="col-xl-12">
                                                     <div class="mb-3 mb-xl-0">
                                                         <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                                        <textarea class="form-control" name="consequence[${count}]" rows="4"></textarea>
+                                                        <textarea class="form-control" name="consequence[]" rows="4"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4">
@@ -527,13 +527,13 @@ var car = {
                                                 <div class="col-xl-4">
                                                     <div class="mb-3 mb-xl-0">
                                                         <label for="exampleInputEmail1" class="form-label">Completion Date</label>
-                                                        <input type="date" class="form-control" name="consequence_completion_date[${count}]" value="">
+                                                        <input type="date" class="form-control" name="consequence_completion_date[]" value="">
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 mt-2">
                                                     <div class="mb-3 mb-xl-0">
                                                         <label class="form-label">File URL</label>
-                                                        <input type="text" class="form-control selectize-close-btn" readonly name="consequence_person_responsible_url[${count}]" value="">
+                                                        <input type="text" class="form-control selectize-close-btn" readonly name="consequence_person_responsible_url[]" value="">
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-1">
