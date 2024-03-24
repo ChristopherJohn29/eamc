@@ -547,6 +547,51 @@ class car extends CI_Controller {
         }
     }
 
+    // function handleFileUpload($key, $custom_config = array()) {
+    //     $CI = get_instance();
+    //     $CI->load->library('upload');
+    //     $CI->load->helper('string'); // Load the string helper to use random_string function
+    
+    //     // Merge custom configuration with default configuration
+    //     $default_config = array(
+    //         'upload_path'   => FCPATH . 'uploads/',
+    //         'allowed_types' => 'gif|jpg|png|pdf|docx|doc',  // Adjust as needed
+    //     );
+    
+    //     $config = array_merge($default_config, $custom_config);
+    
+    //     $CI->upload->initialize($config);
+    
+    //     $files = $_FILES[$key];
+        
+    //     $attachments = array();
+    
+    //     foreach ($files['name'] as $index => $name) {
+    //         $_FILES[$key] = array(
+    //             'name'     => $files['name'][$index],
+    //             'type'     => $files['type'][$index],
+    //             'tmp_name' => $files['tmp_name'][$index],
+    //             'error'    => $files['error'][$index],
+    //             'size'     => $files['size'][$index]
+    //         );
+    
+    //         if ($CI->upload->do_upload($key)) {
+    //             $upload_data = $CI->upload->data();
+    //             $file_ext = pathinfo($upload_data['file_name'], PATHINFO_EXTENSION); // Get file extension
+    //             $new_file_name = random_string('alnum', 8) . '_' . time() . '.' . $file_ext; // Generate unique file name
+    //             $new_file_path = $config['upload_path'] . $new_file_name;
+    //             // Rename the uploaded file
+    //             rename($config['upload_path'] . $upload_data['file_name'], $new_file_path);
+    //             $attachments[$key][] = $new_file_name;
+    //         } else {
+    //             // Handle upload error
+    //             // print_r($CI->upload->display_errors());
+    //         }
+    //     }
+    
+    //     return $attachments;
+    // }
+
     
 
     public function saveRoot(){
@@ -555,66 +600,9 @@ class car extends CI_Controller {
 
         $car = $this->MainModel->getCorrectiveAction($car_id);
         
-        function handleFileUpload($key, $custom_config = array()) {
-            $CI = get_instance();
-            $CI->load->library('upload');
-            $CI->load->helper('string'); // Load the string helper to use random_string function
-        
-            // Merge custom configuration with default configuration
-            $default_config = array(
-                'upload_path'   => FCPATH . 'uploads/',
-                'allowed_types' => 'gif|jpg|png|pdf|docx|doc',  // Adjust as needed
-            );
-        
-            $config = array_merge($default_config, $custom_config);
-        
-            $CI->upload->initialize($config);
-        
-            $files = $_FILES[$key];
-            
-            $attachments = array();
-        
-            foreach ($files['name'] as $index => $name) {
-                $_FILES[$key] = array(
-                    'name'     => $files['name'][$index],
-                    'type'     => $files['type'][$index],
-                    'tmp_name' => $files['tmp_name'][$index],
-                    'error'    => $files['error'][$index],
-                    'size'     => $files['size'][$index]
-                );
-        
-                if ($CI->upload->do_upload($key)) {
-                    $upload_data = $CI->upload->data();
-                    $file_ext = pathinfo($upload_data['file_name'], PATHINFO_EXTENSION); // Get file extension
-                    $new_file_name = random_string('alnum', 8) . '_' . time() . '.' . $file_ext; // Generate unique file name
-                    $new_file_path = $config['upload_path'] . $new_file_name;
-                    // Rename the uploaded file
-                    rename($config['upload_path'] . $upload_data['file_name'], $new_file_path);
-                    $attachments[$key][] = $new_file_name;
-                } else {
-                    // Handle upload error
-                    // print_r($CI->upload->display_errors());
-                }
-            }
-        
-            return $attachments;
-        }
-    
         // Handle each array of file uploads
-        $risk_attachments = handleFileUpload('risk_number_attachment');
-        $risk_attachments_exist = $this->input->post('risk_attachments');
+
         // var_dump( $risk_attachments);
-
-        $opportunity_attachments = handleFileUpload('opportunity_number_attachment');
-        $opportunity_attachments_exist = $this->input->post('opportunity_attachments');
-
-
-        $rootcause_attachments = handleFileUpload('rootcause_attachment_attachment');
-        $rootcause_attachments_exist = $this->input->post('rootcause_attachments');
-
-        $identified_attachments = handleFileUpload('identified_root_attachment_attachment');
-        $identified_attachments_exist = $this->input->post('identified_attachments');
-
         $existing_nonconformity = $this->input->post('existing_nonconformity');
         $existing_nonconformity_remarks = $this->input->post('existing_nonconformity_remarks');
         $update_doc_info = $this->input->post('update_doc_info');
@@ -639,17 +627,13 @@ class car extends CI_Controller {
     
         foreach ($risk_number as $key => $value) {
             // Check if any of the conditions is true
-            if ((isset($risk_number_attachment_url[$key]) && $risk_number_attachment_url[$key] != "") || 
-                isset($risk_attachments['risk_number_attachment'][$key]) || 
-                (isset($risk_attachments_exist[$key]) && $risk_attachments_exist[$key] != "")
-            ) {
+
                 // Construct the risk_entry array
                 $risk_entry[$key]['risk_number'] = $risk_number[$key];
                 $risk_entry[$key]['risk_number_details_update'] = isset($risk_number_details_update[$key]) ? $risk_number_details_update[$key] : "";
                 $risk_entry[$key]['risk_number_attachment_url'] = isset($risk_number_attachment_url[$key]) ? $risk_number_attachment_url[$key] : "";
-                $risk_entry[$key]['risk_attachments'] = isset($risk_attachments['risk_number_attachment'][$key]) ? $risk_attachments['risk_number_attachment'][$key] : (isset($risk_attachments_exist[$key]) ? $risk_attachments_exist[$key] : "");
-
-            } 
+             
+            
         }
         
         
@@ -674,16 +658,12 @@ class car extends CI_Controller {
     
         foreach ($opportunity_number as $key => $value) {
             // Check if any of the conditions is true
-            if ((isset($opportunity_number_attachment_url[$key]) && $opportunity_number_attachment_url[$key] != "") || 
-                isset($opportunity_attachments['opportunity_number_attachment'][$key]) || 
-                (isset($opportunity_attachments_exist[$key]) && $opportunity_attachments_exist[$key] != "")
-            ) {
+      
                 // Construct the opportunity_entry array
                 $opportunity_entry[$key]['opportunity_number'] = $opportunity_number[$key];
                 $opportunity_entry[$key]['opportunity_identified'] =  isset($opportunity_identified[$key]) ? $opportunity_identified[$key] : "";
                 $opportunity_entry[$key]['opportunity_number_attachment_url'] = isset($opportunity_number_attachment_url[$key]) ? $opportunity_number_attachment_url[$key] : "";
-                $opportunity_entry[$key]['opportunity_attachments'] =  isset($opportunity_attachments['opportunity_number_attachment'][$key]) ? $opportunity_attachments['opportunity_number_attachment'][$key] : (isset($opportunity_attachments_exist[$key]) ? $opportunity_attachments_exist[$key] : "");
-            }
+            
         }
     
         //array
@@ -704,16 +684,12 @@ class car extends CI_Controller {
     
         foreach ($rootcause as $key => $value) {
             // Check if any of the conditions is true
-            if ((isset($rootcause_file_url[$key]) && $rootcause_file_url[$key] != "") || 
-                isset($rootcause_attachments['rootcause_attachment_attachment'][$key]) || 
-                (isset($rootcause_attachments_exist[$key]) && $rootcause_attachments_exist[$key] != "")
-            ) {
+  
                 // Construct the rootcause_entry array
                 $rootcause_entry[$key]['rootcause'] = $rootcause[$key];
                 $rootcause_entry[$key]['rootcause_file_name'] = isset($rootcause_file_name[$key]) ? $rootcause_file_name[$key] : "";
                 $rootcause_entry[$key]['rootcause_file_url'] = isset($rootcause_file_url[$key]) ? $rootcause_file_url[$key] : "";
-                $rootcause_entry[$key]['rootcause_attachments'] = isset($rootcause_attachments['rootcause_attachment_attachment'][$key]) ? $rootcause_attachments['rootcause_attachment_attachment'][$key] : (isset($rootcause_attachments_exist[$key]) ? $rootcause_attachments_exist[$key] : "");
-            }
+             
         }
     
         //array
@@ -741,10 +717,7 @@ class car extends CI_Controller {
     
         foreach ($identified_root as $key => $value) {
             // Check if any of the conditions is true
-            if ((isset($identified_root_attachment_url[$key]) && $identified_root_attachment_url[$key] != "") || 
-                isset($identified_attachments['identified_root_attachment_attachment'][$key]) || 
-                (isset($identified_attachments_exist[$key]) && $identified_attachments_exist[$key] !== "")
-            ) {
+ 
                 // Construct the identified_entry array
                 $identified_entry[$key]['identified_root'] = $identified_root[$key];
                 $identified_entry[$key]['tpn_control'] = isset($tpn_control[$key]) ? $tpn_control[$key] : ""; // Added isset check
@@ -752,12 +725,11 @@ class car extends CI_Controller {
                 $identified_entry[$key]['identified_root_person_responsible'] = isset($identified_root_person_responsible[$key]) ? $identified_root_person_responsible[$key] : "";
                 $identified_entry[$key]['identified_root_completion_date'] = isset($identified_root_completion_date[$key]) ? $identified_root_completion_date[$key] : "";
                 $identified_entry[$key]['identified_root_attachment_url'] = isset($identified_root_attachment_url[$key]) ? $identified_root_attachment_url[$key] : "";
-                $identified_entry[$key]['identified_attachments'] = isset($identified_attachments['identified_root_attachment_attachment'][$key]) ? $identified_attachments['identified_root_attachment_attachment'][$key] : (isset($identified_attachments_exist[$key]) ? $identified_attachments_exist[$key] : "");
                 $identified_entry[$key]['tpn_issued_by'] = isset($tpn_issued_by[$key]) ? $tpn_issued_by[$key] : "";
                 $identified_entry[$key]['tpn_issued_to'] = isset($tpn_issued_to[$key]) ? $tpn_issued_to[$key] : "";
                 $identified_entry[$key]['tpn_section'] = isset($tpn_section[$key]) ? $tpn_section[$key] : "";
                 
-            }
+            
         }
     
         // Use $data for any further processing or database insertion
@@ -845,7 +817,6 @@ class car extends CI_Controller {
             $risk_entry[$key]['risk_number'] = $risk_number[$key];
             $risk_entry[$key]['risk_number_details_update'] = $risk_number_details_update[$key];
             $risk_entry[$key]['risk_number_attachment_url'] = $risk_number_attachment_url[$key];
-            $risk_entry[$key]['risk_attachments'] = $risk_attachments[$key];
             $risk_entry[$key]['risk_number_acceptable_review'] = $risk_number_acceptable_review[$key];
             $risk_entry[$key]['risk_number_acceptable_remarks_review'] = $risk_number_acceptable_remarks_review[$key];
             $risk_entry[$key]['risk_number_acceptable_approval'] = $risk_number_acceptable_approval[$key];
@@ -891,7 +862,6 @@ class car extends CI_Controller {
             $opportunity_entry[$key]['opportunity_number'] = $opportunity_number[$key];
             $opportunity_entry[$key]['opportunity_number_attachment_url'] = $opportunity_number_attachment_url[$key];
             $opportunity_entry[$key]['opportunity_identified'] = $opportunity_identified[$key];
-            $opportunity_entry[$key]['opportunity_attachments'] = $opportunity_attachments[$key];
             $opportunity_entry[$key]['opportunity_number_acceptable_review'] = $opportunity_number_acceptable_review[$key];
             $opportunity_entry[$key]['opportunity_number_acceptable_remarks_review'] = $opportunity_number_acceptable_remarks_review[$key];
             $opportunity_entry[$key]['opportunity_number_acceptable_approval'] = $opportunity_number_acceptable_approval[$key];
@@ -930,7 +900,6 @@ class car extends CI_Controller {
 
             $rootcause_entry[$key]['rootcause'] = $rootcause[$key];
             $rootcause_entry[$key]['rootcause_file_name'] = $rootcause_file_name[$key];
-            $rootcause_entry[$key]['rootcause_attachments'] = $rootcause_attachments[$key];
             $rootcause_entry[$key]['rootcause_file_url'] = $rootcause_file_url[$key];
             $rootcause_entry[$key]['rootcause_acceptable_review'] = $rootcause_acceptable_review[$key];
             $rootcause_entry[$key]['rootcause_acceptable_remarks_review'] = $rootcause_acceptable_remarks_review[$key];
@@ -981,7 +950,6 @@ class car extends CI_Controller {
             $identified_entry[$key]['identified_root_corrective_action'] = $identified_root_corrective_action[$key];
             $identified_entry[$key]['identified_root_person_responsible'] = $identified_root_person_responsible[$key];
             $identified_entry[$key]['identified_root_completion_date'] = $identified_root_completion_date[$key];
-            $identified_entry[$key]['identified_attachments'] = $identified_attachments[$key];
             $identified_entry[$key]['identified_root_attachment_url'] = $identified_root_attachment_url[$key];
             $identified_entry[$key]['identified_root_acceptable_review'] = $identified_root_acceptable_review[$key];
             $identified_entry[$key]['identified_root_acceptable_remarks_review'] = $identified_root_acceptable_remarks_review[$key];
@@ -1080,7 +1048,6 @@ class car extends CI_Controller {
 
             $risk_entry[$key]['risk_number'] = $risk_number[$key];
             $risk_entry[$key]['risk_number_details_update'] = $risk_number_details_update[$key];
-            $risk_entry[$key]['risk_attachments'] = $risk_attachments[$key];
             $risk_entry[$key]['risk_number_attachment_url'] = $risk_number_attachment_url[$key];
             $risk_entry[$key]['risk_number_acceptable_review'] = $risk_number_acceptable_review[$key];
             $risk_entry[$key]['risk_number_acceptable_remarks_review'] = $risk_number_acceptable_remarks_review[$key];
@@ -1126,7 +1093,6 @@ class car extends CI_Controller {
             $opportunity_entry[$key]['opportunity_number'] = $opportunity_number[$key];
             $opportunity_entry[$key]['opportunity_number_attachment_url'] = $opportunity_number_attachment_url[$key];
             $opportunity_entry[$key]['opportunity_identified'] = $opportunity_identified[$key];
-            $opportunity_entry[$key]['opportunity_attachments'] = $opportunity_attachments[$key];
             $opportunity_entry[$key]['opportunity_number_acceptable_review'] = $opportunity_number_acceptable_review[$key];
             $opportunity_entry[$key]['opportunity_number_acceptable_remarks_review'] = $opportunity_number_acceptable_remarks_review[$key];
             $opportunity_entry[$key]['opportunity_number_acceptable_approval'] = $opportunity_number_acceptable_approval[$key];
@@ -1166,7 +1132,6 @@ class car extends CI_Controller {
 
             $rootcause_entry[$key]['rootcause'] = $rootcause[$key];
             $rootcause_entry[$key]['rootcause_file_name'] = $rootcause_file_name[$key];
-            $rootcause_entry[$key]['rootcause_attachments'] = $rootcause_attachments[$key];
             $rootcause_entry[$key]['rootcause_file_url'] = $rootcause_file_url[$key];
             $rootcause_entry[$key]['rootcause_acceptable_review'] = $rootcause_acceptable_review[$key];
             $rootcause_entry[$key]['rootcause_acceptable_remarks_review'] = $rootcause_acceptable_remarks_review[$key];
@@ -1217,7 +1182,6 @@ class car extends CI_Controller {
             $identified_entry[$key]['identified_root_corrective_action'] = $identified_root_corrective_action[$key];
             $identified_entry[$key]['identified_root_person_responsible'] = $identified_root_person_responsible[$key];
             $identified_entry[$key]['identified_root_completion_date'] = $identified_root_completion_date[$key];
-            $identified_entry[$key]['identified_attachments'] = $identified_attachments[$key];
             $identified_entry[$key]['identified_root_attachment_url'] = $identified_root_attachment_url[$key];
             $identified_entry[$key]['identified_root_acceptable_review'] = $identified_root_acceptable_review[$key];
             $identified_entry[$key]['identified_root_acceptable_remarks_review'] = $identified_root_acceptable_remarks_review[$key];

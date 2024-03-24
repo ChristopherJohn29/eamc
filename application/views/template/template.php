@@ -20,6 +20,12 @@
 
       <link href="<?=base_url()?>assets/css/icons.min.css" rel="stylesheet" type="text/css" />
       <link href="<?=base_url()?>assets/customcss/global.css" rel="stylesheet" type="text/css" />
+
+      <link href="<?=base_url()?>assets/libs/multiselect/css/multi-select.css" rel="stylesheet" type="text/css" />
+      <link href="<?=base_url()?>assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+      <link href="<?=base_url()?>assets/libs/selectize/css/selectize.bootstrap3.css" rel="stylesheet" type="text/css" />
+
+
       <?php 
       if(isset($customcss)){
          echo '<link href="'.base_url().'assets/customcss/'.$customcss.'" rel="stylesheet" type="text/css" />';
@@ -294,6 +300,11 @@
       <script src="<?=base_url()?>assets/js/vendor.min.js"></script>
       <!-- App js -->
       <script src="<?=base_url()?>assets/js/app.min.js"></script>
+
+      <script src="<?=base_url()?>assets/libs/selectize/js/standalone/selectize.min.js"></script>
+      <script src="<?=base_url()?>assets/libs/mohithg-switchery/switchery.min.js"></script>
+      <script src="<?=base_url()?>assets/libs/multiselect/js/jquery.multi-select.js"></script>
+      <script src="<?=base_url()?>assets/libs/select2/js/select2.min.js"></script>
       <!-- Plugins js-->
       <script src="<?=base_url()?>assets/libs/jquery-sparkline/jquery.sparkline.min.js"></script>
       <script src="<?=base_url()?>assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
