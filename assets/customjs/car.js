@@ -5634,6 +5634,24 @@ var car = {
                     $(this).closest('.correction-repeatable').remove();
                 }
             });
+
+
+            clone.find('.plugin-remove_button').remove();
+        
+            // Initialize Selectize for the cloned input
+            clone.find('input.selectize-close-btn').selectize({
+                plugins: ["remove_button"],
+                persist: false,
+                create: true,
+                render: {
+                    item: function (e, a) {
+                        return '<div>"' + a(e.text) + '"</div>';
+                    },
+                },
+                onDelete: function (e) {
+                    return confirm(1 < e.length ? "Are you sure you want to remove these " + e.length + " items?" : 'Are you sure you want to remove "' + e[0] + '"?');
+                },
+            });
         });
     
         // Remove Correction button click event for the initial entry
@@ -5666,6 +5684,23 @@ var car = {
                     $(this).closest('.consequences-repeatable').remove();
                 }
             });
+
+            clone.find('.plugin-remove_button').remove();
+        
+            // Initialize Selectize for the cloned input
+            clone.find('input.selectize-close-btn').selectize({
+                plugins: ["remove_button"],
+                persist: false,
+                create: true,
+                render: {
+                    item: function (e, a) {
+                        return '<div>"' + a(e.text) + '"</div>';
+                    },
+                },
+                onDelete: function (e) {
+                    return confirm(1 < e.length ? "Are you sure you want to remove these " + e.length + " items?" : 'Are you sure you want to remove "' + e[0] + '"?');
+                },
+            });
         });
     
         // Remove Consequences button click event for the initial entry
@@ -5675,6 +5710,7 @@ var car = {
                 $(this).closest('.consequences-repeatable').remove();
             }
         });
+
     },
 
     riskNumber: function(){
@@ -5697,6 +5733,24 @@ var car = {
                 if ($('.risk-number-repeatable').length > 1) {
                     $(this).closest('.risk-number-repeatable').remove();
                 }
+            });
+
+
+            clone.find('.plugin-remove_button').remove();
+        
+            // Initialize Selectize for the cloned input
+            clone.find('input.selectize-close-btn').selectize({
+                plugins: ["remove_button"],
+                persist: false,
+                create: true,
+                render: {
+                    item: function (e, a) {
+                        return '<div>"' + a(e.text) + '"</div>';
+                    },
+                },
+                onDelete: function (e) {
+                    return confirm(1 < e.length ? "Are you sure you want to remove these " + e.length + " items?" : 'Are you sure you want to remove "' + e[0] + '"?');
+                },
             });
         });
     
@@ -5730,6 +5784,23 @@ var car = {
                     $(this).closest('.opportunity-number-repeatable').remove();
                 }
             });
+
+            clone.find('.plugin-remove_button').remove();
+        
+            // Initialize Selectize for the cloned input
+            clone.find('input.selectize-close-btn').selectize({
+                plugins: ["remove_button"],
+                persist: false,
+                create: true,
+                render: {
+                    item: function (e, a) {
+                        return '<div>"' + a(e.text) + '"</div>';
+                    },
+                },
+                onDelete: function (e) {
+                    return confirm(1 < e.length ? "Are you sure you want to remove these " + e.length + " items?" : 'Are you sure you want to remove "' + e[0] + '"?');
+                },
+            });
         });
     
         // Remove Opportunity Number button click event for the initial entry
@@ -5746,22 +5817,47 @@ var car = {
 
             // Clone the first .rootcause-repeatable div
             var clone = $('#rootcause').find(".rootcause-repeatable:last").clone();
-            
+        
+            // Destroy existing Selectize instance
+            clone.find('.selectized').each(function() {
+                var selectizeInstance = $(this)[0].selectize;
+                if (selectizeInstance) {
+                    selectizeInstance.destroy();
+                }
+            });
+        
             // Clear input values in the cloned section
             clone.find('input').val('');
-    
+        
             // Append the cloned section to the parent container
             $('#rootcause').find(".rootcause-repeatable:last").after(clone);
-    
+        
             // Show the remove button for the new entry
             clone.find('.remove-rootcause-action').show();
-    
+        
             // Add Remove Root Cause button click event for the new entry
             clone.find('.remove-rootcause-action').on("click", function(){
                 // Check if there is more than one entry before removal
                 if ($('.rootcause-repeatable').length > 1) {
                     $(this).closest('.rootcause-repeatable').remove();
                 }
+            });
+
+            clone.find('.plugin-remove_button').remove();
+        
+            // Initialize Selectize for the cloned input
+            clone.find('input.selectize-close-btn').selectize({
+                plugins: ["remove_button"],
+                persist: false,
+                create: true,
+                render: {
+                    item: function (e, a) {
+                        return '<div>"' + a(e.text) + '"</div>';
+                    },
+                },
+                onDelete: function (e) {
+                    return confirm(1 < e.length ? "Are you sure you want to remove these " + e.length + " items?" : 'Are you sure you want to remove "' + e[0] + '"?');
+                },
             });
         });
     
@@ -5900,6 +5996,23 @@ var car = {
                 if ($('.identified-root-repeatable').length > 1) {
                     $(this).closest('.identified-root-repeatable').remove();
                 }
+            });
+
+            clone.find('.plugin-remove_button').remove();
+        
+            // Initialize Selectize for the cloned input
+            clone.find('input.selectize-close-btn').selectize({
+                plugins: ["remove_button"],
+                persist: false,
+                create: true,
+                render: {
+                    item: function (e, a) {
+                        return '<div>"' + a(e.text) + '"</div>';
+                    },
+                },
+                onDelete: function (e) {
+                    return confirm(1 < e.length ? "Are you sure you want to remove these " + e.length + " items?" : 'Are you sure you want to remove "' + e[0] + '"?');
+                },
             });
         });
     
