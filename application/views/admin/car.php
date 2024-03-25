@@ -1105,17 +1105,10 @@
          <!-- /.modal-dialog -->
       </div>
       
-      
       <?php 
-               
-      $requiredRoles = array(
-         'designation' => 'division',
-         'role' => ['div_chief'],
-      );
-
-      if ($this->role_checker->checkRole($requiredRoles)) {
+      if ($role) {
       ?>
-         <div class="user-role" data-role="div_chief"></div>
+         <div class="user-client" data-role="<?=$role?>" data-department_section="<?=$department_section?>" data-department="<?=$department?>"></div>
          <?php
       }
       ?>

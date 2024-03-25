@@ -24,6 +24,9 @@ class car extends CI_Controller {
         $data['customjs'] = 'car.js';
         $data['source'] = $this->MainModel->getCarSource();
         $data['division'] = $this->MainModel->getDivision();
+        $data['role'] = $this->session->userdata('role');
+        $data['department_section'] = $this->session->userdata('department_section');
+        $data['department'] = $this->session->userdata('department');
 
 		$this->load->view('template/template', $data);
     }

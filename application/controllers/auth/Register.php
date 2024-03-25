@@ -10,6 +10,7 @@ class register extends CI_Controller {
         $this->load->model('DivisionModel');
 		$this->load->model('DepartmentModel');
 		$this->load->model('RegisterModel');
+		$this->load->model('SectionModel');
     }
 
 
@@ -38,6 +39,7 @@ class register extends CI_Controller {
 			'section' => $_POST['section'],
 			'role' => $_POST['role'],
 			'department' => $_POST['department'],
+			'department_section' => $_POST['department_section'],
 			'division' => isset($_POST['division']) ? $_POST['division'] : '',
 			'created_date' => date('Y-m-d H:i:s'),
 			'fullname' => $_POST['firstname'].' '.$_POST['lastname']

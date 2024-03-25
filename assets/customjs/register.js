@@ -27,6 +27,16 @@ var register = {
         })
     },
 
+    fourth: function(){
+        jQuery('.fourth select').change(function(){
+            jQuery('.fifth').addClass('d-none');
+            val = $(this).val();
+
+            jQuery('.'+val+'-section').removeClass('d-none');
+            jQuery('.'+val).removeClass('d-none');
+        })
+    },
+
     submitForm: function(){
         jQuery('#submit-register').click(function(e){
             e.preventDefault();
@@ -55,6 +65,7 @@ var register = {
                     var division = jQuery('#division').val();
                     var role = jQuery('#'+division+'-division').val();
                     department = jQuery('#'+division+'-department').val();
+                    department_section = jQuery('#'+department+'-section').val();
                 }
                 
                 $data = {
@@ -72,6 +83,7 @@ var register = {
                     section : section,
                     role : role,
                     department : department,
+                    department_section : department_section,
                     division : division
                 };
 
@@ -290,6 +302,7 @@ jQuery(document).ready(function(){
     register.designation();
     register.passwordChange();
     register.second();
+    register.fourth();
     register.submitForm();
     register.username();
     register.divisionOnChange();

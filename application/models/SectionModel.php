@@ -23,6 +23,23 @@ class SectionModel extends CI_Model {
         return $this->db->update('section', array('status' => 0, 'last_update_by' => $this->session->userdata('user_id')));
     }
 
+    public function getSectionByDep($dep_id){
+
+        $this->db->select('section.*, user_created.email AS created_by_email, user_updated.email AS last_updated_by_email, department.dep_name AS dep_name');
+        $this->db->from('section');
+        $this->db->where('section.status', 1);
+        $this->db->where('section.dep_id', $dep_id);
+        $this->db->join('users AS user_created', 'section.created_by = user_created.id', 'left');
+        $this->db->join('users AS user_updated', 'section.last_update_by = user_updated.id', 'left');
+        $this->db->join('department AS department', 'section.dep_id = department.id', 'left');
+
+        $query = $this->db->get();
+        $result = $query->result_array();
+
+        return $result;
+    }
+    
+
     public function saveSection($section_name = '', $dep_id = ''){
         
         $data = array(

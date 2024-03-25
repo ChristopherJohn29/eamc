@@ -10,13 +10,23 @@ var car = {
 
         $('#car-global-datatable tbody').html('');
 
+    
+
         $.ajax({
             type: 'POST',
             url: 'getCar', // Replace 'MyController' with your controller name
             data: {'status' : 'all'},
             success: function (response) {
                 if(response != 'null'){
+
+                   
+
                     $.each(JSON.parse(response), function (index, item) {
+
+                        var userole = jQuery('.user-client').data('role');
+                        var usersection = jQuery('.user-client').data('department_section');
+                        var userdepartment = jQuery('.user-client').data('department');
+
                         // Access each item's properties
                         var car_id = item.id || '';
                         var requestor = item.requestor || '';
@@ -94,24 +104,42 @@ var car = {
                             var osqm_validation_correction_closing = "<a class='dropdown-item edit-closing' href='#' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#closing'>Closing</a>";
                         }
 
-                        if(status == "For Issuance of NC"){
+                        if(status == "For Issuance of NC" && ( userole == "osqm_dco" || userole == "div_chief")){
                             var issuance_of_nc_html = "<a class='dropdown-item edit-car' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#add-car-issuance'>Issuance of NC</a>";
                         } else {
                             var issuance_of_nc_html = "";
                         }
                         
-                        if(corrective_action_status == "For CAR action"){
-                            var for_action_html_corrective = "<a class='dropdown-item edit-corrective-action' href='#' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#root-cause'>Corrective Action</a>";
+
+                        if(section != ''){
+                            if(for_correction_status == "For CAR action" && ( userole == "osqm_dco" ||  userole == "div_chief" || ( userole == "department_head" && section == usersection ) ) ){
+                                var for_action_html_correction = "<a class='dropdown-item edit-correction-action' href='#' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>Correction</a>";
+                            } else {
+                                var for_action_html_correction = "";
+                            }
                         } else {
-                            var for_action_html_corrective = "";
+                            if(for_correction_status == "For CAR action" && ( userole == "osqm_dco" ||  userole == "div_chief" || ( userole == "department_head" && issued_to == userdepartment ) ) ){
+                                var for_action_html_correction = "<a class='dropdown-item edit-correction-action' href='#' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>Correction</a>";
+                            } else {
+                                var for_action_html_correction = "";
+                            }
                         }
 
-                        if(for_correction_status == "For CAR action"){
-                            var for_action_html_correction = "<a class='dropdown-item edit-correction-action' href='#' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>Correction</a>";
+                        if(section != ''){
+                            if(corrective_action_status == "For CAR action" && ( userole == "osqm_dco" ||  userole == "div_chief" || ( userole == "department_head" && section == usersection ) ) ){
+                                var for_action_html_corrective = "<a class='dropdown-item edit-corrective-action' href='#' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#root-cause'>Corrective Action</a>";
+                            } else {
+                                var for_action_html_correction = "";
+                            }
                         } else {
-                            var for_action_html_correction = "";
+                            if(corrective_action_status == "For CAR action" && ( userole == "osqm_dco" ||  userole == "div_chief" || ( userole == "department_head" && issued_to == userdepartment ) ) ){
+                                var for_action_html_corrective = "<a class='dropdown-item edit-corrective-action' href='#' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#root-cause'>Corrective Action</a>";
+                            } else {
+                                var for_action_html_correction = "";
+                            }
                         }
-                        
+
+
                         var html = "<tr><td>" + car_no + 
                         "</td><td>" + source_name + 
                         "</td><td>" + issued_by_name + 
@@ -265,6 +293,12 @@ var car = {
     loadCorrectiveAction: function(){
 
         $('#car-global-datatable').on('click', '.edit-correction-action', function () {
+
+            if(jQuery(this).data('userrole') == "osqm_dco" || jQuery(this).data('userrole') == 'div_chief'){
+                jQuery('#saveCorrection').addClass('hidden');
+            } else {
+                jQuery('#saveCorrection').removeClass('hidden');
+            }
 
             jQuery('#add-correction').removeClass('hidden');
             jQuery('#add-consequences').removeClass('hidden');

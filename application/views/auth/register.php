@@ -194,6 +194,32 @@
                               }
                            ?>
 
+                            <?php
+
+                              foreach ($division as $key => $value) {
+
+                                $department = $this->DepartmentModel->getDepartmentByDiv($value['id']);
+
+                                foreach ($department as $key => $value) {
+                                    $section = $this->SectionModel->getSectionByDep($value['id']);
+                                    $sectionHtml = '';
+                                    
+                                    foreach ($section as $key => $val) {
+                                       $sectionHtml .= '<option value="'.$val['id'].'">'.$val['section_name'].'</option>';
+                                    } 
+   
+                                    echo '<div class="form-group d-none fifth col-md-6 '.$value['id'].'-section"">
+                                             <label class="form-label" for="'.$value['id'].'-section">Section/Unit</label>
+                                             <select class="form-control section" id="'.$value['id'].'-section">
+                                                '.$sectionHtml.'
+                                             </select>
+                                          </div>';  
+                                }
+
+                              }
+                              
+                           ?>
+
                             <!-- division -->
                             <?php
                               foreach ($division as $key => $value) {
