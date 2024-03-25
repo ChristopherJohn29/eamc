@@ -1094,7 +1094,20 @@
          <div class="col-12">
             <div class="page-title-box">
                <div class="page-title-right">
+               <?php 
+               
+               $requiredRoles = array(
+                  'designation' => 'division',
+                  'role' => ['osqm_dco'],
+              );
+      
+               if ($this->role_checker->checkRole($requiredRoles)) {
+               ?>
                   <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#add-car"><i class="fas fa-plus"></i> Register CAR</button>
+                  <?php
+               }
+               ?>
+
                </div>
                <h4 class="page-title"><?=$title?></h4>
             </div>
