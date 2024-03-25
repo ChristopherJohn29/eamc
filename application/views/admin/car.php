@@ -228,7 +228,23 @@
                </div>
                <div class="modal-footer">
                   <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
-                  <button type="button" class="btn btn-primary" id="saveCarIssuance">Save</button>
+
+                  <?php 
+               
+                  $requiredRoles = array(
+                     'designation' => 'division',
+                     'role' => ['div_chief'],
+                  );
+
+                  if ($this->role_checker->checkRole($requiredRoles)) {
+                  ?>
+                     <button type="button" class="btn btn-primary" id="saveCarIssuance">Save</button>
+                     <?php
+                  }
+
+                  ?>
+
+                  
                </div>
             </div>
             <!-- /.modal-content -->
@@ -1114,7 +1130,7 @@
                $requiredRoles = array(
                   'designation' => 'division',
                   'role' => ['osqm_dco'],
-              );
+               );
       
                if ($this->role_checker->checkRole($requiredRoles)) {
                ?>
