@@ -1554,8 +1554,8 @@ class car extends CI_Controller {
             //    'findings' => $findings,
             //    'consequences' => $consequences,
             //    'requirements_not_fulfilled' => $requirements_not_fulfilled,
-            //    'corrective_action_status' => '',
-            //    'for_correction_status' => '',
+               'corrective_action_status' => $status,
+               'for_correction_status' => $status,
             //    'status' => 'For Issuance of NC',
            );
    
