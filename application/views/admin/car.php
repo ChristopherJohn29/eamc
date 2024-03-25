@@ -1088,6 +1088,21 @@
          </div>
          <!-- /.modal-dialog -->
       </div>
+      
+      
+      <?php 
+               
+      $requiredRoles = array(
+         'designation' => 'division',
+         'role' => ['div_chief'],
+      );
+
+      if ($this->role_checker->checkRole($requiredRoles)) {
+      ?>
+         <div class="user-role" data-role="div_chief"></div>
+         <?php
+      }
+      ?>
 
       <!-- start page title -->
       <div class="row">
