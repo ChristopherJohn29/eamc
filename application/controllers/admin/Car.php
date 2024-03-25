@@ -148,9 +148,19 @@ class car extends CI_Controller {
             $result = $this->db->insert('correction', $data);
         }
 
-        $cardata = array(
-            'for_correction_status' => 'For OSQM Review'
-        );
+        $car = $this->MainModel->getCarByID($car_id);
+
+        $for_correction_status = $car['0']['for_correction_status'];
+
+        if($for_correction_status == "For Implementation"){
+            $cardata = array(
+                'for_correction_status' => 'For Verification'
+            );
+        } else {
+            $cardata = array(
+                'for_correction_status' => 'For OSQM Review'
+            );
+        }
 
         $this->db->where('id', $car_id);
         $result = $this->db->update('car', $cardata);
@@ -781,10 +791,18 @@ class car extends CI_Controller {
             $result = $this->db->insert('corrective_action', $data);
         }
 
-        $cardata = array(
-            'corrective_action_status' => 'For OSQM Review'
-        );
+        $corrective_action_status = $car['0']['corrective_action_status'];
 
+        if($corrective_action_status == "For Implementation"){
+            $cardata = array(
+                'corrective_action_status' => 'For Verification'
+            );
+        } else {
+            $cardata = array(
+                'corrective_action_status' => 'For OSQM Review'
+            );
+        }
+        
         $this->db->where('id', $car_id);
         $result = $this->db->update('car', $cardata);
         
