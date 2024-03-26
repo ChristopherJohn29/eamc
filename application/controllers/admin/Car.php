@@ -1646,7 +1646,7 @@ class car extends CI_Controller {
     public function getCar(){
         
         $division = $this->session->userdata('division');
-        $department = $this->MainModel->getCarByDiv($division);
+        $department = $this->MainModel->getCarByDiv($division, $_POST['status']);
 
         echo json_encode($department);
     }

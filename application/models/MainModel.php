@@ -84,7 +84,7 @@ class MainModel extends CI_Model {
         return $result;
     }
 
-    public function getCarByDiv($division){
+    public function getCarByDiv($division, $status){
 
         $this->db->select('car.*, source_car.source_name AS source_name, division.div_name AS division, department.dep_name AS department');
         $this->db->from('car');
