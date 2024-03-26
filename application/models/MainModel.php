@@ -88,7 +88,13 @@ class MainModel extends CI_Model {
 
         $this->db->select('car.*, source_car.source_name AS source_name, division.div_name AS division, department.dep_name AS department');
         $this->db->from('car');
-        $this->db->where('issued_by', $division);
+
+        $role = $this->session->userdata('role');
+
+        if($role != 'osqm_dco'){
+            $this->db->where('issued_by', $division);
+        }
+
         $this->db->join('source_car', 'source_car.id = car.source', 'left');
         $this->db->join('division', 'division.id = car.issued_by', 'left');
         $this->db->join('department', 'department.id = car.issued_to', 'left');
