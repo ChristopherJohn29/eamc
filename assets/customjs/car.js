@@ -125,8 +125,8 @@ var car = {
                                 }
                             }
 
-                            console.log(userrole);
-                            console.log(usersection);
+                            // console.log(userrole);
+                            // console.log(usersection);
 
                             if(section != ''){
                                 if(corrective_action_status == 'For Verification' && ( (userrole == "chair" && usersection == "internal_quality_audit") || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "department_head" && section == userdepartmentsection ) )){

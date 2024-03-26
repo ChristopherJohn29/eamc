@@ -26,6 +26,7 @@ class car extends CI_Controller {
         $data['division'] = $this->MainModel->getDivision();
         $data['role'] = $this->session->userdata('role');
         $data['department_section'] = $this->session->userdata('department_section');
+        $data['section'] = $this->session->userdata('section');
         $data['department'] = $this->session->userdata('department');
 
 		$this->load->view('template/template', $data);
