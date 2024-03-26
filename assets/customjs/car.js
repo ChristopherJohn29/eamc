@@ -718,88 +718,43 @@ var car = {
                         // car.notifyError();
                     }   
 
-                    
+                    console.log(jQuery(this).data('correction_status'));
                     if(jQuery(this).data('correction_status') == "For CAR action"){ 
 
-                    var correctionHtmlLast = `
-                        <div class="col-lg-12 correction-repeatable">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="mb-3">
-                                        <div class="row">
-                                            <div class="col-xl-12">
-                                                <div class="mb-3 mb-xl-0">
-                                                    <label for="exampleInputEmail1" class="form-label">Correction</label>
-                                                    <textarea class="form-control" name="correction[]" rows="4"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-4">
-                                                <div class="mb-3 mb-xl-0">
-                                                    <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
-                                                    <input type="text" class="form-control" name="correction_person_responsible[]" placeholder="Enter Name of personnel" value="">
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-4">
-                                                <div class="mb-3 mb-xl-0">
-                                                    <label for="exampleInputEmail1" class="form-label">Completion Date</label>
-                                                    <input type="date" class="form-control" name="correction_completion_date[]" value="">
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 mt-2">
-                                                <div class="mb-3 mb-xl-0">
-                                                    <label class="form-label">File URL</label>
-                                                    <input type="text" class="form-control selectize-close-btn" readonly name="correction_person_responsible_url[]" value="">
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-1">
-                                                <div class="mb-3 mb-xl-0">
-                                                    <label for="exampleInputEmail1" class="form-label">Remove</label>
-                                                    <button type="button" class="btn btn-danger remove-corrective-action"><i class="fas fa-trash"></i></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-        
-                    $('#correction').append(correctionHtmlLast);
-        
-                    var consequenceHtmlLast = `
-                            <div class="col-lg-12 consequences-repeatable">
+                        var correctionHtmlLast = `
+                            <div class="col-lg-12 correction-repeatable">
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="mb-3">
                                             <div class="row">
                                                 <div class="col-xl-12">
                                                     <div class="mb-3 mb-xl-0">
-                                                        <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                                        <textarea class="form-control" name="consequence[]" rows="4"></textarea>
+                                                        <label for="exampleInputEmail1" class="form-label">Correction</label>
+                                                        <textarea class="form-control" name="correction[]" rows="4"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4">
                                                     <div class="mb-3 mb-xl-0">
                                                         <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
-                                                        <input type="text" class="form-control" name="consequence_person_responsible[]" placeholder="Enter Name of personnel" value="">
+                                                        <input type="text" class="form-control" name="correction_person_responsible[]" placeholder="Enter Name of personnel" value="">
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4">
                                                     <div class="mb-3 mb-xl-0">
                                                         <label for="exampleInputEmail1" class="form-label">Completion Date</label>
-                                                        <input type="date" class="form-control" name="consequence_completion_date[]" value="">
+                                                        <input type="date" class="form-control" name="correction_completion_date[]" value="">
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 mt-2">
                                                     <div class="mb-3 mb-xl-0">
                                                         <label class="form-label">File URL</label>
-                                                        <input type="text" class="form-control selectize-close-btn" readonly name="consequence_person_responsible_url[]" value="">
+                                                        <input type="text" class="form-control selectize-close-btn" readonly name="correction_person_responsible_url[]" value="">
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-1">
                                                     <div class="mb-3 mb-xl-0">
                                                         <label for="exampleInputEmail1" class="form-label">Remove</label>
-                                                        <button type="button" class="btn btn-danger remove-consequences-action"><i class="fas fa-trash"></i></button>
+                                                        <button type="button" class="btn btn-danger remove-corrective-action"><i class="fas fa-trash"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -807,9 +762,54 @@ var car = {
                                     </div>
                                 </div>
                             </div>
-                    `;
-        
-                    $('#consequencesdiv').append(consequenceHtmlLast);
+                        `;
+            
+                        $('#correction').append(correctionHtmlLast);
+            
+                        var consequenceHtmlLast = `
+                                <div class="col-lg-12 consequences-repeatable">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="mb-3">
+                                                <div class="row">
+                                                    <div class="col-xl-12">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
+                                                            <textarea class="form-control" name="consequence[]" rows="4"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-4">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
+                                                            <input type="text" class="form-control" name="consequence_person_responsible[]" placeholder="Enter Name of personnel" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-4">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label for="exampleInputEmail1" class="form-label">Completion Date</label>
+                                                            <input type="date" class="form-control" name="consequence_completion_date[]" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-6 mt-2">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label class="form-label">File URL</label>
+                                                            <input type="text" class="form-control selectize-close-btn" readonly name="consequence_person_responsible_url[]" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-1">
+                                                        <div class="mb-3 mb-xl-0">
+                                                            <label for="exampleInputEmail1" class="form-label">Remove</label>
+                                                            <button type="button" class="btn btn-danger remove-consequences-action"><i class="fas fa-trash"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        `;
+            
+                        $('#consequencesdiv').append(consequenceHtmlLast);
                     
                     }
         
