@@ -309,6 +309,10 @@ var car = {
                         
 
                         if(section != ''){
+
+                            console.log(section);
+                            console.log(userdepartmentsection);
+                            
                             if((for_correction_status == "For CAR action" || for_correction_status == "For Implementation") && ( userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "department_head" && section == userdepartmentsection ) ) ){
                                 var for_action_html_correction = "<a class='dropdown-item edit-correction-action' href='#' data-correction_status='"+for_correction_status+"' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>Correction</a>";
                             } else {
