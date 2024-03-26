@@ -90,9 +90,14 @@ class MainModel extends CI_Model {
         $this->db->from('car');
 
         $role = $this->session->userdata('role');
-
+        $department = $this->session->userdata('department');
+        
         if($role != 'osqm_dco'){
             $this->db->where('issued_by', $division);
+        }
+
+        if($role == 'department_head' || $role == 'iso_coordinator'){
+            $this->db->where('issued_to', $department);
         }
 
         $this->db->join('source_car', 'source_car.id = car.source', 'left');
