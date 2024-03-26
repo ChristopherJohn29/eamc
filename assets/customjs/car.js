@@ -71,7 +71,7 @@ var car = {
                         
           
                         if(section != ''){
-                            if(for_correction_status == 'For OSQM Review' && ( userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "department_head" && section == userdepartmentsection ) ) ){
+                            if(for_correction_status == 'For OSQM Review' && ( userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) ) ){
                                 var osqm_review_correction = "<a class='dropdown-item for-osqm-review-correction' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>Correction - For OSQM Review</a>";
                             }
                         } else {
@@ -82,7 +82,7 @@ var car = {
                         
 
                         if(section != ''){
-                            if(corrective_action_status == 'For OSQM Review' && ( userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "department_head" && section == userdepartmentsection ) ) ){
+                            if(corrective_action_status == 'For OSQM Review' && ( userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) ) ){
                                 var osqm_review_corrective_action = "<a class='dropdown-item for-osqm-review-corrective-action' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#root-cause'>Corrective Action - For OSQM Review</a>";
                             }
                         } else {
@@ -92,7 +92,7 @@ var car = {
                         }
 
                         if(section != ''){
-                            if(for_correction_status == 'For Approval'  && ( userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "department_head" && section == userdepartmentsection ) ) ){
+                            if(for_correction_status == 'For Approval'  && ( userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) ) ){
                                 var osqm_approval_correction = "<a class='dropdown-item for-osqm-approval-correction' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>Correction - For Approval</a>";
                             }
                         } else {
@@ -102,7 +102,7 @@ var car = {
                         }
                         
                         if(section != ''){
-                            if(corrective_action_status == 'For Approval' && ( userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "department_head" && section == userdepartmentsection ) ) ){
+                            if(corrective_action_status == 'For Approval' && ( userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) ) ){
                                 var osqm_approval_corrective_action = "<a class='dropdown-item for-osqm-approval-corrective-action' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#root-cause'>Corrective Action - For Approval</a>";
                             }
                         } else {
@@ -116,7 +116,7 @@ var car = {
                         if(source == "1"){
 
                             if(section != ''){
-                                if(for_correction_status == 'For Verification' && ( (userrole == "chair" && usersection == "internal_quality_audit") || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "department_head" && section == userdepartmentsection ) )){
+                                if(for_correction_status == 'For Verification' && ( (userrole == "chair" && usersection == "internal_quality_audit") || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) )){
                                     var osqm_verification_correction = "<a class='dropdown-item for-osqm-verification-correction' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>Correction - For Verification</a>";
                                 }
                             } else {
@@ -129,7 +129,7 @@ var car = {
                             console.log(usersection);
 
                             if(section != ''){
-                                if(corrective_action_status == 'For Verification' && ( (userrole == "chair" && usersection == "internal_quality_audit") || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "department_head" && section == userdepartmentsection ) )){
+                                if(corrective_action_status == 'For Verification' && ( (userrole == "chair" && usersection == "internal_quality_audit") || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) )){
                                     var osqm_verification_corrective_action = "<a class='dropdown-item for-osqm-verification-corrective-action' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#root-cause'>Corrective Action - For Verification</a>";
                                 }
                             } else {
@@ -140,7 +140,7 @@ var car = {
 
 
                             if(section != ''){
-                                if(for_correction_status == 'For Validation' && ( userrole == "osqm_qmr" || (userrole == "lead_auditor" && usersection == "internal_quality_audit") || (userrole == "chair" && usersection == "internal_quality_audit") || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "department_head" && section == userdepartmentsection ) )){
+                                if(for_correction_status == 'For Validation' && ( userrole == "osqm_qmr" || (userrole == "lead_auditor" && usersection == "internal_quality_audit") || (userrole == "chair" && usersection == "internal_quality_audit") || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) )){
                                     var osqm_validation_correction = "<a class='dropdown-item for-osqm-validation-correction' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>Correction - For Validation</a>";
                                 }
                             } else {
@@ -151,7 +151,7 @@ var car = {
 
 
                             if(section != ''){
-                                if(corrective_action_status == 'For Validation'  && ( userrole == "osqm_qmr" || (userrole == "lead_auditor" && usersection == "internal_quality_audit") || (userrole == "chair" && usersection == "internal_quality_audit") || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "department_head" && section == userdepartmentsection ) )){
+                                if(corrective_action_status == 'For Validation'  && ( userrole == "osqm_qmr" || (userrole == "lead_auditor" && usersection == "internal_quality_audit") || (userrole == "chair" && usersection == "internal_quality_audit") || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) )){
                                     var osqm_validation_corrective_action = "<a class='dropdown-item for-osqm-validation-corrective-action' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#root-cause'>Corrective Action - For Validation</a>";
                                 }
                             } else {
@@ -164,7 +164,7 @@ var car = {
                         if(source == "2"){
 
                             if(section != ''){
-                                if(for_correction_status == 'For Verification' && ( (userrole == "auditor" && usersection == "internal_quality_audit") || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "department_head" && section == userdepartmentsection ) )){
+                                if(for_correction_status == 'For Verification' && ( (userrole == "auditor" && usersection == "internal_quality_audit") || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) )){
                                     var osqm_verification_correction = "<a class='dropdown-item for-osqm-verification-correction' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>Correction - For Verification</a>";
                                 }
                             } else {
@@ -175,7 +175,7 @@ var car = {
 
 
                             if(section != ''){
-                                if(corrective_action_status == 'For Verification' && ( (userrole == "auditor" && usersection == "internal_quality_audit") || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "department_head" && section == userdepartmentsection ) )){
+                                if(corrective_action_status == 'For Verification' && ( (userrole == "auditor" && usersection == "internal_quality_audit") || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) )){
                                     var osqm_verification_corrective_action = "<a class='dropdown-item for-osqm-verification-corrective-action' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#root-cause'>Corrective Action - For Verification</a>";
                                 }
                             } else {
@@ -186,7 +186,7 @@ var car = {
 
 
                             if(section != ''){
-                                if(for_correction_status == 'For Validation' && ( userrole == "osqm_qmr" || (userrole == "lead_auditor" && usersection == "internal_quality_audit") || (userrole == "auditor" && usersection == "internal_quality_audit") || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "department_head" && section == userdepartmentsection ) )){
+                                if(for_correction_status == 'For Validation' && ( userrole == "osqm_qmr" || (userrole == "lead_auditor" && usersection == "internal_quality_audit") || (userrole == "auditor" && usersection == "internal_quality_audit") || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) )){
                                     var osqm_validation_correction = "<a class='dropdown-item for-osqm-validation-correction' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>Correction - For Validation</a>";
                                 }
                             } else {
@@ -196,7 +196,7 @@ var car = {
                             }
 
                             if(section != ''){
-                                if(corrective_action_status == 'For Validation'  && ( userrole == "osqm_qmr" || (userrole == "lead_auditor" && usersection == "internal_quality_audit") || (userrole == "auditor" && usersection == "internal_quality_audit") || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "department_head" && section == userdepartmentsection ) )){
+                                if(corrective_action_status == 'For Validation'  && ( userrole == "osqm_qmr" || (userrole == "lead_auditor" && usersection == "internal_quality_audit") || (userrole == "auditor" && usersection == "internal_quality_audit") || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) )){
                                     var osqm_validation_corrective_action = "<a class='dropdown-item for-osqm-validation-corrective-action' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#root-cause'>Corrective Action - For Validation</a>";
                                 }
                             } else {
@@ -209,7 +209,7 @@ var car = {
                         if(source == "3" || source == "4" || source == "5" || source == "6" || source == "7"){
 
                             if(section != ''){
-                                if(for_correction_status == 'For Verification' && ( ( userrole == "dqt_member" && section == userdepartmentsection ) || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "department_head" && section == userdepartmentsection ) )){
+                                if(for_correction_status == 'For Verification' && ( ( userrole == "dqt_member" && section == userdepartmentsection ) || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) )){
                                     var osqm_verification_correction = "<a class='dropdown-item for-osqm-verification-correction' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>Correction - For Verification</a>";
                                 }
                             } else {
@@ -220,7 +220,7 @@ var car = {
 
 
                             if(section != ''){
-                                if(corrective_action_status == 'For Verification' && ( ( userrole == "dqt_member" && section == userdepartmentsection ) || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "department_head" && section == userdepartmentsection ) )){
+                                if(corrective_action_status == 'For Verification' && ( ( userrole == "dqt_member" && section == userdepartmentsection ) || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) )){
                                     var osqm_verification_corrective_action = "<a class='dropdown-item for-osqm-verification-corrective-action' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#root-cause'>Corrective Action - For Verification</a>";
                                 }
                             } else {
@@ -230,7 +230,7 @@ var car = {
                             }
 
                             if(section != ''){
-                                if(for_correction_status == 'For Validation' && ( userrole == "osqm_qmr" || (userrole == "lead_auditor" && usersection == "internal_quality_audit") || (userrole == "dqt_member" && section == userdepartmentsection ) || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "department_head" && section == userdepartmentsection ) )){
+                                if(for_correction_status == 'For Validation' && ( userrole == "osqm_qmr" || (userrole == "lead_auditor" && usersection == "internal_quality_audit") || (userrole == "dqt_member" && section == userdepartmentsection ) || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) )){
                                     var osqm_validation_correction = "<a class='dropdown-item for-osqm-validation-correction' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>Correction - For Validation</a>";
                                 }
                             } else {
@@ -241,7 +241,7 @@ var car = {
 
 
                             if(section != ''){
-                                if(corrective_action_status == 'For Validation'  && ( userrole == "osqm_qmr" || (userrole == "lead_auditor" && usersection == "internal_quality_audit") || (userrole == "dqt_member" && section == userdepartmentsection ) || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "department_head" && section == userdepartmentsection ) )){
+                                if(corrective_action_status == 'For Validation'  && ( userrole == "osqm_qmr" || (userrole == "lead_auditor" && usersection == "internal_quality_audit") || (userrole == "dqt_member" && section == userdepartmentsection ) || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) )){
                                     var osqm_validation_corrective_action = "<a class='dropdown-item for-osqm-validation-corrective-action' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#root-cause'>Corrective Action - For Validation</a>";
                                 }
                             } else {
@@ -254,7 +254,7 @@ var car = {
                         if(source == "8"){
 
                             if(section != ''){
-                                if(for_correction_status == 'For Verification' && ( (userrole == "chair" && usersection == "customer_satisfaction_committee") || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "department_head" && section == userdepartmentsection ) )){
+                                if(for_correction_status == 'For Verification' && ( (userrole == "chair" && usersection == "customer_satisfaction_committee") || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) )){
                                     var osqm_verification_correction = "<a class='dropdown-item for-osqm-verification-correction' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>Correction - For Verification</a>";
                                 }
                             } else {
@@ -265,7 +265,7 @@ var car = {
 
 
                             if(section != ''){
-                                if(corrective_action_status == 'For Verification' && ( (userrole == "chair" && usersection == "customer_satisfaction_committee") || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "department_head" && section == userdepartmentsection ) )){
+                                if(corrective_action_status == 'For Verification' && ( (userrole == "chair" && usersection == "customer_satisfaction_committee") || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) )){
                                     var osqm_verification_corrective_action = "<a class='dropdown-item for-osqm-verification-corrective-action' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#root-cause'>Corrective Action - For Verification</a>";
                                 }
                             } else {
@@ -275,7 +275,7 @@ var car = {
                             }
 
                             if(section != ''){
-                                if(for_correction_status == 'For Validation' && ( userrole == "osqm_qmr" || (userrole == "lead_auditor" && usersection == "internal_quality_audit") || (userrole == "chair" && usersection == "customer_satisfaction_committee") || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "department_head" && section == userdepartmentsection ) )){
+                                if(for_correction_status == 'For Validation' && ( userrole == "osqm_qmr" || (userrole == "lead_auditor" && usersection == "internal_quality_audit") || (userrole == "chair" && usersection == "customer_satisfaction_committee") || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) )){
                                     var osqm_validation_correction = "<a class='dropdown-item for-osqm-validation-correction' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>Correction - For Validation</a>";
                                 }
                             } else {
@@ -285,7 +285,7 @@ var car = {
                             }
 
                             if(section != ''){
-                                if(corrective_action_status == 'For Validation'  && ( userrole == "osqm_qmr" || (userrole == "lead_auditor" && usersection == "internal_quality_audit") || (userrole == "chair" && usersection == "customer_satisfaction_committee") || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "department_head" && section == userdepartmentsection ) )){
+                                if(corrective_action_status == 'For Validation'  && ( userrole == "osqm_qmr" || (userrole == "lead_auditor" && usersection == "internal_quality_audit") || (userrole == "chair" && usersection == "customer_satisfaction_committee") || userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) )){
                                     var osqm_validation_corrective_action = "<a class='dropdown-item for-osqm-validation-corrective-action' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#root-cause'>Corrective Action - For Validation</a>";
                                 }
                             } else {
@@ -310,12 +310,12 @@ var car = {
 
                         if(section != ''){
 
-                            console.log(userrole);
-                            console.log(section);
-                            console.log(userdepartmentsection);
-                            console.log(for_correction_status);
+                            // console.log(userrole);
+                            // console.log(section);
+                            // console.log(userdepartmentsection);
+                            // console.log(for_correction_status);
                             
-                            if((for_correction_status == "For CAR action" || for_correction_status == "For Implementation") && ( userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "department_head" && section == userdepartmentsection ) ) ){
+                            if((for_correction_status == "For CAR action" || for_correction_status == "For Implementation") && ( userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) ) ){
                                 var for_action_html_correction = "<a class='dropdown-item edit-correction-action' href='#' data-correction_status='"+for_correction_status+"' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>Correction</a>";
                             } else {
                                 var for_action_html_correction = "";
@@ -329,7 +329,7 @@ var car = {
                         }
 
                         if(section != ''){
-                            if((corrective_action_status == "For CAR action" || corrective_action_status == "For Implementation") && ( userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "department_head" && section == userdepartmentsection ) ) ){
+                            if((corrective_action_status == "For CAR action" || corrective_action_status == "For Implementation") && ( userrole == "osqm_dco" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) ) ){
                                 var for_action_html_corrective = "<a class='dropdown-item edit-corrective-action' data-corrective_status='"+corrective_action_status+"' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#root-cause'>Corrective Action</a>";
                             } else {
                                 var for_action_html_corrective = "";
