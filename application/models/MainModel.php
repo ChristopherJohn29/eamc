@@ -93,7 +93,7 @@ class MainModel extends CI_Model {
         $section = $this->session->userdata('section');
         $department = $this->session->userdata('department');
         
-        if($role != 'osqm_dco' && $role != 'chair' && $role != 'auditor'){
+        if($role != 'osqm_dco' && $role != 'chair' && $role != 'auditor' && $role != 'lead_auditor'){
             $this->db->where('issued_by', $division);
         }
 
