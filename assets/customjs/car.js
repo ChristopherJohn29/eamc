@@ -432,6 +432,36 @@ var car = {
 
         }); 
 
+        jQuery('#issued_by').change(function(){
+            division = jQuery(this).val();
+
+            $.ajax({
+                type: 'POST',
+                url: '../car/getDepartment', // Replace 'MyController' with your controller name
+                data: {division: division},
+                success: function (response) {
+                    if(response != 'null'){
+
+                        $('#issued_to').html('<option value=""></option>');
+                        $.each(JSON.parse(response), function (index, item) {
+                            // Access each item's properties
+                            var id = item.id;
+                            var dep_name = item.dep_name;
+    
+                            var html = '<option value="'+id+'">'+dep_name+'</option>';
+                            // Do something with the data, for example, display it on the page
+                            $('#issued_to').append(html);
+                        });
+
+                    }   
+                },
+                error: function () {
+                    // Handle errors
+                    diList.notifyError();
+                }
+            });
+        });
+
         jQuery('#issued_to').change(function(){
             department = $(this).val();
             $.ajax({
