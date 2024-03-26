@@ -55,6 +55,7 @@ var register = {
                 var designation = jQuery('#designation').val();
                 var section = '';
                 var department = '';
+                var department_section = '';
 
                 if(designation == 'committee'){
                     section = jQuery('#committee').val();
