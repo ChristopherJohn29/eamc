@@ -840,8 +840,8 @@ var car = {
         });
         
         $('#car-global-datatable').on('click', '.for-osqm-review-correction', function () {
-
-            if(jQuery(this).data('userrole') == "department_head" || jQuery(this).data('userrole') == 'div_chief'){
+            
+            if(jQuery(this).data('userrole') == "department_head" || jQuery(this).data('userrole') == "section_head" || jQuery(this).data('userrole') == 'div_chief'){
                 jQuery('#saveCorrection').addClass('hidden');
             } else {
                 jQuery('#saveCorrection').removeClass('hidden');
@@ -1156,7 +1156,7 @@ var car = {
         
         $('#car-global-datatable').on('click', '.for-osqm-approval-correction', function () {
 
-            if(jQuery(this).data('userrole') == "department_head" || jQuery(this).data('userrole') == 'osqm_dco'){
+            if(jQuery(this).data('userrole') == "department_head" || jQuery(this).data('userrole') == "section_head" || jQuery(this).data('userrole') == 'osqm_dco'){
                 jQuery('#saveCorrection').addClass('hidden');
             } else {
                 jQuery('#saveCorrection').removeClass('hidden');
@@ -2829,7 +2829,7 @@ var car = {
 
         $('#car-global-datatable').on('click', '.for-osqm-review-corrective-action', function () {
 
-            if(jQuery(this).data('userrole') == "department_head" || jQuery(this).data('userrole') == 'div_chief'){
+            if(jQuery(this).data('userrole') == "department_head" || jQuery(this).data('userrole') == "section_head" || jQuery(this).data('userrole') == 'div_chief'){
                 jQuery('#saveRoot').addClass('hidden');
             } else {
                 jQuery('#saveRoot').removeClass('hidden');
@@ -3420,7 +3420,7 @@ var car = {
 
         $('#car-global-datatable').on('click', '.for-osqm-approval-corrective-action', function () {
 
-            if(jQuery(this).data('userrole') == "department_head" || jQuery(this).data('userrole') == 'osqm_dco'){
+            if(jQuery(this).data('userrole') == "department_head" || jQuery(this).data('userrole') == "section_head" || jQuery(this).data('userrole') == 'osqm_dco'){
                 jQuery('#saveRoot').addClass('hidden');
             } else {
                 jQuery('#saveRoot').removeClass('hidden');
