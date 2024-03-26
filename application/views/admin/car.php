@@ -1108,7 +1108,7 @@
       <?php 
       if ($role) {
       ?>
-         <div class="user-client" data-role="<?=$role?>" data-department_section="<?=$department_section?>" data-department="<?=$department?>"></div>
+         <div class="user-client" data-section="<?=$section?>" data-role="<?=$role?>" data-department_section="<?=$department_section?>" data-department="<?=$department?>"></div>
          <?php
       }
       ?>
