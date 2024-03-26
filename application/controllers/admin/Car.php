@@ -184,7 +184,7 @@ class car extends CI_Controller {
         $closing_action_remarks = $this->input->post('closing_action_remarks');
 
         $data = array(
-            'car_id' => $car_id,
+            'id' => $car_id,
             'closing_action' => json_encode($closing_action),
             'closing_action_remarks' => json_encode($closing_action_remarks),
         );
