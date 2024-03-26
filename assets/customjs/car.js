@@ -502,7 +502,7 @@ var car = {
             } else {
                 jQuery('#saveCorrection').removeClass('hidden');
             }
-
+        
             if(jQuery(this).data('correction_status') == "For CAR action"){
                 jQuery('#add-correction').removeClass('hidden');
                 jQuery('#add-consequences').removeClass('hidden');
@@ -510,7 +510,7 @@ var car = {
                 jQuery('#add-correction').addClass('hidden');
                 jQuery('#add-consequences').addClass('hidden');
             }
- 
+        
             jQuery('#car-correction-action').html('');
         
             jQuery('#car-correction-action').removeClass();
@@ -611,6 +611,8 @@ var car = {
             $('#correction').empty();
             $('#consequencesdiv').empty();
         
+            var correction_action = jQuery(this).data('correction_status');
+            
             $.ajax({
                 type: 'POST',
                 url: '../car/getCorrectionAction', // Replace 'MyController' with your controller name
@@ -717,10 +719,9 @@ var car = {
                     } else {
                         // car.notifyError();
                     }   
-
-                    console.log(jQuery(this).data('correction_status'));
-                    if(jQuery(this).data('correction_status') == "For CAR action"){ 
-
+        
+                    if(correction_action == "For CAR action"){ 
+        
                         var correctionHtmlLast = `
                             <div class="col-lg-12 correction-repeatable">
                                 <div class="card">
@@ -2246,6 +2247,8 @@ var car = {
             $('#opportunity-number').empty();
             $('#rootcause').empty();
             $('#identified-root').empty();
+        
+            var corrective_status = jQuery(this).data('corrective_status');
          
             $.ajax({
                 type: 'POST',
@@ -2539,7 +2542,7 @@ var car = {
          
                 
                     
-                if(jQuery(this).data('corrective_status') == "For CAR action"){
+                if(corrective_status == "For CAR action"){
         
                     var riskHtml = `
                     <div class="col-lg-12 risk-number-repeatable">
