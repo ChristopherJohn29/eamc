@@ -1144,6 +1144,7 @@
                   <table id="car-global-datatable" class="table dt-responsive nowrap w-100">
                      <thead>
                         <tr>
+                           <th>CAR ID.</th>
                            <th>CAR NO.</th>
                            <th>Source</th>
                            <th>Issued By</th>

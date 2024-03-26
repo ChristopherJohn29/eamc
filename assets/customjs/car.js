@@ -343,7 +343,8 @@ var car = {
                         }
 
 
-                        var html = "<tr><td>" + car_no + 
+                        var html = "<tr><td>" + car_id + 
+                        "<td>" + car_no + 
                         "</td><td>" + source_name + 
                         "</td><td>" + issued_by_name + 
                         "</td><td>" + issued_to_name + 
