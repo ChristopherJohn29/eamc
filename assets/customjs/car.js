@@ -710,7 +710,10 @@ var car = {
                     } else {
                         // car.notifyError();
                     }   
+
                     
+                    if(jQuery(this).data('correction_status') == "For CAR action"){ 
+
                     var correctionHtmlLast = `
                         <div class="col-lg-12 correction-repeatable">
                             <div class="card">
@@ -800,6 +803,8 @@ var car = {
                     `;
         
                     $('#consequencesdiv').append(consequenceHtmlLast);
+                    
+                    }
         
                     setTimeout(function() {
                         jQuery(".selectize-close-btn").selectize({
@@ -2118,7 +2123,7 @@ var car = {
             } else {
                 jQuery('#saveRoot').removeClass('hidden');
             }
-
+        
         
             if(jQuery(this).data('corrective_status') == "For CAR action"){
                 jQuery('#add-rootcause').removeClass('hidden');
@@ -2131,8 +2136,8 @@ var car = {
                 jQuery('#add-risk-number').addClass('hidden');
                 jQuery('#add-opportunity-number').addClass('hidden');
             }
- 
-
+        
+        
             jQuery('#car-action').html('');
          
             jQuery('#car-action').removeClass();
@@ -2498,7 +2503,7 @@ var car = {
                                 `;
                                 // Append the identified root HTML to the container
                                 $('#identified-root').append(identifiedRootHtml);
-
+        
                                 setTimeout(function() {
                                     jQuery(".selectize-close-btn").selectize({
                                         plugins: ["remove_button"],
@@ -2517,7 +2522,7 @@ var car = {
          
                                 count++;
                                 }, 3000);
-
+        
                               
                             });
          
@@ -2525,276 +2530,281 @@ var car = {
          
                     }   
          
+                
                     
-                var riskHtml = `
-                <div class="col-lg-12 risk-number-repeatable">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="mb-3">
-                                <div class="row">
-                                    <div class="col-xl-6 mb-2">
-                                        <div class="mb-3 mb-xl-0">
-                                            <label class="form-label">Risk Number</label>
-                                            <textarea rows="4" class="form-control" name="risk_number[]"></textarea>
+                if(jQuery(this).data('corrective_status') == "For CAR action"){
+        
+                    var riskHtml = `
+                    <div class="col-lg-12 risk-number-repeatable">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <div class="row">
+                                        <div class="col-xl-6 mb-2">
+                                            <div class="mb-3 mb-xl-0">
+                                                <label class="form-label">Risk Number</label>
+                                                <textarea rows="4" class="form-control" name="risk_number[]"></textarea>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="mb-3 mb-xl-0">
-                                            <label class="form-label">Details / Updates</label>
-                                            <textarea rows="4" class="form-control" name="risk_number_details_update[]"></textarea>
+                                        <div class="col-xl-6">
+                                            <div class="mb-3 mb-xl-0">
+                                                <label class="form-label">Details / Updates</label>
+                                                <textarea rows="4" class="form-control" name="risk_number_details_update[]"></textarea>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="mb-3 mb-xl-0">
-                                        <label class="form-label">File URL</label>
-                                        <input type="text" class="form-control selectize-close-btn" name="risk_number_attachment_url[]">
+                                        <div class="col-xl-6">
+                                            <div class="mb-3 mb-xl-0">
+                                            <label class="form-label">File URL</label>
+                                            <input type="text" class="form-control selectize-close-btn" name="risk_number_attachment_url[]">
+                                            </div>
                                         </div>
-                                    </div>
-
-                                    <div class="col-xl-1">
-                                        <div class="mb-3 mb-xl-0">
-                                            <label class="form-label">Remove</label>
-                                            <button type="button" class="btn btn-danger remove-risk-number-action"><i class="fas fa-trash"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                `;
-                // Append the risk HTML to the container
-                $('#risk-number').append(riskHtml);
-         
-                var opportunityHtml = `
-                <div class="col-lg-12 opportunity-number-repeatable">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="mb-3">
-                                <div class="row">
-                                    <div class="col-xl-6 mb-2">
-                                        <div class="mb-3 mb-xl-0">
-                                            <label class="form-label">Opportunity Number</label>
-                                            <textarea rows="4" class="form-control" name="opportunity_number[]"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="mb-3 mb-xl-0">
-                                            <label class="form-label">Opportunities Identified (if applicable)</label>
-                                            <textarea rows="4" class="form-control" name="opportunity_identified[]"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="mb-3 mb-xl-0">
-                                        <label class="form-label">File URL</label>
-                                        <input type="text" class="form-control selectize-close-btn" name="opportunity_number_attachment_url[]">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xl-1">
-                                        <div class="mb-3 mb-xl-0">
-                                            <label class="form-label">Remove</label>
-                                            <button type="button" class="btn btn-danger remove-opportunity-number-action"><i class="fas fa-trash"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                `;
-                // Append the opportunity HTML to the container
-                $('#opportunity-number').append(opportunityHtml);
-         
-                var rootCauseHtml = `
-                                <div class="col-lg-12 rootcause-repeatable">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="mb-3">
-                                                <div class="row">
-                                                    <div class="col-xl-4 mb-2">
-                                                        <div class="mb-3 mb-xl-0">
-                                                            <label class="form-label">Root Cause Analysis Used</label>
-                                                            <input type="text" class="form-control" name="rootcause[]" value="">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-4">
-                                                        <div class="mb-3 mb-xl-0">
-                                                            <label class="form-label">File Name</label>
-                                                            <input type="text" class="form-control" name="rootcause_file_name[]" value="">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-xl-6">
-                                                        <div class="mb-3 mb-xl-0">
-                                                        <label class="form-label">File URL</label>
-                                                        <input type="text" class="form-control selectize-close-btn" name="rootcause_file_url[]">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-1">
-                                                        <div class="mb-3 mb-xl-0">
-                                                            <label class="form-label">Remove</label>
-                                                            <button type="button" class="btn btn-danger remove-rootcause-action"><i class="fas fa-trash"></i></button>
-                                                        </div>
-                                                    </div>
-                                                </div>
+        
+                                        <div class="col-xl-1">
+                                            <div class="mb-3 mb-xl-0">
+                                                <label class="form-label">Remove</label>
+                                                <button type="button" class="btn btn-danger remove-risk-number-action"><i class="fas fa-trash"></i></button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                `;
-                // Append the root cause HTML to the container
-                $('#rootcause').append(rootCauseHtml);
-                
-         
-                setTimeout(function() {
-         
-                    $.ajax({
-                        type: 'POST',
-                        url: '../car/getDivision', // Replace 'MyController' with your controller name
-                        data: {},
-                        success: function (response) {
-                            var html 
-                            if(response != 'null'){
-         
-                                $.each(JSON.parse(response), function (index, item) {
-                                    // Access each item's properties
-                                    var id = item.id;
-                                    var div_name = item.div_name;
+                            </div>
+                        </div>
+                    </div>
+                    `;
+                    // Append the risk HTML to the container
+                    $('#risk-number').append(riskHtml);
             
-                                    html += '<option value="'+id+'">'+div_name+'</option>';
-                                    // Do something with the data, for example, display it on the page
-                                });
-         
-                                var identifiedRootHtml = `
-                                        <div class="col-lg-12 identified-root-repeatable">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="mb-3">
-                                                        <div class="row">
-                                                            <div class="col-xl-6 mb-1">
-                                                                <div class="mb-3 mb-xl-0">
-                                                                    <label class="form-label">Identified Root Cause</label>
-                                                                    <textarea rows="4" class="form-control" name="identified_root[]"></textarea>
-                                                                </div>
+                    var opportunityHtml = `
+                    <div class="col-lg-12 opportunity-number-repeatable">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <div class="row">
+                                        <div class="col-xl-6 mb-2">
+                                            <div class="mb-3 mb-xl-0">
+                                                <label class="form-label">Opportunity Number</label>
+                                                <textarea rows="4" class="form-control" name="opportunity_number[]"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="mb-3 mb-xl-0">
+                                                <label class="form-label">Opportunities Identified (if applicable)</label>
+                                                <textarea rows="4" class="form-control" name="opportunity_identified[]"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="mb-3 mb-xl-0">
+                                            <label class="form-label">File URL</label>
+                                            <input type="text" class="form-control selectize-close-btn" name="opportunity_number_attachment_url[]">
+                                            </div>
+                                        </div>
+        
+                                        <div class="col-xl-1">
+                                            <div class="mb-3 mb-xl-0">
+                                                <label class="form-label">Remove</label>
+                                                <button type="button" class="btn btn-danger remove-opportunity-number-action"><i class="fas fa-trash"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    `;
+                    // Append the opportunity HTML to the container
+                    $('#opportunity-number').append(opportunityHtml);
+            
+                    var rootCauseHtml = `
+                                    <div class="col-lg-12 rootcause-repeatable">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col-xl-4 mb-2">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Root Cause Analysis Used</label>
+                                                                <input type="text" class="form-control" name="rootcause[]" value="">
                                                             </div>
-                                                            <div class="col-xl-6 mb-1">
-                                                                <div class="mb-3 mb-xl-0">
-                                                                    <label class="form-label">Corrective Action</label>
-                                                                    <textarea rows="4" class="form-control" name="identified_root_corrective_action[]"></textarea>
-                                                                </div>
+                                                        </div>
+                                                        <div class="col-xl-4">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">File Name</label>
+                                                                <input type="text" class="form-control" name="rootcause_file_name[]" value="">
                                                             </div>
-                                                            <div class="col-xl-4 mb-1">
-                                                                <div class="mb-3 mb-xl-0">
-                                                                    <label class="form-label">TPN Control</label>
-                                                                    <select class="form-select tpn-control" name="tpn_control[]">
-                                                                        <option value="total">Total</option>
-                                                                        <option value="partial">Partial</option>
-                                                                        <option value="no">No</option>
-                                                                    </select>
-                                                                </div>
+                                                        </div>
+        
+                                                        <div class="col-xl-6">
+                                                            <div class="mb-3 mb-xl-0">
+                                                            <label class="form-label">File URL</label>
+                                                            <input type="text" class="form-control selectize-close-btn" name="rootcause_file_url[]">
                                                             </div>
-         
-                                                            <div class="col-xl-4 mb-2">
-                                                                <div class="mb-3 mb-xl-0">
-                                                                    <label class="form-label">Person Responsible</label>
-                                                                    <input type="text" class="form-control" name="identified_root_person_responsible[]" placeholder="Enter Name of personnel" value="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-xl-4">
-                                                                <div class="mb-3 mb-xl-0">
-                                                                    <label class="form-label">Completion Date</label>
-                                                                    <input type="date" class="form-control" name="identified_root_completion_date[]" value="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-xl-4 mb-1">
-                                                            <div class="form-group" style="display: none;>
-                                                                <label for="issued_by" class="form-label">Issued By</label>
-                                                                <select class="form-select issued_by" name="tpn_issued_by[]">
-                                                                    <option value=""></option>
-                                                                    ${html}
-                                                                </select>
-                                                                <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
-                                                            </div>
-                                                            </div>
-                                                            <div class="col-xl-4 mb-1">
-                                                                <div class="form-group" style="display: none;>
-                                                                    <label for="issued_to" class="form-label">Issued To</label>
-                                                                    <select class="form-select issued_to" name="tpn_issued_to[]">
-                                                                        <option value=""></option>
-                                                                    </select>
-                                                                    <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-xl-4 mb-1">
-                                                                <div class="form-group" style="display: none;>
-                                                                    <label for="section" class="form-label">Section Unit</label>
-                                                                    <select class="form-select section"  name="tpn_section[]">
-                                                                        <option value=""></option>
-                                                                    </select>
-                                                                    <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-xl-6">
-                                                                <div class="mb-3 mb-xl-0">
-                                                                <label class="form-label">File URL</label>
-                                                                <input type="text" class="form-control selectize-close-btn" name="identified_root_attachment_url[]">
-                                                                </div>
-                                                            </div>
-              
-                                                            <div class="col-xl-1">
-                                                                <div class="mb-3 mb-xl-0">
-                                                                    <label class="form-label">Remove</label>
-                                                                    <button type="button" class="btn btn-danger remove-identified-root-action"><i class="fas fa-trash"></i></button>
-                                                                </div>
+                                                        </div>
+                                                        <div class="col-xl-1">
+                                                            <div class="mb-3 mb-xl-0">
+                                                                <label class="form-label">Remove</label>
+                                                                <button type="button" class="btn btn-danger remove-rootcause-action"><i class="fas fa-trash"></i></button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    `;
-                                    // Append the identified root HTML to the container
-                                $('#identified-root').append(identifiedRootHtml);
-         
-                                issued_by = jQuery(this).parent().parent().parent().find('.issued_by');
-                                issued_to = jQuery(this).parent().parent().parent().find('.issued_to');
-                                section = jQuery(this).parent().parent().parent().find('.section');
-                
-                                issued_by.val();
-                                issued_to.val();
-                                section.val();
-                
-                                issued_by.parent().hide();
-                                issued_to.parent().hide();
-                                section.parent().hide();
-         
-                            }   
-                        },
-                        error: function () {
-                            // Handle errors
-                            diList.notifyError();
-                        }
-                    });
-
-                    setTimeout(function() {
-                        jQuery(".selectize-close-btn").selectize({
-                            plugins: ["remove_button"],
-                            persist: !1,
-                            create: !0,
-                            render: {
-                                item: function (e, a) {
-                                    return '<div>"' + a(e.text) + '"</div>';
-                                },
-                            },
-                            onDelete: function (e) {
-                                return confirm(1 < e.length ? "Are you sure you want to remove these " + e.length + " items?" : 'Are you sure you want to remove "' + e[0] + '"?');
-                            },
-                        });
-                    }, 1000);
+                                    </div>
+                    `;
+                    // Append the root cause HTML to the container
+                    $('#rootcause').append(rootCauseHtml);
                     
-                }, 3000);
-
+            
+                    setTimeout(function() {
+            
+                        $.ajax({
+                            type: 'POST',
+                            url: '../car/getDivision', // Replace 'MyController' with your controller name
+                            data: {},
+                            success: function (response) {
+                                var html 
+                                if(response != 'null'){
+            
+                                    $.each(JSON.parse(response), function (index, item) {
+                                        // Access each item's properties
+                                        var id = item.id;
+                                        var div_name = item.div_name;
+                
+                                        html += '<option value="'+id+'">'+div_name+'</option>';
+                                        // Do something with the data, for example, display it on the page
+                                    });
+            
+                                    var identifiedRootHtml = `
+                                            <div class="col-lg-12 identified-root-repeatable">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="mb-3">
+                                                            <div class="row">
+                                                                <div class="col-xl-6 mb-1">
+                                                                    <div class="mb-3 mb-xl-0">
+                                                                        <label class="form-label">Identified Root Cause</label>
+                                                                        <textarea rows="4" class="form-control" name="identified_root[]"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xl-6 mb-1">
+                                                                    <div class="mb-3 mb-xl-0">
+                                                                        <label class="form-label">Corrective Action</label>
+                                                                        <textarea rows="4" class="form-control" name="identified_root_corrective_action[]"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xl-4 mb-1">
+                                                                    <div class="mb-3 mb-xl-0">
+                                                                        <label class="form-label">TPN Control</label>
+                                                                        <select class="form-select tpn-control" name="tpn_control[]">
+                                                                            <option value="total">Total</option>
+                                                                            <option value="partial">Partial</option>
+                                                                            <option value="no">No</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+            
+                                                                <div class="col-xl-4 mb-2">
+                                                                    <div class="mb-3 mb-xl-0">
+                                                                        <label class="form-label">Person Responsible</label>
+                                                                        <input type="text" class="form-control" name="identified_root_person_responsible[]" placeholder="Enter Name of personnel" value="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xl-4">
+                                                                    <div class="mb-3 mb-xl-0">
+                                                                        <label class="form-label">Completion Date</label>
+                                                                        <input type="date" class="form-control" name="identified_root_completion_date[]" value="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xl-4 mb-1">
+                                                                <div class="form-group" style="display: none;>
+                                                                    <label for="issued_by" class="form-label">Issued By</label>
+                                                                    <select class="form-select issued_by" name="tpn_issued_by[]">
+                                                                        <option value=""></option>
+                                                                        ${html}
+                                                                    </select>
+                                                                    <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                                                                </div>
+                                                                </div>
+                                                                <div class="col-xl-4 mb-1">
+                                                                    <div class="form-group" style="display: none;>
+                                                                        <label for="issued_to" class="form-label">Issued To</label>
+                                                                        <select class="form-select issued_to" name="tpn_issued_to[]">
+                                                                            <option value=""></option>
+                                                                        </select>
+                                                                        <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xl-4 mb-1">
+                                                                    <div class="form-group" style="display: none;>
+                                                                        <label for="section" class="form-label">Section Unit</label>
+                                                                        <select class="form-select section"  name="tpn_section[]">
+                                                                            <option value=""></option>
+                                                                        </select>
+                                                                        <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <div class="mb-3 mb-xl-0">
+                                                                    <label class="form-label">File URL</label>
+                                                                    <input type="text" class="form-control selectize-close-btn" name="identified_root_attachment_url[]">
+                                                                    </div>
+                                                                </div>
+                
+                                                                <div class="col-xl-1">
+                                                                    <div class="mb-3 mb-xl-0">
+                                                                        <label class="form-label">Remove</label>
+                                                                        <button type="button" class="btn btn-danger remove-identified-root-action"><i class="fas fa-trash"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        `;
+                                        // Append the identified root HTML to the container
+                                    $('#identified-root').append(identifiedRootHtml);
+            
+                                    issued_by = jQuery(this).parent().parent().parent().find('.issued_by');
+                                    issued_to = jQuery(this).parent().parent().parent().find('.issued_to');
+                                    section = jQuery(this).parent().parent().parent().find('.section');
+                    
+                                    issued_by.val();
+                                    issued_to.val();
+                                    section.val();
+                    
+                                    issued_by.parent().hide();
+                                    issued_to.parent().hide();
+                                    section.parent().hide();
+            
+                                }   
+                            },
+                            error: function () {
+                                // Handle errors
+                                diList.notifyError();
+                            }
+                        });
+        
+                        setTimeout(function() {
+                            jQuery(".selectize-close-btn").selectize({
+                                plugins: ["remove_button"],
+                                persist: !1,
+                                create: !0,
+                                render: {
+                                    item: function (e, a) {
+                                        return '<div>"' + a(e.text) + '"</div>';
+                                    },
+                                },
+                                onDelete: function (e) {
+                                    return confirm(1 < e.length ? "Are you sure you want to remove these " + e.length + " items?" : 'Are you sure you want to remove "' + e[0] + '"?');
+                                },
+                            });
+                        }, 1000);
+                        
+                    }, 3000);
+        
+                }
+        
          
          
                 },
@@ -2803,8 +2813,8 @@ var car = {
                     diList.notifyError();
                 }
             });
-
-    
+        
+        
         });
 
         $('#car-global-datatable').on('click', '.for-osqm-review-corrective-action', function () {
