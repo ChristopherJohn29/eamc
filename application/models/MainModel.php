@@ -92,6 +92,11 @@ class MainModel extends CI_Model {
         $role = $this->session->userdata('role');
         $section = $this->session->userdata('section');
         $department = $this->session->userdata('department');
+        $department_section = $this->session->userdata('department_section');
+        
+        if($department_section){
+            $this->db->where('section', $department_section);
+        }
         
         if($role != 'osqm_dco' && $role != 'chair' && $role != 'auditor' && $role != 'lead_auditor'){
             $this->db->where('issued_by', $division);
