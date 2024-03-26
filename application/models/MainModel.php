@@ -106,9 +106,9 @@ class MainModel extends CI_Model {
             $this->db->where('(corrective_action_status = "For Verification" OR for_correction_status = "For Verification")');
             $this->db->or_where('(corrective_action_status = "For Validation" OR for_correction_status = "For Validation")');
             $this->db->or_where('(corrective_action_status = "For Closure" OR for_correction_status = "For Closure")');
-            $this->db->or_where('status', 'Closed');
+            $this->db->or_where('car.status', 'Closed');
             $this->db->group_end(); // End grouping OR conditions
-            $this->db->where('source', '1');
+            $this->db->where('car.source', '1');
         }
 
 
@@ -117,9 +117,9 @@ class MainModel extends CI_Model {
             $this->db->where('(corrective_action_status = "For Verification" OR for_correction_status = "For Verification")');
             $this->db->or_where('(corrective_action_status = "For Validation" OR for_correction_status = "For Validation")');
             $this->db->or_where('(corrective_action_status = "For Closure" OR for_correction_status = "For Closure")');
-            $this->db->or_where('status', 'Closed');
+            $this->db->or_where('car.status', 'Closed');
             $this->db->group_end(); // End grouping OR conditions
-            $this->db->where('source', '2');
+            $this->db->where('car.source', '2');
         }
 
 
