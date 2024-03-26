@@ -802,7 +802,7 @@ class car extends CI_Controller {
                 'corrective_action_status' => 'For OSQM Review'
             );
         }
-        
+
         $this->db->where('id', $car_id);
         $result = $this->db->update('car', $cardata);
         
@@ -1645,7 +1645,8 @@ class car extends CI_Controller {
 
     public function getCar(){
         
-        $department = $this->MainModel->getCar($_POST['status']);
+        $division = $this->session->userdata('division');
+        $department = $this->MainModel->getCarByDiv($division);
 
         echo json_encode($department);
     }
