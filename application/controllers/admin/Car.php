@@ -792,6 +792,8 @@ class car extends CI_Controller {
             $result = $this->db->insert('corrective_action', $data);
         }
 
+        $car = $this->MainModel->getCarByID($car_id);
+
         $corrective_action_status = $car['0']['corrective_action_status'];
 
         if($corrective_action_status == "For Implementation"){
