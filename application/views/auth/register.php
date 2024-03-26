@@ -157,6 +157,7 @@
                                     <label class="form-label" for="internal_quality_audit">Role (Access Control)</label>
                                     <select class="form-control" id="internal_quality_audit">
                                         <option value="chair">Chair</option>
+                                        <option value="lead_auditor">Lead Auditor</option>
                                         <option value="auditor">Auditor</option>
                                         <option value="member">Member</option>
                                     </select>
