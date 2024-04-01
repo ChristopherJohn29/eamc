@@ -91,6 +91,7 @@ class MainModel extends CI_Model {
 
         $this->db->group_start(); // Start grouping OR conditions
         $this->db->where('(corrective_action_status = "For CAR action" OR corrective_action_status = "For Implementation")');
+        $this->db->or_where('corrective_action_status = "For Partial"');
         $this->db->group_end();
 
         $this->db->join('source_car', 'source_car.id = car.source', 'left');
