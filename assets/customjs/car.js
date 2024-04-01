@@ -456,16 +456,19 @@ var car = {
 
                     });
 
-                    tippy('*[data-plugin="tippy"]');
+                    setTimeout(function(){
+                        tippy('*[data-plugin="tippy"]');
 
-                    $("#car-global-datatable").DataTable({
-                        language: { paginate: { previous: "<i class='mdi mdi-chevron-left'>", next: "<i class='mdi mdi-chevron-right'>" } },
-                        drawCallback: function () {
-                            $(".dataTables_paginate > .pagination").addClass("pagination-rounded");
-                        },
-                    });
+                        $("#car-global-datatable").DataTable({
+                            language: { paginate: { previous: "<i class='mdi mdi-chevron-left'>", next: "<i class='mdi mdi-chevron-right'>" } },
+                            drawCallback: function () {
+                                $(".dataTables_paginate > .pagination").addClass("pagination-rounded");
+                            },
+                        });
+    
+                        $('[data-toggle="tooltip"]').tooltip()
 
-                    $('[data-toggle="tooltip"]').tooltip()
+                    }, 3000)
                     
                 }
             },
