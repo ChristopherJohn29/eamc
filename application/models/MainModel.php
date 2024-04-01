@@ -107,22 +107,31 @@ class MainModel extends CI_Model {
         $final_result = [];
 
         foreach($results as $key => $result){
-            $entries = json_decode($result['identified_root_entry']);
 
-            foreach($entries as $entry){
-                $tpn_issued_to = $entry['tpn_issued_to'];
-                $tpn_section = $entry['section'];
+            echo "<pre>";
+            var_dump($result);
+            echo "</pre>";
+            exit;
 
-                if($tpn_section){
-                    if($department_section == $tpn_section){
-                        $final_result[] = $results[$key];
-                    }
-                } else {
-                    if($department == $tpn_issued_to){
-                        $final_result[] = $results[$key];
+            if(isset($result['identified_root_entry'])){
+                $entries = json_decode($result['identified_root_entry']);
+
+                foreach($entries as $entry){
+                    $tpn_issued_to = $entry['tpn_issued_to'];
+                    $tpn_section = $entry['section'];
+    
+                    if($tpn_section){
+                        if($department_section == $tpn_section){
+                            $final_result[] = $results[$key];
+                        }
+                    } else {
+                        if($department == $tpn_issued_to){
+                            $final_result[] = $results[$key];
+                        }
                     }
                 }
             }
+            
         }
 
         return $final_result;
