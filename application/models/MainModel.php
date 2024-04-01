@@ -135,11 +135,6 @@ class MainModel extends CI_Model {
             
         }
 
-        echo "<pre>";
-        var_dump($final_result);
-        echo "</pre>";
-        exit;
-
 
         return $final_result;
 
