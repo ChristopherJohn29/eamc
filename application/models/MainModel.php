@@ -86,7 +86,7 @@ class MainModel extends CI_Model {
 
     public function tpn(){
 
-        $this->db->select('car.*, source_car.source_name AS source_name, division.div_name AS division, department.dep_name AS department');
+        $this->db->select('car.*, source_car.source_name AS source_name, division.div_name AS division, department.dep_name AS department, corrective_action.identified_root_entry AS identified_root_entry');
         $this->db->from('car');
 
         $this->db->group_start(); // Start grouping OR conditions
@@ -96,6 +96,8 @@ class MainModel extends CI_Model {
         $this->db->join('source_car', 'source_car.id = car.source', 'left');
         $this->db->join('division', 'division.id = car.issued_by', 'left');
         $this->db->join('department', 'department.id = car.issued_to', 'left');
+        $this->db->join('corrective_action', 'corrective_action.car_id = car.id', 'left');
+
         $query = $this->db->get();
         $results = $query->result_array();
 
