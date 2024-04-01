@@ -113,10 +113,6 @@ class MainModel extends CI_Model {
 
             if(isset($result['identified_root_entry'])){
 
-                echo "<pre>";
-                var_dump($result);
-                echo "</pre>";
-                exit;
 
 
                 $entries = json_decode($result['identified_root_entry']);
@@ -138,6 +134,12 @@ class MainModel extends CI_Model {
             }
             
         }
+
+        echo "<pre>";
+        var_dump($final_result);
+        echo "</pre>";
+        exit;
+
 
         return $final_result;
 
