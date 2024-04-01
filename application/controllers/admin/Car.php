@@ -1654,7 +1654,18 @@ class car extends CI_Controller {
         $division = $this->session->userdata('division');
         $department = $this->MainModel->getCarByDiv($division, $_POST['status']);
 
-        echo json_encode($department);
+        // Create an associative array to store unique entries based on 'id'
+        $uniqueDepartment = array();
+
+        // Loop through the $department array and store unique entries based on 'id'
+        foreach ($department as $entry) {
+            $uniqueDepartment[$entry['id']] = $entry;
+        }
+
+        // Convert the associative array back to indexed array
+        $uniqueDepartment = array_values($uniqueDepartment);
+
+        echo json_encode($uniqueDepartment);
     }
 
     public function getCarByID(){
