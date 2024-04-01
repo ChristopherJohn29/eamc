@@ -107,7 +107,7 @@ class MainModel extends CI_Model {
         $final_result = [];
 
         foreach($results as $key => $result){
-            $entries = json_decode($result->identified_root_entry);
+            $entries = json_decode($result['identified_root_entry']);
 
             foreach($entries as $entry){
                 $tpn_issued_to = $entry['tpn_issued_to'];
