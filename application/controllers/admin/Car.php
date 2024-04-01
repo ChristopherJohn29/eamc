@@ -635,6 +635,7 @@ class car extends CI_Controller {
         // Handle each array of file uploads
 
         // var_dump( $risk_attachments);
+        $action_root_cause_analysis = $this->input->post('action_root_cause_analysis');
         $existing_nonconformity = $this->input->post('existing_nonconformity');
         $existing_nonconformity_remarks = $this->input->post('existing_nonconformity_remarks');
         $update_doc_info = $this->input->post('update_doc_info');
@@ -801,8 +802,10 @@ class car extends CI_Controller {
                 'corrective_action_status' => 'For Verification'
             );
         } else {
+
+            
             $cardata = array(
-                'corrective_action_status' => 'For OSQM Review'
+                'corrective_action_status' => $action_root_cause_analysis
             );
         }
 
