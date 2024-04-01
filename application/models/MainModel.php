@@ -84,8 +84,54 @@ class MainModel extends CI_Model {
         return $result;
     }
 
+    public function tpn(){
+
+        $this->db->select('car.*, source_car.source_name AS source_name, division.div_name AS division, department.dep_name AS department');
+        $this->db->from('car');
+
+        $this->db->group_start(); // Start grouping OR conditions
+        $this->db->where('(corrective_action_status = "For CAR action" OR corrective_action_status = "For Implementation")');
+        $this->db->group_end();
+        
+        $query = $this->db->get();
+        $results = $query->result_array();
+
+        $role = $this->session->userdata('role');
+        $section = $this->session->userdata('section');
+        $department = $this->session->userdata('department');
+        $department_section = $this->session->userdata('department_section');
+
+        $final_result = [];
+
+        foreach($results as $key => $result){
+            $entries = json_decode($result->identified_root_entry);
+
+            foreach($entries as $entry){
+                $tpn_issued_to = $entry['tpn_issued_to'];
+                $tpn_section = $entry['section'];
+
+                if($tpn_section){
+                    if($department_section == $tpn_section){
+                        $final_result[] = $results[$key];
+                    }
+                } else {
+                    if($department == $tpn_issued_to){
+                        $final_result[] = $results[$key];
+                    }
+                }
+            }
+        }
+
+        return $final_result;
+
+    }
+
     public function getCarByDiv($division, $status){
 
+        $tpn  = $this->tpn();
+
+        // foreach
+        
         $this->db->select('car.*, source_car.source_name AS source_name, division.div_name AS division, department.dep_name AS department');
         $this->db->from('car');
 
@@ -147,6 +193,8 @@ class MainModel extends CI_Model {
         $query = $this->db->get();
         $result = $query->result_array();
 
+        $result = array_merge($tpn, $result);
+        
         return $result;
 
     }
