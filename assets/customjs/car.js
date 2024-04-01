@@ -358,15 +358,9 @@ var car = {
                                             var identifiedRootEntries = JSON.parse(response[0].identified_root_entry);
                                             identifiedRootEntries.forEach(function(identifiedRoot) {
                                                 var tpn_control = identifiedRoot.tpn_control;
-                                                alert(tpn_control);
                                                 if (tpn_control == 'no' || tpn_control == 'partial') {
                                                     var tpn_issued_to = identifiedRoot.tpn_issued_to;
                                                     var tpn_section = identifiedRoot.tpn_section;
-
-                                                    alert(tpn_issued_to);
-                                                    alert(tpn_section);
-                                                    alert(userdepartment);
-                                                    alert(corrective_action_status);
 
                                                     if (tpn_section != '') {
                                                         if ((corrective_action_status == "For CAR action" || corrective_action_status == "For Implementation" || corrective_action_status == "For Partial") && (userrole == "section_head" && tpn_section == userdepartmentsection)) {
