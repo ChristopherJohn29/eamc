@@ -110,12 +110,14 @@ class MainModel extends CI_Model {
 
         foreach($results as $key => $result){
 
-            echo "<pre>";
-            var_dump($result);
-            echo "</pre>";
-            exit;
-
             if(isset($result['identified_root_entry'])){
+
+                echo "<pre>";
+                var_dump($result);
+                echo "</pre>";
+                exit;
+
+
                 $entries = json_decode($result['identified_root_entry']);
 
                 foreach($entries as $entry){
