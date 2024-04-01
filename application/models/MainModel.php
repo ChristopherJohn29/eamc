@@ -115,11 +115,11 @@ class MainModel extends CI_Model {
 
 
 
-                $entries = json_decode($result['identified_root_entry']);
+                $entries = json_decode($result['identified_root_entry'], true);
 
                 foreach($entries as $entry){
-                    $tpn_issued_to = $entry->tpn_issued_to;
-                    $tpn_section = $entry->section;
+                    $tpn_issued_to = isset($entry['tpn_issued_to']) ? $entry['tpn_issued_to'] : "";
+                    $tpn_section = isset($entry['section']) ? $entry['section'] : "";
     
                     if($tpn_section){
                         if($department_section == $tpn_section){
