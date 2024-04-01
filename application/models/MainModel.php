@@ -92,7 +92,10 @@ class MainModel extends CI_Model {
         $this->db->group_start(); // Start grouping OR conditions
         $this->db->where('(corrective_action_status = "For CAR action" OR corrective_action_status = "For Implementation")');
         $this->db->group_end();
-        
+
+        $this->db->join('source_car', 'source_car.id = car.source', 'left');
+        $this->db->join('division', 'division.id = car.issued_by', 'left');
+        $this->db->join('department', 'department.id = car.issued_to', 'left');
         $query = $this->db->get();
         $results = $query->result_array();
 
@@ -194,7 +197,7 @@ class MainModel extends CI_Model {
         $result = $query->result_array();
 
         $result = array_merge($tpn, $result);
-        
+
         return $result;
 
     }
