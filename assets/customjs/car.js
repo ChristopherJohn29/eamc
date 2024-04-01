@@ -2241,7 +2241,7 @@ var car = {
             
             if(jQuery(this).data('corrective_status') != 'For Implementation'){
                 
-                if(jQuery(this).data('partial') != "yes"){
+                if(jQuery(this).data('partial') == "yes"){
                     
                     var $action = '<div class="row mb-2">' +
                         '<div class="form-group col-md-12">' +
