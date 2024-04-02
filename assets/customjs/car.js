@@ -2312,7 +2312,7 @@ var car = {
             }
         
         
-            if(jQuery(this).data('corrective_status') == "For CAR action"){
+            if((jQuery(this).data('corrective_status') == "For CAR action" || jQuery(this).data('corrective_status') == "For Partial") && jQuery(this).data('partial') == "no"){
                 jQuery('#add-rootcause').removeClass('hidden');
                 jQuery('#add-identified-root').removeClass('hidden');
                 jQuery('#add-risk-number').removeClass('hidden');
@@ -2323,7 +2323,8 @@ var car = {
                 jQuery('#add-risk-number').addClass('hidden');
                 jQuery('#add-opportunity-number').addClass('hidden');
             }
-        
+            
+
             
             if(jQuery(this).data('corrective_status') != 'For Implementation'){
                 
@@ -2375,6 +2376,7 @@ var car = {
             $issuance_of_nc = jQuery(this).data('issuance_of_nc');
             $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
             $status = jQuery(this).data('status');
+            $partial = jQuery(this).data('partial');
             
          
             $findings = jQuery(this).data('findings');
@@ -2753,7 +2755,7 @@ var car = {
          
                 
                     
-                if(corrective_status == "For CAR action"){
+                if((corrective_status == "For CAR action" || corrective_status == "For Partial" ) && $partial == 'no'){
         
                     var riskHtml = `
                     <div class="col-lg-12 risk-number-repeatable">
