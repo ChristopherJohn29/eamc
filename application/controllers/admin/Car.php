@@ -657,18 +657,19 @@ class car extends CI_Controller {
         } else {
             $risk_entry = array();
         }
+        
+        if(isset($risk_number) && is_array($risk_number)){
+            foreach ($risk_number as $key => $value) {
+                // Check if any of the conditions is true
     
-        foreach ($risk_number as $key => $value) {
-            // Check if any of the conditions is true
-
-                // Construct the risk_entry array
-            if($risk_number[$key]){
-                $risk_entry[$key]['risk_number'] = $risk_number[$key];
-                $risk_entry[$key]['risk_number_details_update'] = isset($risk_number_details_update[$key]) ? $risk_number_details_update[$key] : "";
-                $risk_entry[$key]['risk_number_attachment_url'] = isset($risk_number_attachment_url[$key]) ? $risk_number_attachment_url[$key] : "";
+                    // Construct the risk_entry array
+                if($risk_number[$key]){
+                    $risk_entry[$key]['risk_number'] = $risk_number[$key];
+                    $risk_entry[$key]['risk_number_details_update'] = isset($risk_number_details_update[$key]) ? $risk_number_details_update[$key] : "";
+                    $risk_entry[$key]['risk_number_attachment_url'] = isset($risk_number_attachment_url[$key]) ? $risk_number_attachment_url[$key] : "";
+                }
             }
         }
-        
         
         $opportunity_identified_yn = $this->input->post('opportunity_identified_yn');
     
@@ -676,8 +677,6 @@ class car extends CI_Controller {
         $opportunity_number = $this->input->post('opportunity_number');
         $opportunity_identified = $this->input->post('opportunity_identified');
         $opportunity_number_attachment_url = $this->input->post('opportunity_number_attachment_url');
-
-        
 
         if(!empty($car)){
             $opportunity_entry = json_decode($car[0]['opportunity_entry'], true);
@@ -688,16 +687,18 @@ class car extends CI_Controller {
         } else {
             $opportunity_entry = array();
         }
-    
-        foreach ($opportunity_number as $key => $value) {
-            // Check if any of the conditions is true
-      
-                // Construct the opportunity_entry array
-                if($opportunity_number[$key]){
-                    $opportunity_entry[$key]['opportunity_number'] = $opportunity_number[$key];
-                    $opportunity_entry[$key]['opportunity_identified'] =  isset($opportunity_identified[$key]) ? $opportunity_identified[$key] : "";
-                    $opportunity_entry[$key]['opportunity_number_attachment_url'] = isset($opportunity_number_attachment_url[$key]) ? $opportunity_number_attachment_url[$key] : "";
-                }
+        
+
+        if(isset($opportunity_number) && is_array($opportunity_number)){
+            foreach ($opportunity_number as $key => $value) {
+                // Check if any of the conditions is true
+                    // Construct the opportunity_entry array
+                    if($opportunity_number[$key]){
+                        $opportunity_entry[$key]['opportunity_number'] = $opportunity_number[$key];
+                        $opportunity_entry[$key]['opportunity_identified'] =  isset($opportunity_identified[$key]) ? $opportunity_identified[$key] : "";
+                        $opportunity_entry[$key]['opportunity_number_attachment_url'] = isset($opportunity_number_attachment_url[$key]) ? $opportunity_number_attachment_url[$key] : "";
+                    }
+            }
         }
     
         //array
@@ -716,18 +717,19 @@ class car extends CI_Controller {
             $rootcause_entry = array();
         }
     
-        foreach ($rootcause as $key => $value) {
-            // Check if any of the conditions is true
-  
+        if(isset($rootcause) && is_array($rootcause)){
+            foreach ($rootcause as $key => $value) {
+                // Check if any of the conditions is true
                 // Construct the rootcause_entry array
-            if($rootcause[$key]){
-                $rootcause_entry[$key]['rootcause'] = $rootcause[$key];
-                $rootcause_entry[$key]['rootcause_file_name'] = isset($rootcause_file_name[$key]) ? $rootcause_file_name[$key] : "";
-                $rootcause_entry[$key]['rootcause_file_url'] = isset($rootcause_file_url[$key]) ? $rootcause_file_url[$key] : "";
+                if($rootcause[$key]){
+                    $rootcause_entry[$key]['rootcause'] = $rootcause[$key];
+                    $rootcause_entry[$key]['rootcause_file_name'] = isset($rootcause_file_name[$key]) ? $rootcause_file_name[$key] : "";
+                    $rootcause_entry[$key]['rootcause_file_url'] = isset($rootcause_file_url[$key]) ? $rootcause_file_url[$key] : "";
+                }
+                    
             }
-                
         }
-    
+
         //array
         $identified_root = $this->input->post('identified_root');
         $tpn_control = $this->input->post('tpn_control');
@@ -750,23 +752,25 @@ class car extends CI_Controller {
         } else {
             $identified_entry = array();
         }
-    
-        foreach ($identified_root as $key => $value) {
-            // Check if any of the conditions is true
-            
-                // Construct the identified_entry array
-                if($identified_root[$key]){
-                    $identified_entry[$key]['identified_root'] = $identified_root[$key];
-                    $identified_entry[$key]['tpn_control'] = isset($tpn_control[$key]) ? $tpn_control[$key] : ""; // Added isset check
-                    $identified_entry[$key]['identified_root_corrective_action'] = isset($identified_root_corrective_action[$key]) ? $identified_root_corrective_action[$key] : "";
-                    $identified_entry[$key]['identified_root_person_responsible'] = isset($identified_root_person_responsible[$key]) ? $identified_root_person_responsible[$key] : "";
-                    $identified_entry[$key]['identified_root_completion_date'] = isset($identified_root_completion_date[$key]) ? $identified_root_completion_date[$key] : "";
-                    $identified_entry[$key]['identified_root_attachment_url'] = isset($identified_root_attachment_url[$key]) ? $identified_root_attachment_url[$key] : "";
-                    $identified_entry[$key]['tpn_issued_by'] = isset($tpn_issued_by[$key]) ? $tpn_issued_by[$key] : "";
-                    $identified_entry[$key]['tpn_issued_to'] = isset($tpn_issued_to[$key]) ? $tpn_issued_to[$key] : "";
-                    $identified_entry[$key]['tpn_section'] = isset($tpn_section[$key]) ? $tpn_section[$key] : "";
-                }
+        
+        if(isset($rootcause) && is_array($rootcause)){
+            foreach ($identified_root as $key => $value) {
+                    // Check if any of the conditions is true
+                    // Construct the identified_entry array
+                    if($identified_root[$key]){
+                        $identified_entry[$key]['identified_root'] = $identified_root[$key];
+                        $identified_entry[$key]['tpn_control'] = isset($tpn_control[$key]) ? $tpn_control[$key] : ""; // Added isset check
+                        $identified_entry[$key]['identified_root_corrective_action'] = isset($identified_root_corrective_action[$key]) ? $identified_root_corrective_action[$key] : "";
+                        $identified_entry[$key]['identified_root_person_responsible'] = isset($identified_root_person_responsible[$key]) ? $identified_root_person_responsible[$key] : "";
+                        $identified_entry[$key]['identified_root_completion_date'] = isset($identified_root_completion_date[$key]) ? $identified_root_completion_date[$key] : "";
+                        $identified_entry[$key]['identified_root_attachment_url'] = isset($identified_root_attachment_url[$key]) ? $identified_root_attachment_url[$key] : "";
+                        $identified_entry[$key]['tpn_issued_by'] = isset($tpn_issued_by[$key]) ? $tpn_issued_by[$key] : "";
+                        $identified_entry[$key]['tpn_issued_to'] = isset($tpn_issued_to[$key]) ? $tpn_issued_to[$key] : "";
+                        $identified_entry[$key]['tpn_section'] = isset($tpn_section[$key]) ? $tpn_section[$key] : "";
+                    }
+            }
         }
+        
     
         // Use $data for any further processing or database insertion
         $existing_record = $this->db->get_where('corrective_action', array('car_id' => $car_id))->row();
@@ -805,8 +809,6 @@ class car extends CI_Controller {
                 'corrective_action_status' => 'For Verification'
             );
         } else {
-
-            
             $cardata = array(
                 'corrective_action_status' => $action_root_cause_analysis
             );
