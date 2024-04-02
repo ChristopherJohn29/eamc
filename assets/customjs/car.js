@@ -476,6 +476,40 @@ var car = {
                                                 // Do something with the data, for example, display it on the page
                                                 $('#car-global-datatable tbody').append(html);
                                         }
+                                    } else {
+                                                var html = "<tr><td>" + car_id + 
+                                                "<td>" + car_no + 
+                                                "</td><td>" + source_name + 
+                                                "</td><td>" + issued_by_name + 
+                                                "</td><td>" + issued_to_name + 
+                                                "</td><td>" + identification_date + 
+                                                "</td><td>" + registration_date + 
+                                                "</td><td>" + date_closed + 
+                                                "</td><td>" + corrective_action_status + "<br><small>" + ca_completion_date + "</small>" +
+                                                "</td><td>" + for_correction_status + "<br><small>" + fc_completion_date + "</small>" +
+                                                "</td><td>" + status +
+                                                "</td><td>" +
+                                                "<div class='btn-group mb-2'>" +
+                                                "<button type='button' class='btn btn-success dropdown-toggle' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><i class='fa fa-file'></i> <i class='mdi mdi-chevron-down'></i></button>" +
+                                                "<div class='dropdown-menu'>" +
+                                                issuance_of_nc_html+
+                                                "<a class='dropdown-item' href='#'>History</a>" +
+                                                for_action_html_corrective +
+                                                for_action_html_correction +
+                                                osqm_review_correction +
+                                                osqm_review_corrective_action +
+                                                osqm_approval_correction+
+                                                osqm_verification_correction+
+                                                osqm_validation_correction+
+                                                osqm_approval_corrective_action +
+                                                osqm_verification_corrective_action +
+                                                osqm_validation_corrective_action +
+                                                osqm_validation_correction_closing +
+                                                "</div>" +
+                                                "</div>" +
+                                                "</td></tr>";
+                                                // Do something with the data, for example, display it on the page
+                                                $('#car-global-datatable tbody').append(html);
                                     }
                                 },
                                 error: function() {
