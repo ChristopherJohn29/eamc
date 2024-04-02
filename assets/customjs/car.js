@@ -344,7 +344,7 @@ var car = {
                             }
                         }
 
-                        if (corrective_action_status == 'For CAR action' || corrective_action_status == "For Implementation" || corrective_action_status == "For Partial") {
+                        if (corrective_action_status == 'For CAR action' || corrective_action_status == "For Implementation" || corrective_action_status == "For Partial" || corrective_action_status == 'For Revision') {
                             $.ajax({
                                 type: 'POST',
                                 url: '../car/getCorrectiveAction',
@@ -2317,7 +2317,7 @@ var car = {
             }
         
         
-            if((jQuery(this).data('corrective_status') == "For CAR action" || jQuery(this).data('corrective_status') == "For Partial") && jQuery(this).data('partial') == "no"){
+            if((jQuery(this).data('corrective_status') == "For CAR action" || jQuery(this).data('corrective_status') == "For Partial" || jQuery(this).data('corrective_status') == "For Revision") && jQuery(this).data('partial') == "no"){
                 jQuery('#add-rootcause').removeClass('hidden');
                 jQuery('#add-identified-root').removeClass('hidden');
                 jQuery('#add-risk-number').removeClass('hidden');
@@ -2760,7 +2760,7 @@ var car = {
          
                 
                     
-                if((corrective_status == "For CAR action" || corrective_status == "For Partial" ) && $partial == 'no'){
+                if((corrective_status == "For CAR action" || corrective_status == "For Partial" || corrective_status == "For Revision" ) && $partial == 'no'){
         
                     var riskHtml = `
                     <div class="col-lg-12 risk-number-repeatable">
