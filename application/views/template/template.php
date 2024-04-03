@@ -41,7 +41,7 @@
          <div class="app-menu">
             <div class="logo-box mt-2">
                <!-- Brand Logo Light -->
-               <a href="index.html" class="logo-light">
+               <a href="https://eamc-iqms.infoadvance.com.ph/" target="_blank" class="logo-light">
                <img src="<?=base_url()?>assets/images/eastave.png" alt="logo" class="avatar-md rounded-circle mt-3 ">
                </a>
             </div>
