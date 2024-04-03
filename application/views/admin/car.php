@@ -596,12 +596,7 @@
                                                          <input type="text" class="form-control" name="rootcause[]">
                                                       </div>
                                                    </div>
-                                                   <div class="col-xl-4">
-                                                      <div class="mb-3 mb-xl-0">
-                                                         <label class="form-label">File Name</label>
-                                                         <input type="text" class="form-control" name="rootcause_file_name[]">
-                                                      </div>
-                                                   </div>
+             
                                                    <div class="col-xl-4">
                                                       <div class="mb-3 mb-xl-0">
                                                          <label class="form-label">File URL</label>
@@ -793,7 +788,7 @@
                                     </div>
                                     <div class="col-lg-3 text-inlign">
                                        <div class="form-check form-check-inline">
-                                          <input type="radio" id="customRadio1" name="opportunity_identified_yn" value="1" class="form-check-input">
+                                          <input type="radio" id="customRadio1" name="opportunity_identified_yn" value="1" checked class="form-check-input">
                                           <label class="form-check-label" for="opportunity_identified_yn">YES</label>
                                        </div>
                                        <div class="form-check form-check-inline">
@@ -1054,7 +1049,7 @@
                                     </div>
                                     <div class="col-lg-3 text-inlign">
                                        <div class="form-check form-check-inline">
-                                          <input type="radio" id="customRadio1" name="opportunity_identified_yn" value="1" class="form-check-input">
+                                          <input type="radio" id="customRadio1" name="opportunity_identified_yn" value="1" checked class="form-check-input">
                                           <label class="form-check-label" for="opportunity_identified_yn">YES</label>
                                        </div>
                                        <div class="form-check form-check-inline">

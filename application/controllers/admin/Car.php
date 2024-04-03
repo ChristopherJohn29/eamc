@@ -704,7 +704,6 @@ class car extends CI_Controller {
         //array
         $rootcause = $this->input->post('rootcause');
         $rootcause_file_url = $this->input->post('rootcause_file_url');
-        $rootcause_file_name = $this->input->post('rootcause_file_name');
         
 
         if(!empty($car)){
@@ -723,7 +722,6 @@ class car extends CI_Controller {
                 // Construct the rootcause_entry array
                 if($rootcause[$key]){
                     $rootcause_entry[$key]['rootcause'] = $rootcause[$key];
-                    $rootcause_entry[$key]['rootcause_file_name'] = isset($rootcause_file_name[$key]) ? $rootcause_file_name[$key] : "";
                     $rootcause_entry[$key]['rootcause_file_url'] = isset($rootcause_file_url[$key]) ? $rootcause_file_url[$key] : "";
                 }
                     
@@ -924,7 +922,6 @@ class car extends CI_Controller {
     
         //array
         $rootcause = $this->input->post('rootcause');
-        $rootcause_file_name = $this->input->post('rootcause_file_name');
         $rootcause_attachments =  $this->input->post('rootcause_attachments');
         $rootcause_file_url = $this->input->post('rootcause_file_url');
 
@@ -949,7 +946,6 @@ class car extends CI_Controller {
         foreach($rootcause as $key => $value){
 
             $rootcause_entry[$key]['rootcause'] = $rootcause[$key];
-            $rootcause_entry[$key]['rootcause_file_name'] = $rootcause_file_name[$key];
             $rootcause_entry[$key]['rootcause_file_url'] = $rootcause_file_url[$key];
             $rootcause_entry[$key]['rootcause_acceptable_review'] = $rootcause_acceptable_review[$key];
             $rootcause_entry[$key]['rootcause_acceptable_remarks_review'] = $rootcause_acceptable_remarks_review[$key];
@@ -1156,7 +1152,6 @@ class car extends CI_Controller {
     
         //array
         $rootcause = $this->input->post('rootcause');
-        $rootcause_file_name = $this->input->post('rootcause_file_name');
         $rootcause_attachments =  $this->input->post('rootcause_attachments');
         $rootcause_file_url = $this->input->post('rootcause_file_url');
 
@@ -1181,7 +1176,6 @@ class car extends CI_Controller {
         foreach($rootcause as $key => $value){
 
             $rootcause_entry[$key]['rootcause'] = $rootcause[$key];
-            $rootcause_entry[$key]['rootcause_file_name'] = $rootcause_file_name[$key];
             $rootcause_entry[$key]['rootcause_file_url'] = $rootcause_file_url[$key];
             $rootcause_entry[$key]['rootcause_acceptable_review'] = $rootcause_acceptable_review[$key];
             $rootcause_entry[$key]['rootcause_acceptable_remarks_review'] = $rootcause_acceptable_remarks_review[$key];

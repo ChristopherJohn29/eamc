@@ -2595,12 +2595,6 @@ var car = {
                                                                 <input type="text" class="form-control" readonly name="rootcause[${count}]" value="${rootCause.rootcause}">
                                                             </div>
                                                         </div>
-                                                        <div class="col-xl-3">
-                                                            <div class="mb-3 mb-xl-0">
-                                                                <label class="form-label">File Name</label>
-                                                                <input type="text" class="form-control" readonly name="rootcause_file_name[${count}]" value="${rootCause.rootcause_file_name}">
-                                                            </div>
-                                                        </div>
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">File URL</label>
@@ -2868,13 +2862,7 @@ var car = {
                                                                 <input type="text" class="form-control" name="rootcause[]" value="">
                                                             </div>
                                                         </div>
-                                                        <div class="col-xl-4">
-                                                            <div class="mb-3 mb-xl-0">
-                                                                <label class="form-label">File Name</label>
-                                                                <input type="text" class="form-control" name="rootcause_file_name[]" value="">
-                                                            </div>
-                                                        </div>
-        
+                             
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">File URL</label>
@@ -3405,12 +3393,7 @@ var car = {
                                                                 <input type="text" class="form-control" readonly name="rootcause[${count}]" value="${rootCause.rootcause}">
                                                             </div>
                                                         </div>
-                                                        <div class="col-xl-3">
-                                                            <div class="mb-3 mb-xl-0">
-                                                                <label class="form-label">File Name</label>
-                                                                <input type="text" class="form-control" readonly name="rootcause_file_name[${count}]" value="${rootCause.rootcause_file_name}">
-                                                            </div>
-                                                        </div>
+                                     
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">File URL</label>
@@ -3996,12 +3979,7 @@ var car = {
                                                             <input type="text" class="form-control" readonly name="rootcause[${count}]" value="${rootCause.rootcause}">
                                                         </div>
                                                     </div>
-                                                    <div class="col-xl-3">
-                                                        <div class="mb-3 mb-xl-0">
-                                                            <label class="form-label">File Name</label>
-                                                            <input type="text" class="form-control" readonly name="rootcause_file_name[${count}]" value="${rootCause.rootcause_file_name}">
-                                                        </div>
-                                                    </div>
+                    
                                                     <div class="col-xl-6">
                                                         <div class="mb-3 mb-xl-0">
                                                         <label class="form-label">File URL</label>
@@ -4511,12 +4489,7 @@ var car = {
                                                                 <input type="text" class="form-control" readonly name="rootcause[${count}]" value="${rootCause.rootcause}">
                                                             </div>
                                                         </div>
-                                                        <div class="col-xl-3">
-                                                            <div class="mb-3 mb-xl-0">
-                                                                <label class="form-label">File Name</label>
-                                                                <input type="text" class="form-control" readonly name="rootcause_file_name[${count}]" value="${rootCause.rootcause_file_name}">
-                                                            </div>
-                                                        </div>
+                                  
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">File URL</label>
@@ -5022,12 +4995,7 @@ var car = {
                                                                 <input type="text" class="form-control" readonly name="rootcause[${count}]" value="${rootCause.rootcause}">
                                                             </div>
                                                         </div>
-                                                        <div class="col-xl-3">
-                                                            <div class="mb-3 mb-xl-0">
-                                                                <label class="form-label">File Name</label>
-                                                                <input type="text" class="form-control" readonly name="rootcause_file_name[${count}]" value="${rootCause.rootcause_file_name}">
-                                                            </div>
-                                                        </div>
+                       
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">File URL</label>
@@ -5648,12 +5616,7 @@ var car = {
                                                                         <input type="text" class="form-control" readonly name="rootcause[${count}]" value="${rootCause.rootcause}">
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-xl-3">
-                                                                    <div class="mb-3 mb-xl-0">
-                                                                        <label class="form-label">File Name</label>
-                                                                        <input type="text" class="form-control" readonly name="rootcause_file_name[${count}]" value="${rootCause.rootcause_file_name}">
-                                                                    </div>
-                                                                </div>
+                                   
                                                                 <div class="col-xl-6">
                                                                     <div class="mb-3 mb-xl-0">
                                                                     <label class="form-label">File URL</label>
@@ -6276,12 +6239,7 @@ var car = {
                                                                         <input type="text" class="form-control" readonly name="rootcause[${count}]" value="${rootCause.rootcause}">
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-xl-3">
-                                                                    <div class="mb-3 mb-xl-0">
-                                                                        <label class="form-label">File Name</label>
-                                                                        <input type="text" class="form-control" readonly name="rootcause_file_name[${count}]" value="${rootCause.rootcause_file_name}">
-                                                                    </div>
-                                                                </div>
+                             
                                                                 <div class="col-xl-6">
                                                                     <div class="mb-3 mb-xl-0">
                                                                     <label class="form-label">File URL</label>
