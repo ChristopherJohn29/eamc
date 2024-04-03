@@ -154,7 +154,7 @@ class MainModel extends CI_Model {
         $department = $this->session->userdata('department');
         $department_section = $this->session->userdata('department_section');
         
-        if($department_section){
+        if($department_section && ( $role != 'osqm_dco' && $role != 'osqm_do')){
             $this->db->where('section', $department_section);
         }
         
