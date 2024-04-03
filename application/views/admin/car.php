@@ -1122,7 +1122,7 @@
                
                $requiredRoles = array(
                   'designation' => 'division',
-                  'role' => ['osqm_dco'],
+                  'role' => ['osqm_dco', 'osqm_do'],
                );
       
                if ($this->role_checker->checkRole($requiredRoles)) {
