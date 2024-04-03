@@ -1698,36 +1698,38 @@ class car extends CI_Controller {
 
         // Define a variable to count working days for 10-day expiry
         $workingDays_10 = 0;
-        
+        $expiryDate_10 = clone $currentDate;
+
         // Calculate 10 working days from now
         while ($workingDays_10 < 10) {
             // Add one day to the current date
-            $currentDate->modify('+1 day');
-        
+            $expiryDate_10->modify('+1 day');
+
             // Skip weekends (Saturday and Sunday)
-            if ($currentDate->format('N') < 6) {
+            if ($expiryDate_10->format('N') < 6) {
                 $workingDays_10++;
             }
         }
-        
+
         // Define a variable to count working days for 30-day expiry
-        $currentDate->modify('+1 day'); // Move to next day for 30-day expiry
+        $expiryDate_30 = clone $currentDate;
+        $expiryDate_30->modify('+1 day'); // Move to next day for 30-day expiry
         $workingDays_30 = 0;
-        
+
         // Calculate 30 working days from now
         while ($workingDays_30 < 30) {
             // Add one day to the current date
-            $currentDate->modify('+1 day');
-        
+            $expiryDate_30->modify('+1 day');
+
             // Skip weekends (Saturday and Sunday)
-            if ($currentDate->format('N') < 6) {
+            if ($expiryDate_30->format('N') < 6) {
                 $workingDays_30++;
             }
         }
-        
+
         // Output the results
-        $expiry_10_days = $currentDate->format('Y-m-d');
-        $expiry_30_days = $currentDate->format('Y-m-d');
+        $expiry_10_days = $expiryDate_10->format('Y-m-d');
+        $expiry_30_days = $expiryDate_30->format('Y-m-d');
 
 
         $data = array(
