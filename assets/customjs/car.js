@@ -384,8 +384,8 @@ var car = {
                                                     "</td><td>" + identification_date + 
                                                     "</td><td>" + registration_date + 
                                                     "</td><td>" + date_closed + 
-                                                    "</td><td>" + corrective_action_status + "<br><small>" + ca_completion_date + "</small>" +
                                                     "</td><td>" + for_correction_status + "<br><small>" + fc_completion_date + "</small>" +
+                                                    "</td><td>" + corrective_action_status + "<br><small>" + ca_completion_date + "</small>" +
                                                     "</td><td>" + status +
                                                     "</td><td>" +
                                                     "<div class='btn-group mb-2'>" +
@@ -421,8 +421,8 @@ var car = {
                                                 "</td><td>" + identification_date + 
                                                 "</td><td>" + registration_date + 
                                                 "</td><td>" + date_closed + 
-                                                "</td><td>" + corrective_action_status + "<br><small>" + ca_completion_date + "</small>" +
                                                 "</td><td>" + for_correction_status + "<br><small>" + fc_completion_date + "</small>" +
+                                                "</td><td>" + corrective_action_status + "<br><small>" + ca_completion_date + "</small>" +
                                                 "</td><td>" + status +
                                                 "</td><td>" +
                                                 "<div class='btn-group mb-2'>" +
@@ -456,8 +456,8 @@ var car = {
                                                 "</td><td>" + identification_date + 
                                                 "</td><td>" + registration_date + 
                                                 "</td><td>" + date_closed + 
-                                                "</td><td>" + corrective_action_status + "<br><small>" + ca_completion_date + "</small>" +
                                                 "</td><td>" + for_correction_status + "<br><small>" + fc_completion_date + "</small>" +
+                                                "</td><td>" + corrective_action_status + "<br><small>" + ca_completion_date + "</small>" +
                                                 "</td><td>" + status +
                                                 "</td><td>" +
                                                 "<div class='btn-group mb-2'>" +
@@ -497,8 +497,8 @@ var car = {
                             "</td><td>" + identification_date + 
                             "</td><td>" + registration_date + 
                             "</td><td>" + date_closed + 
-                            "</td><td>" + corrective_action_status + "<br><small>" + ca_completion_date + "</small>" +
                             "</td><td>" + for_correction_status + "<br><small>" + fc_completion_date + "</small>" +
+                            "</td><td>" + corrective_action_status + "<br><small>" + ca_completion_date + "</small>" +
                             "</td><td>" + status +
                             "</td><td>" +
                             "<div class='btn-group mb-2'>" +

@@ -1152,8 +1152,8 @@
                            <th>Identification Date</th>
                            <th>Registration Date</th>
                            <th>Date Closed</th>
-                           <th>Corrective Action Status</th>
                            <th>For Correction Status</th>
+                           <th>Corrective Action Status</th>
                            <th>Status</th>
                            <th>Action</th>
                         </tr>
