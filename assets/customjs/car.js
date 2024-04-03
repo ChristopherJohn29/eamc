@@ -2487,6 +2487,14 @@ var car = {
                             $('input[name="existing_nonconformity"][value="'+ response[0].existing_nonconformity +'"]').prop('checked', true);
                             $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
                             $('input[name="opportunity_identified_yn"][value="'+ response[0].opportunity_identified +'"]').prop('checked', true);
+
+                            if(response[0].opportunity_identified == "1"){
+                                jQuery('#opportunity-number').removeClass('hidden');
+                                jQuery('#add-opportunity-number').removeClass('hidden');
+                            } else {
+                                jQuery('#opportunity-number').addClass('hidden');
+                                jQuery('#add-opportunity-number').addClass('hidden');
+                            }
          
                             $('[name="existing_nonconformity_remarks"]').val(response[0].existing_nonconformity_remarks);
                             $('[name="update_doc_info_remarks"]').val(response[0].update_doc_info_remarks);
@@ -3201,6 +3209,12 @@ var car = {
                             $('input[name="existing_nonconformity"][value="'+ response[0].existing_nonconformity +'"]').prop('checked', true);
                             $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
                             $('input[name="opportunity_identified_yn"][value="'+ response[0].opportunity_identified +'"]').prop('checked', true);
+
+                            if(response[0].opportunity_identified == "1"){
+                                jQuery('#opportunity-number').removeClass('hidden');
+                            } else {
+                                jQuery('#opportunity-number').addClass('hidden');
+                            }
          
                             $('[name="existing_nonconformity_remarks"]').val(response[0].existing_nonconformity_remarks);
                             $('[name="update_doc_info_remarks"]').val(response[0].update_doc_info_remarks);
@@ -3786,7 +3800,13 @@ var car = {
                         $('input[name="existing_nonconformity"][value="'+ response[0].existing_nonconformity +'"]').prop('checked', true);
                         $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
                         $('input[name="opportunity_identified_yn"][value="'+ response[0].opportunity_identified +'"]').prop('checked', true);
-        
+                        
+                        if(response[0].opportunity_identified == "1"){
+                            jQuery('#opportunity-number').removeClass('hidden');
+                        } else {
+                            jQuery('#opportunity-number').addClass('hidden');
+                        }
+
                         $('[name="existing_nonconformity_remarks"]').val(response[0].existing_nonconformity_remarks);
                         $('[name="update_doc_info_remarks"]').val(response[0].update_doc_info_remarks);
         
@@ -4384,6 +4404,12 @@ var car = {
                             $('input[name="existing_nonconformity"][value="'+ response[0].existing_nonconformity +'"]').prop('checked', true);
                             $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
                             $('input[name="opportunity_identified_yn"][value="'+ response[0].opportunity_identified +'"]').prop('checked', true);
+
+                            if(response[0].opportunity_identified == "1"){
+                                jQuery('#opportunity-number').removeClass('hidden');
+                            } else {
+                                jQuery('#opportunity-number').addClass('hidden');
+                            }
          
                             $('[name="existing_nonconformity_remarks"]').val(response[0].existing_nonconformity_remarks);
                             $('[name="update_doc_info_remarks"]').val(response[0].update_doc_info_remarks);
@@ -4890,6 +4916,12 @@ var car = {
                             $('input[name="existing_nonconformity"][value="'+ response[0].existing_nonconformity +'"]').prop('checked', true);
                             $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
                             $('input[name="opportunity_identified_yn"][value="'+ response[0].opportunity_identified +'"]').prop('checked', true);
+
+                            if(response[0].opportunity_identified == "1"){
+                                jQuery('#opportunity-number').removeClass('hidden');
+                            } else {
+                                jQuery('#opportunity-number').addClass('hidden');
+                            }
          
                             $('[name="existing_nonconformity_remarks"]').val(response[0].existing_nonconformity_remarks);
                             $('[name="update_doc_info_remarks"]').val(response[0].update_doc_info_remarks);
@@ -5509,6 +5541,12 @@ var car = {
                                     $('input[name="existing_nonconformity"][value="'+ response[0].existing_nonconformity +'"]').prop('checked', true);
                                     $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
                                     $('input[name="opportunity_identified_yn"][value="'+ response[0].opportunity_identified +'"]').prop('checked', true);
+
+                                    if(response[0].opportunity_identified == "1"){
+                                        jQuery('#opportunity-number_closing').removeClass('hidden');
+                                    } else {
+                                        jQuery('#opportunity-number_closing').addClass('hidden');
+                                    }
                  
                                     $('[name="existing_nonconformity_remarks"]').val(response[0].existing_nonconformity_remarks);
                                     $('[name="update_doc_info_remarks"]').val(response[0].update_doc_info_remarks);
@@ -6131,6 +6169,12 @@ var car = {
                                     $('input[name="existing_nonconformity"][value="'+ response[0].existing_nonconformity +'"]').prop('checked', true);
                                     $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
                                     $('input[name="opportunity_identified_yn"][value="'+ response[0].opportunity_identified +'"]').prop('checked', true);
+
+                                    if(response[0].opportunity_identified == "1"){
+                                        jQuery('#opportunity-number_closing').removeClass('hidden');
+                                    } else {
+                                        jQuery('#opportunity-number_closing').addClass('hidden');
+                                    }
                  
                                     $('[name="existing_nonconformity_remarks"]').val(response[0].existing_nonconformity_remarks);
                                     $('[name="update_doc_info_remarks"]').val(response[0].update_doc_info_remarks);
@@ -6460,6 +6504,18 @@ var car = {
                         }
                     });
         
+        });
+
+
+        $('input[name="opportunity_identified_yn"]').change(function() {
+            // Check if the value is 1 (YES)
+            if ($(this).val() === "1") {
+                // If yes, show the opportunity-number element
+                $('#opportunity-number').show();
+            } else {
+                // If no, hide the opportunity-number element
+                $('#opportunity-number').hide();
+            }
         });
 
     },
