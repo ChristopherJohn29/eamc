@@ -865,7 +865,7 @@
                            </div>
                         </div>
                         <div class="form-group col-lg-12">
-                           <label for="update_doc_info_remarks" class="form-label">Remarks</label>
+                           <label for="update_doc_info_remarks" class="form-label">Details</label>
                            <textarea class="form-control" id="update_doc_info_remarks" name="update_doc_info_remarks" rows="4"></textarea>
                         </div>
                      </div>
@@ -1086,7 +1086,7 @@
                            </div>
                         </div>
                         <div class="form-group col-lg-12">
-                           <label for="update_doc_info_remarks" class="form-label">Remarks</label>
+                           <label for="update_doc_info_remarks" class="form-label">Details</label>
                            <textarea class="form-control" id="update_doc_info_remarks" name="update_doc_info_remarks" rows="4"></textarea>
                         </div>
                      </div>
