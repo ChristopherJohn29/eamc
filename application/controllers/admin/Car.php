@@ -860,21 +860,24 @@ class car extends CI_Controller {
             $risk_entry = array();
         }
         
-        foreach($risk_number as $key => $value){
+        if(isset($risk_number) && is_array($risk_number)){
+            foreach($risk_number as $key => $value){
             
-            $risk_entry[$key]['risk_number'] = $risk_number[$key];
-            $risk_entry[$key]['risk_number_details_update'] = $risk_number_details_update[$key];
-            $risk_entry[$key]['risk_number_attachment_url'] = $risk_number_attachment_url[$key];
-            $risk_entry[$key]['risk_number_acceptable_review'] = $risk_number_acceptable_review[$key];
-            $risk_entry[$key]['risk_number_acceptable_remarks_review'] = $risk_number_acceptable_remarks_review[$key];
-            $risk_entry[$key]['risk_number_acceptable_approval'] = $risk_number_acceptable_approval[$key];
-            $risk_entry[$key]['risk_number_acceptable_remarks_approval'] = $risk_number_acceptable_remarks_approval[$key];
-            $risk_entry[$key]['risk_number_acceptable_verification'] = $risk_number_acceptable_verification[$key];
-            $risk_entry[$key]['risk_number_acceptable_remarks_verification'] = $risk_number_acceptable_remarks_verification[$key];
-            $risk_entry[$key]['risk_number_acceptable_validation'] = $risk_number_acceptable_validation[$key];
-            $risk_entry[$key]['risk_number_acceptable_remarks_validation'] = $risk_number_acceptable_remarks_validation[$key];
-
+                $risk_entry[$key]['risk_number'] = $risk_number[$key];
+                $risk_entry[$key]['risk_number_details_update'] = $risk_number_details_update[$key];
+                $risk_entry[$key]['risk_number_attachment_url'] = $risk_number_attachment_url[$key];
+                $risk_entry[$key]['risk_number_acceptable_review'] = $risk_number_acceptable_review[$key];
+                $risk_entry[$key]['risk_number_acceptable_remarks_review'] = $risk_number_acceptable_remarks_review[$key];
+                $risk_entry[$key]['risk_number_acceptable_approval'] = $risk_number_acceptable_approval[$key];
+                $risk_entry[$key]['risk_number_acceptable_remarks_approval'] = $risk_number_acceptable_remarks_approval[$key];
+                $risk_entry[$key]['risk_number_acceptable_verification'] = $risk_number_acceptable_verification[$key];
+                $risk_entry[$key]['risk_number_acceptable_remarks_verification'] = $risk_number_acceptable_remarks_verification[$key];
+                $risk_entry[$key]['risk_number_acceptable_validation'] = $risk_number_acceptable_validation[$key];
+                $risk_entry[$key]['risk_number_acceptable_remarks_validation'] = $risk_number_acceptable_remarks_validation[$key];
+    
+            }
         }
+        
         
         $car_id = $this->input->post('car_id');
         $opportunity_identified_yn = $this->input->post('opportunity_identified_yn');
@@ -905,20 +908,23 @@ class car extends CI_Controller {
             $opportunity_entry = array();
         }
     
-        foreach($opportunity_number as $key => $value){
-
-            $opportunity_entry[$key]['opportunity_number'] = $opportunity_number[$key];
-            $opportunity_entry[$key]['opportunity_number_attachment_url'] = $opportunity_number_attachment_url[$key];
-            $opportunity_entry[$key]['opportunity_identified'] = $opportunity_identified[$key];
-            $opportunity_entry[$key]['opportunity_number_acceptable_review'] = $opportunity_number_acceptable_review[$key];
-            $opportunity_entry[$key]['opportunity_number_acceptable_remarks_review'] = $opportunity_number_acceptable_remarks_review[$key];
-            $opportunity_entry[$key]['opportunity_number_acceptable_approval'] = $opportunity_number_acceptable_approval[$key];
-            $opportunity_entry[$key]['opportunity_number_acceptable_remarks_approval'] = $opportunity_number_acceptable_remarks_approval[$key];
-            $opportunity_entry[$key]['opportunity_number_acceptable_verification'] = $opportunity_number_acceptable_verification[$key];
-            $opportunity_entry[$key]['opportunity_number_acceptable_remarks_verification'] = $opportunity_number_acceptable_remarks_verification[$key];
-            $opportunity_entry[$key]['opportunity_number_acceptable_validation'] = $opportunity_number_acceptable_validation[$key];
-            $opportunity_entry[$key]['opportunity_number_acceptable_remarks_validation'] =  $opportunity_number_acceptable_remarks_validation[$key];
+        if(isset($opportunity_number) && is_array($opportunity_number)){
+            foreach($opportunity_number as $key => $value){
+            
+                $opportunity_entry[$key]['opportunity_number'] = $opportunity_number[$key];
+                $opportunity_entry[$key]['opportunity_number_attachment_url'] = $opportunity_number_attachment_url[$key];
+                $opportunity_entry[$key]['opportunity_identified'] = $opportunity_identified[$key];
+                $opportunity_entry[$key]['opportunity_number_acceptable_review'] = $opportunity_number_acceptable_review[$key];
+                $opportunity_entry[$key]['opportunity_number_acceptable_remarks_review'] = $opportunity_number_acceptable_remarks_review[$key];
+                $opportunity_entry[$key]['opportunity_number_acceptable_approval'] = $opportunity_number_acceptable_approval[$key];
+                $opportunity_entry[$key]['opportunity_number_acceptable_remarks_approval'] = $opportunity_number_acceptable_remarks_approval[$key];
+                $opportunity_entry[$key]['opportunity_number_acceptable_verification'] = $opportunity_number_acceptable_verification[$key];
+                $opportunity_entry[$key]['opportunity_number_acceptable_remarks_verification'] = $opportunity_number_acceptable_remarks_verification[$key];
+                $opportunity_entry[$key]['opportunity_number_acceptable_validation'] = $opportunity_number_acceptable_validation[$key];
+                $opportunity_entry[$key]['opportunity_number_acceptable_remarks_validation'] =  $opportunity_number_acceptable_remarks_validation[$key];
+            }
         }
+        
     
         //array
         $rootcause = $this->input->post('rootcause');
@@ -942,21 +948,25 @@ class car extends CI_Controller {
         if(empty($rootcause_entry)){
             $rootcause_entry = array();
         }
+        
+
+        if(isset($rootcause) && is_array($rootcause)){
+            foreach($rootcause as $key => $value){
+
+                $rootcause_entry[$key]['rootcause'] = $rootcause[$key];
+                $rootcause_entry[$key]['rootcause_file_url'] = $rootcause_file_url[$key];
+                $rootcause_entry[$key]['rootcause_acceptable_review'] = $rootcause_acceptable_review[$key];
+                $rootcause_entry[$key]['rootcause_acceptable_remarks_review'] = $rootcause_acceptable_remarks_review[$key];
+                $rootcause_entry[$key]['rootcause_acceptable_approval'] = $rootcause_acceptable_approval[$key];
+                $rootcause_entry[$key]['rootcause_acceptable_remarks_approval'] = $rootcause_acceptable_remarks_approval[$key];
+                $rootcause_entry[$key]['rootcause_acceptable_verification'] = $rootcause_acceptable_verification[$key];
+                $rootcause_entry[$key]['rootcause_acceptable_remarks_verification'] = $rootcause_acceptable_remarks_verification[$key];
+                $rootcause_entry[$key]['rootcause_acceptable_validation'] = $rootcause_acceptable_validation[$key];
+                $rootcause_entry[$key]['rootcause_acceptable_remarks_validation'] = $rootcause_acceptable_remarks_validation[$key];
     
-        foreach($rootcause as $key => $value){
-
-            $rootcause_entry[$key]['rootcause'] = $rootcause[$key];
-            $rootcause_entry[$key]['rootcause_file_url'] = $rootcause_file_url[$key];
-            $rootcause_entry[$key]['rootcause_acceptable_review'] = $rootcause_acceptable_review[$key];
-            $rootcause_entry[$key]['rootcause_acceptable_remarks_review'] = $rootcause_acceptable_remarks_review[$key];
-            $rootcause_entry[$key]['rootcause_acceptable_approval'] = $rootcause_acceptable_approval[$key];
-            $rootcause_entry[$key]['rootcause_acceptable_remarks_approval'] = $rootcause_acceptable_remarks_approval[$key];
-            $rootcause_entry[$key]['rootcause_acceptable_verification'] = $rootcause_acceptable_verification[$key];
-            $rootcause_entry[$key]['rootcause_acceptable_remarks_verification'] = $rootcause_acceptable_remarks_verification[$key];
-            $rootcause_entry[$key]['rootcause_acceptable_validation'] = $rootcause_acceptable_validation[$key];
-            $rootcause_entry[$key]['rootcause_acceptable_remarks_validation'] = $rootcause_acceptable_remarks_validation[$key];
-
+            }
         }
+        
     
         //array
         $identified_root = $this->input->post('identified_root');
@@ -987,28 +997,31 @@ class car extends CI_Controller {
         if(empty($identified_entry)){
             $identified_entry = array();
         }
-    
-        foreach($identified_root as $key => $value){
+        
+        if(isset($identified_root) && is_array($identified_root)){
+            foreach($identified_root as $key => $value){
 
 
-            $identified_entry[$key]['identified_root'] = $identified_root[$key];
-            $identified_entry[$key]['tpn_control'] = $tpn_control[$key];
-            $identified_entry[$key]['identified_root_corrective_action'] = $identified_root_corrective_action[$key];
-            $identified_entry[$key]['identified_root_person_responsible'] = $identified_root_person_responsible[$key];
-            $identified_entry[$key]['identified_root_completion_date'] = $identified_root_completion_date[$key];
-            $identified_entry[$key]['identified_root_attachment_url'] = $identified_root_attachment_url[$key];
-            $identified_entry[$key]['identified_root_acceptable_review'] = $identified_root_acceptable_review[$key];
-            $identified_entry[$key]['identified_root_acceptable_remarks_review'] = $identified_root_acceptable_remarks_review[$key];
-            $identified_entry[$key]['identified_root_acceptable_approval'] = $identified_root_acceptable_approval[$key];
-            $identified_entry[$key]['identified_root_acceptable_remarks_approval'] = $identified_root_acceptable_remarks_approval[$key];
-            $identified_entry[$key]['identified_root_acceptable_verification'] = $identified_root_acceptable_verification[$key];
-            $identified_entry[$key]['identified_root_acceptable_remarks_verification'] = $identified_root_acceptable_remarks_verification[$key];
-            $identified_entry[$key]['identified_root_acceptable_validation'] = $identified_root_acceptable_validation[$key];
-            $identified_entry[$key]['identified_root_acceptable_remarks_validation'] = $identified_root_acceptable_remarks_validation[$key];
-            $identified_entry[$key]['tpn_issued_by'] = isset($tpn_issued_by[$key]) ? $tpn_issued_by[$key] : "";
-            $identified_entry[$key]['tpn_issued_to'] = isset($tpn_issued_to[$key]) ? $tpn_issued_to[$key] : "";
-            $identified_entry[$key]['tpn_section'] = isset($tpn_section[$key]) ? $tpn_section[$key] : "";
+                $identified_entry[$key]['identified_root'] = $identified_root[$key];
+                $identified_entry[$key]['tpn_control'] = $tpn_control[$key];
+                $identified_entry[$key]['identified_root_corrective_action'] = $identified_root_corrective_action[$key];
+                $identified_entry[$key]['identified_root_person_responsible'] = $identified_root_person_responsible[$key];
+                $identified_entry[$key]['identified_root_completion_date'] = $identified_root_completion_date[$key];
+                $identified_entry[$key]['identified_root_attachment_url'] = $identified_root_attachment_url[$key];
+                $identified_entry[$key]['identified_root_acceptable_review'] = $identified_root_acceptable_review[$key];
+                $identified_entry[$key]['identified_root_acceptable_remarks_review'] = $identified_root_acceptable_remarks_review[$key];
+                $identified_entry[$key]['identified_root_acceptable_approval'] = $identified_root_acceptable_approval[$key];
+                $identified_entry[$key]['identified_root_acceptable_remarks_approval'] = $identified_root_acceptable_remarks_approval[$key];
+                $identified_entry[$key]['identified_root_acceptable_verification'] = $identified_root_acceptable_verification[$key];
+                $identified_entry[$key]['identified_root_acceptable_remarks_verification'] = $identified_root_acceptable_remarks_verification[$key];
+                $identified_entry[$key]['identified_root_acceptable_validation'] = $identified_root_acceptable_validation[$key];
+                $identified_entry[$key]['identified_root_acceptable_remarks_validation'] = $identified_root_acceptable_remarks_validation[$key];
+                $identified_entry[$key]['tpn_issued_by'] = isset($tpn_issued_by[$key]) ? $tpn_issued_by[$key] : "";
+                $identified_entry[$key]['tpn_issued_to'] = isset($tpn_issued_to[$key]) ? $tpn_issued_to[$key] : "";
+                $identified_entry[$key]['tpn_section'] = isset($tpn_section[$key]) ? $tpn_section[$key] : "";
+            }
         }
+        
     
         // Use $data for any further processing or database insertion
         $existing_record = $this->db->get_where('corrective_action', array('car_id' => $car_id))->row();
@@ -1089,22 +1102,25 @@ class car extends CI_Controller {
         if(empty($risk_entry)){
             $risk_entry = array();
         }
-    
-        foreach($risk_number as $key => $value){
+        
+        if(isset($risk_number) && is_array($risk_number)){
+            foreach($risk_number as $key => $value){
 
-            $risk_entry[$key]['risk_number'] = $risk_number[$key];
-            $risk_entry[$key]['risk_number_details_update'] = $risk_number_details_update[$key];
-            $risk_entry[$key]['risk_number_attachment_url'] = $risk_number_attachment_url[$key];
-            $risk_entry[$key]['risk_number_acceptable_review'] = $risk_number_acceptable_review[$key];
-            $risk_entry[$key]['risk_number_acceptable_remarks_review'] = $risk_number_acceptable_remarks_review[$key];
-            $risk_entry[$key]['risk_number_acceptable_approval'] = $risk_number_acceptable_approval[$key];
-            $risk_entry[$key]['risk_number_acceptable_remarks_approval'] = $risk_number_acceptable_remarks_approval[$key];
-            $risk_entry[$key]['risk_number_acceptable_verification'] = $risk_number_acceptable_verification[$key];
-            $risk_entry[$key]['risk_number_acceptable_remarks_verification'] = $risk_number_acceptable_remarks_verification[$key];
-            $risk_entry[$key]['risk_number_acceptable_validation'] = $risk_number_acceptable_validation[$key];
-            $risk_entry[$key]['risk_number_acceptable_remarks_validation'] = $risk_number_acceptable_remarks_validation[$key];
-            
+                $risk_entry[$key]['risk_number'] = $risk_number[$key];
+                $risk_entry[$key]['risk_number_details_update'] = $risk_number_details_update[$key];
+                $risk_entry[$key]['risk_number_attachment_url'] = $risk_number_attachment_url[$key];
+                $risk_entry[$key]['risk_number_acceptable_review'] = $risk_number_acceptable_review[$key];
+                $risk_entry[$key]['risk_number_acceptable_remarks_review'] = $risk_number_acceptable_remarks_review[$key];
+                $risk_entry[$key]['risk_number_acceptable_approval'] = $risk_number_acceptable_approval[$key];
+                $risk_entry[$key]['risk_number_acceptable_remarks_approval'] = $risk_number_acceptable_remarks_approval[$key];
+                $risk_entry[$key]['risk_number_acceptable_verification'] = $risk_number_acceptable_verification[$key];
+                $risk_entry[$key]['risk_number_acceptable_remarks_verification'] = $risk_number_acceptable_remarks_verification[$key];
+                $risk_entry[$key]['risk_number_acceptable_validation'] = $risk_number_acceptable_validation[$key];
+                $risk_entry[$key]['risk_number_acceptable_remarks_validation'] = $risk_number_acceptable_remarks_validation[$key];
+                
+            }
         }
+        
         
         $car_id = $this->input->post('car_id');
         $opportunity_identified_yn = $this->input->post('opportunity_identified_yn');
@@ -1134,21 +1150,24 @@ class car extends CI_Controller {
             $opportunity_entry = array();
         }
     
-        foreach($opportunity_number as $key => $value){
+        if(isset($opportunity_number) && is_array($opportunity_number)){
+            foreach($opportunity_number as $key => $value){
 
-            $opportunity_entry[$key]['opportunity_number'] = $opportunity_number[$key];
-            $opportunity_entry[$key]['opportunity_number_attachment_url'] = $opportunity_number_attachment_url[$key];
-            $opportunity_entry[$key]['opportunity_identified'] = $opportunity_identified[$key];
-            $opportunity_entry[$key]['opportunity_number_acceptable_review'] = $opportunity_number_acceptable_review[$key];
-            $opportunity_entry[$key]['opportunity_number_acceptable_remarks_review'] = $opportunity_number_acceptable_remarks_review[$key];
-            $opportunity_entry[$key]['opportunity_number_acceptable_approval'] = $opportunity_number_acceptable_approval[$key];
-            $opportunity_entry[$key]['opportunity_number_acceptable_remarks_approval'] = $opportunity_number_acceptable_remarks_approval[$key];
-            $opportunity_entry[$key]['opportunity_number_acceptable_verification'] = $opportunity_number_acceptable_verification[$key];
-            $opportunity_entry[$key]['opportunity_number_acceptable_remarks_verification'] = $opportunity_number_acceptable_remarks_verification[$key];
-            $opportunity_entry[$key]['opportunity_number_acceptable_validation'] = $opportunity_number_acceptable_validation[$key];
-            $opportunity_entry[$key]['opportunity_number_acceptable_remarks_validation'] = $opportunity_number_acceptable_remarks_validation[$key];
-
+                $opportunity_entry[$key]['opportunity_number'] = $opportunity_number[$key];
+                $opportunity_entry[$key]['opportunity_number_attachment_url'] = $opportunity_number_attachment_url[$key];
+                $opportunity_entry[$key]['opportunity_identified'] = $opportunity_identified[$key];
+                $opportunity_entry[$key]['opportunity_number_acceptable_review'] = $opportunity_number_acceptable_review[$key];
+                $opportunity_entry[$key]['opportunity_number_acceptable_remarks_review'] = $opportunity_number_acceptable_remarks_review[$key];
+                $opportunity_entry[$key]['opportunity_number_acceptable_approval'] = $opportunity_number_acceptable_approval[$key];
+                $opportunity_entry[$key]['opportunity_number_acceptable_remarks_approval'] = $opportunity_number_acceptable_remarks_approval[$key];
+                $opportunity_entry[$key]['opportunity_number_acceptable_verification'] = $opportunity_number_acceptable_verification[$key];
+                $opportunity_entry[$key]['opportunity_number_acceptable_remarks_verification'] = $opportunity_number_acceptable_remarks_verification[$key];
+                $opportunity_entry[$key]['opportunity_number_acceptable_validation'] = $opportunity_number_acceptable_validation[$key];
+                $opportunity_entry[$key]['opportunity_number_acceptable_remarks_validation'] = $opportunity_number_acceptable_remarks_validation[$key];
+    
+            }
         }
+        
     
         //array
         $rootcause = $this->input->post('rootcause');
@@ -1172,21 +1191,24 @@ class car extends CI_Controller {
         if(empty($rootcause_entry)){
             $rootcause_entry = array();
         }
+        
+        if(isset($rootcause) && is_array($rootcause)){
+            foreach($rootcause as $key => $value){
+
+                $rootcause_entry[$key]['rootcause'] = $rootcause[$key];
+                $rootcause_entry[$key]['rootcause_file_url'] = $rootcause_file_url[$key];
+                $rootcause_entry[$key]['rootcause_acceptable_review'] = $rootcause_acceptable_review[$key];
+                $rootcause_entry[$key]['rootcause_acceptable_remarks_review'] = $rootcause_acceptable_remarks_review[$key];
+                $rootcause_entry[$key]['rootcause_acceptable_approval'] = $rootcause_acceptable_approval[$key];
+                $rootcause_entry[$key]['rootcause_acceptable_remarks_approval'] = $rootcause_acceptable_remarks_approval[$key];
+                $rootcause_entry[$key]['rootcause_acceptable_verification'] = $rootcause_acceptable_verification[$key];
+                $rootcause_entry[$key]['rootcause_acceptable_remarks_verification'] = $rootcause_acceptable_remarks_verification[$key];
+                $rootcause_entry[$key]['rootcause_acceptable_validation'] = $rootcause_acceptable_validation[$key];
+                $rootcause_entry[$key]['rootcause_acceptable_remarks_validation'] = $rootcause_acceptable_remarks_validation[$key];
     
-        foreach($rootcause as $key => $value){
-
-            $rootcause_entry[$key]['rootcause'] = $rootcause[$key];
-            $rootcause_entry[$key]['rootcause_file_url'] = $rootcause_file_url[$key];
-            $rootcause_entry[$key]['rootcause_acceptable_review'] = $rootcause_acceptable_review[$key];
-            $rootcause_entry[$key]['rootcause_acceptable_remarks_review'] = $rootcause_acceptable_remarks_review[$key];
-            $rootcause_entry[$key]['rootcause_acceptable_approval'] = $rootcause_acceptable_approval[$key];
-            $rootcause_entry[$key]['rootcause_acceptable_remarks_approval'] = $rootcause_acceptable_remarks_approval[$key];
-            $rootcause_entry[$key]['rootcause_acceptable_verification'] = $rootcause_acceptable_verification[$key];
-            $rootcause_entry[$key]['rootcause_acceptable_remarks_verification'] = $rootcause_acceptable_remarks_verification[$key];
-            $rootcause_entry[$key]['rootcause_acceptable_validation'] = $rootcause_acceptable_validation[$key];
-            $rootcause_entry[$key]['rootcause_acceptable_remarks_validation'] = $rootcause_acceptable_remarks_validation[$key];
-
+            }
         }
+        
     
         //array
         $identified_root = $this->input->post('identified_root');
@@ -1218,28 +1240,31 @@ class car extends CI_Controller {
         if(empty($identified_entry)){
             $identified_entry = array();
         }
+        
+        if(isset($identified_root) && is_array($identified_root)){
+            foreach($identified_root as $key => $value){
+
+                $identified_entry[$key]['identified_root'] = $identified_root[$key];
+                $identified_entry[$key]['tpn_control'] = $tpn_control[$key];
+                $identified_entry[$key]['identified_root_corrective_action'] = $identified_root_corrective_action[$key];
+                $identified_entry[$key]['identified_root_person_responsible'] = $identified_root_person_responsible[$key];
+                $identified_entry[$key]['identified_root_completion_date'] = $identified_root_completion_date[$key];
+                $identified_entry[$key]['identified_root_attachment_url'] = $identified_root_attachment_url[$key];
+                $identified_entry[$key]['identified_root_acceptable_review'] = $identified_root_acceptable_review[$key];
+                $identified_entry[$key]['identified_root_acceptable_remarks_review'] = $identified_root_acceptable_remarks_review[$key];
+                $identified_entry[$key]['identified_root_acceptable_approval'] = $identified_root_acceptable_approval[$key];
+                $identified_entry[$key]['identified_root_acceptable_remarks_approval'] = $identified_root_acceptable_remarks_approval[$key];
+                $identified_entry[$key]['identified_root_acceptable_verification'] = $identified_root_acceptable_verification[$key];
+                $identified_entry[$key]['identified_root_acceptable_remarks_verification'] = $identified_root_acceptable_remarks_verification[$key];
+                $identified_entry[$key]['identified_root_acceptable_validation'] = $identified_root_acceptable_validation[$key];
+                $identified_entry[$key]['identified_root_acceptable_remarks_validation'] = $identified_root_acceptable_remarks_validation[$key];
+                $identified_entry[$key]['tpn_issued_by'] = isset($tpn_issued_by[$key]) ? $tpn_issued_by[$key] : "";
+                $identified_entry[$key]['tpn_issued_to'] = isset($tpn_issued_to[$key]) ? $tpn_issued_to[$key] : "";
+                $identified_entry[$key]['tpn_section'] = isset($tpn_section[$key]) ? $tpn_section[$key] : "";
     
-        foreach($identified_root as $key => $value){
-
-            $identified_entry[$key]['identified_root'] = $identified_root[$key];
-            $identified_entry[$key]['tpn_control'] = $tpn_control[$key];
-            $identified_entry[$key]['identified_root_corrective_action'] = $identified_root_corrective_action[$key];
-            $identified_entry[$key]['identified_root_person_responsible'] = $identified_root_person_responsible[$key];
-            $identified_entry[$key]['identified_root_completion_date'] = $identified_root_completion_date[$key];
-            $identified_entry[$key]['identified_root_attachment_url'] = $identified_root_attachment_url[$key];
-            $identified_entry[$key]['identified_root_acceptable_review'] = $identified_root_acceptable_review[$key];
-            $identified_entry[$key]['identified_root_acceptable_remarks_review'] = $identified_root_acceptable_remarks_review[$key];
-            $identified_entry[$key]['identified_root_acceptable_approval'] = $identified_root_acceptable_approval[$key];
-            $identified_entry[$key]['identified_root_acceptable_remarks_approval'] = $identified_root_acceptable_remarks_approval[$key];
-            $identified_entry[$key]['identified_root_acceptable_verification'] = $identified_root_acceptable_verification[$key];
-            $identified_entry[$key]['identified_root_acceptable_remarks_verification'] = $identified_root_acceptable_remarks_verification[$key];
-            $identified_entry[$key]['identified_root_acceptable_validation'] = $identified_root_acceptable_validation[$key];
-            $identified_entry[$key]['identified_root_acceptable_remarks_validation'] = $identified_root_acceptable_remarks_validation[$key];
-            $identified_entry[$key]['tpn_issued_by'] = isset($tpn_issued_by[$key]) ? $tpn_issued_by[$key] : "";
-            $identified_entry[$key]['tpn_issued_to'] = isset($tpn_issued_to[$key]) ? $tpn_issued_to[$key] : "";
-            $identified_entry[$key]['tpn_section'] = isset($tpn_section[$key]) ? $tpn_section[$key] : "";
-
+            }
         }
+        
     
         // Use $data for any further processing or database insertion
         $existing_record = $this->db->get_where('corrective_action', array('car_id' => $car_id))->row();
@@ -1335,12 +1360,16 @@ class car extends CI_Controller {
             $identified_entry = array();
         }
     
-        foreach($identified_root as $key => $value){
-            $identified_entry[$key]['identified_root_acceptable_verification'] = isset($identified_root_acceptable_verification[$key]) ? $identified_root_acceptable_verification[$key] : "";
-            $identified_entry[$key]['identified_root_acceptable_remarks_verification'] = isset($identified_root_acceptable_remarks_verification[$key]) ? $identified_root_acceptable_remarks_verification[$key] : "";
-            $identified_entry[$key]['identified_root_acceptable_verification_second'] = isset($identified_root_acceptable_verification_second[$key]) ? $identified_root_acceptable_verification_second[$key] : "";
-            $identified_entry[$key]['identified_root_acceptable_remarks_verification_second'] = isset($identified_root_acceptable_remarks_verification_second[$key]) ? $identified_root_acceptable_remarks_verification_second[$key] : "";
+        if(isset($identified_root) && is_array($identified_root)){
+            foreach($identified_root as $key => $value){
+                $identified_entry[$key]['identified_root_acceptable_verification'] = isset($identified_root_acceptable_verification[$key]) ? $identified_root_acceptable_verification[$key] : "";
+                $identified_entry[$key]['identified_root_acceptable_remarks_verification'] = isset($identified_root_acceptable_remarks_verification[$key]) ? $identified_root_acceptable_remarks_verification[$key] : "";
+                $identified_entry[$key]['identified_root_acceptable_verification_second'] = isset($identified_root_acceptable_verification_second[$key]) ? $identified_root_acceptable_verification_second[$key] : "";
+                $identified_entry[$key]['identified_root_acceptable_remarks_verification_second'] = isset($identified_root_acceptable_remarks_verification_second[$key]) ? $identified_root_acceptable_remarks_verification_second[$key] : "";
+            }
         }
+
+        
     
         // Use $data for any further processing or database insertion
         $existing_record = $this->db->get_where('corrective_action', array('car_id' => $car_id))->row();
