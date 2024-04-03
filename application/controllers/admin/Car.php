@@ -1695,20 +1695,39 @@ class car extends CI_Controller {
 
         // Prepare data for insertion into the 'car' table
         $currentDate = new DateTime();
+
+        // Define a variable to count working days for 10-day expiry
+        $workingDays_10 = 0;
         
-        // Calculate 10 weekdays from now
-        for ($i = 0; $i < 10; $i++) {
+        // Calculate 10 working days from now
+        while ($workingDays_10 < 10) {
             // Add one day to the current date
             $currentDate->modify('+1 day');
-
+        
             // Skip weekends (Saturday and Sunday)
-            while ($currentDate->format('N') >= 6) {
-                $currentDate->modify('+1 day');
+            if ($currentDate->format('N') < 6) {
+                $workingDays_10++;
             }
         }
-
-        // Output the result
-        $expiry = $currentDate->format('Y-m-d');
+        
+        // Define a variable to count working days for 30-day expiry
+        $currentDate->modify('+1 day'); // Move to next day for 30-day expiry
+        $workingDays_30 = 0;
+        
+        // Calculate 30 working days from now
+        while ($workingDays_30 < 30) {
+            // Add one day to the current date
+            $currentDate->modify('+1 day');
+        
+            // Skip weekends (Saturday and Sunday)
+            if ($currentDate->format('N') < 6) {
+                $workingDays_30++;
+            }
+        }
+        
+        // Output the results
+        $expiry_10_days = $currentDate->format('Y-m-d');
+        $expiry_30_days = $currentDate->format('Y-m-d');
 
 
         $data = array(
@@ -1723,8 +1742,8 @@ class car extends CI_Controller {
             'requirements_not_fulfilled' => $requirements_not_fulfilled,
             'corrective_action_status' => '',
             'for_correction_status' => '',
-            'ca_completion_date' => $expiry,
-            'fc_completion_date' => $expiry,
+            'ca_completion_date' => $expiry_30_days,
+            'fc_completion_date' => $expiry_10_days,
             'registration_date' => date('Y-m-d'),
             'corrective_action_status' => '',
             'status' => 'For Issuance of NC',
