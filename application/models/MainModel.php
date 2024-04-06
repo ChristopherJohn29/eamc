@@ -231,7 +231,8 @@ class MainModel extends CI_Model {
     }
 
     public function getCarBYID($id) {
-        $this->db->reset(); // Reset the query builder instance
+        $this->db = $this->load->database('default', true);
+
         $this->db->select('car.*, source_car.source_name AS source_name, division.div_name AS division, department.dep_name AS department');
         $this->db->from('car');
         $this->db->join('source_car', 'source_car.id = car.source', 'left');
