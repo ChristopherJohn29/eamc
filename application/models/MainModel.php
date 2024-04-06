@@ -237,7 +237,6 @@ class MainModel extends CI_Model {
         $this->db->join('division', 'division.id = car.issued_by', 'left');
         $this->db->join('department', 'department.id = car.issued_to', 'left');
         $this->db->where('car.id', $id);
-    
 
         $query = $this->db->get();
         $result = $query->result_array();
