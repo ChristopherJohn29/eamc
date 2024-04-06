@@ -769,8 +769,8 @@ class car extends CI_Controller {
             }
         }
 
-        print_r($identified_entry);
-        exit;
+        // print_r($identified_entry);
+        // exit;
         
     
         // Use $data for any further processing or database insertion
