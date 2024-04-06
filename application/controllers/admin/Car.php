@@ -795,7 +795,7 @@ class car extends CI_Controller {
         if ($existing_record) {
             // Car_id exists, perform an update
             $this->db->where('car_id', $car_id);
-            // $result = $this->db->update('corrective_action', $data);
+            $result = $this->db->update('corrective_action', $data);
         } else {
             // Car_id doesn't exist, perform an insert
             $result = $this->db->insert('corrective_action', $data);
