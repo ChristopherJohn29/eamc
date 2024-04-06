@@ -751,7 +751,7 @@ class car extends CI_Controller {
             $identified_entry = array();
         }
         
-        if(isset($rootcause) && is_array($rootcause)){
+        if(isset($identified_root) && is_array($identified_root)){
             foreach ($identified_root as $key => $value) {
                     // Check if any of the conditions is true
                     // Construct the identified_entry array
