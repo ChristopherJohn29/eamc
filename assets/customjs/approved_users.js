@@ -416,7 +416,7 @@ var approvedUsers = {
     
 
     passwordChange: function(){
-        jQuery('#submit-register').attr('disabled',true);
+        // jQuery('#submit-register').attr('disabled',true);
         jQuery('#password').on('keyup', function(){
             approvedUsers.passwordChecker();
         });
@@ -427,7 +427,7 @@ var approvedUsers = {
         var passwordErrorDiv = $('#password-error');
         var passwordError = $('#password-error-text');
 
-        // jQuery('#submit-register').attr('disabled',true);
+        jQuery('#submit-register').attr('disabled',true);
 
         var password = $('#password').val();
 
