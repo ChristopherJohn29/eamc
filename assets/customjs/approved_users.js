@@ -307,7 +307,7 @@ var approvedUsers = {
                             $('.parsley-errors-list').addClass('hidden');
                             $('#register')[0].reset();
 
-                            window.location.href = '/users/approvedUsers';
+                            window.location.href = '/admin/users/approvedUsers';
 
                         } else {
                             // alert('Username or Email already exist');
