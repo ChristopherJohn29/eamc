@@ -244,7 +244,7 @@ var approvedUsers = {
         jQuery('#submit-register').click(function(e){
             e.preventDefault();
             
-            if (register.validateForm()) {
+            if (approvedUsers.validateForm()) {
                 var firstName = jQuery('#firstName').val();
                 var middleName = jQuery('#middleName').val();
                 var lastName = jQuery('#lastName').val();
@@ -390,7 +390,7 @@ var approvedUsers = {
         
         // Email validation
         var email = $('#email').val();
-        if (!register.validateEmail(email)) {
+        if (!approvedUsers.validateEmail(email)) {
             $('#email').addClass('parsley-error');
             isValid = false;
         } else {
@@ -418,7 +418,7 @@ var approvedUsers = {
     passwordChange: function(){
         jQuery('#submit-register').attr('disabled',true);
         jQuery('#password').on('keyup', function(){
-            register.passwordChecker();
+            approvedUsers.passwordChecker();
         });
     },
 
