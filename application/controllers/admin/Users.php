@@ -7,6 +7,10 @@ class users extends CI_Controller {
         parent::__construct();
 
         $this->load->model('UsersModel');
+        $this->load->model('DivisionModel');
+		$this->load->model('DepartmentModel');
+		$this->load->model('RegisterModel');
+		$this->load->model('SectionModel');
         $this->authentication->check_user_session();
         $this->role_checker->checkViewerRole();
     }
@@ -25,6 +29,7 @@ class users extends CI_Controller {
 		$data['title'] = 'Approved Users';
         $data['customcss'] = 'approved_users.css';
         $data['customjs'] = 'approved_users.js';
+        $data['division'] =  $this->DivisionModel->getDivision();
 
 		$this->load->view('template/template', $data);
     }

@@ -241,7 +241,7 @@
 
                             <div class="row col-md-12 mb-4 mt-3">
                               <div class="text-center d-grid">
-                                 <button class="btn btn-success" type="submit" id="submit-register"> Sign Up </button>
+                                 <button class="btn btn-success" type="submit" id="submit-register"> Update </button>
                               </div>
                             </div>
 
@@ -252,7 +252,6 @@
                </div>
                <div class="modal-footer">
                   <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
-                  <button type="button" class="btn btn-primary" id="saveUser">Save</button>
                </div>
             </div>
             <!-- /.modal-content -->
