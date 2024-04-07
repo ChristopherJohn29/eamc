@@ -88,6 +88,11 @@ var approvedUsers = {
                         var id = item.id;
 
                         var fullname = item.fullname;
+                        var firstname = item.firstname;
+                        var middlename = item.middlename;
+                        var lastname = item.lastname;
+                        var suffix = item.suffix;
+                        var post_nominal = item.post_nominal;
                         var username = item.username;
                         var email = item.email;
                         var mobile_number = item.mobile_number;
@@ -102,8 +107,14 @@ var approvedUsers = {
                         var department_name = item.dep_name ? item.dep_name : '';
                         var role_name = item.role_name ? item.role_name : '';
 
+
                
                         var data_html = "data-id='"+id+"' "+
+                                        "data-firstname='"+firstname+"' "+
+                                        "data-middlename='"+middlename+"' "+
+                                        "data-lastname='"+lastname+"' "+
+                                        "data-suffix='"+suffix+"' "+
+                                        "data-post_nominal='"+post_nominal+"' "+
                                         "data-fullname='"+fullname+"' "+
                                         "data-username='"+username+"' "+
                                         "data-email='"+email+"' "+
@@ -514,6 +525,7 @@ var approvedUsers = {
             var department_name = jQuery(this).data('department_name');
             var role_name = jQuery(this).data('role_name');
             
+            jQuery('#userID').val(id);
             jQuery('#firstName').val(firstname);
             jQuery('#middleName').val(middlename);
             jQuery('#lastName').val(lastname);
@@ -547,7 +559,7 @@ var approvedUsers = {
                 jQuery('#'+department+'-section').val(department_section);
                 jQuery('#'+department+'-section').trigger('change');
             }
-            
+
 
         });
     }
