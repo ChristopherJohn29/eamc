@@ -245,6 +245,7 @@ var approvedUsers = {
             e.preventDefault();
             
             if (approvedUsers.validateForm()) {
+                var id = jQuery('#user_id').val();
                 var firstName = jQuery('#firstName').val();
                 var middleName = jQuery('#middleName').val();
                 var lastName = jQuery('#lastName').val();
@@ -273,6 +274,7 @@ var approvedUsers = {
                 }
                 
                 $data = {
+                    id : id,
                     firstname : firstName,
                     middlename : middleName,
                     lastname : lastName,
@@ -544,7 +546,7 @@ var approvedUsers = {
             var department_name = jQuery(this).data('department_name');
             var role_name = jQuery(this).data('role_name');
             
-            jQuery('#userID').val(id);
+            jQuery('#user_id').val(id);
             jQuery('#firstName').val(firstname);
             jQuery('#middleName').val(middlename);
             jQuery('#lastName').val(lastname);

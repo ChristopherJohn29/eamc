@@ -37,6 +37,7 @@ class users extends CI_Controller {
     public function save(){
 
 		$data = [
+            'id' => $_POST['id'],
 			'firstname' => $_POST['firstname'],
 			'middlename' => $_POST['middlename'],
 			'lastname' => $_POST['lastname'],
