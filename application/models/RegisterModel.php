@@ -23,4 +23,22 @@ class RegisterModel extends CI_Model {
         return true; // Registration was successful
     }
     
+    public function saveUser($data) {
+        $id = $data['id'];
+    
+        // Check if the user already exists in the database
+        $this->db->where('id', $id);
+        $user_exists = $this->db->get('users');
+    
+        if ($user_exists->num_rows() > 0) {
+            // User exists, update the data
+            $this->db->where('id', $id);
+            $this->db->update('users', $data);
+            return true; // Data updated successfully
+        } else {
+            // User doesn't exist, insert new data
+            $this->db->insert('users', $data);
+            return true; // Registration was successful
+        }
+    }
 }

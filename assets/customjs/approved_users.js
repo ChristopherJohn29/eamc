@@ -295,20 +295,20 @@ var approvedUsers = {
 
                 $.ajax({
                     type: 'POST',
-                    url: 'register/save', // Replace 'MyController' with your controller name
+                    url: 'save', // Replace 'MyController' with your controller name
                     data: $data,
                     success: function (response) {
                         // Handle the response from the server
                         if(response == 'saved'){
-                            alert('Register successfully wait for OSQM validation');
+                            alert('Update successfully');
                             $('.parsley-error').removeClass('parsley-error');
                             $('.parsley-errors-list').addClass('hidden');
                             $('#register')[0].reset();
 
-                            window.location.href = '/auth/login';
+                            window.location.href = '/users/approvedUsers';
 
                         } else {
-                            alert('Username or Email already exist');
+                            // alert('Username or Email already exist');
                         }
                     },
                     error: function () {
