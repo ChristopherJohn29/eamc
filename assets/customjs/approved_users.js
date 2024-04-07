@@ -98,8 +98,8 @@ var approvedUsers = {
                         var role = item.role_name ? item.role_name : '';
 
 
-                        var updateUser = "<button type='button' data-bs-toggle='modal' data-bs-target='#update-user' title='Update User'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' class='btn btn-success waves-effect waves-light data-update' data-id='"+id+"'><i class='fa fa-file'></i></button>"; 
-                        var html = "<tr><td>" + fullname + "</td><td>" + username + "</td><td>" + email + "</td><td>" + mobile_number + "</td><td>" + designation + "</td><td>" + division + "</td><td>" + section + "</td><td>" + department + "</td><td>" + role + "</td><td>"+ updateUser +"<button type='button' title='Deny'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' class='btn btn-danger waves-effect waves-light data-deny' data-id='"+id+"'><i class='mdi mdi-close'></i></button></td></tr>";
+                        var updateUser = "<button type='button' data-bs-toggle='modal' data-bs-target='#update-user' title='Update User'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' class='btn btn-sm btn-success waves-effect waves-light data-update' data-id='"+id+"'><i class='fa fa-file'></i></button>"; 
+                        var html = "<tr><td>" + fullname + "</td><td>" + username + "</td><td>" + email + "</td><td>" + mobile_number + "</td><td>" + designation + "</td><td>" + division + "</td><td>" + section + "</td><td>" + department + "</td><td>" + role + "</td><td>"+ updateUser +"<button type='button' title='Deny'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' class='btn btn-sm btn-danger waves-effect waves-light data-deny' data-id='"+id+"'><i class='mdi mdi-close'></i></button></td></tr>";
                         // Do something with the data, for example, display it on the page
                         $('#approved-users-datatable tbody').append(html);
 
