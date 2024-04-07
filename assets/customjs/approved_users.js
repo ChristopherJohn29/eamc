@@ -94,19 +94,29 @@ var approvedUsers = {
                         var designation = item.designation;
                         var position = item.position;
                         var section = item.section;
-                        var role = item.role;
-                        var department = item.department;
-                        var department_section = item.department_section;
                         var division = item.division;
+                        var department = item.department;
+                        var role = item.role;
+                        var department_section = item.department_section;
                         var division_name = item.div_name ? item.div_name :'';
                         var department_name = item.dep_name ? item.dep_name : '';
                         var role_name = item.role_name ? item.role_name : '';
 
                
-                    
+                        var data_html = "data-id='"+id+"' "+
+                                        "data-fullname='"+fullname+"' "+
+                                        "data-username='"+username+"' "+
+                                        "data-email='"+email+"' "+
+                                        "data-mobile_number='"+mobile_number+"' "+
+                                        "data-designation='"+designation+"' "+
+                                        "data-position='"+position+"' "+
+                                        "data-section='"+section+"' "+
+                                        "data-role='"+role+"' "+
+                                        "data-department='"+department+"' "+
+                                        "data-department_section='"+department_section+"' "+
+                                        "data-division='"+division+"' ";
 
-
-                        var updateUser = "<button type='button' data-bs-toggle='modal' data-bs-target='#update-user' title='Update User'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' class='btn btn-sm btn-success waves-effect waves-light data-update' data-id='"+id+"'><i class='fa fa-file'></i></button>"; 
+                        var updateUser = "<button type='button' data-bs-toggle='modal' "+data_html+" data-bs-target='#update-user' title='Update User'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' class='btn btn-sm btn-success waves-effect waves-light data-update' data-id='"+id+"'><i class='fa fa-file'></i></button>"; 
                         var html = "<tr><td>" + fullname + "</td><td>" + username + "</td><td>" + email + "</td><td>" + mobile_number + "</td><td>" + designation + "</td><td>" + division_name + "</td><td>" + section + "</td><td>" + department_name + "</td><td>" + role_name + "</td><td>"+ updateUser +"<button type='button' title='Deny'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' class='btn btn-sm btn-danger waves-effect waves-light data-deny' data-id='"+id+"'><i class='mdi mdi-close'></i></button></td></tr>";
                         // Do something with the data, for example, display it on the page
                         $('#approved-users-datatable tbody').append(html);
@@ -476,12 +486,77 @@ var approvedUsers = {
                 jQuery('.department').attr('disabled', false);
             }
         });
+    },
+    
+    dataUpdate: function(){
+        $('#approved-users-datatable').on('click', '.data-update', function () {
+
+            jQuery(this).data();
+
+            var id = jQuery(this).data('id');
+            var fullname = jQuery(this).data('fullname');
+            var firstname = jQuery(this).data('firstname');
+            var middlename = jQuery(this).data('middlename');
+            var lastname = jQuery(this).data('lastname');
+            var suffix = jQuery(this).data('suffix');
+            var post_nominal = jQuery(this).data('post_nominal');
+            var username = jQuery(this).data('username');
+            var email = jQuery(this).data('email');
+            var mobile_number = jQuery(this).data('mobile_number');
+            var designation = jQuery(this).data('designation');
+            var position = jQuery(this).data('position');
+            var section = jQuery(this).data('section');
+            var division = jQuery(this).data('division');
+            var department = jQuery(this).data('department');
+            var role = jQuery(this).data('role');
+            var department_section = jQuery(this).data('department_section');
+            var division_name = jQuery(this).data('division_name');
+            var department_name = jQuery(this).data('department_name');
+            var role_name = jQuery(this).data('role_name');
+            
+            jQuery('#firstName').val(firstname);
+            jQuery('#middleName').val(middlename);
+            jQuery('#lastName').val(lastname);
+            jQuery('#suffix').val(suffix);
+            jQuery('#postNominal').val(post_nominal);
+            jQuery('#email').val(email);
+            jQuery('#username').val(username);
+            jQuery('#mobileNumber').val(mobile_number);
+
+            jQuery('#designation').val(designation);
+            jQuery('#designation').trigger('change');
+            
+            jQuery('#position').val(position);
+            jQuery('#position').trigger('change');
+            
+
+            if(designation == 'committee'){
+                jQuery('#committee').val(section);
+                jQuery('#committee').trigger('change');
+                jQuery('#'+section).val(role);
+                jQuery('#'+section).trigger('change');
+            }
+
+            if(designation == 'division'){
+                jQuery('#division').val(division);
+                jQuery('#division').trigger('change');
+                jQuery('#'+division+'-division').val(role);
+                jQuery('#'+division+'-division').trigger('change');
+                jQuery('#'+division+'-department').val(department);
+                jQuery('#'+division+'-department').trigger('change');
+                jQuery('#'+department+'-section').val(department_section);
+                jQuery('#'+department+'-section').trigger('change');
+            }
+            
+
+        });
     }
 }
 
 jQuery(document).ready(function(){
 
     approvedUsers.loadApprovedUsers();
+    approvedUsers.dataUpdate();
     approvedUsers.denyInit();
     approvedUsers.designation();
     approvedUsers.passwordChange();
