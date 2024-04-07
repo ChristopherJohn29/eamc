@@ -347,46 +347,55 @@ var approvedUsers = {
         var symbolCheck = /[=?<>@#$*!]/.test(password);
         var usernameCheck = (username === password);
         var errorMessage = '';
-    
-        if (!/.{8,}/.test(password)) {
-            errorMessage += '<ul class="added-pass-error parsley-errors-list filled"><li class="parsley-required">Password must be at least 8 characters.  </li></ul>';
-            isValid = false;
-        }
-        
-        // Number check
-        if (!/\d/.test(password)) {
-            errorMessage += '<ul class="added-pass-error parsley-errors-list filled"><li class="parsley-required">Password must contain at least 1 number. </li></ul>';
-            isValid = false;
-        }
-        
-        // Symbol check
-        if (!/[=?<>@#$*!]/.test(password)) {
-            errorMessage += '<ul class="added-pass-error parsley-errors-list filled"><li class="parsley-required">Password must contain at least 1 symbol. </li></ul>';
-            isValid = false;
-        }
-        
-        // Username check
-        if (username === password) {
-            errorMessage += '<ul class="added-pass-error parsley-errors-list filled"><li class="parsley-required">Password should not be the same as the username. </li></ul>';
-            isValid = false;
-        }
-        
-    
-        if (!(lengthCheck && numberCheck && symbolCheck && !usernameCheck)) {
-    
-            jQuery('.added-pass-error').remove();
-            passwordErrorDiv.removeClass('hidden');
-            passwordError.text('Invalid password format');
-            passwordError.after(errorMessage);
-            $('#password').addClass('parsley-error');
-            isValid = false;
+
+        if(password != ''){
+            if (!/.{8,}/.test(password)) {
+                errorMessage += '<ul class="added-pass-error parsley-errors-list filled"><li class="parsley-required">Password must be at least 8 characters.  </li></ul>';
+                isValid = false;
+            }
             
+            // Number check
+            if (!/\d/.test(password)) {
+                errorMessage += '<ul class="added-pass-error parsley-errors-list filled"><li class="parsley-required">Password must contain at least 1 number. </li></ul>';
+                isValid = false;
+            }
+            
+            // Symbol check
+            if (!/[=?<>@#$*!]/.test(password)) {
+                errorMessage += '<ul class="added-pass-error parsley-errors-list filled"><li class="parsley-required">Password must contain at least 1 symbol. </li></ul>';
+                isValid = false;
+            }
+            
+            // Username check
+            if (username === password) {
+                errorMessage += '<ul class="added-pass-error parsley-errors-list filled"><li class="parsley-required">Password should not be the same as the username. </li></ul>';
+                isValid = false;
+            }
+            
+        
+            if (!(lengthCheck && numberCheck && symbolCheck && !usernameCheck)) {
+        
+                jQuery('.added-pass-error').remove();
+                passwordErrorDiv.removeClass('hidden');
+                passwordError.text('Invalid password format');
+                passwordError.after(errorMessage);
+                $('#password').addClass('parsley-error');
+                isValid = false;
+                
+            } else {
+                passwordErrorDiv.addClass('hidden');
+                passwordError.text('');
+                jQuery('.added-pass-error').remove();
+                $('#password').removeClass('parsley-error');
+            }
         } else {
-            passwordErrorDiv.addClass('hidden');
-            passwordError.text('');
-            jQuery('.added-pass-error').remove();
-            $('#password').removeClass('parsley-error');
+                passwordErrorDiv.addClass('hidden');
+                passwordError.text('');
+                jQuery('.added-pass-error').remove();
+                $('#password').removeClass('parsley-error');
         }
+    
+        
         
         // Email validation
         var email = $('#email').val();
