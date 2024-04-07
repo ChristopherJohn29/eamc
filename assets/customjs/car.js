@@ -5517,10 +5517,10 @@ var car = {
         
             var car_id = jQuery(this).data('car_id');
                     jQuery('.car_id').val(car_id);
-                    $('#risk-number').empty();
-                    $('#opportunity-number').empty();
-                    $('#rootcause').empty();
-                    $('#identified-root').empty();
+                    $('#risk-number_closing').empty();
+                    $('#opportunity-number_closing').empty();
+                    $('#rootcause_closing').empty();
+                    $('#identified-root_closing').empty();
                  
                     $.ajax({
                         type: 'POST',
@@ -6153,10 +6153,10 @@ var car = {
         
             var car_id = jQuery(this).data('car_id');
                     jQuery('.car_id').val(car_id);
-                    $('#risk-number').empty();
-                    $('#opportunity-number').empty();
-                    $('#rootcause').empty();
-                    $('#identified-root').empty();
+                    $('#risk-number_closing').empty();
+                    $('#opportunity-number_closing').empty();
+                    $('#rootcause_closing').empty();
+                    $('#identified-root_closing').empty();
                  
                     $.ajax({
                         type: 'POST',
