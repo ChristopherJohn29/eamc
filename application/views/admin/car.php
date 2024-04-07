@@ -1020,7 +1020,7 @@
                                     </div>
                                  </div>
                                  <h4 class="header-title">3.2 What are the causes of the Non conformity? Root Cause Analysis using: Ishikawa / Fishbone <br> Diagram with Why's and T (Total) P(Partial) N(No) Matrix?</h4>
-                                 <div id="rootcause" class="mb-3">
+                                 <div id="rootcause_closing" class="mb-3">
                                   
                                  </div>
                               </div>
