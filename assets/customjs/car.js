@@ -1011,7 +1011,7 @@ var car = {
                             create: !0,
                             render: {
                                 item: function (e, a) {
-                                    return '<div><a target="_blank">"' + a(e.text) + '"</a></div>';
+                                    return '<div><a target="_blank" href="' + a(e.text) + '">"' + a(e.text) + '"</a></div>';
                                 },
                             },
                             onDelete: function (e) {
@@ -1318,7 +1318,7 @@ var car = {
                                     create: !0,
                                     render: {
                                         item: function (e, a) {
-                                            return '<div><a target="_blank">"' + a(e.text) + '"</a></div>';
+                                            return '<div><a target="_blank" href="' + a(e.text) + '">"' + a(e.text) + '"</a></div>';
                                         },
                                     },
                                     onDelete: function (e) {
@@ -1634,7 +1634,7 @@ var car = {
                                     create: !0,
                                     render: {
                                         item: function (e, a) {
-                                            return '<div><a target="_blank">"' + a(e.text) + '"</a></div>';
+                                            return '<div><a target="_blank" href="' + a(e.text) + '">"' + a(e.text) + '"</a></div>';
                                         },
                                     },
                                     onDelete: function (e) {
@@ -1970,7 +1970,7 @@ var car = {
                                     create: !0,
                                     render: {
                                         item: function (e, a) {
-                                            return '<div><a target="_blank">"' + a(e.text) + '"</a></div>';
+                                            return '<div><a target="_blank" href="' + a(e.text) + '">"' + a(e.text) + '"</a></div>';
                                         },
                                     },
                                     onDelete: function (e) {
@@ -2287,7 +2287,7 @@ var car = {
                                     create: !0,
                                     render: {
                                         item: function (e, a) {
-                                            return '<div><a target="_blank">"' + a(e.text) + '"</a></div>';
+                                            return '<div><a target="_blank" href="' + a(e.text) + '">"' + a(e.text) + '"</a></div>';
                                         },
                                     },
                                     onDelete: function (e) {
@@ -2750,7 +2750,7 @@ var car = {
                                         create: !0,
                                         render: {
                                             item: function (e, a) {
-                                                return '<div><a target="_blank">"' + a(e.text) + '"</a></div>';
+                                                return '<div><a target="_blank" href="' + a(e.text) + '">"' + a(e.text) + '"</a></div>';
                                             },
                                         },
                                         onDelete: function (e) {
@@ -3025,7 +3025,7 @@ var car = {
                                 create: !0,
                                 render: {
                                     item: function (e, a) {
-                                        return '<div><a target="_blank">"' + a(e.text) + '"</a></div>';
+                                        return '<div><a target="_blank" href="' + a(e.text) + '">"' + a(e.text) + '"</a></div>';
                                     },
                                 },
                                 onDelete: function (e) {
@@ -3617,7 +3617,7 @@ var car = {
                                         create: !0,
                                         render: {
                                             item: function (e, a) {
-                                                return '<div><a target="_blank">"' + a(e.text) + '"</a></div>';
+                                                return '<div><a target="_blank" href="' + a(e.text) + '">"' + a(e.text) + '"</a></div>';
                                             },
                                         },
                                         onDelete: function (e) {
@@ -4204,7 +4204,7 @@ var car = {
                                     create: !0,
                                     render: {
                                         item: function (e, a) {
-                                            return '<div><a target="_blank">"' + a(e.text) + '"</a></div>';
+                                            return '<div><a target="_blank" href="' + a(e.text) + '">"' + a(e.text) + '"</a></div>';
                                         },
                                     },
                                     onDelete: function (e) {
@@ -4697,7 +4697,7 @@ var car = {
                                         create: !0,
                                         render: {
                                             item: function (e, a) {
-                                                return '<div><a target="_blank">"' + a(e.text) + '"</a></div>';
+                                                return '<div><a target="_blank" href="' + a(e.text) + '">"' + a(e.text) + '"</a></div>';
                                             },
                                         },
                                         onDelete: function (e) {
@@ -5207,7 +5207,7 @@ var car = {
                                         create: !0,
                                         render: {
                                             item: function (e, a) {
-                                                return '<div><a target="_blank">"' + a(e.text) + '"</a></div>';
+                                                return '<div><a target="_blank" href="' + a(e.text) + '">"' + a(e.text) + '"</a></div>';
                                             },
                                         },
                                         onDelete: function (e) {
@@ -5841,7 +5841,7 @@ var car = {
                                                 create: !0,
                                                 render: {
                                                     item: function (e, a) {
-                                                        return '<div><a target="_blank">"' + a(e.text) + '"</a></div>';
+                                                        return '<div><a target="_blank" href="' + a(e.text) + '">"' + a(e.text) + '"</a></div>';
                                                     },
                                                 },
                                                 onDelete: function (e) {
@@ -6477,7 +6477,7 @@ var car = {
                                                 create: !0,
                                                 render: {
                                                     item: function (e, a) {
-                                                        return '<div><a target="_blank">"' + a(e.text) + '"</a></div>';
+                                                        return '<div><a target="_blank" href="' + a(e.text) + '">"' + a(e.text) + '"</a></div>';
                                                     },
                                                 },
                                                 onDelete: function (e) {
@@ -7102,7 +7102,7 @@ var car = {
                 create: true,
                 render: {
                     item: function (e, a) {
-                        return '<div><a target="_blank">"' + a(e.text) + '"</a></div>';
+                        return '<div><a target="_blank" href="' + a(e.text) + '">"' + a(e.text) + '"</a></div>';
                     },
                 },
                 onDelete: function (e) {
@@ -7151,7 +7151,7 @@ var car = {
                 create: true,
                 render: {
                     item: function (e, a) {
-                        return '<div><a target="_blank">"' + a(e.text) + '"</a></div>';
+                        return '<div><a target="_blank" href="' + a(e.text) + '">"' + a(e.text) + '"</a></div>';
                     },
                 },
                 onDelete: function (e) {
@@ -7202,7 +7202,7 @@ var car = {
                 create: true,
                 render: {
                     item: function (e, a) {
-                        return '<div><a target="_blank">"' + a(e.text) + '"</a></div>';
+                        return '<div><a target="_blank" href="' + a(e.text) + '">"' + a(e.text) + '"</a></div>';
                     },
                 },
                 onDelete: function (e) {
@@ -7251,7 +7251,7 @@ var car = {
                 create: true,
                 render: {
                     item: function (e, a) {
-                        return '<div><a target="_blank">"' + a(e.text) + '"</a></div>';
+                        return '<div><a target="_blank" href="' + a(e.text) + '">"' + a(e.text) + '"</a></div>';
                     },
                 },
                 onDelete: function (e) {
@@ -7309,7 +7309,7 @@ var car = {
                 create: true,
                 render: {
                     item: function (e, a) {
-                        return '<div><a target="_blank">"' + a(e.text) + '"</a></div>';
+                        return '<div><a target="_blank" href="' + a(e.text) + '">"' + a(e.text) + '"</a></div>';
                     },
                 },
                 onDelete: function (e) {
@@ -7464,7 +7464,7 @@ var car = {
                 create: true,
                 render: {
                     item: function (e, a) {
-                        return '<div><a target="_blank">"' + a(e.text) + '"</a></div>';
+                        return '<div><a target="_blank" href="' + a(e.text) + '">"' + a(e.text) + '"</a></div>';
                     },
                 },
                 onDelete: function (e) {
