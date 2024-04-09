@@ -693,7 +693,7 @@ var car = {
                 jQuery('#saveCorrection').removeClass('hidden');
             }
         
-            if(jQuery(this).data('correction_status') == "For CAR action"){
+            if(jQuery(this).data('correction_status') == "For CAR action" || jQuery(this).data('correction_status') == "For Revision"){
                 jQuery('#add-correction').removeClass('hidden');
                 jQuery('#add-consequences').removeClass('hidden');
             } else {
