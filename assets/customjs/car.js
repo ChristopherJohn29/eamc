@@ -68,7 +68,7 @@ var car = {
 
 
                         var osqm_review_corrective_action = "";
-                        var history = "<a class='dropdown-item view-history' href='#' 'data-id='"+car_id+"'>History</a>";
+                        var history = "<a class='dropdown-item view-history' href='#' data-car_id='"+car_id+"'>History</a>";
           
                         if(section != ''){
                             if(for_correction_status == 'For OSQM Review' && ( userrole == "osqm_dco" || userrole == "osqm_do" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) ) ){
@@ -690,7 +690,7 @@ var car = {
     loadCorrectiveAction: function(){
 
         jQuery('#car-global-datatable').on('click','.view-history', function(){
-            var car_id = jQuery(this).data('id');
+            var car_id = jQuery(this).data('car_id');
 
             console.log(car_id);
 
