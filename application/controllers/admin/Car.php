@@ -33,8 +33,8 @@ class car extends CI_Controller {
     }
 
     public function getCARHistory(){
-        $doc_id = $_POST['doc_id'];
-        $car =  $this->MainModel->getCARHistory($doc_id);
+        $car_id = $_POST['car_id'];
+        $car =  $this->MainModel->getCARHistory($car_id);
 
         echo json_encode($car);
     }
@@ -1872,7 +1872,7 @@ class car extends CI_Controller {
         if ($result) {
 
             $car_id = $this->db->insert_id();
-            
+
             $datahistory['car_id'] = $car_id;
             $datahistory['process'] = "Register CAR";
             $datahistory['status'] = "For Issuance of NC";
