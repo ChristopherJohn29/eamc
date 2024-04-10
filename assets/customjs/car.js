@@ -910,7 +910,7 @@ var car = {
                         // car.notifyError();
                     }   
         
-                    if(correction_action == "For CAR action"){ 
+                    if(correction_action == "For CAR action" ||  correction_action == "For Revision"){ 
         
                         var correctionHtmlLast = `
                             <div class="col-lg-12 correction-repeatable">
