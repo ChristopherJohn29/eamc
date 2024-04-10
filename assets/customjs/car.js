@@ -7131,6 +7131,7 @@ var car = {
             
             // Clear input values in the cloned section
             clone.find('input').val('');
+            clone.find('input').removeAttr('disabled');
     
             // Append the cloned section to the parent container
             $(".correction-repeatable:last").after(clone);
@@ -7185,6 +7186,7 @@ var car = {
             
             // Clear input values in the cloned section
             clone.find('input').val('');
+            clone.find('input').removeAttr('disabled');
     
             // Append the cloned section to the parent container
             $(".consequences-repeatable:last").after(clone);
@@ -7239,6 +7241,7 @@ var car = {
             
             // Clear input values in the cloned section
             clone.find('input').val('');
+            clone.find('input').removeAttr('disabled');
     
             // Append the cloned section to the parent container
             $(".risk-number-repeatable:last").after(clone);
@@ -7293,6 +7296,7 @@ var car = {
             
             // Clear input values in the cloned section
             clone.find('input').val('');
+            clone.find('input').removeAttr('disabled');
     
             // Append the cloned section to the parent container
             $(".opportunity-number-repeatable:last").after(clone);
@@ -7355,6 +7359,7 @@ var car = {
         
             // Clear input values in the cloned section
             clone.find('input').val('');
+            clone.find('input').removeAttr('disabled');
         
             // Append the cloned section to the parent container
             $('#rootcause').find(".rootcause-repeatable:last").after(clone);
@@ -7514,6 +7519,7 @@ var car = {
             
             // Clear input values in the cloned section
             clone.find('input').val('');
+            clone.find('input').removeAttr('disabled');
     
             // Append the cloned section to the parent container
             jQuery('#identified-root').find(".identified-root-repeatable:last").after(clone);
