@@ -7133,6 +7133,10 @@ var car = {
             clone.find('input').val('');
             clone.find('input').removeAttr('disabled');
             clone.find('input').removeAttr('readonly');
+            clone.find('textarea').html('');
+            clone.find('textarea').val('');
+            clone.find('textarea').removeAttr('disabled');
+            clone.find('textarea').removeAttr('readonly');
     
             // Append the cloned section to the parent container
             $(".correction-repeatable:last").after(clone);
@@ -7189,6 +7193,10 @@ var car = {
             clone.find('input').val('');
             clone.find('input').removeAttr('disabled');
             clone.find('input').removeAttr('readonly');
+            clone.find('textarea').html('');
+            clone.find('textarea').val('');
+            clone.find('textarea').removeAttr('disabled');
+            clone.find('textarea').removeAttr('readonly');
     
             // Append the cloned section to the parent container
             $(".consequences-repeatable:last").after(clone);
@@ -7245,6 +7253,10 @@ var car = {
             clone.find('input').val('');
             clone.find('input').removeAttr('disabled');
             clone.find('input').removeAttr('readonly');
+            clone.find('textarea').html('');
+            clone.find('textarea').val('');
+            clone.find('textarea').removeAttr('disabled');
+            clone.find('textarea').removeAttr('readonly');
     
             // Append the cloned section to the parent container
             $(".risk-number-repeatable:last").after(clone);
@@ -7301,6 +7313,10 @@ var car = {
             clone.find('input').val('');
             clone.find('input').removeAttr('disabled');
             clone.find('input').removeAttr('readonly');
+            clone.find('textarea').html('');
+            clone.find('textarea').val('');
+            clone.find('textarea').removeAttr('disabled');
+            clone.find('textarea').removeAttr('readonly');
     
             // Append the cloned section to the parent container
             $(".opportunity-number-repeatable:last").after(clone);
@@ -7365,6 +7381,10 @@ var car = {
             clone.find('input').val('');
             clone.find('input').removeAttr('disabled');
             clone.find('input').removeAttr('readonly');
+            clone.find('textarea').html('');
+            clone.find('textarea').val('');
+            clone.find('textarea').removeAttr('disabled');
+            clone.find('textarea').removeAttr('readonly');
         
             // Append the cloned section to the parent container
             $('#rootcause').find(".rootcause-repeatable:last").after(clone);
@@ -7526,6 +7546,10 @@ var car = {
             clone.find('input').val('');
             clone.find('input').removeAttr('disabled');
             clone.find('input').removeAttr('readonly');
+            clone.find('textarea').html('');
+            clone.find('textarea').val('');
+            clone.find('textarea').removeAttr('disabled');
+            clone.find('textarea').removeAttr('readonly');
     
             // Append the cloned section to the parent container
             jQuery('#identified-root').find(".identified-root-repeatable:last").after(clone);
