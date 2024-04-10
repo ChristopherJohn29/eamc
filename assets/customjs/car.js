@@ -692,6 +692,8 @@ var car = {
         jQuery('#car-global-datatable').on('click','.view-history', function(){
             var car_id = jQuery(this).data('id');
 
+            console.log(car_id);
+
             jQuery('#car_history_id').val(car_id);
             jQuery("#car-history").modal('toggle');
 

@@ -33,6 +33,7 @@ class car extends CI_Controller {
     }
 
     public function getCARHistory(){
+        
         $car_id = $_POST['car_id'];
         $car =  $this->MainModel->getCARHistory($car_id);
 
