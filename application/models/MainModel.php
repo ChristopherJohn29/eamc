@@ -108,7 +108,7 @@ class MainModel extends CI_Model {
             'created_by' => $this->session->userdata('user_id')
         );
         
-        return $this->db->insert('document_history', $data);
+        return $this->db->insert('car_history', $data);
     }
 
     public function tpn(){
