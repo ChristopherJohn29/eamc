@@ -32,6 +32,13 @@ class car extends CI_Controller {
 		$this->load->view('template/template', $data);
     }
 
+    public function getCARHistory(){
+        $doc_id = $_POST['doc_id'];
+        $car =  $this->MainModel->getCARHistory($doc_id);
+
+        echo json_encode($car);
+    }
+
 
     public function ncDefination(){
 
@@ -167,6 +174,14 @@ class car extends CI_Controller {
         $result = $this->db->update('car', $cardata);
         
         if ($result) {
+
+            $datahistory['car_id'] = $car_id;
+            $datahistory['process'] = "Correction";
+            $datahistory['status'] = $cardata['for_correction_status'];
+            $datahistory['remarks'] = "";
+            $this->MainModel->saveHistory($datahistory);
+
+
             echo 'saved';
         } else {
             echo 'error';
@@ -310,6 +325,14 @@ class car extends CI_Controller {
         $result = $this->db->update('car', $cardata);
         
         if ($result) {
+
+            $datahistory['car_id'] = $car_id;
+            $datahistory['process'] = "Correction - For OSQM Review";
+            $datahistory['status'] = $cardata['for_correction_status'];
+            $datahistory['remarks'] = $review_correction_dealing_with_consequences_remarks;
+            $this->MainModel->saveHistory($datahistory);
+
+
             echo 'saved';
         } else {
             echo 'error';
@@ -409,6 +432,13 @@ class car extends CI_Controller {
         $result = $this->db->update('car', $cardata);
         
         if ($result) {
+
+            $datahistory['car_id'] = $car_id;
+            $datahistory['process'] = "Correction - For Approval";
+            $datahistory['status'] = $cardata['for_correction_status'];
+            $datahistory['remarks'] = $approval_correction_dealing_with_consequences_remarks;
+            $this->MainModel->saveHistory($datahistory);
+
             echo 'saved';
         } else {
             echo 'error';
@@ -506,6 +536,14 @@ class car extends CI_Controller {
         $result = $this->db->update('car', $cardata);
         
         if ($result) {
+
+            $datahistory['car_id'] = $car_id;
+            $datahistory['process'] = "Correction - For Verification";
+            $datahistory['status'] = $cardata['for_correction_status'];
+            $datahistory['remarks'] = $verification_correction_dealing_with_consequences_remarks;
+            $this->MainModel->saveHistory($datahistory);
+
+
             echo 'saved';
         } else {
             echo 'error';
@@ -573,6 +611,13 @@ class car extends CI_Controller {
         $result = $this->db->update('car', $cardata);
         
         if ($result) {
+
+            $datahistory['car_id'] = $car_id;
+            $datahistory['process'] = "Correction - For Validation";
+            $datahistory['status'] = $cardata['for_correction_status'];
+            $datahistory['remarks'] = $validation_correction_dealing_with_consequences_remarks;
+            $this->MainModel->saveHistory($datahistory);
+
             echo 'saved';
         } else {
             echo 'error';
@@ -819,6 +864,14 @@ class car extends CI_Controller {
         $result = $this->db->update('car', $cardata);
         
         if ($result) {
+
+            $datahistory['car_id'] = $car_id;
+            $datahistory['process'] = "Corrective Action";
+            $datahistory['status'] = $cardata['corrective_action_status'];
+            $datahistory['remarks'] = "";
+            $this->MainModel->saveHistory($datahistory);
+
+
             echo 'saved';
         } else {
             echo 'error';
@@ -1061,6 +1114,13 @@ class car extends CI_Controller {
         $result = $this->db->update('car', $cardata);
         
         if ($result) {
+
+            $datahistory['car_id'] = $car_id;
+            $datahistory['process'] = "Corrective Action - For OSQM Review";
+            $datahistory['status'] = $cardata['corrective_action_status'];
+            $datahistory['remarks'] = $review_action_root_cause_analysis_remarks;
+            $this->MainModel->saveHistory($datahistory);
+
             echo 'saved';
         } else {
             echo 'error';
@@ -1304,6 +1364,14 @@ class car extends CI_Controller {
         $result = $this->db->update('car', $cardata);
         
         if ($result) {
+
+            $datahistory['car_id'] = $car_id;
+            $datahistory['process'] = "Corrective Action - For Approval";
+            $datahistory['status'] = $cardata['corrective_action_status'];
+            $datahistory['remarks'] = $approval_action_root_cause_analysis_remarks;
+            $this->MainModel->saveHistory($datahistory);
+
+
             echo 'saved';
         } else {
             echo 'error';
@@ -1409,6 +1477,13 @@ class car extends CI_Controller {
         $result = $this->db->update('car', $cardata);
         
         if ($result) {
+
+            $datahistory['car_id'] = $car_id;
+            $datahistory['process'] = "Corrective Action - For Verification";
+            $datahistory['status'] = $cardata['corrective_action_status'];
+            $datahistory['remarks'] = $verification_action_root_cause_analysis_remarks;
+            $this->MainModel->saveHistory($datahistory);
+
             echo 'saved';
         } else {
             echo 'error';
@@ -1496,6 +1571,13 @@ class car extends CI_Controller {
         $result = $this->db->update('car', $cardata);
         
         if ($result) {
+
+            $datahistory['car_id'] = $car_id;
+            $datahistory['process'] = "Corrective Action - For Validation";
+            $datahistory['status'] = $cardata['corrective_action_status'];
+            $datahistory['remarks'] = $validation_action_root_cause_analysis_remarks;
+            $this->MainModel->saveHistory($datahistory);
+
             echo 'saved';
         } else {
             echo 'error';

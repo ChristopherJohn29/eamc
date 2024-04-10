@@ -84,6 +84,33 @@ class MainModel extends CI_Model {
         return $result;
     }
 
+    public function getCARHistory($doc_id){
+
+        $this->db->select('car_history.*, user_created.fullname AS created_by_name');
+        $this->db->from('car_history');
+        $this->db->where('car_id', $doc_id);
+        $this->db->join('users AS user_created', 'car_history.created_by = user_created.id', 'left');
+
+        $query = $this->db->get();
+        $result = $query->result_array();
+
+        return $result;
+    }
+
+    public function saveHistory($data){
+
+        $data = array(
+            'car_id' => $data['car_id'],
+            'process' => $data['process'],
+            'status' => $data['status'],
+            'created_date' => date('Y-m-d H:i:s'),
+            'remarks' => isset($data['remarks']) ? $data['remarks'] : '',
+            'created_by' => $this->session->userdata('user_id')
+        );
+        
+        return $this->db->insert('document_history', $data);
+    }
+
     public function tpn(){
 
         $this->db->select('car.*, source_car.source_name AS source_name, division.div_name AS division, department.dep_name AS department, corrective_action.identified_root_entry AS identified_root_entry');

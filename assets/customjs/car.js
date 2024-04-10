@@ -392,7 +392,7 @@ var car = {
                                                     "<button type='button' class='btn btn-success dropdown-toggle' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><i class='fa fa-file'></i> <i class='mdi mdi-chevron-down'></i></button>" +
                                                     "<div class='dropdown-menu'>" +
                                                     issuance_of_nc_html+
-                                                    "<a class='dropdown-item' href='#'>History</a>" +
+                                                    "<a class='dropdown-item view-history' href='#' 'data-id='"+car_id+"'>History</a>" +
                                                     for_action_html_corrective +
                                                     for_action_html_correction +
                                                     osqm_review_correction +
@@ -684,6 +684,46 @@ var car = {
     },
 
     loadCorrectiveAction: function(){
+
+        jQuery('#car-global-datatable').on('click','.view-history', function(){
+            var car_id = jQuery(this).data('id');
+
+            jQuery('#car_history_id').val(car_id);
+            jQuery("#car-history").modal('toggle');
+
+            $('#car-history-datatable tbody').html('');
+
+            $.ajax({
+                type: 'POST',
+                url: '../car/getCARHistory', // Replace 'MyController' with your controller name
+                data: {doc_id: doc_id},
+                success: function (response) {
+                    if(response != 'null'){
+                        $.each(JSON.parse(response), function (index, item) {
+                            // Access each item's properties
+                            var process = item.process;
+                            var status = item.status;
+                            var created_by_name = item.created_by_name;
+                            var created_date = item.created_date;
+                            var remarks = item.remarks;
+                            
+                            var html = "<tr><td>" + process + "</td><td>" + status + "</td><td>" + created_by_name + "</td><td>" + created_date + "</td><td>" + remarks + "</td></tr>";
+                            // Do something with the data, for example, display it on the page
+                            $('#car-history-datatable tbody').append(html);
+                        });
+    
+                        tippy('*[data-plugin="tippy"]');
+    
+                        $('[data-toggle="tooltip"]').tooltip()
+                        
+                    }
+                },
+                error: function () {
+                    // Handle errors
+                    diList.notifyError();
+                }
+                });
+        });
 
         $('#car-global-datatable').on('click', '.edit-correction-action', function () {
 
