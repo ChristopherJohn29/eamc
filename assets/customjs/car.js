@@ -68,7 +68,7 @@ var car = {
 
 
                         var osqm_review_corrective_action = "";
-                        
+                        var history = "<a class='dropdown-item view-history' href='#' 'data-id='"+car_id+"'>History</a>";
           
                         if(section != ''){
                             if(for_correction_status == 'For OSQM Review' && ( userrole == "osqm_dco" || userrole == "osqm_do" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) ) ){
@@ -310,6 +310,8 @@ var car = {
                         } else {
                             var issuance_of_nc_html = "";
                         }
+
+                        
                         
 
                         if(section != ''){
@@ -343,6 +345,8 @@ var car = {
                                 for_action_html_corrective = "<a class='dropdown-item edit-corrective-action' data-partial='no' data-corrective_status='" + corrective_action_status + "' href='#' data-userrole='" + userrole + "' data-status='" + status + "' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#root-cause'>SEC.3&4 Corrective Action</a>";
                             }
                         }
+
+                        
 
                         if (corrective_action_status == 'For CAR action' || corrective_action_status == "For Implementation" || corrective_action_status == "For Partial" || corrective_action_status == 'For Revision') {
                             $.ajax({
@@ -392,7 +396,7 @@ var car = {
                                                     "<button type='button' class='btn btn-success dropdown-toggle' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><i class='fa fa-file'></i> <i class='mdi mdi-chevron-down'></i></button>" +
                                                     "<div class='dropdown-menu'>" +
                                                     issuance_of_nc_html+
-                                                    "<a class='dropdown-item view-history' href='#' 'data-id='"+car_id+"'>History</a>" +
+                                                    history +
                                                     for_action_html_corrective +
                                                     for_action_html_correction +
                                                     osqm_review_correction +
@@ -429,7 +433,7 @@ var car = {
                                                 "<button type='button' class='btn btn-success dropdown-toggle' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><i class='fa fa-file'></i> <i class='mdi mdi-chevron-down'></i></button>" +
                                                 "<div class='dropdown-menu'>" +
                                                 issuance_of_nc_html+
-                                                "<a class='dropdown-item' href='#'>History</a>" +
+                                                history +
                                                 for_action_html_corrective +
                                                 for_action_html_correction +
                                                 osqm_review_correction +
@@ -464,7 +468,7 @@ var car = {
                                                 "<button type='button' class='btn btn-success dropdown-toggle' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><i class='fa fa-file'></i> <i class='mdi mdi-chevron-down'></i></button>" +
                                                 "<div class='dropdown-menu'>" +
                                                 issuance_of_nc_html+
-                                                "<a class='dropdown-item' href='#'>History</a>" +
+                                                history +
                                                 for_action_html_corrective +
                                                 for_action_html_correction +
                                                 osqm_review_correction +
@@ -505,7 +509,7 @@ var car = {
                             "<button type='button' class='btn btn-success dropdown-toggle' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><i class='fa fa-file'></i> <i class='mdi mdi-chevron-down'></i></button>" +
                             "<div class='dropdown-menu'>" +
                             issuance_of_nc_html+
-                            "<a class='dropdown-item' href='#'>History</a>" +
+                            history +
                             for_action_html_corrective +
                             for_action_html_correction +
                             osqm_review_correction +
