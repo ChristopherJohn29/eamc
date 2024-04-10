@@ -1871,6 +1871,8 @@ class car extends CI_Controller {
 
         if ($result) {
 
+            $car_id = $this->db->insert_id();
+            
             $datahistory['car_id'] = $car_id;
             $datahistory['process'] = "Register CAR";
             $datahistory['status'] = "For Issuance of NC";
