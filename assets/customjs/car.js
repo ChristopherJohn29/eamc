@@ -700,7 +700,7 @@ var car = {
             $.ajax({
                 type: 'POST',
                 url: '../car/getCARHistory', // Replace 'MyController' with your controller name
-                data: {doc_id: doc_id},
+                data: {car_id: car_id},
                 success: function (response) {
                     if(response != 'null'){
                         $.each(JSON.parse(response), function (index, item) {
