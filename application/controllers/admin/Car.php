@@ -1703,6 +1703,13 @@ class car extends CI_Controller {
            $result = $this->MainModel->updateCar($data);
    
            if ($result) {
+
+                $datahistory['car_id'] = $car_id;
+                $datahistory['process'] = "Issuance of NC";
+                $datahistory['status'] = $status;
+                $datahistory['remarks'] = $issuance_of_nc_remarks;
+                $this->MainModel->saveHistory($datahistory);
+
                echo 'saved';
            } else {
                echo 'error';
@@ -1863,6 +1870,13 @@ class car extends CI_Controller {
         $result = $this->MainModel->saveCar($data);
 
         if ($result) {
+
+            $datahistory['car_id'] = $car_id;
+            $datahistory['process'] = "Register CAR";
+            $datahistory['status'] = "For Issuance of NC";
+            $datahistory['remarks'] = "";
+            $this->MainModel->saveHistory($datahistory);
+
             echo 'saved';
         } else {
             echo 'error';
