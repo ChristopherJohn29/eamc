@@ -1833,7 +1833,7 @@ class car extends CI_Controller {
         $workingDays_30 = 0;
 
         // Calculate 30 working days from now
-        while ($workingDays_30 < 30) {
+        while ($workingDays_30 < 40) {
             // Add one day to the current date
             $expiryDate_30->modify('+1 day');
 
@@ -1845,7 +1845,7 @@ class car extends CI_Controller {
 
         // Output the results
         $expiry_10_days = $expiryDate_10->format('Y-m-d');
-        $expiry_30_days = $expiryDate_30->format('Y-m-d');
+        $expiry_40_days = $expiryDate_30->format('Y-m-d');
 
 
         $data = array(
@@ -1860,7 +1860,7 @@ class car extends CI_Controller {
             'requirements_not_fulfilled' => $requirements_not_fulfilled,
             'corrective_action_status' => '',
             'for_correction_status' => '',
-            'ca_completion_date' => $expiry_30_days,
+            'ca_completion_date' => $expiry_40_days,
             'fc_completion_date' => $expiry_10_days,
             'registration_date' => date('Y-m-d'),
             'corrective_action_status' => '',
@@ -1879,6 +1879,45 @@ class car extends CI_Controller {
             $datahistory['status'] = "For Issuance of NC";
             $datahistory['remarks'] = "";
             $this->MainModel->saveHistory($datahistory);
+
+            echo 'saved';
+        } else {
+            echo 'error';
+        }
+    }
+
+    public function save_ca_due(){
+
+        $car_id = $_POST['car_id'];
+
+        $cardata = array(
+            'ca_completion_date' =>  $_POST['ca_completion_date']
+        );
+
+        $this->db->where('id', $car_id);
+        $result = $this->db->update('car', $cardata);
+
+        if ($result) {
+
+
+            echo 'saved';
+        } else {
+            echo 'error';
+        }
+    }
+
+    public function save_fc_due(){
+        $car_id = $_POST['car_id'];
+
+        $cardata = array(
+            'fc_completion_date' =>  $_POST['fc_completion_date']
+        );
+
+        $this->db->where('id', $car_id);
+        $result = $this->db->update('car', $cardata);
+
+        if ($result) {
+
 
             echo 'saved';
         } else {

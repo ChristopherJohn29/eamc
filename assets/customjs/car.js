@@ -388,8 +388,8 @@ var car = {
                                                     "</td><td>" + identification_date + 
                                                     "</td><td>" + registration_date + 
                                                     "</td><td>" + date_closed + 
-                                                    "</td><td>" + for_correction_status + "<br><small>" + fc_completion_date + " (due date)</small>" +
-                                                    "</td><td>" + corrective_action_status + "<br><small>" + ca_completion_date + " (due date)</small>" +
+                                                    "</td><td>" + for_correction_status + "<br><small><a href='#' class='update-correction-due' data-car_id='"+car_id+"' data-current='"+ fc_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-correction'>" + fc_completion_date + " (due date)</a></small>" +
+                                                    "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (due date)</a></small>" +
                                                     "</td><td>" + status +
                                                     "</td><td>" +
                                                     "<div class='btn-group mb-2'>" +
@@ -425,8 +425,8 @@ var car = {
                                                 "</td><td>" + identification_date + 
                                                 "</td><td>" + registration_date + 
                                                 "</td><td>" + date_closed + 
-                                                "</td><td>" + for_correction_status + "<br><small>" + fc_completion_date + " (due date)</small>" +
-                                                "</td><td>" + corrective_action_status + "<br><small>" + ca_completion_date + " (due date)</small>" +
+                                                "</td><td>" + for_correction_status + "<br><small><a href='#' class='update-correction-due' data-car_id='"+car_id+"' data-current='"+ fc_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-correction'>" + fc_completion_date + " (due date)</a></small>" +
+                                                "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (due date)</a></small>" +
                                                 "</td><td>" + status +
                                                 "</td><td>" +
                                                 "<div class='btn-group mb-2'>" +
@@ -460,8 +460,8 @@ var car = {
                                                 "</td><td>" + identification_date + 
                                                 "</td><td>" + registration_date + 
                                                 "</td><td>" + date_closed + 
-                                                "</td><td>" + for_correction_status + "<br><small>" + fc_completion_date + " (due date)</small>" +
-                                                "</td><td>" + corrective_action_status + "<br><small>" + ca_completion_date + " (due date)</small>" +
+                                                "</td><td>" + for_correction_status + "<br><small><a href='#' class='update-correction-due' data-car_id='"+car_id+"' data-current='"+ fc_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-correction'>" + fc_completion_date + " (due date)</a></small>" +
+                                                "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (due date)</a></small>" +
                                                 "</td><td>" + status +
                                                 "</td><td>" +
                                                 "<div class='btn-group mb-2'>" +
@@ -501,8 +501,8 @@ var car = {
                             "</td><td>" + identification_date + 
                             "</td><td>" + registration_date + 
                             "</td><td>" + date_closed + 
-                            "</td><td>" + for_correction_status + "<br><small>" + fc_completion_date + " (due date)</small>" +
-                            "</td><td>" + corrective_action_status + "<br><small>" + ca_completion_date + " (due date)</small>" +
+                            "</td><td>" + for_correction_status + "<br><small><a href='#' class='update-correction-due' data-car_id='"+car_id+"' data-current='"+ fc_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-correction'>" + fc_completion_date + " (due date)</a></small>" +
+                            "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (due date)</a></small>" +
                             "</td><td>" + status +
                             "</td><td>" +
                             "<div class='btn-group mb-2'>" +
@@ -688,6 +688,24 @@ var car = {
     },
 
     loadCorrectiveAction: function(){
+
+        jQuery('#car-global-datatable').on('click','.update-correction-due', function(){
+            var car_id = jQuery(this).data('car_id');
+            var current = jQuery(this).data('current');
+
+            jQuery('#fc_completion_date_id').val(car_id);
+            jQuery('#fc_completion_date').val(current);
+       
+        });
+
+        jQuery('#car-global-datatable').on('click','.update-corrective-due', function(){
+            var car_id = jQuery(this).data('car_id');
+            var current = jQuery(this).data('current');
+
+            jQuery('#ca_completion_date_id').val(car_id);
+            jQuery('#ca_completion_date').val(current);
+       
+        });
 
         jQuery('#car-global-datatable').on('click','.view-history', function(){
             var car_id = jQuery(this).data('car_id');
@@ -6696,6 +6714,82 @@ var car = {
     },
 
     saveCar: function(){
+
+        jQuery('#saveDueCorrective').click(function(e){
+            e.preventDefault();
+    
+           
+    
+            var car_id = jQuery('#ca_completion_date_id').val();
+            var ca_completion_date = jQuery('#ca_completion_date').val();
+            
+            var data = {
+                'car_id' : car_id,
+                'ca_completion_date' : ca_completion_date,
+            }
+
+            jQuery("#car-dues-corrective").modal('toggle');
+
+            $.ajax({
+                type: 'POST',
+                url: '../car/save_ca_due', // Replace 'MyController' with your controller name
+                data: data,
+                success: function (response) {
+                    // Handle the response from the server
+                    if(response == 'saved'){
+                        car.notifySuccess();
+                        car.load();
+                    } else {
+                        car.notifyError();
+                    }
+                },
+                error: function () {
+                    // Handle errors
+                    car.notifyError();
+                }
+            });
+            
+    
+        });
+        
+        jQuery('#saveDueCorrection').click(function(e){
+            e.preventDefault();
+    
+           
+    
+            var car_id = jQuery('#fc_completion_date_id').val();
+            var fc_completion_date = jQuery('#fc_completion_date').val();
+            
+            var data = {
+                'car_id' : car_id,
+                'fc_completion_date' : fc_completion_date,
+            }
+
+            jQuery("#car-dues-correctiion").modal('toggle');
+
+            $.ajax({
+                type: 'POST',
+                url: '../car/save_fc_due', // Replace 'MyController' with your controller name
+                data: data,
+                success: function (response) {
+                    // Handle the response from the server
+                    if(response == 'saved'){
+                        car.notifySuccess();
+                        car.load();
+                    } else {
+                        car.notifyError();
+                    }
+                },
+                error: function () {
+                    // Handle errors
+                    car.notifyError();
+                }
+            });
+            
+    
+        });
+
+
         jQuery('#saveCar').click(function(e){
             e.preventDefault();
     
