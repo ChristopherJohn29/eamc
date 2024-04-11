@@ -218,7 +218,8 @@ class car extends CI_Controller {
 
         $cardata = array(
             'for_correction_status' => $closing_action,
-            'corrective_action_status' => $closing_action
+            'corrective_action_status' => $closing_action,
+            'date_closed' => new DateTime()
         );
 
         $this->db->where('id', $car_id);
