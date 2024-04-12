@@ -1298,7 +1298,7 @@ var car = {
                                                             <label class="form-check-label" for="correction_acceptable_review">NO</label>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group col-lg-12">
+                                                    <div class="form-group col-lg-12 hidden">
                                                         <label for="correction_acceptable_remarks_review" class="form-label">Remarks</label>
                                                         <textarea class="form-control" name="correction_acceptable_remarks_review[${count}]" rows="4">${remarksReview}</textarea>
                                                     </div>
@@ -1366,7 +1366,7 @@ var car = {
                                                                 <label class="form-check-label" for="consequence_acceptable_review">NO</label>
                                                             </div>
                                                         </div>
-                                                        <div class="form-group col-lg-12">
+                                                        <div class="form-group col-lg-12 hidden">
                                                             <label for="consequence_acceptable_remarks_review" class="form-label">Remarks</label>
                                                             <textarea class="form-control" name="consequence_acceptable_remarks_review[${count}]" rows="4">${remarksReview}</textarea>
                                                         </div>
