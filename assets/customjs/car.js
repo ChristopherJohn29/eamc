@@ -1286,23 +1286,7 @@ var car = {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <label for="acceptable" class="form-label">Acceptable</label>
-                                                    <div class="col-lg-3 text-inlign mb-2">
-                                                        <div class="form-check form-check-inline">
-                                                            <input type="radio" name="correction_acceptable_review[${count}]" value="1" class="form-check-input" ${reviewValue === '1' ? 'checked' : ''}>
-                                                            <label class="form-check-label" for="correction_acceptable_review">YES</label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input type="radio" name="correction_acceptable_review[${count}]" value="0" class="form-check-input" ${reviewValue === '0' ? 'checked' : ''}>
-                                                            <label class="form-check-label" for="correction_acceptable_review">NO</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group col-lg-12 hidden">
-                                                        <label for="correction_acceptable_remarks_review" class="form-label">Remarks</label>
-                                                        <textarea class="form-control" name="correction_acceptable_remarks_review[${count}]" rows="4">${remarksReview}</textarea>
-                                                    </div>
-                                                </div>
+          
                                             </div>
                                         </div>
                                     </div>
@@ -1354,23 +1338,7 @@ var car = {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <label for="acceptable" class="form-label">Acceptable</label>
-                                                        <div class="col-lg-3 text-inlign mb-2">
-                                                            <div class="form-check form-check-inline">
-                                                                <input type="radio" name="consequence_acceptable_review[${count}]" value="1" class="form-check-input" ${reviewValue === '1' ? 'checked' : ''}>
-                                                                <label class="form-check-label" for="consequence_acceptable_review">YES</label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <input type="radio" name="consequence_acceptable_review[${count}]" value="0" class="form-check-input" ${reviewValue === '0' ? 'checked' : ''}>
-                                                                <label class="form-check-label" for="consequence_acceptable_review">NO</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-lg-12 hidden">
-                                                            <label for="consequence_acceptable_remarks_review" class="form-label">Remarks</label>
-                                                            <textarea class="form-control" name="consequence_acceptable_remarks_review[${count}]" rows="4">${remarksReview}</textarea>
-                                                        </div>
-                                                </div>
+              
                                             </div>
                                         </div>
                                     </div>
@@ -1604,24 +1572,7 @@ var car = {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <label for="acceptable" class="form-label">Acceptable</label>
-        
-                                                    <div class="col-lg-3 text-inlign mb-2">
-                                                        <div class="form-check form-check-inline">
-                                                            <input type="radio" name="correction_acceptable_approval[${count}]" value="1" class="form-check-input" ${approvalValue === '1' ? 'checked' : ''}>
-                                                            <label class="form-check-label" for="correction_acceptable_approval">YES</label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input type="radio" name="correction_acceptable_approval[${count}]" value="0" class="form-check-input" ${approvalValue === '0' ? 'checked' : ''}>
-                                                            <label class="form-check-label" for="correction_acceptable_approval">NO</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group col-lg-12 hidden">
-                                                        <label for="correction_acceptable_remarks_approval" class="form-label">Remarks</label>
-                                                        <textarea class="form-control" name="correction_acceptable_remarks_approval[${count}]" rows="4">${remarksReview}</textarea>
-                                                    </div>
-                                                </div>
+                  
                                             </div>
                                         </div>
                                     </div>
@@ -1673,24 +1624,7 @@ var car = {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <label for="acceptable" class="form-label">Acceptable</label>
-        
-                                                        <div class="col-lg-3 text-inlign mb-2">
-                                                            <div class="form-check form-check-inline">
-                                                                <input type="radio" name="consequence_acceptable_approval[${count}]" value="1" class="form-check-input" ${approvalValue === '1' ? 'checked' : ''}>
-                                                                <label class="form-check-label" for="consequence_acceptable_approval">YES</label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <input type="radio" name="consequence_acceptable_approval[${count}]" value="0" class="form-check-input" ${approvalValue === '0' ? 'checked' : ''}>
-                                                                <label class="form-check-label" for="consequence_acceptable_approval">NO</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-lg-12 hidden">
-                                                            <label for="consequence_acceptable_remarks_approval" class="form-label">Remarks</label>
-                                                            <textarea class="form-control" name="consequence_acceptable_remarks_approval[${count}]" rows="4">${remarksReview}</textarea>
-                                                        </div>
-                                                </div>
+                
                                             </div>
                                         </div>
                                     </div>
@@ -3346,32 +3280,7 @@ var car = {
                         
                                                         
                                                     </div>
-                                                    <div class="row">
-                                                         <label for="acceptable" class="form-label">Acceptable</label>
-         
-                                                         <input type="hidden" value="${approval}" name="risk_number_acceptable_approval[${count}]">
-                                                         <input type="hidden" value="${verification}" name="risk_number_acceptable_verification[${count}]">
-                                                         <input type="hidden" value="${validation}" name="risk_number_acceptable_validation[${count}]">
-         
-                                                         <input type="hidden" value="${approval_remarks}" name="risk_number_acceptable_remarks_approval[${count}]">
-                                                         <input type="hidden" value="${verification_remarks}" name="risk_number_acceptable_remarks_verification[${count}]">
-                                                         <input type="hidden" value="${validation_remarks}" name="risk_number_acceptable_remarks_validation[${count}]">
-                                                         
-                                                         <div class="col-lg-3 text-inlign mb-2">
-                                                               <div class="form-check form-check-inline">
-                                                                  <input type="radio" name="risk_number_acceptable_review[${count}]" value="1" class="form-check-input" ${reviewValue === '1' ? 'checked' : ''}>
-                                                                  <label class="form-check-label" for="risk_number_acceptable_review">YES</label>
-                                                               </div>
-                                                               <div class="form-check form-check-inline">
-                                                                  <input type="radio" name="risk_number_acceptable_review[${count}]" value="0" class="form-check-input" ${reviewValue === '0' ? 'checked' : ''}>
-                                                                  <label class="form-check-label" for="risk_number_acceptable_review">NO</label>
-                                                               </div>
-                                                         </div>
-                                                         <div class="form-group col-lg-12 hidden">
-                                                               <label for="risk_number_acceptable_remarks_review" class="form-label">Remarks</label>
-                                                               <textarea class="form-control" name="risk_number_acceptable_remarks_review[${count}]" rows="4">${remarksReview}</textarea>
-                                                         </div>
-                                                      </div>
+                
                                                 </div>
                                             </div>
                                         </div>
@@ -3425,32 +3334,7 @@ var car = {
                                                         </div>
                                  
                                                     </div>
-                                                    <div class="row">
-                                                      <label for="acceptable" class="form-label">Acceptable</label>
-         
-                                                         <input type="hidden" value="${approval}" name="opportunity_number_acceptable_approval[${count}]">
-                                                         <input type="hidden" value="${verification}" name="opportunity_number_acceptable_verification[${count}]">
-                                                         <input type="hidden" value="${validation}" name="opportunity_number_acceptable_validation[${count}]">
-         
-                                                         <input type="hidden" value="${approval_remarks}" name="opportunity_number_acceptable_remarks_approval[${count}]">
-                                                         <input type="hidden" value="${verification_remarks}" name="opportunity_number_acceptable_remarks_verification[${count}]">
-                                                         <input type="hidden" value="${validation_remarks}" name="opportunity_number_acceptable_remarks_validation[${count}]">
-         
-                                                      <div class="col-lg-3 text-inlign mb-2">
-                                                         <div class="form-check form-check-inline">
-                                                               <input type="radio" name="opportunity_number_acceptable_review[${count}]" value="1" class="form-check-input" ${reviewValue === '1' ? 'checked' : ''}>
-                                                               <label class="form-check-label" for="opportunity_number_acceptable_review">YES</label>
-                                                         </div>
-                                                         <div class="form-check form-check-inline">
-                                                               <input type="radio" name="opportunity_number_acceptable_review[${count}]" value="0" class="form-check-input" ${reviewValue === '0' ? 'checked' : ''}>
-                                                               <label class="form-check-label" for="opportunity_number_acceptable_review">NO</label>
-                                                         </div>
-                                                      </div>
-                                                      <div class="form-group col-lg-12 hidden">
-                                                         <label for="opportunity_number_acceptable_remarks_review" class="form-label">Remarks</label>
-                                                         <textarea class="form-control" name="opportunity_number_acceptable_remarks_review[${count}]" rows="4">${remarksReview}</textarea>
-                                                      </div>
-                                                   </div>
+                                                   
                                                 </div>
                                             </div>
                                         </div>
@@ -3499,32 +3383,7 @@ var car = {
                                                         </div>
                  
                                                     </div>
-                                                    <div class="row">
-                                                         <label for="acceptable" class="form-label">Acceptable</label>
-         
-                                                            <input type="hidden" value="${approval}" name="rootcause_acceptable_approval[${count}]">
-                                                            <input type="hidden" value="${verification}" name="rootcause_acceptable_verification[${count}]">
-                                                            <input type="hidden" value="${validation}" name="rootcause_acceptable_validation[${count}]">
-         
-                                                            <input type="hidden" value="${approval_remarks}" name="rootcause_acceptable_remarks_approval[${count}]">
-                                                            <input type="hidden" value="${verification_remarks}" name="rootcause_acceptable_remarks_verification[${count}]">
-                                                            <input type="hidden" value="${validation_remarks}" name="rootcause_acceptable_remarks_validation[${count}]">
-         
-                                                         <div class="col-lg-3 text-inlign mb-2">
-                                                            <div class="form-check form-check-inline">
-                                                                  <input type="radio" name="rootcause_acceptable_review[${count}]" value="1" class="form-check-input" ${reviewValue === '1' ? 'checked' : ''}>
-                                                                  <label class="form-check-label" for="rootcause_acceptable_review">YES</label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline">
-                                                                  <input type="radio" name="rootcause_acceptable_review[${count}]" value="0" class="form-check-input" ${reviewValue === '0' ? 'checked' : ''}>
-                                                                  <label class="form-check-label" for="rootcause_acceptable_review">NO</label>
-                                                            </div>
-                                                         </div>
-                                                         <div class="form-group col-lg-12 hidden">
-                                                            <label for="rootcause_acceptable_remarks_review" class="form-label">Remarks</label>
-                                                            <textarea class="form-control" name="rootcause_acceptable_remarks_review[${count}]" rows="4">${remarksReview}</textarea>
-                                                         </div>
-                                                      </div>
+                                  
                                                 </div>
                                             </div>
                                         </div>
@@ -3669,32 +3528,7 @@ var car = {
                                                         </div>
                         
                                                     </div>
-                                                    <div class="row">
-                                                      <label for="acceptable" class="form-label">Acceptable</label>
-         
-                                                         <input type="hidden" value="${approval}" name="identified_root_acceptable_approval[${count}]">
-                                                         <input type="hidden" value="${verification}" name="identified_root_acceptable_verification[${count}]">
-                                                         <input type="hidden" value="${validation}" name="identified_root_acceptable_validation[${count}]">
-         
-                                                         <input type="hidden" value="${approval_remarks}" name="identified_root_acceptable_remarks_approval[${count}]">
-                                                         <input type="hidden" value="${verification_remarks}" name="identified_root_acceptable_remarks_verification[${count}]">
-                                                         <input type="hidden" value="${validation_remarks}" name="identified_root_acceptable_remarks_validation[${count}]">
-         
-                                                      <div class="col-lg-3 text-inlign mb-2">
-                                                         <div class="form-check form-check-inline">
-                                                               <input type="radio" name="identified_root_acceptable_review[${count}]" value="1" class="form-check-input" ${reviewValue === '1' ? 'checked' : ''}>
-                                                               <label class="form-check-label" for="identified_root_acceptable_review">YES</label>
-                                                         </div>
-                                                         <div class="form-check form-check-inline">
-                                                               <input type="radio" name="identified_root_acceptable_review[${count}]" value="0" class="form-check-input" ${reviewValue === '0' ? 'checked' : ''}>
-                                                               <label class="form-check-label" for="identified_root_acceptable_review">NO</label>
-                                                         </div>
-                                                      </div>
-                                                      <div class="form-group col-lg-12 hidden">
-                                                         <label for="identified_root_acceptable_remarks_review" class="form-label">Remarks</label>
-                                                         <textarea class="form-control" name="identified_root_acceptable_remarks_review[${count}]" rows="4">${remarksReview}</textarea>
-                                                      </div>
-                                                   </div>
+                                            
                                                 </div>
                                             </div>
                                         </div>
@@ -3938,32 +3772,7 @@ var car = {
                                                     </div>
                           
                                                 </div>
-                                                <div class="row">
-                                                        <label for="acceptable" class="form-label">Acceptable</label>
-        
-                                                        <input type="hidden" value="${review}" name="risk_number_acceptable_review[${count}]">
-                                                        <input type="hidden" value="${verification}" name="risk_number_acceptable_verification[${count}]">
-                                                        <input type="hidden" value="${validation}" name="risk_number_acceptable_validation[${count}]">
-        
-                                                        <input type="hidden" value="${review_remarks}" name="risk_number_acceptable_remarks_review[${count}]">
-                                                        <input type="hidden" value="${verification_remarks}" name="risk_number_acceptable_remarks_verification[${count}]">
-                                                        <input type="hidden" value="${validation_remarks}" name="risk_number_acceptable_remarks_validation[${count}]">
-                                                        
-                                                        <div class="col-lg-3 text-inlign mb-2">
-                                                            <div class="form-check form-check-inline">
-                                                                <input type="radio" name="risk_number_acceptable_approval[${count}]" value="1" class="form-check-input" ${approvalValue === '1' ? 'checked' : ''}>
-                                                                <label class="form-check-label" for="risk_number_acceptable_approval">YES</label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <input type="radio" name="risk_number_acceptable_approval[${count}]" value="0" class="form-check-input" ${approvalValue === '0' ? 'checked' : ''}>
-                                                                <label class="form-check-label" for="risk_number_acceptable_approval">NO</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-lg-12 hidden">
-                                                            <label for="risk_number_acceptable_remarks_approval" class="form-label">Remarks</label>
-                                                            <textarea class="form-control" name="risk_number_acceptable_remarks_approval[${count}]" rows="4">${remarksReview}</textarea>
-                                                        </div>
-                                                    </div>
+                                            
                                             </div>
                                         </div>
                                     </div>
@@ -4018,32 +3827,7 @@ var car = {
                               
                                     
                                                 </div>
-                                                <div class="row">
-                                                    <label for="acceptable" class="form-label">Acceptable</label>
-        
-                                                        <input type="hidden" value="${review}" name="opportunity_number_acceptable_review[${count}]">
-                                                        <input type="hidden" value="${verification}" name="opportunity_number_acceptable_verification[${count}]">
-                                                        <input type="hidden" value="${validation}" name="opportunity_number_acceptable_validation[${count}]">
-        
-                                                        <input type="hidden" value="${review_remarks}" name="opportunity_number_acceptable_remarks_review[${count}]">
-                                                        <input type="hidden" value="${verification_remarks}" name="opportunity_number_acceptable_remarks_verification[${count}]">
-                                                        <input type="hidden" value="${validation_remarks}" name="opportunity_number_acceptable_remarks_validation[${count}]">
-        
-                                                    <div class="col-lg-3 text-inlign mb-2">
-                                                        <div class="form-check form-check-inline">
-                                                            <input type="radio" name="opportunity_number_acceptable_approval[${count}]" value="1" class="form-check-input" ${approvalValue === '1' ? 'checked' : ''}>
-                                                            <label class="form-check-label" for="opportunity_number_acceptable_approval">YES</label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input type="radio" name="opportunity_number_acceptable_approval[${count}]" value="0" class="form-check-input" ${approvalValue === '0' ? 'checked' : ''}>
-                                                            <label class="form-check-label" for="opportunity_number_acceptable_approval">NO</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group col-lg-12 hidden">
-                                                        <label for="opportunity_number_acceptable_remarks_approval" class="form-label">Remarks</label>
-                                                        <textarea class="form-control" name="opportunity_number_acceptable_remarks_approval[${count}]" rows="4">${remarksReview}</textarea>
-                                                    </div>
-                                                </div>
+                                              
                                             </div>
                                         </div>
                                     </div>
@@ -4092,32 +3876,7 @@ var car = {
                                                     </div>
                      
                                                 </div>
-                                                <div class="row">
-                                                <label for="acceptable" class="form-label">Acceptable</label>
-        
-                                                    <input type="hidden" value="${review}" name="rootcause_acceptable_review[${count}]">
-                                                    <input type="hidden" value="${verification}" name="rootcause_acceptable_verification[${count}]">
-                                                    <input type="hidden" value="${validation}" name="rootcause_acceptable_validation[${count}]">
-        
-                                                    <input type="hidden" value="${review_remarks}" name="rootcause_acceptable_remarks_review[${count}]">
-                                                    <input type="hidden" value="${verification_remarks}" name="rootcause_acceptable_remarks_verification[${count}]">
-                                                    <input type="hidden" value="${validation_remarks}" name="rootcause_acceptable_remarks_validation[${count}]">
-        
-                                                <div class="col-lg-3 text-inlign mb-2">
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" name="rootcause_acceptable_approval[${count}]" value="1" class="form-check-input" ${approvalValue === '1' ? 'checked' : ''}>
-                                                        <label class="form-check-label" for="rootcause_acceptable_approval">YES</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" name="rootcause_acceptable_approval[${count}]" value="0" class="form-check-input" ${approvalValue === '0' ? 'checked' : ''}>
-                                                        <label class="form-check-label" for="rootcause_acceptable_approval">NO</label>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group col-lg-12 hidden">
-                                                    <label for="rootcause_acceptable_remarks_approval" class="form-label">Remarks</label>
-                                                    <textarea class="form-control" name="rootcause_acceptable_remarks_approval[${count}]" rows="4">${remarksReview}</textarea>
-                                                </div>
-                                            </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -4261,32 +4020,7 @@ var car = {
                                                     </div>
                            
                                                 </div>
-                                                <div class="row">
-                                                    <label for="acceptable" class="form-label">Acceptable</label>
-        
-                                                        <input type="hidden" value="${review}" name="identified_root_acceptable_review[${count}]">
-                                                        <input type="hidden" value="${verification}" name="identified_root_acceptable_verification[${count}]">
-                                                        <input type="hidden" value="${validation}" name="identified_root_acceptable_validation[${count}]">
-        
-                                                        <input type="hidden" value="${review_remarks}" name="identified_root_acceptable_remarks_review[${count}]">
-                                                        <input type="hidden" value="${verification_remarks}" name="identified_root_acceptable_remarks_verification[${count}]">
-                                                        <input type="hidden" value="${validation_remarks}" name="identified_root_acceptable_remarks_validation[${count}]">
-        
-                                                    <div class="col-lg-3 text-inlign mb-2">
-                                                        <div class="form-check form-check-inline">
-                                                            <input type="radio" name="identified_root_acceptable_approval[${count}]" value="1" class="form-check-input" ${approvalValue === '1' ? 'checked' : ''}>
-                                                            <label class="form-check-label" for="identified_root_acceptable_approval">YES</label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input type="radio" name="identified_root_acceptable_approval[${count}]" value="0" class="form-check-input" ${approvalValue === '0' ? 'checked' : ''}>
-                                                            <label class="form-check-label" for="identified_root_acceptable_approval">NO</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group col-lg-12 hidden">
-                                                        <label for="identified_root_acceptable_remarks_approval" class="form-label">Remarks</label>
-                                                        <textarea class="form-control" name="identified_root_acceptable_remarks_approval[${count}]" rows="4">${remarksReview}</textarea>
-                                                    </div>
-                                                </div>
+                                               
                                             </div>
                                         </div>
                                     </div>

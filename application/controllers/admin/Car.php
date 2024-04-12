@@ -249,8 +249,6 @@ class car extends CI_Controller {
         $correction_person_responsible_url = $this->input->post('correction_person_responsible_url');
         $correction_completion_date = $this->input->post('correction_completion_date');
 
-        $correction_acceptable_review = $this->input->post('correction_acceptable_review');
-        $correction_acceptable_remarks_review = $this->input->post('correction_acceptable_remarks_review');
 
         $correction_entry = json_decode($car[0]['correction_entry'], true);
 
@@ -264,8 +262,6 @@ class car extends CI_Controller {
                 $correction_entry[$key]['correction_person_responsible'] = isset($correction_person_responsible[$key]) ? $correction_person_responsible[$key] : "";
                 $correction_entry[$key]['correction_person_responsible_url'] = isset($correction_person_responsible_url[$key]) ? $correction_person_responsible_url[$key] : "";
                 $correction_entry[$key]['correction_completion_date'] = isset($correction_completion_date[$key]) ? $correction_completion_date[$key] : "";
-                $correction_entry[$key]['correction_acceptable_review'] = isset($correction_acceptable_review[$key]) ? $correction_acceptable_review[$key] : "";
-                $correction_entry[$key]['correction_acceptable_remarks_review'] = isset($correction_acceptable_remarks_review[$key]) ? $correction_acceptable_remarks_review[$key] : "";
 
             }
             
@@ -284,8 +280,6 @@ class car extends CI_Controller {
         $consequence_completion_date = $this->input->post('consequence_completion_date');
 
 
-        $consequence_acceptable_review = $this->input->post('consequence_acceptable_review');
-        $consequence_acceptable_remarks_review = $this->input->post('consequence_acceptable_remarks_review');
     
         foreach($consequence as $key => $value){
             if($consequence[$key]){
@@ -293,8 +287,6 @@ class car extends CI_Controller {
                 $consequence_entry[$key]['consequence_person_responsible'] = isset($consequence_person_responsible[$key]) ? $consequence_person_responsible[$key] : "";
                 $consequence_entry[$key]['consequence_person_responsible_url'] = isset($consequence_person_responsible_url[$key]) ? $consequence_person_responsible_url[$key] : "";
                 $consequence_entry[$key]['consequence_completion_date'] = isset($consequence_completion_date[$key]) ? $consequence_completion_date[$key] : "";
-                $consequence_entry[$key]['consequence_acceptable_review'] = isset($consequence_acceptable_review[$key]) ? $consequence_acceptable_review[$key] : "";
-                $consequence_entry[$key]['consequence_acceptable_remarks_review'] = isset($consequence_acceptable_remarks_review[$key]) ? $consequence_acceptable_remarks_review[$key] : "";
             }
            
         }
@@ -361,8 +353,6 @@ class car extends CI_Controller {
         $correction_completion_date = $this->input->post('correction_completion_date');
 
 
-        $correction_acceptable_approval = $this->input->post('correction_acceptable_approval');
-        $correction_acceptable_remarks_approval = $this->input->post('correction_acceptable_remarks_approval');
     
         foreach($correction as $key => $value){
             if($correction[$key]){
@@ -370,8 +360,6 @@ class car extends CI_Controller {
                 $correction_entry[$key]['correction_person_responsible'] = isset($correction_person_responsible[$key]) ? $correction_person_responsible[$key] : "";
                 $correction_entry[$key]['correction_person_responsible_url'] = isset($correction_person_responsible_url[$key]) ? $correction_person_responsible_url[$key] : "";
                 $correction_entry[$key]['correction_completion_date'] = isset($correction_completion_date[$key]) ? $correction_completion_date[$key] : "";
-                $correction_entry[$key]['correction_acceptable_approval'] = isset($correction_acceptable_approval[$key]) ? $correction_acceptable_approval[$key] : "";
-                $correction_entry[$key]['correction_acceptable_remarks_approval'] = isset($correction_acceptable_remarks_approval[$key]) ? $correction_acceptable_remarks_approval[$key] : "";
 
             }
             
@@ -390,9 +378,6 @@ class car extends CI_Controller {
         $consequence_completion_date = $this->input->post('consequence_completion_date');
 
 
-        $consequence_acceptable_approval = $this->input->post('consequence_acceptable_approval');
-        $consequence_acceptable_remarks_approval = $this->input->post('consequence_acceptable_remarks_approval');
-
     
         foreach($consequence as $key => $value){
             if($consequence[$key]){
@@ -400,8 +385,6 @@ class car extends CI_Controller {
                 $consequence_entry[$key]['consequence_person_responsible'] = isset($consequence_person_responsible[$key]) ? $consequence_person_responsible[$key] : "";
                 $consequence_entry[$key]['consequence_person_responsible_url'] = isset($consequence_person_responsible_url[$key]) ? $consequence_person_responsible_url[$key] : "";
                 $consequence_entry[$key]['consequence_completion_date'] = isset($consequence_completion_date[$key]) ? $consequence_completion_date[$key] : "";
-                $consequence_entry[$key]['consequence_acceptable_approval'] = isset($consequence_acceptable_approval[$key]) ? $consequence_acceptable_approval[$key] : "";
-                $consequence_entry[$key]['consequence_acceptable_remarks_approval'] = isset($consequence_acceptable_remarks_approval[$key]) ? $consequence_acceptable_remarks_approval[$key] : "";
 
             }
            
@@ -465,8 +448,6 @@ class car extends CI_Controller {
         $correction_person_responsible_url = $this->input->post('correction_person_responsible_url');
         $correction_completion_date = $this->input->post('correction_completion_date');
 
-        $correction_acceptable_verification = $this->input->post('correction_acceptable_verification');
-        $correction_acceptable_remarks_verification = $this->input->post('correction_acceptable_remarks_verification');
     
         foreach($correction as $key => $value){
             if($correction[$key]){
@@ -474,8 +455,6 @@ class car extends CI_Controller {
                 $correction_entry[$key]['correction_person_responsible'] = isset($correction_person_responsible[$key]) ? $correction_person_responsible[$key] : "";
                 $correction_entry[$key]['correction_person_responsible_url'] = isset($correction_person_responsible_url[$key]) ? $correction_person_responsible_url[$key] : "";
                 $correction_entry[$key]['correction_completion_date'] = isset($correction_completion_date[$key]) ? $correction_completion_date[$key] : "";
-                $correction_entry[$key]['correction_acceptable_verification'] = isset($correction_acceptable_verification[$key]) ? $correction_acceptable_verification[$key] : "";
-                $correction_entry[$key]['correction_acceptable_remarks_verification'] = isset($correction_acceptable_remarks_verification[$key]) ? $correction_acceptable_remarks_verification[$key] : "";
 
             }
             
@@ -494,8 +473,6 @@ class car extends CI_Controller {
         $consequence_completion_date = $this->input->post('consequence_completion_date');
 
 
-        $consequence_acceptable_verification = $this->input->post('consequence_acceptable_verification');
-        $consequence_acceptable_remarks_verification = $this->input->post('consequence_acceptable_remarks_verification');
     
         foreach($consequence as $key => $value){
             if($consequence[$key]){
@@ -503,8 +480,6 @@ class car extends CI_Controller {
                 $consequence_entry[$key]['consequence_person_responsible'] = isset($consequence_person_responsible[$key]) ? $consequence_person_responsible[$key] : "";
                 $consequence_entry[$key]['consequence_person_responsible_url'] = isset($consequence_person_responsible_url[$key]) ? $consequence_person_responsible_url[$key] : "";
                 $consequence_entry[$key]['consequence_completion_date'] = isset($consequence_completion_date[$key]) ? $consequence_completion_date[$key] : "";
-                $consequence_entry[$key]['consequence_acceptable_verification'] = isset($consequence_acceptable_verification[$key]) ? $consequence_acceptable_verification[$key] : "";
-                $consequence_entry[$key]['consequence_acceptable_remarks_verification'] = isset($consequence_acceptable_remarks_verification[$key]) ? $consequence_acceptable_remarks_verification[$key] : "";
 
             }
            
@@ -893,24 +868,16 @@ class car extends CI_Controller {
         $existing_nonconformity = $this->input->post('existing_nonconformity');
         $existing_nonconformity_remarks = $this->input->post('existing_nonconformity_remarks');
         $update_doc_info = $this->input->post('update_doc_info');
-        $update_doc_info_remarks = $this->input->post('update_doc_info_remarks');
     
         $risk_number = $this->input->post('risk_number');
         $risk_number_details_update = $this->input->post('risk_number_details_update');
         $risk_attachments = $this->input->post('risk_attachments');
         $risk_number_attachment_url = $this->input->post('risk_number_attachment_url');
 
-        $risk_number_acceptable_review = $this->input->post('risk_number_acceptable_review');
-        $risk_number_acceptable_remarks_review = $this->input->post('risk_number_acceptable_remarks_review');
-
-        $risk_number_acceptable_approval = $this->input->post('risk_number_acceptable_approval');
-        $risk_number_acceptable_remarks_approval = $this->input->post('risk_number_acceptable_remarks_approval');
 
         $risk_number_acceptable_verification = $this->input->post('risk_number_acceptable_verification');
         $risk_number_acceptable_remarks_verification = $this->input->post('risk_number_acceptable_remarks_verification');
-
-        $risk_number_acceptable_validation = $this->input->post('risk_number_acceptable_validation');
-        $risk_number_acceptable_remarks_validation = $this->input->post('risk_number_acceptable_remarks_validation');
+    
 
         $risk_entry = json_decode($car[0]['risk_entry'], true);
 
@@ -924,15 +891,8 @@ class car extends CI_Controller {
                 $risk_entry[$key]['risk_number'] = $risk_number[$key];
                 $risk_entry[$key]['risk_number_details_update'] = $risk_number_details_update[$key];
                 $risk_entry[$key]['risk_number_attachment_url'] = $risk_number_attachment_url[$key];
-                $risk_entry[$key]['risk_number_acceptable_review'] = $risk_number_acceptable_review[$key];
-                $risk_entry[$key]['risk_number_acceptable_remarks_review'] = $risk_number_acceptable_remarks_review[$key];
-                $risk_entry[$key]['risk_number_acceptable_approval'] = $risk_number_acceptable_approval[$key];
-                $risk_entry[$key]['risk_number_acceptable_remarks_approval'] = $risk_number_acceptable_remarks_approval[$key];
                 $risk_entry[$key]['risk_number_acceptable_verification'] = $risk_number_acceptable_verification[$key];
                 $risk_entry[$key]['risk_number_acceptable_remarks_verification'] = $risk_number_acceptable_remarks_verification[$key];
-                $risk_entry[$key]['risk_number_acceptable_validation'] = $risk_number_acceptable_validation[$key];
-                $risk_entry[$key]['risk_number_acceptable_remarks_validation'] = $risk_number_acceptable_remarks_validation[$key];
-    
             }
         }
         
@@ -947,17 +907,10 @@ class car extends CI_Controller {
         $opportunity_attachments = $this->input->post('opportunity_attachments');
 
 
-        $opportunity_number_acceptable_review = $this->input->post('opportunity_number_acceptable_review');
-        $opportunity_number_acceptable_remarks_review = $this->input->post('opportunity_number_acceptable_remarks_review');
-
-        $opportunity_number_acceptable_approval = $this->input->post('opportunity_number_acceptable_approval');
-        $opportunity_number_acceptable_remarks_approval = $this->input->post('opportunity_number_acceptable_remarks_approval');
 
         $opportunity_number_acceptable_verification = $this->input->post('opportunity_number_acceptable_verification');
         $opportunity_number_acceptable_remarks_verification = $this->input->post('opportunity_number_acceptable_remarks_verification');
 
-        $opportunity_number_acceptable_validation = $this->input->post('opportunity_number_acceptable_validation');
-        $opportunity_number_acceptable_remarks_validation = $this->input->post('opportunity_number_acceptable_remarks_validation');
     
 
         $opportunity_entry = json_decode($car[0]['opportunity_entry'], true);
@@ -972,14 +925,8 @@ class car extends CI_Controller {
                 $opportunity_entry[$key]['opportunity_number'] = $opportunity_number[$key];
                 $opportunity_entry[$key]['opportunity_number_attachment_url'] = $opportunity_number_attachment_url[$key];
                 $opportunity_entry[$key]['opportunity_identified'] = $opportunity_identified[$key];
-                $opportunity_entry[$key]['opportunity_number_acceptable_review'] = $opportunity_number_acceptable_review[$key];
-                $opportunity_entry[$key]['opportunity_number_acceptable_remarks_review'] = $opportunity_number_acceptable_remarks_review[$key];
-                $opportunity_entry[$key]['opportunity_number_acceptable_approval'] = $opportunity_number_acceptable_approval[$key];
-                $opportunity_entry[$key]['opportunity_number_acceptable_remarks_approval'] = $opportunity_number_acceptable_remarks_approval[$key];
                 $opportunity_entry[$key]['opportunity_number_acceptable_verification'] = $opportunity_number_acceptable_verification[$key];
                 $opportunity_entry[$key]['opportunity_number_acceptable_remarks_verification'] = $opportunity_number_acceptable_remarks_verification[$key];
-                $opportunity_entry[$key]['opportunity_number_acceptable_validation'] = $opportunity_number_acceptable_validation[$key];
-                $opportunity_entry[$key]['opportunity_number_acceptable_remarks_validation'] =  $opportunity_number_acceptable_remarks_validation[$key];
             }
         }
         
@@ -989,18 +936,10 @@ class car extends CI_Controller {
         $rootcause_attachments =  $this->input->post('rootcause_attachments');
         $rootcause_file_url = $this->input->post('rootcause_file_url');
 
-        $rootcause_acceptable_review =  $this->input->post('rootcause_acceptable_review');
-        $rootcause_acceptable_remarks_review =  $this->input->post('rootcause_acceptable_remarks_review');
-
-        $rootcause_acceptable_approval =  $this->input->post('rootcause_acceptable_approval');
-        $rootcause_acceptable_remarks_approval =  $this->input->post('rootcause_acceptable_remarks_approval');
 
         $rootcause_acceptable_verification =  $this->input->post('rootcause_acceptable_verification');
         $rootcause_acceptable_remarks_verification =  $this->input->post('rootcause_acceptable_remarks_verification');
         
-        $rootcause_acceptable_validation =  $this->input->post('rootcause_acceptable_validation');
-        $rootcause_acceptable_remarks_validation =  $this->input->post('rootcause_acceptable_remarks_validation');
-
         $rootcause_entry = json_decode($car[0]['root_cause_entry'], true);
 
         if(empty($rootcause_entry)){
@@ -1013,19 +952,12 @@ class car extends CI_Controller {
 
                 $rootcause_entry[$key]['rootcause'] = $rootcause[$key];
                 $rootcause_entry[$key]['rootcause_file_url'] = $rootcause_file_url[$key];
-                $rootcause_entry[$key]['rootcause_acceptable_review'] = $rootcause_acceptable_review[$key];
-                $rootcause_entry[$key]['rootcause_acceptable_remarks_review'] = $rootcause_acceptable_remarks_review[$key];
-                $rootcause_entry[$key]['rootcause_acceptable_approval'] = $rootcause_acceptable_approval[$key];
-                $rootcause_entry[$key]['rootcause_acceptable_remarks_approval'] = $rootcause_acceptable_remarks_approval[$key];
                 $rootcause_entry[$key]['rootcause_acceptable_verification'] = $rootcause_acceptable_verification[$key];
                 $rootcause_entry[$key]['rootcause_acceptable_remarks_verification'] = $rootcause_acceptable_remarks_verification[$key];
-                $rootcause_entry[$key]['rootcause_acceptable_validation'] = $rootcause_acceptable_validation[$key];
-                $rootcause_entry[$key]['rootcause_acceptable_remarks_validation'] = $rootcause_acceptable_remarks_validation[$key];
     
             }
         }
         
-    
         //array
         $identified_root = $this->input->post('identified_root');
         $tpn_control = $this->input->post('tpn_control');
@@ -1033,18 +965,10 @@ class car extends CI_Controller {
         $identified_root_person_responsible = $this->input->post('identified_root_person_responsible');
         $identified_root_completion_date = $this->input->post('identified_root_completion_date');
         $identified_attachments = $this->input->post('identified_attachments');
-        $identified_root_acceptable_review = $this->input->post('identified_root_acceptable_review');
-        $identified_root_acceptable_remarks_review = $this->input->post('identified_root_acceptable_remarks_review');
         $identified_root_attachment_url = $this->input->post('identified_root_attachment_url');
-
-        $identified_root_acceptable_approval = $this->input->post('identified_root_acceptable_approval');
-        $identified_root_acceptable_remarks_approval = $this->input->post('identified_root_acceptable_remarks_approval');
 
         $identified_root_acceptable_verification = $this->input->post('identified_root_acceptable_verification');
         $identified_root_acceptable_remarks_verification = $this->input->post('identified_root_acceptable_remarks_verification');
-
-        $identified_root_acceptable_validation = $this->input->post('identified_root_acceptable_validation');
-        $identified_root_acceptable_remarks_validation = $this->input->post('identified_root_acceptable_remarks_validation');
 
         $tpn_issued_by = $this->input->post('tpn_issued_by');
         $tpn_issued_to = $this->input->post('tpn_issued_to');
@@ -1066,14 +990,8 @@ class car extends CI_Controller {
                 $identified_entry[$key]['identified_root_person_responsible'] = $identified_root_person_responsible[$key];
                 $identified_entry[$key]['identified_root_completion_date'] = $identified_root_completion_date[$key];
                 $identified_entry[$key]['identified_root_attachment_url'] = $identified_root_attachment_url[$key];
-                $identified_entry[$key]['identified_root_acceptable_review'] = $identified_root_acceptable_review[$key];
-                $identified_entry[$key]['identified_root_acceptable_remarks_review'] = $identified_root_acceptable_remarks_review[$key];
-                $identified_entry[$key]['identified_root_acceptable_approval'] = $identified_root_acceptable_approval[$key];
-                $identified_entry[$key]['identified_root_acceptable_remarks_approval'] = $identified_root_acceptable_remarks_approval[$key];
                 $identified_entry[$key]['identified_root_acceptable_verification'] = $identified_root_acceptable_verification[$key];
                 $identified_entry[$key]['identified_root_acceptable_remarks_verification'] = $identified_root_acceptable_remarks_verification[$key];
-                $identified_entry[$key]['identified_root_acceptable_validation'] = $identified_root_acceptable_validation[$key];
-                $identified_entry[$key]['identified_root_acceptable_remarks_validation'] = $identified_root_acceptable_remarks_validation[$key];
                 $identified_entry[$key]['tpn_issued_by'] = isset($tpn_issued_by[$key]) ? $tpn_issued_by[$key] : "";
                 $identified_entry[$key]['tpn_issued_to'] = isset($tpn_issued_to[$key]) ? $tpn_issued_to[$key] : "";
                 $identified_entry[$key]['tpn_section'] = isset($tpn_section[$key]) ? $tpn_section[$key] : "";
@@ -1150,17 +1068,9 @@ class car extends CI_Controller {
         $risk_attachments = $this->input->post('risk_attachments');
         $risk_number_attachment_url = $this->input->post('risk_number_attachment_url');
 
-        $risk_number_acceptable_review = $this->input->post('risk_number_acceptable_review');
-        $risk_number_acceptable_remarks_review = $this->input->post('risk_number_acceptable_remarks_review');
-
-        $risk_number_acceptable_approval = $this->input->post('risk_number_acceptable_approval');
-        $risk_number_acceptable_remarks_approval = $this->input->post('risk_number_acceptable_remarks_approval');
-
         $risk_number_acceptable_verification = $this->input->post('risk_number_acceptable_verification');
         $risk_number_acceptable_remarks_verification = $this->input->post('risk_number_acceptable_remarks_verification');
 
-        $risk_number_acceptable_validation = $this->input->post('risk_number_acceptable_validation');
-        $risk_number_acceptable_remarks_validation = $this->input->post('risk_number_acceptable_remarks_validation');
 
         $risk_entry = json_decode($car[0]['risk_entry'], true);
 
@@ -1174,14 +1084,8 @@ class car extends CI_Controller {
                 $risk_entry[$key]['risk_number'] = $risk_number[$key];
                 $risk_entry[$key]['risk_number_details_update'] = $risk_number_details_update[$key];
                 $risk_entry[$key]['risk_number_attachment_url'] = $risk_number_attachment_url[$key];
-                $risk_entry[$key]['risk_number_acceptable_review'] = $risk_number_acceptable_review[$key];
-                $risk_entry[$key]['risk_number_acceptable_remarks_review'] = $risk_number_acceptable_remarks_review[$key];
-                $risk_entry[$key]['risk_number_acceptable_approval'] = $risk_number_acceptable_approval[$key];
-                $risk_entry[$key]['risk_number_acceptable_remarks_approval'] = $risk_number_acceptable_remarks_approval[$key];
                 $risk_entry[$key]['risk_number_acceptable_verification'] = $risk_number_acceptable_verification[$key];
                 $risk_entry[$key]['risk_number_acceptable_remarks_verification'] = $risk_number_acceptable_remarks_verification[$key];
-                $risk_entry[$key]['risk_number_acceptable_validation'] = $risk_number_acceptable_validation[$key];
-                $risk_entry[$key]['risk_number_acceptable_remarks_validation'] = $risk_number_acceptable_remarks_validation[$key];
                 
             }
         }
@@ -1197,17 +1101,10 @@ class car extends CI_Controller {
         $opportunity_attachments = $this->input->post('opportunity_attachments');
 
 
-        $opportunity_number_acceptable_review = $this->input->post('opportunity_number_acceptable_review');
-        $opportunity_number_acceptable_remarks_review = $this->input->post('opportunity_number_acceptable_remarks_review');
-
-        $opportunity_number_acceptable_approval = $this->input->post('opportunity_number_acceptable_approval');
-        $opportunity_number_acceptable_remarks_approval = $this->input->post('opportunity_number_acceptable_remarks_approval');
 
         $opportunity_number_acceptable_verification = $this->input->post('opportunity_number_acceptable_verification');
         $opportunity_number_acceptable_remarks_verification = $this->input->post('opportunity_number_acceptable_remarks_verification');
 
-        $opportunity_number_acceptable_validation = $this->input->post('opportunity_number_acceptable_validation');
-        $opportunity_number_acceptable_remarks_validation = $this->input->post('opportunity_number_acceptable_remarks_validation');
     
         $opportunity_entry = json_decode($car[0]['opportunity_entry'], true);
 
@@ -1221,14 +1118,8 @@ class car extends CI_Controller {
                 $opportunity_entry[$key]['opportunity_number'] = $opportunity_number[$key];
                 $opportunity_entry[$key]['opportunity_number_attachment_url'] = $opportunity_number_attachment_url[$key];
                 $opportunity_entry[$key]['opportunity_identified'] = $opportunity_identified[$key];
-                $opportunity_entry[$key]['opportunity_number_acceptable_review'] = $opportunity_number_acceptable_review[$key];
-                $opportunity_entry[$key]['opportunity_number_acceptable_remarks_review'] = $opportunity_number_acceptable_remarks_review[$key];
-                $opportunity_entry[$key]['opportunity_number_acceptable_approval'] = $opportunity_number_acceptable_approval[$key];
-                $opportunity_entry[$key]['opportunity_number_acceptable_remarks_approval'] = $opportunity_number_acceptable_remarks_approval[$key];
                 $opportunity_entry[$key]['opportunity_number_acceptable_verification'] = $opportunity_number_acceptable_verification[$key];
                 $opportunity_entry[$key]['opportunity_number_acceptable_remarks_verification'] = $opportunity_number_acceptable_remarks_verification[$key];
-                $opportunity_entry[$key]['opportunity_number_acceptable_validation'] = $opportunity_number_acceptable_validation[$key];
-                $opportunity_entry[$key]['opportunity_number_acceptable_remarks_validation'] = $opportunity_number_acceptable_remarks_validation[$key];
     
             }
         }
@@ -1239,17 +1130,10 @@ class car extends CI_Controller {
         $rootcause_attachments =  $this->input->post('rootcause_attachments');
         $rootcause_file_url = $this->input->post('rootcause_file_url');
 
-        $rootcause_acceptable_review =  $this->input->post('rootcause_acceptable_review');
-        $rootcause_acceptable_remarks_review =  $this->input->post('rootcause_acceptable_remarks_review');
-
-        $rootcause_acceptable_approval =  $this->input->post('rootcause_acceptable_approval');
-        $rootcause_acceptable_remarks_approval =  $this->input->post('rootcause_acceptable_remarks_approval');
 
         $rootcause_acceptable_verification =  $this->input->post('rootcause_acceptable_verification');
         $rootcause_acceptable_remarks_verification =  $this->input->post('rootcause_acceptable_remarks_verification');
         
-        $rootcause_acceptable_validation =  $this->input->post('rootcause_acceptable_validation');
-        $rootcause_acceptable_remarks_validation =  $this->input->post('rootcause_acceptable_remarks_validation');
 
         $rootcause_entry = json_decode($car[0]['root_cause_entry'], true);
 
@@ -1262,14 +1146,8 @@ class car extends CI_Controller {
 
                 $rootcause_entry[$key]['rootcause'] = $rootcause[$key];
                 $rootcause_entry[$key]['rootcause_file_url'] = $rootcause_file_url[$key];
-                $rootcause_entry[$key]['rootcause_acceptable_review'] = $rootcause_acceptable_review[$key];
-                $rootcause_entry[$key]['rootcause_acceptable_remarks_review'] = $rootcause_acceptable_remarks_review[$key];
-                $rootcause_entry[$key]['rootcause_acceptable_approval'] = $rootcause_acceptable_approval[$key];
-                $rootcause_entry[$key]['rootcause_acceptable_remarks_approval'] = $rootcause_acceptable_remarks_approval[$key];
                 $rootcause_entry[$key]['rootcause_acceptable_verification'] = $rootcause_acceptable_verification[$key];
                 $rootcause_entry[$key]['rootcause_acceptable_remarks_verification'] = $rootcause_acceptable_remarks_verification[$key];
-                $rootcause_entry[$key]['rootcause_acceptable_validation'] = $rootcause_acceptable_validation[$key];
-                $rootcause_entry[$key]['rootcause_acceptable_remarks_validation'] = $rootcause_acceptable_remarks_validation[$key];
     
             }
         }
@@ -1282,18 +1160,10 @@ class car extends CI_Controller {
         $identified_root_person_responsible = $this->input->post('identified_root_person_responsible');
         $identified_root_completion_date = $this->input->post('identified_root_completion_date');
         $identified_attachments = $this->input->post('identified_attachments');
-        $identified_root_acceptable_review = $this->input->post('identified_root_acceptable_review');
-        $identified_root_acceptable_remarks_review = $this->input->post('identified_root_acceptable_remarks_review');
         $identified_root_attachment_url = $this->input->post('identified_root_attachment_url');
-
-        $identified_root_acceptable_approval = $this->input->post('identified_root_acceptable_approval');
-        $identified_root_acceptable_remarks_approval = $this->input->post('identified_root_acceptable_remarks_approval');
-
         $identified_root_acceptable_verification = $this->input->post('identified_root_acceptable_verification');
         $identified_root_acceptable_remarks_verification = $this->input->post('identified_root_acceptable_remarks_verification');
 
-        $identified_root_acceptable_validation = $this->input->post('identified_root_acceptable_validation');
-        $identified_root_acceptable_remarks_validation = $this->input->post('identified_root_acceptable_remarks_validation');
 
         $tpn_issued_by = $this->input->post('tpn_issued_by');
         $tpn_issued_to = $this->input->post('tpn_issued_to');
@@ -1315,14 +1185,8 @@ class car extends CI_Controller {
                 $identified_entry[$key]['identified_root_person_responsible'] = $identified_root_person_responsible[$key];
                 $identified_entry[$key]['identified_root_completion_date'] = $identified_root_completion_date[$key];
                 $identified_entry[$key]['identified_root_attachment_url'] = $identified_root_attachment_url[$key];
-                $identified_entry[$key]['identified_root_acceptable_review'] = $identified_root_acceptable_review[$key];
-                $identified_entry[$key]['identified_root_acceptable_remarks_review'] = $identified_root_acceptable_remarks_review[$key];
-                $identified_entry[$key]['identified_root_acceptable_approval'] = $identified_root_acceptable_approval[$key];
-                $identified_entry[$key]['identified_root_acceptable_remarks_approval'] = $identified_root_acceptable_remarks_approval[$key];
                 $identified_entry[$key]['identified_root_acceptable_verification'] = $identified_root_acceptable_verification[$key];
                 $identified_entry[$key]['identified_root_acceptable_remarks_verification'] = $identified_root_acceptable_remarks_verification[$key];
-                $identified_entry[$key]['identified_root_acceptable_validation'] = $identified_root_acceptable_validation[$key];
-                $identified_entry[$key]['identified_root_acceptable_remarks_validation'] = $identified_root_acceptable_remarks_validation[$key];
                 $identified_entry[$key]['tpn_issued_by'] = isset($tpn_issued_by[$key]) ? $tpn_issued_by[$key] : "";
                 $identified_entry[$key]['tpn_issued_to'] = isset($tpn_issued_to[$key]) ? $tpn_issued_to[$key] : "";
                 $identified_entry[$key]['tpn_section'] = isset($tpn_section[$key]) ? $tpn_section[$key] : "";
