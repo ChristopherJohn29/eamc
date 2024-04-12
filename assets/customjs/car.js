@@ -1617,7 +1617,7 @@ var car = {
                                                             <label class="form-check-label" for="correction_acceptable_approval">NO</label>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group col-lg-12">
+                                                    <div class="form-group col-lg-12 hidden">
                                                         <label for="correction_acceptable_remarks_approval" class="form-label">Remarks</label>
                                                         <textarea class="form-control" name="correction_acceptable_remarks_approval[${count}]" rows="4">${remarksReview}</textarea>
                                                     </div>
@@ -1686,7 +1686,7 @@ var car = {
                                                                 <label class="form-check-label" for="consequence_acceptable_approval">NO</label>
                                                             </div>
                                                         </div>
-                                                        <div class="form-group col-lg-12">
+                                                        <div class="form-group col-lg-12 hidden">
                                                             <label for="consequence_acceptable_remarks_approval" class="form-label">Remarks</label>
                                                             <textarea class="form-control" name="consequence_acceptable_remarks_approval[${count}]" rows="4">${remarksReview}</textarea>
                                                         </div>
@@ -3367,7 +3367,7 @@ var car = {
                                                                   <label class="form-check-label" for="risk_number_acceptable_review">NO</label>
                                                                </div>
                                                          </div>
-                                                         <div class="form-group col-lg-12">
+                                                         <div class="form-group col-lg-12 hidden">
                                                                <label for="risk_number_acceptable_remarks_review" class="form-label">Remarks</label>
                                                                <textarea class="form-control" name="risk_number_acceptable_remarks_review[${count}]" rows="4">${remarksReview}</textarea>
                                                          </div>
@@ -3446,7 +3446,7 @@ var car = {
                                                                <label class="form-check-label" for="opportunity_number_acceptable_review">NO</label>
                                                          </div>
                                                       </div>
-                                                      <div class="form-group col-lg-12">
+                                                      <div class="form-group col-lg-12 hidden">
                                                          <label for="opportunity_number_acceptable_remarks_review" class="form-label">Remarks</label>
                                                          <textarea class="form-control" name="opportunity_number_acceptable_remarks_review[${count}]" rows="4">${remarksReview}</textarea>
                                                       </div>
@@ -3520,7 +3520,7 @@ var car = {
                                                                   <label class="form-check-label" for="rootcause_acceptable_review">NO</label>
                                                             </div>
                                                          </div>
-                                                         <div class="form-group col-lg-12">
+                                                         <div class="form-group col-lg-12 hidden">
                                                             <label for="rootcause_acceptable_remarks_review" class="form-label">Remarks</label>
                                                             <textarea class="form-control" name="rootcause_acceptable_remarks_review[${count}]" rows="4">${remarksReview}</textarea>
                                                          </div>
@@ -3690,7 +3690,7 @@ var car = {
                                                                <label class="form-check-label" for="identified_root_acceptable_review">NO</label>
                                                          </div>
                                                       </div>
-                                                      <div class="form-group col-lg-12">
+                                                      <div class="form-group col-lg-12 hidden">
                                                          <label for="identified_root_acceptable_remarks_review" class="form-label">Remarks</label>
                                                          <textarea class="form-control" name="identified_root_acceptable_remarks_review[${count}]" rows="4">${remarksReview}</textarea>
                                                       </div>
@@ -3959,7 +3959,7 @@ var car = {
                                                                 <label class="form-check-label" for="risk_number_acceptable_approval">NO</label>
                                                             </div>
                                                         </div>
-                                                        <div class="form-group col-lg-12">
+                                                        <div class="form-group col-lg-12 hidden">
                                                             <label for="risk_number_acceptable_remarks_approval" class="form-label">Remarks</label>
                                                             <textarea class="form-control" name="risk_number_acceptable_remarks_approval[${count}]" rows="4">${remarksReview}</textarea>
                                                         </div>
@@ -4039,7 +4039,7 @@ var car = {
                                                             <label class="form-check-label" for="opportunity_number_acceptable_approval">NO</label>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group col-lg-12">
+                                                    <div class="form-group col-lg-12 hidden">
                                                         <label for="opportunity_number_acceptable_remarks_approval" class="form-label">Remarks</label>
                                                         <textarea class="form-control" name="opportunity_number_acceptable_remarks_approval[${count}]" rows="4">${remarksReview}</textarea>
                                                     </div>
@@ -4113,7 +4113,7 @@ var car = {
                                                         <label class="form-check-label" for="rootcause_acceptable_approval">NO</label>
                                                     </div>
                                                 </div>
-                                                <div class="form-group col-lg-12">
+                                                <div class="form-group col-lg-12 hidden">
                                                     <label for="rootcause_acceptable_remarks_approval" class="form-label">Remarks</label>
                                                     <textarea class="form-control" name="rootcause_acceptable_remarks_approval[${count}]" rows="4">${remarksReview}</textarea>
                                                 </div>
@@ -4282,7 +4282,7 @@ var car = {
                                                             <label class="form-check-label" for="identified_root_acceptable_approval">NO</label>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group col-lg-12">
+                                                    <div class="form-group col-lg-12 hidden">
                                                         <label for="identified_root_acceptable_remarks_approval" class="form-label">Remarks</label>
                                                         <textarea class="form-control" name="identified_root_acceptable_remarks_approval[${count}]" rows="4">${remarksReview}</textarea>
                                                     </div>
