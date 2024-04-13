@@ -1153,6 +1153,8 @@ class car extends CI_Controller {
         }
         
         if(isset($identified_root) && is_array($identified_root)){
+
+
             foreach($identified_root as $key => $value){
 
                 $identified_entry[$key]['identified_root'] = $identified_root[$key];
@@ -1166,9 +1168,46 @@ class car extends CI_Controller {
                 $identified_entry[$key]['tpn_section'] = isset($tpn_section[$key]) ? $tpn_section[$key] : "";
     
             }
-        }
+
+            $latest_completion_date = null;
+
+            foreach($identified_root_completion_date as $completion_date){
+                // Convert completion date to timestamp
+                $timestamp = strtotime($completion_date);
         
-    
+                // Compare with the latest completion date found so far
+                if($timestamp && ($latest_completion_date === null || $timestamp > $latest_completion_date)){
+                    $latest_completion_date = $timestamp;
+                }
+            }
+        
+            // Convert the latest completion date back to a readable format
+            $latest_completion_date = date('Y-m-d', $latest_completion_date);
+        
+        }
+
+
+        $currentDate = $latest_completion_date;
+
+        // Define a variable to count working days for 30-day expiry
+        $expiryDate_30 = clone $currentDate;
+        $expiryDate_30->modify('+1 day'); // Move to next day for 30-day expiry
+        $workingDays_30 = 0;
+
+        // Calculate 30 working days from now
+        while ($workingDays_30 < 90) {
+            // Add one day to the current date
+            $expiryDate_30->modify('+1 day');
+
+            // Skip weekends (Saturday and Sunday)
+            if ($expiryDate_30->format('N') < 6) {
+                $workingDays_30++;
+            }
+        }
+
+        // Output the results
+        $expiry_90_days = $expiryDate_30->format('Y-m-d');
+
         // Use $data for any further processing or database insertion
         $existing_record = $this->db->get_where('corrective_action', array('car_id' => $car_id))->row();
 
@@ -1197,7 +1236,8 @@ class car extends CI_Controller {
         }
 
         $cardata = array(
-            'corrective_action_status' => $approval_action_root_cause_analysis
+            'corrective_action_status' => $approval_action_root_cause_analysis,
+            'fc_second_completion_date' => $expiry_90_days,
         );
 
         $this->db->where('id', $car_id);
