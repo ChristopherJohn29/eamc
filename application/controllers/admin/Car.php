@@ -1647,6 +1647,7 @@ class car extends CI_Controller {
         $findings = $this->input->post('findings');
         $consequences = $this->input->post('consequences');
         $requirements_not_fulfilled = $this->input->post('requirements_not_fulfilled');
+        $car_attachment = $this->input->post('car_attachment');
 
         // Prepare data for insertion into the 'car' table
         $currentDate = new DateTime();
@@ -1697,6 +1698,7 @@ class car extends CI_Controller {
             'findings' => $findings,
             'consequences' => $consequences,
             'requirements_not_fulfilled' => $requirements_not_fulfilled,
+            'car_attachment' => $car_attachment,
             'corrective_action_status' => '',
             'for_correction_status' => '',
             'ca_completion_date' => $expiry_40_days,

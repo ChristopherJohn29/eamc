@@ -212,6 +212,12 @@
                            <textarea class="form-control" id="requirements_not_fulfilled" rows="4"></textarea>
                         </div>
                      </div>
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="consequences" class="form-label">Attachment (Please attach File URL)</label>
+                           <input type="file" class="form-control" id="car_attachment" required>
+                        </div>
+                     </div>
                   </form>
                </div>
                <div class="modal-footer">
@@ -320,6 +326,12 @@
                         <div class="form-group col-md-12">
                            <label for="requirements_not_fulfilled" class="form-label">Requirements Not Fulfilled: </label><i>(e.g., ISO 9001 Requirements, Statutory & Regulatory Requirements, Policies, Procedures, Guidelines, Work Instructions, or other forms of Documented Information.)</i>
                            <textarea class="form-control requirements_not_fulfilled" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="consequences" class="form-label">Attachment (Please attach File URL)</label>
+                           <input type="file" class="form-control" id="car_attachment" disabled>
                         </div>
                      </div>
                      <div class="row mb-2">
@@ -462,6 +474,12 @@
                         <div class="form-group col-md-12">
                            <label for="requirements_not_fulfilled" class="form-label">Requirements Not Fulfilled: </label><i>(e.g., ISO 9001 Requirements, Statutory & Regulatory Requirements, Policies, Procedures, Guidelines, Work Instructions, or other forms of Documented Information.)</i>
                            <textarea class="form-control requirements_not_fulfilled" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="consequences" class="form-label">Attachment (Please attach File URL)</label>
+                           <input type="file" class="form-control" id="car_attachment" disabled>
                         </div>
                      </div>
                   </form>
@@ -666,6 +684,12 @@
                         <div class="form-group col-md-12">
                            <label for="requirements_not_fulfilled" class="form-label">Requirements Not Fulfilled: </label><i>(e.g., ISO 9001 Requirements, Statutory & Regulatory Requirements, Policies, Procedures, Guidelines, Work Instructions, or other forms of Documented Information.)</i>
                            <textarea class="form-control requirements_not_fulfilled" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="consequences" class="form-label">Attachment (Please attach File URL)</label>
+                           <input type="file" class="form-control" id="car_attachment" disabled>
                         </div>
                      </div>
                   </form>
@@ -1090,6 +1114,12 @@
                         <div class="form-group col-md-12">
                            <label for="requirements_not_fulfilled" class="form-label">Requirements Not Fulfilled: </label><i>(e.g., ISO 9001 Requirements, Statutory & Regulatory Requirements, Policies, Procedures, Guidelines, Work Instructions, or other forms of Documented Information.)</i>
                            <textarea class="form-control requirements_not_fulfilled" rows="4" disabled></textarea>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="form-group col-md-12">
+                           <label for="consequences" class="form-label">Attachment (Please attach File URL)</label>
+                           <input type="file" class="form-control" id="car_attachment" disabled>
                         </div>
                      </div>
                   </form>
