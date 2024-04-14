@@ -998,19 +998,22 @@ var car = {
                                                 <div class="col-xl-12">
                                                     <div class="mb-3 mb-xl-0">
                                                         <label for="exampleInputEmail1" class="form-label">Correction</label>
-                                                        <textarea class="form-control" name="correction[]" rows="4"></textarea>
+                                                        <textarea class="form-control" name="correction[]" rows="4" required></textarea>
+                                                        <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4">
                                                     <div class="mb-3 mb-xl-0">
                                                         <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
-                                                        <input type="text" class="form-control" name="correction_person_responsible[]" placeholder="Enter Name of personnel" value="">
+                                                        <input type="text" class="form-control" name="correction_person_responsible[]" placeholder="Enter Name of personnel" value="" required>
+                                                        <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4">
                                                     <div class="mb-3 mb-xl-0">
                                                         <label for="exampleInputEmail1" class="form-label">Completion Date</label>
-                                                        <input type="date" class="form-control" name="correction_completion_date[]" value="">
+                                                        <input type="date" class="form-control" name="correction_completion_date[]" value="" required>
+                                                        <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 mt-2">
@@ -1043,19 +1046,22 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                                            <textarea class="form-control" name="consequence[]" rows="4"></textarea>
+                                                            <textarea class="form-control" name="consequence[]" rows="4" required></textarea>
+                                                            <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Person Responsible</label>
-                                                            <input type="text" class="form-control" name="consequence_person_responsible[]" placeholder="Enter Name of personnel" value="">
+                                                            <input type="text" class="form-control" name="consequence_person_responsible[]" placeholder="Enter Name of personnel" value="" required>
+                                                            <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Completion Date</label>
-                                                            <input type="date" class="form-control" name="consequence_completion_date[]" value="">
+                                                            <input type="date" class="form-control" name="consequence_completion_date[]" value="" required>
+                                                            <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-6 mt-2">
@@ -6900,48 +6906,55 @@ var car = {
             });
         });
 
-        jQuery('#saveCorrection').click(function(e){
+        jQuery('#saveCorrection').click(function(e) {
             e.preventDefault();
-
-            var formData = new FormData($("#correction_form")[0]);
-
-            if(jQuery('#car-correction-action.correction-action').length){
-                var action = "../car/saveCorrection";
-            } else if(jQuery('#car-correction-action.correction-action-review').length){
-                var action = "../car/saveCorrectionFR";
-            } else if(jQuery('#car-correction-action.correction-action-approval').length){
-                var action = "../car/saveCorrectionFA";
-            } else if(jQuery('#car-correction-action.correction-action-verification').length){
-                var action = "../car/saveCorrectionFV";
-            } else if(jQuery('#car-correction-action.correction-action-validation').length){
-                var action = "../car/saveCorrectionFVA";
-            }
-
-            // Make an AJAX request to submit the form data
-            $.ajax({
-                type: "POST", // or "GET" depending on your server-side handling
-                url: action, // Replace with your server-side endpoint
-                data: formData,
-                processData: false,  // Prevent jQuery from processing the data
-                contentType: false,
-                success: function (response) {
-                    // Handle the response from the server
-                    if(response == 'saved'){
-                        car.notifySuccess();
-                        car.load();
-                        $('#correction_form')[0].reset();
-                        $('#corrective-action').modal('hide');
-
-                    } else {
+        
+            // Validate the form
+            if (car.validateForm()) {
+                var formData = new FormData($("#correction_form")[0]);
+        
+                // Determine the action URL based on certain conditions
+                var action;
+                if (jQuery('#car-correction-action.correction-action').length) {
+                    action = "../car/saveCorrection";
+                } else if (jQuery('#car-correction-action.correction-action-review').length) {
+                    action = "../car/saveCorrectionFR";
+                } else if (jQuery('#car-correction-action.correction-action-approval').length) {
+                    action = "../car/saveCorrectionFA";
+                } else if (jQuery('#car-correction-action.correction-action-verification').length) {
+                    action = "../car/saveCorrectionFV";
+                } else if (jQuery('#car-correction-action.correction-action-validation').length) {
+                    action = "../car/saveCorrectionFVA";
+                }
+        
+                // Make an AJAX request to submit the form data
+                $.ajax({
+                    type: "POST",
+                    url: action,
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        if (response == 'saved') {
+                            car.notifySuccess();
+                            car.load();
+                            $('#correction_form')[0].reset();
+                            $('#corrective-action').modal('hide');
+                        } else {
+                            car.notifyError();
+                        }
+                    },
+                    error: function() {
                         car.notifyError();
                     }
-                },
-                error: function () {
-                    // Handle errors
-                    car.notifyError();
-                }
-            });
+                });
+            } else {
+                // Form validation failed, show error message or take appropriate action
+                alert('Please fill in all required fields.');
+            }
         });
+        
+        
 
         jQuery('#saveCorrectionFR').click(function(e){
             e.preventDefault();
