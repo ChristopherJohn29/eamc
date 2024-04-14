@@ -904,7 +904,7 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Correction</label>
-                                                            <textarea class="form-control" name="correction[${count}]" rows="4">${correction.correction}</textarea>
+                                                            <textarea class="form-control" readonly name="correction[${count}]" rows="4">${correction.correction}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -951,7 +951,7 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                                            <textarea class="form-control" name="consequence[${count}]" rows="4">${consequence.consequence}</textarea>
+                                                            <textarea class="form-control" readonly name="consequence[${count}]" rows="4">${consequence.consequence}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -1279,7 +1279,7 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Correction</label>
-                                                            <textarea class="form-control" name="correction[${count}]" rows="4">${correction.correction}</textarea>
+                                                            <textarea class="form-control" readonly name="correction[${count}]" rows="4">${correction.correction}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -1331,7 +1331,7 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                                            <textarea class="form-control" name="consequence[${count}]" rows="4">${consequence.consequence}</textarea>
+                                                            <textarea class="form-control" readonly name="consequence[${count}]" rows="4">${consequence.consequence}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -1566,7 +1566,7 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Correction</label>
-                                                            <textarea class="form-control" name="correction[${count}]" rows="4">${correction.correction}</textarea>
+                                                            <textarea class="form-control" readonly name="correction[${count}]" rows="4">${correction.correction}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -1618,7 +1618,7 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                                            <textarea class="form-control" name="consequence[${count}]" rows="4">${consequence.consequence}</textarea>
+                                                            <textarea class="form-control" readonly name="consequence[${count}]" rows="4">${consequence.consequence}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -1874,7 +1874,7 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Correction</label>
-                                                            <textarea class="form-control" name="correction[${count}]" rows="4">${correction.correction}</textarea>
+                                                            <textarea class="form-control" readonly name="correction[${count}]" rows="4">${correction.correction}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -1943,7 +1943,7 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                                            <textarea class="form-control" name="consequence[${count}]" rows="4">${consequence.consequence}</textarea>
+                                                            <textarea class="form-control" readonly name="consequence[${count}]" rows="4">${consequence.consequence}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -2196,7 +2196,7 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Correction</label>
-                                                            <textarea class="form-control" name="correction[${count}]" rows="4">${correction.correction}</textarea>
+                                                            <textarea class="form-control" readonly name="correction[${count}]" rows="4">${correction.correction}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -2265,7 +2265,7 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                                            <textarea class="form-control" name="consequence[${count}]" rows="4">${consequence.consequence}</textarea>
+                                                            <textarea class="form-control" readonly name="consequence[${count}]" rows="4">${consequence.consequence}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -2557,13 +2557,13 @@ var car = {
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Risk Number</label>
-                                                                <textarea rows="4" class="form-control" name="risk_number[${count}]">${risk.risk_number}</textarea>
+                                                                <textarea rows="4" class="form-control" readonly name="risk_number[${count}]">${risk.risk_number}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Details / Updates</label>
-                                                                <textarea rows="4" class="form-control" name="risk_number_details_update[${count}]">${risk.risk_number_details_update}</textarea>
+                                                                <textarea rows="4" class="form-control" readonly name="risk_number_details_update[${count}]">${risk.risk_number_details_update}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-6">
@@ -2598,13 +2598,13 @@ var car = {
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Opportunity Number</label>
-                                                                <textarea rows="4" class="form-control" name="opportunity_number[${count}]">${opportunity.opportunity_number}</textarea>
+                                                                <textarea rows="4" class="form-control" readonly name="opportunity_number[${count}]">${opportunity.opportunity_number}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Opportunities Identified (if applicable)</label>
-                                                                <textarea rows="4" class="form-control" name="opportunity_identified[${count}]">${opportunity.opportunity_identified}</textarea>
+                                                                <textarea rows="4" class="form-control" readonly name="opportunity_identified[${count}]">${opportunity.opportunity_identified}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-6">
@@ -2722,13 +2722,13 @@ var car = {
                                                         <div class="col-xl-6 mb-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Identified Root Cause</label>
-                                                                <textarea rows="4" class="form-control" name="identified_root[${count}]">${identifiedRoot.identified_root}</textarea>
+                                                                <textarea rows="4" readonly class="form-control" name="identified_root[${count}]">${identifiedRoot.identified_root}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-6 mb-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Corrective Action</label>
-                                                                <textarea rows="4" class="form-control" name="identified_root_corrective_action[${count}]">${identifiedRoot.identified_root_corrective_action}</textarea>
+                                                                <textarea rows="4" readonly class="form-control" name="identified_root_corrective_action[${count}]">${identifiedRoot.identified_root_corrective_action}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-4 mb-1">
@@ -3289,13 +3289,13 @@ var car = {
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Risk Number</label>
-                                                                <textarea rows="4" class="form-control" name="risk_number[${count}]">${risk.risk_number}</textarea>
+                                                                <textarea rows="4" readonly class="form-control" name="risk_number[${count}]">${risk.risk_number}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Details / Updates</label>
-                                                                <textarea rows="4" class="form-control" name="risk_number_details_update[${count}]">${risk.risk_number_details_update}</textarea>
+                                                                <textarea rows="4" readonly class="form-control" name="risk_number_details_update[${count}]">${risk.risk_number_details_update}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-6">
@@ -3344,13 +3344,13 @@ var car = {
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Opportunity Number</label>
-                                                                <textarea rows="4" class="form-control" name="opportunity_number[${count}]">${opportunity.opportunity_number}</textarea>
+                                                                <textarea rows="4" readonly class="form-control" name="opportunity_number[${count}]">${opportunity.opportunity_number}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Opportunities Identified (if applicable)</label>
-                                                                <textarea rows="4" class="form-control" name="opportunity_identified[${count}]">${opportunity.opportunity_identified}</textarea>
+                                                                <textarea rows="4" readonly class="form-control" name="opportunity_identified[${count}]">${opportunity.opportunity_identified}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-6">
@@ -3496,13 +3496,13 @@ var car = {
                                                         <div class="col-xl-6 mb-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Identified Root Cause</label>
-                                                                <textarea rows="4" class="form-control" name="identified_root[${count}]">${identifiedRoot.identified_root}</textarea>
+                                                                <textarea rows="4" readonly class="form-control" name="identified_root[${count}]">${identifiedRoot.identified_root}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-6 mb-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Corrective Action</label>
-                                                                <textarea rows="4" class="form-control" name="identified_root_corrective_action[${count}]">${identifiedRoot.identified_root_corrective_action}</textarea>
+                                                                <textarea rows="4" readonly class="form-control" name="identified_root_corrective_action[${count}]">${identifiedRoot.identified_root_corrective_action}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-4 mb-1">
@@ -3783,13 +3783,13 @@ var car = {
                                                     <div class="col-xl-6">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">Risk Number</label>
-                                                            <textarea rows="4" class="form-control" name="risk_number[${count}]">${risk.risk_number}</textarea>
+                                                            <textarea rows="4" readonly class="form-control" name="risk_number[${count}]">${risk.risk_number}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-6">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">Details / Updates</label>
-                                                            <textarea rows="4" class="form-control" name="risk_number_details_update[${count}]">${risk.risk_number_details_update}</textarea>
+                                                            <textarea rows="4" readonly class="form-control" name="risk_number_details_update[${count}]">${risk.risk_number_details_update}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-6">
@@ -3837,13 +3837,13 @@ var car = {
                                                     <div class="col-xl-6">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">Opportunity Number</label>
-                                                            <textarea rows="4" class="form-control" name="opportunity_number[${count}]">${opportunity.opportunity_number}</textarea>
+                                                            <textarea rows="4" readonly class="form-control" name="opportunity_number[${count}]">${opportunity.opportunity_number}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-6">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">Opportunities Identified (if applicable)</label>
-                                                            <textarea rows="4" class="form-control" name="opportunity_identified[${count}]">${opportunity.opportunity_identified}</textarea>
+                                                            <textarea rows="4" readonly class="form-control" name="opportunity_identified[${count}]">${opportunity.opportunity_identified}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-6">
@@ -3989,13 +3989,13 @@ var car = {
                                                     <div class="col-xl-6 mb-1">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">Identified Root Cause</label>
-                                                            <textarea rows="4" class="form-control" name="identified_root[${count}]">${identifiedRoot.identified_root}</textarea>
+                                                            <textarea rows="4" readonly class="form-control" name="identified_root[${count}]">${identifiedRoot.identified_root}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-6 mb-1">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">Corrective Action</label>
-                                                            <textarea rows="4" class="form-control" name="identified_root_corrective_action[${count}]">${identifiedRoot.identified_root_corrective_action}</textarea>
+                                                            <textarea rows="4" readonly class="form-control" name="identified_root_corrective_action[${count}]">${identifiedRoot.identified_root_corrective_action}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4 mb-1">
@@ -4278,13 +4278,13 @@ var car = {
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Risk Number</label>
-                                                                <textarea rows="4" class="form-control" name="risk_number[${count}]">${risk.risk_number}</textarea>
+                                                                <textarea rows="4" readonly class="form-control" name="risk_number[${count}]">${risk.risk_number}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Details / Updates</label>
-                                                                <textarea rows="4" class="form-control" name="risk_number_details_update[${count}]">${risk.risk_number_details_update}</textarea>
+                                                                <textarea rows="4" readonly class="form-control" name="risk_number_details_update[${count}]">${risk.risk_number_details_update}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-6">
@@ -4319,13 +4319,13 @@ var car = {
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Opportunity Number</label>
-                                                                <textarea rows="4" class="form-control" name="opportunity_number[${count}]">${opportunity.opportunity_number}</textarea>
+                                                                <textarea rows="4" readonly class="form-control" name="opportunity_number[${count}]">${opportunity.opportunity_number}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Opportunities Identified (if applicable)</label>
-                                                                <textarea rows="4" class="form-control" name="opportunity_identified[${count}]">${opportunity.opportunity_identified}</textarea>
+                                                                <textarea rows="4" readonly class="form-control" name="opportunity_identified[${count}]">${opportunity.opportunity_identified}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-6">
@@ -4451,13 +4451,13 @@ var car = {
                                                         <div class="col-xl-6 mb-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Identified Root Cause</label>
-                                                                <textarea rows="4" class="form-control" name="identified_root[${count}]">${identifiedRoot.identified_root}</textarea>
+                                                                <textarea rows="4" readonly class="form-control" name="identified_root[${count}]">${identifiedRoot.identified_root}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-6 mb-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Corrective Action</label>
-                                                                <textarea rows="4" class="form-control" name="identified_root_corrective_action[${count}]">${identifiedRoot.identified_root_corrective_action}</textarea>
+                                                                <textarea rows="4" readonly class="form-control" name="identified_root_corrective_action[${count}]">${identifiedRoot.identified_root_corrective_action}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-4 mb-1">
@@ -4793,13 +4793,13 @@ var car = {
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Risk Number</label>
-                                                                <textarea rows="4" class="form-control" name="risk_number[${count}]">${risk.risk_number}</textarea>
+                                                                <textarea rows="4" readonly class="form-control" name="risk_number[${count}]">${risk.risk_number}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Details / Updates</label>
-                                                                <textarea rows="4" class="form-control" name="risk_number_details_update[${count}]">${risk.risk_number_details_update}</textarea>
+                                                                <textarea rows="4" readonly class="form-control" name="risk_number_details_update[${count}]">${risk.risk_number_details_update}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-6">
@@ -4834,13 +4834,13 @@ var car = {
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Opportunity Number</label>
-                                                                <textarea rows="4" class="form-control" name="opportunity_number[${count}]">${opportunity.opportunity_number}</textarea>
+                                                                <textarea rows="4" readonly class="form-control" name="opportunity_number[${count}]">${opportunity.opportunity_number}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Opportunities Identified (if applicable)</label>
-                                                                <textarea rows="4" class="form-control" name="opportunity_identified[${count}]">${opportunity.opportunity_identified}</textarea>
+                                                                <textarea rows="4" readonly class="form-control" name="opportunity_identified[${count}]">${opportunity.opportunity_identified}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-6">
@@ -4965,13 +4965,13 @@ var car = {
                                                         <div class="col-xl-6 mb-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Identified Root Cause</label>
-                                                                <textarea rows="4" class="form-control" name="identified_root[${count}]">${identifiedRoot.identified_root}</textarea>
+                                                                <textarea rows="4" readonly class="form-control" name="identified_root[${count}]">${identifiedRoot.identified_root}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-6 mb-1">
                                                             <div class="mb-3 mb-xl-0">
                                                                 <label class="form-label">Corrective Action</label>
-                                                                <textarea rows="4" class="form-control" name="identified_root_corrective_action[${count}]">${identifiedRoot.identified_root_corrective_action}</textarea>
+                                                                <textarea rows="4" readonly class="form-control" name="identified_root_corrective_action[${count}]">${identifiedRoot.identified_root_corrective_action}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-4 mb-1">
@@ -5258,7 +5258,7 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Correction</label>
-                                                            <textarea class="form-control" name="correction[${count}]" rows="4">${correction.correction}</textarea>
+                                                            <textarea class="form-control" readonly name="correction[${count}]" rows="4">${correction.correction}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -5326,7 +5326,7 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                                            <textarea class="form-control" name="consequence[${count}]" rows="4">${consequence.consequence}</textarea>
+                                                            <textarea class="form-control" readonly name="consequence[${count}]" rows="4">${consequence.consequence}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -5432,13 +5432,13 @@ var car = {
                                                                 <div class="col-xl-6">
                                                                     <div class="mb-3 mb-xl-0">
                                                                         <label class="form-label">Risk Number</label>
-                                                                        <textarea rows="4" class="form-control" name="risk_number[${count}]">${risk.risk_number}</textarea>
+                                                                        <textarea rows="4" readonly class="form-control" name="risk_number[${count}]">${risk.risk_number}</textarea>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-6">
                                                                     <div class="mb-3 mb-xl-0">
                                                                         <label class="form-label">Details / Updates</label>
-                                                                        <textarea rows="4" class="form-control" name="risk_number_details_update[${count}]">${risk.risk_number_details_update}</textarea>
+                                                                        <textarea rows="4" readonly class="form-control" name="risk_number_details_update[${count}]">${risk.risk_number_details_update}</textarea>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-6">
@@ -5473,13 +5473,13 @@ var car = {
                                                                 <div class="col-xl-6">
                                                                     <div class="mb-3 mb-xl-0">
                                                                         <label class="form-label">Opportunity Number</label>
-                                                                        <textarea rows="4" class="form-control" name="opportunity_number[${count}]">${opportunity.opportunity_number}</textarea>
+                                                                        <textarea rows="4" readonly class="form-control" name="opportunity_number[${count}]">${opportunity.opportunity_number}</textarea>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-6">
                                                                     <div class="mb-3 mb-xl-0">
                                                                         <label class="form-label">Opportunities Identified (if applicable)</label>
-                                                                        <textarea rows="4" class="form-control" name="opportunity_identified[${count}]">${opportunity.opportunity_identified}</textarea>
+                                                                        <textarea rows="4" readonly class="form-control" name="opportunity_identified[${count}]">${opportunity.opportunity_identified}</textarea>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-6">
@@ -5605,13 +5605,13 @@ var car = {
                                                                 <div class="col-xl-6 mb-1">
                                                                     <div class="mb-3 mb-xl-0">
                                                                         <label class="form-label">Identified Root Cause</label>
-                                                                        <textarea rows="4" class="form-control" name="identified_root[${count}]">${identifiedRoot.identified_root}</textarea>
+                                                                        <textarea rows="4" readonly class="form-control" name="identified_root[${count}]">${identifiedRoot.identified_root}</textarea>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-6 mb-1">
                                                                     <div class="mb-3 mb-xl-0">
                                                                         <label class="form-label">Corrective Action</label>
-                                                                        <textarea rows="4" class="form-control" name="identified_root_corrective_action[${count}]">${identifiedRoot.identified_root_corrective_action}</textarea>
+                                                                        <textarea rows="4" readonly class="form-control" name="identified_root_corrective_action[${count}]">${identifiedRoot.identified_root_corrective_action}</textarea>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-4 mb-1">
@@ -5899,7 +5899,7 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Correction</label>
-                                                            <textarea class="form-control" name="correction[${count}]" rows="4">${correction.correction}</textarea>
+                                                            <textarea class="form-control" readonly name="correction[${count}]" rows="4">${correction.correction}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -5967,7 +5967,7 @@ var car = {
                                                     <div class="col-xl-12">
                                                         <div class="mb-3 mb-xl-0">
                                                             <label for="exampleInputEmail1" class="form-label">Dealing with the consequences</label>
-                                                            <textarea class="form-control" name="consequence[${count}]" rows="4">${consequence.consequence}</textarea>
+                                                            <textarea class="form-control" readonly name="consequence[${count}]" rows="4">${consequence.consequence}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4">
@@ -6073,13 +6073,13 @@ var car = {
                                                                 <div class="col-xl-6">
                                                                     <div class="mb-3 mb-xl-0">
                                                                         <label class="form-label">Risk Number</label>
-                                                                        <textarea rows="4" class="form-control" name="risk_number[${count}]">${risk.risk_number}</textarea>
+                                                                        <textarea rows="4" readonly class="form-control" name="risk_number[${count}]">${risk.risk_number}</textarea>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-6">
                                                                     <div class="mb-3 mb-xl-0">
                                                                         <label class="form-label">Details / Updates</label>
-                                                                        <textarea rows="4" class="form-control" name="risk_number_details_update[${count}]">${risk.risk_number_details_update}</textarea>
+                                                                        <textarea rows="4" readonly class="form-control" name="risk_number_details_update[${count}]">${risk.risk_number_details_update}</textarea>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-6">
@@ -6114,13 +6114,13 @@ var car = {
                                                                 <div class="col-xl-6">
                                                                     <div class="mb-3 mb-xl-0">
                                                                         <label class="form-label">Opportunity Number</label>
-                                                                        <textarea rows="4" class="form-control" name="opportunity_number[${count}]">${opportunity.opportunity_number}</textarea>
+                                                                        <textarea rows="4" readonly class="form-control" name="opportunity_number[${count}]">${opportunity.opportunity_number}</textarea>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-6">
                                                                     <div class="mb-3 mb-xl-0">
                                                                         <label class="form-label">Opportunities Identified (if applicable)</label>
-                                                                        <textarea rows="4" class="form-control" name="opportunity_identified[${count}]">${opportunity.opportunity_identified}</textarea>
+                                                                        <textarea rows="4" readonly class="form-control" name="opportunity_identified[${count}]">${opportunity.opportunity_identified}</textarea>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-6">
@@ -6246,13 +6246,13 @@ var car = {
                                                                 <div class="col-xl-6 mb-1">
                                                                     <div class="mb-3 mb-xl-0">
                                                                         <label class="form-label">Identified Root Cause</label>
-                                                                        <textarea rows="4" class="form-control" name="identified_root[${count}]">${identifiedRoot.identified_root}</textarea>
+                                                                        <textarea rows="4" readonly class="form-control" name="identified_root[${count}]">${identifiedRoot.identified_root}</textarea>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-6 mb-1">
                                                                     <div class="mb-3 mb-xl-0">
                                                                         <label class="form-label">Corrective Action</label>
-                                                                        <textarea rows="4" class="form-control" name="identified_root_corrective_action[${count}]">${identifiedRoot.identified_root_corrective_action}</textarea>
+                                                                        <textarea rows="4" readonly class="form-control" name="identified_root_corrective_action[${count}]">${identifiedRoot.identified_root_corrective_action}</textarea>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-4 mb-1">
