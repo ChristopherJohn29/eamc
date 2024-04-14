@@ -390,7 +390,7 @@ var car = {
                                                     "</td><td>" + registration_date + 
                                                     "</td><td>" + date_closed + 
                                                     "</td><td>" + for_correction_status + "<br><small><a href='#' class='update-correction-due' data-car_id='"+car_id+"' data-current='"+ fc_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-correction'>" + fc_completion_date + " (due date)</a></small>" +
-                                                    "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (due date)</a></small>" +
+                                                    "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (due date)</a></small></td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due-second' data-car_id='"+car_id+"' data-current='"+ ca_second_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_second_completion_date + " (due date)</a></small>" +
                                                     "</td><td>" + status +
                                                     "</td><td>" +
                                                     "<div class='btn-group mb-2'>" +
@@ -427,7 +427,7 @@ var car = {
                                                 "</td><td>" + registration_date + 
                                                 "</td><td>" + date_closed + 
                                                 "</td><td>" + for_correction_status + "<br><small><a href='#' class='update-correction-due' data-car_id='"+car_id+"' data-current='"+ fc_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-correction'>" + fc_completion_date + " (due date)</a></small>" +
-                                                "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (due date)</a></small>" +
+                                                "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (due date)</a></small></td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due-second' data-car_id='"+car_id+"' data-current='"+ ca_second_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective-second'>" + ca_second_completion_date + " (due date)</a></small>" +
                                                 "</td><td>" + status +
                                                 "</td><td>" +
                                                 "<div class='btn-group mb-2'>" +
@@ -462,7 +462,7 @@ var car = {
                                                 "</td><td>" + registration_date + 
                                                 "</td><td>" + date_closed + 
                                                 "</td><td>" + for_correction_status + "<br><small><a href='#' class='update-correction-due' data-car_id='"+car_id+"' data-current='"+ fc_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-correction'>" + fc_completion_date + " (due date)</a></small>" +
-                                                "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (due date)</a></small>" +
+                                                "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (due date)</a></small></td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due-second' data-car_id='"+car_id+"' data-current='"+ ca_second_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-second-dues-corrective'>" + ca_second_completion_date + " (due date)</a></small>" +
                                                 "</td><td>" + status +
                                                 "</td><td>" +
                                                 "<div class='btn-group mb-2'>" +
@@ -503,7 +503,7 @@ var car = {
                             "</td><td>" + registration_date + 
                             "</td><td>" + date_closed + 
                             "</td><td>" + for_correction_status + "<br><small><a href='#' class='update-correction-due' data-car_id='"+car_id+"' data-current='"+ fc_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-correction'>" + fc_completion_date + " (due date)</a></small>" +
-                            "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (due date)</a></small>" +
+                            "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (due date)</a></small></td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due-second' data-car_id='"+car_id+"' data-current='"+ ca_second_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_second_completion_date + " (due date)</a></small>" +
                             "</td><td>" + status +
                             "</td><td>" +
                             "<div class='btn-group mb-2'>" +
@@ -705,6 +705,15 @@ var car = {
 
             jQuery('#ca_completion_date_id').val(car_id);
             jQuery('#ca_completion_date').val(current);
+       
+        });
+
+        jQuery('#car-global-datatable').on('click','.update-corrective-due-second', function(){
+            var car_id = jQuery(this).data('car_id');
+            var current = jQuery(this).data('current');
+
+            jQuery('#ca_second_completion_date_id').val(car_id);
+            jQuery('#ca_second_completion_date').val(current);
        
         });
 
@@ -6489,6 +6498,43 @@ var car = {
             $.ajax({
                 type: 'POST',
                 url: '../car/save_ca_due', // Replace 'MyController' with your controller name
+                data: data,
+                success: function (response) {
+                    // Handle the response from the server
+                    if(response == 'saved'){
+                        car.notifySuccess();
+                        car.load();
+                    } else {
+                        car.notifyError();
+                    }
+                },
+                error: function () {
+                    // Handle errors
+                    car.notifyError();
+                }
+            });
+            
+    
+        });
+
+        jQuery('#saveDueCorrectiveSecond').click(function(e){
+            e.preventDefault();
+    
+           
+    
+            var car_id = jQuery('#ca_second_completion_date_id').val();
+            var ca_second_completion_date = jQuery('#ca_second_completion_date').val();
+            
+            var data = {
+                'car_id' : car_id,
+                'ca_second_completion_date' : ca_second_completion_date,
+            }
+
+            jQuery("#car-dues-corrective").modal('toggle');
+
+            $.ajax({
+                type: 'POST',
+                url: '../car/save_ca_due_second', // Replace 'MyController' with your controller name
                 data: data,
                 success: function (response) {
                     // Handle the response from the server

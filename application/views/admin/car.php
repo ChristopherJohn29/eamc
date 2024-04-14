@@ -72,6 +72,45 @@
                   </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
       </div>
+
+      <div id="car-dues-corrective-second" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
+               <div class="modal-dialog">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h4 class="modal-title" id="standard-modalLabel">Adjust Corrective Action Due Date</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div>
+                     <div class="modal-body">
+                     <input type="hidden" id="ca_second_completion_date_id" value="">
+                        <div class="form-group col-md-12">
+                           <label for="ca_second_completion_date" class="form-label">Corrective Action Due Date</label>
+                           <input type="date" class="form-control" id="ca_second_completion_date" required>
+                           <ul class="parsley-errors-list filled hidden">
+                              <li class="parsley-required"></li>
+                           </ul>
+                        </div>
+                     </div>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+
+                        <?php 
+               
+                        $requiredRoles = array(
+                           'designation' => 'division',
+                           'role' => ['osqm_dco', 'osqm_do'],
+                        );
+
+                        if ($this->role_checker->checkRole($requiredRoles)) {
+                        ?>
+                           <button type="button" class="btn btn-primary" id="saveDueCorrectiveSecond">Save</button>
+                           <?php
+                        }
+
+                        ?>
+                     </div>
+                  </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+      </div>
       
       <div id="car-dues-correction" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
                <div class="modal-dialog">

@@ -1237,7 +1237,7 @@ class car extends CI_Controller {
 
         $cardata = array(
             'corrective_action_status' => $approval_action_root_cause_analysis,
-            'fc_second_completion_date' => $expiry_90_days,
+            'ca_second_completion_date' => $expiry_90_days,
         );
 
         $this->db->where('id', $car_id);
@@ -1773,6 +1773,26 @@ class car extends CI_Controller {
 
         $cardata = array(
             'ca_completion_date' =>  $_POST['ca_completion_date']
+        );
+
+        $this->db->where('id', $car_id);
+        $result = $this->db->update('car', $cardata);
+
+        if ($result) {
+
+
+            echo 'saved';
+        } else {
+            echo 'error';
+        }
+    }
+
+    public function save_ca_due_second(){
+
+        $car_id = $_POST['car_id'];
+
+        $cardata = array(
+            'ca_second_completion_date' =>  $_POST['ca_second_completion_date']
         );
 
         $this->db->where('id', $car_id);
