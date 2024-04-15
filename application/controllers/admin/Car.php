@@ -1187,7 +1187,7 @@ class car extends CI_Controller {
         }
 
 
-        $currentDate = $latest_completion_date;
+        $currentDate = date_create_from_format('Y-m-d', $latest_completion_date);
 
         // Define a variable to count working days for 30-day expiry
         $expiryDate_30 = clone $currentDate;
