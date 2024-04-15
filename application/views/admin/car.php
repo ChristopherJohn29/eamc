@@ -518,7 +518,7 @@
                      <div class="row mb-2">
                         <div class="form-group col-md-12">
                            <label for="consequences" class="form-label">Attachment (Please attach File URL)</label>
-                           <input type="text" class="form-control car_attachment selectize-close-btn" id="car_attachment" disabled>
+                           <input type="text" class="form-control car_attachment selectize-close-btn"  disabled>
                         </div>
                      </div>
                   </form>
@@ -728,7 +728,7 @@
                      <div class="row mb-2">
                         <div class="form-group col-md-12">
                            <label for="consequences" class="form-label">Attachment (Please attach File URL)</label>
-                           <input type="text" class="form-control car_attachment selectize-close-btn" id="car_attachment" disabled>
+                           <input type="text" class="form-control car_attachment selectize-close-btn"  disabled>
                         </div>
                      </div>
                   </form>
@@ -1158,7 +1158,7 @@
                      <div class="row mb-2">
                         <div class="form-group col-md-12">
                            <label for="consequences" class="form-label">Attachment (Please attach File URL)</label>
-                           <input type="text" class="form-control car_attachment selectize-close-btn" id="car_attachment" disabled>
+                           <input type="text" class="form-control car_attachment selectize-close-btn"  disabled>
                         </div>
                      </div>
                   </form>
