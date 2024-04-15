@@ -47,6 +47,7 @@ var car = {
                         var registration_date = item.registration_date || '';
                         var ca_completion_date = item.ca_completion_date || '';
                         var ca_second_completion_date = item.ca_second_completion_date || '';
+                        var ca_second_completion_date_html = item.ca_second_completion_date + " (Completion Date)" || '';
                         var fc_completion_date = item.fc_completion_date || '';
                         var date_closed = item.date_closed || '';
                         var corrective_action_status = item.corrective_action_status || '';
@@ -391,7 +392,7 @@ var car = {
                                                     "</td><td>" + registration_date + 
                                                     "</td><td>" + date_closed + 
                                                     "</td><td>" + for_correction_status + "<br><small><a href='#' class='update-correction-due' data-car_id='"+car_id+"' data-current='"+ fc_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-correction'>" + fc_completion_date + " (due date)</a></small>" +
-                                                     "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (due date)</a></small><br><small><a href='#' class='update-corrective-due-second' data-car_id='"+car_id+"' data-current='"+ ca_second_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_second_completion_date + " (Completion date)</a></small>" +
+                                                     "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (due date)</a></small><br><small><a href='#' class='update-corrective-due-second' data-car_id='"+car_id+"' data-current='"+ ca_second_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_second_completion_date_html + "</a></small>" +
                                                     "</td><td>" + status +
                                                     "</td><td>" +
                                                     "<div class='btn-group mb-2'>" +
@@ -428,7 +429,7 @@ var car = {
                                                 "</td><td>" + registration_date + 
                                                 "</td><td>" + date_closed + 
                                                 "</td><td>" + for_correction_status + "<br><small><a href='#' class='update-correction-due' data-car_id='"+car_id+"' data-current='"+ fc_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-correction'>" + fc_completion_date + " (due date)</a></small>" +
-                                                "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (due date)</a></small><br><small><a href='#' class='update-corrective-due-second' data-car_id='"+car_id+"' data-current='"+ ca_second_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective-second'>" + ca_second_completion_date + " (Completion date)</a></small>" +
+                                                "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (due date)</a></small><br><small><a href='#' class='update-corrective-due-second' data-car_id='"+car_id+"' data-current='"+ ca_second_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective-second'>" + ca_second_completion_date_html + "</a></small>" +
                                                 "</td><td>" + status +
                                                 "</td><td>" +
                                                 "<div class='btn-group mb-2'>" +
@@ -463,7 +464,7 @@ var car = {
                                                 "</td><td>" + registration_date + 
                                                 "</td><td>" + date_closed + 
                                                 "</td><td>" + for_correction_status + "<br><small><a href='#' class='update-correction-due' data-car_id='"+car_id+"' data-current='"+ fc_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-correction'>" + fc_completion_date + " (due date)</a></small>" +
-                                                "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (due date)</a></small><br><small><a href='#' class='update-corrective-due-second' data-car_id='"+car_id+"' data-current='"+ ca_second_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-second-dues-corrective'>" + ca_second_completion_date + " (Completion date)</a></small>" +
+                                                "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (due date)</a></small><br><small><a href='#' class='update-corrective-due-second' data-car_id='"+car_id+"' data-current='"+ ca_second_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-second-dues-corrective'>" + ca_second_completion_date_html + "</a></small>" +
                                                 "</td><td>" + status +
                                                 "</td><td>" +
                                                 "<div class='btn-group mb-2'>" +
@@ -504,7 +505,7 @@ var car = {
                             "</td><td>" + registration_date + 
                             "</td><td>" + date_closed + 
                             "</td><td>" + for_correction_status + "<br><small><a href='#' class='update-correction-due' data-car_id='"+car_id+"' data-current='"+ fc_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-correction'>" + fc_completion_date + " (due date)</a></small>" +
-                             "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (due date)</a></small><br><small><a href='#' class='update-corrective-due-second' data-car_id='"+car_id+"' data-current='"+ ca_second_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_second_completion_date + " (Completion date)</a></small>" +
+                             "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (due date)</a></small><br><small><a href='#' class='update-corrective-due-second' data-car_id='"+car_id+"' data-current='"+ ca_second_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_second_completion_date_html + "</a></small>" +
                             "</td><td>" + status +
                             "</td><td>" +
                             "<div class='btn-group mb-2'>" +
