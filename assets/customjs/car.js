@@ -6933,6 +6933,17 @@ var car = {
         
             // Validate the form
             if (car.validateFormCorrection()) {
+
+                var confirmation = confirm("Are you sure you want to save changes?");
+
+                // Check user's choice
+                if (confirmation) {
+                    // User clicked OK, continue with the action
+                    // Add your code here to continue
+                } else {
+                    return;
+                }
+                
                 var formData = new FormData($("#correction_form")[0]);
         
                 // Determine the action URL based on certain conditions
