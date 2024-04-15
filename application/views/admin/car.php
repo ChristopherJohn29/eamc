@@ -1304,7 +1304,7 @@
       
                if ($this->role_checker->checkRole($requiredRoles)) {
                ?>
-                  <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#add-car"><i class="fas fa-plus"></i> Register CAR</button>
+                  <button type="button" class="btn btn-primary waves-effect waves-light add-car-button" data-bs-toggle="modal" data-bs-target="#add-car"><i class="fas fa-plus"></i> Register CAR</button>
                   <?php
                }
                ?>

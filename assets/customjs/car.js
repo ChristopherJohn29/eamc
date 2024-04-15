@@ -6613,6 +6613,7 @@ var car = {
                 var findings = jQuery('#findings').val();
                 var consequences = jQuery('#consequences').val();
                 var requirements_not_fulfilled = jQuery('#requirements_not_fulfilled').val();
+                var car_attachment = jQuery('#car_attachment').val();
                 
                 var data = {
                     'car_no' : car_no,
@@ -6623,7 +6624,8 @@ var car = {
                     'issued_to' : issued_to,
                     'findings' : findings,
                     'consequences' : consequences,
-                    'requirements_not_fulfilled': requirements_not_fulfilled
+                    'requirements_not_fulfilled': requirements_not_fulfilled,
+                    'car_attachment': car_attachment,
                 }
     
                 jQuery("#add-car").modal('toggle');
@@ -7093,6 +7095,29 @@ var car = {
     },
 
     correction: function(){
+
+        
+
+        $(".add-car-button").on("click", function(){
+            jQuery('input.selectize-close-btn').selectize({
+                plugins: ["remove_button"],
+                persist: false,
+                create: true,
+                render: {
+                    item: function (e, a) {
+                        return '<div><a class="url_link" target="_blank" href="' + a(e.text) + '">"' + a(e.text) + '"</a></div>';
+                    },
+                },
+                onDelete: function (e) {
+                    return confirm(1 < e.length ? "Are you sure you want to remove these " + e.length + " items?" : 'Are you sure you want to remove "' + e[0] + '"?');
+                },
+            });
+            jQuery('.url_link').click(function(){
+                url = jQuery(this).attr('href');
+                window.open(url, '_blank');
+            });
+        });
+
         $("#add-correction").on("click", function(){
             // Clone the first .correction-repeatable div
             var clone = $(".correction-repeatable:last").clone();
