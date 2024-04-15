@@ -7690,6 +7690,24 @@ var car = {
                 }
             });
 
+            jQuery('input.selectize-close-btn').selectize({
+                plugins: ["remove_button"],
+                persist: false,
+                create: true,
+                render: {
+                    item: function (e, a) {
+                        return '<div><a class="url_link" target="_blank" href="' + a(e.text) + '">"' + a(e.text) + '"</a></div>';
+                    },
+                },
+                onDelete: function (e) {
+                    return confirm(1 < e.length ? "Are you sure you want to remove these " + e.length + " items?" : 'Are you sure you want to remove "' + e[0] + '"?');
+                },
+            });
+            jQuery('.url_link').click(function(){
+                url = jQuery(this).attr('href');
+                window.open(url, '_blank');
+            });
+
         });
 
     },
