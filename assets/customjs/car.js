@@ -6728,20 +6728,17 @@ var car = {
 
             var formData = new FormData($("#root_cause_form")[0]);
 
+            var confirmation = confirm("Are you sure you want to save changes?");
+
+            // Check user's choice
+            if (confirmation) {
+                // User clicked OK, continue with the action
+                // Add your code here to continue
+            } else {
+                return;
+            }
 
             if(jQuery('#car-action.corrective-action').length){
-                if(jQuery('.action_root_cause_analysis').val() == 'For Verification'){
-
-                    var confirmation = confirm("Are you sure you want to save For Verification?");
-
-                    // Check user's choice
-                    if (confirmation) {
-                        // User clicked OK, continue with the action
-                        // Add your code here to continue
-                    } else {
-                        return;
-                    }
-                }
                 // Iterate over file inputs and append to formData
                 var action = "../car/saveRoot";
             } else if(jQuery('#car-action.corrective-action-review').length){
