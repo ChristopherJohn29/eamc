@@ -800,6 +800,8 @@ var car = {
             $consequences = jQuery(this).data('consequences');
             $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
             $car_attachment = jQuery(this).data('car_attachment');
+
+            console.log($car_attachment);
         
             jQuery('.addCARFormIssuance .car_id').val($car_id);
             jQuery('.addCARFormIssuance .requestor').val($requestor);
