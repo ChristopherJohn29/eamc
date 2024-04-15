@@ -6932,59 +6932,56 @@ var car = {
             e.preventDefault();
         
             // Validate the form
-            if (car.validateFormCorrection()) {
+            
 
-                var confirmation = confirm("Are you sure you want to save changes?");
+            var confirmation = confirm("Are you sure you want to save changes?");
 
-                // Check user's choice
-                if (confirmation) {
-                    // User clicked OK, continue with the action
-                    // Add your code here to continue
-                } else {
-                    return;
-                }
-                
-                var formData = new FormData($("#correction_form")[0]);
-        
-                // Determine the action URL based on certain conditions
-                var action;
-                if (jQuery('#car-correction-action.correction-action').length) {
-                    action = "../car/saveCorrection";
-                } else if (jQuery('#car-correction-action.correction-action-review').length) {
-                    action = "../car/saveCorrectionFR";
-                } else if (jQuery('#car-correction-action.correction-action-approval').length) {
-                    action = "../car/saveCorrectionFA";
-                } else if (jQuery('#car-correction-action.correction-action-verification').length) {
-                    action = "../car/saveCorrectionFV";
-                } else if (jQuery('#car-correction-action.correction-action-validation').length) {
-                    action = "../car/saveCorrectionFVA";
-                }
-        
-                // Make an AJAX request to submit the form data
-                $.ajax({
-                    type: "POST",
-                    url: action,
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    success: function(response) {
-                        if (response == 'saved') {
-                            car.notifySuccess();
-                            car.load();
-                            $('#correction_form')[0].reset();
-                            $('#corrective-action').modal('hide');
-                        } else {
-                            car.notifyError();
-                        }
-                    },
-                    error: function() {
+            // Check user's choice
+            if (confirmation) {
+                // User clicked OK, continue with the action
+                // Add your code here to continue
+            } else {
+                return;
+            }
+
+            var formData = new FormData($("#correction_form")[0]);
+    
+            // Determine the action URL based on certain conditions
+            var action;
+            if (jQuery('#car-correction-action.correction-action').length) {
+                action = "../car/saveCorrection";
+            } else if (jQuery('#car-correction-action.correction-action-review').length) {
+                action = "../car/saveCorrectionFR";
+            } else if (jQuery('#car-correction-action.correction-action-approval').length) {
+                action = "../car/saveCorrectionFA";
+            } else if (jQuery('#car-correction-action.correction-action-verification').length) {
+                action = "../car/saveCorrectionFV";
+            } else if (jQuery('#car-correction-action.correction-action-validation').length) {
+                action = "../car/saveCorrectionFVA";
+            }
+    
+            // Make an AJAX request to submit the form data
+            $.ajax({
+                type: "POST",
+                url: action,
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    if (response == 'saved') {
+                        car.notifySuccess();
+                        car.load();
+                        $('#correction_form')[0].reset();
+                        $('#corrective-action').modal('hide');
+                    } else {
                         car.notifyError();
                     }
-                });
-            } else {
-                // Form validation failed, show error message or take appropriate action
-                alert('Please fill in all required fields.');
-            }
+                },
+                error: function() {
+                    car.notifyError();
+                }
+            });
+       
         });
         
         
