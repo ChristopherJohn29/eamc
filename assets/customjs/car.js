@@ -6432,6 +6432,27 @@ var car = {
         return isValid;
     },
 
+    validateFormCorrection : function (){
+        var isValid = true;
+        
+        // Check required fields
+        $("#corrective-action [required]").each(function () {
+            if ($(this).val() === "") {
+                $(this).addClass('parsley-error');
+                isValid = false;
+                $(this).next('.parsley-errors-list').removeClass('hidden');
+                $(this).next('.parsley-errors-list').find('.parsley-required').text('This field is required');
+                // You can customize error handling here, for example, displaying an error message.
+            } else {
+                $(this).removeClass('parsley-error');
+                $(this).next('.parsley-errors-list').addClass('hidden');
+                $(this).next('.parsley-errors-list').find('.parsley-required').text('');
+            }
+        });
+    
+        return isValid;
+    },
+
     validateFormIssuance : function (){
         var isValid = true;
         
@@ -6914,7 +6935,7 @@ var car = {
             e.preventDefault();
         
             // Validate the form
-            if (car.validateForm()) {
+            if (car.validateFormCorrection()) {
                 var formData = new FormData($("#correction_form")[0]);
         
                 // Determine the action URL based on certain conditions
