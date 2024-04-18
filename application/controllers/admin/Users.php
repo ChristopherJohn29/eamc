@@ -99,14 +99,42 @@ class users extends CI_Controller {
         $user_id = $_POST['user_id'];
 
         $save = $this->UsersModel->approveUser($user_id);
+
+        if($save){
+            $verification_token = bin2hex(random_bytes(16));
+
+            $user = $this->UsersModel->get_user_by_id($user_id);
+    
+            $user_id = $this->UsersModel->save_verification_token($user_id, $verification_token);
+    
+            $config = array(
+                'protocol' => 'smtp',
+                'smtp_host' => 'mail.infoadvance.com.ph',
+                'smtp_port' => 465,
+                'smtp_user' => 'eamc@infoadvance.com.ph',
+                'smtp_pass' => '!Password12345',
+                'mailtype' => 'html',
+                'charset' => 'utf-8',
+                'newline' => "\r\n"
+            );
         
-        if ($save) {
-            // Insertion successful
-            echo "saved";
+            $this->load->library('email', $config); // Load email library
+            $this->email->from('eamc@infoadvance.com.ph', 'IQMS EAMC');
+            $this->email->to($user[0]['email']); // User's email address
+            $this->email->subject('Email Verification');
+            $this->email->message('Click on the following link to verify your email: ' . base_url('verification/verify/'.$user_id.'/'.$verification_token));
+            
+            if ($this->email->send()) {
+                // Insertion successful
+                echo "saved";
+            } else {
+                // Insertion failed
+                echo "error";
+            }
         } else {
-            // Insertion failed
             echo "error";
         }
+      
     }
 
 }
