@@ -109,7 +109,7 @@ class users extends CI_Controller {
     
             $config = array(
                 'protocol' => 'smtp',
-                'smtp_host' => 'mail.infoadvance.com.ph',
+                'smtp_host' => 'c116783.sgvps.net',
                 'smtp_port' => 465,
                 'smtp_user' => 'iqms-eamc@infoadvance.com.ph',
                 'smtp_pass' => '52b1rcw3w52f',
