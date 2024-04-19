@@ -27,7 +27,7 @@ class verification extends CI_Controller {
     public function success($user_id)
     {
         // Display a success message to the user
-
+        $this->load->model('UsersModel');
         if($user_id){
             $user = $this->UsersModel->get_user_by_id($user_id);
 
