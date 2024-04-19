@@ -129,7 +129,7 @@ class users extends CI_Controller {
                 echo "saved";
             } else {
                 // Insertion failed
-                echo "error";
+                echo $this->email->print_debugger();
             }
         } else {
             echo "error";
