@@ -120,7 +120,6 @@ class users extends CI_Controller {
         
             $this->load->library('email', $config); // Load email library
             $this->email->from('iqms-eamc@infoadvance.com.ph', 'IQMS EAMC');
-            $this->email->set_debug(TRUE);
             $this->email->to($user['email']); // User's email address
             $this->email->subject('Email Verification');
             $this->email->message('<p>Click on the following link to verify your email: <a href="' . base_url('verification/verify/'.$user_id.'/'.$verification_token) . '">Verify Email</a></p>');
