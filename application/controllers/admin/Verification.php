@@ -32,7 +32,7 @@ class verification extends CI_Controller {
             $user = $this->UsersModel->get_user_by_id($user_id);
 
             $data['email'] = $user['email'];
-            $this->load->view('verification_success', $data);
+            $this->load->view('auth/confirmation', $data);
         }
        
     }
