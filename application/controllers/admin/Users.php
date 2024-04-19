@@ -112,7 +112,7 @@ class users extends CI_Controller {
                 'smtp_host' => 'mail.infoadvance.com.ph',
                 'smtp_port' => 465,
                 'smtp_user' => 'eamc@infoadvance.com.ph',
-                'smtp_pass' => '!Password12345',
+                'smtp_pass' => '52b1rcw3w52f',
                 'mailtype' => 'html',
                 'charset' => 'utf-8',
                 'newline' => "\r\n"
