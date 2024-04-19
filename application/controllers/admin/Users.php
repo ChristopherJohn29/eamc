@@ -105,7 +105,7 @@ class users extends CI_Controller {
 
             $user = $this->UsersModel->get_user_by_id($user_id);
     
-            $user_id = $this->UsersModel->save_verification_token($user_id, $verification_token);
+            $this->UsersModel->save_verification_token($user_id, $verification_token);
     
             $config = array(
                 'protocol' => 'smtp',
