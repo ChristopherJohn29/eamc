@@ -16,7 +16,7 @@ class verification extends CI_Controller {
             $this->UsersModel->mark_as_verified($user_id);
             
             // Redirect the user to a success page or display a success message
-            redirect('admin/verification/success/'.$user['email']);
+            redirect('admin/verification/success/'.$user_id);
         } else {
             // Token doesn't exist or doesn't match the user's user_id
             // Redirect the user to an error page or display an error message
@@ -24,13 +24,14 @@ class verification extends CI_Controller {
         }
     }
 
-    public function success($email)
+    public function success($user_id)
     {
         // Display a success message to the user
 
-        if($email){
+        if($user_id){
+            $user = $this->UsersModel->get_user_by_id($user_id);
 
-            $data['email'] = $email;
+            $data['email'] = $user['email'];
             $this->load->view('verification_success', $data);
         }
        
