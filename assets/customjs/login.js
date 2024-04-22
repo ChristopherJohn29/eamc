@@ -23,7 +23,7 @@ var login = {
                             jQuery('.login-error li').text('Incorrect Username or Password');
                             jQuery('.login-error').removeClass('hidden');
                         }else if(response == 'dconotapprove'){
-                            jQuery('.login-error li').text('Incorrect Username or Password');
+                            jQuery('.login-error li').text('Account for approval');
                             jQuery('.login-error').removeClass('hidden');
                         }else if(response == 'emailnotverified'){
                             jQuery('.login-error li').text('Email not Verified');
