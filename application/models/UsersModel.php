@@ -157,5 +157,37 @@ class UsersModel extends CI_Model {
     
         return $query->result_array();
     }
+
+    public function fetchUserByDeptAndRole($role, $dept){
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where('role', $role);
+        $this->db->where('department', $dept);
+    
+        $query = $this->db->get();
+    
+        return $query->result_array();
+    }
+
+    public function fetchUserByDivAndRole($role, $dept){
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where('role', $role);
+        $this->db->where('division', $dept);
+    
+        $query = $this->db->get();
+    
+        return $query->result_array();
+    }
+
+    public function fetchDivByDepID($dept){
+        $this->db->select('*');
+        $this->db->from('department');
+        $this->db->where('id', $dept);
+    
+        $query = $this->db->get();
+    
+        return $query->result_array();
+    }
     
 }

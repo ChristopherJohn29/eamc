@@ -108,18 +108,18 @@ class files extends CI_Controller {
         if ($documentData[0]['status'] == 'FFU' || $documentData[0]['status'] == 'AD' || $documentData[0]['status'] == 'D') {
 
             if($documentData[0]['status'] == 'FFU'){
-                $this->UsersModel->registerNotification($documentData[0]['user_id'], 'You have successfully submitted your documented information ('.$doc_id.'). Subject for Technincal Evaluation', 'DCM');
+                $this->UsersModel->registerNotification($documentData[0]['user_id'], 'You have successfully submitted your documented information (ID-'.$doc_id.'). Subject for Technincal Evaluation', 'DCM');
 
                 foreach( $dco as $value){
-                    $this->UsersModel->registerNotification($value['id'], 'document ('.$doc_id.') has been submitted , subject for your technical evaluation', 'DCM');
+                    $this->UsersModel->registerNotification($value['id'], 'document (ID-'.$doc_id.') has been submitted , subject for your technical evaluation', 'DCM');
                 }
             }
 
             if($documentData[0]['status'] == 'D'){
-                $this->UsersModel->registerNotification($documentData[0]['user_id'], 'You have successfully re-uploaded a Documented Information ('.$doc_id.') / Form, subject for Technical Evaluation', 'DCM');
+                $this->UsersModel->registerNotification($documentData[0]['user_id'], 'You have successfully re-uploaded a Documented Information (ID-'.$doc_id.') / Form, subject for Technical Evaluation', 'DCM');
 
                 foreach( $dco as $value){
-                    $this->UsersModel->registerNotification($value['id'], 'A documented information ('.$doc_id.') / Form has been re-uploaded, subject for your Technical Evaluation', 'DCM');
+                    $this->UsersModel->registerNotification($value['id'], 'A documented information (ID-'.$doc_id.') / Form has been re-uploaded, subject for your Technical Evaluation', 'DCM');
                 }
             }
             

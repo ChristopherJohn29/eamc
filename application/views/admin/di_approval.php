@@ -157,6 +157,7 @@
                   <table id="di-global-datatable" class="table dt-responsive nowrap w-100">
                      <thead>
                         <tr>
+                           <th>ID</th>
                            <th>Document Title</th>
                            <th>Document Code</th>
                            <th>Department / Unit</th>
