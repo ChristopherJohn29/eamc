@@ -1,8 +1,11 @@
 var global = {
     init : function(){
+
+        base = jQuery('#wrapper').data('base_url');
+
         $.ajax({
             type: 'POST',
-            url: 'Users/fetchNotification', // Replace 'MyController' with your controller name
+            url: base+'/Users/fetchNotification', // Replace 'MyController' with your controller name
             data: {},
             success: function (response) {
                 if(response != 'null'){
