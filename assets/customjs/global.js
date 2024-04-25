@@ -5,7 +5,7 @@ var global = {
 
         $.ajax({
             type: 'POST',
-            url: base+'/Users/fetchNotification', // Replace 'MyController' with your controller name
+            url: base+'/admin/Users/fetchNotification', // Replace 'MyController' with your controller name
             data: {},
             success: function (response) {
                 if(response != 'null'){
