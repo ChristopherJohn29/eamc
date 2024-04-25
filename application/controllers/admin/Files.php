@@ -111,7 +111,7 @@ class files extends CI_Controller {
                 $this->UsersModel->registerNotification($documentData[0]['user_id'], 'You have successfully submitted your documented information ('.$doc_id.'). Subject for Technincal Evaluation', 'DCM');
 
                 foreach( $dco as $value){
-                    $this->UsersModel->registerNotification($value['id'], 'A '.$doc_id.' document has been submitted , subject for your technical evaluation', 'DCM');
+                    $this->UsersModel->registerNotification($value['id'], 'document ('.$doc_id.') has been submitted , subject for your technical evaluation', 'DCM');
                 }
             }
 
