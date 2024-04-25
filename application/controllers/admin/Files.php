@@ -14,6 +14,7 @@ class files extends CI_Controller {
         $this->load->model('FileDetailsModel');
 		$this->load->model('DepartmentModel');
         $this->load->model('DocumentedInformationModel');
+        $this->load->model('UsersModel');
         $this->authentication->check_user_session();
     }
 
@@ -102,8 +103,27 @@ class files extends CI_Controller {
         // Disapprove -> Technical Review//
 
         $documentData = $this->DocumentedInformationModel->getDI($doc_id);
+        $dco = $this->UsersModel->fetchUserByRole('osqm_dco');
 
         if ($documentData[0]['status'] == 'FFU' || $documentData[0]['status'] == 'AD' || $documentData[0]['status'] == 'D') {
+
+            if($documentData[0]['status'] == 'FFU'){
+                $this->UsersModel->registerNotification($documentData[0]['user_id'], 'You have successfully submitted your documented information ('.$doc_id.'). Subject for Technincal Evaluation', 'DCM');
+
+                foreach( $dco as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'A '.$doc_id.' document has been submitted , subject for your technical evaluation', 'DCM');
+                }
+            }
+
+            if($documentData[0]['status'] == 'D'){
+                $this->UsersModel->registerNotification($documentData[0]['user_id'], 'You have successfully re-uploaded a Documented Information ('.$doc_id.') / Form, subject for Technical Evaluation', 'DCM');
+
+                foreach( $dco as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'A documented information ('.$doc_id.') / Form has been re-uploaded, subject for your Technical Evaluation', 'DCM');
+                }
+            }
+            
+
             $status = 'TR';
         } else {
             $status = $documentData[0]['status'];

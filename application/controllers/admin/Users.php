@@ -81,6 +81,43 @@ class users extends CI_Controller {
         echo json_encode($approvedUsers);
     }
 
+    public function fetchNotification(){
+        $notifications =  $this->UsersModel->fetchNotification();
+
+        echo json_encode($notifications);
+    }
+
+    public function readNotification(){
+        $notifications =  $this->UsersModel->readNotification();
+
+        if($notifications){
+            echo 'saved';
+        } else {
+            echo 'error';
+        }
+    }
+
+    public function clearNotification(){
+        $notifications =  $this->UsersModel->clearNotification();
+
+        if($notifications){
+            echo 'saved';
+        } else {
+            echo 'error';
+        }
+    }
+
+    public function deleteNotification(){
+        $id = $_POST['id'];
+        $notifications =  $this->UsersModel->deleteNotification($id);
+
+        if($notifications){
+            echo 'saved';
+        } else {
+            echo 'error';
+        }
+    }
+
     public function deny(){
         $user_id = $_POST['user_id'];
 
@@ -135,6 +172,10 @@ class users extends CI_Controller {
             echo "error";
         }
       
+    }
+
+    public function registerNotification(){
+
     }
 
 }

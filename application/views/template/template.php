@@ -36,7 +36,7 @@
    </head>
    <body>
       <!-- Begin page -->
-      <div id="wrapper">
+      <div id="wrapper" data-base_url="<?=base_url()?>">
          <!-- ========== Menu ========== -->
          <div class="app-menu">
             <div class="logo-box mt-2">
@@ -115,110 +115,25 @@
                      <li class="dropdown notification-list">
                         <a class="nav-link dropdown-toggle waves-effect waves-light arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                         <i class="fe-bell font-22"></i>
-                        <span class="badge bg-danger rounded-circle noti-icon-badge">9</span>
+                        <span class="badge bg-danger rounded-circle noti-icon-badge notification-number"></span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated dropdown-lg py-0">
-                           <div class="p-2 border-top-0 border-start-0 border-end-0 border-dashed border">
+                        <div class="dropdown-menu dropdown-menu-end">
+                           <div class="p-2 border-top-0 border-start-0 border-end-0 border-dashed border mb-2">
                               <div class="row align-items-center">
                                  <div class="col">
                                     <h6 class="m-0 font-16 fw-semibold"> Notification</h6>
                                  </div>
                                  <div class="col-auto">
-                                    <a href="javascript: void(0);" class="text-dark text-decoration-underline">
+                                    <a href="#" class="text-dark text-decoration-underline clear-notification">
                                     <small>Clear All</small>
                                     </a>
                                  </div>
                               </div>
                            </div>
-                           <div class="px-1" style="max-height: 300px;" data-simplebar>
-                              <h5 class="text-muted font-13 fw-normal mt-2">Today</h5>
+                           <div class="px-1 notification-div" style="max-height: 300px; min-width: 300px;">
                               <!-- item-->
-                              <a href="javascript:void(0);" class="dropdown-item p-0 notify-item card unread-noti shadow-none mb-1">
-                                 <div class="card-body">
-                                    <span class="float-end noti-close-btn text-muted"><i class="mdi mdi-close"></i></span>
-                                    <div class="d-flex align-items-center">
-                                       <div class="flex-shrink-0">
-                                          <div class="notify-icon bg-primary">
-                                             <i class="mdi mdi-comment-account-outline"></i>
-                                          </div>
-                                       </div>
-                                       <div class="flex-grow-1 text-truncate ms-2">
-                                          <h5 class="noti-item-title fw-semibold font-14">Datacorp <small class="fw-normal text-muted ms-1">1 min ago</small></h5>
-                                          <small class="noti-item-subtitle text-muted">Caleb Flakelar commented on Admin</small>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </a>
+                              
                               <!-- item-->
-                              <a href="javascript:void(0);" class="dropdown-item p-0 notify-item card read-noti shadow-none mb-1">
-                                 <div class="card-body">
-                                    <span class="float-end noti-close-btn text-muted"><i class="mdi mdi-close"></i></span>
-                                    <div class="d-flex align-items-center">
-                                       <div class="flex-shrink-0">
-                                          <div class="notify-icon bg-info">
-                                             <i class="mdi mdi-account-plus"></i>
-                                          </div>
-                                       </div>
-                                       <div class="flex-grow-1 text-truncate ms-2">
-                                          <h5 class="noti-item-title fw-semibold font-14">Admin <small class="fw-normal text-muted ms-1">1 hours ago</small></h5>
-                                          <small class="noti-item-subtitle text-muted">New user registered</small>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </a>
-                              <h5 class="text-muted font-13 fw-normal mt-0">Yesterday</h5>
-                              <!-- item-->
-                              <a href="javascript:void(0);" class="dropdown-item p-0 notify-item card read-noti shadow-none mb-1">
-                                 <div class="card-body">
-                                    <span class="float-end noti-close-btn text-muted"><i class="mdi mdi-close"></i></span>
-                                    <div class="d-flex align-items-center">
-                                       <div class="flex-shrink-0">
-                                          <div class="notify-icon">
-                                             <img src="<?=base_url()?>assets/images/users/avatar-2.jpg" class="img-fluid rounded-circle" alt="" />
-                                          </div>
-                                       </div>
-                                       <div class="flex-grow-1 text-truncate ms-2">
-                                          <h5 class="noti-item-title fw-semibold font-14">Cristina Pride <small class="fw-normal text-muted ms-1">1 day ago</small></h5>
-                                          <small class="noti-item-subtitle text-muted">Hi, How are you? What about our next meeting</small>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </a>
-                              <h5 class="text-muted font-13 fw-normal mt-0">30 Dec 2021</h5>
-                              <!-- item-->
-                              <a href="javascript:void(0);" class="dropdown-item p-0 notify-item card read-noti shadow-none mb-1">
-                                 <div class="card-body">
-                                    <span class="float-end noti-close-btn text-muted"><i class="mdi mdi-close"></i></span>
-                                    <div class="d-flex align-items-center">
-                                       <div class="flex-shrink-0">
-                                          <div class="notify-icon bg-primary">
-                                             <i class="mdi mdi-comment-account-outline"></i>
-                                          </div>
-                                       </div>
-                                       <div class="flex-grow-1 text-truncate ms-2">
-                                          <h5 class="noti-item-title fw-semibold font-14">Datacorp</h5>
-                                          <small class="noti-item-subtitle text-muted">Caleb Flakelar commented on Admin</small>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </a>
-                              <!-- item-->
-                              <a href="javascript:void(0);" class="dropdown-item p-0 notify-item card read-noti shadow-none mb-1">
-                                 <div class="card-body">
-                                    <span class="float-end noti-close-btn text-muted"><i class="mdi mdi-close"></i></span>
-                                    <div class="d-flex align-items-center">
-                                       <div class="flex-shrink-0">
-                                          <div class="notify-icon">
-                                             <img src="<?=base_url()?>assets/images/users/avatar-4.jpg" class="img-fluid rounded-circle" alt="" />
-                                          </div>
-                                       </div>
-                                       <div class="flex-grow-1 text-truncate ms-2">
-                                          <h5 class="noti-item-title fw-semibold font-14">Karen Robinson</h5>
-                                          <small class="noti-item-subtitle text-muted">Wow ! this admin looks good and awesome design</small>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </a>
                               <div class="text-center">
                                  <i class="mdi mdi-dots-circle mdi-spin text-muted h3 mt-0"></i>
                               </div>
@@ -226,6 +141,11 @@
                            <!-- All-->
                         </div>
                      </li>
+
+
+
+
+
                      <!-- Light/Dark Mode Toggle Button -->
                      <li class="d-none d-sm-inline-block">
                         <div class="nav-link waves-effect waves-light" id="light-dark-mode">
@@ -324,6 +244,7 @@
       <script src="<?=base_url()?>assets/libs/pdfmake/build/pdfmake.min.js"></script>
       <script src="<?=base_url()?>assets/libs/pdfmake/build/vfs_fonts.js"></script>
       <script src="<?=base_url()?>assets/libs/jquery-toast-plugin/jquery.toast.min.js"></script>
+      <script src="<?=base_url()?>assets/customjs/global.js"></script>
       <!-- third party js ends -->
       <!-- Datatables init -->
 

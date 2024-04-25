@@ -99,5 +99,63 @@ class UsersModel extends CI_Model {
             return false; // Marking as verified failed
         }
     }
+
+    public function registerNotification($user_id, $message, $module){
+
+        $data = [
+            'user_id' => $user_id,
+            'message' => $message,
+            'module' => $module,
+            'status' => 2,
+            'date_published' => date('Y-m-d')
+        ];
+        
+        $this->db->insert('notification', $data);
+
+        return $this->db->affected_rows() > 0 ? true : false;
+    }
+
+    public function fetchNotification() {
+        $this->db->select('*');
+        $this->db->from('notification');
+        $this->db->where('user_id', $this->session->userdata('user_id'));
+        $this->db->where('status !=', 0);
+    
+        $query = $this->db->get();
+    
+        return $query->result_array();
+    }
+
+    public function readNotification(){
+        $this->db->where('user_id', $this->session->userdata('user_id'));
+        $this->db->where('status !=', 0);
+
+        return $this->db->update('notification', array('status' => 1));
+    }
+
+    public function clearNotification(){
+        $this->db->where('user_id', $this->session->userdata('user_id'));
+        $this->db->where('status !=', 0);
+
+        return $this->db->update('notification', array('status' => 0));
+    }
+
+    public function deleteNotification($id){
+        $this->db->where('user_id', $this->session->userdata('user_id'));
+        $this->db->where('id', $id);
+
+        return $this->db->update('notification', array('status' => 0));
+    }
+
+
+    public function fetchUserByRole($role){
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where('role', $role);
+    
+        $query = $this->db->get();
+    
+        return $query->result_array();
+    }
     
 }

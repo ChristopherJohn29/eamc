@@ -11,6 +11,7 @@ class documentedinformation extends CI_Controller {
         $this->load->model('DepartmentModel');
         $this->load->model('SectionModel');
         $this->load->model('DocumentTypeModel');
+        $this->load->model('UsersModel');
 
         $this->authentication->check_user_session();
     }
@@ -451,17 +452,40 @@ class documentedinformation extends CI_Controller {
 
         $data = $_POST;
 
+        $dco = $this->UsersModel->fetchUserByRole('osqm_dco');
+        $documentData = $this->DocumentedInformationModel->getDI($data['doc_id']);
+       
+        
         if($_POST['technical_review'] == 'Approved'){
 
             $data['status'] = 'FIR';
 
             if (isset($data['existing']) && $data['existing'] == '1') {
                 $data['status'] = 'PUB';
+
+                $this->UsersModel->registerNotification($documentData[0]['user_id'], 'Congratulations! your Documented Information ('.$data['doc_id'].') / Form was successfully published', 'DCM');
+           
+                foreach( $dco as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'You have successfully published a documented information ('.$data['doc_id'].') / form', 'DCM');
+                }
+            } else {
+                $this->UsersModel->registerNotification($documentData[0]['user_id'], 'Your Documented Information ('.$data['doc_id'].') / Form has been approved, subject for Final Review', 'DCM');
+           
+                foreach( $dco as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'You have succesfuly evaluation and approved and Documented Information ('.$data['doc_id'].') / form, subject for final review ', 'DCM');
+                }
             }
         } 
         else if($_POST['technical_review'] == 'Disapproved')
         {
             $data['status'] = 'D';
+
+            $this->UsersModel->registerNotification($documentData[0]['user_id'], 'Your Documented Information ('.$data['doc_id'].') / Form has been disapproved, please DCO remarks', 'DCM');
+           
+            foreach( $dco as $value){
+                $this->UsersModel->registerNotification($value['id'], 'You  disapproved a DOcumented Information ('.$data['doc_id'].') / Form  and returned to the ISO Coordinator', 'DCM');
+            }
+
         }
         else if($_POST['technical_review'] == 'For Forms Committee Review')
         {
@@ -469,6 +493,13 @@ class documentedinformation extends CI_Controller {
         }
         else {
             $data['status'] = 'AD';
+
+            
+            $this->UsersModel->registerNotification($documentData[0]['user_id'], 'Your Documented Information ('.$data['doc_id'].') / Form has been approved as Draft by the DCO', 'DCM');
+           
+            foreach( $dco as $value){
+                $this->UsersModel->registerNotification($value['id'], 'You have successfully approved a Documented Information ('.$data['doc_id'].') / Form as draft', 'DCM');
+            }
         }
    
         $save = $this->DocumentedInformationModel->updateDIReview($data, 'technical_review');
