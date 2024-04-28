@@ -53,15 +53,48 @@
                 <div class="modal-body">
                     <p><strong>Username:</strong></p>
                     <p>(Format: First letter of First Name-Middle Initial-Surname e.g. JCDELACRUZ)</p>
-                    <p><strong>Auto Caps lock</strong></p>
-                    <p>Duplication of username shall not be allowed. "Username is already used."</p>
-                    <p>May add a number if there is duplication e.g. JCDELACRUZ1</p>
+                    <p>- Auto Caps lock</p>
+                    <p>- Duplication of username shall not be allowed. "Username is already used."</p>
+                    <p>- May add a number if there is duplication e.g. JCDELACRUZ1</p>
+               
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+
+    <div id="password-instruction" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="standard-modalLabel">Registration Instruction</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
                     <p><strong>Password:</strong></p>
                     <p>- Minimum of 8 characters</p>
                     <p>- At least 1 number</p>
                     <p>- At least 1 symbol (=?<>@#$*!)</p>
                     <p>- Should not be the same as the username</p>
                     <p>- Password shall be encrypted</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+
+    <div id="committee-instruction" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="standard-modalLabel">Registration Instruction</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
                     <p><strong>Committee/Division:</strong></p>
                     <p>- Committee: For Forms, Internal Quality Auditor, and Customer Satisfaction Committee.</p>
                     <p>- Division: For ISO Coordinator, Division Chief, DQT Member, Dept./Sec. Head, etc.</p>
@@ -123,7 +156,7 @@
                                         <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label class="form-label" for="email">Password <i class="fe-info" data-bs-toggle="modal" data-bs-target="#username-instruction"></i></label>
+                                        <label class="form-label" for="email">Password <i class="fe-info" data-bs-toggle="modal" data-bs-target="#password-instruction"></i></label>
                                         <div class="input-group input-group-merge">
                                             <input type="password" id="password" class="form-control" placeholder="Password">
                                             <div class="input-group-text" data-password="false">
@@ -148,7 +181,7 @@
                             </div>
                             <div class="row mb-2 first col-md-12">
                                 <div class="form-group col-md-6">
-                                    <label class="form-label" for="designation">Committee / Division <i class="fe-info" data-bs-toggle="modal" data-bs-target="#username-instruction"></i></label>
+                                    <label class="form-label" for="designation">Committee / Division <i class="fe-info" data-bs-toggle="modal" data-bs-target="#committee-instruction"></i></label>
                                     <select class="form-control" id="designation" required>
                                         <option value="committee">Committee</option>
                                         <option value="division">Division</option>
