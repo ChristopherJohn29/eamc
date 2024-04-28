@@ -611,5 +611,13 @@ jQuery(document).ready(function(){
     newUsers.loadnewUsers();
     newUsers.denyInit();
     newUsers.approveInit();
+    newUsers.dataUpdate();
+    newUsers.designation();
+    newUsers.passwordChange();
+    newUsers.second();
+    newUsers.fourth();
+    newUsers.submitForm();
+    newUsers.username();
+    newUsers.divisionOnChange();
 
 });
