@@ -235,7 +235,7 @@
                      </div>
                      <div class="row mb-2">
                         <div class="form-group col-md-12">
-                           <label for="findings" class="form-label">Note: </label><small><i>Identification date may be different from the date when non-conformity happened. This can be after the validation or investigation that the nonconformity really exists. E.g. IQA closing meeting, Customer  Complaint/ Never Event Investigation, etc.</i></small>
+                           <label for="findings" class="form-label">Note: </label><small> <i> Identification date may be different from the date when non-conformity happened. This can be after the validation or investigation that the nonconformity really exists. E.g. IQA closing meeting, Customer  Complaint/ Never Event Investigation, etc.</i></small>
                            
                         </div>
                         <hr>
@@ -358,7 +358,7 @@
                      </div>
                      <div class="row mb-2">
                         <div class="form-group col-md-12">
-                           <label for="findings" class="form-label">Note: </label><small><i>Identification date may be different from the date when non-conformity happened. This can be after the validation or investigation that the nonconformity really exists. E.g. IQA closing meeting, Customer  Complaint/ Never Event Investigation, etc.</i></small>
+                           <label for="findings" class="form-label">Note: </label><small><i> Identification date may be different from the date when non-conformity happened. This can be after the validation or investigation that the nonconformity really exists. E.g. IQA closing meeting, Customer  Complaint/ Never Event Investigation, etc.</i></small>
                            
                         </div>
                         <hr>
