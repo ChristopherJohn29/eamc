@@ -50,6 +50,24 @@ var newUsers = {
                         var section = item.section ? item.section : '';
                         var department = item.dep_name ? item.dep_name : '';
                         var role = item.role_name ? item.role_name : '';
+
+                        var data_html = "data-id='"+id+"' "+
+                                        "data-firstname='"+firstname+"' "+
+                                        "data-middlename='"+middlename+"' "+
+                                        "data-lastname='"+lastname+"' "+
+                                        "data-suffix='"+suffix+"' "+
+                                        "data-post_nominal='"+post_nominal+"' "+
+                                        "data-fullname='"+fullname+"' "+
+                                        "data-username='"+username+"' "+
+                                        "data-email='"+email+"' "+
+                                        "data-mobile_number='"+mobile_number+"' "+
+                                        "data-designation='"+designation+"' "+
+                                        "data-position='"+position+"' "+
+                                        "data-section='"+section+"' "+
+                                        "data-role='"+role+"' "+
+                                        "data-department='"+department+"' "+
+                                        "data-department_section='"+department_section+"' "+
+                                        "data-division='"+division+"' ";
                         
                         var updateUser = "<button type='button' data-bs-toggle='modal' "+data_html+" data-bs-target='#update-user' title='Update User'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' class='btn btn-sm btn-success waves-effect waves-light data-update' data-id='"+id+"'><i class='fa fa-file'></i></button>"; 
                         var html = "<tr><td>" + fullname + "</td><td>" + username + "</td><td>" + email + "</td><td>" + mobile_number + "</td><td>" + designation + "</td><td>" + division + "</td><td>" + section + "</td><td>" + department + "</td><td>" + role + "</td><td>"+updateUser+" <button type='button' title='Approve User'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' class='btn btn-sm btn-success waves-effect waves-light data-approve' data-id='"+id+"'><i class='mdi mdi-check'></i></button><button title='Deny'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-danger waves-effect waves-light data-deny' data-id='"+id+"'><i class='mdi mdi-close'></i></button></td></tr>";
