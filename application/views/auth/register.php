@@ -19,6 +19,33 @@
       <link href="<?=base_url()?>assets/customcss/register.css" rel="stylesheet" type="text/css" />
    </head>
    <body class="authentication-bg authentication-bg-pattern">
+    <div id="privacy-policy" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="standard-modalLabel">PRIVACY NOTICE</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>We at the EAMC Integrated Management Information System Section (“IMISS”) and Office for Strategy and Quality Management (“OSQM”) are committed to protecting all personal and other sensitive personal information obtained by registration and use of this iQMS.</p>
+                    <p>By signing up to the iQMS, the following information will be collected:</p>
+                    <ul>
+                        <li>Full name;</li>
+                        <li>E-mail address; and</li>
+                        <li>Mobile Number.</li>
+                    </ul>
+                    <p>The above and other personal information supplied and/or obtained by the use of this iQMS shall be stored, processed, and later disposed of in accordance with applicable provisions of the National Archives of the Philippines (NAP) and the Data Privacy Act of 2012. Only the members of the IMISS and the OSQM have access to these sensitive and/or other personal data. Thus, rest assured that they shall only be processed for the purpose of maintaining the operability, efficiency, and effectiveness of the iQMS and the overall Quality Management System of East Avenue Medical Center;</p>
+                    <p>For user applicants, all information and/or data which will be provided and/or uploaded to the iQMS must be devoid of personal, sensitive and/or other information not fit for public disclosure. To such end, user applicants likewise agree to either remove entirely, redact, or extract private and/or confidential information pursuant to Executive Order No. 2, s. 2016 Freedom of Information Memorandum Circular No. 4, s. 2019, and Republic Act No. 10173.</p>
+                    <p>Finally, as data subjects, user-applicants have the right to request from the EAMC the reproduction, correction, or deletion of personal information submitted to the iQMS upon reasonable grounds.</p>
+                    <p>For inquiries and other concerns, you may get in touch with IMISS through Local 438, or the OSQM through Local 445.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+
     <div id="terms" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -356,7 +383,7 @@
                             <div class="">
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="checkbox-privacy">
-                                    <label class="form-check-label" for="checkbox-privacy">I agree with the <a href="#" class="text-dark">Privacy Policy</a></label>
+                                    <label class="form-check-label" for="checkbox-privacy">I agree with the <a href="#" class="text-dark" data-bs-toggle="modal" data-bs-target="#privacy-policy">Privacy Policy</a></label>
                                 </div>
                             </div>
 
