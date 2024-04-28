@@ -42,14 +42,24 @@ var newUsers = {
                         var id = item.id;
 
                         var fullname = item.fullname;
+                        var firstname = item.firstname;
+                        var middlename = item.middlename;
+                        var lastname = item.lastname;
+                        var suffix = item.suffix;
+                        var post_nominal = item.post_nominal;
                         var username = item.username;
                         var email = item.email;
                         var mobile_number = item.mobile_number;
                         var designation = item.designation;
-                        var division = item.div_name ? item.div_name :'';
-                        var section = item.section ? item.section : '';
-                        var department = item.dep_name ? item.dep_name : '';
-                        var role = item.role_name ? item.role_name : '';
+                        var position = item.position;
+                        var section = item.section;
+                        var division = item.division;
+                        var department = item.department;
+                        var role = item.role;
+                        var department_section = item.department_section;
+                        var division_name = item.div_name ? item.div_name :'';
+                        var department_name = item.dep_name ? item.dep_name : '';
+                        var role_name = item.role_name ? item.role_name : '';
 
                         var data_html = "data-id='"+id+"' "+
                                         "data-firstname='"+firstname+"' "+
@@ -70,7 +80,7 @@ var newUsers = {
                                         "data-division='"+division+"' ";
                         
                         var updateUser = "<button type='button' data-bs-toggle='modal' "+data_html+" data-bs-target='#update-user' title='Update User'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' class='btn btn-sm btn-success waves-effect waves-light data-update' data-id='"+id+"'><i class='fa fa-file'></i></button>"; 
-                        var html = "<tr><td>" + fullname + "</td><td>" + username + "</td><td>" + email + "</td><td>" + mobile_number + "</td><td>" + designation + "</td><td>" + division + "</td><td>" + section + "</td><td>" + department + "</td><td>" + role + "</td><td>"+updateUser+" <button type='button' title='Approve User'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' class='btn btn-sm btn-success waves-effect waves-light data-approve' data-id='"+id+"'><i class='mdi mdi-check'></i></button><button title='Deny'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-danger waves-effect waves-light data-deny' data-id='"+id+"'><i class='mdi mdi-close'></i></button></td></tr>";
+                        var html = "<tr><td>" + fullname + "</td><td>" + username + "</td><td>" + email + "</td><td>" + mobile_number + "</td><td>" + designation + "</td><td>" + division_name + "</td><td>" + section + "</td><td>" + department_name + "</td><td>" + role_name + "</td><td>"+updateUser+" <button type='button' title='Approve User'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' class='btn btn-sm btn-success waves-effect waves-light data-approve' data-id='"+id+"'><i class='mdi mdi-check'></i></button><button title='Deny'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-danger waves-effect waves-light data-deny' data-id='"+id+"'><i class='mdi mdi-close'></i></button></td></tr>";
                         // Do something with the data, for example, display it on the page
                         $('#new-users-datatable tbody').append(html);
 
