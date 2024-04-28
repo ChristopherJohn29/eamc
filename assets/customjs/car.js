@@ -7659,7 +7659,7 @@ var car = {
             jQuery('#addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
             jQuery('#addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
             jQuery('#addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-            jQuery('.addCARFormIssuance .car_attachment').val($car_attachment);
+            jQuery('#addCARFormIssuance .car_attachment').val($car_attachment);
 
             division = jQuery('#addCARFormIssuance .issued_by').val();
 
