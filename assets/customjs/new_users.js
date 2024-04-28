@@ -264,7 +264,7 @@ var newUsers = {
         jQuery('#submit-register').click(function(e){
             e.preventDefault();
             
-            if (approvedUsers.validateForm()) {
+            if (newUsers.validateForm()) {
                 var id = jQuery('#user_id').val();
                 var firstName = jQuery('#firstName').val();
                 var middleName = jQuery('#middleName').val();
@@ -421,7 +421,7 @@ var newUsers = {
         
         // Email validation
         var email = $('#email').val();
-        if (!approvedUsers.validateEmail(email)) {
+        if (!newUsers.validateEmail(email)) {
             $('#email').addClass('parsley-error');
             isValid = false;
         } else {
@@ -449,7 +449,7 @@ var newUsers = {
     passwordChange: function(){
         // jQuery('#submit-register').attr('disabled',true);
         jQuery('#password').on('keyup', function(){
-            approvedUsers.passwordChecker();
+            newUsers.passwordChecker();
         });
     },
 
