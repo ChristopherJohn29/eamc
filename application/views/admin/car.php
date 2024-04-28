@@ -235,25 +235,26 @@
                      </div>
                      <div class="row mb-2">
                         <div class="form-group col-md-12">
-                           <label for="findings" class="form-label">Note: </label><i>Identification date may be different from the date when non-conformity happened. This can be after the validation or investigation that the nonconformity really exists. E.g. IQA closing meeting, Customer  Complaint/ Never Event Investigation, etc.</i>
+                           <label for="findings" class="form-label">Note: </label><small><i>Identification date may be different from the date when non-conformity happened. This can be after the validation or investigation that the nonconformity really exists. E.g. IQA closing meeting, Customer  Complaint/ Never Event Investigation, etc.</i></small>
                            
                         </div>
+                        <hr>
                      </div>
                      <div class="row mb-2">
                         <div class="form-group col-md-12">
-                           <label for="findings" class="form-label">Findings: </label><i>(Clear definition of nonconformity. Must state What, When, and Proof or Objective Evidence that the nonconformity exist E.g. Document, records, statement of facts, or observations)</i>
+                           <label for="findings" class="form-label">Findings: </label><small><i>(Clear definition of nonconformity. Must state What, When, and Proof or Objective Evidence that the nonconformity exist E.g. Document, records, statement of facts, or observations)</i></small>
                            <textarea class="form-control" id="findings" rows="4"></textarea>
                         </div>
                      </div>
                      <div class="row mb-2">
                         <div class="form-group col-md-12">
-                           <label for="consequences" class="form-label">Consequences: </label><i>(The result of effect of the nonconformance.)</i>
+                           <label for="consequences" class="form-label">Consequences: </label><small><i>(The result of effect of the nonconformance.)</i></small>
                            <textarea class="form-control" id="consequences" rows="4"></textarea>
                         </div>
                      </div>
                      <div class="row mb-2">
                         <div class="form-group col-md-12">
-                           <label for="requirements_not_fulfilled" class="form-label">Requirements Not Fulfilled: </label><i>(e.g., ISO 9001 Requirements, Statutory & Regulatory Requirements, Policies, Procedures, Guidelines, Work Instructions, or other forms of Documented Information.)</i>
+                           <label for="requirements_not_fulfilled" class="form-label">Requirements Not Fulfilled: </label><small><i>(e.g., ISO 9001 Requirements, Statutory & Regulatory Requirements, Policies, Procedures, Guidelines, Work Instructions, or other forms of Documented Information.)</i></small>
                            <textarea class="form-control" id="requirements_not_fulfilled" rows="4"></textarea>
                         </div>
                      </div>
@@ -357,25 +358,26 @@
                      </div>
                      <div class="row mb-2">
                         <div class="form-group col-md-12">
-                           <label for="findings" class="form-label">Note: </label><i>Identification date may be different from the date when non-conformity happened. This can be after the validation or investigation that the nonconformity really exists. E.g. IQA closing meeting, Customer  Complaint/ Never Event Investigation, etc.</i>
+                           <label for="findings" class="form-label">Note: </label><small><i>Identification date may be different from the date when non-conformity happened. This can be after the validation or investigation that the nonconformity really exists. E.g. IQA closing meeting, Customer  Complaint/ Never Event Investigation, etc.</i></small>
                            
                         </div>
+                        <hr>
                      </div>
                      <div class="row mb-2">
                         <div class="form-group col-md-12">
-                           <label for="findings" class="form-label">Findings: </label><i>(Clear definition of nonconformity. Must state What, When, and Proof or Objective Evidence that the nonconformity exist E.g. Document, records, statement of facts, or observations)</i>
+                           <label for="findings" class="form-label">Findings: </label><small><i>(Clear definition of nonconformity. Must state What, When, and Proof or Objective Evidence that the nonconformity exist E.g. Document, records, statement of facts, or observations)</i></small>
                            <textarea class="form-control findings" rows="4" disabled></textarea>
                         </div>
                      </div>
                      <div class="row mb-2">
                         <div class="form-group col-md-12">
-                           <label for="consequences" class="form-label">Consequences: </label><i>(The result of effect of the nonconformance.)</i>
+                           <label for="consequences" class="form-label">Consequences: </label><small><i>(The result of effect of the nonconformance.)</i></small>
                            <textarea class="form-control consequences" rows="4" disabled></textarea>
                         </div>
                      </div>
                      <div class="row mb-2">
                         <div class="form-group col-md-12">
-                           <label for="requirements_not_fulfilled" class="form-label">Requirements Not Fulfilled: </label><i>(e.g., ISO 9001 Requirements, Statutory & Regulatory Requirements, Policies, Procedures, Guidelines, Work Instructions, or other forms of Documented Information.)</i>
+                           <label for="requirements_not_fulfilled" class="form-label">Requirements Not Fulfilled: </label><small><i>(e.g., ISO 9001 Requirements, Statutory & Regulatory Requirements, Policies, Procedures, Guidelines, Work Instructions, or other forms of Documented Information.)</i></small>
                            <textarea class="form-control requirements_not_fulfilled" rows="4" disabled></textarea>
                         </div>
                      </div>
