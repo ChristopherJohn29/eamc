@@ -20,6 +20,7 @@ class users extends CI_Controller {
 		$data['title'] = 'New Users';
         $data['customcss'] = 'new_users.css';
         $data['customjs'] = 'new_users.js';
+        $data['division'] =  $this->DivisionModel->getDivision();
 
 		$this->load->view('template/template', $data);
     }
