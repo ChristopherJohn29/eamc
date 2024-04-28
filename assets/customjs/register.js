@@ -217,6 +217,16 @@ var register = {
         jQuery('#password').on('keyup', function(){
             register.passwordChecker();
         });
+        
+        $('#checkbox-terms').change(function(){
+            register.passwordChecker();
+        });
+
+        $('#checkbox-privacy').change(function(){
+            register.passwordChecker();
+        });
+
+
     },
 
     passwordChecker: function (){
@@ -227,6 +237,8 @@ var register = {
         jQuery('#submit-register').attr('disabled',true);
 
         var password = $('#password').val();
+        var termsCheckbox = $('#checkbox-terms').prop('checked');
+        var privacyCheckbox = $('#checkbox-privacy').prop('checked');
 
         if (!/.{8,}/.test(password)) {
             $('#password').addClass('border-danger');
@@ -256,7 +268,8 @@ var register = {
         }
 
         passwordError.after(errorMessage);
-         if (isValid == false) {
+
+        if (isValid == false) {
 
             jQuery('.added-pass-error').remove();
             passwordErrorDiv.removeClass('hidden');
@@ -273,6 +286,17 @@ var register = {
             jQuery('#submit-register').attr('disabled',false);
         }
         
+
+        if (!termsCheckbox || !privacyCheckbox) {
+            isValid = false;
+        }
+
+        if (isValid == false) {
+            jQuery('#submit-register').attr('disabled',true);
+            
+        } else {
+            jQuery('#submit-register').attr('disabled',false);
+        }
 
     },
 

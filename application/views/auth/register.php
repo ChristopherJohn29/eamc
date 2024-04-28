@@ -19,6 +19,30 @@
       <link href="<?=base_url()?>assets/customcss/register.css" rel="stylesheet" type="text/css" />
    </head>
    <body class="authentication-bg authentication-bg-pattern">
+    <div id="terms" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="standard-modalLabel"></h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>iQMS USER REGISTRATION TERMS AND CONDITIONS</p>
+                    <ol>
+                        <li>Access to this website, maintained by the East Avenue Medical Center- Integrated Management Information System Section and Office for Strategy and Quality Management, is free to applicants applying for an access to online archiving and processing of documented information.</li>
+                        <li>Safeguard of the created and registered account username and password, which shall be used as reference for all transactions in this website, shall be the responsibility of the applicant.</li>
+                        <li>Correctness of the data encoded into the system must be assured by the applicant. Otherwise, corrections of data submitted can only be done by the administrators (IMISS and OSQM).</li>
+                        <li>Viewing of the status of the application can only be accessed by the concerned applicant.</li>
+                        <li>All entries shall be treated with utmost confidentiality and in accordance with the Data Privacy Act of 2012 (R.A. 10173).</li>
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+
       <div class="account-pages mt-5 mb-5">
          <div class="container">
             <div class="row justify-content-center">
@@ -258,6 +282,19 @@
                                  }
                               }
                            ?>
+
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="checkbox-terms">
+                                    <label class="form-check-label" for="checkbox-terms">I agree with the <a href="#" class="text-dark" data-bs-toggle="modal" data-bs-target="#terms">Terms and Conditions</a></label>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="checkbox-privacy">
+                                    <label class="form-check-label" for="checkbox-privacy">I agree with the <a href="#" class="text-dark">Privacy Policy</a></label>
+                                </div>
+                            </div>
 
                            </div>
                             
