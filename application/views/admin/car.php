@@ -820,7 +820,6 @@
                      <h3>Section 4: CORRECTIVE ACTIONS</h3>
                      <h5>4.1 Corrective Action - To address the cause of the nonconformity (NC) and prevent a recurence<br><br> Note:</h5>
                      <h6>1. Attach office memo/ order assigning person responsible and Standard Operating Procedures/Work Instruction if the corrective action involves Machine or equipment.</h6>
-                     <h6>2. For the TPN Matrix, all T(Total) can be addressed within the concerned areas, P(Partial) can be shared to the other offices who may have responsibility with the root cause, while N(No) shall be transferred to the idetified process owner. Sharing and transferring of root  cause shall be documented.</h6>
                      <div id="identified-root" class="mb-3 font-11">
                         <div class="col-lg-12 identified-root-repeatable">
                            <div class="card">
@@ -1228,7 +1227,6 @@
                      <h3>Section 4: CORRECTIVE ACTIONS</h3>
                      <h5>4.1 Corrective Action - To address the cause of the nonconformity (NC) and prevent a recurence<br><br> Note:</h5>
                      <h6>1. Attach office memo/ order assigning person responsible and Standard Operating Procedures/Work Instruction if the corrective action involves Machine or equipment.</h6>
-                     <h6>2. For the TPN Matrix, all T(Total) can be addressed within the concerned areas, P(Partial) can be shared to the other offices who may have responsibility with the root cause, while N(No) shall be transferred to the idetified process owner. Sharing and transferring of root  cause shall be documented.</h6>
                      <div id="identified-root_closing" class="mb-3 font-11">
                         
                      </div>

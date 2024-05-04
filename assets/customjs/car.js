@@ -2403,7 +2403,6 @@ var car = {
                         '<div class="form-group col-md-12">' +
                         '<label for="action_root_cause_analysis" class="form-label">Action and Root Cause Analysis</label>' +
                         '<select class="form-select action_root_cause_analysis" name="action_root_cause_analysis">' +
-                            '<option value="For Partial">For Partial</option>' +
                             '<option value="For OSQM Review">For OSQM Review</option>' +
                         '</select>' +
                         '</div>' +
@@ -2989,8 +2988,6 @@ var car = {
                                                                         <label class="form-label">TPN Control</label>
                                                                         <select class="form-select tpn-control" name="tpn_control[]">
                                                                             <option value="total">Total</option>
-                                                                            <option value="partial">Partial</option>
-                                                                            <option value="no">No</option>
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -3533,7 +3530,7 @@ var car = {
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-4 mb-1">
-                                                        <div class="form-group">
+                                                        <div class="form-group" style="display: none;>
                                                             <label for="issued_by" class="form-label">Issued By</label>
                                                             <input type="text" readonly class="form-control" name="" value="${issued_by}">
                                                             <input type="hidden" readonly class="form-control" name="tpn_issued_by[${count}]" value="${identifiedRoot.tpn_issued_by}">
@@ -3541,7 +3538,7 @@ var car = {
                                                         </div>
                                                         </div>
                                                         <div class="col-xl-4 mb-1">
-                                                            <div class="form-group">
+                                                            <div class="form-group" style="display: none;>
                                                                 <label for="issued_to" class="form-label">Issued To</label>
                                                                 <input type="text" readonly class="form-control" name="" value="${issued_to}">
                                                                 <input type="hidden" readonly class="form-control" name="tpn_issued_to[${count}]" value="${identifiedRoot.tpn_issued_to}">
@@ -3549,7 +3546,7 @@ var car = {
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-4 mb-1">
-                                                            <div class="form-group">
+                                                            <div class="form-group" style="display: none;>
                                                                 <label for="section" class="form-label">Section Unit</label>
                                                                 <input type="text" readonly class="form-control" name="" value="${section_name}">
                                                                 <input type="hidden" readonly class="form-control" name="section[${count}]" value="${identifiedRoot.section}">
@@ -4026,14 +4023,14 @@ var car = {
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4 mb-1">
-                                                    <div class="form-group">
+                                                    <div class="form-group" style="display: none;>
                                                             <label for="issued_by" class="form-label">Issued By</label>
                                                             <input type="text" readonly class="form-control" name="" value="${issued_by}">
                                                             <input type="hidden" readonly class="form-control" name="tpn_issued_by[${count}]" value="${identifiedRoot.tpn_issued_by}">
                                                             <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                         </div>
                                                         </div>
-                                                        <div class="col-xl-4 mb-1">
+                                                        <div class="col-xl-4 mb-1" >
                                                             <div class="form-group">
                                                                 <label for="issued_to" class="form-label">Issued To</label>
                                                                 <input type="text" readonly class="form-control" name="" value="${issued_to}">
@@ -4488,7 +4485,7 @@ var car = {
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-4 mb-1">
-                                                        <div class="form-group">
+                                                        <div class="form-group" style="display: none;>
                                                             <label for="issued_by" class="form-label">Issued By</label>
                                                             <input type="text" readonly class="form-control" name="" value="${issued_by}">
                                                             <input type="hidden" readonly class="form-control" name="tpn_issued_by[${count}]" value="${identifiedRoot.tpn_issued_by}">
@@ -4496,7 +4493,7 @@ var car = {
                                                         </div>
                                                         </div>
                                                         <div class="col-xl-4 mb-1">
-                                                            <div class="form-group">
+                                                            <div class="form-group" style="display: none;>
                                                                 <label for="issued_to" class="form-label">Issued To</label>
                                                                 <input type="text" readonly class="form-control" name="" value="${issued_to}">
                                                                 <input type="hidden" readonly class="form-control" name="tpn_issued_to[${count}]" value="${identifiedRoot.tpn_issued_to}">
@@ -4504,7 +4501,7 @@ var car = {
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-4 mb-1">
-                                                            <div class="form-group">
+                                                            <div class="form-group" style="display: none;>
                                                                 <label for="section" class="form-label">Section Unit</label>
                                                                 <input type="text" readonly class="form-control" name="" value="${section_name}">
                                                                 <input type="hidden" readonly class="form-control" name="section[${count}]" value="${identifiedRoot.section}">
@@ -5002,7 +4999,7 @@ var car = {
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-4 mb-1">
-                                                        <div class="form-group">
+                                                        <div class="form-group" style="display: none;>
                                                             <label for="issued_by" class="form-label">Issued By</label>
                                                             <input type="text" readonly class="form-control" name="" value="${issued_by}">
                                                             <input type="hidden" readonly class="form-control" name="tpn_issued_by[${count}]" value="${identifiedRoot.tpn_issued_by}">
@@ -5010,7 +5007,7 @@ var car = {
                                                         </div>
                                                         </div>
                                                         <div class="col-xl-4 mb-1">
-                                                            <div class="form-group">
+                                                            <div class="form-group" style="display: none;>
                                                                 <label for="issued_to" class="form-label">Issued To</label>
                                                                 <input type="text" readonly class="form-control" name="" value="${issued_to}">
                                                                 <input type="hidden" readonly class="form-control" name="tpn_issued_to[${count}]" value="${identifiedRoot.tpn_issued_to}">
@@ -5018,7 +5015,7 @@ var car = {
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-4 mb-1">
-                                                            <div class="form-group">
+                                                            <div class="form-group" style="display: none;>
                                                                 <label for="section" class="form-label">Section Unit</label>
                                                                 <input type="text" readonly class="form-control" name="" value="${section_name}">
                                                                 <input type="hidden" readonly class="form-control" name="section[${count}]" value="${identifiedRoot.section}">
@@ -5642,7 +5639,7 @@ var car = {
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-4 mb-1">
-                                                                <div class="form-group">
+                                                                <div class="form-group" style="display: none;>
                                                                     <label for="issued_by" class="form-label">Issued By</label>
                                                                     <input type="text" readonly class="form-control" name="" value="${issued_by}">
                                                                     <input type="hidden" readonly class="form-control" name="tpn_issued_by[${count}]" value="${identifiedRoot.tpn_issued_by}">
@@ -5650,7 +5647,7 @@ var car = {
                                                                 </div>
                                                                 </div>
                                                                 <div class="col-xl-4 mb-1">
-                                                                    <div class="form-group">
+                                                                    <div class="form-group" style="display: none;>
                                                                         <label for="issued_to" class="form-label">Issued To</label>
                                                                         <input type="text" readonly class="form-control" name="" value="${issued_to}">
                                                                         <input type="hidden" readonly class="form-control" name="tpn_issued_to[${count}]" value="${identifiedRoot.tpn_issued_to}">
@@ -5658,7 +5655,7 @@ var car = {
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-4 mb-1">
-                                                                    <div class="form-group">
+                                                                    <div class="form-group" style="display: none;>
                                                                         <label for="section" class="form-label">Section Unit</label>
                                                                         <input type="text" readonly class="form-control" name="" value="${section_name}">
                                                                         <input type="hidden" readonly class="form-control" name="section[${count}]" value="${identifiedRoot.section}">
@@ -6283,7 +6280,7 @@ var car = {
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-4 mb-1">
-                                                                <div class="form-group">
+                                                                <div class="form-group" style="display: none;>
                                                                     <label for="issued_by" class="form-label">Issued By</label>
                                                                     <input type="text" readonly class="form-control" name="" value="${issued_by}">
                                                                     <input type="hidden" readonly class="form-control" name="tpn_issued_by[${count}]" value="${identifiedRoot.tpn_issued_by}">
@@ -6291,7 +6288,7 @@ var car = {
                                                                 </div>
                                                                 </div>
                                                                 <div class="col-xl-4 mb-1">
-                                                                    <div class="form-group">
+                                                                    <div class="form-group" style="display: none;>
                                                                         <label for="issued_to" class="form-label">Issued To</label>
                                                                         <input type="text" readonly class="form-control" name="" value="${issued_to}">
                                                                         <input type="hidden" readonly class="form-control" name="tpn_issued_to[${count}]" value="${identifiedRoot.tpn_issued_to}">
@@ -6299,7 +6296,7 @@ var car = {
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-4 mb-1">
-                                                                    <div class="form-group">
+                                                                    <div class="form-group" style="display: none;>
                                                                         <label for="section" class="form-label">Section Unit</label>
                                                                         <input type="text" readonly class="form-control" name="" value="${section_name}">
                                                                         <input type="hidden" readonly class="form-control" name="section[${count}]" value="${identifiedRoot.section}">
