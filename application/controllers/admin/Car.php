@@ -11,6 +11,7 @@ class car extends CI_Controller {
         $this->load->model('SourceModel');
         $this->load->model('DivisionModel');
         $this->load->model('MainModel');
+        $this->load->model('UsersModel');
         $this->authentication->check_user_session();
         $this->role_checker->checkViewerRole();
     }
@@ -176,6 +177,65 @@ class car extends CI_Controller {
         
         if ($result) {
 
+            if($cardata['for_correction_status'] == 'For OSQM Review'){
+
+                $car = $this->MainModel->getCarByID($car_id);
+
+                $dco = $this->UsersModel->fetchUserByRole('osqm_dco');
+                $do = $this->UsersModel->fetchUserByRole('osqm_do');
+                
+                foreach( $dco as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 2: Correction is need for OSQM Review', 'CAR');
+                }
+
+                foreach( $do as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 2: Correction is need for OSQM Review', 'CAR');
+                }
+            } else if($cardata['for_correction_status'] == 'For Verification'){
+
+                $car = $this->MainModel->getCarByID($car_id);
+
+                $source = $car[0]['source'];
+
+                if($source == 1){
+                    $head = $this->UsersModel->fetchUserBySectAndRole('chair', 'internal_quality_audit');
+
+                    foreach( $head as $value){
+                        $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 2: Correction is need for Verfication', 'CAR');
+                    }
+                }
+
+                if($source == 2){
+                    $head = $this->UsersModel->fetchUserBySectAndRole('auditor', 'internal_quality_audit');
+
+                    foreach( $head as $value){
+                        $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 2: Correction is need for Verfication', 'CAR');
+                    }
+                }
+
+                if($source == 3 || $source == 4 || $source == 5 || $source == 6 || $source == 7){
+                    if($car[0]['section']){
+                        $head = $this->UsersModel->fetchUserByDeptSectAndRole('dqt_member', $car[0]['section']);
+                    } else if($car[0]['issued_to']){
+                        $head = $this->UsersModel->fetchUserByDeptAndRole('dqt_member', $car[0]['issued_to']);
+                    }
+
+                    foreach( $head as $value){
+                        $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 2: Correction is need for Verfication', 'CAR');
+                    }
+                }
+
+                if($source == 8){
+                    $head = $this->UsersModel->fetchUserBySectAndRole('chair', 'customer_satisfaction_committee');
+
+                    foreach( $head as $value){
+                        $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 2: Correction is need for Verfication', 'CAR');
+                    }
+                }
+
+
+            }
+
             $datahistory['car_id'] = $car_id;
             $datahistory['process'] = "Correction";
             $datahistory['status'] = $cardata['for_correction_status'];
@@ -219,13 +279,58 @@ class car extends CI_Controller {
         $cardata = array(
             'for_correction_status' => $closing_action,
             'corrective_action_status' => $closing_action,
-            'date_closed' => new DateTime()
+            'date_closed' => date('Y-m-d H:i:s')
         );
 
         $this->db->where('id', $car_id);
         $result = $this->db->update('car', $cardata);
         
         if ($result) {
+
+            $car = $this->MainModel->getCarByID($car_id);
+
+            if($closing_action == 'For Closure'){
+
+
+                $dco = $this->UsersModel->fetchUserByRole('osqm_dco');
+                $do = $this->UsersModel->fetchUserByRole('osqm_do');
+                
+                foreach( $dco as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') is closed', 'CAR');
+                }
+
+                foreach( $do as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') is closed', 'CAR');
+                }
+
+                $divchief = $this->UsersModel->fetchUserByDivAndRole('div_chief', $car[0]['issued_by']);
+
+                foreach( $divchief as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') is closed', 'CAR');
+                }
+
+                if($car[0]['section']){
+                    $head = $this->UsersModel->fetchUserByDeptSectAndRole('section_head', $car[0]['section']);
+                } else if($car[0]['issued_to']){
+                    $head = $this->UsersModel->fetchUserByDeptAndRole('department_head', $car[0]['issued_to']);
+                }
+
+                foreach( $head as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') is closed', 'CAR');
+                }
+            } else {
+                if($car[0]['section']){
+                    $head = $this->UsersModel->fetchUserByDeptSectAndRole('section_head', $car[0]['section']);
+                } else if($car[0]['issued_to']){
+                    $head = $this->UsersModel->fetchUserByDeptAndRole('department_head', $car[0]['issued_to']);
+                }
+
+                foreach( $head as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 2: Correction is for revision and need for action', 'CAR');
+                    $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 3&4: Corrective Action is for revision and need for action', 'CAR');
+                }
+            }
+
             echo 'saved';
         } else {
             echo 'error';
@@ -319,6 +424,29 @@ class car extends CI_Controller {
         $result = $this->db->update('car', $cardata);
         
         if ($result) {
+
+            if($cardata['for_correction_status'] == 'For Approval'){
+
+                $car = $this->MainModel->getCarByID($car_id);
+                $divchief = $this->UsersModel->fetchUserByDivAndRole('div_chief', $car[0]['issued_by']);
+
+                foreach( $divchief as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 2: Correction is need for Approval', 'CAR');
+                }
+            } else if($cardata['for_correction_status'] == 'For Revision'){
+
+                $car = $this->MainModel->getCarByID($car_id);
+
+                if($car[0]['section']){
+                    $head = $this->UsersModel->fetchUserByDeptSectAndRole('section_head', $car[0]['section']);
+                } else if($car[0]['issued_to']){
+                    $head = $this->UsersModel->fetchUserByDeptAndRole('department_head', $car[0]['issued_to']);
+                }
+
+                foreach( $head as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 2: Correction is for revision and need for action', 'CAR');
+                }
+            }
 
             $datahistory['car_id'] = $car_id;
             $datahistory['process'] = "Correction - For OSQM Review";
@@ -418,6 +546,35 @@ class car extends CI_Controller {
         
         if ($result) {
 
+            
+            if($cardata['for_correction_status'] == 'For Implementation'){
+
+                $car = $this->MainModel->getCarByID($car_id);
+                
+                if($car[0]['section']){
+                    $head = $this->UsersModel->fetchUserByDeptSectAndRole('section_head', $car[0]['section']);
+                } else if($car[0]['issued_to']){
+                    $head = $this->UsersModel->fetchUserByDeptAndRole('department_head', $car[0]['issued_to']);
+                }
+
+                foreach( $head as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 2: Correction is for Implementation', 'CAR');
+                }
+            } else if($cardata['for_correction_status'] == 'For Revision'){
+
+                $car = $this->MainModel->getCarByID($car_id);
+
+                if($car[0]['section']){
+                    $head = $this->UsersModel->fetchUserByDeptSectAndRole('section_head', $car[0]['section']);
+                } else if($car[0]['issued_to']){
+                    $head = $this->UsersModel->fetchUserByDeptAndRole('department_head', $car[0]['issued_to']);
+                }
+
+                foreach( $head as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 2: Correction is for revision and need for action', 'CAR');
+                }
+            }
+
             $datahistory['car_id'] = $car_id;
             $datahistory['process'] = "Correction - For Approval";
             $datahistory['status'] = $cardata['for_correction_status'];
@@ -447,6 +604,8 @@ class car extends CI_Controller {
         $correction_person_responsible = $this->input->post('correction_person_responsible');
         $correction_person_responsible_url = $this->input->post('correction_person_responsible_url');
         $correction_completion_date = $this->input->post('correction_completion_date');
+        $correction_acceptable_verification = $this->input->post('correction_acceptable_verification');
+        $correction_acceptable_remarks_verification = $this->input->post('correction_acceptable_remarks_verification');
 
     
         foreach($correction as $key => $value){
@@ -455,6 +614,8 @@ class car extends CI_Controller {
                 $correction_entry[$key]['correction_person_responsible'] = isset($correction_person_responsible[$key]) ? $correction_person_responsible[$key] : "";
                 $correction_entry[$key]['correction_person_responsible_url'] = isset($correction_person_responsible_url[$key]) ? $correction_person_responsible_url[$key] : "";
                 $correction_entry[$key]['correction_completion_date'] = isset($correction_completion_date[$key]) ? $correction_completion_date[$key] : "";
+                $correction_entry[$key]['correction_acceptable_verification'] = isset($correction_acceptable_verification[$key]) ? $correction_acceptable_verification[$key] : "";
+                $correction_entry[$key]['correction_acceptable_remarks_verification'] = isset($correction_acceptable_remarks_verification[$key]) ? $correction_acceptable_remarks_verification[$key] : "";
 
             }
             
@@ -471,7 +632,8 @@ class car extends CI_Controller {
         $consequence_person_responsible = $this->input->post('consequence_person_responsible');
         $consequence_person_responsible_url = $this->input->post('consequence_person_responsible_url');
         $consequence_completion_date = $this->input->post('consequence_completion_date');
-
+        $consequence_acceptable_verification = $this->input->post('consequence_acceptable_verification');
+        $consequence_acceptable_remarks_verification = $this->input->post('consequence_acceptable_remarks_verification');
 
     
         foreach($consequence as $key => $value){
@@ -480,6 +642,8 @@ class car extends CI_Controller {
                 $consequence_entry[$key]['consequence_person_responsible'] = isset($consequence_person_responsible[$key]) ? $consequence_person_responsible[$key] : "";
                 $consequence_entry[$key]['consequence_person_responsible_url'] = isset($consequence_person_responsible_url[$key]) ? $consequence_person_responsible_url[$key] : "";
                 $consequence_entry[$key]['consequence_completion_date'] = isset($consequence_completion_date[$key]) ? $consequence_completion_date[$key] : "";
+                $consequence_entry[$key]['consequence_acceptable_verification'] = isset($consequence_acceptable_verification[$key]) ? $consequence_acceptable_verification[$key] : "";
+                $consequence_entry[$key]['consequence_acceptable_remarks_verification'] = isset($consequence_acceptable_remarks_verification[$key]) ? $consequence_acceptable_remarks_verification[$key] : "";
 
             }
            
@@ -514,11 +678,33 @@ class car extends CI_Controller {
         
         if ($result) {
 
-            $datahistory['car_id'] = $car_id;
-            $datahistory['process'] = "Correction - For Verification";
-            $datahistory['status'] = $cardata['for_correction_status'];
-            $datahistory['remarks'] = $verification_correction_dealing_with_consequences_remarks;
-            $this->MainModel->saveHistory($datahistory);
+            $car = $this->MainModel->getCarByID($car_id);
+
+            if( $cardata['for_correction_status'] == 'For Validation'){
+                $head = $this->UsersModel->fetchUserBySectAndRole('lead_auditor', 'internal_quality_audit');
+
+                foreach( $head as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 2: Correction is need for Validation', 'CAR');
+                }
+    
+                $datahistory['car_id'] = $car_id;
+                $datahistory['process'] = "Correction - For Verification";
+                $datahistory['status'] = $cardata['for_correction_status'];
+                $datahistory['remarks'] = $verification_correction_dealing_with_consequences_remarks;
+                $this->MainModel->saveHistory($datahistory);
+            } else if($cardata['for_correction_status'] == 'For Revision'){
+                
+                $car = $this->MainModel->getCarByID($car_id);
+                if($car[0]['section']){
+                    $head = $this->UsersModel->fetchUserByDeptSectAndRole('section_head', $car[0]['section']);
+                } else if($car[0]['issued_to']){
+                    $head = $this->UsersModel->fetchUserByDeptAndRole('department_head', $car[0]['issued_to']);
+                }
+
+                foreach( $head as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 2: Correction is for revision and need for action', 'CAR');
+                }
+            }
 
 
             echo 'saved';
@@ -588,6 +774,29 @@ class car extends CI_Controller {
         $result = $this->db->update('car', $cardata);
         
         if ($result) {
+
+            if($cardata['for_correction_status'] == 'For Closure'){
+                $car = $this->MainModel->getCarByID($car_id);
+
+                $qmr = $this->UsersModel->fetchUserByRole('osqm_qmr');
+                
+                foreach( $qmr as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 2: Correction is for Closure', 'CAR');
+                }
+            }else if($cardata['for_correction_status'] == 'For Revision'){
+
+                $car = $this->MainModel->getCarByID($car_id);
+                if($car[0]['section']){
+                    $head = $this->UsersModel->fetchUserByDeptSectAndRole('section_head', $car[0]['section']);
+                } else if($car[0]['issued_to']){
+                    $head = $this->UsersModel->fetchUserByDeptAndRole('department_head', $car[0]['issued_to']);
+                }
+
+                foreach( $head as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 2: Correction is for revision and need for action', 'CAR');
+                }
+            }
+            
 
             $datahistory['car_id'] = $car_id;
             $datahistory['process'] = "Correction - For Validation";
@@ -842,6 +1051,76 @@ class car extends CI_Controller {
         
         if ($result) {
 
+
+            if($cardata['corrective_action_status'] == 'For OSQM Review'){
+
+                $car = $this->MainModel->getCarByID($car_id);
+
+                $dco = $this->UsersModel->fetchUserByRole('osqm_dco');
+                $do = $this->UsersModel->fetchUserByRole('osqm_do');
+                
+                foreach( $dco as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 3&4: Corrective Action is need for OSQM Review', 'CAR');
+                }
+
+                foreach( $do as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 3&4: Corrective Action is need for OSQM Review', 'CAR');
+                }
+            } else if($cardata['corrective_action_status'] == 'For Verification'){
+
+                $car = $this->MainModel->getCarByID($car_id);
+
+                $source = $car[0]['source'];
+
+                if($source == 1){
+                    $head = $this->UsersModel->fetchUserBySectAndRole('chair', 'internal_quality_audit');
+
+                    foreach( $head as $value){
+                        $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 3&4: Corrective Action is need for Verfication', 'CAR');
+                    }
+                }
+
+                if($source == 2){
+                    $head = $this->UsersModel->fetchUserBySectAndRole('auditor', 'internal_quality_audit');
+
+                    foreach( $head as $value){
+                        $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 3&4: Corrective Action is need for Verfication', 'CAR');
+                    }
+                }
+
+                if($source == 3 || $source == 4 || $source == 5 || $source == 6 || $source == 7){
+                    if($car[0]['section']){
+                        $head = $this->UsersModel->fetchUserByDeptSectAndRole('dqt_member', $car[0]['section']);
+                    } else if($car[0]['issued_to']){
+                        $head = $this->UsersModel->fetchUserByDeptAndRole('dqt_member', $car[0]['issued_to']);
+                    }
+
+                    foreach( $head as $value){
+                        $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 3&4: Corrective Action is need for Verfication', 'CAR');
+                    }
+                }
+
+                if($source == 8){
+                    $head = $this->UsersModel->fetchUserBySectAndRole('chair', 'customer_satisfaction_committee');
+
+                    foreach( $head as $value){
+                        $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 3&4: Corrective Action is need for Verfication', 'CAR');
+                    }
+                }
+
+
+            }else if($cardata['corrective_action_status'] == 'For Revision') {
+                if($car[0]['section']){
+                    $head = $this->UsersModel->fetchUserByDeptSectAndRole('section_head', $car[0]['section']);
+                } else if($car[0]['issued_to']){
+                    $head = $this->UsersModel->fetchUserByDeptAndRole('department_head', $car[0]['issued_to']);
+                }
+
+                foreach( $head as $value){
+                   $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 3&4: Corrective Action is for revision and need for action', 'CAR');
+                }
+            }
+
             $datahistory['car_id'] = $car_id;
             $datahistory['process'] = "Corrective Action";
             $datahistory['status'] = $cardata['corrective_action_status'];
@@ -1023,6 +1302,29 @@ class car extends CI_Controller {
         $result = $this->db->update('car', $cardata);
         
         if ($result) {
+
+            if($cardata['corrective_action_status'] == 'For Approval'){
+
+                $car = $this->MainModel->getCarByID($car_id);
+                $divchief = $this->UsersModel->fetchUserByDivAndRole('div_chief', $car[0]['issued_by']);
+
+                foreach( $divchief as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 3&4: Corrective Action is need for Approval', 'CAR');
+                }
+            }else if($cardata['corrective_action_status'] == 'For Revision') {
+
+                $car = $this->MainModel->getCarByID($car_id);
+
+                if($car[0]['section']){
+                    $head = $this->UsersModel->fetchUserByDeptSectAndRole('section_head', $car[0]['section']);
+                } else if($car[0]['issued_to']){
+                    $head = $this->UsersModel->fetchUserByDeptAndRole('department_head', $car[0]['issued_to']);
+                }
+
+                foreach( $head as $value){
+                   $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 3&4: Corrective Action is for revision and need for action', 'CAR');
+                }
+            }
 
             $datahistory['car_id'] = $car_id;
             $datahistory['process'] = "Corrective Action - For OSQM Review";
@@ -1245,6 +1547,34 @@ class car extends CI_Controller {
         
         if ($result) {
 
+            if($cardata['corrective_action_status'] == 'For Implementation'){
+
+                $car = $this->MainModel->getCarByID($car_id);
+                
+                if($car[0]['section']){
+                    $head = $this->UsersModel->fetchUserByDeptSectAndRole('section_head', $car[0]['section']);
+                } else if($car[0]['issued_to']){
+                    $head = $this->UsersModel->fetchUserByDeptAndRole('department_head', $car[0]['issued_to']);
+                }
+
+                foreach( $head as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 3&4: Corrective Action is for Implementation', 'CAR');
+                }
+            }else if($cardata['corrective_action_status'] == 'For Revision') {
+                
+                $car = $this->MainModel->getCarByID($car_id);
+
+                if($car[0]['section']){
+                    $head = $this->UsersModel->fetchUserByDeptSectAndRole('section_head', $car[0]['section']);
+                } else if($car[0]['issued_to']){
+                    $head = $this->UsersModel->fetchUserByDeptAndRole('department_head', $car[0]['issued_to']);
+                }
+
+                foreach( $head as $value){
+                   $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 3&4: Corrective Action is for revision and need for action', 'CAR');
+                }
+            }
+
             $datahistory['car_id'] = $car_id;
             $datahistory['process'] = "Corrective Action - For Approval";
             $datahistory['status'] = $cardata['corrective_action_status'];
@@ -1358,6 +1688,28 @@ class car extends CI_Controller {
         
         if ($result) {
 
+            if($cardata['corrective_action_status'] == 'For Validation'){
+                $car = $this->MainModel->getCarByID($car_id);
+                $head = $this->UsersModel->fetchUserBySectAndRole('lead_auditor', 'internal_quality_audit');
+    
+                foreach( $head as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 3&4: Corrective Action is need for Validation', 'CAR');
+                }
+            } else if($cardata['corrective_action_status'] == 'For Revision') {
+                
+                $car = $this->MainModel->getCarByID($car_id);
+
+                if($car[0]['section']){
+                    $head = $this->UsersModel->fetchUserByDeptSectAndRole('section_head', $car[0]['section']);
+                } else if($car[0]['issued_to']){
+                    $head = $this->UsersModel->fetchUserByDeptAndRole('department_head', $car[0]['issued_to']);
+                }
+
+                foreach( $head as $value){
+                   $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 3&4: Corrective Action is for revision and need for action', 'CAR');
+                }
+            }
+
             $datahistory['car_id'] = $car_id;
             $datahistory['process'] = "Corrective Action - For Verification";
             $datahistory['status'] = $cardata['corrective_action_status'];
@@ -1451,6 +1803,29 @@ class car extends CI_Controller {
         $result = $this->db->update('car', $cardata);
         
         if ($result) {
+
+            if($cardata['corrective_action_status'] == 'For Closure'){
+                $car = $this->MainModel->getCarByID($car_id);
+
+                $qmr = $this->UsersModel->fetchUserByRole('osqm_qmr');
+                
+                foreach( $qmr as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 3&4: Corrective Action is fo Closure', 'CAR');
+                }
+            } else if($cardata['corrective_action_status'] == 'For Revision') {
+                
+                $car = $this->MainModel->getCarByID($car_id);
+
+                if($car[0]['section']){
+                    $head = $this->UsersModel->fetchUserByDeptSectAndRole('section_head', $car[0]['section']);
+                } else if($car[0]['issued_to']){
+                    $head = $this->UsersModel->fetchUserByDeptAndRole('department_head', $car[0]['issued_to']);
+                }
+
+                foreach( $head as $value){
+                   $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') Sec 3&4: Corrective Action is for revision and need for action', 'CAR');
+                }
+            }
 
             $datahistory['car_id'] = $car_id;
             $datahistory['process'] = "Corrective Action - For Validation";
@@ -1560,7 +1935,7 @@ class car extends CI_Controller {
            if($issuance_of_nc == 'Approved'){
                 $status = 'For CAR action';
            } else {
-                $status = 'Dissapproved';
+                $status = 'Disapproved';
            }
            
            $data = array(
@@ -1568,7 +1943,7 @@ class car extends CI_Controller {
                'issuance_of_nc' => $issuance_of_nc,
                'issuance_of_nc_remarks' => $issuance_of_nc_remarks,
                'status' => $status,
-            //    'issued_by' => $issued_by,
+            //    'issued_by' => $issued_by,    
                'issued_to' => $issued_to,
                'section' => $section,
             //    'findings' => $findings,
@@ -1583,6 +1958,22 @@ class car extends CI_Controller {
            $result = $this->MainModel->updateCar($data);
    
            if ($result) {
+
+                if($status == 'For CAR action'){
+
+                    $car = $this->MainModel->getCarByID($car_id);
+
+                    if($car[0]['section']){
+                        $head = $this->UsersModel->fetchUserByDeptSectAndRole('section_head', $car[0]['section']);
+                    } else if($car[0]['issued_to']){
+                        $head = $this->UsersModel->fetchUserByDeptAndRole('department_head', $car[0]['issued_to']);
+                    }
+
+                    foreach( $head as $value){
+                        $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car[0]['car_no'].') is need for CAR Action', 'CAR');
+                    }
+                
+                }
 
                 $datahistory['car_id'] = $car_id;
                 $datahistory['process'] = "Issuance of NC";
@@ -1754,6 +2145,23 @@ class car extends CI_Controller {
         if ($result) {
 
             $car_id = $this->db->insert_id();
+
+            $car = $this->MainModel->getCarByID($car_id);
+            $dco = $this->UsersModel->fetchUserByRole('osqm_dco');
+            $do = $this->UsersModel->fetchUserByRole('osqm_do');
+            $divchief = $this->UsersModel->fetchUserByDivAndRole('div_chief', $car[0]['issued_by']);
+
+            foreach( $dco as $value){
+                $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car_no.') has been registered', 'CAR');
+            }
+
+            foreach( $do as $value){
+                $this->UsersModel->registerNotification($value['id'], 'CAR No. ('.$car_no.') has been registered', 'CAR');
+            }
+
+            foreach( $divchief as $value){
+                $this->UsersModel->registerNotification($value['id'], 'CAR No.('.$car_no.') is need for Issuance of NC', 'CAR');
+            }
 
             $datahistory['car_id'] = $car_id;
             $datahistory['process'] = "Register CAR";
