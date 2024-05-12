@@ -17,13 +17,15 @@ class dashboard extends CI_Controller {
 
 	public function index()
 	{
-		$data['page'] = 'admin/dashboard';
-		$data['title'] = 'Dashboard';
 
-		// $data['newuserlist'] = 'Dashboard';
-		// $data['approveduserlist'] = 'Dashboard';
-		// $data['carlist'] = 'Dashboard';
-		// $data['dilist'] = 'Dashboard';
-		$this->load->view('template/template', $data);
+		redirect('admin/car/car');
+		// $data['page'] = 'admin/dashboard';
+		// $data['title'] = 'Dashboard';
+
+		// // $data['newuserlist'] = 'Dashboard';
+		// // $data['approveduserlist'] = 'Dashboard';
+		// // $data['carlist'] = 'Dashboard';
+		// // $data['dilist'] = 'Dashboard';
+		// $this->load->view('template/template', $data);
 	}
 }

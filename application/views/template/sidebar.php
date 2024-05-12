@@ -1,11 +1,5 @@
 <li class="menu-title">Navigation</li>
 
-<li class="menu-item">
-    <a href="<?=base_url().'admin/dashboard'?>" class="menu-link">
-        <span class="menu-icon"><i data-feather="airplay"></i></span>
-        <span class="menu-text"> Dashboard </span>
-    </a>
-</li>
 
 <li class="menu-item">
     <a href="<?=base_url().'admin/car/car'?>" class="menu-link">
