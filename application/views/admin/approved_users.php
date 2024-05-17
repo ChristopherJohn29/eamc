@@ -48,7 +48,7 @@
                                     <div class="form-group col-md-6">
                                         <label class="form-label" for="email">Password</label>
                                         <div class="input-group input-group-merge">
-                                            <input type="password" id="password" class="form-control" placeholder="Password">
+                                            <input type="password" id="password" class="form-control" placeholder="Password" autocomplete="off">
                                             <div class="input-group-text" data-password="false">
                                                 <span class="password-eye"></span>
                                             </div>
