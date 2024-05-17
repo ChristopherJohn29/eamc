@@ -565,6 +565,7 @@ var newUsers = {
             var division_name = jQuery(this).data('division_name');
             var department_name = jQuery(this).data('department_name');
             var role_name = jQuery(this).data('role_name');
+            var password = '';
             
             jQuery('#user_id').val(id);
             jQuery('#firstName').val(firstname);
@@ -574,8 +575,8 @@ var newUsers = {
             jQuery('#postNominal').val(post_nominal);
             jQuery('#email').val(email);
             jQuery('#username').val(username);
+            jQuery('#password').val(password);
             jQuery('#mobileNumber').val(mobile_number);
-
             jQuery('#designation').val(designation);
             jQuery('#designation').trigger('change');
             
