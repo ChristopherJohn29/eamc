@@ -121,6 +121,7 @@ class users extends CI_Controller {
 
     public function deny(){
         $user_id = $_POST['user_id'];
+        $notes = $_POST['user_id'];
 
         $user = $this->UsersModel->get_user_by_id($user_id);
 
@@ -141,7 +142,7 @@ class users extends CI_Controller {
         $this->email->from('iqms-eamc@infoadvance.com.ph', 'IQMS EAMC');
         $this->email->to($user['email']); // User's email address
         $this->email->subject('Account Registration Denied');
-        $this->email->message("Dear " . $user['fullname'] . ",\n\nThank you for your interest in registering for an account with IQMS EAMC. We appreciate your effort in completing the registration process.\n\nAfter careful review, we regret to inform you that your account registration has been denied.\n\nWe understand this may be disappointing, and we want to assure you that our decision was made following a thorough evaluation of the information provided.\n\nIf you believe this decision was made in error or if you have additional information that may affect our decision, please feel free to reach out to our support team at iqms-eamc@infoadvance.com.ph. We are here to assist you and address any concerns you may have.\n\nThank you for your understanding.\n\nBest regards,\n\nIQMS EAMC\n\n---\n\nIf you need further assistance, please do not hesitate to contact us.\n\nKind regards,\nIQMS EAMC Support Team");
+        $this->email->message("Dear " . $user['fullname'] . ",\n\nThank you for your interest in registering for an account with IQMS EAMC. We appreciate your effort in completing the registration process.\n\nAfter careful review, we regret to inform you that your account registration has been denied.\n\nAdditional Notes:\n".$notes.".\n\nThank you for your understanding.\n\nBest regards,\n\nIQMS EAMC\n\n---\n\nIf you need further assistance, please do not hesitate to contact us.\n\nKind regards,\nIQMS EAMC Support Team");
         
         if ($this->email->send()) {
             if ($save) {

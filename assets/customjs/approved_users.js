@@ -33,40 +33,45 @@ var approvedUsers = {
         })(window.jQuery);
     },
 
-    denyInit: function(){
-        jQuery('#approved-users-datatable').on('click','.data-deny', function(){
-
+    denyInit: function() {
+        jQuery('#approved-users-datatable').on('click', '.data-deny', function() {
             var user_id = jQuery(this).data('id');
-
-            var result = confirm("This User is already approved, Are you sure you want to revoke approval on this User?");
-
+    
+            var result = confirm("This User is already approved. Are you sure you want to revoke approval for this User?");
+    
             // Check the result of the confirmation dialog
             if (result) {
-                // User clicked "OK," handle accordingly
-                $.ajax({
-                    type: 'POST',
-                    url: 'deny', // Replace 'MyController' with your controller name
-                    data: {user_id : user_id},
-                    success: function (response) {
-                        // Handle the response from the server
-                        if(response == 'saved'){
-                            approvedUsers.notifyDeny();
-                            approvedUsers.loadnewUsers();
-                        } else {
+                // Prompt the user for additional notes
+                var notes = prompt("Please enter any additional notes:");
+    
+                // If the user clicks "OK" on the prompt (notes can be an empty string)
+                if (notes !== null) {
+                    $.ajax({
+                        type: 'POST',
+                        url: 'deny', // Replace 'MyController' with your controller name if needed
+                        data: {
+                            user_id: user_id,
+                            notes: notes
+                        },
+                        success: function(response) {
+                            // Handle the response from the server
+                            if (response == 'saved') {
+                                approvedUsers.notifyDeny();
+                                approvedUsers.loadApprovedUsers();
+                            } else {
+                                approvedUsers.notifyError();
+                            }
+                        },
+                        error: function() {
+                            // Handle errors
                             approvedUsers.notifyError();
                         }
-                    },
-                    error: function () {
-                        // Handle errors
-                        approvedUsers.notifyError();
-                    }
-                });
-                // Add your logic to execute when the user confirms
-            } 
-                    
+                    });
+                }
+            }
         });
     },
-
+    
     loadApprovedUsers: function(){
         dataTable = $('#approved-users-datatable.dataTable');
 
