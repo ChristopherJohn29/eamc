@@ -139,7 +139,7 @@ var newUsers = {
     },
 
     denyInit: function() {
-        jQuery('#approved-users-datatable').on('click', '.data-deny', function() {
+        jQuery('#new-users-datatable').on('click', '.data-deny', function() {
             var user_id = jQuery(this).data('id');
     
             var result = confirm("Are you sure you want to deny approval for this User?");
