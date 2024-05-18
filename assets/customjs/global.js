@@ -151,7 +151,6 @@ jQuery(document).ready(function(){
 
         if (passwordFieldType === 'password') {
             passwordInput.attr('type', 'text');
-            passwordEye.addClass('show');
         } else {
             passwordInput.attr('type', 'password');
         }
