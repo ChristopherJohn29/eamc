@@ -49,7 +49,7 @@
                                         <label class="form-label" for="email">Password</label>
                                         <div class="input-group input-group-merge">
                                             <input type="password" id="password" value="" class="form-control password" placeholder="Password" autocomplete="new-password">
-                                            <div class="input-group-text" data-password="false">
+                                            <div class="input-group-text password-show" data-password="false">
                                                 <span class="password-eye"></span>
                                             </div>
                                         </div>
