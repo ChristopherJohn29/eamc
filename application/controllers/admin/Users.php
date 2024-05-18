@@ -121,7 +121,7 @@ class users extends CI_Controller {
 
     public function deny(){
         $user_id = $_POST['user_id'];
-        $notes = $_POST['user_id'];
+        $notes = $_POST['notes'];
 
         $user = $this->UsersModel->get_user_by_id($user_id);
 
@@ -144,6 +144,9 @@ class users extends CI_Controller {
         $this->email->subject('Account Registration Denied');
         $this->email->message("Dear " . $user['fullname'] . ",\n\nThank you for your interest in registering for an account with IQMS EAMC. We appreciate your effort in completing the registration process.\n\nAfter careful review, we regret to inform you that your account registration has been denied.\n\nAdditional Notes:\n".$notes.".\n\nThank you for your understanding.\n\nBest regards,\n\nIQMS EAMC\n\n---\n\nIf you need further assistance, please do not hesitate to contact us.\n\nKind regards,\nIQMS EAMC Support Team");
         
+
+        $save = $this->UsersModel->updateUserAndEmail($user_id);
+
         if ($this->email->send()) {
             if ($save) {
                 // Insertion successful

@@ -49,6 +49,14 @@ class UsersModel extends CI_Model {
         return $this->db->update('users', array('osqm_approved' => 2));
     }
 
+    public function updateUserAndEmail($id){
+        $email = uniqid().''.uniqid().'@gmail.com';
+        $username = uniqid().''.uniqid();
+
+        $this->db->where('id', $id);
+        return $this->db->update('users', array('email' =>  $email, 'username' => $username));
+    }
+
 
     public function approveUser($id){
         $this->db->where('id', $id);
