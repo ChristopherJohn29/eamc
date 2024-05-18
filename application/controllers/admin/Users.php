@@ -142,7 +142,7 @@ class users extends CI_Controller {
         $this->email->from('iqms-eamc@infoadvance.com.ph', 'IQMS EAMC');
         $this->email->to($user['email']); // User's email address
         $this->email->subject('Account Registration Denied');
-        $this->email->message("Dear " . $user['fullname'] . ",\n\nThank you for your interest in registering for an account with IQMS EAMC. We appreciate your effort in completing the registration process.\n\nAfter careful review, we regret to inform you that your account registration has been denied.\n\nAdditional Notes:\n".$notes.".\n\nThank you for your understanding.\n\nBest regards,\n\nIQMS EAMC\n\n---\n\nIf you need further assistance, please do not hesitate to contact us.\n\nKind regards,\nIQMS EAMC Support Team");
+        $this->email->message("Dear " . $user['fullname'] . ",\n\nThank you for your interest in registering for an account with IQMS EAMC. We appreciate your effort in completing the registration process.\n\nAfter careful review, we regret to inform you that your account registration has been denied.\n\nAdditional Notes:\n".$notes.".\n\nThank you for your understanding.\n\n---\n\nIf you need further assistance, please do not hesitate to contact us.\n\nKind regards,\nIQMS OSQM");
         
 
         $save = $this->UsersModel->updateUserAndEmail($user_id);
