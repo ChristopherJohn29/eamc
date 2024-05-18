@@ -2757,7 +2757,7 @@ var car = {
                                                                 <input type="date" readonly class="form-control" name="identified_root_completion_date[${count}]" value="${identifiedRoot.identified_root_completion_date}">
                                                             </div>
                                                         </div>
-                                                        <div class="col-xl-4 mb-1">
+                                                        <div class="col-xl-4 mb-1 hidden">
                                                         <div class="form-group">
                                                             <label for="issued_by" class="form-label">Issued By</label>
                                                             <input type="text" readonly class="form-control" name="" value="${issued_by}">
@@ -2765,7 +2765,7 @@ var car = {
                                                             <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                         </div>
                                                         </div>
-                                                        <div class="col-xl-4 mb-1">
+                                                        <div class="col-xl-4 mb-1 hidden">
                                                             <div class="form-group">
                                                                 <label for="issued_to" class="form-label">Issued To</label>
                                                                 <input type="text" readonly class="form-control" name="" value="${issued_to}">
@@ -2773,7 +2773,7 @@ var car = {
                                                                 <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                             </div>
                                                         </div>
-                                                        <div class="col-xl-4 mb-1">
+                                                        <div class="col-xl-4 mb-1 hidden">
                                                             <div class="form-group">
                                                                 <label for="section" class="form-label">Section Unit</label>
                                                                 <input type="text" readonly class="form-control" name="" value="${section_name}">
@@ -3004,7 +3004,7 @@ var car = {
                                                                         <input type="date" class="form-control" name="identified_root_completion_date[]" value="">
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-xl-4 mb-1">
+                                                                <div class="col-xl-4 mb-1 hidden">
                                                                 <div class="form-group" style="display: none;>
                                                                     <label for="issued_by" class="form-label">Issued By</label>
                                                                     <select class="form-select issued_by" name="tpn_issued_by[]">
@@ -3014,7 +3014,7 @@ var car = {
                                                                     <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                                 </div>
                                                                 </div>
-                                                                <div class="col-xl-4 mb-1">
+                                                                <div class="col-xl-4 mb-1 hidden">
                                                                     <div class="form-group" style="display: none;>
                                                                         <label for="issued_to" class="form-label">Issued To</label>
                                                                         <select class="form-select issued_to" name="tpn_issued_to[]">
@@ -3023,7 +3023,7 @@ var car = {
                                                                         <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-xl-4 mb-1">
+                                                                <div class="col-xl-4 mb-1 hidden">
                                                                     <div class="form-group" style="display: none;>
                                                                         <label for="section" class="form-label">Section Unit</label>
                                                                         <select class="form-select section"  name="tpn_section[]">
@@ -3529,7 +3529,7 @@ var car = {
                                                                 <input type="date" readonly class="form-control" name="identified_root_completion_date[${count}]" value="${identifiedRoot.identified_root_completion_date}">
                                                             </div>
                                                         </div>
-                                                        <div class="col-xl-4 mb-1">
+                                                        <div class="col-xl-4 mb-1 hidden">
                                                         <div class="form-group" style="display: none;>
                                                             <label for="issued_by" class="form-label">Issued By</label>
                                                             <input type="text" readonly class="form-control" name="" value="${issued_by}">
@@ -3537,7 +3537,7 @@ var car = {
                                                             <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                         </div>
                                                         </div>
-                                                        <div class="col-xl-4 mb-1">
+                                                        <div class="col-xl-4 mb-1 hidden">
                                                             <div class="form-group" style="display: none;>
                                                                 <label for="issued_to" class="form-label">Issued To</label>
                                                                 <input type="text" readonly class="form-control" name="" value="${issued_to}">
@@ -3545,7 +3545,7 @@ var car = {
                                                                 <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                             </div>
                                                         </div>
-                                                        <div class="col-xl-4 mb-1">
+                                                        <div class="col-xl-4 mb-1 hidden">
                                                             <div class="form-group" style="display: none;>
                                                                 <label for="section" class="form-label">Section Unit</label>
                                                                 <input type="text" readonly class="form-control" name="" value="${section_name}">
@@ -4022,15 +4022,15 @@ var car = {
                                                             <input type="date" readonly class="form-control" name="identified_root_completion_date[${count}]" value="${identifiedRoot.identified_root_completion_date}">
                                                         </div>
                                                     </div>
-                                                    <div class="col-xl-4 mb-1">
-                                                    <div class="form-group" style="display: none;>
+                                                         <div class="col-xl-4 mb-1 hidden">
+                                                        <div class="form-group" style="display: none;>
                                                             <label for="issued_by" class="form-label">Issued By</label>
                                                             <input type="text" readonly class="form-control" name="" value="${issued_by}">
                                                             <input type="hidden" readonly class="form-control" name="tpn_issued_by[${count}]" value="${identifiedRoot.tpn_issued_by}">
                                                             <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                         </div>
                                                         </div>
-                                                        <div class="col-xl-4 mb-1" >
+                                                        <div class="col-xl-4 mb-1 hidden" >
                                                             <div class="form-group">
                                                                 <label for="issued_to" class="form-label">Issued To</label>
                                                                 <input type="text" readonly class="form-control" name="" value="${issued_to}">
@@ -4038,7 +4038,7 @@ var car = {
                                                                 <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                             </div>
                                                         </div>
-                                                        <div class="col-xl-4 mb-1">
+                                                        <div class="col-xl-4 mb-1 hidden">
                                                             <div class="form-group">
                                                                 <label for="section" class="form-label">Section Unit</label>
                                                                 <input type="text" readonly class="form-control" name="" value="${section_name}">
@@ -4484,7 +4484,7 @@ var car = {
                                                                 <input type="date" readonly class="form-control" name="identified_root_completion_date[${count}]" value="${identifiedRoot.identified_root_completion_date}">
                                                             </div>
                                                         </div>
-                                                        <div class="col-xl-4 mb-1">
+                                                        <div class="col-xl-4 mb-1 hidden">
                                                         <div class="form-group" style="display: none;>
                                                             <label for="issued_by" class="form-label">Issued By</label>
                                                             <input type="text" readonly class="form-control" name="" value="${issued_by}">
@@ -4492,7 +4492,7 @@ var car = {
                                                             <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                         </div>
                                                         </div>
-                                                        <div class="col-xl-4 mb-1">
+                                                        <div class="col-xl-4 mb-1 hidden">
                                                             <div class="form-group" style="display: none;>
                                                                 <label for="issued_to" class="form-label">Issued To</label>
                                                                 <input type="text" readonly class="form-control" name="" value="${issued_to}">
@@ -4500,7 +4500,7 @@ var car = {
                                                                 <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                             </div>
                                                         </div>
-                                                        <div class="col-xl-4 mb-1">
+                                                        <div class="col-xl-4 mb-1 hidden">
                                                             <div class="form-group" style="display: none;>
                                                                 <label for="section" class="form-label">Section Unit</label>
                                                                 <input type="text" readonly class="form-control" name="" value="${section_name}">
@@ -4998,7 +4998,7 @@ var car = {
                                                                 <input type="date" readonly class="form-control" name="identified_root_completion_date[${count}]" value="${identifiedRoot.identified_root_completion_date}">
                                                             </div>
                                                         </div>
-                                                        <div class="col-xl-4 mb-1">
+                                                        <div class="col-xl-4 mb-1 hidden">
                                                         <div class="form-group" style="display: none;>
                                                             <label for="issued_by" class="form-label">Issued By</label>
                                                             <input type="text" readonly class="form-control" name="" value="${issued_by}">
@@ -5006,7 +5006,7 @@ var car = {
                                                             <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                         </div>
                                                         </div>
-                                                        <div class="col-xl-4 mb-1">
+                                                        <div class="col-xl-4 mb-1 hidden">
                                                             <div class="form-group" style="display: none;>
                                                                 <label for="issued_to" class="form-label">Issued To</label>
                                                                 <input type="text" readonly class="form-control" name="" value="${issued_to}">
@@ -5014,7 +5014,7 @@ var car = {
                                                                 <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                             </div>
                                                         </div>
-                                                        <div class="col-xl-4 mb-1">
+                                                        <div class="col-xl-4 mb-1 hidden">
                                                             <div class="form-group" style="display: none;>
                                                                 <label for="section" class="form-label">Section Unit</label>
                                                                 <input type="text" readonly class="form-control" name="" value="${section_name}">
@@ -5638,7 +5638,7 @@ var car = {
                                                                         <input type="date" readonly class="form-control" name="identified_root_completion_date[${count}]" value="${identifiedRoot.identified_root_completion_date}">
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-xl-4 mb-1">
+                                                                <div class="col-xl-4 mb-1 hidden">
                                                                 <div class="form-group" style="display: none;>
                                                                     <label for="issued_by" class="form-label">Issued By</label>
                                                                     <input type="text" readonly class="form-control" name="" value="${issued_by}">
@@ -5646,7 +5646,7 @@ var car = {
                                                                     <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                                 </div>
                                                                 </div>
-                                                                <div class="col-xl-4 mb-1">
+                                                                <div class="col-xl-4 mb-1 hidden">
                                                                     <div class="form-group" style="display: none;>
                                                                         <label for="issued_to" class="form-label">Issued To</label>
                                                                         <input type="text" readonly class="form-control" name="" value="${issued_to}">
@@ -5654,7 +5654,7 @@ var car = {
                                                                         <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-xl-4 mb-1">
+                                                                <div class="col-xl-4 mb-1 hidden">
                                                                     <div class="form-group" style="display: none;>
                                                                         <label for="section" class="form-label">Section Unit</label>
                                                                         <input type="text" readonly class="form-control" name="" value="${section_name}">
@@ -6279,7 +6279,7 @@ var car = {
                                                                         <input type="date" readonly class="form-control" name="identified_root_completion_date[${count}]" value="${identifiedRoot.identified_root_completion_date}">
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-xl-4 mb-1">
+                                                                <div class="col-xl-4 mb-1 hidden">
                                                                 <div class="form-group" style="display: none;>
                                                                     <label for="issued_by" class="form-label">Issued By</label>
                                                                     <input type="text" readonly class="form-control" name="" value="${issued_by}">
@@ -6287,7 +6287,7 @@ var car = {
                                                                     <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                                 </div>
                                                                 </div>
-                                                                <div class="col-xl-4 mb-1">
+                                                                <div class="col-xl-4 mb-1 hidden">
                                                                     <div class="form-group" style="display: none;>
                                                                         <label for="issued_to" class="form-label">Issued To</label>
                                                                         <input type="text" readonly class="form-control" name="" value="${issued_to}">
@@ -6295,7 +6295,7 @@ var car = {
                                                                         <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-xl-4 mb-1">
+                                                                <div class="col-xl-4 mb-1 hidden">
                                                                     <div class="form-group" style="display: none;>
                                                                         <label for="section" class="form-label">Section Unit</label>
                                                                         <input type="text" readonly class="form-control" name="" value="${section_name}">
