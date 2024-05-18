@@ -78,35 +78,7 @@
                      <!-- App Dropdown -->
                      <!-- Language flag dropdown  -->
                      <!-- Notofication dropdown -->
-                     <li class="dropdown notification-list">
-                        <a class="nav-link dropdown-toggle waves-effect waves-light arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                        <i class="fe-bell font-22"></i>
-                        <span class="badge bg-danger rounded-circle noti-icon-badge notification-number"></span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end">
-                           <div class="p-2 border-top-0 border-start-0 border-end-0 border-dashed border mb-2">
-                              <div class="row align-items-center">
-                                 <div class="col">
-                                    <h6 class="m-0 font-16 fw-semibold"> Notification</h6>
-                                 </div>
-                                 <div class="col-auto">
-                                    <a href="#" class="text-dark text-decoration-underline clear-notification">
-                                    <small>Clear All</small>
-                                    </a>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="px-1 notification-div" style="max-height: 300px; min-width: 300px; overflow-y: scroll;">
-                              <!-- item-->
-                              
-                              <!-- item-->
-                              <div class="text-center">
-                                 <i class="mdi mdi-dots-circle mdi-spin text-muted h3 mt-0"></i>
-                              </div>
-                           </div>
-                           <!-- All-->
-                        </div>
-                     </li>
+                
                      <!-- Light/Dark Mode Toggle Button -->
                      <li class="d-none d-sm-inline-block">
                         <div class="nav-link waves-effect waves-light" id="light-dark-mode">
