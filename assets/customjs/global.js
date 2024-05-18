@@ -144,4 +144,18 @@ jQuery(document).ready(function(){
     global.viewNotif();
     global.clearNotif();
     global.deleteNotif();
+
+    $('.password-eye').on('click', function() {
+        var passwordInput = $('#password');
+        var passwordEye = $(this);
+        var passwordFieldType = passwordInput.attr('type');
+
+        if (passwordFieldType === 'password') {
+            passwordInput.attr('type', 'text');
+            passwordEye.addClass('show');
+        } else {
+            passwordInput.attr('type', 'password');
+            passwordEye.removeClass('show');
+        }
+    });
 });
