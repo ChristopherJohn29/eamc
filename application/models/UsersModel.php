@@ -115,7 +115,7 @@ class UsersModel extends CI_Model {
             'message' => $message,
             'module' => $module,
             'status' => 2,
-            'date_published' => date('Y-m-d')
+            'date_published' => date('Y-m-d H:i:s')
         ];
         
         $this->db->insert('notification', $data);
