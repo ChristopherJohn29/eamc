@@ -422,7 +422,7 @@
                            </div>
                         </div>
 
-                        <div id="identified-root" class="mb-3 font-11">
+                        <div id="identified-root" class="mb-3 ">
                            <div class="col-lg-12 identified-root-repeatable">
                               <div class="card">
                                  <div class="card-body">

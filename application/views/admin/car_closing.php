@@ -741,7 +741,7 @@
                            <button type="button" class="btn btn-primary left" id="add-rootcause">Add Rootcause</button>
                         </div>
 
-                        <div id="identified-root" class="mb-3 font-11">
+                        <div id="identified-root" class="mb-3 ">
                            <div class="col-lg-12 identified-root-repeatable">
                               <div class="card">
                                  <div class="card-body">
@@ -959,7 +959,7 @@
                         </div>
 
 
-                        <div id="identified-root-review" class="mb-3 font-11">
+                        <div id="identified-root-review" class="mb-3 ">
                            
                         </div>   
 
@@ -1098,7 +1098,7 @@
                         </div>
 
 
-                        <div id="identified-root-approval" class="mb-3 font-11">
+                        <div id="identified-root-approval" class="mb-3 ">
                            
                         </div>   
 
@@ -1272,7 +1272,7 @@
                         </div>
 
 
-                        <div id="identified-root-verification" class="mb-3 font-11">
+                        <div id="identified-root-verification" class="mb-3 ">
                            <div class="col-lg-12 identified-root-repeatable">
                               <div class="card">
                                  <div class="card-body">
@@ -1540,7 +1540,7 @@
                         </div>
 
 
-                        <div id="identified-root-validation" class="mb-3 font-11">
+                        <div id="identified-root-validation" class="mb-3 ">
                            <div class="col-lg-12 identified-root-repeatable">
                               <div class="card">
                                  <div class="card-body">
