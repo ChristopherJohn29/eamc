@@ -68,9 +68,12 @@ var global = {
 
     viewNotif: function(){
         jQuery('.notification-list').click(function(){
+            
+            base = jQuery('#wrapper').data('base_url');
+
             $.ajax({
                 type: 'POST',
-                url: 'Users/readNotification', // Replace 'MyController' with your controller name
+                url: base+'/admin/Users/readNotification', // Replace 'MyController' with your controller name
                 data: {},
                 success: function (response) {
                     // Handle the response from the server
@@ -90,11 +93,13 @@ var global = {
 
     deleteNotif: function(){
         jQuery('.notification-div').on('click','.notif-close', function(){
+            base = jQuery('#wrapper').data('base_url');
+
             var id = jQuery(this).data('id');
 
             $.ajax({
                 type: 'POST',
-                url: 'Users/deleteNotification', // Replace 'MyController' with your controller name
+                url: base+'/admin/Users/deleteNotification', // Replace 'MyController' with your controller name
                 data: {id:id},
                 success: function (response) {
                     // Handle the response from the server
@@ -117,9 +122,11 @@ var global = {
 
     clearNotif: function(){
         jQuery('.clear-notification').click(function(){
+
+            base = jQuery('#wrapper').data('base_url');
             $.ajax({
                 type: 'POST',
-                url: 'Users/clearNotification', // Replace 'MyController' with your controller name
+                url: base+'/admin/Users/clearNotification', // Replace 'MyController' with your controller name
                 data: {},
                 success: function (response) {
                     // Handle the response from the server
