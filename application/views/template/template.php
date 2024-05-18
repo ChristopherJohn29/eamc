@@ -130,7 +130,7 @@
                                  </div>
                               </div>
                            </div>
-                           <div class="px-1 notification-div" style="max-height: 300px; min-width: 300px;">
+                           <div class="px-1 notification-div" style="max-height: 300px; min-width: 300px; overflow-y: scroll;">
                               <!-- item-->
                               
                               <!-- item-->
