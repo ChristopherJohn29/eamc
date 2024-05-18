@@ -132,6 +132,7 @@ var global = {
                     // Handle the response from the server
                     if(response == 'saved'){
                         jQuery('.notification-number').html("");
+                        jQuery('.notification-div').html("");
                     } else {
                        
                     }
