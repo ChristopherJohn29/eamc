@@ -23,8 +23,8 @@ var global = {
                         if(module == 'DCM'){
                             url = '/admin/documentedinformation';
                         } else if(module == 'CAR'){
-                            url = '/car/car';
-                        }
+                            url = '/admin/car/car';
+                        }  
 
                         var html = '<a href="#" data-url="'+url+'" class="dropdown-item p-0 notify-item card unread-noti shadow-none mb-1">' +
                         '<div class="card-body">' +
