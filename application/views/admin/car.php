@@ -820,7 +820,7 @@
                      <h3>Section 4: CORRECTIVE ACTIONS</h3>
                      <h5>4.1 Corrective Action - To address the cause of the nonconformity (NC) and prevent a recurence<br><br> Note:</h5>
                      <h6>1. Attach office memo/ order assigning person responsible and Standard Operating Procedures/Work Instruction if the corrective action involves Machine or equipment.</h6>
-                     <div id="identified-root" class="mb-3 font-11">
+                     <div id="identified-root" class="mb-3">
                         <div class="col-lg-12 identified-root-repeatable">
                            <div class="card">
                               <div class="card-body">
@@ -1227,7 +1227,7 @@
                      <h3>Section 4: CORRECTIVE ACTIONS</h3>
                      <h5>4.1 Corrective Action - To address the cause of the nonconformity (NC) and prevent a recurence<br><br> Note:</h5>
                      <h6>1. Attach office memo/ order assigning person responsible and Standard Operating Procedures/Work Instruction if the corrective action involves Machine or equipment.</h6>
-                     <div id="identified-root_closing" class="mb-3 font-11">
+                     <div id="identified-root_closing" class="mb-3">
                         
                      </div>
                      <h5>4.2 Update Risk Registry(Please attached updated Risk Registry)</h5>
