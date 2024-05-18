@@ -599,9 +599,6 @@ jQuery(document).ready(function(){
     approvedUsers.username();
     approvedUsers.divisionOnChange();
 
-    $('.password-show').on('click', function() {
 
-        $('#password').attr('type', 'text');
-    });
 
 });

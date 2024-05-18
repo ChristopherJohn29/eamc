@@ -145,5 +145,15 @@ jQuery(document).ready(function(){
     global.clearNotif();
     global.deleteNotif();
 
-    
+    $('.password-show').on('click', function() {
+        var passwordInput = $('#password');
+        var passwordFieldType = passwordInput.attr('type');
+
+        if (passwordFieldType === 'password') {
+            passwordInput.attr('type', 'text');
+            passwordEye.addClass('show');
+        } else {
+            passwordInput.attr('type', 'password');
+        }
+    });
 });
