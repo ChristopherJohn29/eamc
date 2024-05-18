@@ -599,7 +599,7 @@ jQuery(document).ready(function(){
     approvedUsers.username();
     approvedUsers.divisionOnChange();
 
-    $('.password-eye').on('click', function() {
+    $('.password-show').on('click', function() {
 
         $('#password').attr('type', 'text');
     });
