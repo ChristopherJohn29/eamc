@@ -142,7 +142,7 @@ var newUsers = {
         jQuery('#new-users-datatable').on('click', '.data-deny', function() {
             var user_id = jQuery(this).data('id');
     
-            var result = confirm("Are you sure you want to deny approval for this User?");
+            var result = confirm("Are you sure you want to proceed denying this User?");
     
             // Check the result of the confirmation dialog
             if (result) {
@@ -161,15 +161,15 @@ var newUsers = {
                         success: function(response) {
                             // Handle the response from the server
                             if (response == 'saved') {
-                                approvedUsers.notifyDeny();
-                                approvedUsers.loadnewUsers();
+                                newUsers.notifyDeny();
+                                newUsers.loadnewUsers();
                             } else {
-                                approvedUsers.notifyError();
+                                newUsers.notifyError();
                             }
                         },
                         error: function() {
                             // Handle errors
-                            approvedUsers.notifyError();
+                            newUsers.notifyError();
                         }
                     });
                 }
