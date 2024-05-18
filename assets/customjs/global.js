@@ -146,7 +146,7 @@ jQuery(document).ready(function(){
     global.deleteNotif();
 
     $('.password-eye').on('click', function() {
-        var passwordInput = $('#password');
+        var passwordInput = $('.password');
         var passwordEye = $(this);
         var passwordFieldType = passwordInput.attr('type');
 
