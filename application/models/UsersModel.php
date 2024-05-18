@@ -128,6 +128,7 @@ class UsersModel extends CI_Model {
         $this->db->from('notification');
         $this->db->where('user_id', $this->session->userdata('user_id'));
         $this->db->where('status !=', 0);
+        $this->db->order_by('id', 'DESC');
     
         $query = $this->db->get();
     
