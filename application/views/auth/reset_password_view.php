@@ -34,7 +34,7 @@
                            </div>
                            <p class="text-muted mb-4 mt-3">Enter your new password to access admin panel.</p>
                         </div>
-                        <form action="<?=base_url().'auth/forgotpass/update_password'?>" id="login">
+                        <form action="<?=base_url().'auth/ForgotPass/update_password'?>" id="login">
                            <input class="form-control" type="hidden" id="token" value="<?=$token?>">
                            <div class="mb-3">
                               <label for="password" class="form-label">Password</label>

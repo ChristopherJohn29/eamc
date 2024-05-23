@@ -68,7 +68,7 @@
                   <!-- end card -->
                   <div class="row mt-3">
                      <div class="col-12 text-center">
-                        <p> <a href="<?=base_url().'auth/forgotpass'?>" class="text-white-50 ms-1">Forgot your password?</a></p>
+                        <p> <a href="<?=base_url().'auth/ForgotPass'?>" class="text-white-50 ms-1">Forgot your password?</a></p>
                         <p class="text-white-50">Don't have an account? <a href="<?=base_url().'auth/register'?>" class="text-white ms-1"><b>Sign Up</b></a></p>
                      </div>
                      <!-- end col -->

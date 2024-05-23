@@ -55,7 +55,7 @@ class forgotpass extends CI_Controller {
                     $token = bin2hex(random_bytes(50));
                     $this->User_model->store_reset_token($user->id, $token);
 
-                    $reset_link = base_url() . "auth/reset_password/" . $token;
+                    $reset_link = base_url() . "auth/ForgotPass/reset_password/" . $token;
                     $message = "Click here to reset your password: " . $reset_link;
                     
                     $config = array(
