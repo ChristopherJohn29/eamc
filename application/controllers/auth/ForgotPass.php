@@ -127,9 +127,9 @@ class forgotpass extends CI_Controller {
 
         if ($user_id) {
             $this->LoginModel->update_password($user_id, $new_password);
-            echo "Your password has been updated.";
+            echo "saved";
         } else {
-            echo "Failed to update password.";
+            echo "error";
         }
     }
 

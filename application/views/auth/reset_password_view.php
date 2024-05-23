@@ -34,7 +34,8 @@
                            </div>
                            <p class="text-muted mb-4 mt-3">Enter your new password to access admin panel.</p>
                         </div>
-                        <form action="<?=base_url().'auth/ForgotPass/update_password'?>" id="login">
+                        <form action="<?=base_url().'auth/ForgotPass/update_password'?>" id="reset">
+                           <input class="form-control" type="hidden" id="redirect" value="<?=$redirect?>">
                            <input class="form-control" type="hidden" id="token" value="<?=$token?>">
                            <div class="mb-3">
                               <label for="password" class="form-label">Password</label>
@@ -48,7 +49,7 @@
                            </div>
   
                            <div class="text-center d-grid">
-                              <button class="btn btn-primary" type="submit"> Submit </button>
+                              <button class="btn btn-primary" type="submit" id="reset-submit"> Submit </button>
                            </div>
                         </form>
                      </div>
