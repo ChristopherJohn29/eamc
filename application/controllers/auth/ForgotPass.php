@@ -46,9 +46,9 @@ class forgotpass extends CI_Controller {
 
 		if($checkcreds){
 
-			$checkDCO = $this->LoginModel->checkDCO($email, $password);
+			$checkDCO = $this->LoginModel->checkDCOEmail($email);
 			if($checkDCO){
-				$checkEmail = $this->LoginModel->checkEmail($email, $password);
+				$checkEmail = $this->LoginModel->checkEmailEmail($email);
 
 				if($checkEmail){
 					
