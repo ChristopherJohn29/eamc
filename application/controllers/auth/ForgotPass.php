@@ -71,7 +71,7 @@ class forgotpass extends CI_Controller {
                 
                     $this->load->library('email', $config); // Load email library
                     $this->email->from('iqms-eamc@infoadvance.com.ph', 'IQMS EAMC');
-                    $this->email->to($user['email']); // User's email address
+                    $this->email->to($user->email); // User's email address
                     $this->email->subject('Password Reset Request');
                     $this->email->message($message);
         
