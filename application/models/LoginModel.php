@@ -136,6 +136,6 @@ class LoginModel extends CI_Model {
 
     public function update_password($user_id, $new_password) {
         $this->db->where('id', $user_id);
-        $this->db->update('users', ['password' => $new_password]);
+        $this->db->update('users', ['password' => $new_password, 'reset_password_token' => '']);
     }
 }
