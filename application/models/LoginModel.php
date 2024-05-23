@@ -119,7 +119,7 @@ class LoginModel extends CI_Model {
 
     public function store_reset_token($user_id, $token) {
      
-        $this->db->where('user_id', $user_id);
+        $this->db->where('id', $user_id);
 
         return $this->db->update('users', array('reset_password_token' => $token));
     }
