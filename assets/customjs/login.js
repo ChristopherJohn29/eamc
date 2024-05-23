@@ -82,7 +82,7 @@ var login = {
             if (login.validateFormReset()) {
                 var password = jQuery('#password').val();
                 var token = jQuery('#token').val();
-                var action = jQuery(this).attr('action');
+                var action = jQuery('#reset-submit').attr('action');
 
                 $.ajax({
                     type: 'POST',
