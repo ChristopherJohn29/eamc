@@ -181,7 +181,7 @@ var login = {
         }
         
     
-        if (!(lengthCheck && numberCheck && symbolCheck && !usernameCheck)) {
+        if (!(lengthCheck && numberCheck && symbolCheck)) {
     
             jQuery('.added-pass-error').remove();
             passwordErrorDiv.removeClass('hidden');
