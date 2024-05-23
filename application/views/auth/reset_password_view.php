@@ -45,9 +45,9 @@
                                     <span class="password-eye"></span>
                                  </div>
                               </div>
-                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                              <ul class="parsley-errors-list filled hidden" id="password-error"><li class="parsley-required" id="password-error-text"></li></ul>
                            </div>
-  
+
                            <div class="text-center d-grid">
                               <button class="btn btn-primary" type="submit" id="reset-submit"> Submit </button>
                            </div>
