@@ -125,7 +125,7 @@ class LoginModel extends CI_Model {
     }
 
     public function get_user_id_by_token($token) {
-        $reset = $this->db->get_where('users', ['token' => $token])->row();
+        $reset = $this->db->get_where('users', ['reset_password_token' => $token])->row();
 
         if ($reset) {
             return $reset->user_id;
