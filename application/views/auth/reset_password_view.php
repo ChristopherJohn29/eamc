@@ -32,15 +32,10 @@
                                  <h2>IQMS</h2>
                               </span>
                            </div>
-                           <p class="text-muted mb-4 mt-3">Enter your email address and password to access admin panel.</p>
+                           <p class="text-muted mb-4 mt-3">Enter your new password to access admin panel.</p>
                         </div>
-                        <form action="#" id="login">
-                           <input class="form-control" type="hidden" id="redirect" value="<?=$redirect?>">
-                           <div class="mb-3">
-                              <label for="emailaddress" class="form-label">Username or Email address</label>
-                              <input class="form-control" type="text" id="email" required="" placeholder="Enter your email">
-                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
-                           </div>
+                        <form action="<?=base_url().'auth/forgotpass/update_password'?>" id="login">
+                           <input class="form-control" type="hidden" id="token" value="<?=$token?>">
                            <div class="mb-3">
                               <label for="password" class="form-label">Password</label>
                               <div class="input-group input-group-merge">
@@ -51,28 +46,15 @@
                               </div>
                               <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                            </div>
-                           <ul class="parsley-errors-list filled mb-3 hidden login-error"><li class="parsley-required">Incorrect Username or Password</li></ul>
-                           <div class="mb-3">
-                              <div class="form-check">
-                                 <input type="checkbox" class="form-check-input" id="checkbox-signin" checked>
-                                 <label class="form-check-label" for="checkbox-signin">Remember me</label>
-                              </div>
-                           </div>
+  
                            <div class="text-center d-grid">
-                              <button class="btn btn-primary" type="submit" id="login-submit"> Log In </button>
+                              <button class="btn btn-primary" type="submit"> Submit </button>
                            </div>
                         </form>
                      </div>
                      <!-- end card-body -->
                   </div>
                   <!-- end card -->
-                  <div class="row mt-3">
-                     <div class="col-12 text-center">
-                        <p> <a href="<?=base_url().'auth/forgotpass'?>" class="text-white-50 ms-1">Forgot your password?</a></p>
-                        <p class="text-white-50">Don't have an account? <a href="<?=base_url().'auth/register'?>" class="text-white ms-1"><b>Sign Up</b></a></p>
-                     </div>
-                     <!-- end col -->
-                  </div>
                   <!-- end row -->
                </div>
                <!-- end col -->
