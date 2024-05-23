@@ -54,7 +54,7 @@ class forgotpass extends CI_Controller {
 				if($checkEmail){
 					
                     $token = bin2hex(random_bytes(50));
-                    $this->User_model->store_reset_token($user->id, $token);
+                    $this->LoginModel->store_reset_token($user->id, $token);
 
                     $reset_link = base_url() . "auth/ForgotPass/reset_password/" . $token;
                     $message = "Click here to reset your password: " . $reset_link;
@@ -97,7 +97,7 @@ class forgotpass extends CI_Controller {
 	}
 
     public function reset_password($token) {
-        $user_id = $this->User_model->get_user_id_by_token($token);
+        $user_id = $this->LoginModel->get_user_id_by_token($token);
 
         if ($user_id) {
             $this->load->view('reset_password_view', ['token' => $token]);
@@ -124,10 +124,10 @@ class forgotpass extends CI_Controller {
         $token = $this->input->post('token');
         $new_password = md5($this->input->post('password'));
 
-        $user_id = $this->User_model->get_user_id_by_token($token);
+        $user_id = $this->LoginModel->get_user_id_by_token($token);
 
         if ($user_id) {
-            $this->User_model->update_password($user_id, $new_password);
+            $this->LoginModel->update_password($user_id, $new_password);
             echo "Your password has been updated.";
         } else {
             echo "Failed to update password.";
