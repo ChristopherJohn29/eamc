@@ -99,7 +99,7 @@ class forgotpass extends CI_Controller {
         $user_id = $this->LoginModel->get_user_id_by_token($token);
 
         if ($user_id) {
-            $this->load->view('reset_password_view', ['token' => $token]);
+            $this->load->view('auth/reset_password_view', ['token' => $token]);
         } else {
             echo "Invalid token.";
         }
