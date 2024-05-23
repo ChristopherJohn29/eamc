@@ -42,7 +42,7 @@ class forgotpass extends CI_Controller {
 	public function reset(){
 		$email = $_POST['email'];
 
-		$checkcreds = $this->LoginModel->checkCredsEmail($email);
+		$user = $this->LoginModel->checkCredsEmail($email);
 
 		if($user){
 
