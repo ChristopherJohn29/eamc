@@ -85,7 +85,7 @@ var login = {
                 $.ajax({
                     type: 'POST',
                     url: 'ForgotPass/reset', // Replace 'MyController' with your controller name
-                    data: { email: email },
+                    data: { password: password },
                     success: function (response) {
                         // Handle the response from the server
                         if(response == 'saved'){
