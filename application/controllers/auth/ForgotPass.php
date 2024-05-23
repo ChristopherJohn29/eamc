@@ -29,10 +29,10 @@ class forgotpass extends CI_Controller {
 				) {
 					$data['redirect'] = $referer;
 				} else {
-					$data['redirect'] = base_url().'admin/login';
+					$data['redirect'] = base_url().'auth/login';
 				}
 			} else {
-				$data['redirect'] = base_url().'admin/login';
+				$data['redirect'] = base_url().'auth/login';
 			}
 		}
 
