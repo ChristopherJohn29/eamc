@@ -180,12 +180,6 @@ var login = {
             isValid = false;
         }
         
-        // Username check
-        if (username === password) {
-            errorMessage += '<ul class="added-pass-error parsley-errors-list filled"><li class="parsley-required">Password should not be the same as the username. </li></ul>';
-            isValid = false;
-        }
-        
     
         if (!(lengthCheck && numberCheck && symbolCheck && !usernameCheck)) {
     
