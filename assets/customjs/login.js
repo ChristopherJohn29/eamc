@@ -84,6 +84,7 @@ var login = {
                 var token = jQuery('#token').val();
                 var action = jQuery('#reset').attr('action');
 
+                console.log(action);
                 $.ajax({
                     type: 'POST',
                     url: action, // Replace 'MyController' with your controller name
