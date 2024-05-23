@@ -11,6 +11,7 @@ class forgotpass extends CI_Controller {
 		$this->load->model('DocumentTypeModel');
 		$this->load->model('DivisionModel');
 		$this->load->model('DepartmentModel');
+        $this->load->model('User_model');
     }
 
 	public function index()
