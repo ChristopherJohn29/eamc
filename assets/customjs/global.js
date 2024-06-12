@@ -218,11 +218,97 @@ var global = {
         
 
     },
+    validateForm : function (){
+        var isValid = true;
+    
+        // Check required fields
+        $("#register-profile [required]").each(function () {
+          if ($(this).val() === "") {
+            $(this).addClass('parsley-error');
+            isValid = false;
+            $(this).next('.parsley-errors-list').removeClass('hidden');
+            $(this).next('.parsley-errors-list').find('.parsley-required').text('This field is required');
+            // You can customize error handling here, for example, displaying an error message.
+          } else {
+            $(this).removeClass('parsley-error');
+            $(this).next('.parsley-errors-list').addClass('hidden');
+            $(this).next('.parsley-errors-list').find('.parsley-required').text('');
+          }
+        });
+    
+        // Password validation
+        var password = $('#password-profile-profile').val();
+        var passwordErrorDiv = $('#password-error-profile');
+        var passwordError = $('#password-error-text-profile');
+        var lengthCheck = /.{8,}/.test(password);
+        var numberCheck = /\d/.test(password);
+        var symbolCheck = /[=?<>@#$*!]/.test(password);
+        var usernameCheck = (username === password);
+        var errorMessage = '';
+
+        if(password != ''){
+            if (!/.{8,}/.test(password)) {
+                errorMessage += '<ul class="added-pass-error parsley-errors-list filled"><li class="parsley-required">Password must be at least 8 characters.  </li></ul>';
+                isValid = false;
+            }
+            
+            // Number check
+            if (!/\d/.test(password)) {
+                errorMessage += '<ul class="added-pass-error parsley-errors-list filled"><li class="parsley-required">Password must contain at least 1 number. </li></ul>';
+                isValid = false;
+            }
+            
+            // Symbol check
+            if (!/[=?<>@#$*!]/.test(password)) {
+                errorMessage += '<ul class="added-pass-error parsley-errors-list filled"><li class="parsley-required">Password must contain at least 1 symbol. </li></ul>';
+                isValid = false;
+            }
+            
+           
+            
+        
+            if (!(lengthCheck && numberCheck && symbolCheck && !usernameCheck)) {
+        
+                jQuery('.added-pass-error').remove();
+                passwordErrorDiv.removeClass('hidden');
+                passwordError.text('Invalid password format');
+                passwordError.after(errorMessage);
+                $('#password-profile').addClass('parsley-error');
+                isValid = false;
+                
+            } else {
+                passwordErrorDiv.addClass('hidden');
+                passwordError.text('');
+                jQuery('.added-pass-error').remove();
+                $('#password-profile').removeClass('parsley-error');
+            }
+        } else {
+                passwordErrorDiv.addClass('hidden');
+                passwordError.text('');
+                jQuery('.added-pass-error').remove();
+                $('#password-profile').removeClass('parsley-error');
+        }
+    
+        
+        
+
+    
+        // Mobile number validation
+        var mobileNumber = $('#mobileNumber-profile').val();
+        if (mobileNumber.length < 11) {
+            $('#mobileNumber-profile').addClass('parsley-error');
+            isValid = false;
+        } else {
+            $('#mobileNumber-profile').removeClass('parsley-error');
+        }
+        
+        return isValid;
+    },
     submitForm: function(){
         jQuery('#submit-register-profile').click(function(e){
             e.preventDefault();
             
-            if (approvedUsers.validateForm()) {
+            if (global.validateForm()) {
                 var url = jQuery('#base_url_profile_save').val();
                 var id = jQuery('#user_id-profile').val();
                 var firstName = jQuery('#firstName-profile').val();

@@ -199,7 +199,7 @@
                </div>
                <div class="modal-body">
 
-               <form action="#" class="register-form" id="register" >
+               <form action="#" class="register-form" id="register-profile" >
                   <input type="hidden" id="base_url_profile_save" value="<?=base_url().'/admin/Users/updateProfile'?>">
                   <input type="hidden" id="user_id-profile" value="<?=$this->session->userdata('user_id');?>">
                   
