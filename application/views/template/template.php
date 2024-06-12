@@ -232,7 +232,7 @@
                                 <div class="row mb-2">
                                     <div class="form-group col-md-6">
                                         <label class="form-label" for="mobileNumber">Mobile Number</label>
-                                        <input type="tel" class="form-control" id="mobileNumber-profile-profile" min="11" placeholder="09123456789" required value="<?=$this->session->userdata('mobile_number');?>">
+                                        <input type="tel" class="form-control" id="mobileNumber-profile" min="11" placeholder="09123456789" required value="<?=$this->session->userdata('mobile_number');?>">
                                         <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                     </div>
                                     <div class="form-group col-md-6">
