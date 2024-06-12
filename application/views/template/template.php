@@ -194,54 +194,54 @@
          <div class="modal-dialog modal-xl">
             <div class="modal-content">
                <div class="modal-header">
-                  <h4 class="modal-title" id="standard-modalLabel">Update User</h4>
+                  <h4 class="modal-title" id="standard-modalLabel">User Profile</h4>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                </div>
                <div class="modal-body">
 
                <form action="#" class="register-form" id="register" >
-                  <input type="hidden" id="user_id" value="">
+                  <input type="hidden" id="user_id-profile" value="">
                             <div class="row">
                                 <div class="row mb-2">
                                     <div class="form-group col-md-3">
                                         <label class="form-label" for="firstName">First Name</label>
-                                        <input type="text" class="form-control" id="firstName" placeholder="John" required>
+                                        <input type="text" class="form-control" id="firstName-profile" placeholder="John" required value="<?=$this->session->userdata('firstname');?>">
                                         <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label class="form-label" for="middleInitial">Middle Name</label>
-                                        <input type="text" class="form-control" id="middleName" placeholder="Cruz">
+                                        <input type="text" class="form-control" id="middleName-profile" placeholder="Cruz" value="<?=$this->session->userdata('middlename');?>">
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label class="form-label" for="lastName">Last Name</label>
-                                        <input type="text" class="form-control" id="lastName" placeholder="Doe" required>
+                                        <input type="text" class="form-control" id="lastName-profile" placeholder="Doe" required value="<?=$this->session->userdata('lastname');?>">
                                         <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label class="form-label" for="suffix">Suffix</label>
-                                        <input type="text" class="form-control" id="suffix" placeholder="Jr.">
+                                        <input type="text" class="form-control" id="suffix-profile" placeholder="Jr." value="<?=$this->session->userdata('suffix');?>">
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label class="form-label" for="postNominal">Post Nominal</label>
-                                        <input type="text" class="form-control" id="postNominal" placeholder="MD">
+                                        <input type="text" class="form-control" id="postNominal-profile" placeholder="MD"  value="<?=$this->session->userdata('post_nominal');?>">
                                         <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                     </div>
                                 </div>
                                 <div class="row mb-2">
                                     <div class="form-group col-md-6">
                                         <label class="form-label" for="mobileNumber">Mobile Number</label>
-                                        <input type="tel" class="form-control" id="mobileNumber" min="11" placeholder="09123456789" required>
+                                        <input type="tel" class="form-control" id="mobileNumber-profile-profile" min="11" placeholder="09123456789" required value="<?=$this->session->userdata('mobile_number');?>">
                                         <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="form-label" for="email">Password</label>
                                         <div class="input-group input-group-merge">
-                                            <input type="password" id="password" value="" class="form-control password" placeholder="Password" autocomplete="new-password">
+                                            <input type="password" id="password-profile" value="" class="form-control password" placeholder="Password" autocomplete="new-password">
                                             <div class="input-group-text password-show" data-password="false">
                                                 <span class="password-eye"></span>
                                             </div>
                                         </div>
-                                        <ul class="parsley-errors-list filled hidden" id="password-error"><li class="parsley-required" id="password-error-text"></li></ul>
+                                        <ul class="parsley-errors-list filled hidden" id="password-error-profile"><li class="parsley-required" id="password-error-text-profile"></li></ul>
                                     </div>
                                     
                                 </div>
@@ -249,7 +249,7 @@
                        
                             <div class="row col-md-12 mb-4 mt-3">
                               <div class="text-center d-grid">
-                                 <button class="btn btn-success" type="submit" id="submit-register"> Update </button>
+                                 <button class="btn btn-success" type="submit" id="submit-register-profile"> Update </button>
                               </div>
                             </div>
 

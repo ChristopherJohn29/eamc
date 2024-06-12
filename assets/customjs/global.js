@@ -143,7 +143,81 @@ var global = {
                 }
             });
         });
-    }
+    },
+
+    passwordChange: function(){
+        // jQuery('#submit-register').attr('disabled',true);
+        jQuery('#password-profile').on('keyup', function(){
+            approvedUsers.passwordChecker();
+        });
+    },
+
+    passwordChecker: function (){
+        var isValid = true;
+        var passwordErrorDiv = $('#password-error-profile');
+        var passwordError = $('#password-error-text-profile');
+
+        jQuery('#submit-register-profile').attr('disabled',true);
+
+        var password = $('#password-profile').val();
+
+        if(password != ''){
+            if (!/.{8,}/.test(password)) {
+                $('#password-profile').addClass('border-danger');
+                errorMessage = '<ul class="added-pass-error parsley-errors-list filled"><li class="parsley-required">Password must be at least 8 characters.  </li></ul>';
+                isValid = false;
+            }
+            
+            // Number check
+            if (!/\d/.test(password)) {
+                $('#password-profile').addClass('border-danger');
+                errorMessage = '<ul class="added-pass-error parsley-errors-list filled"><li class="parsley-required">Password must contain at least 1 number. </li></ul>';
+                isValid = false;
+            }
+            
+            // Symbol check
+            if (!/[=?<>@#$*!]/.test(password)) {
+                $('#password-profile').addClass('border-danger');
+                errorMessage = '<ul class="added-pass-error parsley-errors-list filled"><li class="parsley-required">Password must contain at least 1 symbol. </li></ul>';
+                isValid = false;
+            }
+            
+            // Username check
+            if (username === password) {
+                $('#password-profile').addClass('border-danger');
+                errorMessage = '<ul class="added-pass-error parsley-errors-list filled"><li class="parsley-required">Password should not be the same as the username. </li></ul>';
+                isValid = false;
+            }
+    
+            passwordError.after(errorMessage);
+             if (isValid == false) {
+    
+                jQuery('.added-pass-error').remove();
+                passwordErrorDiv.removeClass('hidden');
+                passwordError.after(errorMessage);
+                $('#password-profile').addClass('parsley-error');
+                isValid = false;
+                
+            } else {
+                passwordErrorDiv.addClass('hidden');
+                passwordError.text('');
+                jQuery('.added-pass-error').remove();
+                $('#password-profile').removeClass('parsley-error');
+                $('#password-profile').removeClass('border-danger');
+                jQuery('#submit-register-profile').attr('disabled',false);
+            }
+        } else {
+            passwordErrorDiv.addClass('hidden');
+            passwordError.text('');
+            jQuery('.added-pass-error').remove();
+            $('#password-profile').removeClass('parsley-error');
+            $('#password-profile').removeClass('border-danger');
+            jQuery('#submit-register-profile').attr('disabled',false);
+        }
+        
+        
+
+    },
 }
 
 jQuery(document).ready(function(){

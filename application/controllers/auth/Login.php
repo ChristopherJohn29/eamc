@@ -54,6 +54,12 @@ class login extends CI_Controller {
 				if($checkEmail){
 					$this->session->set_userdata('user_id', $checkEmail->id);
 					$this->session->set_userdata('firstname', $checkEmail->firstname);
+					$this->session->set_userdata('middlename', $checkEmail->middlename);
+					$this->session->set_userdata('lastname', $checkEmail->lastname);
+					$this->session->set_userdata('suffix', $checkEmail->suffix);
+					$this->session->set_userdata('post_nominal', $checkEmail->post_nominal);
+					$this->session->set_userdata('mobile_number', $checkEmail->mobile_number);
+
 					$this->session->set_userdata('department', $checkEmail->department);
 					$this->session->set_userdata('division', $checkEmail->division);
 					$this->session->set_userdata('section', $checkEmail->section);
