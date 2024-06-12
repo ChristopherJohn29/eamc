@@ -8,6 +8,21 @@ class Role_checker {
         $this->CI->load->model('Role_model');
     }
 
+    public function higherRole(){
+        $requiredRoles = array(
+            'designation' => 'division',
+            'role' => ['osqm_dco', 'osqm_staff'],
+        );
+
+        if($this->checkRole($requiredRoles)){
+
+        } elseif($this->CI->session->userdata('role') == 'super_admin'){
+
+        } else {
+            redirect('admin/dashboard');
+        }
+    }
+
     public function checkRole($requiredRoles) {
         $userId = $this->CI->session->userdata('user_id');
         if ($userId) {

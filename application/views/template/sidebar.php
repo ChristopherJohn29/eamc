@@ -241,7 +241,7 @@ $requiredRoles = array(
     'role' => ['osqm_dco', 'osqm_staff'],
 );
 
-if ($this->role_checker->checkRole($requiredRoles)) {
+if ($this->role_checker->checkRole($requiredRoles) || $this->session->userdata('role') == 'super_admin') {
 ?>
 <li class="menu-item">
     <a href="#menuMasterFile" data-bs-toggle="collapse" class="menu-link">

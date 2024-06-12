@@ -14,6 +14,7 @@ class section extends CI_Controller {
 
 	public function index()
 	{
+        $this->role_checker->higherRole();
         $this->role_checker->checkViewerRole();
 		$data['page'] = 'admin/section';
 		$data['title'] = 'Section';

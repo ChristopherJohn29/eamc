@@ -14,6 +14,7 @@ class documenttype extends CI_Controller {
 
 	public function index()
 	{
+        $this->role_checker->higherRole();
         $this->role_checker->checkViewerRole();
 		$data['page'] = 'admin/document_type';
 		$data['title'] = 'Document Type';
