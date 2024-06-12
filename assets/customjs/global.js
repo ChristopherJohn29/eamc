@@ -237,7 +237,7 @@ var global = {
         });
     
         // Password validation
-        var password = $('#password-profile-profile').val();
+        var password = $('#password-profile').val();
         var passwordErrorDiv = $('#password-error-profile');
         var passwordError = $('#password-error-text-profile');
         var lengthCheck = /.{8,}/.test(password);
