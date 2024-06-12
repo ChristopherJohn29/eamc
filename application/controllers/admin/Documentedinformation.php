@@ -53,6 +53,11 @@ class documentedinformation extends CI_Controller {
         } else {
             $documentedInformation =  $this->DocumentedInformationModel->getDocumentedInformationList();
         }
+        
+        if($this->session->userdata('role') == 'super_admin'){
+            $documentedInformation =  $this->DocumentedInformationModel->getDocumentedInformationListAdmin();
+        }
+        
 
         echo json_encode($documentedInformation);
     }
