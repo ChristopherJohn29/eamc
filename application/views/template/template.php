@@ -200,7 +200,9 @@
                <div class="modal-body">
 
                <form action="#" class="register-form" id="register" >
-                  <input type="hidden" id="user_id-profile" value="">
+                  <input type="hidden" id="base_url_profile_save" value="<?=base_url().'/admin/Users/updateProfile'?>">
+                  <input type="hidden" id="user_id-profile" value="<?=$this->session->userdata('user_id');?>">
+                  
                             <div class="row">
                                 <div class="row mb-2">
                                     <div class="form-group col-md-3">

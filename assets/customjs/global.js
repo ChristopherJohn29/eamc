@@ -218,6 +218,58 @@ var global = {
         
 
     },
+    submitForm: function(){
+        jQuery('#submit-register-profile').click(function(e){
+            e.preventDefault();
+            
+            if (approvedUsers.validateForm()) {
+                var url = jQuery('#base_url_profile_save').val();
+                var id = jQuery('#user_id-profile').val();
+                var firstName = jQuery('#firstName-profile').val();
+                var middleName = jQuery('#middleName-profile').val();
+                var lastName = jQuery('#lastName-profile').val();
+                var suffix = jQuery('#suffix-profile').val();
+                var postNominal = jQuery('#postNominal-profile').val();
+                var password = jQuery('#password-profile').val();
+                var mobileNumber = jQuery('#mobileNumber-profile').val();
+
+    
+                $data = {
+                    id : id,
+                    firstname : firstName,
+                    middlename : middleName,
+                    lastname : lastName,
+                    suffix : suffix,
+                    post_nominal : postNominal,
+                    password : password,
+                    mobile_number : mobileNumber,
+                };
+
+                console.log($data);
+
+                $.ajax({
+                    type: 'POST',
+                    url: url, // Replace 'MyController' with your controller name
+                    data: $data,
+                    success: function (response) {
+                        // Handle the response from the server
+                        if(response == 'saved'){
+                            alert('Update successfully');
+                            $('.parsley-error').removeClass('parsley-error');
+                            $('.parsley-errors-list').addClass('hidden');
+
+
+                        } else {
+                            // alert('Username or Email already exist');
+                        }
+                    },
+                    error: function () {
+                        // Handle errors
+                    }
+                });
+            }
+        });
+    },
 }
 
 jQuery(document).ready(function(){
@@ -226,6 +278,8 @@ jQuery(document).ready(function(){
     global.viewNotif();
     global.clearNotif();
     global.deleteNotif();
+    global.passwordChange();
+    global.submitForm();
 
     $('.password-show').on('click', function() {
         var passwordInput = $('#password');

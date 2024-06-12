@@ -70,6 +70,39 @@ class users extends CI_Controller {
         }
 	}
 
+    public function updateProfile(){
+
+		$data = [
+            'id' => $_POST['id'],
+			'firstname' => $_POST['firstname'],
+			'middlename' => $_POST['middlename'],
+			'lastname' => $_POST['lastname'],
+			'suffix' => $_POST['suffix'],
+			'post_nominal' => $_POST['post_nominal'],
+			'mobile_number' => $_POST['mobile_number'],
+			'fullname' => $_POST['firstname'].' '.$_POST['lastname']
+		];
+
+        if($_POST['password']){
+            $data['password'] = md5($_POST['password']);
+        }
+
+		$update_result = $this->RegisterModel->saveUser($data);
+
+		if($update_result){
+            $this->session->set_userdata('firstname', $_POST['firstname']);
+            $this->session->set_userdata('middlename', $_POST['middlename']);
+            $this->session->set_userdata('lastname', $_POST['lastname']);
+            $this->session->set_userdata('suffix', $_POST['suffix']);
+            $this->session->set_userdata('post_nominal', $_POST['post_nominal']);
+            $this->session->set_userdata('mobile_number', $_POST['mobile_number']);
+
+			echo "saved";
+		} else {
+            echo "error";
+        }
+	}
+
     public function getNewUsers(){
         $newUsers =  $this->UsersModel->getNewUsers();
 
