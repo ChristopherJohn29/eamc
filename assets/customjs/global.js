@@ -343,7 +343,7 @@ var global = {
                             $('.parsley-error').removeClass('parsley-error');
                             $('.parsley-errors-list').addClass('hidden');
 
-
+                            $('#update-user-profile').modal('hide');
                         } else {
                             // alert('Username or Email already exist');
                         }
