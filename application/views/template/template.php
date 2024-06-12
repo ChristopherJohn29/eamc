@@ -229,8 +229,8 @@
                                 </div>
                                 <div class="row mb-2">
                                     <div class="form-group col-md-6">
-                                        <label class="form-label" for="firstName">Username</label>
-                                        <input type="text" class="form-control" id="username" placeholder="JCDOE" required>
+                                        <label class="form-label" for="mobileNumber">Mobile Number</label>
+                                        <input type="tel" class="form-control" id="mobileNumber" min="11" placeholder="09123456789" required>
                                         <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                     </div>
                                     <div class="form-group col-md-6">
@@ -243,18 +243,7 @@
                                         </div>
                                         <ul class="parsley-errors-list filled hidden" id="password-error"><li class="parsley-required" id="password-error-text"></li></ul>
                                     </div>
-                                </div>
-                                <div class="row mb-2">
-                                    <div class="form-group col-md-6">
-                                        <label class="form-label" for="email">Email Address</label>
-                                        <input type="email" class="form-control" id="email" placeholder="johncruzdoe@gmail.com" required>
-                                        <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label class="form-label" for="mobileNumber">Mobile Number</label>
-                                        <input type="tel" class="form-control" id="mobileNumber" min="11" placeholder="09123456789" required>
-                                        <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
-                                    </div>
+                                    
                                 </div>
                             </div>
                        
