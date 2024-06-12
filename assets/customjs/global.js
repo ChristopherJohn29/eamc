@@ -243,7 +243,6 @@ var global = {
         var lengthCheck = /.{8,}/.test(password);
         var numberCheck = /\d/.test(password);
         var symbolCheck = /[=?<>@#$*!]/.test(password);
-        var usernameCheck = (username === password);
         var errorMessage = '';
 
         if(password != ''){
