@@ -57,6 +57,7 @@ var newUsers = {
                         var department = item.department;
                         var role = item.role;
                         var department_section = item.department_section;
+                        var department_section_name = item.department_section_name;
                         var division_name = item.div_name ? item.div_name :'';
                         var department_name = item.dep_name ? item.dep_name : '';
                         var role_name = item.role_name ? item.role_name : '';
@@ -80,7 +81,7 @@ var newUsers = {
                                         "data-division='"+division+"' ";
                         
                         var updateUser = "<button type='button' data-bs-toggle='modal' "+data_html+" data-bs-target='#update-user' title='Update User'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' class='btn btn-sm btn-success waves-effect waves-light data-update' data-id='"+id+"'><i class='fa fa-file'></i></button>"; 
-                        var html = "<tr><td>" + fullname + "</td><td>" + username + "</td><td>" + email + "</td><td>" + mobile_number + "</td><td>" + designation + "</td><td>" + division_name + "</td><td>" + section + "</td><td>" + department_name + "</td><td>" + role_name + "</td><td>"+updateUser+" <button type='button' title='Approve User'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' class='btn btn-sm btn-success waves-effect waves-light data-approve' data-id='"+id+"'><i class='mdi mdi-check'></i></button><button title='Deny'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-danger waves-effect waves-light data-deny' data-id='"+id+"'><i class='mdi mdi-close'></i></button></td></tr>";
+                        var html = "<tr><td>" + fullname + "</td><td>" + username + "</td><td>" + email + "</td><td>" + mobile_number + "</td><td>" + designation + "</td><td>" + division_name + "</td><td>" + department_name + "</td><td>" + department_section_name + "</td><td>" + role_name + "</td><td>"+updateUser+" <button type='button' title='Approve User'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' class='btn btn-sm btn-success waves-effect waves-light data-approve' data-id='"+id+"'><i class='mdi mdi-check'></i></button><button title='Deny'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-danger waves-effect waves-light data-deny' data-id='"+id+"'><i class='mdi mdi-close'></i></button></td></tr>";
                         // Do something with the data, for example, display it on the page
                         $('#new-users-datatable tbody').append(html);
 

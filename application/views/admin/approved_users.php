@@ -281,8 +281,8 @@
                            <th>Mobile Number</th>
                            <th>Designation</th>
                            <th>Division</th>
-                           <th>Section</th>
                            <th>Department</th>
+                           <th>Section</th>
                            <th>Role</th>
                            <th>Action</th>
                         </tr>
