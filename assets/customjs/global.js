@@ -148,7 +148,7 @@ var global = {
     passwordChange: function(){
         // jQuery('#submit-register').attr('disabled',true);
         jQuery('#password-profile').on('keyup', function(){
-            approvedUsers.passwordChecker();
+            global.passwordChecker();
         });
     },
 
@@ -182,12 +182,6 @@ var global = {
                 isValid = false;
             }
             
-            // Username check
-            if (username === password) {
-                $('#password-profile').addClass('border-danger');
-                errorMessage = '<ul class="added-pass-error parsley-errors-list filled"><li class="parsley-required">Password should not be the same as the username. </li></ul>';
-                isValid = false;
-            }
     
             passwordError.after(errorMessage);
              if (isValid == false) {
@@ -266,7 +260,7 @@ var global = {
            
             
         
-            if (!(lengthCheck && numberCheck && symbolCheck && !usernameCheck)) {
+            if (!(lengthCheck && numberCheck && symbolCheck)) {
         
                 jQuery('.added-pass-error').remove();
                 passwordErrorDiv.removeClass('hidden');
