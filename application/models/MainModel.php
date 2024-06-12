@@ -180,56 +180,58 @@ class MainModel extends CI_Model {
         $section = $this->session->userdata('section');
         $department = $this->session->userdata('department');
         $department_section = $this->session->userdata('department_section');
-        
-        if($department_section && ( $role != 'osqm_dco' && $role != 'osqm_do')){
-            $this->db->where('section', $department_section);
-        }
-        
-        if($role != 'osqm_qmr' && $role != 'osqm_dco' && $role != 'osqm_do' && $role != 'chair' && $role != 'auditor' && $role != 'lead_auditor'){
-            $this->db->where('issued_by', $division);
-        }
-
-        if($role == 'department_head' || $role == 'iso_coordinator'){
-            $this->db->where('issued_to', $department);
-        }
-
-        if ($role == 'chair' && $section == 'internal_quality_audit') {
-            $this->db->group_start(); // Start grouping OR conditions
-            $this->db->where('(corrective_action_status = "For Verification" OR for_correction_status = "For Verification")');
-            $this->db->or_where('(corrective_action_status = "For Validation" OR for_correction_status = "For Validation")');
-            $this->db->or_where('(corrective_action_status = "For Closure" OR for_correction_status = "For Closure")');
-            $this->db->or_where('car.status', 'Closed');
-            $this->db->group_end(); // End grouping OR conditions
-            $this->db->where('car.source', '1');
-        }
 
 
-        if ($role == 'auditor' && $section == 'internal_quality_audit') {
-            $this->db->group_start(); // Start grouping OR conditions
-            $this->db->where('(corrective_action_status = "For Verification" OR for_correction_status = "For Verification")');
-            $this->db->or_where('(corrective_action_status = "For Validation" OR for_correction_status = "For Validation")');
-            $this->db->or_where('(corrective_action_status = "For Closure" OR for_correction_status = "For Closure")');
-            $this->db->or_where('car.status', 'Closed');
-            $this->db->group_end(); // End grouping OR conditions
-            $this->db->where('car.source', '2');
-        }
+        if($role != 'super_admin'){
+            if($department_section && ( $role != 'osqm_dco' && $role != 'osqm_do')){
+                $this->db->where('section', $department_section);
+            }
+            
+            if($role != 'osqm_qmr' && $role != 'osqm_dco' && $role != 'osqm_do' && $role != 'chair' && $role != 'auditor' && $role != 'lead_auditor'){
+                $this->db->where('issued_by', $division);
+            }
+    
+            if($role == 'department_head' || $role == 'iso_coordinator'){
+                $this->db->where('issued_to', $department);
+            }
+    
+            if ($role == 'chair' && $section == 'internal_quality_audit') {
+                $this->db->group_start(); // Start grouping OR conditions
+                $this->db->where('(corrective_action_status = "For Verification" OR for_correction_status = "For Verification")');
+                $this->db->or_where('(corrective_action_status = "For Validation" OR for_correction_status = "For Validation")');
+                $this->db->or_where('(corrective_action_status = "For Closure" OR for_correction_status = "For Closure")');
+                $this->db->or_where('car.status', 'Closed');
+                $this->db->group_end(); // End grouping OR conditions
+                $this->db->where('car.source', '1');
+            }
+    
+    
+            if ($role == 'auditor' && $section == 'internal_quality_audit') {
+                $this->db->group_start(); // Start grouping OR conditions
+                $this->db->where('(corrective_action_status = "For Verification" OR for_correction_status = "For Verification")');
+                $this->db->or_where('(corrective_action_status = "For Validation" OR for_correction_status = "For Validation")');
+                $this->db->or_where('(corrective_action_status = "For Closure" OR for_correction_status = "For Closure")');
+                $this->db->or_where('car.status', 'Closed');
+                $this->db->group_end(); // End grouping OR conditions
+                $this->db->where('car.source', '2');
+            }
+    
+            if ($role == 'lead_auditor' && $section == 'internal_quality_audit') {
+                $this->db->group_start(); // Start grouping OR conditions
+                $this->db->or_where('(corrective_action_status = "For Validation" OR for_correction_status = "For Validation")');
+                $this->db->or_where('(corrective_action_status = "For Closure" OR for_correction_status = "For Closure")');
+                $this->db->or_where('car.status', 'Closed');
+                $this->db->group_end(); // End grouping OR conditions
+            }
 
-        if ($role == 'lead_auditor' && $section == 'internal_quality_audit') {
-            $this->db->group_start(); // Start grouping OR conditions
-            $this->db->or_where('(corrective_action_status = "For Validation" OR for_correction_status = "For Validation")');
-            $this->db->or_where('(corrective_action_status = "For Closure" OR for_correction_status = "For Closure")');
-            $this->db->or_where('car.status', 'Closed');
-            $this->db->group_end(); // End grouping OR conditions
+            if($status != 'all'){
+                $this->db->where('car.status', $status);
+            }
         }
-
 
         $this->db->join('source_car', 'source_car.id = car.source', 'left');
         $this->db->join('division', 'division.id = car.issued_by', 'left');
         $this->db->join('department', 'department.id = car.issued_to', 'left');
-
-        if($status != 'all'){
-            $this->db->where('car.status', $status);
-        }
 
         $query = $this->db->get();
         $result = $query->result_array();
