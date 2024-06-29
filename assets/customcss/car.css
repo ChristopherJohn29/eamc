@@ -25,6 +25,7 @@ input[readonly] {
         height: auto;
         background-color: #fff;
         z-index: 9999;
+        padding-top: 20px; /* Add margin at the top for the header */
     }
 
     #closing .modal-content {
@@ -34,5 +35,6 @@ input[readonly] {
         box-shadow: none;
         max-height: none;
         overflow: visible;
+        padding-top: 20px; /* Optional: Additional padding inside the modal content */
     }
 }
