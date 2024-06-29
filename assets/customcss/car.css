@@ -13,15 +13,26 @@ input[readonly] {
         visibility: hidden;
     }
 
-    #closing .modal-content, #closing .modal-content * {
+    #closing, #closing * {
         visibility: visible;
     }
 
-    #closing .modal-content {
+    #closing {
         position: absolute;
         left: 0;
         top: 0;
         width: 100%;
         height: auto;
+        background-color: #fff;
+        z-index: 9999;
+    }
+
+    #closing .modal-content {
+        width: 100%;
+        margin: 0;
+        border: none;
+        box-shadow: none;
+        max-height: none;
+        overflow: visible;
     }
 }
