@@ -8,6 +8,7 @@ input[readonly] {
     /* Add any other styling you want */
 }
 
+/* Print styles */
 @media print {
     body * {
         visibility: hidden;
@@ -21,7 +22,7 @@ input[readonly] {
         position: absolute;
         left: 0;
         top: 0;
-        width: 100%;
+        width: 100% !important;
         height: auto;
         background-color: #fff;
         z-index: 9999;
@@ -29,12 +30,12 @@ input[readonly] {
     }
 
     #closing .modal-content {
-        width: 100%;
-        margin: 0;
+        width: 100% !important;
+        margin: 0 !important;
         border: none;
         box-shadow: none;
-        max-height: none;
-        overflow: visible;
+        max-height: none !important;
+        overflow: visible !important;
         padding-top: 20px; /* Optional: Additional padding inside the modal content */
     }
 }
