@@ -44,4 +44,8 @@ input[readonly] {
         overflow: visible !important;
         padding-top: 0 !important; /* Ensure no extra padding inside the modal content */
     }
+
+    #closing .modal-footer{
+        display: none;
+    }
 }
