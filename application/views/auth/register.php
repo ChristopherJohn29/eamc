@@ -228,6 +228,7 @@
                                         <option value="Nurse Supervisor">Nurse Supervisor</option>
                                         <option value="Division Chief">Division Chief</option>
                                         <option value="Medical Center Chief">Medical Center Chief</option>
+                                        <option value="Officer in Charge">Officer in Charge</option>
                                     </select>
                                     <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
                                 </div>
