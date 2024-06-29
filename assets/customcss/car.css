@@ -23,19 +23,20 @@ input[readonly] {
         left: 0;
         top: 0;
         width: 100% !important;
-        height: auto;
-        background-color: #fff;
+        height: auto !important;
+        background-color: #fff !important;
         z-index: 9999;
-        padding-top: 20px; /* Add margin at the top for the header */
+        padding-top: 20px !important; /* Add margin at the top for the header */
+        margin: 0 !important;
     }
 
     #closing .modal-content {
         width: 100% !important;
         margin: 0 !important;
-        border: none;
-        box-shadow: none;
+        border: none !important;
+        box-shadow: none !important;
         max-height: none !important;
         overflow: visible !important;
-        padding-top: 20px; /* Optional: Additional padding inside the modal content */
+        padding-top: 0 !important; /* Ensure no extra padding inside the modal content */
     }
 }
