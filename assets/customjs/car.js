@@ -7752,4 +7752,8 @@ jQuery(document).ready(function(){
     car.identifiedRoot();
     car.carEdit();
     car.loadCorrectiveAction();
+
+    $('#printModalBtn').click(function() {
+        window.print();
+    });
 });

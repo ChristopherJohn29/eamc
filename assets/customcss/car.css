@@ -7,3 +7,21 @@ input[readonly] {
     background-color: #f4f4f4; /* Optional: Set background color */
     /* Add any other styling you want */
 }
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #closing .modal-content, #closing .modal-content * {
+        visibility: visible;
+    }
+
+    #closing .modal-content {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: auto;
+    }
+}
