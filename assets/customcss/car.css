@@ -30,6 +30,11 @@ input[readonly] {
         margin: 0 !important;
     }
 
+    #closing .modal-dialog {
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
+
     #closing .modal-content {
         width: 100% !important;
         margin: 0 !important;
