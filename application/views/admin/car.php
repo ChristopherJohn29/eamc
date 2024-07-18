@@ -1460,7 +1460,7 @@
       <?php
          }
       ?>
-      <div class="page-title-right">
+      <div class="page-title-right mb-2" style="text-align:right;">
          <?php 
          $requiredRoles = array(
             'designation' => 'division',
