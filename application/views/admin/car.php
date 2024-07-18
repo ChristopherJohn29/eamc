@@ -1316,6 +1316,14 @@
          </div>
       </div>
       <div class="row">
+      <?php 
+         $requiredRoles = array(
+            'designation' => 'division',
+            'role' => ['osqm_dco', 'osqm_do'],
+         );
+
+         if ($this->role_checker->checkRole($requiredRoles)) {
+         ?>
       <form id="filterCARForm">
          <div class="row mb-2">
             <div class="form-group col-md-2">
@@ -1449,6 +1457,9 @@
             </div>
          </div>
       </form>
+      <?php
+         }
+      ?>
       <div class="page-title-right">
          <?php 
          $requiredRoles = array(
