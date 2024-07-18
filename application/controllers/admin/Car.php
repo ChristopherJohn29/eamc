@@ -2098,7 +2098,7 @@ class car extends CI_Controller {
             $entry['issued_to'] = $entry['department'];
 
             // Remove unnecessary fields
-            unset($entry['source_name'], $entry['division'], $entry['department'], $entry['ca_completion_date'], $entry['fc_completion_date']);
+            unset($entry['source_name'], $entry['division'], $entry['department'], $entry['ca_completion_date'], $entry['fc_completion_date'],  $entry['issuance_of_nc'],  $entry['issuance_of_nc_remarks'],  $entry['closing_action'],  $entry['closing_action_remarks'],  $entry['car_attachment']);
 
             $uniqueDepartment[$entry['id']] = $entry;
         }
@@ -2110,7 +2110,7 @@ class car extends CI_Controller {
             'ID', 'CAR No.', 'Identification Date', 'Source', 'Issued By', 'Issued To',
             'Section', 'Findings', 'Consequences', 'Requirements Not Fulfilled', 'Date Closed',
             'Corrective Action Status', 'For Correction Status', 'Status', 'Registration Date',
-            'Issuance of NC', 'Issuance of NC Remarks', 'Requestor'
+            'Requestor'
         );
     
         // Generate CSV content
