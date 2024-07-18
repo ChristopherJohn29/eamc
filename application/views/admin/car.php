@@ -1450,7 +1450,7 @@
                   </select>
             </div>
          </div>
-         <div class="row mb-2">
+         <div class="row mb-2" style="text-align:right;">
             <div class="form-group col-md-12">
                   <button type="button" id="previewButton" class="btn btn-primary">Preview</button>
                   <button type="button" id="exportCsvButton" class="btn btn-primary">Export CSV Data</button>
