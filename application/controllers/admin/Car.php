@@ -2098,7 +2098,7 @@ class car extends CI_Controller {
             $entry['issued_to'] = $entry['department'];
 
             // Remove unnecessary fields
-            unset($entry['source_name'], $entry['division'], $entry['department'], $entry['ca_completion_date'], $entry['fc_completion_date'],  $entry['issuance_of_nc'],  $entry['issuance_of_nc_remarks'],  $entry['closing_action'],  $entry['closing_action_remarks'],  $entry['car_attachment']);
+            unset($entry['source_name'], $entry['division'], $entry['department'], $entry['ca_completion_date'], $entry['ca_second_completion_date'], $entry['fc_completion_date'],  $entry['issuance_of_nc'],  $entry['issuance_of_nc_remarks'],  $entry['closing_action'],  $entry['closing_action_remarks'],  $entry['car_attachment']);
 
             $uniqueDepartment[$entry['id']] = $entry;
         }
