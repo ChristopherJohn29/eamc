@@ -167,6 +167,95 @@ class MainModel extends CI_Model {
 
     }
 
+    public function getCarByFilter($data) {
+        // Separate data for easier manipulation
+        $car_id = isset($data['filter_car_id']) ? $data['filter_car_id'] : '';
+        $car_no = isset($data['filter_car_no']) ? $data['filter_car_no'] : '';
+        $source = isset($data['filter_source']) ? $data['filter_source'] : '';
+        $issued_by = isset($data['filter_issued_by']) ? $data['filter_issued_by'] : '';
+        $issued_to = isset($data['filter_issued_to']) ? $data['filter_issued_to'] : '';
+        $section = isset($data['filter_section']) ? $data['filter_section'] : '';
+        $identification_date_start = isset($data['filter_identification_date_start']) ? $data['filter_identification_date_start'] : '';
+        $identification_date_end = isset($data['filter_identification_date_end']) ? $data['filter_identification_date_end'] : '';
+        $registration_date_start = isset($data['filter_registration_date_start']) ? $data['filter_registration_date_start'] : '';
+        $registration_date_end = isset($data['filter_registration_date_end']) ? $data['filter_registration_date_end'] : '';
+        $date_closed_start = isset($data['filter_date_closed_start']) ? $data['filter_date_closed_start'] : '';
+        $date_closed_end = isset($data['filter_date_closed_end']) ? $data['filter_date_closed_end'] : '';
+        $for_correction_status = isset($data['filter_for_correction_status']) ? $data['filter_for_correction_status'] : '';
+        $corrective_action_status = isset($data['filter_corrective_action_status']) ? $data['filter_corrective_action_status'] : '';
+        $status = isset($data['filter_status']) ? $data['filter_status'] : '';
+    
+        // Select relevant fields
+        $this->db->select('car.*, source_car.source_name AS source_name, division.div_name AS division, department.dep_name AS department');
+        $this->db->from('car');
+    
+        // Join tables
+        $this->db->join('source_car', 'source_car.id = car.source', 'left');
+        $this->db->join('division', 'division.id = car.issued_by', 'left');
+        $this->db->join('department', 'department.id = car.issued_to', 'left');
+    
+        // Apply filters based on provided data
+        if (!empty($car_id)) {
+            $this->db->where('car.id', $car_id);
+        }
+        if (!empty($car_no)) {
+            $this->db->like('car.car_no', $car_no);
+        }
+        if (!empty($source)) {
+            $this->db->where('car.source', $source);
+        }
+        if (!empty($issued_by)) {
+            $this->db->where('car.issued_by', $issued_by);
+        }
+        if (!empty($issued_to)) {
+            $this->db->where('car.issued_to', $issued_to);
+        }
+        if (!empty($section)) {
+            $this->db->where('car.section', $section);
+        }
+        if (!empty($identification_date_start) && !empty($identification_date_end)) {
+            $this->db->where("car.identification_date BETWEEN '$identification_date_start' AND '$identification_date_end'");
+        } elseif (!empty($identification_date_start)) {
+            $this->db->where("car.identification_date >= '$identification_date_start'");
+        } elseif (!empty($identification_date_end)) {
+            $this->db->where("car.identification_date <= '$identification_date_end'");
+        }
+        if (!empty($registration_date_start) && !empty($registration_date_end)) {
+            $this->db->where("car.registration_date BETWEEN '$registration_date_start' AND '$registration_date_end'");
+        } elseif (!empty($registration_date_start)) {
+            $this->db->where("car.registration_date >= '$registration_date_start'");
+        } elseif (!empty($registration_date_end)) {
+            $this->db->where("car.registration_date <= '$registration_date_end'");
+        }
+        if (!empty($date_closed_start) && !empty($date_closed_end)) {
+            $this->db->where("car.date_closed BETWEEN '$date_closed_start' AND '$date_closed_end'");
+        } elseif (!empty($date_closed_start)) {
+            $this->db->where("car.date_closed >= '$date_closed_start'");
+        } elseif (!empty($date_closed_end)) {
+            $this->db->where("car.date_closed <= '$date_closed_end'");
+        }
+        if (!empty($for_correction_status)) {
+            $this->db->where('car.for_correction_status', $for_correction_status);
+        }
+        if (!empty($corrective_action_status)) {
+            $this->db->where('car.corrective_action_status', $corrective_action_status);
+        }
+        if (!empty($status)) {
+            $this->db->where('car.status', $status);
+        }
+    
+        // Execute query
+        $query = $this->db->get();
+        $result = $query->result_array();
+    
+        // Merge with additional data (if needed)
+        $tpn = $this->tpn();  // Assuming tpn() fetches some additional data
+        $result = array_merge($tpn, $result);
+    
+        return $result;
+    }
+    
+
     public function getCarByDiv($division, $status){
 
         $tpn  = $this->tpn();

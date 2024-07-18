@@ -29,7 +29,7 @@ class car extends CI_Controller {
         $data['department_section'] = $this->session->userdata('department_section');
         $data['section'] = $this->session->userdata('section');
         $data['department'] = $this->session->userdata('department');
-
+        
 		$this->load->view('template/template', $data);
     }
 
@@ -2057,6 +2057,87 @@ class car extends CI_Controller {
         $uniqueDepartment = array_values($uniqueDepartment);
 
         echo json_encode($uniqueDepartment);
+    }
+
+    public function getCarFiltered() {
+        $division = $this->session->userdata('division');
+        $department = $this->MainModel->getCarByFilter($_POST);
+    
+        // Create an associative array to store unique entries based on 'id'
+        $uniqueDepartment = array();
+        foreach ($department as $entry) {
+            $uniqueDepartment[$entry['id']] = $entry;
+        }
+    
+        // Convert the associative array back to indexed array
+        foreach ($department as $entry) {
+            $uniqueDepartment[$entry['id']] = $entry;
+        }
+
+        // Convert the associative array back to indexed array
+        $uniqueDepartment = array_values($uniqueDepartment);
+
+        echo json_encode($uniqueDepartment);
+    }
+
+    public function getCarExport() {
+        $division = $this->session->userdata('division');
+        $department = $this->MainModel->getCarByFilter($_POST);
+    
+        // Create an associative array to store unique entries based on 'id'
+        $uniqueDepartment = array();
+
+        foreach ($department as $entry) {
+            // Map 'Source' to 'source_name'
+            $entry['source'] = $entry['source_name'];
+
+            // Map 'Issued By' to 'division'
+            $entry['issued_by'] = $entry['division'];
+
+            // Map 'Issued To' to 'department'
+            $entry['issued_to'] = $entry['department'];
+
+            // Remove unnecessary fields
+            unset($entry['source_name'], $entry['division'], $entry['department'], $entry['ca_completion_date'], $entry['fc_completion_date']);
+
+            $uniqueDepartment[$entry['id']] = $entry;
+        }
+    
+        // Convert the associative array back to indexed array
+        $uniqueDepartment = array_values($uniqueDepartment);
+    
+        $headers = array(
+            'ID', 'CAR No.', 'Identification Date', 'Source', 'Issued By', 'Issued To',
+            'Section', 'Findings', 'Consequences', 'Requirements Not Fulfilled', 'Date Closed',
+            'Corrective Action Status', 'For Correction Status', 'Status', 'Registration Date',
+            'Issuance of NC', 'Issuance of NC Remarks', 'Requestor'
+        );
+    
+        // Generate CSV content
+        $csv = $this->array_to_csv_with_headers($uniqueDepartment, $headers);
+    
+        // Set headers to force download
+        header('Content-Type: text/csv');
+        header('Content-Disposition: attachment; filename="filtered_car_data_' . date('Y-m-d') . '.csv"');
+    
+        // Output CSV data
+        echo $csv;
+        exit;
+    }
+    
+    // Function to convert array to CSV format with headers
+    private function array_to_csv_with_headers($array, $headers) {
+        if (count($array) == 0) {
+            return null;
+        }
+        ob_start();
+        $df = fopen("php://output", 'w');
+        fputcsv($df, $headers);
+        foreach ($array as $row) {
+            fputcsv($df, $row);
+        }
+        fclose($df);
+        return ob_get_clean();
     }
 
     public function getCarByID(){

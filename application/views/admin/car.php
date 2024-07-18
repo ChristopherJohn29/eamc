@@ -1308,19 +1308,7 @@
          <div class="col-12">
             <div class="page-title-box">
                <div class="page-title-right">
-               <?php 
-               
-               $requiredRoles = array(
-                  'designation' => 'division',
-                  'role' => ['osqm_dco', 'osqm_do'],
-               );
-      
-               if ($this->role_checker->checkRole($requiredRoles)) {
-               ?>
-                  <button type="button" class="btn btn-primary waves-effect waves-light add-car-button" data-bs-toggle="modal" data-bs-target="#add-car"><i class="fas fa-plus"></i> Register CAR</button>
-                  <?php
-               }
-               ?>
+             
 
                </div>
                <h4 class="page-title"><?=$title?></h4>
@@ -1328,6 +1316,155 @@
          </div>
       </div>
       <div class="row">
+      <form id="filterCARForm">
+         <div class="row mb-2">
+            <div class="form-group col-md-2">
+                  <label for="filter_car_id" class="form-label">CAR ID</label>
+                  <input type="text" class="form-control" id="filter_car_id" name="filter_car_id">
+            </div>
+            <div class="form-group col-md-2">
+                  <label for="filter_car_no" class="form-label">CAR No.</label>
+                  <input type="text" class="form-control" id="filter_car_no" name="filter_car_no">
+            </div>
+            <div class="form-group col-md-2">
+                  <label for="filter_source" class="form-label">Source</label>
+                  <select class="form-select" id="filter_source" name="filter_source">
+                     <option value=""></option>
+                     <option value="1">Internal Audit (systemic)</option>
+                     <option value="2">Internal (non-systemic)</option>
+                     <option value="3">Unmet Target in QOP</option>
+                     <option value="4">(Strategic Absence of Gap Analysis)</option>
+                     <option value="5">Unmet Target in QOP (Core)</option>
+                     <option value="6">Unmet Target in QOP (Support)</option>
+                     <option value="7">Safety/Hazard/Never Event/Sentinel Event</option>
+                     <option value="8">Customer Complaint</option>
+                  </select>
+            </div>
+            <div class="form-group col-md-2">
+                  <label for="filter_issued_by" class="form-label">Issued By</label>
+                  <select class="form-select" id="filter_issued_by" name="filter_issued_by">
+                     <option value=""></option>
+                     <option value="2">HOPSS</option>
+                     <option value="3">MEDICAL</option>
+                     <option value="4">NURSING</option>
+                     <option value="5">OFFICE UNDER THE MCC</option>
+                     <option value="6">ALLIED</option>
+                     <option value="8">FINANCE</option>
+                  </select>
+            </div>
+            <div class="form-group col-md-2">
+                  <label for="filter_issued_to" class="form-label">Issued To</label>
+                  <select class="form-select" id="filter_issued_to" name="filter_issued_to">
+                     <option value=""></option>
+                  </select>
+            </div>
+            <div class="form-group col-md-2">
+                  <label for="filter_section" class="form-label">Section</label>
+                  <select class="form-select" id="filter_section" name="filter_section">
+                     <option value=""></option>
+                  </select>
+            </div>
+         </div>
+         <div class="row mb-2">
+            <div class="form-group col-md-2">
+                  <label for="filter_identification_date_start" class="form-label">Identification Date (Start)</label>
+                  <input type="date" class="form-control" id="filter_identification_date_start" name="filter_identification_date_start">
+            </div>
+            <div class="form-group col-md-2">
+                  <label for="filter_identification_date_end" class="form-label">Identification Date (End)</label>
+                  <input type="date" class="form-control" id="filter_identification_date_end" name="filter_identification_date_end">
+            </div>
+            <div class="form-group col-md-2">
+                  <label for="filter_registration_date_start" class="form-label">Registration Date (Start)</label>
+                  <input type="date" class="form-control" id="filter_registration_date_start" name="filter_registration_date_start">
+            </div>
+            <div class="form-group col-md-2">
+                  <label for="filter_registration_date_end" class="form-label">Registration Date (End)</label>
+                  <input type="date" class="form-control" id="filter_registration_date_end" name="filter_registration_date_end">
+            </div>
+            <div class="form-group col-md-2">
+                  <label for="filter_date_closed_start" class="form-label">Date Closed (Start)</label>
+                  <input type="date" class="form-control" id="filter_date_closed_start" name="filter_date_closed_start">
+            </div>
+            <div class="form-group col-md-2">
+                  <label for="filter_date_closed_end" class="form-label">Date Closed (End)</label>
+                  <input type="date" class="form-control" id="filter_date_closed_end" name="filter_date_closed_end">
+            </div>
+         </div>
+         <div class="row mb-2">
+            <div class="form-group col-md-2">
+                  <label for="filter_for_correction_status" class="form-label">For Correction Status</label>
+                  <select class="form-select" id="filter_for_correction_status" name="filter_for_correction_status">
+                     <option value=""></option>
+                     <option value="For Issuance of NC">For Issuance of NC</option>
+                     <option value="For CAR action">For CAR action</option>
+                     <option value="For Revision">For Revision</option>
+                     <option value="For OSQM Review">For OSQM Review</option>
+                     <option value="For Approval">For Approval</option>
+                     <option value="For Implementation">For Implementation</option>
+                     <option value="For Verification">For Verification</option>
+                     <option value="For Validation">For Validation</option>
+                     <option value="For Closure">For Closure</option>
+                     <option value="Closed">Closed</option>
+                  </select>
+            </div>
+            <div class="form-group col-md-2">
+                  <label for="filter_corrective_action_status" class="form-label">Corrective Action Status</label>
+                  <select class="form-select" id="filter_corrective_action_status" name="filter_corrective_action_status">
+                     <option value=""></option>
+                     <option value="For Issuance of NC">For Issuance of NC</option>
+                     <option value="For CAR action">For CAR action</option>
+                     <option value="For Revision">For Revision</option>
+                     <option value="For OSQM Review">For OSQM Review</option>
+                     <option value="For Approval">For Approval</option>
+                     <option value="For Implementation">For Implementation</option>
+                     <option value="For Verification">For Verification</option>
+                     <option value="For Validation">For Validation</option>
+                     <option value="For Closure">For Closure</option>
+                     <option value="Closed">Closed</option>
+                  </select>
+            </div>
+            <div class="form-group col-md-2">
+                  <label for="filter_status" class="form-label">Status</label>
+                  <select class="form-select" id="filter_status" name="filter_status">
+                     <option value=""></option>
+                     <option value="For Issuance of NC">For Issuance of NC</option>
+                     <option value="For CAR action">For CAR action</option>
+                     <option value="For Revision">For Revision</option>
+                     <option value="For OSQM Review">For OSQM Review</option>
+                     <option value="For Approval">For Approval</option>
+                     <option value="For Implementation">For Implementation</option>
+                     <option value="For Verification">For Verification</option>
+                     <option value="For Validation">For Validation</option>
+                     <option value="For Closure">For Closure</option>
+                     <option value="Dissapproved">Dissapproved</option>
+                     <option value="Closed">Closed</option>
+                  </select>
+            </div>
+         </div>
+         <div class="row mb-2">
+            <div class="form-group col-md-12">
+                  <button type="button" id="previewButton" class="btn btn-primary">Preview</button>
+                  <button type="button" id="exportCsvButton" class="btn btn-primary">Export CSV Data</button>
+            </div>
+         </div>
+      </form>
+      <div class="page-title-right">
+         <?php 
+         $requiredRoles = array(
+            'designation' => 'division',
+            'role' => ['osqm_dco', 'osqm_do'],
+         );
+
+         if ($this->role_checker->checkRole($requiredRoles)) {
+         ?>
+            <button type="button" class="btn btn-primary waves-effect waves-light add-car-button" data-bs-toggle="modal" data-bs-target="#add-car"><i class="fas fa-plus"></i> Register CAR</button>
+            <?php
+         }
+         ?>
+
+      </div>
+         
          <div class="col-12">
             <div class="card">
                <div class="card-body">
