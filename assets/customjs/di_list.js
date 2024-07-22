@@ -121,6 +121,188 @@ var diList = {
         });
     },
 
+    loadFilter : function (){
+        
+        jQuery('#previewButton').click(function(e) {
+            e.preventDefault();
+            diList.previewSubmit();
+        });
+
+        jQuery('#exportCsvButton').click(function(e) {
+            e.preventDefault();
+            diList.exportData();
+        });
+
+    },
+
+    previewSubmit: function(){
+        dataTable = $('#di-list-datatable.dataTable');
+
+        if (dataTable.length) {
+            // If it's a DataTable, destroy it
+            dataTable.DataTable().destroy();
+        }
+
+        $('#di-list-datatable tbody').html('');
+        
+
+        $.ajax({
+            type: 'POST',
+            url: 'documentedinformation/getDIListFiltered', // Replace 'MyController' with your controller name
+            data: jQuery('#filterDocumentedInformationForm').serialize(),
+            success: function (response) {
+                if(response != 'null'){
+                    $.each(JSON.parse(response), function (index, item) {
+                        // Access each item's properties
+                        var id = item.id;
+                        var user_id = item.user_id;
+                        var doc_title = item.doc_title;
+                        var doc_code = item.doc_code;
+                        var dep_name = item.dep_name;
+                        var sec_id = item.sec_id;
+                        var section_name = item.section_name;
+                        var dep_id = item.dep_id;
+                        var doc_type_id = item.doc_type_id;
+                        var type = item.type;
+                        var created_date = item.created_date;
+                        var status_name = item.status_name;
+                        var status = item.status;
+                        var effectivity_date = item.effectivity_date;
+                        var revision_no = item.revision_no;
+
+                        var prepared_by_existing = item.prepared_by_existing;
+                        var final_review_by_existing = item.final_review_by_existing;
+                        var approved_by_existing = item.approved_by_existing;
+
+                        var prepared_by_position_existing = item.prepared_by_position_existing;
+                        var final_review_by_position_existing = item.final_review_by_position_existing;
+                        var approved_by_position_existing = item.approved_by_position_existing;
+
+
+                        var existing = item.existing;
+
+                        if (status == 'FFU' || status == 'AD' || status == 'D') {
+                            var $enable_edit = "<button title='Document Information' tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-danger edit-data'" +
+                                "data-id='" + id + "' data-user_id='" + user_id + "'" +
+                                "data-doc_title='" + doc_title + "' data-doc_code='" + doc_code + "'" +
+                                "data-dep_id='" + dep_id + "' data-sec_id='" + sec_id + "' data-doc_type_id='" + doc_type_id + "'" +
+                                "data-effectivity_date='" + effectivity_date + "' data-revision_no='" + revision_no + "'";
+                        
+                            // Include the new fields in the data attributes only if 'existing' has a value of 1
+                            $enable_edit +=
+                            "data-prepared_by_existing='" + prepared_by_existing + "' " +
+                            "data-final_review_by_existing='" + final_review_by_existing + "' " +
+                            "data-approved_by_existing='" + approved_by_existing + "' " +
+                            "data-prepared_by_position_existing='" + prepared_by_position_existing + "' " +
+                            "data-final_review_by_position_existing='" + final_review_by_position_existing + "' " +
+                            "data-approved_by_position_existing='" + approved_by_position_existing + "' " +
+                            "data-existing='" + existing + "' ";
+                        
+                            $enable_edit += ">" +
+                                "<i class='mdi mdi-file'></i></button>";
+                        } else {
+                            $enable_edit = '';
+                        }
+
+                        section = '';
+
+                        if(section_name !== null){
+                            section = "(" + section_name + ")";
+                        }
+
+                        $view_history = "<button title='Document Routing'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-secondary view-history'"+
+                            "data-id='"+id+"'>" +
+                            "<i class='fa fa-clock'></i></button>";
+                        
+                        var html = "<tr>" +
+                        "<td>" + id + "</td>" +
+                        "<td>" + doc_title + "</td>" +
+                        "<td>" + doc_code + "</td>" +
+                        "<td>" + dep_name + " " + section + " </td>" +
+                        "<td>" + type + "</td>" +
+                        "<td>" + created_date + "</td>" +
+                        "<td>" + status_name + "</td>" +
+                        "<td>" + $enable_edit + " " + $view_history +
+                            "<a href='./filedetails/" + id + "/" + user_id + "' class='btn btn-sm btn-info files-button' title='View Files' tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'>" +
+                                "<i class='fa fa-folder-open'></i>" +
+                            "</a>" +
+                            "<a href='./revisiondetails/" + id + "/" + user_id + "' class='btn btn-sm btn-primary revision-button' title='View Revisions' tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'>" +
+                                "<i class='fa fa-history' aria-hidden='true'></i>" +
+                            "</a>" +
+                        "</td>" +
+                        "</tr>";
+
+                        $('#di-list-datatable tbody').append(html);
+
+                    });
+
+                    dataTable = $('#di-list-datatable.dataTable');
+
+                    if (dataTable.length) {
+                        // If it's a DataTable, destroy it
+                        dataTable.DataTable().destroy();
+                    }
+
+                    tippy('*[data-plugin="tippy"]');
+
+                    $("#di-list-datatable").DataTable({
+                        language: { paginate: { previous: "<i class='mdi mdi-chevron-left'>", next: "<i class='mdi mdi-chevron-right'>" } },
+                        drawCallback: function () {
+                            $(".dataTables_paginate > .pagination").addClass("pagination-rounded");
+                        },
+                    });
+
+                    $('[data-toggle="tooltip"]').tooltip()
+                    
+                }
+            },
+            error: function () {
+                // Handle errors
+                diList.notifyError();
+            }
+        });
+    },
+
+    exportData: function(){
+        $.ajax({
+            type: 'POST',
+            url: 'documentedinformation/getDIListExport', // Replace 'MyController' with your controller name
+            data: jQuery('#filterDocumentedInformationForm').serialize(),
+            xhrFields: {
+                responseType: 'blob' // Set the response type to blob
+            },
+            success: function (response, status, xhr) {
+                // Check if the response is a Blob object (CSV file)
+                if (response instanceof Blob) {
+                    // Create a temporary URL to the Blob
+                    var url = window.URL.createObjectURL(response);
+                    
+                    // Create a temporary anchor element
+                    var a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = url;
+                    a.download = 'filtered_DI_data_' + new Date().toISOString().slice(0, 10) + '.csv';
+                    
+                    // Append the anchor to the body and trigger the click event
+                    document.body.appendChild(a);
+                    a.click();
+
+                    // Cleanup: Remove the anchor and revoke the URL
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(url);
+                } else {
+                    // Handle unexpected response (optional)
+                    console.error('Unexpected response format');
+                }
+            },
+            error: function (xhr, status, error) {
+                // Handle errors (optional)
+                console.error('Error occurred:', error);
+            }
+        });
+    },
+
+
     validateEditForm : function (){
         var isValid = true;
         
@@ -442,6 +624,14 @@ var diList = {
                 jQuery('select#sec_id_edit option[data-dep_id="' + jQuery(this).val() + '"]').removeClass('hidden', false);
             }
         });
+
+        jQuery('#filter_dep_id').change(function(){
+            if(jQuery(this).val() != ''){
+                jQuery('select#filter_sec_id').val('');
+                jQuery('select#filter_sec_id option').addClass('hidden');
+                jQuery('select#filter_sec_id option[data-dep_id="' + jQuery(this).val() + '"]').removeClass('hidden', false);
+            }
+        });
     },
 
     existing: function(){
@@ -490,6 +680,7 @@ var diList = {
 
 jQuery(document).ready(function(){
     diList.loadDiList();
+    diList.loadFilter();
     diList.saveDI();
     diList.editInit();
     diList.viewHistory();

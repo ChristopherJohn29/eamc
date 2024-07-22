@@ -306,11 +306,124 @@
       <div class="row">
          <div class="col-12">
             <div class="page-title-box">
-               <div class="page-title-right">
-                  <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#add-di"><i class="fas fa-plus"></i> New Documented Information</button>
-               </div>
                <h4 class="page-title"><?=$title?></h4>        
             </div>
+
+            <form id="filterDocumentedInformationForm">
+            <div class="row mb-2">
+               <div class="form-group col-md-4">
+                  <label for="filter_document_title" class="form-label">Document Title</label>
+                  <input type="text" class="form-control" id="filter_document_title" name="filter_document_title">
+                  <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+               </div>
+               <div class="form-group col-md-4">
+                  <label for="filter_doc_code" class="form-label">Document Code</label>
+                  <input type="text" class="form-control" id="filter_doc_code" name="filter_doc_code">
+                  <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+               </div>
+               <div class="form-group col-md-4">
+                  <label for="filter_revision_no" class="form-label">Revision No.</label>
+                  <input type="text" class="form-control" id="filter_revision_no" name="filter_revision_no">
+                  <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+               </div>
+            </div>
+
+            <div class="row mb-2">
+               <div class="form-group col-md-6">
+                  <label for="filter_effectivity_date_start" class="form-label">Effectivity Date (Start)</label>
+                  <input type="date" class="form-control" id="filter_effectivity_date_start" name="filter_effectivity_date_start">
+                  <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+               </div>
+               <div class="form-group col-md-6">
+                  <label for="filter_effectivity_date_end" class="form-label">Effectivity Date (End)</label>
+                  <input type="date" class="form-control" id="filter_effectivity_date_end" name="filter_effectivity_date_end">
+                  <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+               </div>
+            </div>
+
+            <div class="row mb-2">
+               <div class="form-group col-md-6">
+                  <label for="filter_date_submitted_start" class="form-label">Date Submitted (Start)</label>
+                  <input type="date" class="form-control" id="filter_date_submitted_start" name="filter_date_submitted_start">
+                  <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+               </div>
+               <div class="form-group col-md-6">
+                  <label for="filter_date_submitted_end" class="form-label">Date Submitted (End)</label>
+                  <input type="date" class="form-control" id="filter_date_submitted_end" name="filter_date_submitted_end">
+                  <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+               </div>
+            </div>
+
+            <div class="row mb-2">
+               <div class="form-group col-md-6">
+                  <label for="filter_doc_type_id" class="form-label">Document Type</label>
+                  <select class="form-select" id="filter_doc_type_id" name="filter_doc_type_id">
+                  <option value=""></option>
+                  <?php
+                     foreach ($doctype as $key => $value) {
+                        echo '<option value="'.$value['id'].'">'.$value['doc_type_name'].'</option>';
+                     }
+                  ?>
+                  </select>
+                  <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+               </div>
+               <div class="form-group col-md-6">
+                  <label for="filter_dep_id" class="form-label">Department / Unit</label>
+                  <select class="form-select" id="filter_dep_id" name="filter_dep_id">
+                  <option value=""></option>
+                  <?php
+                     foreach ($department as $key => $value) {
+                        echo '<option value="'.$value['id'].'">'.$value['dep_name'].'</option>';
+                     }
+                  ?>
+                  </select>
+                  <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+               </div>
+            </div>
+
+            <div class="row mb-2">
+               <div class="form-group col-md-6">
+                  <label for="filter_sec_id" class="form-label">Section (if applicable)</label>
+                  <select class="form-select" id="filter_sec_id" name="filter_sec_id">
+                  <option value=""></option>
+                  <?php
+                     foreach ($section as $key => $value) {
+                        echo '<option value="'.$value['id'].'" class="hidden" data-dep_id="'.$value['dep_id'].'">'.$value['section_name'].'</option>';
+                     }
+                  ?>
+                  </select>
+                  <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+               </div>
+               <div class="form-group col-md-6">
+                  <label for="filter_status" class="form-label">Status</label>
+                  <select class="form-select" id="filter_status" name="filter_status">
+                  <option value=""></option>
+                  <option value="FR">Forms Review</option>
+                  <option value="FIR">For Final Review</option>
+                  <option value="APR">For Approval</option>
+                  <option value="CHK">For Checking</option>
+                  <option value="FFU">For Fileupload</option>
+                  <option value="AD">Approved Draft</option>
+                  <option value="D">Disapproved</option>
+                  <option value="AFP">Approval For Publishing</option>
+                  <option value="PUB">Published</option>
+                  <option value="PUBL">Publishing</option>
+                  </select>
+                  <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+               </div>
+            </div>
+            
+            <div style="text-align: right;">
+               <button type="submit" class="btn btn-primary" id="previewButton">Preview</button>
+               <button type="button" id="exportCsvButton" class="btn btn-primary">Export CSV Data</button>
+            </div>
+            </form>
+
+
+               <div class="mt-2 mb-2" style="text-align: right;">
+                  <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#add-di"><i class="fas fa-plus"></i> New Documented Information</button>
+               </div>
+
          </div>
       </div>
       <div class="row">

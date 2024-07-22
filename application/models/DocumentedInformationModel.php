@@ -37,6 +37,58 @@ class DocumentedInformationModel extends CI_Model {
         return $result;
     }
 
+    public function getDocumentedInformationListFiltered($data) {
+        $this->db->select('documented_information.*, department.dep_name AS dep_name, section.section_name AS section_name, document_type.doc_type_name AS type, document_status.status_value AS status_name');
+        $this->db->from('documented_information');
+        $this->db->join('department', 'department.id = documented_information.dep_id', 'left');
+        $this->db->join('section', 'section.id = documented_information.sec_id', 'left');
+        $this->db->join('document_status', 'document_status.status_code = documented_information.status', 'left');
+        $this->db->join('document_type', 'document_type.id = documented_information.doc_type_id', 'left');
+    
+        // Adding filters based on form data
+        if (!empty($data['filter_document_title'])) {
+            $this->db->like('documented_information.doc_title', $data['filter_document_title']);
+        }
+        if (!empty($data['filter_doc_code'])) {
+            $this->db->where('documented_information.doc_code', $data['filter_doc_code']);
+        }
+        if (!empty($data['filter_revision_no'])) {
+            $this->db->where('documented_information.revision_no', $data['filter_revision_no']);
+        }
+        if (!empty($data['filter_effectivity_date_start']) || !empty($data['filter_effectivity_date_end'])) {
+            if (!empty($data['filter_effectivity_date_start'])) {
+                $this->db->where('documented_information.effectivity_date >=', $data['filter_effectivity_date_start']);
+            }
+            if (!empty($data['filter_effectivity_date_end'])) {
+                $this->db->where('documented_information.effectivity_date <=', $data['filter_effectivity_date_end']);
+            }
+        }
+        if (!empty($data['filter_date_submitted_start']) || !empty($data['filter_date_submitted_end'])) {
+            if (!empty($data['filter_date_submitted_start'])) {
+                $this->db->where('documented_information.created_date >=', $data['filter_date_submitted_start']);
+            }
+            if (!empty($data['filter_date_submitted_end'])) {
+                $this->db->where('documented_information.created_date <=', $data['filter_date_submitted_end']);
+            }
+        }
+        if (!empty($data['filter_doc_type_id'])) {
+            $this->db->where('documented_information.doc_type_id', $data['filter_doc_type_id']);
+        }
+        if (!empty($data['filter_dep_id'])) {
+            $this->db->where('documented_information.dep_id', $data['filter_dep_id']);
+        }
+        if (!empty($data['filter_sec_id'])) {
+            $this->db->where('documented_information.sec_id', $data['filter_sec_id']);
+        }
+        if (!empty($data['filter_status'])) {
+            $this->db->where('documented_information.status', $data['filter_status']);
+        }
+    
+        $query = $this->db->get();
+        return $query->result_array();
+    }    
+    
+
     public function getDocumentedInformationListAdmin(){
 
         $this->db->select('documented_information.*, department.dep_name AS dep_name, section.section_name AS section_name, document_type.doc_type_name AS type, document_status.status_value AS status_name');

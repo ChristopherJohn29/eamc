@@ -62,6 +62,108 @@ class documentedinformation extends CI_Controller {
         echo json_encode($documentedInformation);
     }
 
+    public function getDIListFiltered(){
+
+        $requiredRoles = array(
+            'designation' => 'division',
+            'role' => ['osqm_dco', 'osqm_qmr', 'osqm_staff'],
+        );
+
+        if(isset($_POST)){
+            $documentedInformation = $this->DocumentedInformationModel->getDocumentedInformationListFiltered($_POST);
+        } else {
+            if ($this->role_checker->checkRole($requiredRoles)) {
+                $documentedInformation =  $this->DocumentedInformationModel->getDocumentedInformationListAll();
+            } else {
+                $documentedInformation =  $this->DocumentedInformationModel->getDocumentedInformationList();
+            }
+            
+            if($this->session->userdata('role') == 'super_admin'){
+                $documentedInformation =  $this->DocumentedInformationModel->getDocumentedInformationListAdmin();
+            }
+        }
+
+
+        echo json_encode($documentedInformation);
+    }
+
+    public function getDIListExport() {
+        if (isset($_POST)) {
+            $documentedInformation = $this->DocumentedInformationModel->getDocumentedInformationListFiltered($_POST);
+        }
+    
+        $uniqueDI = array();
+    
+        foreach ($documentedInformation as $entry) {
+            // Map fields to their new names
+            $entry['ID'] = $entry['id'];
+            $entry['Document Title'] = $entry['doc_title'];
+            $entry['Document Code'] = $entry['doc_code'];
+            $entry['Revision No.'] = $entry['revision_no'];
+            $entry['Effectivity Date'] = $entry['effectivity_date'];
+            $entry['Date Submitted'] = $entry['created_date'];
+            $entry['Document Type'] = $entry['type']; 
+            $entry['Department / Unit'] = $entry['dep_name'];
+            $entry['Section'] = $entry['section_name'];
+            $entry['Status'] = $entry['status_name'];
+    
+            // Remove unnecessary fields
+            unset(
+                $entry['id'], $entry['doc_title'], $entry['doc_code'], $entry['revision_no'], $entry['effectivity_date'],
+                $entry['created_date'], $entry['doc_type_id'], $entry['dep_id'], $entry['sec_id'], $entry['status'],
+                $entry['type'], $entry['dep_name'], $entry['section_name'], $entry['status_name']
+            );
+    
+            // Add the entry to the uniqueDI array with 'ID' as the key
+            $uniqueDI[] = $entry; // No need to use $entry['id'] as the key here
+        }
+    
+        // Define the CSV headers
+        $headers = array(
+            'ID', 'Document Title', 'Document Code', 'Revision No.', 'Effectivity Date',
+            'Date Submitted', 'Document Type', 'Department / Unit', 'Section', 'Status'
+        );
+    
+        // Generate CSV content
+        $csv = $this->array_to_csv_with_headers($uniqueDI, $headers);
+    
+        // Set headers to force download
+        header('Content-Type: text/csv');
+        header('Content-Disposition: attachment; filename="documented_information_export_' . date('Y-m-d') . '.csv"');
+    
+        // Output CSV data
+        echo $csv;
+        exit;
+    }
+    
+    // Function to convert array to CSV format with headers
+    private function array_to_csv_with_headers($array, $headers) {
+        if (count($array) == 0) {
+            return null;
+        }
+        ob_start();
+        $df = fopen("php://output", 'w');
+        fputcsv($df, $headers);
+        foreach ($array as $row) {
+            // Ensure each row matches the header order
+            fputcsv($df, array(
+                $row['ID'] ?? '',
+                $row['Document Title'] ?? '',
+                $row['Document Code'] ?? '',
+                $row['Revision No.'] ?? '',
+                $row['Effectivity Date'] ?? '',
+                $row['Date Submitted'] ?? '',
+                $row['Document Type'] ?? '',
+                $row['Department / Unit'] ?? '',
+                $row['Section'] ?? '',
+                $row['Status'] ?? ''
+            ));
+        }
+        fclose($df);
+        return ob_get_clean();
+    }
+    
+
     public function getDIHistory(){
         $doc_id = $_POST['doc_id'];
         $documentedInformation =  $this->DocumentedInformationModel->getDocumentedInformationHistory($doc_id);
