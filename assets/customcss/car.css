@@ -37,6 +37,10 @@ input[readonly] {
 
     #closing .car_header_image{
         display: block !important;
+        max-width: 150px;
+        max-height: 50px;
+        width: auto;
+        height: auto;
     }
 
     #closing .modal-content {
