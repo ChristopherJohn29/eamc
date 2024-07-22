@@ -1071,8 +1071,9 @@
       <div id="closing" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
          <div class="modal-dialog modal-xl">
             <div class="modal-content">
+               
+             <img src="<?=base_url()?>assets/images/header_car.png" alt="logo" class="car_header_image hidden">
                <div class="modal-header">
-                  <img src="<?=base_url()?>assets/images/eastave.png" alt="logo" class="car_header_image hidden">
                   <h4 class="modal-title" id="standard-modalLabel">Correction and dealing with consequences</h4>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                </div>
