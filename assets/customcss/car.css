@@ -37,7 +37,7 @@ input[readonly] {
 
     #closing .car_header_image{
         display: block !important;
-        max-width: 50vw; /* Maximum width relative to viewport width */
+        max-width: 100vw; /* Maximum width relative to viewport width */
         width: 100%; /* Responsive width relative to parent container */
         height: auto; /* Maintain aspect ratio */
     }
