@@ -634,6 +634,14 @@ var car = {
             url: 'getCarFiltered', // Replace 'MyController' with your controller name
             data: jQuery('#filterCARForm').serialize(),
             success: function (response) {
+
+                dataTable = $('#car-global-datatable.dataTable');
+
+                if (dataTable.length) {
+                    // If it's a DataTable, destroy it
+                    dataTable.DataTable().destroy();
+                }
+
                 if(response != 'null'){
 
                     $.each(JSON.parse(response), function (index, item) {
@@ -1152,6 +1160,8 @@ var car = {
                     });
 
                     setTimeout(function(){
+
+                        dataTable = $('#car-global-datatable.dataTable');
 
                         if (dataTable.length) {
                             // If it's a DataTable, destroy it
