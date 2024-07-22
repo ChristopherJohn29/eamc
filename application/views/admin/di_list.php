@@ -309,6 +309,15 @@
                <h4 class="page-title"><?=$title?></h4>        
             </div>
 
+            <?php 
+               $requiredRoles = array(
+                  'designation' => 'division',
+                  'role' => ['osqm_dco', 'osqm_do'],
+               );
+
+               if ($this->role_checker->checkRole($requiredRoles)) {
+               ?>
+
             <form id="filterDocumentedInformationForm">
             <div class="row mb-2">
                <div class="form-group col-md-4">
@@ -418,6 +427,9 @@
                <button type="button" id="exportCsvButton" class="btn btn-primary">Export CSV Data</button>
             </div>
             </form>
+            <?php 
+            }         
+            ?>
 
 
                <div class="mt-2 mb-2" style="text-align: right;">
