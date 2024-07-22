@@ -1152,6 +1152,13 @@ var car = {
                     });
 
                     setTimeout(function(){
+
+                        if (dataTable.length) {
+                            // If it's a DataTable, destroy it
+                            dataTable.DataTable().destroy();
+                        }
+
+
                         tippy('*[data-plugin="tippy"]');
 
                         $("#car-global-datatable").DataTable({
