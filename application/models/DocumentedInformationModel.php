@@ -398,6 +398,7 @@ class DocumentedInformationModel extends CI_Model {
             'existing' => $data['existing_value'] // Save 'existing' checkbox value in the database
         );
         
+        
         // Include the new fields if they exist in $data
         if (isset($data['prepared_by_existing'])) {
             $save_data['prepared_by_existing'] = $data['prepared_by_existing'];
@@ -407,6 +408,30 @@ class DocumentedInformationModel extends CI_Model {
             $save_data['final_review_by_position_existing'] = $data['final_review_by_position_existing'];
             $save_data['approved_by_position_existing'] = $data['approved_by_position_existing'];
         }
+        
+        return $this->db->insert('documented_information', $save_data);
+    }
+
+    public function saveRevision($data){
+    
+        $status = 'FFU';
+    
+        $save_data = array(
+            'doc_title' => $data['document_title'],
+            'effectivity_date' => $data['effectivity_date'],
+            'doc_type_id' => $data['doc_type_id'],
+            'dep_id' => $data['dep_id'],
+            'sec_id' => $data['sec_id'],
+            'doc_code' => $data['doc_code'],
+            'revision_no' => $data['revision_no'],
+            'status' => $status,
+            'created_date' => date('Y-m-d H:i:s'),
+            'user_id' => $this->session->userdata('user_id'),
+            'source' => $data['source'],
+            'reason' => $data['reason'],
+            'revision_id' => $data['doc_id'] 
+        );
+        
         
         return $this->db->insert('documented_information', $save_data);
     }

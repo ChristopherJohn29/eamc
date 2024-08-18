@@ -555,6 +555,20 @@ class documentedinformation extends CI_Controller {
         }
     }
 
+    public function revision(){
+        $data = $_POST;
+
+        $save = $this->DocumentedInformationModel->saveRevision($data);
+        
+        if ($save) {
+            // Insertion successful
+            echo "saved";
+        } else {
+            // Insertion failed
+            echo "error";
+        }
+    }
+
     public function updateTR(){
 
         $data = $_POST;

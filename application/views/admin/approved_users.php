@@ -284,6 +284,7 @@
                            <th>Department</th>
                            <th>Section</th>
                            <th>Role</th>
+                           <th>Approved By</th>
                            <th>Action</th>
                         </tr>
                      </thead>

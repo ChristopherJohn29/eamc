@@ -256,6 +256,26 @@
                         </div>
                      </div>
 
+                     <div class="row mb-2 revision-row hidden">
+
+                        <div class="form-group col-md-4">
+                              <label for="source_edit" class="form-label">Source</label>
+                              <select class="form-select" id="source_edit" name="source_edit" required>
+                                 <option value="Process Improvement">Process Improvement</option>
+                                 <option value="Internal Audit">Internal Audit</option>
+                                 <option value="External Audit">External Audit</option>
+                              </select>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                     </div>
+                     <div class="row mb-2 revision-row hidden">
+                        <div class="form-group col-md-12">
+                              <label for="reason_edit" class="form-label">Reason for Revision</label>
+                              <textarea class="form-control" id="reason_edit" name="reason_edit"></textarea>
+                              <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
+                        </div>
+                     </div>
+
 
 
                   </form>
@@ -265,8 +285,8 @@
                      <button type="button" class="btn btn-primary" id="editDI">Save</button>
                   </div>
                </div><!-- /.modal-content -->
-         </div><!-- /.modal-dialog -->
-    </div>
+            </div><!-- /.modal-dialog -->
+      </div>
 
     <div id="di-history" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
