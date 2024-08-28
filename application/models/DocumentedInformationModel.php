@@ -494,7 +494,9 @@ class DocumentedInformationModel extends CI_Model {
             'dep_id' => $data['dep_id'],
             'sec_id' => $data['sec_id'],
             'doc_code' => $data['doc_code'],
-            'revision_no' => $data['revision_no']
+            'revision_no' => $data['revision_no'],
+            'source' => $data['source'],
+            'reason' => $data['reason']
         );
     
         // Include additional fields only if 'existing' is checked
@@ -534,7 +536,9 @@ class DocumentedInformationModel extends CI_Model {
             'status' => $data['status'],
             $review => $data[$review],
             $review.'_remarks' => $data[$review.'_remarks'],
-            $review.'_by' => $this->session->userdata('user_id')
+            $review.'_by' => $this->session->userdata('user_id'),
+            'source' => $data['source'],
+            'reason' => $data['reason']
         );
 
         // Include additional fields only if 'existing' is checked

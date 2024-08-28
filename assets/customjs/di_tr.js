@@ -42,6 +42,8 @@ var diList = {
                         var prepared_by_position_existing = item.prepared_by_position_existing;
                         var final_review_by_position_existing = item.final_review_by_position_existing;
                         var approved_by_position_existing = item.approved_by_position_existing;
+                        var source = item.source;
+                        var reason = item.reason;
 
 
                         var existing = item.existing;
@@ -55,6 +57,8 @@ var diList = {
                         
                             // Include the new fields in the data attributes only if 'existing' has a value of 1
                             $action_button +=
+                            "data-source='" + source + "' " +
+                            "data-reason='" + reason + "' " +
                             "data-prepared_by_existing='" + prepared_by_existing + "' " +
                             "data-final_review_by_existing='" + final_review_by_existing + "' " +
                             "data-approved_by_existing='" + approved_by_existing + "' " +
@@ -211,6 +215,8 @@ var diList = {
             var final_review_by_position_existing = jQuery(this).data('final_review_by_position_existing');
             var approved_by_position_existing = jQuery(this).data('approved_by_position_existing');
             var existing = jQuery(this).data('existing');
+            var source = jQuery(this).data('source');
+            var reason = jQuery(this).data('reason');
 
             jQuery('#sec_id_edit option[value="'+sec_id+'"]').prop('disabled', false);
 
@@ -230,6 +236,14 @@ var diList = {
             jQuery('#prepared_by_position_existing_edit').val(prepared_by_position_existing);
             jQuery('#final_review_by_position_existing_edit').val(final_review_by_position_existing);
             jQuery('#approved_by_position_existing_edit').val(approved_by_position_existing);
+            jQuery('#source_edit').val(source);
+            jQuery('#reason_edit').val(reason);
+
+            if(source != ''){
+                jQuery('.revision-row').removeClass('hidden');
+            } else {
+                jQuery('.revision-row').addClass('hidden');
+            }
             
             if (String(existing) === '1') {
                 jQuery('#existing_edit').prop('checked', true).trigger('change');;
@@ -263,6 +277,9 @@ var diList = {
                 var final_review_by_position_existing = jQuery('#final_review_by_position_existing_edit').val();
                 var approved_by_position_existing = jQuery('#approved_by_position_existing_edit').val();
                 var existing = jQuery('#existing_edit').is(':checked') ? '1' : '0'; // Check if the checkbox is checked
+                var source = jQuery('#source_edit').val();
+                var reason = jQuery('#reason_edit').val();
+                
 
                 var data = {
                     doc_id: doc_id,
@@ -282,7 +299,9 @@ var diList = {
                     prepared_by_position_existing: prepared_by_position_existing,
                     final_review_by_position_existing: final_review_by_position_existing,
                     approved_by_position_existing: approved_by_position_existing,
-                    existing: existing
+                    existing: existing,
+                    source: source,
+                    reason: reason
                     
                 };
 

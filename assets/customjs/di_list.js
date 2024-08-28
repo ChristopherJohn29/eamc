@@ -407,6 +407,8 @@ var diList = {
                 var doc_type_id = jQuery('#doc_type_id_edit').val();
                 var effectivity_date = jQuery('#effectivity_date_edit').val();
                 var revision_no = jQuery('#revision_no_edit').val();
+                var source = jQuery('#source_edit').val();
+                var reason = jQuery('#reason_edit').val();
                 
                 var prepared_by_existing = jQuery('#prepared_by_existing_edit').val();
                 var final_review_by_existing = jQuery('#final_review_by_existing_edit').val();
@@ -433,7 +435,9 @@ var diList = {
                     prepared_by_position_existing: prepared_by_position_existing,
                     final_review_by_position_existing: final_review_by_position_existing,
                     approved_by_position_existing: approved_by_position_existing,
-                    existing: existing
+                    existing: existing,
+                    source: source,
+                    reason: reason
                 };
         
                 jQuery("#edit-di").modal('toggle');
