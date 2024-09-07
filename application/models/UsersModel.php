@@ -34,27 +34,27 @@ class UsersModel extends CI_Model {
     public function getApprovedUsers() {
 
         $this->db->select('
-        users.*, 
-        department.dep_name AS dep_name, 
-        division.div_name AS div_name, 
-        roles.role_name AS role_name, 
-        section.section_name AS department_section_name,
-        approved_by_user.fullname AS approved_by_fullname
+            users_main.*, 
+            department.dep_name AS dep_name, 
+            division.div_name AS div_name, 
+            roles.role_name AS role_name, 
+            section.section_name AS department_section_name,
+            approved_by_user.fullname AS approved_by_fullname
         ');
-        $this->db->from('users');
-        $this->db->where('users.osqm_approved', 1);
-        $this->db->where('users.role !=', 'super_admin');
-        $this->db->join('department', 'users.department = department.id', 'left');
-        $this->db->join('section', 'section.id = users.department_section', 'left');
-        $this->db->join('division', 'users.division = division.id', 'left');
-        $this->db->join('roles', 'users.role = roles.role_initial', 'left');
-        $this->db->join('users', 'users.id = users.approved_by', 'left');
-        $this->db->join('users AS approved_by_user', 'approved_by_user.id = users.approved_by', 'left');
-
+        $this->db->from('users AS users_main'); // Alias for the main users table
+        $this->db->where('users_main.osqm_approved', 1);
+        $this->db->where('users_main.role !=', 'super_admin');
+        $this->db->join('department', 'users_main.department = department.id', 'left');
+        $this->db->join('section', 'section.id = users_main.department_section', 'left');
+        $this->db->join('division', 'users_main.division = division.id', 'left');
+        $this->db->join('roles', 'users_main.role = roles.role_initial', 'left');
+        $this->db->join('users AS approved_by_user', 'approved_by_user.id = users_main.approved_by', 'left'); // Alias for approved_by
+    
         $query = $this->db->get();
-
+    
         return $query->result_array();
     }
+    
 
     public function denyUser($id){
         $this->db->where('id', $id);
@@ -72,7 +72,7 @@ class UsersModel extends CI_Model {
 
     public function approveUser($id){
         $this->db->where('id', $id);
-        return $this->db->update('users', array('osqm_approved' => 1, 'approved_by' => $this->session->userdata('user_id')));
+        return $this->db->update('users', array('osqm_approved' => 1, 'approved_by' => $this->session->userdata('user_id'), 'approved_date' => date('Y-m-d H:i:s')));
     }
 
     public function save_verification_token($user_id, $verification_token) {

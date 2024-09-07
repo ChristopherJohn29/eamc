@@ -285,6 +285,7 @@
                            <th>Section</th>
                            <th>Role</th>
                            <th>Approved By</th>
+                           <th>Approved Date</th>
                            <th>Action</th>
                         </tr>
                      </thead>
