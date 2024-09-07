@@ -12,6 +12,7 @@ class documentedinformation extends CI_Controller {
         $this->load->model('SectionModel');
         $this->load->model('DocumentTypeModel');
         $this->load->model('UsersModel');
+        $this->load->model('MainModel');
 
         $this->authentication->check_user_session();
     }
@@ -644,6 +645,25 @@ class documentedinformation extends CI_Controller {
             echo "error";
         }
     }
+
+    public function diHistory(){
+        $this->role_checker->checkViewerRole();
+        $data['page'] = 'admin/di_history';
+		$data['title'] = 'Documented Info Logs';
+        $data['customcss'] = 'di_logs.css';
+        $data['customjs'] = 'di_logs.js';
+        $data['role'] = $this->session->userdata('role');
+        
+		$this->load->view('template/template', $data);
+    }
+
+    public function getAllHistory(){
+
+        $history =  $this->MainModel->getAllDIHistory();
+
+        echo json_encode($history);
+    }
+
 
     public function updateFormsReview(){
 

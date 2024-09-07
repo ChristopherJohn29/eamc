@@ -97,6 +97,33 @@ class MainModel extends CI_Model {
         return $result;
     }
 
+    public function getAllCARHistory(){
+
+        $this->db->select('car_history.*, user_created.fullname AS created_by_name, car_main.car_no AS car_main_no');
+        $this->db->from('car_history');
+        $this->db->join('users AS user_created', 'car_history.created_by = user_created.id', 'left');
+        $this->db->join('car AS car_main', 'car_history.car_id = car_main.id', 'left');
+
+        $query = $this->db->get();
+        $result = $query->result_array();
+
+        return $result;
+    }
+
+
+    public function getAllDIHistory(){
+
+        $this->db->select('document_history.*, user_created.fullname AS created_by_name, doc_info.doc_code AS document_code');
+        $this->db->from('document_history');
+        $this->db->join('users AS user_created', 'document_history.created_by = user_created.id', 'left');
+        $this->db->join('documented_information AS doc_info', 'document_history.doc_id = doc_info.id', 'left');
+
+        $query = $this->db->get();
+        $result = $query->result_array();
+
+        return $result;
+    }
+
     public function saveHistory($data){
 
         $data = array(

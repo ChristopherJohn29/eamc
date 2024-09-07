@@ -16,8 +16,25 @@ class car extends CI_Controller {
         $this->role_checker->checkViewerRole();
     }
 
-    public function car(){
+    public function carHistory(){
+        $this->role_checker->checkViewerRole();
+        $data['page'] = 'admin/car_history';
+		$data['title'] = 'CAR Logs';
+        $data['customcss'] = 'car_logs.css';
+        $data['customjs'] = 'car_logs.js';
+        $data['role'] = $this->session->userdata('role');
+        
+		$this->load->view('template/template', $data);
+    }
 
+    public function getAllHistory(){
+
+        $car =  $this->MainModel->getAllCARHistory();
+
+        echo json_encode($car);
+    }
+
+    public function car(){
         $this->role_checker->checkViewerRole();
         $data['page'] = 'admin/car';
 		$data['title'] = 'Corrective Action Request';
