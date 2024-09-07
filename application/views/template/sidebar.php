@@ -8,6 +8,23 @@
     </a>
 </li>
 
+<?php 
+$requiredRoles = array(
+    'role' => ['super_admin'],
+);
+
+if ($this->role_checker->checkRole($requiredRoles)) {
+?>
+    <li class="menu-item">
+        <a href="<?=base_url().'admin/car/carhistory'?>" class="menu-link">
+            <span class="menu-icon"><i data-feather="layers"></i></span>
+            <span class="menu-text"> C.A.R  Logs</span>
+        </a>
+    </li>
+    <?php
+}
+?>
+
 
 <li class="menu-item">
     <a href="#menuDI" data-bs-toggle="collapse" class="menu-link">
@@ -17,11 +34,14 @@
     </a>
     <div class="collapse" id="menuDI">
         <ul class="sub-menu">
+
+
             <li class="menu-item">
                 <a href="<?=base_url().'admin/documentedinformation'?>" class="menu-link">
                     <span class="menu-text">List</span>
                 </a>
             </li>
+            
 
             <?php 
             
@@ -155,6 +175,24 @@
                     <span class="menu-text">Published</span>
                 </a>
             </li>
+
+
+            <?php 
+            
+            $requiredRoles = array(
+                'role' => ['super_admin'],
+            );
+    
+            if ($this->role_checker->checkRole($requiredRoles)) {
+            ?>
+                <li class="menu-item">
+                    <a href="<?=base_url().'admin/documentedinformation/diHistory'?>" class="menu-link">
+                        <span class="menu-text">Documented Info. Logs</span>
+                    </a>
+                </li>
+                <?php
+            }
+            ?>
 
         </ul>
     </div>
