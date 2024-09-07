@@ -276,7 +276,7 @@ if ($this->role_checker->checkRole($requiredRoles)) {
 <?php 
 $requiredRoles = array(
     'designation' => 'division',
-    'role' => ['osqm_dco', 'osqm_staff'],
+    'role' => ['osqm_dco', 'osqm_staff', 'super_admin'],
 );
 
 if ($this->role_checker->checkRole($requiredRoles) || $this->session->userdata('role') == 'super_admin') {
