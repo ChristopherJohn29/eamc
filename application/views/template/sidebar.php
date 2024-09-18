@@ -170,13 +170,21 @@ if ($this->role_checker->checkRole($requiredRoles)) {
             }
 
             ?>
+
+            <?php 
+            
+            if($this->session->role != 'super_admin'){
+
+            ?>
             <li class="menu-item">
                 <a href="<?=base_url().'admin/documentedinformation/published'?>" class="menu-link">
                     <span class="menu-text">Published</span>
                 </a>
             </li>
-
-
+            <?php 
+            
+             }
+            ?>
             <?php 
             
             $requiredRoles = array(
