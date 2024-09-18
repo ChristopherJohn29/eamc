@@ -108,7 +108,13 @@ var diList = {
                     tippy('*[data-plugin="tippy"]');
 
                     $("#di-list-datatable").DataTable({
-                        language: { paginate: { previous: "<i class='mdi mdi-chevron-left'>", next: "<i class='mdi mdi-chevron-right'>" } },
+                        language: { 
+                            paginate: { 
+                                previous: "<i class='mdi mdi-chevron-left'>", 
+                                next: "<i class='mdi mdi-chevron-right'>" 
+                            } 
+                        },
+                        order: [[0, 'desc']], // Order by column 0 in descending order
                         drawCallback: function () {
                             $(".dataTables_paginate > .pagination").addClass("pagination-rounded");
                         },
