@@ -99,6 +99,8 @@ class DocumentedInformationModel extends CI_Model {
         $this->db->join('document_status', 'document_status.status_code = documented_information.status', 'left');
         $this->db->join('document_type', 'document_type.id = documented_information.doc_type_id', 'left');
 
+        $this->db->order_by('documented_information.id', 'DESC');
+
         $query = $this->db->get();
         $result = $query->result_array();
 
