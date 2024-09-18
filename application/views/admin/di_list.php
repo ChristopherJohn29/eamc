@@ -282,7 +282,12 @@
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                     <?php 
+
+                     if ($this->session->role != 'super_admin') {
+                     ?>
                      <button type="button" class="btn btn-primary" id="editDI">Save</button>
+                     <?php } ?>
                   </div>
                </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
