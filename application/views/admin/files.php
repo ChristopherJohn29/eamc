@@ -68,7 +68,7 @@
          <div class="col-12">
             <div class="card">
                <div class="card-body">
-                  <table id="files-datatable" class="table dt-responsive nowrap w-100">
+                  <table id="files-datatable" data-role="<?=$this->session->role?>" class="table dt-responsive nowrap w-100">
                      <thead>
                         <tr>
                            <th>ID</th>

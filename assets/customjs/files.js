@@ -187,12 +187,18 @@ var file = {
                         // Do something with the data, for example, display it on the page
 
                         filelinkslide = filelink.split('/edit');
-
-                        if(fileurl){
-                            var download = "<a target='_blank' href='../../../uploads/"+fileurl+"' title='Download File'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' download class='hidden btn btn-sm btn-primary waves-effect waves-light download-data' data-id='"+id+"' data-filename='"+filename+"'><i class='mdi mdi-download'></i></a>";
-                        } else if(filelink) {
-                            var download = "<a target='_blank' href='"+filelinkslide[0]+"/export/pptx' title='Download File'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' download class='hidden btn btn-sm btn-primary waves-effect waves-light download-data' data-id='"+id+"' data-filename='"+filename+"'><i class='mdi mdi-download'></i></a>";
+                        var role = jQuery('#files-datatable').data('role');
+                        
+                        if(role != 'super_admin'){
+                            if(fileurl){
+                                var download = "<a target='_blank' href='../../../uploads/"+fileurl+"' title='Download File'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' download class='hidden btn btn-sm btn-primary waves-effect waves-light download-data' data-id='"+id+"' data-filename='"+filename+"'><i class='mdi mdi-download'></i></a>";
+                            } else if(filelink) {
+                                var download = "<a target='_blank' href='"+filelinkslide[0]+"/export/pptx' title='Download File'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' download class='hidden btn btn-sm btn-primary waves-effect waves-light download-data' data-id='"+id+"' data-filename='"+filename+"'><i class='mdi mdi-download'></i></a>";
+                            }
+                        } else {
+                            var download = '';
                         }
+                        
                         
 
                         $('#files-datatable tbody').append("<tr><td>"+index+"</td><td>"+filename+"</td><td>"+created_by_fullname+"</td><td>"+created_date+"</td><td><a target='_blank' href='../../filerevisiondetails/"+id+"' title='View File'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-info waves-effect waves-light view-data' data-id='"+id+"' data-filename='"+filename+"'><i class='mdi mdi-eye'></i></a>"+download+"<button title='Delete'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm hidden btn-danger waves-effect waves-light data-delete' data-id='"+id+"'><i class='mdi mdi-close'></i></button></td></tr>");
