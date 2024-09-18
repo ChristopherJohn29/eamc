@@ -51,7 +51,7 @@
                      'role' => ['osqm_dco'],
                   );
 
-                  if($status == 'FFU' || $status == 'AD' || $status == 'D' || $this->role_checker->checkRole($requiredRoles)){
+                  if(($status == 'FFU' || $status == 'AD' || $status == 'D' || $this->role_checker->checkRole($requiredRoles)) && $this->session->role != 'super_admin'){
                      ?>
                      <button type="button" class="btn btn-primary waves-effect waves-light new-file" data-bs-toggle="modal" data-bs-target="#add-file"><i class="fas fa-plus"></i> New File</button>
                      <?php
