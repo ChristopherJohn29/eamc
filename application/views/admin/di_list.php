@@ -451,11 +451,16 @@
             }         
             ?>
 
+         <?php 
 
+         if ($this->session->role != 'admin') {
+         ?>
                <div class="mt-2 mb-2" style="text-align: right;">
                   <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#add-di"><i class="fas fa-plus"></i> New Documented Information</button>
                </div>
-
+               <?php
+               }
+               ?>
          </div>
       </div>
       <div class="row">
