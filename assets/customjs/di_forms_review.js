@@ -34,10 +34,15 @@ var diList = {
                         var status = item.status;
                         var effectivity_date = item.effectivity_date;
                         var revision_no = item.revision_no;
+                        var source = item.source;
+                        var reason = item.reason;
+
 
                         if(status == 'FCRA'){
                             $action_button = "<button title='Forms Review'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-blue edit-data'"+
                             "data-id='"+id+"' data-user_id='"+user_id+"'" +
+                            "data-source='" + source + "' " +
+                            "data-reason='" + reason + "' " +
                             "data-doc_title='"+doc_title+"' data-doc_code='"+doc_code+"'" +
                             "data-dep_id='"+dep_id+"' data-sec_id='"+sec_id+"'  data-doc_type_id='"+doc_type_id+"'" +
                             "data-effectivity_date='"+effectivity_date+"' data-revision_no='"+revision_no+"'>" +
@@ -163,6 +168,8 @@ var diList = {
             var doc_type_id = jQuery(this).data('doc_type_id');
             var effectivity_date = jQuery(this).data('effectivity_date');
             var revision_no = jQuery(this).data('revision_no');
+            var source = jQuery(this).data('source');
+            var reason = jQuery(this).data('reason');
 
             jQuery('#sec_id_edit option[value="'+sec_id+'"]').prop('disabled', false);
 
@@ -175,6 +182,14 @@ var diList = {
             jQuery('#doc_type_id_edit').val(doc_type_id);
             jQuery('#effectivity_date_edit').val(effectivity_date);
             jQuery('#revision_no_edit').val(revision_no);
+            jQuery('#source_edit').val(source);
+            jQuery('#reason_edit').val(reason);
+
+            if(source != ''){
+                jQuery('.revision-row').removeClass('hidden');
+            } else {
+                jQuery('.revision-row').addClass('hidden');
+            }
 
             jQuery("#edit-di").modal('toggle');
             
@@ -195,6 +210,8 @@ var diList = {
                 var revision_no = jQuery('#revision_no_edit').val();
                 var forms_review = jQuery('#forms_review').val();
                 var forms_review_remarks = jQuery('#remarks').val();
+                var source = jQuery('#source_edit').val();
+                var reason = jQuery('#reason_edit').val();
 
                 var data = {
                     doc_id: doc_id,
@@ -207,7 +224,9 @@ var diList = {
                     effectivity_date: effectivity_date,
                     revision_no: revision_no,
                     forms_review: forms_review,
-                    forms_review_remarks: forms_review_remarks
+                    forms_review_remarks: forms_review_remarks,
+                    source: source,
+                    reason: reason
                 };
 
                 jQuery("#edit-di").modal('toggle');
