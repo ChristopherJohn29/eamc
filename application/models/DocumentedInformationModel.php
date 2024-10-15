@@ -496,10 +496,16 @@ class DocumentedInformationModel extends CI_Model {
             'dep_id' => $data['dep_id'],
             'sec_id' => $data['sec_id'],
             'doc_code' => $data['doc_code'],
-            'revision_no' => $data['revision_no'],
-            'source' => $data['source'],
-            'reason' => $data['reason']
+            'revision_no' => $data['revision_no']
         );
+
+        if(isset($data['source'])){
+            $updateData['source'] = $data['source'];
+        }
+
+        if(isset($data['reason'])){
+            $updateData['reason'] = $data['reason'];
+        }
     
         // Include additional fields only if 'existing' is checked
         if (isset($data['existing']) && $data['existing'] == '1') {
@@ -527,6 +533,8 @@ class DocumentedInformationModel extends CI_Model {
     public function updateDIReview(array $data, $review = ''){
         $this->db->where('id', $data['doc_id']);
         $this->db->where('user_id', $data['user_id']);
+        
+        
 
         $updateData = array(
             'doc_title' => $data['document_title'],
@@ -538,10 +546,16 @@ class DocumentedInformationModel extends CI_Model {
             'status' => $data['status'],
             $review => $data[$review],
             $review.'_remarks' => $data[$review.'_remarks'],
-            $review.'_by' => $this->session->userdata('user_id'),
-            'source' => $data['source'],
-            'reason' => $data['reason']
+            $review.'_by' => $this->session->userdata('user_id')
         );
+
+        if(isset($data['source'])){
+            $updateData['source'] = $data['source'];
+        }
+
+        if(isset($data['reason'])){
+            $updateData['reason'] = $data['reason'];
+        }
 
         // Include additional fields only if 'existing' is checked
         if (isset($data['existing']) && $data['existing'] == '1') {
