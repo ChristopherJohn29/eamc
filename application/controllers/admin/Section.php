@@ -20,7 +20,16 @@ class section extends CI_Controller {
 		$data['title'] = 'Section';
         $data['customcss'] = 'section.css';
         $data['customjs'] = 'section.js';
-		$data['department'] =  $this->DepartmentModel->getDepartment();
+        $requiredRoles = array(
+            'designation' => 'division',
+            'role' => ['osqm_dco', 'super_admin'],
+        );
+
+        if (!$this->role_checker->checkRole($requiredRoles)) {
+            $data['department'] =  $this->DepartmentModel->getDepartment();
+        } else {
+            $data['department'] =  $this->DepartmentModel->loadDepartment();
+        }
 
 		$this->load->view('template/template', $data);
 	}
