@@ -87,8 +87,7 @@
                               <option value="External Audit">External Audit</option>
                            </select>
                            <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
-                     </div>
-                     </div>
+                        </div>
                      <div class="row mb-2 revision-row hidden">
                      <div class="form-group col-md-12">
                            <label for="reason_edit" class="form-label">Reason for Revision</label>
