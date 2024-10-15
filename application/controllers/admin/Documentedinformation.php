@@ -346,7 +346,7 @@ class documentedinformation extends CI_Controller {
 
         $requiredRoles = array(
             'designation' => 'division',
-            'role' => ['osqm_dco', 'osqm_qmr'],
+            'role' => ['osqm_dco', 'osqm_qmr', 'div_chief'],
         );
 
         if (!$this->role_checker->checkRole($requiredRoles)) {
