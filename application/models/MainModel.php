@@ -299,7 +299,7 @@ class MainModel extends CI_Model {
 
 
         if($role != 'super_admin'){
-            if($department_section && ( $role != 'osqm_dco' && $role != 'osqm_do')){
+            if($department_section && ( $role != 'osqm_dco' && $role != 'osqm_do' && $role != 'osqm_qmr')){
                 $this->db->where('section', $department_section);
             }
             
