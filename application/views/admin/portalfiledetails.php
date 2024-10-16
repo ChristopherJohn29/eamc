@@ -216,7 +216,7 @@
                                  ?>   
 
                                  <?php 
-                                 if(!empty($document_data['file_revision'])){ ?>
+                                 if(!empty($file_revision)){ ?>
                                  <tr class="foot-header">
                                     <th scope="col">Revision No.</th>
                                     <th scope="col">Description</th>
@@ -224,7 +224,7 @@
                                  </tr>
 
                                  <?php
-                                    foreach($document_data['file_revision'] as $revision){
+                                    foreach($file_revision as $revision){
                                        ?>
                                        <tr>
                                           <td><?=$revision['revision_no']?></td>
