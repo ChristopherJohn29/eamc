@@ -214,8 +214,28 @@
                                  <?php
                                  }
                                  ?>   
-                                 
 
+                                 <?php 
+                                 if(!empty($document_data['file_revision'])){ ?>
+                                 <tr class="foot-header">
+                                    <th scope="col">Revision No.</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Effectivity Date</th>
+                                 </tr>
+
+                                 <?php
+                                    foreach($document_data['file_revision'] as $revision){
+                                       ?>
+                                       <tr>
+                                          <td><?=$revision['revision_no']?></td>
+                                          <td><?=$revision['revision_desc']?></td>
+                                          <td><?=$revision['effectivity_date']?></td>
+                                       </tr>
+                                       <?php
+                                    }
+                                 }
+                                 ?>
+                                 
                               </tbody>
                         </table>
                               <div class="text-center">Disclaimer: THIS COPY CANNOT BE DOWNLOADED AND BE USED FOR LEGAL PURPOSES</div>

@@ -14,6 +14,18 @@ class FileDetailsModel extends CI_Model {
         return $result;
     }
 
+    public function getRevision($doc_id = ''){
+
+        $this->db->select('*');
+        $this->db->from('document_revision');
+        $this->db->where('doc_id', $doc_id);
+
+        $query = $this->db->get();
+        $result = $query->result_array();
+
+        return $result;
+    }
+
     public function deleteFile($id){
         $this->db->where('id', $id);
         return $this->db->update('document_files', array('status' => 0, 'last_update_by' => $this->session->userdata('user_id')));

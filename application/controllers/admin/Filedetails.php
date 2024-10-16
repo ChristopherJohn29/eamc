@@ -60,6 +60,7 @@ class filedetails extends CI_Controller {
         $data['filelink'] =  $this->FileDetailsModel->getDocumentLink($this->file_id);
         $data['unique_file_name'] =  $this->FileDetailsModel->getDocumentFile($this->file_id);
         $data['document_data'] = $this->DocumentedInformationModel->getDIPortal($doc_id)[0];
+        $data['file_revision'] = $this->FileDetailsModel->getRevision($doc_id);
    
 		$this->load->view('admin/portalfiledetails', $data);
 	}
