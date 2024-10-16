@@ -216,7 +216,14 @@
                                  ?>   
 
                                  <?php 
+                                 
                                  if(!empty($file_revision)){ ?>
+
+                                 <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                 </tr>
                                  <tr class="foot-header">
                                     <th scope="col">Revision No.</th>
                                     <th scope="col">Description</th>
