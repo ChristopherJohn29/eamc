@@ -230,6 +230,11 @@
                                        <td></td>
                                        <td></td>
                                     </tr>
+                                    <tr>
+                                       <td><?=$document_data['prepared_by_position']?></td>
+                                       <td></td>
+                                       <td></td>
+                                    </tr>
                                     <?php
                                  }
                                  ?>   
