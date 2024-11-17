@@ -619,6 +619,16 @@ class documentedinformation extends CI_Controller {
         {
             $data['status'] = 'FCRA';
         }
+        else if($_POST['technical_review'] == 'Published'){
+
+            $data['status'] = 'PUB';
+
+            $this->UsersModel->registerNotification($documentData[0]['user_id'], 'Congratulations! your Documented Information (ID-'.$data['doc_id'].') / Form was successfully published', 'DCM');
+           
+            foreach( $dco as $value){
+                $this->UsersModel->registerNotification($value['id'], 'You have successfully published a documented information (ID-'.$data['doc_id'].') / form', 'DCM');
+            }
+        } 
         else {
             $data['status'] = 'AD';
 

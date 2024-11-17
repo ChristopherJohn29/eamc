@@ -149,6 +149,7 @@
                            <label for="technical_review" class="form-label">Technical Review</label>
                            <select class="form-select" id="technical_review" name="technical_review" required>
                               <option value=""></option>
+                              <option value="Published">Published</option>
                               <option value="Approved">Approved</option>
                               <option value="Disapproved">Disapproved</option>
                               <option value="Approved Draft">Approved Draft</option>

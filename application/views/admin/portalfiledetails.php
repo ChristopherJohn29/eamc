@@ -179,15 +179,16 @@
                                           ?>
                                     </td>
                                  </tr>
-                                 <tr class="foot-header">
-                                    <th scope="col">Prepared By</th>
-                                    <th scope="col">Reviewed By</th>
-                                    <th scope="col">Approved By</th>
-                                 </tr>
+                              
                                  <?php 
                                  
                                  if($document_data['existing'] == 1){
                                     ?>
+                                    <tr class="foot-header">
+                                       <th scope="col">Prepared By</th>
+                                       <th scope="col">Reviewed By</th>
+                                       <th scope="col">Approved By</th>
+                                    </tr>
                                     <tr>
                                        <td><?=strtoupper($document_data['prepared_by_existing'])?></td>
                                        <td><?=strtoupper($document_data['final_review_by_existing'])?></td>
@@ -199,8 +200,13 @@
                                        <td><?=$document_data['approved_by_position_existing']?></td>
                                     </tr>
                                     <?php
-                                 } else {
+                                 } else if($document_data['prepared_by']){
                                     ?>
+                                    <tr class="foot-header">
+                                       <th scope="col">Prepared By</th>
+                                       <th scope="col">Reviewed By</th>
+                                       <th scope="col">Approved By</th>
+                                    </tr>
                                     <tr>
                                        <td><?=strtoupper($document_data['prepared_by'])?></td>
                                        <td><?=strtoupper($document_data['final_reviewer'])?></td>
@@ -212,6 +218,19 @@
                                        <td><?=$document_data['approval_person_position']?></td>
                                     </tr>
                                  <?php
+                                 } else {
+                                    ?>
+                                    <tr class="foot-header">
+                                       <th scope="col">Registered By</th>
+                                       <th scope="col"></th>
+                                       <th scope="col"></th>
+                                    </tr>
+                                    <tr>
+                                       <td><?=strtoupper($document_data['prepared_by'])?></td>
+                                       <td></td>
+                                       <td></td>
+                                    </tr>
+                                    <?php
                                  }
                                  ?>   
 
