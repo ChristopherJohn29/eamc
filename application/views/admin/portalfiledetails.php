@@ -200,7 +200,7 @@
                                        <td><?=$document_data['approved_by_position_existing']?></td>
                                     </tr>
                                     <?php
-                                 } else if($document_data['prepared_by']){
+                                 } else if($document_data['final_reviewer']){
                                     ?>
                                     <tr class="foot-header">
                                        <th scope="col">Prepared By</th>
