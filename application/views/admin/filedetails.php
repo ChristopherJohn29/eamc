@@ -88,7 +88,7 @@ if (!$this->role_checker->checkRole($requiredRoles)) {
                <?php
                if( !$filelink ){
                   $upload_document['url'] = base_url().'uploads/'.$unique_file_name;
-                  if( strpos($upload_document['url'],'.doc') !== false || strpos($upload_document['url'],'.pptx') !== false || strpos($upload_document['url'],'.ppsx') !== false ){
+                  if( strpos($upload_document['url'],'.doc') !== false || strpos($upload_document['url'],'.pptx') !== false || strpos($upload_document['url'],'.ppsx') !== false || strpos($upload_document['url'],'.xlsx') !== false){
                      $iframe_src = 'https://view.officeapps.live.com/op/embed.aspx?src='.$upload_document['url'];
                   }
                   else{
