@@ -1,5 +1,6 @@
 .DS_Store
 
+# CodeIgniter specific ignores
 application/cache/*
 !application/cache/index.html
 
@@ -8,19 +9,29 @@ application/logs/*
 
 !application/*/.htaccess
 
+# Sensitive configuration files
+application/config/database.php
+application/config/config.php
+application/config/development/*
+application/config/production/*
+application/config/testing/*
+
+# Composer
 composer.lock
 tests/mocks/database/ci_test.sqlite
+/vendor/
 
+# User Guide
 user_guide_src/build/*
 user_guide_src/cilexer/build/*
 user_guide_src/cilexer/dist/*
 user_guide_src/cilexer/pycilexer.egg-info/*
-/vendor/
 
 # IDE Files
 #-------------------------
 /nbproject/
 .idea/*
+.vscode/*
 
 ## Sublime Text cache files
 *.tmlanguage.cache
@@ -30,3 +41,7 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.sublime-project
 /tests/tests/
 /tests/results/
+
+# Environment specific files
+.env
+*.env
