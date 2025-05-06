@@ -10,7 +10,7 @@ var car = {
 
         $('#car-global-datatable tbody').html('');
 
-    
+
 
         $.ajax({
             type: 'POST',
@@ -19,7 +19,7 @@ var car = {
             success: function (response) {
                 if(response != 'null'){
 
-                   
+
 
                     $.each(JSON.parse(response), function (index, item) {
 
@@ -72,7 +72,7 @@ var car = {
 
                         var osqm_review_corrective_action = "";
                         var history = "<a class='dropdown-item view-history' href='#' data-car_id='"+car_id+"'>History</a>";
-          
+
                         if(section != ''){
                             if(for_correction_status == 'For OSQM Review' && ( userrole == "osqm_dco" || userrole == "osqm_do" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) ) ){
                                 var osqm_review_correction = "<a class='dropdown-item for-osqm-review-correction' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-car_attachment='" + car_attachment + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>SEC.2 Correction - For OSQM Review</a>";
@@ -82,7 +82,7 @@ var car = {
                                 var osqm_review_correction = "<a class='dropdown-item for-osqm-review-correction' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-car_attachment='" + car_attachment + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>SEC.2 Correction - For OSQM Review</a>";
                             }
                         }
-                        
+
 
                         if(section != ''){
                             if(corrective_action_status == 'For OSQM Review' && ( userrole == "osqm_dco" || userrole == "osqm_do" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) ) ){
@@ -103,7 +103,7 @@ var car = {
                                 var osqm_approval_correction = "<a class='dropdown-item for-osqm-approval-correction' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-car_attachment='" + car_attachment + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>SEC.2 Correction - For Approval</a>";
                             }
                         }
-                        
+
                         if(section != ''){
                             if(corrective_action_status == 'For Approval' && ( userrole == "osqm_dco" || userrole == "osqm_do" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) ) ){
                                 var osqm_approval_corrective_action = "<a class='dropdown-item for-osqm-approval-corrective-action' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-car_attachment='" + car_attachment + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#root-cause'>SEC.3&4 Corrective Action - For Approval</a>";
@@ -314,8 +314,8 @@ var car = {
                             var issuance_of_nc_html = "";
                         }
 
-                        
-                        
+
+
 
                         if(section != ''){
 
@@ -323,7 +323,7 @@ var car = {
                             // console.log(section);
                             // console.log(userdepartmentsection);
                             // console.log(for_correction_status);
-                            
+
                             if((for_correction_status == "For CAR action" || for_correction_status == "For Implementation" ||  for_correction_status == 'For Revision') && ( userrole == "osqm_dco" || userrole == "osqm_do" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) ) ){
                                 var for_action_html_correction = "<a class='dropdown-item edit-correction-action' href='#' data-correction_status='"+for_correction_status+"' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-car_attachment='" + car_attachment + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>SEC.2 Correction</a>";
                             } else {
@@ -349,7 +349,7 @@ var car = {
                             }
                         }
 
-                        
+
 
                         if (corrective_action_status == 'For CAR action' || corrective_action_status == "For Implementation" || corrective_action_status == "For Partial" || corrective_action_status == 'For Revision') {
                             $.ajax({
@@ -379,18 +379,18 @@ var car = {
                                                         }
                                                     }
 
-                                                    
-                                                } 
+
+                                                }
                                             });
 
-                                                     var html = "<tr><td>" + car_id + 
-                                                    "<td>" + car_no + 
-                                                    "</td><td>" + source_name + 
-                                                    "</td><td>" + issued_by_name + 
-                                                    "</td><td>" + issued_to_name + 
-                                                    "</td><td>" + identification_date + 
-                                                    "</td><td>" + registration_date + 
-                                                    "</td><td>" + date_closed + 
+                                                     var html = "<tr><td>" + car_id +
+                                                    "<td>" + car_no +
+                                                    "</td><td>" + source_name +
+                                                    "</td><td>" + issued_by_name +
+                                                    "</td><td>" + issued_to_name +
+                                                    "</td><td>" + identification_date +
+                                                    "</td><td>" + registration_date +
+                                                    "</td><td>" + date_closed +
                                                     "</td><td>" + for_correction_status + "<br><small><a href='#' class='update-correction-due' data-car_id='"+car_id+"' data-current='"+ fc_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-correction'>" + fc_completion_date + " (Due Date from the Registration)</a></small>" +
                                                      "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (Due Date from the Registration)</a></small><br><small><a href='#' class='update-corrective-due-second' data-car_id='"+car_id+"' data-current='"+ ca_second_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_second_completion_date_html + "</a></small>" +
                                                     "</td><td>" + status +
@@ -420,14 +420,14 @@ var car = {
 
 
                                         } else {
-                                                var html = "<tr><td>" + car_id + 
-                                                "<td>" + car_no + 
-                                                "</td><td>" + source_name + 
-                                                "</td><td>" + issued_by_name + 
-                                                "</td><td>" + issued_to_name + 
-                                                "</td><td>" + identification_date + 
-                                                "</td><td>" + registration_date + 
-                                                "</td><td>" + date_closed + 
+                                                var html = "<tr><td>" + car_id +
+                                                "<td>" + car_no +
+                                                "</td><td>" + source_name +
+                                                "</td><td>" + issued_by_name +
+                                                "</td><td>" + issued_to_name +
+                                                "</td><td>" + identification_date +
+                                                "</td><td>" + registration_date +
+                                                "</td><td>" + date_closed +
                                                 "</td><td>" + for_correction_status + "<br><small><a href='#' class='update-correction-due' data-car_id='"+car_id+"' data-current='"+ fc_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-correction'>" + fc_completion_date + " (Due Date from the Registration)</a></small>" +
                                                 "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (Due Date from the Registration)</a></small><br><small><a href='#' class='update-corrective-due-second' data-car_id='"+car_id+"' data-current='"+ ca_second_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective-second'>" + ca_second_completion_date_html + "</a></small>" +
                                                 "</td><td>" + status +
@@ -455,14 +455,14 @@ var car = {
                                                 $('#car-global-datatable tbody').append(html);
                                         }
                                     } else {
-                                                var html = "<tr><td>" + car_id + 
-                                                "<td>" + car_no + 
-                                                "</td><td>" + source_name + 
-                                                "</td><td>" + issued_by_name + 
-                                                "</td><td>" + issued_to_name + 
-                                                "</td><td>" + identification_date + 
-                                                "</td><td>" + registration_date + 
-                                                "</td><td>" + date_closed + 
+                                                var html = "<tr><td>" + car_id +
+                                                "<td>" + car_no +
+                                                "</td><td>" + source_name +
+                                                "</td><td>" + issued_by_name +
+                                                "</td><td>" + issued_to_name +
+                                                "</td><td>" + identification_date +
+                                                "</td><td>" + registration_date +
+                                                "</td><td>" + date_closed +
                                                 "</td><td>" + for_correction_status + "<br><small><a href='#' class='update-correction-due' data-car_id='"+car_id+"' data-current='"+ fc_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-correction'>" + fc_completion_date + " (Due Date from the Registration)</a></small>" +
                                                 "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (Due Date from the Registration)</a></small><br><small><a href='#' class='update-corrective-due-second' data-car_id='"+car_id+"' data-current='"+ ca_second_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-second-dues-corrective'>" + ca_second_completion_date_html + "</a></small>" +
                                                 "</td><td>" + status +
@@ -496,14 +496,14 @@ var car = {
                                 }
                             });
                         } else {
-                            var html = "<tr><td>" + car_id + 
-                            "<td>" + car_no + 
-                            "</td><td>" + source_name + 
-                            "</td><td>" + issued_by_name + 
-                            "</td><td>" + issued_to_name + 
-                            "</td><td>" + identification_date + 
-                            "</td><td>" + registration_date + 
-                            "</td><td>" + date_closed + 
+                            var html = "<tr><td>" + car_id +
+                            "<td>" + car_no +
+                            "</td><td>" + source_name +
+                            "</td><td>" + issued_by_name +
+                            "</td><td>" + issued_to_name +
+                            "</td><td>" + identification_date +
+                            "</td><td>" + registration_date +
+                            "</td><td>" + date_closed +
                             "</td><td>" + for_correction_status + "<br><small><a href='#' class='update-correction-due' data-car_id='"+car_id+"' data-current='"+ fc_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-correction'>" + fc_completion_date + " (Due Date from the Registration)</a></small>" +
                              "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (Due Date from the Registration)</a></small><br><small><a href='#' class='update-corrective-due-second' data-car_id='"+car_id+"' data-current='"+ ca_second_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_second_completion_date_html + "</a></small>" +
                             "</td><td>" + status +
@@ -532,7 +532,7 @@ var car = {
                         }
 
 
-                        
+
 
                     });
 
@@ -551,11 +551,11 @@ var car = {
                             },
                             order: [[0, 'desc']] // Sort by the first column in descending order
                         });
-    
+
                         $('[data-toggle="tooltip"]').tooltip()
 
                     }, 3000)
-                    
+
                 }
             },
             error: function () {
@@ -566,7 +566,7 @@ var car = {
     },
 
     loadFilter : function (){
-        
+
         jQuery('#previewButton').click(function(e) {
             e.preventDefault();
             car.previewSubmit();
@@ -592,13 +592,13 @@ var car = {
                 if (response instanceof Blob) {
                     // Create a temporary URL to the Blob
                     var url = window.URL.createObjectURL(response);
-                    
+
                     // Create a temporary anchor element
                     var a = document.createElement('a');
                     a.style.display = 'none';
                     a.href = url;
                     a.download = 'filtered_car_data_' + new Date().toISOString().slice(0, 10) + '.csv';
-                    
+
                     // Append the anchor to the body and trigger the click event
                     document.body.appendChild(a);
                     a.click();
@@ -695,7 +695,7 @@ var car = {
 
                         var osqm_review_corrective_action = "";
                         var history = "<a class='dropdown-item view-history' href='#' data-car_id='"+car_id+"'>History</a>";
-          
+
                         if(section != ''){
                             if(for_correction_status == 'For OSQM Review' && ( userrole == "osqm_dco" || userrole == "osqm_do" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) ) ){
                                 var osqm_review_correction = "<a class='dropdown-item for-osqm-review-correction' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-car_attachment='" + car_attachment + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>SEC.2 Correction - For OSQM Review</a>";
@@ -705,7 +705,7 @@ var car = {
                                 var osqm_review_correction = "<a class='dropdown-item for-osqm-review-correction' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-car_attachment='" + car_attachment + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>SEC.2 Correction - For OSQM Review</a>";
                             }
                         }
-                        
+
 
                         if(section != ''){
                             if(corrective_action_status == 'For OSQM Review' && ( userrole == "osqm_dco" || userrole == "osqm_do" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) ) ){
@@ -726,7 +726,7 @@ var car = {
                                 var osqm_approval_correction = "<a class='dropdown-item for-osqm-approval-correction' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-car_attachment='" + car_attachment + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>SEC.2 Correction - For Approval</a>";
                             }
                         }
-                        
+
                         if(section != ''){
                             if(corrective_action_status == 'For Approval' && ( userrole == "osqm_dco" || userrole == "osqm_do" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) ) ){
                                 var osqm_approval_corrective_action = "<a class='dropdown-item for-osqm-approval-corrective-action' href='#' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-car_attachment='" + car_attachment + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#root-cause'>SEC.3&4 Corrective Action - For Approval</a>";
@@ -937,8 +937,8 @@ var car = {
                             var issuance_of_nc_html = "";
                         }
 
-                        
-                        
+
+
 
                         if(section != ''){
 
@@ -946,7 +946,7 @@ var car = {
                             // console.log(section);
                             // console.log(userdepartmentsection);
                             // console.log(for_correction_status);
-                            
+
                             if((for_correction_status == "For CAR action" || for_correction_status == "For Implementation" ||  for_correction_status == 'For Revision') && ( userrole == "osqm_dco" || userrole == "osqm_do" ||  userrole == "div_chief" || ( userrole == "section_head" && section == userdepartmentsection ) ) ){
                                 var for_action_html_correction = "<a class='dropdown-item edit-correction-action' href='#' data-correction_status='"+for_correction_status+"' data-userrole='"+userrole+"' data-status='"+status+"' data-requestor='" + requestor + "'  data-findings='" + findings + "' data-consequences='" + consequences + "' data-car_attachment='" + car_attachment + "' data-requirements_not_fulfilled='" + requirements_not_fulfilled + "' data-issuance_of_nc_remarks='" + issuance_of_nc_remarks + "' data-issuance_of_nc='" + issuance_of_nc + "' data-car_id='" + car_id + "' data-car_no='" + car_no + "' data-source='" + source + "' data-section='" + section + "' data-issued_by='" + issued_by + "' data-issued_to='" + issued_to + "' data-identification_date='" + identification_date + "' data-registration_date='" + registration_date + "' data-bs-toggle='modal' data-bs-target='#corrective-action'>SEC.2 Correction</a>";
                             } else {
@@ -972,7 +972,7 @@ var car = {
                             }
                         }
 
-                        
+
 
                         if (corrective_action_status == 'For CAR action' || corrective_action_status == "For Implementation" || corrective_action_status == "For Partial" || corrective_action_status == 'For Revision') {
                             $.ajax({
@@ -1002,18 +1002,18 @@ var car = {
                                                         }
                                                     }
 
-                                                    
-                                                } 
+
+                                                }
                                             });
 
-                                                     var html = "<tr><td>" + car_id + 
-                                                    "<td>" + car_no + 
-                                                    "</td><td>" + source_name + 
-                                                    "</td><td>" + issued_by_name + 
-                                                    "</td><td>" + issued_to_name + 
-                                                    "</td><td>" + identification_date + 
-                                                    "</td><td>" + registration_date + 
-                                                    "</td><td>" + date_closed + 
+                                                     var html = "<tr><td>" + car_id +
+                                                    "<td>" + car_no +
+                                                    "</td><td>" + source_name +
+                                                    "</td><td>" + issued_by_name +
+                                                    "</td><td>" + issued_to_name +
+                                                    "</td><td>" + identification_date +
+                                                    "</td><td>" + registration_date +
+                                                    "</td><td>" + date_closed +
                                                     "</td><td>" + for_correction_status + "<br><small><a href='#' class='update-correction-due' data-car_id='"+car_id+"' data-current='"+ fc_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-correction'>" + fc_completion_date + " (Due Date from the Registration)</a></small>" +
                                                      "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (Due Date from the Registration)</a></small><br><small><a href='#' class='update-corrective-due-second' data-car_id='"+car_id+"' data-current='"+ ca_second_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_second_completion_date_html + "</a></small>" +
                                                     "</td><td>" + status +
@@ -1043,14 +1043,14 @@ var car = {
 
 
                                         } else {
-                                                var html = "<tr><td>" + car_id + 
-                                                "<td>" + car_no + 
-                                                "</td><td>" + source_name + 
-                                                "</td><td>" + issued_by_name + 
-                                                "</td><td>" + issued_to_name + 
-                                                "</td><td>" + identification_date + 
-                                                "</td><td>" + registration_date + 
-                                                "</td><td>" + date_closed + 
+                                                var html = "<tr><td>" + car_id +
+                                                "<td>" + car_no +
+                                                "</td><td>" + source_name +
+                                                "</td><td>" + issued_by_name +
+                                                "</td><td>" + issued_to_name +
+                                                "</td><td>" + identification_date +
+                                                "</td><td>" + registration_date +
+                                                "</td><td>" + date_closed +
                                                 "</td><td>" + for_correction_status + "<br><small><a href='#' class='update-correction-due' data-car_id='"+car_id+"' data-current='"+ fc_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-correction'>" + fc_completion_date + " (Due Date from the Registration)</a></small>" +
                                                 "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (Due Date from the Registration)</a></small><br><small><a href='#' class='update-corrective-due-second' data-car_id='"+car_id+"' data-current='"+ ca_second_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective-second'>" + ca_second_completion_date_html + "</a></small>" +
                                                 "</td><td>" + status +
@@ -1078,14 +1078,14 @@ var car = {
                                                 $('#car-global-datatable tbody').append(html);
                                         }
                                     } else {
-                                                var html = "<tr><td>" + car_id + 
-                                                "<td>" + car_no + 
-                                                "</td><td>" + source_name + 
-                                                "</td><td>" + issued_by_name + 
-                                                "</td><td>" + issued_to_name + 
-                                                "</td><td>" + identification_date + 
-                                                "</td><td>" + registration_date + 
-                                                "</td><td>" + date_closed + 
+                                                var html = "<tr><td>" + car_id +
+                                                "<td>" + car_no +
+                                                "</td><td>" + source_name +
+                                                "</td><td>" + issued_by_name +
+                                                "</td><td>" + issued_to_name +
+                                                "</td><td>" + identification_date +
+                                                "</td><td>" + registration_date +
+                                                "</td><td>" + date_closed +
                                                 "</td><td>" + for_correction_status + "<br><small><a href='#' class='update-correction-due' data-car_id='"+car_id+"' data-current='"+ fc_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-correction'>" + fc_completion_date + " (Due Date from the Registration)</a></small>" +
                                                 "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (Due Date from the Registration)</a></small><br><small><a href='#' class='update-corrective-due-second' data-car_id='"+car_id+"' data-current='"+ ca_second_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-second-dues-corrective'>" + ca_second_completion_date_html + "</a></small>" +
                                                 "</td><td>" + status +
@@ -1119,14 +1119,14 @@ var car = {
                                 }
                             });
                         } else {
-                            var html = "<tr><td>" + car_id + 
-                            "<td>" + car_no + 
-                            "</td><td>" + source_name + 
-                            "</td><td>" + issued_by_name + 
-                            "</td><td>" + issued_to_name + 
-                            "</td><td>" + identification_date + 
-                            "</td><td>" + registration_date + 
-                            "</td><td>" + date_closed + 
+                            var html = "<tr><td>" + car_id +
+                            "<td>" + car_no +
+                            "</td><td>" + source_name +
+                            "</td><td>" + issued_by_name +
+                            "</td><td>" + issued_to_name +
+                            "</td><td>" + identification_date +
+                            "</td><td>" + registration_date +
+                            "</td><td>" + date_closed +
                             "</td><td>" + for_correction_status + "<br><small><a href='#' class='update-correction-due' data-car_id='"+car_id+"' data-current='"+ fc_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-correction'>" + fc_completion_date + " (Due Date from the Registration)</a></small>" +
                              "</td><td>" + corrective_action_status + "<br><small><a href='#' class='update-corrective-due' data-car_id='"+car_id+"' data-current='"+ ca_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_completion_date + " (Due Date from the Registration)</a></small><br><small><a href='#' class='update-corrective-due-second' data-car_id='"+car_id+"' data-current='"+ ca_second_completion_date +"' data-bs-toggle='modal' data-bs-target='#car-dues-corrective'>" + ca_second_completion_date_html + "</a></small>" +
                             "</td><td>" + status +
@@ -1155,7 +1155,7 @@ var car = {
                         }
 
 
-                        
+
 
                     });
 
@@ -1183,11 +1183,11 @@ var car = {
                             },
                             order: [[0, 'desc']] // Sort by the first column in descending order
                         });
-    
+
                         $('[data-toggle="tooltip"]').tooltip()
 
                     }, 3000)
-                    
+
                 }
             },
             error: function () {
@@ -1215,13 +1215,13 @@ var car = {
                             // Access each item's properties
                             var id = item.id;
                             var dep_name = item.dep_name;
-    
+
                             var html = '<option value="'+id+'">'+dep_name+'</option>';
                             // Do something with the data, for example, display it on the page
                             $('#issued_to').append(html);
                         });
 
-                    }   
+                    }
                 },
                 error: function () {
                     // Handle errors
@@ -1229,7 +1229,7 @@ var car = {
                 }
             });
 
-        }); 
+        });
 
         jQuery('#issued_by').change(function(){
             division = jQuery(this).val();
@@ -1246,13 +1246,13 @@ var car = {
                             // Access each item's properties
                             var id = item.id;
                             var dep_name = item.dep_name;
-    
+
                             var html = '<option value="'+id+'">'+dep_name+'</option>';
                             // Do something with the data, for example, display it on the page
                             $('#issued_to').append(html);
                         });
 
-                    }   
+                    }
                 },
                 error: function () {
                     // Handle errors
@@ -1275,14 +1275,14 @@ var car = {
                             // Access each item's properties
                             var id = item.id;
                             var section_name = item.section_name;
-    
+
                             var html = '<option value="'+id+'">'+section_name+'</option>';
                             // Do something with the data, for example, display it on the page
                             $('#section').append(html);
                         });
 
-                       
-                    }   
+
+                    }
                 },
                 error: function () {
                     // Handle errors
@@ -1305,14 +1305,14 @@ var car = {
                             // Access each item's properties
                             var id = item.id;
                             var section_name = item.section_name;
-    
+
                             var html = '<option value="'+id+'">'+section_name+'</option>';
                             // Do something with the data, for example, display it on the page
                             $('#addCARFormIssuance .section').append(html);
                         });
 
-                       
-                    }   
+
+                    }
                 },
                 error: function () {
                     // Handle errors
@@ -1340,13 +1340,13 @@ var car = {
                             // Access each item's properties
                             var id = item.id;
                             var dep_name = item.dep_name;
-    
+
                             var html = '<option value="'+id+'">'+dep_name+'</option>';
                             // Do something with the data, for example, display it on the page
                             $('#filter_issued_to').append(html);
                         });
 
-                    }   
+                    }
                 },
                 error: function () {
                     // Handle errors
@@ -1354,7 +1354,7 @@ var car = {
                 }
             });
 
-        }); 
+        });
 
         jQuery('#filter_issued_by').change(function(){
             division = jQuery(this).val();
@@ -1371,13 +1371,13 @@ var car = {
                             // Access each item's properties
                             var id = item.id;
                             var dep_name = item.dep_name;
-    
+
                             var html = '<option value="'+id+'">'+dep_name+'</option>';
                             // Do something with the data, for example, display it on the page
                             $('#filter_issued_to').append(html);
                         });
 
-                    }   
+                    }
                 },
                 error: function () {
                     // Handle errors
@@ -1400,14 +1400,14 @@ var car = {
                             // Access each item's properties
                             var id = item.id;
                             var section_name = item.section_name;
-    
+
                             var html = '<option value="'+id+'">'+section_name+'</option>';
                             // Do something with the data, for example, display it on the page
                             $('#filter_section').append(html);
                         });
 
-                       
-                    }   
+
+                    }
                 },
                 error: function () {
                     // Handle errors
@@ -1425,7 +1425,7 @@ var car = {
 
             jQuery('#fc_completion_date_id').val(car_id);
             jQuery('#fc_completion_date').val(current);
-       
+
         });
 
         jQuery('#car-global-datatable').on('click','.update-corrective-due', function(){
@@ -1434,7 +1434,7 @@ var car = {
 
             jQuery('#ca_completion_date_id').val(car_id);
             jQuery('#ca_completion_date').val(current);
-       
+
         });
 
         jQuery('#car-global-datatable').on('click','.update-corrective-due-second', function(){
@@ -1443,7 +1443,7 @@ var car = {
 
             jQuery('#ca_second_completion_date_id').val(car_id);
             jQuery('#ca_second_completion_date').val(current);
-       
+
         });
 
         jQuery('#car-global-datatable').on('click','.view-history', function(){
@@ -1469,16 +1469,16 @@ var car = {
                             var created_by_name = item.created_by_name;
                             var created_date = item.created_date;
                             var remarks = item.remarks;
-                            
+
                             var html = "<tr><td>" + process + "</td><td>" + status + "</td><td>" + created_by_name + "</td><td>" + created_date + "</td><td>" + remarks + "</td></tr>";
                             // Do something with the data, for example, display it on the page
                             $('#car-history-datatable tbody').append(html);
                         });
-    
+
                         tippy('*[data-plugin="tippy"]');
-    
+
                         $('[data-toggle="tooltip"]').tooltip()
-                        
+
                     }
                 },
                 error: function () {
@@ -1495,7 +1495,7 @@ var car = {
             } else {
                 jQuery('#saveCorrection').removeClass('hidden');
             }
-        
+
             if(jQuery(this).data('correction_status') == "For CAR action" || jQuery(this).data('correction_status') == "For Revision"){
                 jQuery('#add-correction').removeClass('hidden');
                 jQuery('#add-consequences').removeClass('hidden');
@@ -1503,14 +1503,14 @@ var car = {
                 jQuery('#add-correction').addClass('hidden');
                 jQuery('#add-consequences').addClass('hidden');
             }
-        
+
             jQuery('#car-correction-action').html('');
-        
+
             jQuery('#car-correction-action').removeClass();
             jQuery('#car-correction-action').addClass('mt-4');
             jQuery('#car-correction-action').addClass('row');
             jQuery('#car-correction-action').addClass('correction-action');
-        
+
             $car_id = jQuery(this).data('car_id');
             $requestor = jQuery(this).data('requestor');
             $car_no = jQuery(this).data('car_no');
@@ -1522,15 +1522,15 @@ var car = {
             $issuance_of_nc = jQuery(this).data('issuance_of_nc');
             $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
             $status = jQuery(this).data('status');
-            
-        
+
+
             $findings = jQuery(this).data('findings');
             $consequences = jQuery(this).data('consequences');
             $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
             $car_attachment = jQuery(this).data('car_attachment');
 
             console.log($car_attachment);
-        
+
             jQuery('.addCARFormIssuance .car_id').val($car_id);
             jQuery('.addCARFormIssuance .requestor').val($requestor);
             jQuery('.addCARFormIssuance .car_no').val($car_no);
@@ -1539,34 +1539,34 @@ var car = {
             jQuery('.addCARFormIssuance .issued_to').val($issued_to); // Replace 'issued_to' with the actual ID of your element
             jQuery('.addCARFormIssuance .identification_date').val($identification_date); // Replace 'identification_date' with the actual ID of your element
             jQuery('.addCARFormIssuance .issuance_of_nc').val($issuance_of_nc); // Replace 'issuance_of_nc' with the actual ID of your element
-            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element        
-            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
             jQuery('.addCARFormIssuance .car_attachment').val($car_attachment);
 
             division = jQuery('.addCARFormIssuance .issued_by').val();
-        
+
             $.ajax({
                 type: 'POST',
                 url: '../car/getDepartment', // Replace 'MyController' with your controller name
                 data: {division: division},
                 success: function (response) {
                     if(response != 'null'){
-        
+
                         $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
                         $.each(JSON.parse(response), function (index, item) {
                             // Access each item's properties
                             var id = item.id;
                             var dep_name = item.dep_name;
-        
+
                             var html = '<option value="'+id+'">'+dep_name+'</option>';
                             // Do something with the data, for example, display it on the page
                             $('.addCARFormIssuance .issued_to').append(html);
                         });
-        
+
                         jQuery('.addCARFormIssuance .issued_to').val($issued_to);
-        
+
                         department = $issued_to;
                         $.ajax({
                             type: 'POST',
@@ -1574,53 +1574,53 @@ var car = {
                             data: {department: department},
                             success: function (response) {
                                 if(response != 'null'){
-            
+
                                     $('.addCARFormIssuance .section').html('<option value=""></option>');
                                     $.each(JSON.parse(response), function (index, item) {
                                         // Access each item's properties
                                         var id = item.id;
                                         var section_name = item.section_name;
-                
+
                                         var html = '<option value="'+id+'">'+section_name+'</option>';
                                         // Do something with the data, for example, display it on the page
                                         $('.addCARFormIssuance .section').append(html);
                                     });
-            
+
                                     jQuery('.addCARFormIssuance .section').val($section);
-                                }   
+                                }
                             },
                             error: function () {
                                 // Handle errors
                                 diList.notifyError();
                             }
                         });
-        
-                    }   
+
+                    }
                 },
                 error: function () {
                     // Handle errors
                     diList.notifyError();
                 }
             });
-        
+
             var car_id = jQuery(this).data('car_id');
             jQuery('.car_id').val(car_id);
             $('#correction').empty();
             $('#consequencesdiv').empty();
-        
+
             var correction_action = jQuery(this).data('correction_status');
-            
+
             $.ajax({
                 type: 'POST',
                 url: '../car/getCorrectionAction', // Replace 'MyController' with your controller name
                 data: {car_id: car_id},
                 success: function (response) {
                     if(response != '[]'){
-        
+
                         response = JSON.parse(response);
-        
+
                         console.log(response);
-        
+
                         var correctionEntries = JSON.parse(response[0].correction_entry);
                         var count = 0;
                         // Loop through correction entries and create HTML for each entry
@@ -1661,17 +1661,17 @@ var car = {
                                     </div>
                                 </div>
                             `;
-        
+
                             count++;
                             // Append the correction HTML to the container
                             $('#correction').append(correctionHtml);
                         });
-        
+
                         var consequenceEntries = JSON.parse(response[0].consequence_entry);
                         var count = 0;
                         // Loop through correction entries and create HTML for each entry
                         consequenceEntries.forEach(function (consequence) {
-        
+
                             var consequenceHtml = `
                                 <div class="col-lg-12 consequences-repeatable added-repeat">
                                     <div class="card">
@@ -1712,13 +1712,13 @@ var car = {
                             // Append the correction HTML to the container
                             $('#consequencesdiv').append(consequenceHtml);
                         });
-        
+
                     } else {
                         // car.notifyError();
-                    }   
-        
-                    if(correction_action == "For CAR action" ||  correction_action == "For Revision"){ 
-        
+                    }
+
+                    if(correction_action == "For CAR action" ||  correction_action == "For Revision"){
+
                         var correctionHtmlLast = `
                             <div class="col-lg-12 correction-repeatable">
                                 <div class="card">
@@ -1764,9 +1764,9 @@ var car = {
                                 </div>
                             </div>
                         `;
-            
+
                         $('#correction').append(correctionHtmlLast);
-            
+
                         var consequenceHtmlLast = `
                                 <div class="col-lg-12 consequences-repeatable">
                                     <div class="card">
@@ -1812,11 +1812,11 @@ var car = {
                                     </div>
                                 </div>
                         `;
-            
+
                         $('#consequencesdiv').append(consequenceHtmlLast);
-                    
+
                     }
-        
+
                     setTimeout(function() {
                         jQuery(".selectize-close-btn").selectize({
                             plugins: ["remove_button"],
@@ -1837,24 +1837,24 @@ var car = {
                             window.open(url, '_blank');
                         });
                     }, 1000);
-            
+
                 },
                 error: function () {
                     // Handle errors
                     car.notifyError();
                 }
             });
-        
+
         });
-        
+
         $('#car-global-datatable').on('click', '.for-osqm-review-correction', function () {
-            
+
             if(jQuery(this).data('userrole') == "department_head" || jQuery(this).data('userrole') == "section_head" || jQuery(this).data('userrole') == 'div_chief'){
                 jQuery('#saveCorrection').addClass('hidden');
             } else {
                 jQuery('#saveCorrection').removeClass('hidden');
             }
-        
+
             var $action = '<div class="row mb-2">' +
                 '<div class="form-group col-md-12">' +
                 '<label for="review_correction_dealing_with_consequences" class="form-label">Review of Correction and Dealing with the Consequences</label>' +
@@ -1870,18 +1870,18 @@ var car = {
                 '<textarea class="form-control review_correction_dealing_with_consequences_remarks" name="review_correction_dealing_with_consequences_remarks" rows="4"></textarea>' +
                 '</div>' +
             '</div>';
-            
+
             jQuery('#car-correction-action').html($action);
-        
+
             jQuery('#car-correction-action').removeClass();
             jQuery('#car-correction-action').addClass('mt-4');
             jQuery('#car-correction-action').addClass('row');
             jQuery('#car-correction-action').addClass('correction-action-review');
-        
+
             jQuery('#add-correction').addClass('hidden');
             jQuery('#add-consequences').addClass('hidden');
-            
-            
+
+
             $car_id = jQuery(this).data('car_id');
             $requestor = jQuery(this).data('requestor');
             $car_no = jQuery(this).data('car_no');
@@ -1893,13 +1893,13 @@ var car = {
             $issuance_of_nc = jQuery(this).data('issuance_of_nc');
             $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
             $status = jQuery(this).data('status');
-            
-            
+
+
             $findings = jQuery(this).data('findings');
             $consequences = jQuery(this).data('consequences');
             $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
             $car_attachment = jQuery(this).data('car_attachment');
-            
+
 
             jQuery('.addCARFormIssuance .car_id').val($car_id);
             jQuery('.addCARFormIssuance .requestor').val($requestor);
@@ -1909,33 +1909,33 @@ var car = {
             jQuery('.addCARFormIssuance .issued_to').val($issued_to); // Replace 'issued_to' with the actual ID of your element
             jQuery('.addCARFormIssuance .identification_date').val($identification_date); // Replace 'identification_date' with the actual ID of your element
             jQuery('.addCARFormIssuance .issuance_of_nc').val($issuance_of_nc); // Replace 'issuance_of_nc' with the actual ID of your element
-            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element        
-            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
             jQuery('.addCARFormIssuance .car_attachment').val($car_attachment);
             division = jQuery('.addCARFormIssuance .issued_by').val();
-            
+
             $.ajax({
                 type: 'POST',
                 url: '../car/getDepartment', // Replace 'MyController' with your controller name
                 data: {division: division},
                 success: function (response) {
                     if(response != 'null'){
-            
+
                         $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
                         $.each(JSON.parse(response), function (index, item) {
                             // Access each item's properties
                             var id = item.id;
                             var dep_name = item.dep_name;
-            
+
                             var html = '<option value="'+id+'">'+dep_name+'</option>';
                             // Do something with the data, for example, display it on the page
                             $('.addCARFormIssuance .issued_to').append(html);
                         });
-            
+
                         jQuery('.addCARFormIssuance .issued_to').val($issued_to);
-            
+
                         department = $issued_to;
                         $.ajax({
                             type: 'POST',
@@ -1943,69 +1943,69 @@ var car = {
                             data: {department: department},
                             success: function (response) {
                                 if(response != 'null'){
-            
+
                                     $('.addCARFormIssuance .section').html('<option value=""></option>');
                                     $.each(JSON.parse(response), function (index, item) {
                                         // Access each item's properties
                                         var id = item.id;
                                         var section_name = item.section_name;
-                
+
                                         var html = '<option value="'+id+'">'+section_name+'</option>';
                                         // Do something with the data, for example, display it on the page
                                         $('.addCARFormIssuance .section').append(html);
                                     });
-            
+
                                     jQuery('.addCARFormIssuance .section').val($section);
-                                }   
+                                }
                             },
                             error: function () {
                                 // Handle errors
                                 diList.notifyError();
                             }
                         });
-            
-                    }   
+
+                    }
                 },
                 error: function () {
                     // Handle errors
                     diList.notifyError();
                 }
             });
-            
-            
-            
-            
+
+
+
+
             var car_id = jQuery(this).data('car_id');
             jQuery('.car_id').val(car_id);
             $('#correction').empty();
             $('#consequencesdiv').empty();
-            
+
             $.ajax({
                 type: 'POST',
                 url: '../car/getCorrectionAction', // Replace 'MyController' with your controller name
                 data: {car_id: car_id},
                 success: function (response) {
                     if(response != '[]'){
-            
+
                         response = JSON.parse(response);
-        
+
                         var review_correction_dealing_with_consequences = response[0].review_correction_dealing_with_consequences;
                         var review_correction_dealing_with_consequences_remarks = response[0].review_correction_dealing_with_consequences_remarks;
-        
-                        
+
+
                         jQuery('.review_correction_dealing_with_consequences').val(review_correction_dealing_with_consequences);
                         jQuery('.review_correction_dealing_with_consequences_remarks').val(review_correction_dealing_with_consequences_remarks);
-            
+
                         console.log(response);
-            
+
                         var correctionEntries = JSON.parse(response[0].correction_entry);
                         var count = 0;
                         // Loop through correction entries and create HTML for each entry
                         correctionEntries.forEach(function (correction) {
-            
+
                             var reviewValue = correction.correction_acceptable_review !== undefined ? correction.correction_acceptable_review : ''; // Added
                             var remarksReview = correction.correction_acceptable_remarks_review !== undefined ? correction.correction_acceptable_remarks_review : ''; // Added
-            
+
                             var correctionHtml = `
                                 <div class="col-lg-12 correction-repeatable added-repeat">
                                     <div class="card">
@@ -2037,27 +2037,27 @@ var car = {
                                                         </div>
                                                     </div>
                                                 </div>
-          
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             `;
-            
+
                             count++;
                             // Append the correction HTML to the container
                             $('#correction').append(correctionHtml);
                         });
-            
+
                         var consequenceEntries = JSON.parse(response[0].consequence_entry);
                         var count = 0;
                         // Loop through correction entries and create HTML for each entry
                         consequenceEntries.forEach(function (consequence) {
-            
-                            
+
+
                             var reviewValue = consequence.consequence_acceptable_review !== undefined ? consequence.consequence_acceptable_review : ''; // Added
                             var remarksReview = consequence.consequence_acceptable_remarks_review !== undefined ? consequence.consequence_acceptable_remarks_review : '';
-            
+
                             var consequenceHtml = `
                                 <div class="col-lg-12 consequences-repeatable added-repeat">
                                     <div class="card">
@@ -2089,7 +2089,7 @@ var car = {
                                                         </div>
                                                     </div>
                                                 </div>
-              
+
                                             </div>
                                         </div>
                                     </div>
@@ -2098,7 +2098,7 @@ var car = {
                             count++;
                             // Append the correction HTML to the container
                             $('#consequencesdiv').append(consequenceHtml);
-        
+
                             setTimeout(function() {
                                 jQuery(".selectize-close-btn").selectize({
                                     plugins: ["remove_button"],
@@ -2119,23 +2119,23 @@ var car = {
                                 });
                             }, 1000);
                         });
-            
+
                     } else {
                         // car.notifyError();
-                    }   
-                    
-            
-            
-            
+                    }
+
+
+
+
                 },
                 error: function () {
                     // Handle errors
                     car.notifyError();
                 }
             });
-            
+
         });
-        
+
         $('#car-global-datatable').on('click', '.for-osqm-approval-correction', function () {
 
             if(jQuery(this).data('userrole') == "department_head" || jQuery(this).data('userrole') == "section_head" || jQuery(this).data('userrole') == 'osqm_dco' || jQuery(this).data('userrole') == 'osqm_do'){
@@ -2159,17 +2159,17 @@ var car = {
                 '<textarea class="form-control approval_correction_dealing_with_consequences_remarks" name="approval_correction_dealing_with_consequences_remarks" rows="4"></textarea>' +
                 '</div>' +
             '</div>';
-            
+
             jQuery('#car-correction-action').html($action);
-        
+
             jQuery('#car-correction-action').removeClass();
             jQuery('#car-correction-action').addClass('mt-4');
             jQuery('#car-correction-action').addClass('row');
             jQuery('#car-correction-action').addClass('correction-action-approval');
-        
+
             jQuery('#add-correction').addClass('hidden');
             jQuery('#add-consequences').addClass('hidden');
-            
+
             $car_id = jQuery(this).data('car_id');
             $requestor = jQuery(this).data('requestor');
             $car_no = jQuery(this).data('car_no');
@@ -2181,13 +2181,13 @@ var car = {
             $issuance_of_nc = jQuery(this).data('issuance_of_nc');
             $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
             $status = jQuery(this).data('status');
-            
-            
+
+
             $findings = jQuery(this).data('findings');
             $consequences = jQuery(this).data('consequences');
             $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
             $car_attachment = jQuery(this).data('car_attachment');
-            
+
             jQuery('.addCARFormIssuance .car_id').val($car_id);
             jQuery('.addCARFormIssuance .requestor').val($requestor);
             jQuery('.addCARFormIssuance .car_no').val($car_no);
@@ -2196,33 +2196,33 @@ var car = {
             jQuery('.addCARFormIssuance .issued_to').val($issued_to); // Replace 'issued_to' with the actual ID of your element
             jQuery('.addCARFormIssuance .identification_date').val($identification_date); // Replace 'identification_date' with the actual ID of your element
             jQuery('.addCARFormIssuance .issuance_of_nc').val($issuance_of_nc); // Replace 'issuance_of_nc' with the actual ID of your element
-            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element        
-            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
             jQuery('.addCARFormIssuance .car_attachment').val($car_attachment);
             division = jQuery('.addCARFormIssuance .issued_by').val();
-            
+
             $.ajax({
                 type: 'POST',
                 url: '../car/getDepartment', // Replace 'MyController' with your controller name
                 data: {division: division},
                 success: function (response) {
                     if(response != 'null'){
-            
+
                         $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
                         $.each(JSON.parse(response), function (index, item) {
                             // Access each item's properties
                             var id = item.id;
                             var dep_name = item.dep_name;
-            
+
                             var html = '<option value="'+id+'">'+dep_name+'</option>';
                             // Do something with the data, for example, display it on the page
                             $('.addCARFormIssuance .issued_to').append(html);
                         });
-            
+
                         jQuery('.addCARFormIssuance .issued_to').val($issued_to);
-            
+
                         department = $issued_to;
                         $.ajax({
                             type: 'POST',
@@ -2230,69 +2230,69 @@ var car = {
                             data: {department: department},
                             success: function (response) {
                                 if(response != 'null'){
-            
+
                                     $('.addCARFormIssuance .section').html('<option value=""></option>');
                                     $.each(JSON.parse(response), function (index, item) {
                                         // Access each item's properties
                                         var id = item.id;
                                         var section_name = item.section_name;
-                
+
                                         var html = '<option value="'+id+'">'+section_name+'</option>';
                                         // Do something with the data, for example, display it on the page
                                         $('.addCARFormIssuance .section').append(html);
                                     });
-            
+
                                     jQuery('.addCARFormIssuance .section').val($section);
-                                }   
+                                }
                             },
                             error: function () {
                                 // Handle errors
                                 diList.notifyError();
                             }
                         });
-            
-                    }   
+
+                    }
                 },
                 error: function () {
                     // Handle errors
                     diList.notifyError();
                 }
             });
-            
-            
-            
-            
+
+
+
+
             var car_id = jQuery(this).data('car_id');
             jQuery('.car_id').val(car_id);
             $('#correction').empty();
             $('#consequencesdiv').empty();
-            
+
             $.ajax({
                 type: 'POST',
                 url: '../car/getCorrectionAction', // Replace 'MyController' with your controller name
                 data: {car_id: car_id},
                 success: function (response) {
                     if(response != '[]'){
-            
+
                         response = JSON.parse(response);
-        
+
                         var approval_correction_dealing_with_consequences = response[0].approval_correction_dealing_with_consequences;
                         var approval_correction_dealing_with_consequences_remarks = response[0].approval_correction_dealing_with_consequences_remarks;
-        
-                        
+
+
                         jQuery('.approval_correction_dealing_with_consequences').val(approval_correction_dealing_with_consequences);
                         jQuery('.approval_correction_dealing_with_consequences_remarks').val(approval_correction_dealing_with_consequences_remarks);
-            
+
                         console.log(response);
-            
+
                         var correctionEntries = JSON.parse(response[0].correction_entry);
                         var count = 0;
                         // Loop through correction entries and create HTML for each entry
                         correctionEntries.forEach(function (correction) {
-        
+
                             var approvalValue = correction.correction_acceptable_approval !== undefined ? correction.correction_acceptable_approval : ''; // Added
                             var remarksReview = correction.correction_acceptable_remarks_approval !== undefined ? correction.correction_acceptable_remarks_approval : '';
-            
+
                             var correctionHtml = `
                                 <div class="col-lg-12 correction-repeatable added-repeat">
                                     <div class="card">
@@ -2324,27 +2324,27 @@ var car = {
                                                         </div>
                                                     </div>
                                                 </div>
-                  
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             `;
-            
+
                             count++;
                             // Append the correction HTML to the container
                             $('#correction').append(correctionHtml);
                         });
-            
+
                         var consequenceEntries = JSON.parse(response[0].consequence_entry);
                         var count = 0;
                         // Loop through correction entries and create HTML for each entry
                         consequenceEntries.forEach(function (consequence) {
-            
-                            
+
+
                             var approvalValue = consequence.consequence_acceptable_approval !== undefined ? consequence.consequence_acceptable_approval : ''; // Added
                             var remarksReview = consequence.consequence_acceptable_remarks_approval !== undefined ? consequence.consequence_acceptable_remarks_approval : ''; // Added
-            
+
                             var consequenceHtml = `
                                 <div class="col-lg-12 consequences-repeatable added-repeat">
                                     <div class="card">
@@ -2376,7 +2376,7 @@ var car = {
                                                         </div>
                                                     </div>
                                                 </div>
-                
+
                                             </div>
                                         </div>
                                     </div>
@@ -2385,7 +2385,7 @@ var car = {
                             count++;
                             // Append the correction HTML to the container
                             $('#consequencesdiv').append(consequenceHtml);
-        
+
                             setTimeout(function() {
                                 jQuery(".selectize-close-btn").selectize({
                                     plugins: ["remove_button"],
@@ -2407,23 +2407,23 @@ var car = {
                                 });
                             }, 1000);
                         });
-            
+
                     } else {
                         // car.notifyError();
-                    }   
-                    
-            
-            
-            
+                    }
+
+
+
+
                 },
                 error: function () {
                     // Handle errors
                     car.notifyError();
                 }
             });
-            
+
         });
-        
+
         $('#car-global-datatable').on('click', '.for-osqm-verification-correction', function () {
 
             var source = jQuery(this).data('source');
@@ -2434,7 +2434,7 @@ var car = {
                 } else {
                     jQuery('#saveCorrection').addClass('hidden');
                 }
-            } 
+            }
 
             if(source == '2'){
                 if(jQuery(this).data('userrole') == "auditor"){
@@ -2454,7 +2454,7 @@ var car = {
 
             jQuery('#add-correction').addClass('hidden');
             jQuery('#add-consequences').addClass('hidden');
-        
+
             var $action = '<div class="row mb-2">' +
                 '<div class="form-group col-md-12">' +
                 '<label for="verification_correction_dealing_with_consequences" class="form-label">Verification of Correction of Nonconformity and Dealing with the Consequences</label>' +
@@ -2470,14 +2470,14 @@ var car = {
                 '<textarea class="form-control verification_correction_dealing_with_consequences_remarks" name="verification_correction_dealing_with_consequences_remarks" rows="4"></textarea>' +
                 '</div>' +
             '</div>';
-            
+
             jQuery('#car-correction-action').html($action);
-        
+
             jQuery('#car-correction-action').removeClass();
             jQuery('#car-correction-action').addClass('mt-4');
             jQuery('#car-correction-action').addClass('row');
             jQuery('#car-correction-action').addClass('correction-action-verification');
-            
+
             $car_id = jQuery(this).data('car_id');
             $requestor = jQuery(this).data('requestor');
             $car_no = jQuery(this).data('car_no');
@@ -2489,13 +2489,13 @@ var car = {
             $issuance_of_nc = jQuery(this).data('issuance_of_nc');
             $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
             $status = jQuery(this).data('status');
-            
-            
+
+
             $findings = jQuery(this).data('findings');
             $consequences = jQuery(this).data('consequences');
             $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
             $car_attachment = jQuery(this).data('car_attachment');
-            
+
             jQuery('.addCARFormIssuance .car_id').val($car_id);
             jQuery('.addCARFormIssuance .requestor').val($requestor);
             jQuery('.addCARFormIssuance .car_no').val($car_no);
@@ -2504,33 +2504,33 @@ var car = {
             jQuery('.addCARFormIssuance .issued_to').val($issued_to); // Replace 'issued_to' with the actual ID of your element
             jQuery('.addCARFormIssuance .identification_date').val($identification_date); // Replace 'identification_date' with the actual ID of your element
             jQuery('.addCARFormIssuance .issuance_of_nc').val($issuance_of_nc); // Replace 'issuance_of_nc' with the actual ID of your element
-            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element        
-            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
             jQuery('.addCARFormIssuance .car_attachment').val($car_attachment);
             division = jQuery('.addCARFormIssuance .issued_by').val();
-            
+
             $.ajax({
                 type: 'POST',
                 url: '../car/getDepartment', // Replace 'MyController' with your controller name
                 data: {division: division},
                 success: function (response) {
                     if(response != 'null'){
-            
+
                         $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
                         $.each(JSON.parse(response), function (index, item) {
                             // Access each item's properties
                             var id = item.id;
                             var dep_name = item.dep_name;
-            
+
                             var html = '<option value="'+id+'">'+dep_name+'</option>';
                             // Do something with the data, for example, display it on the page
                             $('.addCARFormIssuance .issued_to').append(html);
                         });
-            
+
                         jQuery('.addCARFormIssuance .issued_to').val($issued_to);
-            
+
                         department = $issued_to;
                         $.ajax({
                             type: 'POST',
@@ -2538,69 +2538,69 @@ var car = {
                             data: {department: department},
                             success: function (response) {
                                 if(response != 'null'){
-            
+
                                     $('.addCARFormIssuance .section').html('<option value=""></option>');
                                     $.each(JSON.parse(response), function (index, item) {
                                         // Access each item's properties
                                         var id = item.id;
                                         var section_name = item.section_name;
-                
+
                                         var html = '<option value="'+id+'">'+section_name+'</option>';
                                         // Do something with the data, for example, display it on the page
                                         $('.addCARFormIssuance .section').append(html);
                                     });
-            
+
                                     jQuery('.addCARFormIssuance .section').val($section);
-                                }   
+                                }
                             },
                             error: function () {
                                 // Handle errors
                                 diList.notifyError();
                             }
                         });
-            
-                    }   
+
+                    }
                 },
                 error: function () {
                     // Handle errors
                     diList.notifyError();
                 }
             });
-            
-            
-            
-            
+
+
+
+
             var car_id = jQuery(this).data('car_id');
             jQuery('.car_id').val(car_id);
             $('#correction').empty();
             $('#consequencesdiv').empty();
-            
+
             $.ajax({
                 type: 'POST',
                 url: '../car/getCorrectionAction', // Replace 'MyController' with your controller name
                 data: {car_id: car_id},
                 success: function (response) {
                     if(response != '[]'){
-            
+
                         response = JSON.parse(response);
-                        
+
                         var verification_correction_dealing_with_consequences = response[0].verification_correction_dealing_with_consequences;
                         var verification_correction_dealing_with_consequences_remarks = response[0].verification_correction_dealing_with_consequences_remarks;
-        
-                        
+
+
                         jQuery('.verification_correction_dealing_with_consequences').val(verification_correction_dealing_with_consequences);
                         jQuery('.verification_correction_dealing_with_consequences_remarks').val(verification_correction_dealing_with_consequences_remarks);
-            
+
                         console.log(response);
-            
+
                         var correctionEntries = JSON.parse(response[0].correction_entry);
                         var count = 0;
                         // Loop through correction entries and create HTML for each entry
                         correctionEntries.forEach(function (correction) {
-        
+
                             var verificationValue = correction.correction_acceptable_verification !== undefined ? correction.correction_acceptable_verification : ''; // Added
-                            var remarksReview = correction.correction_acceptable_remarks_verification !== undefined ? correction.correction_acceptable_remarks_verification : ''; 
-            
+                            var remarksReview = correction.correction_acceptable_remarks_verification !== undefined ? correction.correction_acceptable_remarks_verification : '';
+
                             var correctionHtml = `
                                 <div class="col-lg-12 correction-repeatable added-repeat">
                                     <div class="card">
@@ -2634,7 +2634,7 @@ var car = {
                                                 </div>
                                                 <div class="row">
                                                     <label for="acceptable" class="form-label">5.1 Was the nonconformity properly corrected?</label>
-        
+
                                                     <div class="col-lg-3 text-inlign mb-2">
                                                         <div class="form-check form-check-inline">
                                                             <input type="radio" name="correction_acceptable_verification[${count}]" value="1" class="form-check-input" ${verificationValue === '1' ? 'checked' : ''}>
@@ -2655,21 +2655,21 @@ var car = {
                                     </div>
                                 </div>
                             `;
-            
+
                             count++;
                             // Append the correction HTML to the container
                             $('#correction').append(correctionHtml);
                         });
-            
+
                         var consequenceEntries = JSON.parse(response[0].consequence_entry);
                         var count = 0;
                         // Loop through correction entries and create HTML for each entry
                         consequenceEntries.forEach(function (consequence) {
-            
-                            
+
+
                             var verificationValue = consequence.consequence_acceptable_verification !== undefined ? consequence.consequence_acceptable_verification : ''; // Added
                             var remarksReview = consequence.consequence_acceptable_remarks_verification !== undefined ? consequence.consequence_acceptable_remarks_verification : ''; // Added
-        
+
                             var consequenceHtml = `
                                 <div class="col-lg-12 consequences-repeatable added-repeat">
                                     <div class="card">
@@ -2703,7 +2703,7 @@ var car = {
                                                 </div>
                                                 <div class="row">
                                                     <label for="acceptable" class="form-label">5.2 Was the consequences properly handled or treated?</label>
-        
+
                                                         <div class="col-lg-3 text-inlign mb-2">
                                                             <div class="form-check form-check-inline">
                                                                 <input type="radio" name="consequence_acceptable_verification[${count}]" value="1" class="form-check-input" ${verificationValue === '1' ? 'checked' : ''}>
@@ -2727,7 +2727,7 @@ var car = {
                             count++;
                             // Append the correction HTML to the container
                             $('#consequencesdiv').append(consequenceHtml);
-        
+
                             setTimeout(function() {
                                 jQuery(".selectize-close-btn").selectize({
                                     plugins: ["remove_button"],
@@ -2748,24 +2748,24 @@ var car = {
                                 });
                             }, 1000);
                         });
-            
+
                     } else {
                         // car.notifyError();
-                    }   
-                    
-            
-            
-            
+                    }
+
+
+
+
                 },
                 error: function () {
                     // Handle errors
                     car.notifyError();
                 }
             });
-            
+
         });
-        
-        
+
+
         $('#car-global-datatable').on('click', '.for-osqm-validation-correction', function () {
 
             if(jQuery(this).data('userrole') == "osqm_qmr" || jQuery(this).data('userrole') == 'lead_auditor'){
@@ -2773,10 +2773,10 @@ var car = {
             } else {
                 jQuery('#saveCorrection').addClass('hidden');
             }
-        
+
             jQuery('#add-correction').addClass('hidden');
             jQuery('#add-consequences').addClass('hidden');
-        
+
             var $action = '<div class="row mb-2">' +
                 '<div class="form-group col-md-12">' +
                 '<label for="validation_correction_dealing_with_consequences" class="form-label">Validation of Correction of Nonconformity and Dealing with the Consequences</label>' +
@@ -2792,14 +2792,14 @@ var car = {
                 '<textarea class="form-control validation_correction_dealing_with_consequences_remarks" name="validation_correction_dealing_with_consequences_remarks" rows="4"></textarea>' +
                 '</div>' +
             '</div>';
-            
+
             jQuery('#car-correction-action').html($action);
-        
+
             jQuery('#car-correction-action').removeClass();
             jQuery('#car-correction-action').addClass('mt-4');
             jQuery('#car-correction-action').addClass('row');
             jQuery('#car-correction-action').addClass('correction-action-validation');
-            
+
             $car_id = jQuery(this).data('car_id');
             $requestor = jQuery(this).data('requestor');
             $car_no = jQuery(this).data('car_no');
@@ -2811,13 +2811,13 @@ var car = {
             $issuance_of_nc = jQuery(this).data('issuance_of_nc');
             $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
             $status = jQuery(this).data('status');
-            
-            
+
+
             $findings = jQuery(this).data('findings');
             $consequences = jQuery(this).data('consequences');
             $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
             $car_attachment = jQuery(this).data('car_attachment');
-            
+
             jQuery('.addCARFormIssuance .car_id').val($car_id);
             jQuery('.addCARFormIssuance .requestor').val($requestor);
             jQuery('.addCARFormIssuance .car_no').val($car_no);
@@ -2826,33 +2826,33 @@ var car = {
             jQuery('.addCARFormIssuance .issued_to').val($issued_to); // Replace 'issued_to' with the actual ID of your element
             jQuery('.addCARFormIssuance .identification_date').val($identification_date); // Replace 'identification_date' with the actual ID of your element
             jQuery('.addCARFormIssuance .issuance_of_nc').val($issuance_of_nc); // Replace 'issuance_of_nc' with the actual ID of your element
-            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element        
-            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
             jQuery('.addCARFormIssuance .car_attachment').val($car_attachment);
             division = jQuery('.addCARFormIssuance .issued_by').val();
-            
+
             $.ajax({
                 type: 'POST',
                 url: '../car/getDepartment', // Replace 'MyController' with your controller name
                 data: {division: division},
                 success: function (response) {
                     if(response != 'null'){
-            
+
                         $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
                         $.each(JSON.parse(response), function (index, item) {
                             // Access each item's properties
                             var id = item.id;
                             var dep_name = item.dep_name;
-            
+
                             var html = '<option value="'+id+'">'+dep_name+'</option>';
                             // Do something with the data, for example, display it on the page
                             $('.addCARFormIssuance .issued_to').append(html);
                         });
-            
+
                         jQuery('.addCARFormIssuance .issued_to').val($issued_to);
-            
+
                         department = $issued_to;
                         $.ajax({
                             type: 'POST',
@@ -2860,69 +2860,69 @@ var car = {
                             data: {department: department},
                             success: function (response) {
                                 if(response != 'null'){
-            
+
                                     $('.addCARFormIssuance .section').html('<option value=""></option>');
                                     $.each(JSON.parse(response), function (index, item) {
                                         // Access each item's properties
                                         var id = item.id;
                                         var section_name = item.section_name;
-                
+
                                         var html = '<option value="'+id+'">'+section_name+'</option>';
                                         // Do something with the data, for example, display it on the page
                                         $('.addCARFormIssuance .section').append(html);
                                     });
-            
+
                                     jQuery('.addCARFormIssuance .section').val($section);
-                                }   
+                                }
                             },
                             error: function () {
                                 // Handle errors
                                 diList.notifyError();
                             }
                         });
-            
-                    }   
+
+                    }
                 },
                 error: function () {
                     // Handle errors
                     diList.notifyError();
                 }
             });
-            
-            
-            
-            
+
+
+
+
             var car_id = jQuery(this).data('car_id');
             jQuery('.car_id').val(car_id);
             $('#correction').empty();
             $('#consequencesdiv').empty();
-            
+
             $.ajax({
                 type: 'POST',
                 url: '../car/getCorrectionAction', // Replace 'MyController' with your controller name
                 data: {car_id: car_id},
                 success: function (response) {
                     if(response != '[]'){
-            
+
                         response = JSON.parse(response);
-                        
+
                         var validation_correction_dealing_with_consequences = response[0].validation_correction_dealing_with_consequences;
                         var validation_correction_dealing_with_consequences_remarks = response[0].validation_correction_dealing_with_consequences_remarks;
-        
-                        
+
+
                         jQuery('.validation_correction_dealing_with_consequences').val(validation_correction_dealing_with_consequences);
                         jQuery('.validation_correction_dealing_with_consequences_remarks').val(validation_correction_dealing_with_consequences_remarks);
-            
+
                         console.log(response);
-            
+
                         var correctionEntries = JSON.parse(response[0].correction_entry);
                         var count = 0;
                         // Loop through correction entries and create HTML for each entry
                         correctionEntries.forEach(function (correction) {
-        
+
                             var verificationValue = correction.correction_acceptable_verification !== undefined ? correction.correction_acceptable_verification : ''; // Added
-                            var remarksReview = correction.correction_acceptable_remarks_verification !== undefined ? correction.correction_acceptable_remarks_verification : ''; 
-            
+                            var remarksReview = correction.correction_acceptable_remarks_verification !== undefined ? correction.correction_acceptable_remarks_verification : '';
+
                             var correctionHtml = `
                                 <div class="col-lg-12 correction-repeatable added-repeat">
                                     <div class="card">
@@ -2956,7 +2956,7 @@ var car = {
                                                 </div>
                                                 <div class="row">
                                                     <label for="acceptable" class="form-label">5.1 Was the nonconformity properly corrected?</label>
-        
+
                                                     <div class="col-lg-3 text-inlign mb-2">
                                                         <div class="form-check form-check-inline">
                                                             <input type="radio" readonly name="correction_acceptable_verification[${count}]" value="1" class="form-check-input" ${verificationValue === '1' ? 'checked' : ''}>
@@ -2977,21 +2977,21 @@ var car = {
                                     </div>
                                 </div>
                             `;
-            
+
                             count++;
                             // Append the correction HTML to the container
                             $('#correction').append(correctionHtml);
                         });
-            
+
                         var consequenceEntries = JSON.parse(response[0].consequence_entry);
                         var count = 0;
                         // Loop through correction entries and create HTML for each entry
                         consequenceEntries.forEach(function (consequence) {
-            
-                            
+
+
                             var verificationValue = consequence.consequence_acceptable_verification !== undefined ? consequence.consequence_acceptable_verification : ''; // Added
                             var remarksReview = consequence.consequence_acceptable_remarks_verification !== undefined ? consequence.consequence_acceptable_remarks_verification : ''; // Added
-        
+
                             var consequenceHtml = `
                                 <div class="col-lg-12 consequences-repeatable added-repeat">
                                     <div class="card">
@@ -3025,7 +3025,7 @@ var car = {
                                                 </div>
                                                 <div class="row">
                                                     <label for="acceptable" class="form-label">5.2 Was the consequences properly handled or treated?</label>
-        
+
                                                         <div class="col-lg-3 text-inlign mb-2">
                                                             <div class="form-check form-check-inline">
                                                                 <input type="radio" readonly name="consequence_acceptable_verification[${count}]" value="1" class="form-check-input" ${verificationValue === '1' ? 'checked' : ''}>
@@ -3049,7 +3049,7 @@ var car = {
                             count++;
                             // Append the correction HTML to the container
                             $('#consequencesdiv').append(consequenceHtml);
-        
+
                             setTimeout(function() {
                                 jQuery(".selectize-close-btn").selectize({
                                     plugins: ["remove_button"],
@@ -3070,23 +3070,23 @@ var car = {
                                 });
                             }, 1000);
                         });
-            
+
                     } else {
                         // car.notifyError();
-                    }   
-                    
-            
-            
-            
+                    }
+
+
+
+
                 },
                 error: function () {
                     // Handle errors
                     car.notifyError();
                 }
             });
-            
+
         });
-        
+
 
         $('#car-global-datatable').on('click', '.edit-corrective-action', function () {
 
@@ -3095,8 +3095,8 @@ var car = {
             } else {
                 jQuery('#saveRoot').removeClass('hidden');
             }
-        
-        
+
+
             if((jQuery(this).data('corrective_status') == "For CAR action" || jQuery(this).data('corrective_status') == "For Partial" || jQuery(this).data('corrective_status') == "For Revision") && jQuery(this).data('partial') == "no"){
                 jQuery('#add-rootcause').removeClass('hidden');
                 jQuery('#add-identified-root').removeClass('hidden');
@@ -3108,13 +3108,13 @@ var car = {
                 jQuery('#add-risk-number').addClass('hidden');
                 jQuery('#add-opportunity-number').addClass('hidden');
             }
-            
 
-            
+
+
             if(jQuery(this).data('corrective_status') != 'For Implementation'){
-                
+
                 if(jQuery(this).data('partial') == "yes"){
-                    
+
                     var $action = '<div class="row mb-2">' +
                         '<div class="form-group col-md-12">' +
                         '<label for="action_root_cause_analysis" class="form-label">Action and Root Cause Analysis</label>' +
@@ -3135,9 +3135,9 @@ var car = {
                         '</div>' +
                     '</div>';
                 }
-               
+
             } else if(jQuery(this).data('corrective_status') == 'For Implementation') {
-                
+
                 var $action = '<div class="row mb-2">' +
                         '<div class="form-group col-md-12">' +
                         '<label for="action_root_cause_analysis" class="form-label">Action and Root Cause Analysis</label>' +
@@ -3147,15 +3147,15 @@ var car = {
                         '</div>' +
                     '</div>';
             }
-            
-         
+
+
             jQuery('#car-action').html($action);
-            
+
             jQuery('#car-action').removeClass();
             jQuery('#car-action').addClass('mt-4');
             jQuery('#car-action').addClass('row');
             jQuery('#car-action').addClass('corrective-action');
-         
+
             $car_id = jQuery(this).data('car_id');
             $requestor = jQuery(this).data('requestor');
             $car_no = jQuery(this).data('car_no');
@@ -3168,13 +3168,13 @@ var car = {
             $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
             $status = jQuery(this).data('status');
             $partial = jQuery(this).data('partial');
-            
-         
+
+
             $findings = jQuery(this).data('findings');
             $consequences = jQuery(this).data('consequences');
             $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
             $car_attachment = jQuery(this).data('car_attachment');
-         
+
             jQuery('.addCARFormIssuance .car_id').val($car_id);
             jQuery('.addCARFormIssuance .requestor').val($requestor);
             jQuery('.addCARFormIssuance .car_no').val($car_no);
@@ -3183,33 +3183,33 @@ var car = {
             jQuery('.addCARFormIssuance .issued_to').val($issued_to); // Replace 'issued_to' with the actual ID of your element
             jQuery('.addCARFormIssuance .identification_date').val($identification_date); // Replace 'identification_date' with the actual ID of your element
             jQuery('.addCARFormIssuance .issuance_of_nc').val($issuance_of_nc); // Replace 'issuance_of_nc' with the actual ID of your element
-            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element        
-            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
             jQuery('.addCARFormIssuance .car_attachment').val($car_attachment);
             division = jQuery('.addCARFormIssuance .issued_by').val();
-         
+
             $.ajax({
                 type: 'POST',
                 url: '../car/getDepartment', // Replace 'MyController' with your controller name
                 data: {division: division},
                 success: function (response) {
                     if(response != 'null'){
-         
+
                         $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
                         $.each(JSON.parse(response), function (index, item) {
                             // Access each item's properties
                             var id = item.id;
                             var dep_name = item.dep_name;
-         
+
                             var html = '<option value="'+id+'">'+dep_name+'</option>';
                             // Do something with the data, for example, display it on the page
                             $('.addCARFormIssuance .issued_to').append(html);
                         });
-         
+
                         jQuery('.addCARFormIssuance .issued_to').val($issued_to);
-         
+
                         department = $issued_to;
                         $.ajax({
                             type: 'POST',
@@ -3217,53 +3217,53 @@ var car = {
                             data: {department: department},
                             success: function (response) {
                                 if(response != 'null'){
-            
+
                                     $('.addCARFormIssuance .section').html('<option value=""></option>');
                                     $.each(JSON.parse(response), function (index, item) {
                                         // Access each item's properties
                                         var id = item.id;
                                         var section_name = item.section_name;
-                
+
                                         var html = '<option value="'+id+'">'+section_name+'</option>';
                                         // Do something with the data, for example, display it on the page
                                         $('.addCARFormIssuance .section').append(html);
                                     });
-            
+
                                     jQuery('.addCARFormIssuance .section').val($section);
-                                }   
+                                }
                             },
                             error: function () {
                                 // Handle errors
                                 diList.notifyError();
                             }
                         });
-         
-                    }   
+
+                    }
                 },
                 error: function () {
                     // Handle errors
                     diList.notifyError();
                 }
             });
-         
+
             var car_id = jQuery(this).data('car_id');
             jQuery('.car_id').val(car_id);
             $('#risk-number').empty();
             $('#opportunity-number').empty();
             $('#rootcause').empty();
             $('#identified-root').empty();
-        
+
             var corrective_status = jQuery(this).data('corrective_status');
-         
+
             $.ajax({
                 type: 'POST',
                 url: '../car/getCorrectiveAction', // Replace 'MyController' with your controller name
                 data: {car_id: car_id},
                 success: function (response) {
                     if(response != 'null'){
-                        
+
                         response = JSON.parse(response);
-         
+
                         if(response[0]){
                             $('input[name="existing_nonconformity"][value="'+ response[0].existing_nonconformity +'"]').prop('checked', true);
                             $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
@@ -3276,10 +3276,10 @@ var car = {
                                 jQuery('#opportunity-number').addClass('hidden');
                                 jQuery('#add-opportunity-number').addClass('hidden');
                             }
-         
+
                             $('[name="existing_nonconformity_remarks"]').val(response[0].existing_nonconformity_remarks);
                             $('[name="update_doc_info_remarks"]').val(response[0].update_doc_info_remarks);
-         
+
                             var riskEntries = JSON.parse(response[0].risk_entry);
                             var count = 0;
                             riskEntries.forEach(function (risk) {
@@ -3307,8 +3307,8 @@ var car = {
                                                                 <input type="text" class="form-control selectize-close-btn" readonly name="risk_number_attachment_url[${count}]" value="${risk.risk_number_attachment_url}">
                                                             </div>
                                                         </div>
-                                 
-                                                        
+
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -3319,8 +3319,8 @@ var car = {
                                 count++;
                                 $('#risk-number').append(riskHtml);
                             });
-         
-         
+
+
                             var opportunityEntries = JSON.parse(response[0].opportunity_entry);
                             var count = 0;
                             opportunityEntries.forEach(function (opportunity) {
@@ -3348,7 +3348,7 @@ var car = {
                                                             <input type="text" class="form-control selectize-close-btn" readonly name="opportunity_number_attachment_url[${count}]" value="${opportunity.opportunity_number_attachment_url}">
                                                             </div>
                                                         </div>
-                                        
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -3359,8 +3359,8 @@ var car = {
                                 count++;
                                 $('#opportunity-number').append(opportunityHtml);
                             });
-         
-         
+
+
                             var rootCauseEntries = JSON.parse(response[0].root_cause_entry);
                             var count = 0;
                             rootCauseEntries.forEach(function (rootCause) {
@@ -3382,7 +3382,7 @@ var car = {
                                                             <input type="text" class="form-control selectize-close-btn" readonly name="rootcause_file_url[${count}]" value="${rootCause.rootcause_file_url}">
                                                             </div>
                                                         </div>
-                       
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -3393,16 +3393,16 @@ var car = {
                                 count++;
                                 $('#rootcause').append(rootCauseHtml);
                             });
-         
-         
+
+
                             var identifiedRootEntries = JSON.parse(response[0].identified_root_entry);
                             var count = 0;
                             identifiedRootEntries.forEach(function (identifiedRoot) {
-         
+
                                 var issued_by = '';
                                 var issued_to = '';
                                 var section_name = '';
-                                
+
                                 if(identifiedRoot.tpn_issued_by){
                                     $.ajax({
                                         type: 'POST',
@@ -3410,14 +3410,14 @@ var car = {
                                         data: {id: identifiedRoot.tpn_issued_by},
                                         success: function (response) {
                                             response = JSON.parse(response);
-         
+
                                             if(response[0]){
                                                  issued_by = response[0].div_name;
                                             }
                                         }
                                     });
                                 }
-         
+
                                 if(identifiedRoot.tpn_issued_to){
                                     $.ajax({
                                         type: 'POST',
@@ -3431,7 +3431,7 @@ var car = {
                                         }
                                     });
                                 }
-                                
+
                                 if(identifiedRoot.tpn_section){
                                     $.ajax({
                                         type: 'POST',
@@ -3445,9 +3445,9 @@ var car = {
                                         }
                                     });
                                 }
-         
+
                                 setTimeout(function() {
-         
+
                                 var identifiedRootHtml = `
                                     <div class="col-lg-12 identified-root-repeatable">
                                         <div class="card">
@@ -3514,7 +3514,7 @@ var car = {
                                                             <input type="text" class="form-control selectize-close-btn" readonly name="identified_root_attachment_url[${count}]"  value="${identifiedRoot.identified_root_attachment_url}">
                                                             </div>
                                                         </div>
-                                  
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -3523,7 +3523,7 @@ var car = {
                                 `;
                                 // Append the identified root HTML to the container
                                 $('#identified-root').append(identifiedRootHtml);
-        
+
                                 setTimeout(function() {
                                     jQuery(".selectize-close-btn").selectize({
                                         plugins: ["remove_button"],
@@ -3543,21 +3543,21 @@ var car = {
                                         window.open(url, '_blank');
                                     });
                                 }, 1000);
-         
+
                                 count++;
                                 }, 3000);
-        
-                              
+
+
                             });
-         
+
                         }
-         
-                    }   
-         
-                
-                    
+
+                    }
+
+
+
                 if((corrective_status == "For CAR action" || corrective_status == "For Partial" || corrective_status == "For Revision" ) && $partial == 'no'){
-        
+
                     var riskHtml = `
                     <div class="col-lg-12 risk-number-repeatable">
                         <div class="card">
@@ -3582,7 +3582,7 @@ var car = {
                                             <input type="text" class="form-control selectize-close-btn" name="risk_number_attachment_url[]">
                                             </div>
                                         </div>
-        
+
                                         <div class="col-xl-1">
                                             <div class="mb-3 mb-xl-0">
                                                 <label class="form-label">Remove</label>
@@ -3597,7 +3597,7 @@ var car = {
                     `;
                     // Append the risk HTML to the container
                     $('#risk-number').append(riskHtml);
-            
+
                     var opportunityHtml = `
                     <div class="col-lg-12 opportunity-number-repeatable">
                         <div class="card">
@@ -3622,7 +3622,7 @@ var car = {
                                             <input type="text" class="form-control selectize-close-btn" name="opportunity_number_attachment_url[]">
                                             </div>
                                         </div>
-        
+
                                         <div class="col-xl-1">
                                             <div class="mb-3 mb-xl-0">
                                                 <label class="form-label">Remove</label>
@@ -3637,7 +3637,7 @@ var car = {
                     `;
                     // Append the opportunity HTML to the container
                     $('#opportunity-number').append(opportunityHtml);
-            
+
                     var rootCauseHtml = `
                                     <div class="col-lg-12 rootcause-repeatable">
                                         <div class="card">
@@ -3650,7 +3650,7 @@ var car = {
                                                                 <input type="text" class="form-control" name="rootcause[]" value="">
                                                             </div>
                                                         </div>
-                             
+
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">File URL</label>
@@ -3671,27 +3671,27 @@ var car = {
                     `;
                     // Append the root cause HTML to the container
                     $('#rootcause').append(rootCauseHtml);
-                    
-            
+
+
                     setTimeout(function() {
-            
+
                         $.ajax({
                             type: 'POST',
                             url: '../car/getDivision', // Replace 'MyController' with your controller name
                             data: {},
                             success: function (response) {
-                                var html 
+                                var html
                                 if(response != 'null'){
-            
+
                                     $.each(JSON.parse(response), function (index, item) {
                                         // Access each item's properties
                                         var id = item.id;
                                         var div_name = item.div_name;
-                
+
                                         html += '<option value="'+id+'">'+div_name+'</option>';
                                         // Do something with the data, for example, display it on the page
                                     });
-            
+
                                     var identifiedRootHtml = `
                                             <div class="col-lg-12 identified-root-repeatable">
                                                 <div class="card">
@@ -3718,7 +3718,7 @@ var car = {
                                                                         </select>
                                                                     </div>
                                                                 </div>
-            
+
                                                                 <div class="col-xl-4 mb-2">
                                                                     <div class="mb-3 mb-xl-0">
                                                                         <label class="form-label">Person Responsible</label>
@@ -3765,7 +3765,7 @@ var car = {
                                                                     <input type="text" class="form-control selectize-close-btn" name="identified_root_attachment_url[]">
                                                                     </div>
                                                                 </div>
-                
+
                                                                 <div class="col-xl-1">
                                                                     <div class="mb-3 mb-xl-0">
                                                                         <label class="form-label">Remove</label>
@@ -3780,28 +3780,36 @@ var car = {
                                         `;
                                         // Append the identified root HTML to the container
                                     $('#identified-root').append(identifiedRootHtml);
-            
+
                                     issued_by = jQuery(this).parent().parent().parent().find('.issued_by');
                                     issued_to = jQuery(this).parent().parent().parent().find('.issued_to');
                                     section = jQuery(this).parent().parent().parent().find('.section');
-                    
+
                                     issued_by.val();
                                     issued_to.val();
                                     section.val();
-                    
+
                                     issued_by.parent().hide();
                                     issued_to.parent().hide();
                                     section.parent().hide();
-            
-                                }   
+
+                                }
                             },
                             error: function () {
                                 // Handle errors
                                 diList.notifyError();
                             }
                         });
-        
+
                         setTimeout(function() {
+                            // First destroy any existing selectize instances to prevent double initialization
+                            jQuery(".selectize-close-btn").each(function() {
+                                if (this.selectize) {
+                                    this.selectize.destroy();
+                                }
+                            });
+
+                            // Then initialize selectize
                             jQuery(".selectize-close-btn").selectize({
                                 plugins: ["remove_button"],
                                 persist: !1,
@@ -3820,21 +3828,21 @@ var car = {
                                 window.open(url, '_blank');
                             });
                         }, 1000);
-                        
+
                     }, 3000);
-        
+
                 }
-        
-         
-         
+
+
+
                 },
                 error: function () {
                     // Handle errors
                     diList.notifyError();
                 }
             });
-        
-        
+
+
         });
 
         $('#car-global-datatable').on('click', '.for-osqm-review-corrective-action', function () {
@@ -3844,7 +3852,7 @@ var car = {
             } else {
                 jQuery('#saveRoot').removeClass('hidden');
             }
-            
+
             jQuery('#add-rootcause').addClass('hidden');
             jQuery('#add-identified-root').addClass('hidden');
             jQuery('#add-risk-number').addClass('hidden');
@@ -3865,14 +3873,14 @@ var car = {
                     '<textarea class="form-control review_action_root_cause_analysis_remarks" name="review_action_root_cause_analysis_remarks" rows="4"></textarea>' +
                     '</div>' +
                 '</div>';
-         
+
             jQuery('#car-action').html($action);
-         
+
             jQuery('#car-action').removeClass();
             jQuery('#car-action').addClass('mt-4');
             jQuery('#car-action').addClass('row');
             jQuery('#car-action').addClass('corrective-action-review');
-         
+
             $car_id = jQuery(this).data('car_id');
             $requestor = jQuery(this).data('requestor');
             $car_no = jQuery(this).data('car_no');
@@ -3884,13 +3892,13 @@ var car = {
             $issuance_of_nc = jQuery(this).data('issuance_of_nc');
             $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
             $status = jQuery(this).data('status');
-            
-         
+
+
             $findings = jQuery(this).data('findings');
             $consequences = jQuery(this).data('consequences');
             $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
             $car_attachment = jQuery(this).data('car_attachment');
-         
+
             jQuery('.addCARFormIssuance .car_id').val($car_id);
             jQuery('.addCARFormIssuance .requestor').val($requestor);
             jQuery('.addCARFormIssuance .car_no').val($car_no);
@@ -3899,33 +3907,33 @@ var car = {
             jQuery('.addCARFormIssuance .issued_to').val($issued_to); // Replace 'issued_to' with the actual ID of your element
             jQuery('.addCARFormIssuance .identification_date').val($identification_date); // Replace 'identification_date' with the actual ID of your element
             jQuery('.addCARFormIssuance .issuance_of_nc').val($issuance_of_nc); // Replace 'issuance_of_nc' with the actual ID of your element
-            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element        
-            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
             jQuery('.addCARFormIssuance .car_attachment').val($car_attachment);
             division = jQuery('.addCARFormIssuance .issued_by').val();
-         
+
             $.ajax({
                 type: 'POST',
                 url: '../car/getDepartment', // Replace 'MyController' with your controller name
                 data: {division: division},
                 success: function (response) {
                     if(response != 'null'){
-         
+
                         $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
                         $.each(JSON.parse(response), function (index, item) {
                             // Access each item's properties
                             var id = item.id;
                             var dep_name = item.dep_name;
-         
+
                             var html = '<option value="'+id+'">'+dep_name+'</option>';
                             // Do something with the data, for example, display it on the page
                             $('.addCARFormIssuance .issued_to').append(html);
                         });
-         
+
                         jQuery('.addCARFormIssuance .issued_to').val($issued_to);
-         
+
                         department = $issued_to;
                         $.ajax({
                             type: 'POST',
@@ -3933,57 +3941,57 @@ var car = {
                             data: {department: department},
                             success: function (response) {
                                 if(response != 'null'){
-            
+
                                     $('.addCARFormIssuance .section').html('<option value=""></option>');
                                     $.each(JSON.parse(response), function (index, item) {
                                         // Access each item's properties
                                         var id = item.id;
                                         var section_name = item.section_name;
-                
+
                                         var html = '<option value="'+id+'">'+section_name+'</option>';
                                         // Do something with the data, for example, display it on the page
                                         $('.addCARFormIssuance .section').append(html);
                                     });
-            
+
                                     jQuery('.addCARFormIssuance .section').val($section);
-                                }   
+                                }
                             },
                             error: function () {
                                 // Handle errors
                                 diList.notifyError();
                             }
                         });
-         
-                    }   
+
+                    }
                 },
                 error: function () {
                     // Handle errors
                     diList.notifyError();
                 }
             });
-         
+
             var car_id = jQuery(this).data('car_id');
             jQuery('.car_id').val(car_id);
             $('#risk-number').empty();
             $('#opportunity-number').empty();
             $('#rootcause').empty();
             $('#identified-root').empty();
-         
+
             $.ajax({
                 type: 'POST',
                 url: '../car/getCorrectiveAction', // Replace 'MyController' with your controller name
                 data: {car_id: car_id},
                 success: function (response) {
                     if(response != 'null'){
-                        
+
                         response = JSON.parse(response);
-                        
+
                         var review_action_root_cause_analysis = response[0].review_action_root_cause_analysis;
                         var review_action_root_cause_analysis_remarks = response[0].review_action_root_cause_analysis_remarks;
-         
+
                         jQuery('.review_action_root_cause_analysis').val(review_action_root_cause_analysis);
                         jQuery('.review_action_root_cause_analysis_remarks').val(review_action_root_cause_analysis_remarks);
-         
+
                         if(response[0]){
                             $('input[name="existing_nonconformity"][value="'+ response[0].existing_nonconformity +'"]').prop('checked', true);
                             $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
@@ -3994,25 +4002,25 @@ var car = {
                             } else {
                                 jQuery('#opportunity-number').addClass('hidden');
                             }
-         
+
                             $('[name="existing_nonconformity_remarks"]').val(response[0].existing_nonconformity_remarks);
                             $('[name="update_doc_info_remarks"]').val(response[0].update_doc_info_remarks);
-         
+
                             var riskEntries = JSON.parse(response[0].risk_entry);
                             var count = 0;
                             riskEntries.forEach(function (risk) {
-         
+
                               var approval = risk.risk_number_acceptable_approval !== undefined ? risk.risk_number_acceptable_approval : '';
                               var verification = risk.risk_number_acceptable_verification !== undefined ? risk.risk_number_acceptable_verification : '';
                               var validation = risk.risk_number_acceptable_validation !== undefined ? risk.risk_number_acceptable_validation : ''
-         
+
                               var approval_remarks = risk.risk_number_acceptable_remarks_approval !== undefined ? risk.risk_number_acceptable_remarks_approval : '';
                               var verification_remarks = risk.risk_number_acceptable_remarks_verification !== undefined ? risk.risk_number_acceptable_remarks_verification : '';
                               var validation_remarks = risk.risk_number_acceptable_remarks_validation !== undefined ? risk.risk_number_acceptable_remarks_validation : '';
-         
+
                               var reviewValue = risk.risk_number_acceptable_review !== undefined ? risk.risk_number_acceptable_review : ''; // Added
                               var remarksReview = risk.risk_number_acceptable_remarks_review !== undefined ? risk.risk_number_acceptable_remarks_review : ''; // Added
-         
+
                                 var riskHtml = `
                                     <div class="col-lg-12 risk-number-repeatable">
                                         <div class="card">
@@ -4037,10 +4045,10 @@ var car = {
                                                                 <input type="text" class="form-control selectize-close-btn" readonly name="risk_number_attachment_url[${count}]" value="${risk.risk_number_attachment_url}">
                                                             </div>
                                                         </div>
-                        
-                                                        
+
+
                                                     </div>
-                
+
                                                 </div>
                                             </div>
                                         </div>
@@ -4050,24 +4058,24 @@ var car = {
                                 count++;
                                 $('#risk-number').append(riskHtml);
                             });
-         
-         
+
+
                             var opportunityEntries = JSON.parse(response[0].opportunity_entry);
                             var count = 0;
                             opportunityEntries.forEach(function (opportunity) {
-         
+
                               var approval = opportunity.opportunity_number_acceptable_approval !== undefined ? opportunity.risk_number_acceptable_approval : '';
                               var verification = opportunity.opportunity_number_acceptable_verification !== undefined ? opportunity.opportunity_number_acceptable_verification : '';
                               var validation = opportunity.opportunity_number_acceptable_validation !== undefined ? opportunity.opportunity_number_acceptable_validation : '';
-         
+
                               var approval_remarks = opportunity.opportunity_number_acceptable_remarks_approval !== undefined ? opportunity.risk_number_acceptable_remarks_approval : '';
                               var verification_remarks = opportunity.opportunity_number_acceptable_remarks_verification !== undefined ? opportunity.opportunity_number_acceptable_remarks_verification : '';
                               var validation_remarks = opportunity.opportunity_number_acceptable_remarks_validation !== undefined ? opportunity.opportunity_number_acceptable_remarks_validation : '';
-         
-         
+
+
                               var reviewValue = opportunity.opportunity_number_acceptable_review !== undefined ? opportunity.opportunity_number_acceptable_review : ''; // Added
                               var remarksReview = opportunity.opportunity_number_acceptable_remarks_review !== undefined ? opportunity.opportunity_number_acceptable_remarks_review : ''; // Added
-         
+
                                 var opportunityHtml = `
                                     <div class="col-lg-12 opportunity-number-repeatable">
                                         <div class="card">
@@ -4092,9 +4100,9 @@ var car = {
                                                             <input type="text" class="form-control selectize-close-btn" readonly name="opportunity_number_attachment_url[${count}]" value="${opportunity.opportunity_number_attachment_url}">
                                                             </div>
                                                         </div>
-                                 
+
                                                     </div>
-                                                   
+
                                                 </div>
                                             </div>
                                         </div>
@@ -4104,24 +4112,24 @@ var car = {
                                 count++;
                                 $('#opportunity-number').append(opportunityHtml);
                             });
-         
-         
+
+
                             var rootCauseEntries = JSON.parse(response[0].root_cause_entry);
                             var count = 0;
                             rootCauseEntries.forEach(function (rootCause) {
-         
+
                               var approval = rootCause.rootcause_acceptable_approval !== undefined ? rootCause.rootcause_acceptable_approval : '';
                               var verification = rootCause.rootcause_acceptable_verification !== undefined ? rootCause.rootcause_acceptable_verification : '';
                               var validation = rootCause.rootcause_acceptable_validation !== undefined ? rootCause.rootcause_acceptable_validation : '';
-         
+
                               var approval_remarks = rootCause.rootcause_acceptable_remarks_approval !== undefined ? rootCause.rootcause_acceptable_remarks_approval : '';
                               var verification_remarks = rootCause.rootcause_acceptable_remarks_verification !== undefined ? rootCause.rootcause_acceptable_remarks_verification : '';
                               var validation_remarks = rootCause.rootcause_acceptable_remarks_validation !== undefined ? rootCause.rootcause_acceptable_remarks_validation : '';
-         
-         
+
+
                               var reviewValue = rootCause.rootcause_acceptable_review !== undefined ? rootCause.rootcause_acceptable_review : ''; // Added
                               var remarksReview = rootCause.rootcause_acceptable_remarks_review !== undefined ? rootCause.rootcause_acceptable_remarks_review : ''; // Added
-         
+
                                 var rootCauseHtml = `
                                     <div class="col-lg-12 rootcause-repeatable">
                                         <div class="card">
@@ -4134,16 +4142,16 @@ var car = {
                                                                 <input type="text" class="form-control" readonly name="rootcause[${count}]" value="${rootCause.rootcause}">
                                                             </div>
                                                         </div>
-                                     
+
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">File URL</label>
                                                             <input type="text" class="form-control selectize-close-btn" readonly name="rootcause_file_url[${count}]" value="${rootCause.rootcause_file_url}">
                                                             </div>
                                                         </div>
-                 
+
                                                     </div>
-                                  
+
                                                 </div>
                                             </div>
                                         </div>
@@ -4153,28 +4161,28 @@ var car = {
                                 count++;
                                 $('#rootcause').append(rootCauseHtml);
                             });
-         
-         
+
+
                             var identifiedRootEntries = JSON.parse(response[0].identified_root_entry);
                             var count = 0;
                             identifiedRootEntries.forEach(function (identifiedRoot) {
-         
+
                               var issued_by = '';
                               var issued_to = '';
                               var section_name = '';
-         
+
                               var approval = identifiedRoot.identified_root_acceptable_approval !== undefined ? identifiedRoot.identified_root_acceptable_approval : '';
                               var verification = identifiedRoot.identified_root_acceptable_verification !== undefined ? identifiedRoot.identified_root_acceptable_verification : '';
                               var validation = identifiedRoot.identified_root_acceptable_validation !== undefined ? identifiedRoot.identified_root_acceptable_validation : '';
-                              
+
                               var approval_remarks = identifiedRoot.identified_root_acceptable_remarks_approval !== undefined ? identifiedRoot.identified_root_acceptable_remarks_approval : '';
                               var verification_remarks = identifiedRoot.identified_root_acceptable_remarks_verification !== undefined ? identifiedRoot.identified_root_acceptable_remarks_verification : '';
                               var validation_remarks = identifiedRoot.identified_root_acceptable_remarks_validation !== undefined ? identifiedRoot.identified_root_acceptable_remarks_validation : '';
-         
+
                               var reviewValue = identifiedRoot.identified_root_acceptable_review !== undefined ? identifiedRoot.identified_root_acceptable_review : ''; // Added
                               var remarksReview = identifiedRoot.identified_root_acceptable_remarks_review !== undefined ? identifiedRoot.identified_root_acceptable_remarks_review : ''; // Added
-         
-                                
+
+
                                 if(identifiedRoot.tpn_issued_by){
                                     $.ajax({
                                         type: 'POST',
@@ -4182,14 +4190,14 @@ var car = {
                                         data: {id: identifiedRoot.tpn_issued_by},
                                         success: function (response) {
                                             response = JSON.parse(response);
-         
+
                                             if(response[0]){
                                                  issued_by = response[0].div_name;
                                             }
                                         }
                                     });
                                 }
-         
+
                                 if(identifiedRoot.tpn_issued_to){
                                     $.ajax({
                                         type: 'POST',
@@ -4203,7 +4211,7 @@ var car = {
                                         }
                                     });
                                 }
-                                
+
                                 if(identifiedRoot.tpn_section){
                                     $.ajax({
                                         type: 'POST',
@@ -4217,9 +4225,9 @@ var car = {
                                         }
                                     });
                                 }
-         
+
                                 setTimeout(function() {
-         
+
                                 var identifiedRootHtml = `
                                     <div class="col-lg-12 identified-root-repeatable">
                                         <div class="card">
@@ -4286,9 +4294,9 @@ var car = {
                                                             <input type="text" class="form-control selectize-close-btn" readonly name="identified_root_attachment_url[${count}]"  value="${identifiedRoot.identified_root_attachment_url}">
                                                             </div>
                                                         </div>
-                        
+
                                                     </div>
-                                            
+
                                                 </div>
                                             </div>
                                         </div>
@@ -4299,10 +4307,18 @@ var car = {
 
 
                                 setTimeout(function() {
+                                    // First destroy any existing selectize instances to prevent double initialization
+                                    jQuery(".selectize-close-btn").each(function() {
+                                        if (this.selectize) {
+                                            this.selectize.destroy();
+                                        }
+                                    });
+
+                                    // Then initialize selectize
                                     jQuery(".selectize-close-btn").selectize({
                                         plugins: ["remove_button"],
-                                        persist: !1,
-                                        create: !0,
+                                        persist: false,
+                                        create: true,
                                         render: {
                                             item: function (e, a) {
                                                 return '<div><a class="url_link" target="_blank" href="' + a(e.text) + '">"' + a(e.text) + '"</a></div>';
@@ -4317,24 +4333,24 @@ var car = {
                                         window.open(url, '_blank');
                                     });
                                 }, 1000);
-         
+
                                 count++;
                                 }, 3000);
                             });
-         
+
                         }
-         
-                    }   
-         
+
+                    }
+
                 },
                 error: function () {
                     // Handle errors
                     diList.notifyError();
                 }
             });
-         
-            
-         
+
+
+
         });
 
         $('#car-global-datatable').on('click', '.for-osqm-approval-corrective-action', function () {
@@ -4365,14 +4381,14 @@ var car = {
             '<textarea class="form-control approval_action_root_cause_analysis_remarks" name="approval_action_root_cause_analysis_remarks" rows="4"></textarea>' +
             '</div>' +
         '</div>';
-        
+
         jQuery('#car-action').html($action);
-        
+
         jQuery('#car-action').removeClass();
         jQuery('#car-action').addClass('mt-4');
         jQuery('#car-action').addClass('row');
         jQuery('#car-action').addClass('corrective-action-approval');
-        
+
         $car_id = jQuery(this).data('car_id');
         $requestor = jQuery(this).data('requestor');
         $car_no = jQuery(this).data('car_no');
@@ -4384,13 +4400,13 @@ var car = {
         $issuance_of_nc = jQuery(this).data('issuance_of_nc');
         $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
         $status = jQuery(this).data('status');
-        
-        
+
+
         $findings = jQuery(this).data('findings');
         $consequences = jQuery(this).data('consequences');
         $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
         $car_attachment = jQuery(this).data('car_attachment');
-        
+
         jQuery('.addCARFormIssuance .car_id').val($car_id);
         jQuery('.addCARFormIssuance .requestor').val($requestor);
         jQuery('.addCARFormIssuance .car_no').val($car_no);
@@ -4399,33 +4415,33 @@ var car = {
         jQuery('.addCARFormIssuance .issued_to').val($issued_to); // Replace 'issued_to' with the actual ID of your element
         jQuery('.addCARFormIssuance .identification_date').val($identification_date); // Replace 'identification_date' with the actual ID of your element
         jQuery('.addCARFormIssuance .issuance_of_nc').val($issuance_of_nc); // Replace 'issuance_of_nc' with the actual ID of your element
-        jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element        
-        jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-        jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-        jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+        jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+        jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+        jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+        jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
         jQuery('.addCARFormIssuance .car_attachment').val($car_attachment);
         division = jQuery('.addCARFormIssuance .issued_by').val();
-        
+
         $.ajax({
             type: 'POST',
             url: '../car/getDepartment', // Replace 'MyController' with your controller name
             data: {division: division},
             success: function (response) {
                 if(response != 'null'){
-        
+
                     $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
                     $.each(JSON.parse(response), function (index, item) {
                         // Access each item's properties
                         var id = item.id;
                         var dep_name = item.dep_name;
-        
+
                         var html = '<option value="'+id+'">'+dep_name+'</option>';
                         // Do something with the data, for example, display it on the page
                         $('.addCARFormIssuance .issued_to').append(html);
                     });
-        
+
                     jQuery('.addCARFormIssuance .issued_to').val($issued_to);
-        
+
                     department = $issued_to;
                     $.ajax({
                         type: 'POST',
@@ -4433,56 +4449,56 @@ var car = {
                         data: {department: department},
                         success: function (response) {
                             if(response != 'null'){
-        
+
                                 $('.addCARFormIssuance .section').html('<option value=""></option>');
                                 $.each(JSON.parse(response), function (index, item) {
                                     // Access each item's properties
                                     var id = item.id;
                                     var section_name = item.section_name;
-            
+
                                     var html = '<option value="'+id+'">'+section_name+'</option>';
                                     // Do something with the data, for example, display it on the page
                                     $('.addCARFormIssuance .section').append(html);
                                 });
-        
+
                                 jQuery('.addCARFormIssuance .section').val($section);
-                            }   
+                            }
                         },
                         error: function () {
                             // Handle errors
                             diList.notifyError();
                         }
                     });
-        
-                }   
+
+                }
             },
             error: function () {
                 // Handle errors
                 diList.notifyError();
             }
         });
-        
+
         var car_id = jQuery(this).data('car_id');
         jQuery('.car_id').val(car_id);
         $('#risk-number').empty();
         $('#opportunity-number').empty();
         $('#rootcause').empty();
         $('#identified-root').empty();
-        
+
         $.ajax({
             type: 'POST',
             url: '../car/getCorrectiveAction', // Replace 'MyController' with your controller name
             data: {car_id: car_id},
             success: function (response) {
                 if(response != 'null'){
-                    
+
                     response = JSON.parse(response);
-        
+
                     if(response[0]){
                         $('input[name="existing_nonconformity"][value="'+ response[0].existing_nonconformity +'"]').prop('checked', true);
                         $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
                         $('input[name="opportunity_identified_yn"][value="'+ response[0].opportunity_identified +'"]').prop('checked', true);
-                        
+
                         if(response[0].opportunity_identified == "1"){
                             jQuery('#opportunity-number').removeClass('hidden');
                         } else {
@@ -4491,22 +4507,22 @@ var car = {
 
                         $('[name="existing_nonconformity_remarks"]').val(response[0].existing_nonconformity_remarks);
                         $('[name="update_doc_info_remarks"]').val(response[0].update_doc_info_remarks);
-        
+
                         var riskEntries = JSON.parse(response[0].risk_entry);
                         var count = 0;
                         riskEntries.forEach(function (risk) {
-        
+
                             var review = risk.risk_number_acceptable_review !== undefined ? risk.risk_number_acceptable_review : '';
                             var verification = risk.risk_number_acceptable_verification !== undefined ? risk.risk_number_acceptable_verification : '';
                             var validation = risk.risk_number_acceptable_validation !== undefined ? risk.risk_number_acceptable_validation : ''
-        
+
                             var review_remarks = risk.risk_number_acceptable_remarks_review !== undefined ? risk.risk_number_acceptable_remarks_review : '';
                             var verification_remarks = risk.risk_number_acceptable_remarks_verification !== undefined ? risk.risk_number_acceptable_remarks_verification : '';
                             var validation_remarks = risk.risk_number_acceptable_remarks_validation !== undefined ? risk.risk_number_acceptable_remarks_validation : '';
-        
+
                             var approvalValue = risk.risk_number_acceptable_approval !== undefined ? risk.risk_number_acceptable_approval : ''; // Added
                             var remarksReview = risk.risk_number_acceptable_remarks_approval !== undefined ? risk.risk_number_acceptable_remarks_approval : ''; // Added
-        
+
                             var riskHtml = `
                                 <div class="col-lg-12 risk-number-repeatable">
                                     <div class="card">
@@ -4531,9 +4547,9 @@ var car = {
                                                             <input type="text" class="form-control selectize-close-btn" readonly name="risk_number_attachment_url[${count}]" value="${risk.risk_number_attachment_url}">
                                                         </div>
                                                     </div>
-                          
+
                                                 </div>
-                                            
+
                                             </div>
                                         </div>
                                     </div>
@@ -4543,24 +4559,24 @@ var car = {
                             count++;
                             $('#risk-number').append(riskHtml);
                         });
-        
-        
+
+
                         var opportunityEntries = JSON.parse(response[0].opportunity_entry);
                         var count = 0;
                         opportunityEntries.forEach(function (opportunity) {
-        
+
                             var review = opportunity.opportunity_number_acceptable_review !== undefined ? opportunity.risk_number_acceptable_review : '';
                             var verification = opportunity.opportunity_number_acceptable_verification !== undefined ? opportunity.opportunity_number_acceptable_verification : '';
                             var validation = opportunity.opportunity_number_acceptable_validation !== undefined ? opportunity.opportunity_number_acceptable_validation : '';
-        
+
                             var review_remarks = opportunity.opportunity_number_acceptable_remarks_review !== undefined ? opportunity.risk_number_acceptable_remarks_review : '';
                             var verification_remarks = opportunity.opportunity_number_acceptable_remarks_verification !== undefined ? opportunity.opportunity_number_acceptable_remarks_verification : '';
                             var validation_remarks = opportunity.opportunity_number_acceptable_remarks_validation !== undefined ? opportunity.opportunity_number_acceptable_remarks_validation : '';
-        
-        
+
+
                             var approvalValue = opportunity.opportunity_number_acceptable_approval !== undefined ? opportunity.opportunity_number_acceptable_approval : ''; // Added
                             var remarksReview = opportunity.opportunity_number_acceptable_remarks_approval !== undefined ? opportunity.opportunity_number_acceptable_remarks_approval : ''; // Added
-        
+
                             var opportunityHtml = `
                                 <div class="col-lg-12 opportunity-number-repeatable">
                                     <div class="card">
@@ -4585,10 +4601,10 @@ var car = {
                                                         <input type="text" class="form-control selectize-close-btn" readonly name="opportunity_number_attachment_url[${count}]" value="${opportunity.opportunity_number_attachment_url}">
                                                         </div>
                                                     </div>
-                              
-                                    
+
+
                                                 </div>
-                                              
+
                                             </div>
                                         </div>
                                     </div>
@@ -4598,24 +4614,24 @@ var car = {
                             count++;
                             $('#opportunity-number').append(opportunityHtml);
                         });
-        
-        
+
+
                         var rootCauseEntries = JSON.parse(response[0].root_cause_entry);
                         var count = 0;
                         rootCauseEntries.forEach(function (rootCause) {
-        
+
                             var review = rootCause.rootcause_acceptable_review !== undefined ? rootCause.rootcause_acceptable_review : '';
                             var verification = rootCause.rootcause_acceptable_verification !== undefined ? rootCause.rootcause_acceptable_verification : '';
                             var validation = rootCause.rootcause_acceptable_validation !== undefined ? rootCause.rootcause_acceptable_validation : '';
-        
+
                             var review_remarks = rootCause.rootcause_acceptable_remarks_review !== undefined ? rootCause.rootcause_acceptable_remarks_review : '';
                             var verification_remarks = rootCause.rootcause_acceptable_remarks_verification !== undefined ? rootCause.rootcause_acceptable_remarks_verification : '';
                             var validation_remarks = rootCause.rootcause_acceptable_remarks_validation !== undefined ? rootCause.rootcause_acceptable_remarks_validation : '';
-        
-        
+
+
                             var approvalValue = rootCause.rootcause_acceptable_approval !== undefined ? rootCause.rootcause_acceptable_approval : ''; // Added
                             var remarksReview = rootCause.rootcause_acceptable_remarks_approval !== undefined ? rootCause.rootcause_acceptable_remarks_approval : ''; // Added
-        
+
                             var rootCauseHtml = `
                                 <div class="col-lg-12 rootcause-repeatable">
                                     <div class="card">
@@ -4628,16 +4644,16 @@ var car = {
                                                             <input type="text" class="form-control" readonly name="rootcause[${count}]" value="${rootCause.rootcause}">
                                                         </div>
                                                     </div>
-                    
+
                                                     <div class="col-xl-6">
                                                         <div class="mb-3 mb-xl-0">
                                                         <label class="form-label">File URL</label>
                                                         <input type="text" class="form-control selectize-close-btn" readonly name="rootcause_file_url[${count}]" value="${rootCause.rootcause_file_url}">
                                                         </div>
                                                     </div>
-                     
+
                                                 </div>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
@@ -4647,27 +4663,27 @@ var car = {
                             count++;
                             $('#rootcause').append(rootCauseHtml);
                         });
-        
-        
+
+
                         var identifiedRootEntries = JSON.parse(response[0].identified_root_entry);
                         var count = 0;
                         identifiedRootEntries.forEach(function (identifiedRoot) {
-        
+
                             var issued_by = '';
                             var issued_to = '';
                             var section_name = '';
-        
+
                             var review = identifiedRoot.identified_root_acceptable_review !== undefined ? identifiedRoot.identified_root_acceptable_review : '';
                             var verification = identifiedRoot.identified_root_acceptable_verification !== undefined ? identifiedRoot.identified_root_acceptable_verification : '';
                             var validation = identifiedRoot.identified_root_acceptable_validation !== undefined ? identifiedRoot.identified_root_acceptable_validation : '';
-                            
+
                             var review_remarks = identifiedRoot.identified_root_acceptable_remarks_review !== undefined ? identifiedRoot.identified_root_acceptable_remarks_review : '';
                             var verification_remarks = identifiedRoot.identified_root_acceptable_remarks_verification !== undefined ? identifiedRoot.identified_root_acceptable_remarks_verification : '';
                             var validation_remarks = identifiedRoot.identified_root_acceptable_remarks_validation !== undefined ? identifiedRoot.identified_root_acceptable_remarks_validation : '';
-        
+
                             var approvalValue = identifiedRoot.identified_root_acceptable_approval !== undefined ? identifiedRoot.identified_root_acceptable_approval : ''; // Added
                             var remarksReview = identifiedRoot.identified_root_acceptable_remarks_approval !== undefined ? identifiedRoot.identified_root_acceptable_remarks_approval : ''; // Added
-                            
+
                             if(identifiedRoot.tpn_issued_by){
                                 $.ajax({
                                     type: 'POST',
@@ -4675,14 +4691,14 @@ var car = {
                                     data: {id: identifiedRoot.tpn_issued_by},
                                     success: function (response) {
                                         response = JSON.parse(response);
-        
+
                                         if(response[0]){
                                              issued_by = response[0].div_name;
                                         }
                                     }
                                 });
                             }
-        
+
                             if(identifiedRoot.tpn_issued_to){
                                 $.ajax({
                                     type: 'POST',
@@ -4696,7 +4712,7 @@ var car = {
                                     }
                                 });
                             }
-                            
+
                             if(identifiedRoot.tpn_section){
                                 $.ajax({
                                     type: 'POST',
@@ -4710,9 +4726,9 @@ var car = {
                                     }
                                 });
                             }
-        
+
                             setTimeout(function() {
-        
+
                             var identifiedRootHtml = `
                                 <div class="col-lg-12 identified-root-repeatable">
                                     <div class="card">
@@ -4779,9 +4795,9 @@ var car = {
                                                         <input type="text" class="form-control selectize-close-btn" readonly name="identified_root_attachment_url[${count}]"  value="${identifiedRoot.identified_root_attachment_url}">
                                                         </div>
                                                     </div>
-                           
+
                                                 </div>
-                                               
+
                                             </div>
                                         </div>
                                     </div>
@@ -4789,8 +4805,16 @@ var car = {
                             `;
                             // Append the identified root HTML to the container
                             $('#identified-root').append(identifiedRootHtml);
-        
+
                             setTimeout(function() {
+                                // First destroy any existing selectize instances to prevent double initialization
+                                jQuery(".selectize-close-btn").each(function() {
+                                    if (this.selectize) {
+                                        this.selectize.destroy();
+                                    }
+                                });
+
+                                // Then initialize selectize
                                 jQuery(".selectize-close-btn").selectize({
                                     plugins: ["remove_button"],
                                     persist: !1,
@@ -4813,11 +4837,11 @@ var car = {
                             count++;
                             }, 3000);
                         });
-        
+
                     }
-        
-                }   
-              
+
+                }
+
             },
             error: function () {
                 // Handle errors
@@ -4834,7 +4858,7 @@ var car = {
                 } else {
                     jQuery('#saveRoot').addClass('hidden');
                 }
-            } 
+            }
 
             if(source == '2'){
                 if(jQuery(this).data('userrole') == "auditor"){
@@ -4872,14 +4896,14 @@ var car = {
                 '<textarea class="form-control verification_action_root_cause_analysis_remarks" name="verification_action_root_cause_analysis_remarks" rows="4"></textarea>' +
                 '</div>' +
             '</div>';
-        
+
             jQuery('#car-action').html($action);
-        
+
             jQuery('#car-action').removeClass();
             jQuery('#car-action').addClass('mt-4');
             jQuery('#car-action').addClass('row');
             jQuery('#car-action').addClass('corrective-action-verification');
-         
+
             $car_id = jQuery(this).data('car_id');
             $requestor = jQuery(this).data('requestor');
             $car_no = jQuery(this).data('car_no');
@@ -4891,13 +4915,13 @@ var car = {
             $issuance_of_nc = jQuery(this).data('issuance_of_nc');
             $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
             $status = jQuery(this).data('status');
-            
-         
+
+
             $findings = jQuery(this).data('findings');
             $consequences = jQuery(this).data('consequences');
             $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
             $car_attachment = jQuery(this).data('car_attachment');
-         
+
             jQuery('.addCARFormIssuance .car_id').val($car_id);
             jQuery('.addCARFormIssuance .requestor').val($requestor);
             jQuery('.addCARFormIssuance .car_no').val($car_no);
@@ -4906,33 +4930,33 @@ var car = {
             jQuery('.addCARFormIssuance .issued_to').val($issued_to); // Replace 'issued_to' with the actual ID of your element
             jQuery('.addCARFormIssuance .identification_date').val($identification_date); // Replace 'identification_date' with the actual ID of your element
             jQuery('.addCARFormIssuance .issuance_of_nc').val($issuance_of_nc); // Replace 'issuance_of_nc' with the actual ID of your element
-            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element        
-            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
             jQuery('.addCARFormIssuance .car_attachment').val($car_attachment);
             division = jQuery('.addCARFormIssuance .issued_by').val();
-         
+
             $.ajax({
                 type: 'POST',
                 url: '../car/getDepartment', // Replace 'MyController' with your controller name
                 data: {division: division},
                 success: function (response) {
                     if(response != 'null'){
-         
+
                         $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
                         $.each(JSON.parse(response), function (index, item) {
                             // Access each item's properties
                             var id = item.id;
                             var dep_name = item.dep_name;
-         
+
                             var html = '<option value="'+id+'">'+dep_name+'</option>';
                             // Do something with the data, for example, display it on the page
                             $('.addCARFormIssuance .issued_to').append(html);
                         });
-         
+
                         jQuery('.addCARFormIssuance .issued_to').val($issued_to);
-         
+
                         department = $issued_to;
                         $.ajax({
                             type: 'POST',
@@ -4940,51 +4964,51 @@ var car = {
                             data: {department: department},
                             success: function (response) {
                                 if(response != 'null'){
-            
+
                                     $('.addCARFormIssuance .section').html('<option value=""></option>');
                                     $.each(JSON.parse(response), function (index, item) {
                                         // Access each item's properties
                                         var id = item.id;
                                         var section_name = item.section_name;
-                
+
                                         var html = '<option value="'+id+'">'+section_name+'</option>';
                                         // Do something with the data, for example, display it on the page
                                         $('.addCARFormIssuance .section').append(html);
                                     });
-            
+
                                     jQuery('.addCARFormIssuance .section').val($section);
-                                }   
+                                }
                             },
                             error: function () {
                                 // Handle errors
                                 diList.notifyError();
                             }
                         });
-         
-                    }   
+
+                    }
                 },
                 error: function () {
                     // Handle errors
                     diList.notifyError();
                 }
             });
-         
+
             var car_id = jQuery(this).data('car_id');
             jQuery('.car_id').val(car_id);
             $('#risk-number').empty();
             $('#opportunity-number').empty();
             $('#rootcause').empty();
             $('#identified-root').empty();
-         
+
             $.ajax({
                 type: 'POST',
                 url: '../car/getCorrectiveAction', // Replace 'MyController' with your controller name
                 data: {car_id: car_id},
                 success: function (response) {
                     if(response != 'null'){
-                        
+
                         response = JSON.parse(response);
-         
+
                         if(response[0]){
                             $('input[name="existing_nonconformity"][value="'+ response[0].existing_nonconformity +'"]').prop('checked', true);
                             $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
@@ -4995,10 +5019,10 @@ var car = {
                             } else {
                                 jQuery('#opportunity-number').addClass('hidden');
                             }
-         
+
                             $('[name="existing_nonconformity_remarks"]').val(response[0].existing_nonconformity_remarks);
                             $('[name="update_doc_info_remarks"]').val(response[0].update_doc_info_remarks);
-         
+
                             var riskEntries = JSON.parse(response[0].risk_entry);
                             var count = 0;
                             riskEntries.forEach(function (risk) {
@@ -5027,7 +5051,7 @@ var car = {
                                                             </div>
                                                         </div>
 
-                                                        
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -5038,8 +5062,8 @@ var car = {
                                 count++;
                                 $('#risk-number').append(riskHtml);
                             });
-         
-         
+
+
                             var opportunityEntries = JSON.parse(response[0].opportunity_entry);
                             var count = 0;
                             opportunityEntries.forEach(function (opportunity) {
@@ -5067,8 +5091,8 @@ var car = {
                                                             <input type="text" class="form-control selectize-close-btn" readonly name="opportunity_number_attachment_url[${count}]" value="${opportunity.opportunity_number_attachment_url}">
                                                             </div>
                                                         </div>
-                        
-                                        
+
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -5079,8 +5103,8 @@ var car = {
                                 count++;
                                 $('#opportunity-number').append(opportunityHtml);
                             });
-         
-         
+
+
                             var rootCauseEntries = JSON.parse(response[0].root_cause_entry);
                             var count = 0;
                             rootCauseEntries.forEach(function (rootCause) {
@@ -5096,14 +5120,14 @@ var car = {
                                                                 <input type="text" class="form-control" readonly name="rootcause[${count}]" value="${rootCause.rootcause}">
                                                             </div>
                                                         </div>
-                                  
+
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">File URL</label>
                                                             <input type="text" class="form-control selectize-close-btn" readonly name="rootcause_file_url[${count}]" value="${rootCause.rootcause_file_url}">
                                                             </div>
                                                         </div>
-                              
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -5114,22 +5138,22 @@ var car = {
                                 count++;
                                 $('#rootcause').append(rootCauseHtml);
                             });
-         
-         
+
+
                             var identifiedRootEntries = JSON.parse(response[0].identified_root_entry);
                             var count = 0;
                             identifiedRootEntries.forEach(function (identifiedRoot) {
-         
+
                                 var issued_by = '';
                                 var issued_to = '';
                                 var section_name = '';
-        
+
                                 var verificationValue = identifiedRoot.identified_root_acceptable_verification !== undefined ? identifiedRoot.identified_root_acceptable_verification : ''; // Added
                                 var remarksReview = identifiedRoot.identified_root_acceptable_remarks_verification !== undefined ? identifiedRoot.identified_root_acceptable_remarks_verification : ''; // Added
-                                
+
                                 var verificationValueSecond = identifiedRoot.identified_root_acceptable_verification_second !== undefined ? identifiedRoot.identified_root_acceptable_verification_second : ''; // Added
                                 var remarksReviewSecond = identifiedRoot.identified_root_acceptable_remarks_verification_second !== undefined ? identifiedRoot.identified_root_acceptable_remarks_verification_second : ''; // Added
-                                
+
                                 if(identifiedRoot.tpn_issued_by){
                                     $.ajax({
                                         type: 'POST',
@@ -5137,14 +5161,14 @@ var car = {
                                         data: {id: identifiedRoot.tpn_issued_by},
                                         success: function (response) {
                                             response = JSON.parse(response);
-         
+
                                             if(response[0]){
                                                  issued_by = response[0].div_name;
                                             }
                                         }
                                     });
                                 }
-         
+
                                 if(identifiedRoot.tpn_issued_to){
                                     $.ajax({
                                         type: 'POST',
@@ -5158,7 +5182,7 @@ var car = {
                                         }
                                     });
                                 }
-                                
+
                                 if(identifiedRoot.tpn_section){
                                     $.ajax({
                                         type: 'POST',
@@ -5172,9 +5196,9 @@ var car = {
                                         }
                                     });
                                 }
-         
+
                                 setTimeout(function() {
-         
+
                                 var identifiedRootHtml = `
                                     <div class="col-lg-12 identified-root-repeatable">
                                         <div class="card">
@@ -5241,11 +5265,11 @@ var car = {
                                                             <input type="text" class="form-control selectize-close-btn" readonly name="identified_root_attachment_url[${count}]"  value="${identifiedRoot.identified_root_attachment_url}">
                                                             </div>
                                                         </div>
-                        
+
                                                     </div>
                                                     <div class="row">
                                                         <label for="acceptable" class="form-label">5.3 Follow-up on Corrective Action after completion of all actions: <br> Where the corrective actions implemented</label>
-        
+
                                                         <div class="col-lg-3 text-inlign mb-2">
                                                             <div class="form-check form-check-inline">
                                                                 <input type="radio" name="identified_root_acceptable_verification[${count}]" value="1" class="form-check-input" ${verificationValue === '1' ? 'checked' : ''}>
@@ -5261,10 +5285,10 @@ var car = {
                                                             <textarea class="form-control" name="identified_root_acceptable_remarks_verification[${count}]" rows="4">${remarksReview}</textarea>
                                                         </div>
                                                     </div>
-        
+
                                                     <div class="row">
                                                         <label for="acceptable" class="form-label">5.4 Effectivenes of Corrective Action for a period after implementation of all corrective actions <br> Did it prevent the Nonconformity (NC) from recurring after three months of monitoring? </label>
-        
+
                                                         <div class="col-lg-3 text-inlign mb-2">
                                                             <div class="form-check form-check-inline">
                                                                 <input type="radio" name="identified_root_acceptable_verification_second[${count}]" value="1" class="form-check-input" ${verificationValueSecond === '1' ? 'checked' : ''}>
@@ -5289,10 +5313,18 @@ var car = {
                                 $('#identified-root').append(identifiedRootHtml);
 
                                 setTimeout(function() {
+                                    // First destroy any existing selectize instances to prevent double initialization
+                                    jQuery(".selectize-close-btn").each(function() {
+                                        if (this.selectize) {
+                                            this.selectize.destroy();
+                                        }
+                                    });
+
+                                    // Then initialize selectize
                                     jQuery(".selectize-close-btn").selectize({
                                         plugins: ["remove_button"],
-                                        persist: !1,
-                                        create: !0,
+                                        persist: false,
+                                        create: true,
                                         render: {
                                             item: function (e, a) {
                                                 return '<div><a class="url_link" target="_blank" href="' + a(e.text) + '">"' + a(e.text) + '"</a></div>';
@@ -5307,18 +5339,18 @@ var car = {
                                         window.open(url, '_blank');
                                     });
                                 }, 1000);
-         
+
                                 count++;
                                 }, 3000);
 
                             });
-         
+
                         }
-         
-                    }   
-         
-                    
-         
+
+                    }
+
+
+
                 },
                 error: function () {
                     // Handle errors
@@ -5341,7 +5373,7 @@ var car = {
                 } else {
                     jQuery('#saveRoot').addClass('hidden');
                 }
-            } 
+            }
 
             if(source == '2'){
                 if(jQuery(this).data('userrole') == "auditor" || jQuery(this).data('usersection') == 'internal_quality_audit'){
@@ -5387,14 +5419,14 @@ var car = {
                 '<textarea class="form-control validation_action_root_cause_analysis_remarks" name="validation_action_root_cause_analysis_remarks" rows="4"></textarea>' +
                 '</div>' +
             '</div>';
-        
+
             jQuery('#car-action').html($action);
-        
+
             jQuery('#car-action').removeClass();
             jQuery('#car-action').addClass('mt-4');
             jQuery('#car-action').addClass('row');
             jQuery('#car-action').addClass('corrective-action-validation');
-         
+
             $car_id = jQuery(this).data('car_id');
             $requestor = jQuery(this).data('requestor');
             $car_no = jQuery(this).data('car_no');
@@ -5406,13 +5438,13 @@ var car = {
             $issuance_of_nc = jQuery(this).data('issuance_of_nc');
             $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
             $status = jQuery(this).data('status');
-            
-         
+
+
             $findings = jQuery(this).data('findings');
             $consequences = jQuery(this).data('consequences');
             $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
             $car_attachment = jQuery(this).data('car_attachment');
-         
+
             jQuery('.addCARFormIssuance .car_id').val($car_id);
             jQuery('.addCARFormIssuance .requestor').val($requestor);
             jQuery('.addCARFormIssuance .car_no').val($car_no);
@@ -5421,33 +5453,33 @@ var car = {
             jQuery('.addCARFormIssuance .issued_to').val($issued_to); // Replace 'issued_to' with the actual ID of your element
             jQuery('.addCARFormIssuance .identification_date').val($identification_date); // Replace 'identification_date' with the actual ID of your element
             jQuery('.addCARFormIssuance .issuance_of_nc').val($issuance_of_nc); // Replace 'issuance_of_nc' with the actual ID of your element
-            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element        
-            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
             jQuery('.addCARFormIssuance .car_attachment').val($car_attachment);
             division = jQuery('.addCARFormIssuance .issued_by').val();
-         
+
             $.ajax({
                 type: 'POST',
                 url: '../car/getDepartment', // Replace 'MyController' with your controller name
                 data: {division: division},
                 success: function (response) {
                     if(response != 'null'){
-         
+
                         $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
                         $.each(JSON.parse(response), function (index, item) {
                             // Access each item's properties
                             var id = item.id;
                             var dep_name = item.dep_name;
-         
+
                             var html = '<option value="'+id+'">'+dep_name+'</option>';
                             // Do something with the data, for example, display it on the page
                             $('.addCARFormIssuance .issued_to').append(html);
                         });
-         
+
                         jQuery('.addCARFormIssuance .issued_to').val($issued_to);
-         
+
                         department = $issued_to;
                         $.ajax({
                             type: 'POST',
@@ -5455,51 +5487,51 @@ var car = {
                             data: {department: department},
                             success: function (response) {
                                 if(response != 'null'){
-            
+
                                     $('.addCARFormIssuance .section').html('<option value=""></option>');
                                     $.each(JSON.parse(response), function (index, item) {
                                         // Access each item's properties
                                         var id = item.id;
                                         var section_name = item.section_name;
-                
+
                                         var html = '<option value="'+id+'">'+section_name+'</option>';
                                         // Do something with the data, for example, display it on the page
                                         $('.addCARFormIssuance .section').append(html);
                                     });
-            
+
                                     jQuery('.addCARFormIssuance .section').val($section);
-                                }   
+                                }
                             },
                             error: function () {
                                 // Handle errors
                                 diList.notifyError();
                             }
                         });
-         
-                    }   
+
+                    }
                 },
                 error: function () {
                     // Handle errors
                     diList.notifyError();
                 }
             });
-         
+
             var car_id = jQuery(this).data('car_id');
             jQuery('.car_id').val(car_id);
             $('#risk-number').empty();
             $('#opportunity-number').empty();
             $('#rootcause').empty();
             $('#identified-root').empty();
-         
+
             $.ajax({
                 type: 'POST',
                 url: '../car/getCorrectiveAction', // Replace 'MyController' with your controller name
                 data: {car_id: car_id},
                 success: function (response) {
                     if(response != 'null'){
-                        
+
                         response = JSON.parse(response);
-         
+
                         if(response[0]){
                             $('input[name="existing_nonconformity"][value="'+ response[0].existing_nonconformity +'"]').prop('checked', true);
                             $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
@@ -5510,10 +5542,10 @@ var car = {
                             } else {
                                 jQuery('#opportunity-number').addClass('hidden');
                             }
-         
+
                             $('[name="existing_nonconformity_remarks"]').val(response[0].existing_nonconformity_remarks);
                             $('[name="update_doc_info_remarks"]').val(response[0].update_doc_info_remarks);
-         
+
                             var riskEntries = JSON.parse(response[0].risk_entry);
                             var count = 0;
                             riskEntries.forEach(function (risk) {
@@ -5541,8 +5573,8 @@ var car = {
                                                                 <input type="text" class="form-control selectize-close-btn" readonly name="risk_number_attachment_url[${count}]" value="${risk.risk_number_attachment_url}">
                                                             </div>
                                                         </div>
-                   
-                                                        
+
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -5553,8 +5585,8 @@ var car = {
                                 count++;
                                 $('#risk-number').append(riskHtml);
                             });
-         
-         
+
+
                             var opportunityEntries = JSON.parse(response[0].opportunity_entry);
                             var count = 0;
                             opportunityEntries.forEach(function (opportunity) {
@@ -5582,7 +5614,7 @@ var car = {
                                                             <input type="text" class="form-control selectize-close-btn" readonly name="opportunity_number_attachment_url[${count}]" value="${opportunity.opportunity_number_attachment_url}">
                                                             </div>
                                                         </div>
-                             
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -5593,8 +5625,8 @@ var car = {
                                 count++;
                                 $('#opportunity-number').append(opportunityHtml);
                             });
-         
-         
+
+
                             var rootCauseEntries = JSON.parse(response[0].root_cause_entry);
                             var count = 0;
                             rootCauseEntries.forEach(function (rootCause) {
@@ -5610,14 +5642,14 @@ var car = {
                                                                 <input type="text" class="form-control" readonly name="rootcause[${count}]" value="${rootCause.rootcause}">
                                                             </div>
                                                         </div>
-                       
+
                                                         <div class="col-xl-6">
                                                             <div class="mb-3 mb-xl-0">
                                                             <label class="form-label">File URL</label>
                                                             <input type="text" class="form-control selectize-close-btn" readonly name="rootcause_file_url[${count}]" value="${rootCause.rootcause_file_url}">
                                                             </div>
                                                         </div>
-                                 
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -5628,22 +5660,22 @@ var car = {
                                 count++;
                                 $('#rootcause').append(rootCauseHtml);
                             });
-         
-         
+
+
                             var identifiedRootEntries = JSON.parse(response[0].identified_root_entry);
                             var count = 0;
                             identifiedRootEntries.forEach(function (identifiedRoot) {
-         
+
                                 var issued_by = '';
                                 var issued_to = '';
                                 var section_name = '';
-        
+
                                 var verificationValue = identifiedRoot.identified_root_acceptable_verification !== undefined ? identifiedRoot.identified_root_acceptable_verification : ''; // Added
                                 var remarksReview = identifiedRoot.identified_root_acceptable_remarks_verification !== undefined ? identifiedRoot.identified_root_acceptable_remarks_verification : ''; // Added
-                                
+
                                 var verificationValueSecond = identifiedRoot.identified_root_acceptable_verification_second !== undefined ? identifiedRoot.identified_root_acceptable_verification_second : ''; // Added
                                 var remarksReviewSecond = identifiedRoot.identified_root_acceptable_remarks_verification_second !== undefined ? identifiedRoot.identified_root_acceptable_remarks_verification_second : ''; // Added
-                                
+
                                 if(identifiedRoot.tpn_issued_by){
                                     $.ajax({
                                         type: 'POST',
@@ -5651,14 +5683,14 @@ var car = {
                                         data: {id: identifiedRoot.tpn_issued_by},
                                         success: function (response) {
                                             response = JSON.parse(response);
-         
+
                                             if(response[0]){
                                                  issued_by = response[0].div_name;
                                             }
                                         }
                                     });
                                 }
-         
+
                                 if(identifiedRoot.tpn_issued_to){
                                     $.ajax({
                                         type: 'POST',
@@ -5672,7 +5704,7 @@ var car = {
                                         }
                                     });
                                 }
-                                
+
                                 if(identifiedRoot.tpn_section){
                                     $.ajax({
                                         type: 'POST',
@@ -5686,9 +5718,9 @@ var car = {
                                         }
                                     });
                                 }
-         
+
                                 setTimeout(function() {
-         
+
                                 var identifiedRootHtml = `
                                     <div class="col-lg-12 identified-root-repeatable">
                                         <div class="card">
@@ -5755,11 +5787,11 @@ var car = {
                                                             <input type="text" class="form-control selectize-close-btn" readonly name="identified_root_attachment_url[${count}]"  value="${identifiedRoot.identified_root_attachment_url}">
                                                             </div>
                                                         </div>
-                             
+
                                                     </div>
                                                     <div class="row">
                                                         <label for="acceptable" class="form-label">5.3 Follow-up on Corrective Action after completion of all actions: <br> Where the corrective actions implemented</label>
-        
+
                                                         <div class="col-lg-3 text-inlign mb-2">
                                                             <div class="form-check form-check-inline">
                                                                 <input type="radio" readonly name="identified_root_acceptable_verification[${count}]" value="1" class="form-check-input" ${verificationValue === '1' ? 'checked' : ''}>
@@ -5775,10 +5807,10 @@ var car = {
                                                             <textarea class="form-control" readonly name="identified_root_acceptable_remarks_verification[${count}]" rows="4">${remarksReview}</textarea>
                                                         </div>
                                                     </div>
-        
+
                                                     <div class="row">
                                                         <label for="acceptable" class="form-label">5.4 Effectivenes of Corrective Action for a period after implementation of all corrective actions <br> Did it prevent the Nonconformity (NC) from recurring after three months of monitoring? </label>
-        
+
                                                         <div class="col-lg-3 text-inlign mb-2">
                                                             <div class="form-check form-check-inline">
                                                                 <input type="radio" readonly name="identified_root_acceptable_verification_second[${count}]" value="1" class="form-check-input" ${verificationValueSecond === '1' ? 'checked' : ''}>
@@ -5804,10 +5836,18 @@ var car = {
 
 
                                 setTimeout(function() {
+                                    // First destroy any existing selectize instances to prevent double initialization
+                                    jQuery(".selectize-close-btn").each(function() {
+                                        if (this.selectize) {
+                                            this.selectize.destroy();
+                                        }
+                                    });
+
+                                    // Then initialize selectize
                                     jQuery(".selectize-close-btn").selectize({
                                         plugins: ["remove_button"],
-                                        persist: !1,
-                                        create: !0,
+                                        persist: false,
+                                        create: true,
                                         render: {
                                             item: function (e, a) {
                                                 return '<div><a class="url_link" target="_blank" href="' + a(e.text) + '">"' + a(e.text) + '"</a></div>';
@@ -5822,18 +5862,18 @@ var car = {
                                         window.open(url, '_blank');
                                     });
                                 }, 1000);
-         
+
                                 count++;
                                 }, 3000);
 
                             });
-         
+
                         }
-         
-                    }   
-         
-                    
-         
+
+                    }
+
+
+
                 },
                 error: function () {
                     // Handle errors
@@ -5859,13 +5899,13 @@ var car = {
                 '<textarea class="form-control closing_action_remarks" name="closing_action_remarks" rows="4"></textarea>' +
                 '</div>' +
             '</div>';
-        
+
             jQuery('#car-closing').html($action);
-        
+
             jQuery('#car-closing').removeClass();
             jQuery('#car-closing').addClass('mt-4');
             jQuery('#car-closing').addClass('row');
-        
+
             $car_id = jQuery(this).data('car_id');
             $requestor = jQuery(this).data('requestor');
             $car_no = jQuery(this).data('car_no');
@@ -5877,13 +5917,13 @@ var car = {
             $issuance_of_nc = jQuery(this).data('issuance_of_nc');
             $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
             $status = jQuery(this).data('status');
-            
-        
+
+
             $findings = jQuery(this).data('findings');
             $consequences = jQuery(this).data('consequences');
             $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
             $car_attachment = jQuery(this).data('car_attachment');
-        
+
             jQuery('.addCARFormIssuance .car_id').val($car_id);
             jQuery('.addCARFormIssuance .requestor').val($requestor);
             jQuery('.addCARFormIssuance .car_no').val($car_no);
@@ -5892,33 +5932,33 @@ var car = {
             jQuery('.addCARFormIssuance .issued_to').val($issued_to); // Replace 'issued_to' with the actual ID of your element
             jQuery('.addCARFormIssuance .identification_date').val($identification_date); // Replace 'identification_date' with the actual ID of your element
             jQuery('.addCARFormIssuance .issuance_of_nc').val($issuance_of_nc); // Replace 'issuance_of_nc' with the actual ID of your element
-            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element        
-            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
             jQuery('.addCARFormIssuance .car_attachment').val($car_attachment);
             division = jQuery('.addCARFormIssuance .issued_by').val();
-        
+
             $.ajax({
                 type: 'POST',
                 url: '../car/getDepartment', // Replace 'MyController' with your controller name
                 data: {division: division},
                 success: function (response) {
                     if(response != 'null'){
-        
+
                         $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
                         $.each(JSON.parse(response), function (index, item) {
                             // Access each item's properties
                             var id = item.id;
                             var dep_name = item.dep_name;
-        
+
                             var html = '<option value="'+id+'">'+dep_name+'</option>';
                             // Do something with the data, for example, display it on the page
                             $('.addCARFormIssuance .issued_to').append(html);
                         });
-        
+
                         jQuery('.addCARFormIssuance .issued_to').val($issued_to);
-        
+
                         department = $issued_to;
                         $.ajax({
                             type: 'POST',
@@ -5926,62 +5966,62 @@ var car = {
                             data: {department: department},
                             success: function (response) {
                                 if(response != 'null'){
-            
+
                                     $('.addCARFormIssuance .section').html('<option value=""></option>');
                                     $.each(JSON.parse(response), function (index, item) {
                                         // Access each item's properties
                                         var id = item.id;
                                         var section_name = item.section_name;
-                
+
                                         var html = '<option value="'+id+'">'+section_name+'</option>';
                                         // Do something with the data, for example, display it on the page
                                         $('.addCARFormIssuance .section').append(html);
                                     });
-            
+
                                     jQuery('.addCARFormIssuance .section').val($section);
-                                }   
+                                }
                             },
                             error: function () {
                                 // Handle errors
                                 diList.notifyError();
                             }
                         });
-        
-                    }   
+
+                    }
                 },
                 error: function () {
                     // Handle errors
                     diList.notifyError();
                 }
             });
-        
-        
-        
-        
+
+
+
+
             var car_id = jQuery(this).data('car_id');
             jQuery('.car_id').val(car_id);
             $('#correction_closing').empty();
             $('#consequencesdiv_closing').empty();
-        
+
             $.ajax({
                 type: 'POST',
                 url: '../car/getCorrectionAction', // Replace 'MyController' with your controller name
                 data: {car_id: car_id},
                 success: function (response) {
                     if(response != '[]'){
-        
+
                         response = JSON.parse(response);
-        
+
                         console.log(response);
-        
+
                         var correctionEntries = JSON.parse(response[0].correction_entry);
                         var count = 0;
                         // Loop through correction entries and create HTML for each entry
                         correctionEntries.forEach(function (correction) {
 
                             var verificationValue = correction.correction_acceptable_verification !== undefined ? correction.correction_acceptable_verification : ''; // Added
-                            var remarksReview = correction.correction_acceptable_remarks_verification !== undefined ? correction.correction_acceptable_remarks_verification : ''; 
-            
+                            var remarksReview = correction.correction_acceptable_remarks_verification !== undefined ? correction.correction_acceptable_remarks_verification : '';
+
                             var correctionHtml = `
                                 <div class="col-lg-12 correction-repeatable added-repeat">
                                     <div class="card">
@@ -6036,12 +6076,12 @@ var car = {
                                     </div>
                                 </div>
                             `;
-                
+
                             count++;
                             // Append the correction HTML to the container
                             $('#correction_closing').append(correctionHtml);
                         });
-        
+
                         var consequenceEntries = JSON.parse(response[0].consequence_entry);
                         var count = 0;
                         // Loop through correction entries and create HTML for each entry
@@ -6049,7 +6089,7 @@ var car = {
 
                             var verificationValue = consequence.consequence_acceptable_verification !== undefined ? consequence.consequence_acceptable_verification : ''; // Added
                             var remarksReview = consequence.consequence_acceptable_remarks_verification !== undefined ? consequence.consequence_acceptable_remarks_verification : ''; // Added
-        
+
                             var consequenceHtml = `
                                 <div class="col-lg-12 consequences-repeatable added-repeat">
                                     <div class="card">
@@ -6108,37 +6148,37 @@ var car = {
                             // Append the correction HTML to the container
                             $('#consequencesdiv_closing').append(consequenceHtml);
                         });
-        
+
                     } else {
                         // car.notifyError();
-                    }   
-        
-        
-            
+                    }
+
+
+
                 },
                 error: function () {
                     // Handle errors
                     car.notifyError();
                 }
             });
-        
-        
+
+
             var car_id = jQuery(this).data('car_id');
                     jQuery('.car_id').val(car_id);
                     $('#risk-number_closing').empty();
                     $('#opportunity-number_closing').empty();
                     $('#rootcause_closing').empty();
                     $('#identified-root_closing').empty();
-                 
+
                     $.ajax({
                         type: 'POST',
                         url: '../car/getCorrectiveAction', // Replace 'MyController' with your controller name
                         data: {car_id: car_id},
                         success: function (response) {
                             if(response != 'null'){
-                                
+
                                 response = JSON.parse(response);
-                 
+
                                 if(response[0]){
                                     $('input[name="existing_nonconformity"][value="'+ response[0].existing_nonconformity +'"]').prop('checked', true);
                                     $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
@@ -6149,10 +6189,10 @@ var car = {
                                     } else {
                                         jQuery('#opportunity-number_closing').addClass('hidden');
                                     }
-                 
+
                                     $('[name="existing_nonconformity_remarks"]').val(response[0].existing_nonconformity_remarks);
                                     $('[name="update_doc_info_remarks"]').val(response[0].update_doc_info_remarks);
-                 
+
                                     var riskEntries = JSON.parse(response[0].risk_entry);
                                     var count = 0;
                                     riskEntries.forEach(function (risk) {
@@ -6180,8 +6220,8 @@ var car = {
                                                                         <input type="text" class="form-control selectize-close-btn" readonly name="risk_number_attachment_url[${count}]" value="${risk.risk_number_attachment_url}">
                                                                     </div>
                                                                 </div>
-                
-                                                                
+
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -6192,8 +6232,8 @@ var car = {
                                         count++;
                                         $('#risk-number_closing').append(riskHtml);
                                     });
-                 
-                 
+
+
                                     var opportunityEntries = JSON.parse(response[0].opportunity_entry);
                                     var count = 0;
                                     opportunityEntries.forEach(function (opportunity) {
@@ -6221,8 +6261,8 @@ var car = {
                                                                     <input type="text" class="form-control selectize-close-btn" readonly name="opportunity_number_attachment_url[${count}]" value="${opportunity.opportunity_number_attachment_url}">
                                                                     </div>
                                                                 </div>
-                                
-                                                
+
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -6233,8 +6273,8 @@ var car = {
                                         count++;
                                         $('#opportunity-number_closing').append(opportunityHtml);
                                     });
-                 
-                 
+
+
                                     var rootCauseEntries = JSON.parse(response[0].root_cause_entry);
                                     var count = 0;
                                     rootCauseEntries.forEach(function (rootCause) {
@@ -6250,14 +6290,14 @@ var car = {
                                                                         <input type="text" class="form-control" readonly name="rootcause[${count}]" value="${rootCause.rootcause}">
                                                                     </div>
                                                                 </div>
-                                          
+
                                                                 <div class="col-xl-6">
                                                                     <div class="mb-3 mb-xl-0">
                                                                     <label class="form-label">File URL</label>
                                                                     <input type="text" class="form-control selectize-close-btn" readonly name="rootcause_file_url[${count}]" value="${rootCause.rootcause_file_url}">
                                                                     </div>
                                                                 </div>
-                                      
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -6268,22 +6308,22 @@ var car = {
                                         count++;
                                         $('#rootcause_closing').append(rootCauseHtml);
                                     });
-                 
-                 
+
+
                                     var identifiedRootEntries = JSON.parse(response[0].identified_root_entry);
                                     var count = 0;
                                     identifiedRootEntries.forEach(function (identifiedRoot) {
- 
+
                                         var issued_by = '';
                                         var issued_to = '';
                                         var section_name = '';
-                
+
                                         var verificationValue = identifiedRoot.identified_root_acceptable_verification !== undefined ? identifiedRoot.identified_root_acceptable_verification : ''; // Added
                                         var remarksReview = identifiedRoot.identified_root_acceptable_remarks_verification !== undefined ? identifiedRoot.identified_root_acceptable_remarks_verification : ''; // Added
-                                        
+
                                         var verificationValueSecond = identifiedRoot.identified_root_acceptable_verification_second !== undefined ? identifiedRoot.identified_root_acceptable_verification_second : ''; // Added
                                         var remarksReviewSecond = identifiedRoot.identified_root_acceptable_remarks_verification_second !== undefined ? identifiedRoot.identified_root_acceptable_remarks_verification_second : ''; // Added
-                                        
+
                                         if(identifiedRoot.tpn_issued_by){
                                             $.ajax({
                                                 type: 'POST',
@@ -6291,14 +6331,14 @@ var car = {
                                                 data: {id: identifiedRoot.tpn_issued_by},
                                                 success: function (response) {
                                                     response = JSON.parse(response);
-                 
+
                                                     if(response[0]){
                                                          issued_by = response[0].div_name;
                                                     }
                                                 }
                                             });
                                         }
-                 
+
                                         if(identifiedRoot.tpn_issued_to){
                                             $.ajax({
                                                 type: 'POST',
@@ -6312,7 +6352,7 @@ var car = {
                                                 }
                                             });
                                         }
-                                        
+
                                         if(identifiedRoot.tpn_section){
                                             $.ajax({
                                                 type: 'POST',
@@ -6326,9 +6366,9 @@ var car = {
                                                 }
                                             });
                                         }
-                 
+
                                         setTimeout(function() {
-                 
+
                                         var identifiedRootHtml = `
                                             <div class="col-lg-12 identified-root-repeatable">
                                                 <div class="card">
@@ -6395,11 +6435,11 @@ var car = {
                                                                     <input type="text" class="form-control selectize-close-btn" readonly name="identified_root_attachment_url[${count}]"  value="${identifiedRoot.identified_root_attachment_url}">
                                                                     </div>
                                                                 </div>
-                                
+
                                                             </div>
                                                             <div class="row">
                                                                 <label for="acceptable" class="form-label">5.3 Follow-up on Corrective Action after completion of all actions: <br> Where the corrective actions implemented</label>
-                
+
                                                                 <div class="col-lg-3 text-inlign mb-2">
                                                                     <div class="form-check form-check-inline">
                                                                         <input type="radio" name="identified_root_acceptable_verification[${count}]" value="1" class="form-check-input" ${verificationValue === '1' ? 'checked' : ''}>
@@ -6415,10 +6455,10 @@ var car = {
                                                                     <textarea class="form-control" name="identified_root_acceptable_remarks_verification[${count}]" rows="4">${remarksReview}</textarea>
                                                                 </div>
                                                             </div>
-                
+
                                                             <div class="row">
                                                                 <label for="acceptable" class="form-label">5.4 Effectivenes of Corrective Action for a period after implementation of all corrective actions <br> Did it prevent the Nonconformity (NC) from recurring after three months of monitoring? </label>
-                
+
                                                                 <div class="col-lg-3 text-inlign mb-2">
                                                                     <div class="form-check form-check-inline">
                                                                         <input type="radio" name="identified_root_acceptable_verification_second[${count}]" value="1" class="form-check-input" ${verificationValueSecond === '1' ? 'checked' : ''}>
@@ -6441,8 +6481,16 @@ var car = {
                                         `;
                                         // Append the identified root HTML to the container
                                         $('#identified-root_closing').append(identifiedRootHtml);
-                
+
                                         setTimeout(function() {
+                                            // First destroy any existing selectize instances to prevent double initialization
+                                            jQuery(".selectize-close-btn").each(function() {
+                                                if (this.selectize) {
+                                                    this.selectize.destroy();
+                                                }
+                                            });
+
+                                            // Then initialize selectize
                                             jQuery(".selectize-close-btn").selectize({
                                                 plugins: ["remove_button"],
                                                 persist: !1,
@@ -6461,30 +6509,30 @@ var car = {
                                                 window.open(url, '_blank');
                                             });
                                         }, 1000);
-                 
+
                                         count++;
                                         }, 3000);
-                
+
                                     });
-                 
+
                                 }
-                 
-                            }   
-                 
-                 
+
+                            }
+
+
                         },
                         error: function () {
                             // Handle errors
                             diList.notifyError();
                         }
                     });
-        
+
         });
 
         $('#car-global-datatable').on('click', '.edit-closed', function () {
 
             jQuery('#saveClosing').addClass('hidden');
-        
+
             var $action = '<div class="row mb-2">' +
                 '<div class="form-group col-md-12">' +
                 '<label for="closing_action" class="form-label">For Closure</label>' +
@@ -6500,13 +6548,13 @@ var car = {
                 '<textarea class="form-control closing_action_remarks" name="closing_action_remarks" rows="4"></textarea>' +
                 '</div>' +
             '</div>';
-        
+
             jQuery('#car-closing').html($action);
-        
+
             jQuery('#car-closing').removeClass();
             jQuery('#car-closing').addClass('mt-4');
             jQuery('#car-closing').addClass('row');
-        
+
             $car_id = jQuery(this).data('car_id');
             $requestor = jQuery(this).data('requestor');
             $car_no = jQuery(this).data('car_no');
@@ -6518,13 +6566,13 @@ var car = {
             $issuance_of_nc = jQuery(this).data('issuance_of_nc');
             $issuance_of_nc_remarks = jQuery(this).data('issuance_of_nc_remarks');
             $status = jQuery(this).data('status');
-            
-        
+
+
             $findings = jQuery(this).data('findings');
             $consequences = jQuery(this).data('consequences');
             $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
             $car_attachment = jQuery(this).data('car_attachment');
-        
+
             jQuery('.addCARFormIssuance .car_id').val($car_id);
             jQuery('.addCARFormIssuance .requestor').val($requestor);
             jQuery('.addCARFormIssuance .car_no').val($car_no);
@@ -6533,33 +6581,33 @@ var car = {
             jQuery('.addCARFormIssuance .issued_to').val($issued_to); // Replace 'issued_to' with the actual ID of your element
             jQuery('.addCARFormIssuance .identification_date').val($identification_date); // Replace 'identification_date' with the actual ID of your element
             jQuery('.addCARFormIssuance .issuance_of_nc').val($issuance_of_nc); // Replace 'issuance_of_nc' with the actual ID of your element
-            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element        
-            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('.addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('.addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
             jQuery('.addCARFormIssuance .car_attachment').val($car_attachment);
             division = jQuery('.addCARFormIssuance .issued_by').val();
-        
+
             $.ajax({
                 type: 'POST',
                 url: '../car/getDepartment', // Replace 'MyController' with your controller name
                 data: {division: division},
                 success: function (response) {
                     if(response != 'null'){
-        
+
                         $('.addCARFormIssuance .issued_to').html('<option value=""></option>');
                         $.each(JSON.parse(response), function (index, item) {
                             // Access each item's properties
                             var id = item.id;
                             var dep_name = item.dep_name;
-        
+
                             var html = '<option value="'+id+'">'+dep_name+'</option>';
                             // Do something with the data, for example, display it on the page
                             $('.addCARFormIssuance .issued_to').append(html);
                         });
-        
+
                         jQuery('.addCARFormIssuance .issued_to').val($issued_to);
-        
+
                         department = $issued_to;
                         $.ajax({
                             type: 'POST',
@@ -6567,62 +6615,62 @@ var car = {
                             data: {department: department},
                             success: function (response) {
                                 if(response != 'null'){
-            
+
                                     $('.addCARFormIssuance .section').html('<option value=""></option>');
                                     $.each(JSON.parse(response), function (index, item) {
                                         // Access each item's properties
                                         var id = item.id;
                                         var section_name = item.section_name;
-                
+
                                         var html = '<option value="'+id+'">'+section_name+'</option>';
                                         // Do something with the data, for example, display it on the page
                                         $('.addCARFormIssuance .section').append(html);
                                     });
-            
+
                                     jQuery('.addCARFormIssuance .section').val($section);
-                                }   
+                                }
                             },
                             error: function () {
                                 // Handle errors
                                 diList.notifyError();
                             }
                         });
-        
-                    }   
+
+                    }
                 },
                 error: function () {
                     // Handle errors
                     diList.notifyError();
                 }
             });
-        
-        
-        
-        
+
+
+
+
             var car_id = jQuery(this).data('car_id');
             jQuery('.car_id').val(car_id);
             $('#correction_closing').empty();
             $('#consequencesdiv_closing').empty();
-        
+
             $.ajax({
                 type: 'POST',
                 url: '../car/getCorrectionAction', // Replace 'MyController' with your controller name
                 data: {car_id: car_id},
                 success: function (response) {
                     if(response != '[]'){
-        
+
                         response = JSON.parse(response);
-        
+
                         console.log(response);
-        
+
                         var correctionEntries = JSON.parse(response[0].correction_entry);
                         var count = 0;
                         // Loop through correction entries and create HTML for each entry
                         correctionEntries.forEach(function (correction) {
-        
+
                             var verificationValue = correction.correction_acceptable_verification !== undefined ? correction.correction_acceptable_verification : ''; // Added
-                            var remarksReview = correction.correction_acceptable_remarks_verification !== undefined ? correction.correction_acceptable_remarks_verification : ''; 
-            
+                            var remarksReview = correction.correction_acceptable_remarks_verification !== undefined ? correction.correction_acceptable_remarks_verification : '';
+
                             var correctionHtml = `
                                 <div class="col-lg-12 correction-repeatable added-repeat">
                                     <div class="card">
@@ -6656,7 +6704,7 @@ var car = {
                                                 </div>
                                                 <div class="row">
                                                     <label for="acceptable" class="form-label">5.1 Was the nonconformity properly corrected?</label>
-        
+
                                                     <div class="col-lg-3 text-inlign mb-2">
                                                         <div class="form-check form-check-inline">
                                                             <input type="radio" name="correction_acceptable_verification[${count}]" value="1" class="form-check-input" ${verificationValue === '1' ? 'checked' : ''}>
@@ -6677,20 +6725,20 @@ var car = {
                                     </div>
                                 </div>
                             `;
-        
+
                             count++;
                             // Append the correction HTML to the container
                             $('#correction_closing').append(correctionHtml);
                         });
-        
+
                         var consequenceEntries = JSON.parse(response[0].consequence_entry);
                         var count = 0;
                         // Loop through correction entries and create HTML for each entry
                         consequenceEntries.forEach(function (consequence) {
-        
+
                             var verificationValue = consequence.consequence_acceptable_verification !== undefined ? consequence.consequence_acceptable_verification : ''; // Added
                             var remarksReview = consequence.consequence_acceptable_remarks_verification !== undefined ? consequence.consequence_acceptable_remarks_verification : ''; // Added
-        
+
                             var consequenceHtml = `
                                 <div class="col-lg-12 consequences-repeatable added-repeat">
                                     <div class="card">
@@ -6724,7 +6772,7 @@ var car = {
                                                 </div>
                                                 <div class="row">
                                                     <label for="acceptable" class="form-label">5.2 Was the consequences properly handled or treated?</label>
-        
+
                                                         <div class="col-lg-3 text-inlign mb-2">
                                                             <div class="form-check form-check-inline">
                                                                 <input type="radio" name="consequence_acceptable_verification[${count}]" value="1" class="form-check-input" ${verificationValue === '1' ? 'checked' : ''}>
@@ -6749,51 +6797,51 @@ var car = {
                             // Append the correction HTML to the container
                             $('#consequencesdiv_closing').append(consequenceHtml);
                         });
-        
+
                     } else {
                         // car.notifyError();
-                    }   
-        
-        
-            
+                    }
+
+
+
                 },
                 error: function () {
                     // Handle errors
                     car.notifyError();
                 }
             });
-        
-        
+
+
             var car_id = jQuery(this).data('car_id');
                     jQuery('.car_id').val(car_id);
                     $('#risk-number_closing').empty();
                     $('#opportunity-number_closing').empty();
                     $('#rootcause_closing').empty();
                     $('#identified-root_closing').empty();
-                 
+
                     $.ajax({
                         type: 'POST',
                         url: '../car/getCorrectiveAction', // Replace 'MyController' with your controller name
                         data: {car_id: car_id},
                         success: function (response) {
                             if(response != 'null'){
-                                
+
                                 response = JSON.parse(response);
-                 
+
                                 if(response[0]){
                                     $('input[name="existing_nonconformity"][value="'+ response[0].existing_nonconformity +'"]').prop('checked', true);
                                     $('input[name="update_doc_info"][value="'+ response[0].update_doc_info +'"]').prop('checked', true);
                                     $('input[name="opportunity_identified_yn"][value="'+ response[0].opportunity_identified +'"]').prop('checked', true);
-        
+
                                     if(response[0].opportunity_identified == "1"){
                                         jQuery('#opportunity-number_closing').removeClass('hidden');
                                     } else {
                                         jQuery('#opportunity-number_closing').addClass('hidden');
                                     }
-                 
+
                                     $('[name="existing_nonconformity_remarks"]').val(response[0].existing_nonconformity_remarks);
                                     $('[name="update_doc_info_remarks"]').val(response[0].update_doc_info_remarks);
-                 
+
                                     var riskEntries = JSON.parse(response[0].risk_entry);
                                     var count = 0;
                                     riskEntries.forEach(function (risk) {
@@ -6821,8 +6869,8 @@ var car = {
                                                                         <input type="text" class="form-control selectize-close-btn" readonly name="risk_number_attachment_url[${count}]" value="${risk.risk_number_attachment_url}">
                                                                     </div>
                                                                 </div>
-                
-                                                                
+
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -6833,8 +6881,8 @@ var car = {
                                         count++;
                                         $('#risk-number_closing').append(riskHtml);
                                     });
-                 
-                 
+
+
                                     var opportunityEntries = JSON.parse(response[0].opportunity_entry);
                                     var count = 0;
                                     opportunityEntries.forEach(function (opportunity) {
@@ -6862,8 +6910,8 @@ var car = {
                                                                     <input type="text" class="form-control selectize-close-btn" readonly name="opportunity_number_attachment_url[${count}]" value="${opportunity.opportunity_number_attachment_url}">
                                                                     </div>
                                                                 </div>
-                                
-                                                
+
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -6874,8 +6922,8 @@ var car = {
                                         count++;
                                         $('#opportunity-number_closing').append(opportunityHtml);
                                     });
-                 
-                 
+
+
                                     var rootCauseEntries = JSON.parse(response[0].root_cause_entry);
                                     var count = 0;
                                     rootCauseEntries.forEach(function (rootCause) {
@@ -6891,14 +6939,14 @@ var car = {
                                                                         <input type="text" class="form-control" readonly name="rootcause[${count}]" value="${rootCause.rootcause}">
                                                                     </div>
                                                                 </div>
-                                          
+
                                                                 <div class="col-xl-6">
                                                                     <div class="mb-3 mb-xl-0">
                                                                     <label class="form-label">File URL</label>
                                                                     <input type="text" class="form-control selectize-close-btn" readonly name="rootcause_file_url[${count}]" value="${rootCause.rootcause_file_url}">
                                                                     </div>
                                                                 </div>
-                                      
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -6909,22 +6957,22 @@ var car = {
                                         count++;
                                         $('#rootcause_closing').append(rootCauseHtml);
                                     });
-                 
-                 
+
+
                                     var identifiedRootEntries = JSON.parse(response[0].identified_root_entry);
                                     var count = 0;
                                     identifiedRootEntries.forEach(function (identifiedRoot) {
-        
+
                                         var issued_by = '';
                                         var issued_to = '';
                                         var section_name = '';
-                
+
                                         var verificationValue = identifiedRoot.identified_root_acceptable_verification !== undefined ? identifiedRoot.identified_root_acceptable_verification : ''; // Added
                                         var remarksReview = identifiedRoot.identified_root_acceptable_remarks_verification !== undefined ? identifiedRoot.identified_root_acceptable_remarks_verification : ''; // Added
-                                        
+
                                         var verificationValueSecond = identifiedRoot.identified_root_acceptable_verification_second !== undefined ? identifiedRoot.identified_root_acceptable_verification_second : ''; // Added
                                         var remarksReviewSecond = identifiedRoot.identified_root_acceptable_remarks_verification_second !== undefined ? identifiedRoot.identified_root_acceptable_remarks_verification_second : ''; // Added
-                                        
+
                                         if(identifiedRoot.tpn_issued_by){
                                             $.ajax({
                                                 type: 'POST',
@@ -6932,14 +6980,14 @@ var car = {
                                                 data: {id: identifiedRoot.tpn_issued_by},
                                                 success: function (response) {
                                                     response = JSON.parse(response);
-                 
+
                                                     if(response[0]){
                                                          issued_by = response[0].div_name;
                                                     }
                                                 }
                                             });
                                         }
-                 
+
                                         if(identifiedRoot.tpn_issued_to){
                                             $.ajax({
                                                 type: 'POST',
@@ -6953,7 +7001,7 @@ var car = {
                                                 }
                                             });
                                         }
-                                        
+
                                         if(identifiedRoot.tpn_section){
                                             $.ajax({
                                                 type: 'POST',
@@ -6967,9 +7015,9 @@ var car = {
                                                 }
                                             });
                                         }
-                 
+
                                         setTimeout(function() {
-                 
+
                                         var identifiedRootHtml = `
                                             <div class="col-lg-12 identified-root-repeatable">
                                                 <div class="card">
@@ -7036,11 +7084,11 @@ var car = {
                                                                     <input type="text" class="form-control selectize-close-btn" readonly name="identified_root_attachment_url[${count}]"  value="${identifiedRoot.identified_root_attachment_url}">
                                                                     </div>
                                                                 </div>
-                                
+
                                                             </div>
                                                             <div class="row">
                                                                 <label for="acceptable" class="form-label">5.3 Follow-up on Corrective Action after completion of all actions: <br> Where the corrective actions implemented</label>
-                
+
                                                                 <div class="col-lg-3 text-inlign mb-2">
                                                                     <div class="form-check form-check-inline">
                                                                         <input type="radio" name="identified_root_acceptable_verification[${count}]" value="1" class="form-check-input" ${verificationValue === '1' ? 'checked' : ''}>
@@ -7056,10 +7104,10 @@ var car = {
                                                                     <textarea class="form-control" name="identified_root_acceptable_remarks_verification[${count}]" rows="4">${remarksReview}</textarea>
                                                                 </div>
                                                             </div>
-                
+
                                                             <div class="row">
                                                                 <label for="acceptable" class="form-label">5.4 Effectivenes of Corrective Action for a period after implementation of all corrective actions <br> Did it prevent the Nonconformity (NC) from recurring after three months of monitoring? </label>
-                
+
                                                                 <div class="col-lg-3 text-inlign mb-2">
                                                                     <div class="form-check form-check-inline">
                                                                         <input type="radio" name="identified_root_acceptable_verification_second[${count}]" value="1" class="form-check-input" ${verificationValueSecond === '1' ? 'checked' : ''}>
@@ -7082,8 +7130,16 @@ var car = {
                                         `;
                                         // Append the identified root HTML to the container
                                         $('#identified-root_closing').append(identifiedRootHtml);
-                
+
                                         setTimeout(function() {
+                                            // First destroy any existing selectize instances to prevent double initialization
+                                            jQuery(".selectize-close-btn").each(function() {
+                                                if (this.selectize) {
+                                                    this.selectize.destroy();
+                                                }
+                                            });
+
+                                            // Then initialize selectize
                                             jQuery(".selectize-close-btn").selectize({
                                                 plugins: ["remove_button"],
                                                 persist: !1,
@@ -7102,24 +7158,24 @@ var car = {
                                                 window.open(url, '_blank');
                                             });
                                         }, 1000);
-                 
+
                                         count++;
                                         }, 3000);
-                
+
                                     });
-                 
+
                                 }
-                 
-                            }   
-                 
-                 
+
+                            }
+
+
                         },
                         error: function () {
                             // Handle errors
                             diList.notifyError();
                         }
                     });
-        
+
         });
 
 
@@ -7138,7 +7194,7 @@ var car = {
 
     validateForm : function (){
         var isValid = true;
-        
+
         // Check required fields
         $("#addCARForm [required]").each(function () {
             if ($(this).val() === "") {
@@ -7153,13 +7209,13 @@ var car = {
                 $(this).next('.parsley-errors-list').find('.parsley-required').text('');
             }
         });
-    
+
         return isValid;
     },
 
     validateFormCorrection : function (){
         var isValid = true;
-        
+
         // Check required fields
         $("#corrective-action [required]").each(function () {
             if ($(this).val() === "") {
@@ -7174,13 +7230,13 @@ var car = {
                 $(this).next('.parsley-errors-list').find('.parsley-required').text('');
             }
         });
-    
+
         return isValid;
     },
 
     validateFormIssuance : function (){
         var isValid = true;
-        
+
         // Check required fields
         $("#addCARFormIssuance [required]").each(function () {
             if ($(this).val() === "") {
@@ -7195,7 +7251,7 @@ var car = {
                 $(this).next('.parsley-errors-list').find('.parsley-required').text('');
             }
         });
-    
+
         return isValid;
     },
 
@@ -7237,12 +7293,12 @@ var car = {
 
         jQuery('#saveDueCorrective').click(function(e){
             e.preventDefault();
-    
-           
-    
+
+
+
             var car_id = jQuery('#ca_completion_date_id').val();
             var ca_completion_date = jQuery('#ca_completion_date').val();
-            
+
             var data = {
                 'car_id' : car_id,
                 'ca_completion_date' : ca_completion_date,
@@ -7268,18 +7324,18 @@ var car = {
                     car.notifyError();
                 }
             });
-            
-    
+
+
         });
 
         jQuery('#saveDueCorrectiveSecond').click(function(e){
             e.preventDefault();
-    
-           
-    
+
+
+
             var car_id = jQuery('#ca_second_completion_date_id').val();
             var ca_second_completion_date = jQuery('#ca_second_completion_date').val();
-            
+
             var data = {
                 'car_id' : car_id,
                 'ca_second_completion_date' : ca_second_completion_date,
@@ -7305,18 +7361,18 @@ var car = {
                     car.notifyError();
                 }
             });
-            
-    
+
+
         });
-        
+
         jQuery('#saveDueCorrection').click(function(e){
             e.preventDefault();
-    
-           
-    
+
+
+
             var car_id = jQuery('#fc_completion_date_id').val();
             var fc_completion_date = jQuery('#fc_completion_date').val();
-            
+
             var data = {
                 'car_id' : car_id,
                 'fc_completion_date' : fc_completion_date,
@@ -7342,16 +7398,16 @@ var car = {
                     car.notifyError();
                 }
             });
-            
-    
+
+
         });
 
 
         jQuery('#saveCar').click(function(e){
             e.preventDefault();
-    
+
             if (car.validateForm()) {
-    
+
                 var car_no = jQuery('#car_no').val();
                 var identification_date = jQuery('#identification_date').val();
                 var source = jQuery('#source').val();
@@ -7362,7 +7418,7 @@ var car = {
                 var consequences = jQuery('#consequences').val();
                 var requirements_not_fulfilled = jQuery('#requirements_not_fulfilled').val();
                 var car_attachment = jQuery('#car_attachment').val();
-                
+
                 var data = {
                     'car_no' : car_no,
                     'identification_date' : identification_date,
@@ -7375,9 +7431,9 @@ var car = {
                     'requirements_not_fulfilled': requirements_not_fulfilled,
                     'car_attachment': car_attachment,
                 }
-    
+
                 jQuery("#add-car").modal('toggle');
-    
+
                 $.ajax({
                     type: 'POST',
                     url: '../car/save', // Replace 'MyController' with your controller name
@@ -7398,13 +7454,13 @@ var car = {
                     }
                 });
             }
-    
+
         });
 
 
         jQuery('#saveCarIssuance').click(function(e){
             e.preventDefault();
-    
+
             if (car.validateFormIssuance()) {
 
                 var car_id = jQuery('#addCARFormIssuance .car_id').val();
@@ -7412,7 +7468,7 @@ var car = {
                 var section = jQuery('#addCARFormIssuance .section').val();
                 var issuance_of_nc = jQuery('#addCARFormIssuance .issuance_of_nc').val();
                 var issuance_of_nc_remarks = jQuery('#addCARFormIssuance .issuance_of_nc_remarks').val();
-                
+
                 var data = {
                     'car_id' : car_id,
                     'issued_to' : issued_to,
@@ -7420,9 +7476,9 @@ var car = {
                     'issuance_of_nc': issuance_of_nc,
                     'issuance_of_nc_remarks': issuance_of_nc_remarks,
                 }
-    
+
                 jQuery("#add-car-issuance").modal('toggle');
-    
+
                 $.ajax({
                     type: 'POST',
                     url: '../car/issuanceSave', // Replace 'MyController' with your controller name
@@ -7443,7 +7499,7 @@ var car = {
                     }
                 });
             }
-    
+
         });
 
 
@@ -7454,6 +7510,27 @@ var car = {
             var formData = new FormData($("#root_cause_form")[0]);
 
             var confirmation = confirm("Are you sure you want to save changes?");
+
+            // // Display all form data entries
+            // console.log("Form Data Contents:");
+            // for (var pair of formData.entries()) {
+            //     console.log(pair[0] + ': ' + pair[1]);
+            // }
+
+            // // If you want to see file inputs specifically
+            // var fileInputs = $('input[type="file"]');
+            // if (fileInputs.length > 0) {
+            //     console.log("File Inputs:");
+            //     fileInputs.each(function() {
+            //         var name = $(this).attr('name');
+            //         var files = $(this)[0].files;
+            //         console.log(name + ': ' + (files.length > 0 ? files.length + ' file(s)' : 'No files'));
+            //         for (var i = 0; i < files.length; i++) {
+            //             console.log(' - ' + files[i].name + ' (' + files[i].size + ' bytes)');
+            //         }
+            //     });
+            // }
+            // return false; // Keep for debugging
 
             // Check user's choice
             if (confirmation) {
@@ -7655,9 +7732,9 @@ var car = {
 
         jQuery('#saveCorrection').click(function(e) {
             e.preventDefault();
-        
+
             // Validate the form
-            
+
 
             var confirmation = confirm("Are you sure you want to save changes?");
 
@@ -7670,7 +7747,7 @@ var car = {
             }
 
             var formData = new FormData($("#correction_form")[0]);
-    
+
             // Determine the action URL based on certain conditions
             var action;
             if (jQuery('#car-correction-action.correction-action').length) {
@@ -7684,7 +7761,7 @@ var car = {
             } else if (jQuery('#car-correction-action.correction-action-validation').length) {
                 action = "../car/saveCorrectionFVA";
             }
-    
+
             // Make an AJAX request to submit the form data
             $.ajax({
                 type: "POST",
@@ -7706,10 +7783,10 @@ var car = {
                     car.notifyError();
                 }
             });
-       
+
         });
-        
-        
+
+
 
         jQuery('#saveCorrectionFR').click(function(e){
             e.preventDefault();
@@ -7849,7 +7926,7 @@ var car = {
 
     correction: function(){
 
-        
+
 
         $(".add-car-button").on("click", function(){
             jQuery('input.selectize-close-btn').selectize({
@@ -7874,7 +7951,7 @@ var car = {
         $("#add-correction").on("click", function(){
             // Clone the first .correction-repeatable div
             var clone = $(".correction-repeatable:last").clone();
-            
+
             // Clear input values in the cloned section
             clone.find('input').val('');
             clone.find('input').removeAttr('disabled');
@@ -7883,13 +7960,13 @@ var car = {
             clone.find('textarea').val('');
             clone.find('textarea').removeAttr('disabled');
             clone.find('textarea').removeAttr('readonly');
-    
+
             // Append the cloned section to the parent container
             $(".correction-repeatable:last").after(clone);
-    
+
             // Show the remove button for the new entry
             clone.find('.remove-corrective-action').show();
-    
+
             // Add Remove Correction button click event for the new entry
             clone.find('.remove-corrective-action').on("click", function(){
                 // Check if there is more than one entry before removal
@@ -7900,7 +7977,7 @@ var car = {
 
 
             clone.find('.plugin-remove_button').remove();
-        
+
             // Initialize Selectize for the cloned input
             clone.find('input.selectize-close-btn').selectize({
                 plugins: ["remove_button"],
@@ -7920,7 +7997,7 @@ var car = {
                 window.open(url, '_blank');
             });
         });
-    
+
         // Remove Correction button click event for the initial entry
         $(".remove-corrective-action").on("click", function(){
             // Check if there is more than one entry before removal
@@ -7928,13 +8005,13 @@ var car = {
                 $(this).closest('.correction-repeatable').remove();
             }
         });
-    }, 
+    },
 
     consequences : function (){
         $("#add-consequences").on("click", function(){
             // Clone the first .consequences-repeatable div
             var clone = $(".consequences-repeatable:last").clone();
-            
+
             // Clear input values in the cloned section
             clone.find('input').val('');
             clone.find('input').removeAttr('disabled');
@@ -7943,13 +8020,13 @@ var car = {
             clone.find('textarea').val('');
             clone.find('textarea').removeAttr('disabled');
             clone.find('textarea').removeAttr('readonly');
-    
+
             // Append the cloned section to the parent container
             $(".consequences-repeatable:last").after(clone);
-    
+
             // Show the remove button for the new entry
             clone.find('.remove-consequences-action').show();
-    
+
             // Add Remove Consequences button click event for the new entry
             clone.find('.remove-consequences-action').on("click", function(){
                 // Check if there is more than one entry before removal
@@ -7959,7 +8036,14 @@ var car = {
             });
 
             clone.find('.plugin-remove_button').remove();
-        
+
+            // First destroy any existing selectize instances to prevent double initialization
+            clone.find('input.selectize-close-btn').each(function() {
+                if (this.selectize) {
+                    this.selectize.destroy();
+                }
+            });
+
             // Initialize Selectize for the cloned input
             clone.find('input.selectize-close-btn').selectize({
                 plugins: ["remove_button"],
@@ -7979,7 +8063,7 @@ var car = {
                 window.open(url, '_blank');
             });
         });
-    
+
         // Remove Consequences button click event for the initial entry
         $(".remove-consequences-action").on("click", function(){
             // Check if there is more than one entry before removal
@@ -7994,7 +8078,7 @@ var car = {
         $("#add-risk-number").on("click", function(){
             // Clone the first .risk-number-repeatable div
             var clone = $(".risk-number-repeatable:last").clone();
-            
+
             // Clear input values in the cloned section
             clone.find('input').val('');
             clone.find('input').removeAttr('disabled');
@@ -8003,13 +8087,13 @@ var car = {
             clone.find('textarea').val('');
             clone.find('textarea').removeAttr('disabled');
             clone.find('textarea').removeAttr('readonly');
-    
+
             // Append the cloned section to the parent container
             $(".risk-number-repeatable:last").after(clone);
-    
+
             // Show the remove button for the new entry
             clone.find('.remove-risk-number-action').show();
-    
+
             // Add Remove Risk Number button click event for the new entry
             clone.find('.remove-risk-number-action').on("click", function(){
                 // Check if there is more than one entry before removal
@@ -8020,7 +8104,14 @@ var car = {
 
 
             clone.find('.plugin-remove_button').remove();
-        
+
+            // First destroy any existing selectize instances to prevent double initialization
+            clone.find('input.selectize-close-btn').each(function() {
+                if (this.selectize) {
+                    this.selectize.destroy();
+                }
+            });
+
             // Initialize Selectize for the cloned input
             clone.find('input.selectize-close-btn').selectize({
                 plugins: ["remove_button"],
@@ -8040,7 +8131,7 @@ var car = {
                 window.open(url, '_blank');
             });
         });
-    
+
         // Remove Risk Number button click event for the initial entry
         $(".remove-risk-number-action").on("click", function(){
             // Check if there is more than one entry before removal
@@ -8054,7 +8145,7 @@ var car = {
         $("#add-opportunity-number").on("click", function(){
             // Clone the first .opportunity-number-repeatable div
             var clone = $(".opportunity-number-repeatable:last").clone();
-            
+
             // Clear input values in the cloned section
             clone.find('input').val('');
             clone.find('input').removeAttr('disabled');
@@ -8063,13 +8154,13 @@ var car = {
             clone.find('textarea').val('');
             clone.find('textarea').removeAttr('disabled');
             clone.find('textarea').removeAttr('readonly');
-    
+
             // Append the cloned section to the parent container
             $(".opportunity-number-repeatable:last").after(clone);
-    
+
             // Show the remove button for the new entry
             clone.find('.remove-opportunity-number-action').show();
-    
+
             // Add Remove Opportunity Number button click event for the new entry
             clone.find('.remove-opportunity-number-action').on("click", function(){
                 // Check if there is more than one entry before removal
@@ -8079,7 +8170,14 @@ var car = {
             });
 
             clone.find('.plugin-remove_button').remove();
-        
+
+            // First destroy any existing selectize instances to prevent double initialization
+            clone.find('input.selectize-close-btn').each(function() {
+                if (this.selectize) {
+                    this.selectize.destroy();
+                }
+            });
+
             // Initialize Selectize for the cloned input
             clone.find('input.selectize-close-btn').selectize({
                 plugins: ["remove_button"],
@@ -8099,7 +8197,7 @@ var car = {
                 window.open(url, '_blank');
             });
         });
-    
+
         // Remove Opportunity Number button click event for the initial entry
         $(".remove-opportunity-number-action").on("click", function(){
             // Check if there is more than one entry before removal
@@ -8114,7 +8212,7 @@ var car = {
 
             // Clone the first .rootcause-repeatable div
             var clone = $('#rootcause').find(".rootcause-repeatable:last").clone();
-        
+
             // Destroy existing Selectize instance
             clone.find('.selectized').each(function() {
                 var selectizeInstance = $(this)[0].selectize;
@@ -8122,7 +8220,7 @@ var car = {
                     selectizeInstance.destroy();
                 }
             });
-        
+
             // Clear input values in the cloned section
             clone.find('input').val('');
             clone.find('input').removeAttr('disabled');
@@ -8131,13 +8229,13 @@ var car = {
             clone.find('textarea').val('');
             clone.find('textarea').removeAttr('disabled');
             clone.find('textarea').removeAttr('readonly');
-        
+
             // Append the cloned section to the parent container
             $('#rootcause').find(".rootcause-repeatable:last").after(clone);
-        
+
             // Show the remove button for the new entry
             clone.find('.remove-rootcause-action').show();
-        
+
             // Add Remove Root Cause button click event for the new entry
             clone.find('.remove-rootcause-action').on("click", function(){
                 // Check if there is more than one entry before removal
@@ -8147,7 +8245,14 @@ var car = {
             });
 
             clone.find('.plugin-remove_button').remove();
-        
+
+            // First destroy any existing selectize instances to prevent double initialization
+            clone.find('input.selectize-close-btn').each(function() {
+                if (this.selectize) {
+                    this.selectize.destroy();
+                }
+            });
+
             // Initialize Selectize for the cloned input
             clone.find('input.selectize-close-btn').selectize({
                 plugins: ["remove_button"],
@@ -8167,7 +8272,7 @@ var car = {
                 window.open(url, '_blank');
             });
         });
-    
+
         // Remove Root Cause button click event for the initial entry
         $(".remove-rootcause-action").on("click", function(){
             // Check if there is more than one entry before removal
@@ -8194,40 +8299,40 @@ var car = {
                 section.parent().show();
 
                 issued_by.change(function(){
-        
+
                     division = jQuery(this).val();
 
                     issued_to = jQuery(this).parent().parent().parent().find('.issued_to');
 
-        
+
                     $.ajax({
                         type: 'POST',
                         url: '../car/getDepartment', // Replace 'MyController' with your controller name
                         data: {division: division},
                         success: function (response) {
                             if(response != 'null'){
-        
+
                                 issued_to.html('<option value=""></option>');
                                 $.each(JSON.parse(response), function (index, item) {
                                     // Access each item's properties
                                     var id = item.id;
                                     var dep_name = item.dep_name;
-            
+
                                     var html = '<option value="'+id+'">'+dep_name+'</option>';
                                     // Do something with the data, for example, display it on the page
                                     issued_to.append(html);
                                 });
-        
-                            }   
+
+                            }
                         },
                         error: function () {
                             // Handle errors
                             diList.notifyError();
                         }
                     });
-        
-                }); 
-                
+
+                });
+
 
                 issued_to.change(function(){
 
@@ -8240,20 +8345,20 @@ var car = {
                         data: {department: department},
                         success: function (response) {
                             if(response != 'null'){
-                                
+
                                 section.html('<option value=""></option>');
                                 $.each(JSON.parse(response), function (index, item) {
                                     // Access each item's properties
                                     var id = item.id;
                                     var section_name = item.section_name;
-            
+
                                     var html = '<option value="'+id+'">'+section_name+'</option>';
                                     // Do something with the data, for example, display it on the page
                                     section.append(html);
                                 });
-        
-                               
-                            }   
+
+
+                            }
                         },
                         error: function () {
                             // Handle errors
@@ -8276,7 +8381,7 @@ var car = {
                 issued_to.parent().hide();
                 section.parent().hide();
             }
-            
+
 
 
 
@@ -8287,7 +8392,7 @@ var car = {
         $("#add-identified-root").on("click", function(){
             // Clone the first .identified-root-repeatable div
             var clone = jQuery('#identified-root').find(".identified-root-repeatable:last").clone();
-            
+
             // Clear input values in the cloned section
             clone.find('input').val('');
             clone.find('input').removeAttr('disabled');
@@ -8296,13 +8401,13 @@ var car = {
             clone.find('textarea').val('');
             clone.find('textarea').removeAttr('disabled');
             clone.find('textarea').removeAttr('readonly');
-    
+
             // Append the cloned section to the parent container
             jQuery('#identified-root').find(".identified-root-repeatable:last").after(clone);
-    
+
             // Show the remove button for the new entry
             clone.find('.remove-identified-root-action').show();
-    
+
             // Add Remove Identified Root Cause button click event for the new entry
             clone.find('.remove-identified-root-action').on("click", function(){
                 // Check if there is more than one entry before removal
@@ -8312,7 +8417,14 @@ var car = {
             });
 
             clone.find('.plugin-remove_button').remove();
-        
+
+            // First destroy any existing selectize instances to prevent double initialization
+            clone.find('input.selectize-close-btn').each(function() {
+                if (this.selectize) {
+                    this.selectize.destroy();
+                }
+            });
+
             // Initialize Selectize for the cloned input
             clone.find('input.selectize-close-btn').selectize({
                 plugins: ["remove_button"],
@@ -8332,7 +8444,7 @@ var car = {
                 window.open(url, '_blank');
             });
         });
-    
+
         // Remove Identified Root Cause button click event for the initial entry
         $(".remove-identified-root-action").on("click", function(){
             // Check if there is more than one entry before removal
@@ -8343,7 +8455,7 @@ var car = {
     },
 
     carEdit: function(){
-       
+
         $('#car-global-datatable').on('click', '.edit-car', function () {
 
             $car_id = jQuery(this).data('car_id');
@@ -8361,16 +8473,16 @@ var car = {
             if($status == 'For Issuance of NC'){
                 jQuery('#saveCarIssuance').removeClass('hidden');
             } else {
-                
+
                 jQuery('#saveCarIssuance').addClass('hidden');
             }
-            
+
 
             $findings = jQuery(this).data('findings');
             $consequences = jQuery(this).data('consequences');
             $requirements_not_fulfilled = jQuery(this).data('requirements_not_fulfilled');
             $car_attachment = jQuery(this).data('car_attachment');
-        
+
             jQuery('#addCARFormIssuance .car_id').val($car_id);
             jQuery('#addCARFormIssuance .requestor').val($requestor);
             jQuery('#addCARFormIssuance .car_no').val($car_no);
@@ -8379,10 +8491,10 @@ var car = {
             jQuery('#addCARFormIssuance .issued_to').val($issued_to); // Replace 'issued_to' with the actual ID of your element
             jQuery('#addCARFormIssuance .identification_date').val($identification_date); // Replace 'identification_date' with the actual ID of your element
             jQuery('#addCARFormIssuance .issuance_of_nc').val($issuance_of_nc); // Replace 'issuance_of_nc' with the actual ID of your element
-            jQuery('#addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element        
-            jQuery('#addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-            jQuery('#addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
-            jQuery('#addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element 
+            jQuery('#addCARFormIssuance .issuance_of_nc_remarks').val($issuance_of_nc_remarks); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('#addCARFormIssuance .findings').val($findings); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('#addCARFormIssuance .consequences').val($consequences); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
+            jQuery('#addCARFormIssuance .requirements_not_fulfilled').val($requirements_not_fulfilled); // Replace 'issuance_of_nc_remarks' with the actual ID of your element
             jQuery('#addCARFormIssuance .car_attachment').val($car_attachment);
 
             division = jQuery('#addCARFormIssuance .issued_by').val();
@@ -8414,20 +8526,20 @@ var car = {
                             data: {department: department},
                             success: function (response) {
                                 if(response != 'null'){
-            
+
                                     $('#addCARFormIssuance .section').html('<option value=""></option>');
                                     $.each(JSON.parse(response), function (index, item) {
                                         // Access each item's properties
                                         var id = item.id;
                                         var section_name = item.section_name;
-                
+
                                         var html = '<option value="'+id+'">'+section_name+'</option>';
                                         // Do something with the data, for example, display it on the page
                                         $('#addCARFormIssuance .section').append(html);
                                     });
-            
+
                                     jQuery('#addCARFormIssuance .section').val($section);
-                                }   
+                                }
                             },
                             error: function () {
                                 // Handle errors
@@ -8435,7 +8547,7 @@ var car = {
                             }
                         });
 
-                    }   
+                    }
                 },
                 error: function () {
                     // Handle errors
@@ -8443,6 +8555,14 @@ var car = {
                 }
             });
 
+            // First destroy any existing selectize instances to prevent double initialization
+            jQuery('input.selectize-close-btn').each(function() {
+                if (this.selectize) {
+                    this.selectize.destroy();
+                }
+            });
+
+            // Then initialize selectize
             jQuery('input.selectize-close-btn').selectize({
                 plugins: ["remove_button"],
                 persist: false,
