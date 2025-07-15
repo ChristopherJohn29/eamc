@@ -11,6 +11,7 @@ class forgotpass extends CI_Controller {
 		$this->load->model('DocumentTypeModel');
 		$this->load->model('DivisionModel');
 		$this->load->model('DepartmentModel');
+		$this->load->helper('email');
     }
 
 	public function index()
@@ -56,30 +57,14 @@ class forgotpass extends CI_Controller {
                     $this->LoginModel->store_reset_token($user->id, $token);
 
                     $reset_link = base_url() . "auth/ForgotPass/reset_password/" . $token;
-                    $message = "Click here to reset your password: " . $reset_link;
-                    
-                    $config = array(
-                        'protocol' => 'smtp',
-                        'smtp_host' => 'c116783.sgvps.net',
-                        'smtp_port' => 587,
-                        'smtp_user' => 'iqms-eamc@infoadvance.com.ph',
-                        'smtp_pass' => '5dbbx&5357eo',
-                        'mailtype' => 'text',
-                        'charset' => 'utf-8',
-                        'newline' => "\r\n"
-                    );
-                
-                    $this->load->library('email', $config); // Load email library
-                    $this->email->from('iqms-eamc@infoadvance.com.ph', 'IQMS EAMC');
-                    $this->email->to($user->email); // User's email address
-                    $this->email->subject('Password Reset Request');
-                    $this->email->message($message);
-        
-                    if ($this->email->send()) {
-                        // Insertion successful
+
+                    if (send_password_reset_email($this, $user->email, $reset_link)) {
+                        // Email sent successfully
                         echo "saved";
                     } else {
-                        // Insertion failed
+                        // Email failed to send
+                        $config = get_email_config();
+                        $this->load->library('email', $config);
                         echo $this->email->print_debugger();
                     }
 

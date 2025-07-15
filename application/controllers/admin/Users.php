@@ -11,6 +11,7 @@ class users extends CI_Controller {
 		$this->load->model('DepartmentModel');
 		$this->load->model('RegisterModel');
 		$this->load->model('SectionModel');
+		$this->load->helper('email');
         $this->authentication->check_user_session();
         $this->role_checker->checkViewerRole();
     }
@@ -160,27 +161,9 @@ class users extends CI_Controller {
 
         $save = $this->UsersModel->denyUser($user_id);
 
-        $config = array(
-            'protocol' => 'smtp',
-            'smtp_host' => 'c116783.sgvps.net',
-            'smtp_port' => 587,
-            'smtp_user' => 'iqms-eamc@infoadvance.com.ph',
-            'smtp_pass' => '5dbbx&5357eo',
-            'mailtype' => 'text',
-            'charset' => 'utf-8',
-            'newline' => "\r\n"
-        );
-        
-        $this->load->library('email', $config); // Load email library
-        $this->email->from('iqms-eamc@infoadvance.com.ph', 'IQMS EAMC');
-        $this->email->to($user['email']); // User's email address
-        $this->email->subject('Account Registration Denied');
-        $this->email->message("Dear " . $user['fullname'] . ",\n\nThank you for your interest in registering for an account with IQMS EAMC. We appreciate your effort in completing the registration process.\n\nAfter careful review, we regret to inform you that your account registration has been denied.\n\nAdditional Notes:\n".$notes.".\n\nThank you for your understanding.\n\n---\n\nIf you need further assistance, please do not hesitate to contact us.\n\nKind regards,\nIQMS OSQM");
-        
-
         $save = $this->UsersModel->updateUserAndEmail($user_id);
 
-        if ($this->email->send()) {
+        if (send_account_denied_email($this, $user['email'], $user['fullname'], $notes)) {
             if ($save) {
                 // Insertion successful
                 echo "saved";
@@ -207,28 +190,15 @@ class users extends CI_Controller {
     
             $this->UsersModel->save_verification_token($user_id, $verification_token);
     
-            $config = array(
-                'protocol' => 'smtp',
-                'smtp_host' => 'c116783.sgvps.net',
-                'smtp_port' => 587,
-                'smtp_user' => 'iqms-eamc@infoadvance.com.ph',
-                'smtp_pass' => '5dbbx&5357eo',
-                'mailtype' => 'text',
-                'charset' => 'utf-8',
-                'newline' => "\r\n"
-            );
-        
-            $this->load->library('email', $config); // Load email library
-            $this->email->from('iqms-eamc@infoadvance.com.ph', 'IQMS EAMC');
-            $this->email->to($user['email']); // User's email address
-            $this->email->subject('Email Verification');
-            $this->email->message('Click on the following link to verify your email: ' . base_url('admin/verification/verify/'.$user_id.'/'.$verification_token));
+            $verification_link = base_url('admin/verification/verify/'.$user_id.'/'.$verification_token);
 
-            if ($this->email->send()) {
-                // Insertion successful
+            if (send_email_verification($this, $user['email'], $verification_link)) {
+                // Email sent successfully
                 echo "saved";
             } else {
-                // Insertion failed
+                // Email failed to send
+                $config = get_email_config();
+                $this->load->library('email', $config);
                 echo $this->email->print_debugger();
             }
         } else {
