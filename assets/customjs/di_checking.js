@@ -36,6 +36,17 @@ var diList = {
                         var revision_no = item.revision_no;
                         var source = item.source;
                         var reason = item.reason;
+                        var revision_id = item.revision_id;
+                        var obsoletion_id = item.obsoletion_id;
+                        var for_obsoletion = item.for_obsoletion;
+
+                        // Determine row background color
+                        var rowClass = '';
+                        if (for_obsoletion == 1) {
+                            rowClass = 'table-obsoletion'; // Red/pink background
+                        } else if (revision_id != null && revision_id != '' && revision_id != '0') {
+                            rowClass = 'table-revision'; // Yellow background
+                        }
 
 
                         if(status == 'CHK'){
@@ -61,7 +72,7 @@ var diList = {
                             "data-id='"+id+"'>" +
                             "<i class='fa fa-clock'></i></button>";
                         
-                        var html = "<tr>" +
+                        var html = "<tr class='" + rowClass + "'>" +
                             "<td>" + id + "</td>" +
                             "<td>" + doc_title + "</td>" +
                             "<td>" + doc_code + "</td>" +

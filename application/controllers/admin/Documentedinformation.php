@@ -232,6 +232,22 @@ class documentedinformation extends CI_Controller {
         echo json_encode($documentedInformation);
     }
 
+    public function getDIObsolete(){
+
+        $requiredRoles = array(
+            'designation' => 'division',
+            'role' => ['osqm_dco', 'osqm_qmr'],
+        );
+
+        if ($this->role_checker->checkRole($requiredRoles)) {
+            $documentedInformation =  $this->DocumentedInformationModel->getDocumentedInformationObsolete();
+        } else {
+            $documentedInformation =  $this->DocumentedInformationModel->getDocumentedInformationObsoleteOwner();
+        }
+
+        echo json_encode($documentedInformation);
+    }
+
     public function technicalReview(){
 
         $requiredRoles = array(
@@ -501,6 +517,29 @@ class documentedinformation extends CI_Controller {
 		$this->load->view('template/template', $data);
     }
 
+    public function obsolete(){
+        $data['page'] = 'admin/di_obs';
+		$data['title'] = 'Obsolete';
+        $data['customcss'] = 'di_obs.css';
+        $data['customjs'] = 'di_obs.js';
+
+        $requiredRoles = array(
+            'designation' => 'division',
+            'role' => ['osqm_dco', 'osqm_qmr'],
+        );
+
+        if (!$this->role_checker->checkRole($requiredRoles)) {
+            $data['department'] =  $this->DepartmentModel->getDepartment();
+        } else {
+            $data['department'] =  $this->DepartmentModel->loadDepartment();
+        }
+
+        $data['doctype'] =  $this->DocumentTypeModel->getDocumentType();
+        $data['section'] =  $this->SectionModel->getSection();
+
+		$this->load->view('template/template', $data);
+    }
+
 
     public function save(){
         $data = $_POST;
@@ -560,6 +599,20 @@ class documentedinformation extends CI_Controller {
         $data = $_POST;
 
         $save = $this->DocumentedInformationModel->saveRevision($data);
+        
+        if ($save) {
+            // Insertion successful
+            echo "saved";
+        } else {
+            // Insertion failed
+            echo "error";
+        }
+    }
+
+    public function obsoletion(){
+        $data = $_POST;
+
+        $save = $this->DocumentedInformationModel->saveObsoletion($data);
         
         if ($save) {
             // Insertion successful
@@ -901,14 +954,30 @@ class documentedinformation extends CI_Controller {
 
         $documentData = $this->DocumentedInformationModel->getDI($data['doc_id']);
         $dco = $this->UsersModel->fetchUserByRole('osqm_dco');
+        $historyStatus = $_POST['publishing'];
 
         if($_POST['publishing'] == 'Approved'){
-            $data['status'] = 'PUB';
 
-            $this->UsersModel->registerNotification($documentData[0]['user_id'], 'Congratulations! your Documented Information (ID-'.$data['doc_id'].') / Form was successfully published', 'DCM');
+            $isForObsoletion = !empty($documentData) && isset($documentData[0]['for_obsoletion']) && intval($documentData[0]['for_obsoletion']) === 1;
+
+            if($isForObsoletion){
+                $data['status'] = 'OBS';
+
+                $historyStatus = 'Approved for Obsolescence';
+
+                $this->UsersModel->registerNotification($documentData[0]['user_id'], 'Your Documented Information (ID-'.$data['doc_id'].') / Form has been approved for obsolescence.', 'DCM');
+
+                foreach( $dco as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'You have successfully marked a documented information (ID-'.$data['doc_id'].') / form as obsolete.', 'DCM');
+                }
+            } else {
+                $data['status'] = 'PUB';
+
+                $this->UsersModel->registerNotification($documentData[0]['user_id'], 'Congratulations! your Documented Information (ID-'.$data['doc_id'].') / Form was successfully published', 'DCM');
            
-            foreach( $dco as $value){
-                $this->UsersModel->registerNotification($value['id'], 'You have successfully published a documented information (ID-'.$data['doc_id'].') / form', 'DCM');
+                foreach( $dco as $value){
+                    $this->UsersModel->registerNotification($value['id'], 'You have successfully published a documented information (ID-'.$data['doc_id'].') / form', 'DCM');
+                }
             }
 
         } else {
@@ -928,7 +997,7 @@ class documentedinformation extends CI_Controller {
             // Insertion successful
             $datahistory['doc_id'] = $data['doc_id'];
             $datahistory['process'] = "Publishing";
-            $datahistory['status'] = $_POST['publishing'];
+            $datahistory['status'] = $historyStatus;
             $datahistory['remarks'] = $_POST['publishing_remarks'];
             $this->DocumentedInformationModel->saveHistory($datahistory);
             echo "saved";

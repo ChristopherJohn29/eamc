@@ -181,6 +181,11 @@ if ($this->role_checker->checkRole($requiredRoles)) {
                     <span class="menu-text">Published</span>
                 </a>
             </li>
+            <li class="menu-item">
+                <a href="<?=base_url().'admin/documentedinformation/obsolete'?>" class="menu-link">
+                    <span class="menu-text">Obsolete</span>
+                </a>
+            </li>
             <?php 
             
              }

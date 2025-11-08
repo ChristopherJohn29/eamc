@@ -1,0 +1,23 @@
+.hidden{
+    display: none !important;
+}
+
+::placeholder {
+    color: #888 !important;
+    opacity: 0.6 !important;
+}
+
+.view-history{
+    margin-right: 5px;
+}
+
+.revision-button{
+    margin-right: 5px;
+}
+
+.table-obsolete,
+.table-obsolete td,
+table.dataTable tbody tr.table-obsolete,
+table.dataTable tbody tr.table-obsolete td {
+    background-color: #f1f3fa !important;
+}

@@ -441,6 +441,7 @@
                   <option value="D">Disapproved</option>
                   <option value="AFP">Approval For Publishing</option>
                   <option value="PUB">Published</option>
+                  <option value="OBS">Obsolete</option>
                   <option value="PUBL">Publishing</option>
                   </select>
                   <ul class="parsley-errors-list filled hidden"><li class="parsley-required"></li></ul>
@@ -468,6 +469,28 @@
                ?>
          </div>
       </div>
+
+      <!-- Legend -->
+      <div class="row">
+         <div class="col-12">
+            <div class="card">
+               <div class="card-body">
+                  <h5 class="card-title mb-3">Legend</h5>
+                  <div class="d-flex flex-wrap gap-3">
+                     <div class="d-flex align-items-center">
+                        <div style="width: 30px; height: 20px; background-color: #fff3cd; border: 1px solid #ddd; margin-right: 8px;"></div>
+                        <span>For Revision</span>
+                     </div>
+                     <div class="d-flex align-items-center">
+                        <div style="width: 30px; height: 20px; background-color: #f8d7da; border: 1px solid #ddd; margin-right: 8px;"></div>
+                        <span>For Obsoletion</span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
       <div class="row">
          <div class="col-12">
             <div class="card">

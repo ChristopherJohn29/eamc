@@ -18,3 +18,40 @@
 .view-history{
     margin-right: 5px;
 }
+
+/* Row background colors for revision and obsoletion */
+.table-revision,
+.table-revision td,
+table.dataTable tbody tr.table-revision,
+table.dataTable tbody tr.table-revision td {
+    background-color: #fff3cd !important; /* Light yellow for revision */
+}
+
+.table-revision:hover,
+.table-revision:hover td,
+table.dataTable tbody tr.table-revision:hover,
+table.dataTable tbody tr.table-revision:hover td {
+    background-color: #ffe69c !important; /* Slightly darker yellow on hover */
+}
+
+.table-obsoletion,
+.table-obsoletion td,
+table.dataTable tbody tr.table-obsoletion,
+table.dataTable tbody tr.table-obsoletion td {
+    background-color: #f8d7da !important; /* Light red/pink for obsoletion */
+}
+
+.table-obsoletion:hover,
+.table-obsoletion:hover td,
+table.dataTable tbody tr.table-obsoletion:hover,
+table.dataTable tbody tr.table-obsoletion:hover td {
+    background-color: #f1aeb5 !important; /* Slightly darker red on hover */
+}
+
+/* Ensure text remains readable */
+.table-revision td,
+.table-obsoletion td,
+table.dataTable tbody tr.table-revision td,
+table.dataTable tbody tr.table-obsoletion td {
+    color: #000 !important;
+}

@@ -44,9 +44,20 @@ var diList = {
                         var approved_by_position_existing = item.approved_by_position_existing;
                         var source = item.source;
                         var reason = item.reason;
+                        var revision_id = item.revision_id;
+                        var obsoletion_id = item.obsoletion_id;
+                        var for_obsoletion = item.for_obsoletion;
 
 
                         var existing = item.existing;
+
+                        // Determine row background color
+                        var rowClass = '';
+                        if (for_obsoletion == 1) {
+                            rowClass = 'table-obsoletion'; // Red/pink background
+                        } else if (revision_id != null && revision_id != '' && revision_id != '0') {
+                            rowClass = 'table-revision'; // Yellow background
+                        }
 
                         if (status == 'FFU' || status == 'AD' || status == 'D') {
                             var $enable_edit = "<button title='Document Information' tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-danger edit-data'" +
@@ -83,7 +94,7 @@ var diList = {
                             "data-id='"+id+"'>" +
                             "<i class='fa fa-clock'></i></button>";
                         
-                        var html = "<tr>" +
+                        var html = "<tr class='" + rowClass + "'>" +
                         "<td>" + id + "</td>" +
                         "<td>" + doc_title + "</td>" +
                         "<td>" + doc_code + "</td>" +
@@ -194,6 +205,14 @@ var diList = {
 
                         var existing = item.existing;
 
+                        // Determine row background color
+                        var rowClass = '';
+                        if (for_obsoletion == 1) {
+                            rowClass = 'table-obsoletion'; // Red/pink background
+                        } else if (revision_id != null && revision_id != '' && revision_id != '0') {
+                            rowClass = 'table-revision'; // Yellow background
+                        }
+
                         if (status == 'FFU' || status == 'AD' || status == 'D') {
                             var $enable_edit = "<button title='Document Information' tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-danger edit-data'" +
                                 "data-id='" + id + "' data-user_id='" + user_id + "'" +
@@ -229,7 +248,7 @@ var diList = {
                             "data-id='"+id+"'>" +
                             "<i class='fa fa-clock'></i></button>";
                         
-                        var html = "<tr>" +
+                        var html = "<tr class='" + rowClass + "'>" +
                         "<td>" + id + "</td>" +
                         "<td>" + doc_title + "</td>" +
                         "<td>" + doc_code + "</td>" +

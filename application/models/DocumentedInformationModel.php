@@ -8,6 +8,7 @@ class DocumentedInformationModel extends CI_Model {
         $this->db->from('documented_information');
         $this->db->where('documented_information.user_id', $this->session->userdata('user_id'));
         $this->db->where('documented_information.status !=', 'PUB');
+        $this->db->where('documented_information.status !=', 'OBS');
         $this->db->join('department', 'department.id = documented_information.dep_id', 'left');
         $this->db->join('section', 'section.id = documented_information.sec_id', 'left');
         $this->db->join('document_status', 'document_status.status_code = documented_information.status', 'left');
@@ -24,6 +25,7 @@ class DocumentedInformationModel extends CI_Model {
         $this->db->select('documented_information.*, department.dep_name AS dep_name, section.section_name AS section_name, document_type.doc_type_name AS type, document_status.status_value AS status_name');
         $this->db->from('documented_information');
         $this->db->where('documented_information.status !=', 'PUB');
+        $this->db->where('documented_information.status !=', 'OBS');
         // $this->db->where('documented_information.status !=', 'FFU');
         $this->db->where('documented_information.status !=', 'AD');
         $this->db->join('department', 'department.id = documented_information.dep_id', 'left');
@@ -302,12 +304,45 @@ class DocumentedInformationModel extends CI_Model {
         return $result;
     }
 
+    public function getDocumentedInformationObsolete(){
+
+        $this->db->select('documented_information.*, department.dep_name AS dep_name, section.section_name AS section_name, document_type.doc_type_name AS type, document_status.status_value AS status_name');
+        $this->db->from('documented_information');
+        $this->db->where('documented_information.status', 'OBS');
+        $this->db->join('department', 'department.id = documented_information.dep_id', 'left');
+        $this->db->join('section', 'section.id = documented_information.sec_id', 'left');
+        $this->db->join('document_status', 'document_status.status_code = documented_information.status', 'left');
+        $this->db->join('document_type', 'document_type.id = documented_information.doc_type_id', 'left');
+
+        $query = $this->db->get();
+        $result = $query->result_array();
+
+        return $result;
+    }
+
     public function getDocumentedInformationPublishedOwner(){
 
         $this->db->select('documented_information.*, department.dep_name AS dep_name, section.section_name AS section_name, document_type.doc_type_name AS type, document_status.status_value AS status_name');
         $this->db->from('documented_information');
         $this->db->where('documented_information.user_id', $this->session->userdata('user_id'));
         $this->db->where('documented_information.status', 'PUB');
+        $this->db->join('department', 'department.id = documented_information.dep_id', 'left');
+        $this->db->join('section', 'section.id = documented_information.sec_id', 'left');
+        $this->db->join('document_status', 'document_status.status_code = documented_information.status', 'left');
+        $this->db->join('document_type', 'document_type.id = documented_information.doc_type_id', 'left');
+
+        $query = $this->db->get();
+        $result = $query->result_array();
+
+        return $result;
+    }
+
+    public function getDocumentedInformationObsoleteOwner(){
+
+        $this->db->select('documented_information.*, department.dep_name AS dep_name, section.section_name AS section_name, document_type.doc_type_name AS type, document_status.status_value AS status_name');
+        $this->db->from('documented_information');
+        $this->db->where('documented_information.user_id', $this->session->userdata('user_id'));
+        $this->db->where('documented_information.status', 'OBS');
         $this->db->join('department', 'department.id = documented_information.dep_id', 'left');
         $this->db->join('section', 'section.id = documented_information.sec_id', 'left');
         $this->db->join('document_status', 'document_status.status_code = documented_information.status', 'left');
@@ -432,6 +467,29 @@ class DocumentedInformationModel extends CI_Model {
             'source' => $data['source'],
             'reason' => $data['reason'],
             'revision_id' => $data['doc_id'] 
+        );
+        
+        
+        return $this->db->insert('documented_information', $save_data);
+    }
+
+    public function saveObsoletion($data){
+    
+        $status = 'CHK'; // For Technical Review
+    
+        $save_data = array(
+            'doc_title' => $data['document_title'],
+            'effectivity_date' => $data['effectivity_date'],
+            'doc_type_id' => $data['doc_type_id'],
+            'dep_id' => $data['dep_id'],
+            'sec_id' => $data['sec_id'],
+            'doc_code' => $data['doc_code'],
+            'status' => $status,
+            'created_date' => date('Y-m-d H:i:s'),
+            'user_id' => $this->session->userdata('user_id'),
+            'reason' => $data['reason'],
+            'obsoletion_id' => $data['doc_id'],
+            'for_obsoletion' => 1  // Mark this as obsoletion
         );
         
         

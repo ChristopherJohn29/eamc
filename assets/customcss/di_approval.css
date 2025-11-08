@@ -22,3 +22,40 @@
 .view-history{
     margin-right: 5px;
 }
+
+/* Legend Styles */
+.legend-item {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    border: 1px solid #dee2e6;
+}
+
+.legend-revision {
+    background-color: #fff3cd;
+}
+
+.legend-obsoletion {
+    background-color: #f8d7da;
+}
+
+/* Table Row Colors - Override DataTables styles */
+.table-revision,
+.table-revision td,
+table.dataTable tbody tr.table-revision,
+table.dataTable tbody tr.table-revision td {
+    background-color: #fff3cd !important;
+}
+
+.table-obsoletion,
+.table-obsoletion td,
+table.dataTable tbody tr.table-obsoletion,
+table.dataTable tbody tr.table-obsoletion td {
+    background-color: #f8d7da !important;
+}

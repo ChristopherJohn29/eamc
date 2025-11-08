@@ -36,6 +36,17 @@ var diList = {
                         var revision_no = item.revision_no;
                         var source = item.source;
                         var reason = item.reason;
+                        var revision_id = item.revision_id;
+                        var obsoletion_id = item.obsoletion_id;
+                        var for_obsoletion = item.for_obsoletion;
+
+                        // Determine row background color
+                        var rowClass = '';
+                        if (for_obsoletion == 1) {
+                            rowClass = 'table-obsoletion'; // Red/pink background
+                        } else if (revision_id != null && revision_id != '' && revision_id != '0') {
+                            rowClass = 'table-revision'; // Yellow background
+                        }
 
 
                         if(status == 'FCRA'){
@@ -62,7 +73,7 @@ var diList = {
                             "<i class='fa fa-clock'></i></button>";
                         
                         
-                        var html = "<tr><td>" + id + "</td><td>" + doc_title + "</td><td>" + doc_code + "</td><td>" + dep_name + " "+ section+ "</td><td>" + type + "</td><td>" + created_date + "</td><td>" + status_name + "</td><td>" +$view_history+""+ $action_button + "<a href='./../revisiondetails/"+id+"/"+user_id+"' class='btn btn-sm btn-primary revision-button' title='View Revisions'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-history' aria-hidden='true'></i></a><a href='./../filedetails/"+id+"/"+user_id+"' class='btn btn-sm btn-info files-button' title='View Files'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-folder-open'></i></a></td></tr>";
+                        var html = "<tr class='" + rowClass + "'><td>" + id + "</td><td>" + doc_title + "</td><td>" + doc_code + "</td><td>" + dep_name + " "+ section+ "</td><td>" + type + "</td><td>" + created_date + "</td><td>" + status_name + "</td><td>" +$view_history+""+ $action_button + "<a href='./../revisiondetails/"+id+"/"+user_id+"' class='btn btn-sm btn-primary revision-button' title='View Revisions'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-history' aria-hidden='true'></i></a><a href='./../filedetails/"+id+"/"+user_id+"' class='btn btn-sm btn-info files-button' title='View Files'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-folder-open'></i></a></td></tr>";
                         // Do something with the data, for example, display it on the page
                         $('#di-global-datatable tbody').append(html);
 

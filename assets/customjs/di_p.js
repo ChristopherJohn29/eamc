@@ -46,6 +46,17 @@ var diList = {
 
 
                         var existing = item.existing;
+                        var revision_id = item.revision_id;
+                        var obsoletion_id = item.obsoletion_id;
+                        var for_obsoletion = item.for_obsoletion;
+
+                        // Determine row background color
+                        var rowClass = '';
+                        if (for_obsoletion == 1) {
+                            rowClass = 'table-obsoletion'; // Red/pink background
+                        } else if (revision_id != null && revision_id != '' && revision_id != '0') {
+                            rowClass = 'table-revision'; // Yellow background
+                        }
 
                         if(status == 'PUB'){
                             $action_button = "";
@@ -84,7 +95,15 @@ var diList = {
                             "<i class='fas fa-redo-alt'></i></button>";
                         
                         
-                        var html = "<tr><td>" + id + "</td><td>" + doc_title + "</td><td>" + doc_code + "</td><td>" + dep_name + " "+ section+ "</td><td>" + type + "</td><td>" + created_date + "</td><td>" + status_name + "</td><td>" +$revision+"" +$view_history+""+ $action_button + "<a href='./../revisiondetails/"+id+"/"+user_id+"' class='btn btn-sm btn-primary revision-button' title='View Revisions'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-history' aria-hidden='true'></i></a><a href='./../filedetails/"+id+"/"+user_id+"' class='btn btn-sm btn-info files-button' title='View Files'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-folder-open'></i></a></td></tr>";
+                        var $obsoletion = "<button title='For Obsoletion' tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-warning for-obsoletion'" +
+                            "data-id='" + id + "' data-user_id='" + user_id + "'" +
+                            "data-doc_title='" + doc_title + "' data-doc_code='" + doc_code + "'" +
+                            "data-dep_id='" + dep_id + "' data-sec_id='" + sec_id + "' data-doc_type_id='" + doc_type_id + "'" +
+                            "data-effectivity_date='" + effectivity_date + "' data-revision_no='" + revision_no + "' style='margin-left:5px;'>" +
+                            "<i class='fas fa-ban'></i></button>";
+                        
+                        
+                        var html = "<tr class='" + rowClass + "'><td>" + id + "</td><td>" + doc_title + "</td><td>" + doc_code + "</td><td>" + dep_name + " "+ section+ "</td><td>" + type + "</td><td>" + created_date + "</td><td>" + status_name + "</td><td>" +$revision+"" +$obsoletion+"" +$view_history+""+ $action_button + "<a href='./../revisiondetails/"+id+"/"+user_id+"' class='btn btn-sm btn-primary revision-button' title='View Revisions'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-history' aria-hidden='true'></i></a><a href='./../filedetails/"+id+"/"+user_id+"' class='btn btn-sm btn-info files-button' title='View Files'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient'><i class='fa fa-folder-open'></i></a></td></tr>";
                         // Do something with the data, for example, display it on the page
                         $('#di-global-datatable tbody').append(html);
 
@@ -208,6 +227,107 @@ var diList = {
 
     },
 
+    obsoletionInit: function(){
+        jQuery('#di-global-datatable').on('click','.for-obsoletion', function(){
+            var doc_id = jQuery(this).data('id');
+            var user_id = jQuery(this).data('user_id');
+            var doc_title = jQuery(this).data('doc_title');
+            var doc_code = jQuery(this).data('doc_code');
+            var dep_id = jQuery(this).data('dep_id');
+            var sec_id = jQuery(this).data('sec_id');
+            var doc_type_id = jQuery(this).data('doc_type_id');
+            var effectivity_date = jQuery(this).data('effectivity_date');
+            var revision_no = jQuery(this).data('revision_no');
+            
+            jQuery('#sec_id_obsoletion option[value="'+sec_id+'"]').removeClass('hidden');
+            
+            jQuery('#doc_id_obsoletion').val(doc_id);
+            jQuery('#user_id_obsoletion').val(user_id);
+            jQuery('#document_title_obsoletion').val(doc_title);
+            jQuery('#doc_code_obsoletion').val(doc_code);
+            jQuery('#dep_id_obsoletion').val(dep_id);
+            jQuery('#sec_id_obsoletion').val(sec_id);
+            jQuery('#doc_type_id_obsoletion').val(doc_type_id);
+            jQuery('#effectivity_date_obsoletion').val(effectivity_date);
+            jQuery('#revision_no_obsoletion').val(revision_no);
+            
+            jQuery("#obsoletion-di").modal('toggle');
+        });
+
+        $('#obsoletionDI').click(function (e) {
+            e.preventDefault();
+            
+            if (diList.validateObsoletionForm()) {
+                var doc_id = jQuery('#doc_id_obsoletion').val();
+                var user_id = jQuery('#user_id_obsoletion').val();
+                var document_title = jQuery('#document_title_obsoletion').val();
+                var doc_code = jQuery('#doc_code_obsoletion').val();
+                var dep_id = jQuery('#dep_id_obsoletion').val();
+                var sec_id = jQuery('#sec_id_obsoletion').val();
+                var doc_type_id = jQuery('#doc_type_id_obsoletion').val();
+                var effectivity_date = jQuery('#effectivity_date_obsoletion').val();
+                var revision_no = jQuery('#revision_no_obsoletion').val();
+                var reason = jQuery('#reason_obsoletion').val();
+
+                var data = {
+                    doc_id: doc_id,
+                    user_id: user_id,
+                    document_title: document_title,
+                    doc_code: doc_code,
+                    dep_id: dep_id,
+                    sec_id: sec_id,
+                    doc_type_id: doc_type_id,
+                    effectivity_date: effectivity_date,
+                    revision_no: revision_no,
+                    reason: reason,
+                    for_obsoletion: 1  // Mark this as obsoletion
+                };
+        
+                jQuery("#obsoletion-di").modal('toggle');
+        
+                $.ajax({
+                    type: 'POST',
+                    url: '../documentedinformation/obsoletion', // Replace 'MyController' with your controller name
+                    data: data,
+                    success: function (response) {
+                        // Handle the response from the server
+                        if(response == 'saved'){
+                            diList.notifySuccess();
+                            diList.loadDiList();
+                            $('#obsoletionDocumentedInformationForm')[0].reset();
+                        } else {
+                            diList.notifyError();
+                        }
+                    },
+                    error: function () {
+                        // Handle errors
+                        diList.notifyError();
+                    }
+                });
+            }
+        });
+    },
+
+    validateObsoletionForm : function (){
+        var isValid = true;
+        
+        // Check required fields
+        $("#obsoletionDocumentedInformationForm [required]").each(function () {
+            if ($(this).val() === "") {
+                $(this).addClass('parsley-error');
+                isValid = false;
+                $(this).next('.parsley-errors-list').removeClass('hidden');
+                $(this).next('.parsley-errors-list').find('.parsley-required').text('This field is required');
+            } else {
+                $(this).removeClass('parsley-error');
+                $(this).next('.parsley-errors-list').addClass('hidden');
+                $(this).next('.parsley-errors-list').find('.parsley-required').text('');
+            }
+        });
+    
+        return isValid;
+    },
+
     validateEditForm : function (){
         var isValid = true;
         
@@ -316,4 +436,5 @@ jQuery(document).ready(function(){
     diList.loadDiList();
     diList.viewHistory();
     diList.editInit();
+    diList.obsoletionInit();
 });

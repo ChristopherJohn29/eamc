@@ -44,9 +44,20 @@ var diList = {
                         var approved_by_position_existing = item.approved_by_position_existing;
                         var source = item.source;
                         var reason = item.reason;
+                        var revision_id = item.revision_id;
+                        var obsoletion_id = item.obsoletion_id;
+                        var for_obsoletion = item.for_obsoletion;
 
 
                         var existing = item.existing;
+
+                        // Determine row background color
+                        var rowClass = '';
+                        if (for_obsoletion == 1) {
+                            rowClass = 'table-obsoletion'; // Red/pink background
+                        } else if (revision_id != null && revision_id != '' && revision_id != '0') {
+                            rowClass = 'table-revision'; // Yellow background
+                        }
 
                         if(status == 'FFU' ||  status == 'AD' || status == 'D' || status == 'TR'){
                             var $action_button = "<button title='Document Information'  tabindex='0' data-plugin='tippy' data-tippy-theme='gradient' type='button' class='btn btn-sm btn-blue edit-data'" +
@@ -85,7 +96,7 @@ var diList = {
                             section = "(" + section_name + ")";
                         }
                         
-                        var html = "<tr>" +
+                        var html = "<tr class='" + rowClass + "'>" +
                             "<td>" + id + "</td>" +
                             "<td>" + doc_title + "</td>" +
                             "<td>" + doc_code + "</td>" +
@@ -115,6 +126,14 @@ var diList = {
                         drawCallback: function () {
                             $(".dataTables_paginate > .pagination").addClass("pagination-rounded");
                         },
+                        createdRow: function(row, data, dataIndex) {
+                            // Re-apply the row classes after DataTable processes the row
+                            var $row = $(row);
+                            if ($row.hasClass('table-obsoletion') || $row.hasClass('table-revision')) {
+                                // Classes are already applied, ensure they persist
+                                return;
+                            }
+                        }
                     });
 
                     $('[data-toggle="tooltip"]').tooltip()
